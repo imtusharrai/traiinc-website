@@ -1,0 +1,51 @@
+{
+  "header": {
+    "subtitle": "CAREERS",
+    "title": "Build what matters. Ship what scales.",
+    "description": "We're a team of engineers, designers, and product thinkers who believe great software changes everything. If you're passionate about clean code, scalable systems, and solving hard problems — we want to hear from you."
+  },
+  "values": {
+    "title": "Engineering Culture",
+    "items": [
+      { "title": "Ship Fast, Ship Right", "desc": "We move quickly without cutting corners. CI/CD, code reviews, and automated testing are non-negotiable." },
+      { "title": "Own the Outcome", "desc": "Every engineer owns their feature end-to-end — from architecture to deployment to monitoring." },
+      { "title": "Stay Curious", "desc": "We invest in R&D time, conference talks, and open-source contributions. Learning never stops." },
+      { "title": "Build for Scale", "desc": "We design systems to handle 10x growth from day one. Performance and reliability are first-class citizens." }
+    ]
+  },
+  "benefits": {
+    "title": "WHY JOIN TRAI",
+    "items": [
+      { "title": "Top-tier Equipment", "desc": "MacBook Pro, 4K monitors, and all the tools you need" },
+      { "title": "Learning Budget", "desc": "Annual stipend for courses, conferences, and certifications" },
+      { "title": "Remote-first", "desc": "Work from anywhere — we're distributed by default" },
+      { "title": "Flexible Hours", "desc": "Async-friendly culture. Results over hours." },
+      { "title": "Equity & Bonuses", "desc": "Competitive comp with stock options for early joiners" },
+      { "title": "Career Growth", "desc": "Clear IC and management tracks with mentorship" },
+      { "title": "Team Retreats", "desc": "Annual off-sites to connect and recharge" }
+    ]
+  },
+  "openings": {
+    "title": "OPEN POSITIONS",
+    "jobs": [
+      {
+        "title": "Senior Full-Stack Engineer (React / Node.js)",
+        "location": "Remote",
+        "type": "Full-time",
+        "link": "https://forms.gle/tncCbfCtDk3KCvEj9"
+      },
+      {
+        "title": "Cloud / DevOps Engineer (AWS / Kubernetes)",
+        "location": "Remote",
+        "type": "Full-time",
+        "link": "https://forms.gle/tncCbfCtDk3KCvEj9"
+      },
+      {
+        "title": "AI / ML Engineer — Generative AI",
+        "location": "Remote",
+        "type": "Full-time",
+        "link": "https://forms.gle/tncCbfCtDk3KCvEj9"
+      }
+    ]
+  }
+}

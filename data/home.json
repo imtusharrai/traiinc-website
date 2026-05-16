@@ -1,0 +1,197 @@
+{
+  "hero": {
+    "subheading": "ENTERPRISE IT SOLUTIONS",
+    "heading_part1": "Building the",
+    "heading_part2": "technology behind",
+    "highlight": "tomorrow's leaders.",
+    "emoji": "⚡",
+    "ratings": [
+      {
+        "stars": "★★★★★",
+        "text": "4.9/5 Client Satisfaction"
+      },
+      {
+        "stars": "★★★★★",
+        "text": "5 Star Google Rated"
+      }
+    ],
+    "button_text": "Get a Free Consultation"
+  },
+  "specialise": {
+    "title": "OUR CORE CAPABILITIES",
+    "categories": [
+      {
+        "icon": "💻",
+        "title": "Custom Software Development",
+        "desc": "Full-stack web apps, enterprise platforms, APIs, and SaaS products built to scale."
+      },
+      {
+        "icon": "📱",
+        "title": "Mobile App Development",
+        "desc": "Native iOS, Android, and cross-platform mobile experiences using Flutter & React Native."
+      },
+      {
+        "icon": "☁️",
+        "title": "Cloud & DevOps",
+        "desc": "AWS, Azure, GCP migrations, Kubernetes, CI/CD pipelines, Infrastructure as Code, and serverless."
+      },
+      {
+        "icon": "⚡",
+        "title": "AI Agents & Automation",
+        "desc": "Custom LangChain agents, AI voice telephony (Vapi, Retell), and no-code n8n/Zapier workflows to automate your business."
+      },
+      {
+        "icon": "🧠",
+        "title": "AI & Machine Learning",
+        "desc": "Chatbots, generative AI, predictive analytics, computer vision, NLP, and ML model deployment."
+      },
+      {
+        "icon": "🎨",
+        "title": "UI/UX & Creative Design",
+        "desc": "User research, brand identity, motion graphics, prototyping, 3D rendering, and design systems."
+      },
+      {
+        "icon": "📊",
+        "title": "Data Engineering & Analytics",
+        "desc": "ETL pipelines, data lakes, real-time dashboards, BI tools, and data-driven decision frameworks."
+      },
+      {
+        "icon": "📈",
+        "title": "Digital Marketing & SEO",
+        "desc": "SEO, GEO, paid ads, social media, email automation, content strategy, and marketing funnels."
+      },
+      {
+        "icon": "🏢",
+        "title": "Enterprise Platforms",
+        "desc": "CRM, ERP, HRMS, project management, billing & inventory, and workforce management systems."
+      },
+      {
+        "icon": "🔒",
+        "title": "Cybersecurity & Consulting",
+        "desc": "Penetration testing, compliance (SOC 2, GDPR), zero-trust architecture, and IT strategy audits."
+      }
+    ]
+  },
+  "popular_services": {
+    "subtitle": "TECHNOLOGY STACK",
+    "title": "End-to-end engineering across the modern stack",
+    "categories": [
+      {
+        "name": "Frontend & Mobile",
+        "items": [
+          "React & Next.js",
+          "Flutter & React Native",
+          "TypeScript",
+          "Tailwind CSS",
+          "Progressive Web Apps",
+          "Electron Desktop Apps"
+        ]
+      },
+      {
+        "name": "Backend & Cloud",
+        "items": [
+          "Node.js & Python",
+          "Go & Rust",
+          "AWS / Azure / GCP",
+          "Docker & Kubernetes",
+          "Serverless & Edge",
+          "Terraform & Pulumi"
+        ]
+      },
+      {
+        "name": "AI Agents & Workflow Automation",
+        "items": [
+          "LangChain & LlamaIndex",
+          "n8n & Zapier",
+          "Vapi & Retell AI (Voice)",
+          "OpenAI & Anthropic APIs",
+          "AutoGPT & Agentic Workflows",
+          "Custom Chatbots"
+        ]
+      },
+      {
+        "name": "Data, ML & Marketing",
+        "items": [
+          "TensorFlow & PyTorch",
+          "PostgreSQL & MongoDB",
+          "Apache Kafka & Spark",
+          "Power BI & Tableau",
+          "SEO & Content Ops",
+          "Marketing Automation"
+        ]
+      }
+    ]
+  },
+  "growth": {
+    "subtitle": "PROVEN IMPACT",
+    "title": "We engineer systems that power high-growth companies",
+    "stats": [
+      {
+        "title": "50+",
+        "desc": "Enterprise projects delivered"
+      },
+      {
+        "title": "99.9%",
+        "desc": "Uptime across managed infrastructure"
+      },
+      {
+        "title": "36+",
+        "desc": "Services across 6 domains"
+      }
+    ]
+  },
+  "trust": {
+    "title": "POWERED BY INDUSTRY-LEADING TECHNOLOGIES & PLATFORMS",
+    "logos": [
+      "AWS",
+      "Google Cloud",
+      "Microsoft Azure",
+      "Zoho",
+      "Canva",
+      "GoDaddy",
+      "Google Workspace",
+      "Meta",
+      "WhatsApp Business",
+      "HubSpot",
+      "Odoo",
+      "Zoho ERP",
+      "LinkedIn"
+    ]
+  },
+  "case_studies": {
+    "subtitle": "OUR IMPACT",
+    "title": "Real solutions. Measurable results.",
+    "studies": [
+      {
+        "client": "FinTech Innovator",
+        "title": "Modernizing Legacy Core Banking",
+        "impact": "Reduced transaction latency by 400% and successfully migrated 2M+ users to AWS with zero downtime.",
+        "tags": [
+          "Cloud Migration",
+          "Node.js",
+          "Kubernetes"
+        ]
+      },
+      {
+        "client": "Global E-Commerce",
+        "title": "AI-Powered Personalization Engine",
+        "impact": "Increased checkout conversion by 28% using custom LangChain recommendation agents.",
+        "tags": [
+          "AI Agents",
+          "Python",
+          "Data Engineering"
+        ]
+      },
+      {
+        "client": "Healthcare SaaS",
+        "title": "HIPAA-Compliant Patient Portal",
+        "impact": "Delivered a secure, cross-platform mobile app in React Native serving 500k+ patients daily.",
+        "tags": [
+          "Mobile App",
+          "React Native",
+          "Security"
+        ]
+      }
+    ]
+  }
+}

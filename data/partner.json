@@ -1,0 +1,36 @@
+{
+  "header": {
+    "subtitle": "PARTNER ECOSYSTEM",
+    "title": "Scale faster with our technology partner programs.",
+    "description": "Whether you're a SaaS reseller, a systems integrator, or a technology consultant — partnering with Trai gives you access to battle-tested platforms, co-engineering support, and joint go-to-market strategies. Let's build together."
+  },
+  "programs": [
+    {
+      "title": "Referral Partner Program",
+      "desc": "Refer clients who need custom software, cloud migrations, or AI solutions. Earn competitive commissions on every closed deal with zero overhead.",
+      "benefits": [
+        "Revenue share on every referred project.",
+        "Dedicated partner portal with deal tracking.",
+        "Co-branded case studies and collateral."
+      ]
+    },
+    {
+      "title": "Reseller Partner Program",
+      "desc": "White-label and resell our enterprise platforms — CRM, ERP, and HRMS — under your own brand with full technical support from our engineering team.",
+      "benefits": [
+        "Attractive reseller margins.",
+        "Full API access and white-labeling.",
+        "Priority engineering support and SLAs."
+      ]
+    },
+    {
+      "title": "Technology Partner Program",
+      "desc": "Integrate your product with our platform ecosystem. Build joint solutions for shared enterprise clients and go to market together.",
+      "benefits": [
+        "Joint solution architecture and development.",
+        "Certification and integration training.",
+        "Co-marketing campaigns and events."
+      ]
+    }
+  ]
+}
