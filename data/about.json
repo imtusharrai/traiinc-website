@@ -13,12 +13,36 @@
   "team": {
     "subtitle": "LEADERSHIP TEAM",
     "members": [
-      { "name": "Tushar Rai", "role": "Founder & CEO", "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop" },
-      { "name": "Neha Sharma", "role": "VP of Engineering", "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop" },
-      { "name": "Harsh Pandey", "role": "Head of Cloud Architecture", "image": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&h=150&fit=crop" },
-      { "name": "Pallavi Mehta", "role": "Head of Product & Design", "image": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop" },
-      { "name": "Vineet Saxena", "role": "Lead Full-Stack Engineer", "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop" },
-      { "name": "Shipra Singh", "role": "Head of AI & Data Science", "image": "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?w=150&h=150&fit=crop" }
+      {
+        "name": "Tushar Rai",
+        "role": "Founder & CEO",
+        "image": "https://api.dicebear.com/9.x/micah/svg?seed=Tushar%20Rai&backgroundColor=f0f0f0,e0e0e0"
+      },
+      {
+        "name": "Neha Sharma",
+        "role": "VP of Engineering",
+        "image": "https://api.dicebear.com/9.x/micah/svg?seed=Neha%20Sharma&backgroundColor=f0f0f0,e0e0e0"
+      },
+      {
+        "name": "Harsh Pandey",
+        "role": "Head of Cloud Architecture",
+        "image": "https://api.dicebear.com/9.x/micah/svg?seed=Harsh%20Pandey&backgroundColor=f0f0f0,e0e0e0"
+      },
+      {
+        "name": "Pallavi Mehta",
+        "role": "Head of Product & Design",
+        "image": "https://api.dicebear.com/9.x/micah/svg?seed=Pallavi%20Mehta&backgroundColor=f0f0f0,e0e0e0"
+      },
+      {
+        "name": "Vineet Saxena",
+        "role": "Lead Full-Stack Engineer",
+        "image": "https://api.dicebear.com/9.x/micah/svg?seed=Vineet%20Saxena&backgroundColor=f0f0f0,e0e0e0"
+      },
+      {
+        "name": "Shipra Singh",
+        "role": "Head of AI & Data Science",
+        "image": "https://api.dicebear.com/9.x/micah/svg?seed=Shipra%20Singh&backgroundColor=f0f0f0,e0e0e0"
+      }
     ]
   }
 }
