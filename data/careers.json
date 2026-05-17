@@ -52,25 +52,73 @@
             "title": "AI Solutions Architect",
             "location": "Remote",
             "type": "Freelance / Contract",
-            "desc": "Partner with us on a project basis to design end-to-end AI solutions, model selection, and production deployments."
+            "desc": "Partner with us on a project basis to design end-to-end AI solutions, generative AI integrations, and custom ML models."
           },
           {
-            "title": "AI Agent Architect / Orchestrator",
+            "title": "AI Agent Orchestrator",
             "location": "Remote",
             "type": "Freelance / Contract",
-            "desc": "Take on specialized freelance contracts building and orchestrating multi-agent AI systems using LangChain and CrewAI."
+            "desc": "Take on specialized freelance contracts building multi-agent AI systems, voice agents, and lead scraping bots."
           },
           {
             "title": "Senior Full-Stack Engineer",
             "location": "Remote",
             "type": "Freelance / Contract",
-            "desc": "Join our network for high-impact frontend and backend development projects across React, Next.js, and Node.js."
+            "desc": "Join our network for high-impact web development projects across React, Node.js, and headless CMS platforms."
           },
           {
-            "title": "Cloud / DevOps Engineer",
+            "title": "Mobile App Developer (Flutter/Native)",
             "location": "Remote",
             "type": "Freelance / Contract",
-            "desc": "Freelance opportunities to architect and manage AWS/GCP infrastructure, Kubernetes clusters, and CI/CD pipelines for our clients."
+            "desc": "Freelance opportunities to build scalable iOS and Android applications for our enterprise clients."
+          },
+          {
+            "title": "Cloud & DevOps Engineer",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Architect and manage AWS/GCP infrastructure, Kubernetes clusters, and automated CI/CD pipelines."
+          },
+          {
+            "title": "Data Engineer / Analyst",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Design scalable data pipelines, ETL workflows, and real-time Power BI/Tableau dashboards."
+          },
+          {
+            "title": "UI/UX & Brand Designer",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Craft premium user interfaces in Figma, conduct user research, and build comprehensive brand identity systems."
+          },
+          {
+            "title": "Motion Graphics & 3D Artist",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Create stunning product demos, Lottie animations, and 3D architectural renders for modern web platforms."
+          },
+          {
+            "title": "SEO & Growth Strategist",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Drive digital growth through Technical SEO, Generative Engine Optimization, and paid ad campaigns."
+          },
+          {
+            "title": "Technical Content Copywriter",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Write high-converting SaaS copy, SEO blog strategies, and thought leadership articles for tech brands."
+          },
+          {
+            "title": "Enterprise CRM/ERP Specialist",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Consult and implement custom CRM systems, Salesforce/HubSpot migrations, and supply chain ERPs."
+          },
+          {
+            "title": "Cybersecurity & Compliance Consultant",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Conduct penetration testing and guide clients through SOC 2, HIPAA, and GDPR compliance audits."
           }
         ]
       }
