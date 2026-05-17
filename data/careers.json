@@ -43,34 +43,34 @@
         ]
       },
       {
-        "category": "Experienced Professionals",
-        "subtitle": "Got the skills? Send your CV to hello@traiinc.com",
+        "category": "Freelance Expert Network",
+        "subtitle": "Join our talent pool for project-based engagements. Send your portfolio to hello@traiinc.com",
         "apply_link": "mailto:hello@traiinc.com",
-        "apply_text": "Send Your CV",
+        "apply_text": "Join the Network",
         "jobs": [
           {
             "title": "AI Solutions Architect",
             "location": "Remote",
-            "type": "Full-time",
-            "desc": "Design end-to-end AI solutions — from model selection and fine-tuning to production deployment and monitoring at scale."
+            "type": "Freelance / Contract",
+            "desc": "Partner with us on a project basis to design end-to-end AI solutions, model selection, and production deployments."
           },
           {
             "title": "AI Agent Architect / Orchestrator",
             "location": "Remote",
-            "type": "Full-time",
-            "desc": "Build and orchestrate multi-agent AI systems using LangChain, CrewAI, and custom frameworks for enterprise automation."
+            "type": "Freelance / Contract",
+            "desc": "Take on specialized freelance contracts building and orchestrating multi-agent AI systems using LangChain and CrewAI."
           },
           {
             "title": "Senior Full-Stack Engineer",
             "location": "Remote",
-            "type": "Full-time",
-            "desc": "Lead frontend and backend development across React, Next.js, Node.js, and cloud-native architectures."
+            "type": "Freelance / Contract",
+            "desc": "Join our network for high-impact frontend and backend development projects across React, Next.js, and Node.js."
           },
           {
             "title": "Cloud / DevOps Engineer",
             "location": "Remote",
-            "type": "Full-time",
-            "desc": "Architect and manage AWS/GCP infrastructure, Kubernetes clusters, CI/CD pipelines, and serverless deployments."
+            "type": "Freelance / Contract",
+            "desc": "Freelance opportunities to architect and manage AWS/GCP infrastructure, Kubernetes clusters, and CI/CD pipelines for our clients."
           }
         ]
       }
