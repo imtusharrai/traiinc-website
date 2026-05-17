@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const dynamicContainer = document.getElementById("dynamic-content");
 
     try {
-        const response = await fetch(`data/${pageId}.json`);
+        const response = await fetch(`data/${pageId}.json?v=` + new Date().getTime());
         if (!response.ok) throw new Error("Network response was not ok");
         const data = await response.json();
 
@@ -239,6 +239,42 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         initAnimations();
+
+// --- FormSubmit Contact Form Handler ---
+    const contactFormEl = document.getElementById('contactForm');
+    if (contactFormEl) {
+        contactFormEl.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('contactSubmitBtn');
+            const result = document.getElementById('formResult');
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+            
+            try {
+                const response = await fetch(contactFormEl.action, {
+                    method: 'POST',
+                    body: new FormData(contactFormEl),
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    result.style.display = 'block';
+                    result.style.color = '#28a745';
+                    result.innerHTML = '\u2705 Message sent successfully! We\'ll get back within 24 hours.';
+                    contactFormEl.reset();
+                } else {
+                    result.style.display = 'block';
+                    result.style.color = '#dc3545';
+                    result.textContent = 'Something went wrong. Please try again.';
+                }
+            } catch (err) {
+                result.style.display = 'block';
+                result.style.color = '#dc3545';
+                result.textContent = 'Network error. Please try again.';
+            }
+            btn.disabled = false;
+            btn.textContent = 'Send Message';
+        });
+    }
 
     } catch (error) {
         dynamicContainer.innerHTML = `<div class="container" style="padding: 150px 0; text-align: center;"><h2>Error loading content. Please run this via a local server (e.g. VSCode Live Server).</h2><p style="color:var(--text-muted);margin-top:10px;">${error.message}</p></div>`;
@@ -883,41 +919,7 @@ function initAnimations() {
                 obs.unobserve(entry.target);
             }
         
-    // --- FormSubmit Contact Form Handler ---
-    const contactFormEl = document.getElementById('contactForm');
-    if (contactFormEl) {
-        contactFormEl.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const btn = document.getElementById('contactSubmitBtn');
-            const result = document.getElementById('formResult');
-            btn.disabled = true;
-            btn.textContent = 'Sending...';
-            
-            try {
-                const response = await fetch(contactFormEl.action, {
-                    method: 'POST',
-                    body: new FormData(contactFormEl),
-                    headers: { 'Accept': 'application/json' }
-                });
-                if (response.ok) {
-                    result.style.display = 'block';
-                    result.style.color = '#28a745';
-                    result.innerHTML = '\u2705 Message sent successfully! We\'ll get back within 24 hours.';
-                    contactFormEl.reset();
-                } else {
-                    result.style.display = 'block';
-                    result.style.color = '#dc3545';
-                    result.textContent = 'Something went wrong. Please try again.';
-                }
-            } catch (err) {
-                result.style.display = 'block';
-                result.style.color = '#dc3545';
-                result.textContent = 'Network error. Please try again.';
-            }
-            btn.disabled = false;
-            btn.textContent = 'Send Message';
-        });
-    }
+    
 });
     }, observerOptions);
 
