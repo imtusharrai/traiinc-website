@@ -493,51 +493,64 @@ function renderIncubation(data) {
 function renderCareers(data) {
     return `
     <header class="page-header container fade-in" style="padding: 150px 24px 80px; text-align: center; max-width: 900px; margin: 0 auto;">
-        <div>
-            <h4 class="mini-title">${data.header.subtitle}</h4>
-            <h1 class="main-heading" style="font-size: 3.8rem; margin-bottom: 20px;">${data.header.title}</h1>
-            <p style="color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin: 0 auto;">${data.header.description}</p>
-        </div>
+        <h4 class="mini-title">${data.header.subtitle}</h4>
+        <h1 style="font-size: 4rem; margin-bottom: 25px;">${data.header.title}</h1>
+        <p style="color: var(--text-muted); font-size: 1.2rem; line-height: 1.6;">${data.header.description}</p>
     </header>
 
-    <section class="values-section container fade-in" style="padding: 60px 24px;">
-        <h2>${data.values.title}</h2>
-        <div class="grid-2" style="margin-top: 40px;">
+    <section class="container fade-in" style="padding: 60px 24px;">
+        <h2 style="text-align: center; font-size: 2.2rem; margin-bottom: 50px;">${data.values.title}</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px;">
             ${data.values.items.map(v => `
-            <div class="spec-card">
-                <h3>${v.title}</h3>
-                <p>${v.desc}</p>
+            <div class="spec-card fade-in" style="padding: 40px 30px;">
+                <h3 style="font-size: 1.3rem; margin-bottom: 12px;">${v.title}</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">${v.desc}</p>
             </div>`).join('')}
         </div>
     </section>
 
-    <section class="benefits-section container fade-in" style="padding: 60px 24px;">
-        <h2>${data.benefits.title}</h2>
-        <div class="grid-3" style="margin-top: 40px;">
+    <section class="container fade-in" style="padding: 80px 24px;">
+        <h4 class="mini-title" style="text-align: center;">${data.benefits.title}</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; margin-top: 40px;">
             ${data.benefits.items.map(b => `
-            <div style="background: var(--bg-light); padding: 20px; border-left: 3px solid var(--accent-color);">
-                <h4 style="font-family: var(--font-heading); color: var(--text-main); margin-bottom: 5px;">${b.title}</h4>
-                <p style="font-size: 0.9rem; color: var(--text-muted);">${b.desc}</p>
+            <div class="spec-card fade-in" style="padding: 30px; text-align: center;">
+                <h4 style="font-size: 1.1rem; margin-bottom: 10px;">${b.title}</h4>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">${b.desc}</p>
             </div>`).join('')}
         </div>
     </section>
 
-    <section class="openings-section container fade-in" style="padding: 80px 24px 100px;">
-        <h2>${data.openings.title}</h2>
-        <div style="margin-top: 40px;">
-            ${data.openings.jobs.map(j => `
-            <div class="job-card" style="display: flex; justify-content: space-between; align-items: center; background: var(--bg-card); padding: 30px; border-radius: 15px; border: 1px solid var(--bg-light); margin-bottom: 20px; transition: var(--transition);">
-                <div>
-                    <h3 style="margin-bottom: 10px;">${j.title}</h3>
-                    <p style="color: var(--text-muted);"><span style="color: var(--accent-color); margin-right: 15px;">📍 ${j.location}</span> ⏱ ${j.type}</p>
-                </div>
-                <a href="${j.link}" target="_blank" class="btn-primary">Apply Now</a>
-            </div>`).join('')}
-        </div>
+    <section class="container fade-in" style="padding: 80px 24px;">
+        <h4 class="mini-title" style="text-align: center;">${data.openings.title}</h4>
+
+        ${data.openings.sections.map(section => `
+        <div style="margin-top: 50px;">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <h2 style="font-size: 2.2rem; margin-bottom: 10px;">${section.category}</h2>
+                <p style="color: var(--text-muted); font-size: 1.05rem;">${section.subtitle}</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+                ${section.jobs.map(job => `
+                <div class="spec-card fade-in" style="padding: 35px 30px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 10px;">${job.title}</h3>
+                        <div style="display: flex; gap: 12px; margin-bottom: 15px;">
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); padding: 5px 14px; border-radius: 20px; font-size: 0.8rem; color: var(--text-muted);">${job.location}</span>
+                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); padding: 5px 14px; border-radius: 20px; font-size: 0.8rem; color: var(--text-muted);">${job.type}</span>
+                        </div>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">${job.desc}</p>
+                    </div>
+                </div>`).join('')}
+            </div>
+
+            <div style="text-align: center; margin-top: 35px;">
+                <a href="${section.apply_link}" target="_blank" class="btn-primary large">${section.apply_text}</a>
+            </div>
+        </div>`).join('')}
     </section>
     `;
 }
-
 function renderPartner(data) {
     return `
     <header class="page-header container fade-in" style="padding: 150px 24px 80px; text-align: center; max-width: 800px; margin: 0 auto;">

@@ -27,24 +27,70 @@
   },
   "openings": {
     "title": "OPEN POSITIONS",
-    "jobs": [
+    "sections": [
       {
-        "title": "Senior Full-Stack Engineer (React / Node.js)",
-        "location": "Remote",
-        "type": "Full-time",
-        "link": "https://forms.gle/tncCbfCtDk3KCvEj9"
+        "category": "Internships",
+        "subtitle": "Kickstart your career — learn by building real products",
+        "apply_link": "https://docs.google.com/forms/d/e/1FAIpQLSe1p9f_UHAErIYO5a351uyoI910qbJADyTEMBtpgDJO8JEapA/viewform?usp=sharing&ouid=109114048086511742245",
+        "apply_text": "Apply for Internship",
+        "jobs": [
+          {
+            "title": "AI / ML Intern",
+            "location": "Remote",
+            "type": "Internship",
+            "desc": "Work on real AI agent pipelines, LLM integrations, and prompt engineering under senior mentorship."
+          },
+          {
+            "title": "Full-Stack Development Intern",
+            "location": "Remote",
+            "type": "Internship",
+            "desc": "Build production features across React, Node.js, and cloud platforms with code reviews from senior engineers."
+          },
+          {
+            "title": "Cloud & DevOps Intern",
+            "location": "Remote",
+            "type": "Internship",
+            "desc": "Learn infrastructure-as-code, CI/CD pipelines, and Kubernetes in a real enterprise environment."
+          },
+          {
+            "title": "UI/UX Design Intern",
+            "location": "Remote",
+            "type": "Internship",
+            "desc": "Design premium interfaces for enterprise SaaS products and work directly with the product team."
+          }
+        ]
       },
       {
-        "title": "Cloud / DevOps Engineer (AWS / Kubernetes)",
-        "location": "Remote",
-        "type": "Full-time",
-        "link": "https://forms.gle/tncCbfCtDk3KCvEj9"
-      },
-      {
-        "title": "AI / ML Engineer — Generative AI",
-        "location": "Remote",
-        "type": "Full-time",
-        "link": "https://forms.gle/tncCbfCtDk3KCvEj9"
+        "category": "Experienced Professionals",
+        "subtitle": "Got the skills? Send your CV to hello@traiinc.com",
+        "apply_link": "mailto:hello@traiinc.com",
+        "apply_text": "Send Your CV",
+        "jobs": [
+          {
+            "title": "AI Solutions Architect",
+            "location": "Remote",
+            "type": "Full-time",
+            "desc": "Design end-to-end AI solutions — from model selection and fine-tuning to production deployment and monitoring at scale."
+          },
+          {
+            "title": "AI Agent Architect / Orchestrator",
+            "location": "Remote",
+            "type": "Full-time",
+            "desc": "Build and orchestrate multi-agent AI systems using LangChain, CrewAI, and custom frameworks for enterprise automation."
+          },
+          {
+            "title": "Senior Full-Stack Engineer",
+            "location": "Remote",
+            "type": "Full-time",
+            "desc": "Lead frontend and backend development across React, Next.js, Node.js, and cloud-native architectures."
+          },
+          {
+            "title": "Cloud / DevOps Engineer",
+            "location": "Remote",
+            "type": "Full-time",
+            "desc": "Architect and manage AWS/GCP infrastructure, Kubernetes clusters, CI/CD pipelines, and serverless deployments."
+          }
+        ]
       }
     ]
   }
