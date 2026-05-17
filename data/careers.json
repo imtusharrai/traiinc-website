@@ -7,22 +7,22 @@
   "values": {
     "title": "Engineering Culture",
     "items": [
-      { "title": "Ship Fast, Ship Right", "desc": "We move quickly without cutting corners. CI/CD, code reviews, and automated testing are non-negotiable." },
-      { "title": "Own the Outcome", "desc": "Every engineer owns their feature end-to-end — from architecture to deployment to monitoring." },
-      { "title": "Stay Curious", "desc": "We invest in R&D time, conference talks, and open-source contributions. Learning never stops." },
-      { "title": "Build for Scale", "desc": "We design systems to handle 10x growth from day one. Performance and reliability are first-class citizens." }
+      { "icon": "🚀", "title": "Ship Fast, Ship Right", "desc": "We move quickly without cutting corners. CI/CD, code reviews, and automated testing are non-negotiable." },
+      { "icon": "🎯", "title": "Own the Outcome", "desc": "Every engineer owns their feature end-to-end — from architecture to deployment to monitoring." },
+      { "icon": "🧠", "title": "Stay Curious", "desc": "We invest in R&D time, conference talks, and open-source contributions. Learning never stops." },
+      { "icon": "🏗️", "title": "Build for Scale", "desc": "We design systems to handle 10x growth from day one. Performance and reliability are first-class citizens." }
     ]
   },
   "benefits": {
     "title": "WHY JOIN TRAI",
     "items": [
-      { "title": "Top-tier Equipment", "desc": "MacBook Pro, 4K monitors, and all the tools you need" },
-      { "title": "Learning Budget", "desc": "Annual stipend for courses, conferences, and certifications" },
-      { "title": "Remote-first", "desc": "Work from anywhere — we're distributed by default" },
-      { "title": "Flexible Hours", "desc": "Async-friendly culture. Results over hours." },
-      { "title": "Equity & Bonuses", "desc": "Competitive comp with stock options for early joiners" },
-      { "title": "Career Growth", "desc": "Clear IC and management tracks with mentorship" },
-      { "title": "Team Retreats", "desc": "Annual off-sites to connect and recharge" }
+      { "icon": "💻", "title": "Top-tier Equipment", "desc": "MacBook Pro, 4K monitors, and all the tools you need" },
+      { "icon": "📚", "title": "Learning Budget", "desc": "Annual stipend for courses, conferences, and certifications" },
+      { "icon": "🌍", "title": "Remote-first", "desc": "Work from anywhere — we're distributed by default" },
+      { "icon": "⏳", "title": "Flexible Hours", "desc": "Async-friendly culture. Results over hours." },
+      { "icon": "💰", "title": "Equity & Bonuses", "desc": "Competitive comp with stock options for early joiners" },
+      { "icon": "📈", "title": "Career Growth", "desc": "Clear IC and management tracks with mentorship" },
+      { "icon": "🌴", "title": "Team Retreats", "desc": "Annual off-sites to connect and recharge" }
     ]
   },
   "openings": {
@@ -35,10 +35,10 @@
         "apply_text": "Apply for Internship",
         "jobs": [
           {
-            "title": "AI / ML Intern",
+            "title": "AI Agent & Prompt Engineer Intern",
             "location": "Remote",
             "type": "Internship",
-            "desc": "Work on real AI agent pipelines, LLM integrations, and prompt engineering under senior mentorship."
+            "desc": "Master Agentic AI and enterprise automation. Build custom RAG pipelines, design complex system prompts, and orchestrate autonomous AI agents using cutting-edge frameworks."
           }
         ]
       },

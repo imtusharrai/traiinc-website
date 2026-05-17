@@ -539,6 +539,7 @@ function renderCareers(data) {
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px;">
             ${data.values.items.map(v => `
             <div class="spec-card fade-in" style="padding: 40px 30px;">
+                <div style="font-size: 2.5rem; margin-bottom: 15px;">${v.icon}</div>
                 <h3 style="font-size: 1.3rem; margin-bottom: 12px;">${v.title}</h3>
                 <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">${v.desc}</p>
             </div>`).join('')}
@@ -550,6 +551,7 @@ function renderCareers(data) {
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; margin-top: 40px;">
             ${data.benefits.items.map(b => `
             <div class="spec-card fade-in" style="padding: 30px; text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 15px;">${b.icon}</div>
                 <h4 style="font-size: 1.1rem; margin-bottom: 10px;">${b.title}</h4>
                 <p style="color: var(--text-muted); font-size: 0.9rem;">${b.desc}</p>
             </div>`).join('')}
