@@ -573,11 +573,12 @@ function renderContact(data) {
             
             
             
-            <form id="contactForm" class="premium-form" action="https://api.web3forms.com/submit" method="POST" style="margin-bottom: 40px;">
-                <input type="hidden" name="access_key" value="YOUR_KEY_HERE">
-                <input type="hidden" name="subject" value="New Lead from TraiInc.com">
-                <input type="hidden" name="from_name" value="Trai Inc Website">
-                <input type="checkbox" name="botcheck" style="display:none;">
+            <form id="contactForm" class="premium-form" action="https://formsubmit.co/hello@traiinc.com" method="POST" method="POST" style="margin-bottom: 40px;">
+                <input type="hidden" name="_subject" value="New Lead from TraiInc.com">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://traiinc.com/contact.html">
+                <input type="text" name="_honey" style="display:none;">
                 
                 <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
                     <div class="form-group">
@@ -869,7 +870,7 @@ function initAnimations() {
                 obs.unobserve(entry.target);
             }
         
-    // --- Web3Forms Contact Form Handler ---
+    // --- FormSubmit Contact Form Handler ---
     const contactFormEl = document.getElementById('contactForm');
     if (contactFormEl) {
         contactFormEl.addEventListener('submit', async function(e) {
@@ -880,12 +881,12 @@ function initAnimations() {
             btn.textContent = 'Sending...';
             
             try {
-                const response = await fetch('https://api.web3forms.com/submit', {
+                const response = await fetch(contactFormEl.action, {
                     method: 'POST',
-                    body: new FormData(contactFormEl)
+                    body: new FormData(contactFormEl),
+                    headers: { 'Accept': 'application/json' }
                 });
-                const data = await response.json();
-                if (data.success) {
+                if (response.ok) {
                     result.style.display = 'block';
                     result.style.color = '#28a745';
                     result.innerHTML = '\u2705 Message sent successfully! We\'ll get back within 24 hours.';
