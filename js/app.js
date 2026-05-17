@@ -925,9 +925,7 @@ function initAnimations() {
                 entry.target.classList.add('visible');
                 obs.unobserve(entry.target);
             }
-        
-    
-});
+        });
     }, observerOptions);
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));

@@ -148,6 +148,39 @@
       ]
     }
   ],
+  "testimonials": {
+    "subtitle": "CLIENT STORIES",
+    "title": "What our clients say",
+    "items": [
+      {
+        "quote": "Trai Inc transformed our legacy systems into a modern cloud-native architecture. Our deployment time dropped from days to minutes.",
+        "name": "Rahul Sharma",
+        "role": "CTO, Radiance City",
+        "stars": 5
+      },
+      {
+        "quote": "The AI agents they built for our sales team automate 80% of our lead qualification. ROI was visible within the first month.",
+        "name": "Priya Mehta",
+        "role": "VP Sales, Kohli Group",
+        "stars": 5
+      },
+      {
+        "quote": "From UI/UX design to full-stack development, Trai delivered a premium product that our users love. Truly world-class engineering.",
+        "name": "Amit Verma",
+        "role": "Founder, GharSaathi LLP",
+        "stars": 5
+      }
+    ]
+  },
+  "guarantee": {
+    "title": "Our Commitment to You",
+    "items": [
+      { "icon": "🛡️", "title": "Quality Guarantee", "desc": "Every project comes with rigorous QA, code reviews, and post-launch support to ensure production-grade quality." },
+      { "icon": "⚡", "title": "On-Time Delivery", "desc": "We commit to deadlines and deliver milestones on schedule with transparent sprint-based progress updates." },
+      { "icon": "🔒", "title": "Data Security", "desc": "Enterprise-grade security practices including encryption, access controls, and compliance with SOC 2 and GDPR." },
+      { "icon": "🤝", "title": "Dedicated Support", "desc": "A dedicated project manager and engineering lead assigned to your account from day one through post-launch." }
+    ]
+  },
   "cta": {
     "title": "Don't see what you need?",
     "description": "We build custom solutions for unique challenges. Tell us about your project and our solutions architects will scope a plan within 48 hours.",
