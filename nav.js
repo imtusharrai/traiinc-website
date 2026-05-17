@@ -103,7 +103,7 @@
                     ]
                 }
             ],
-            cta: { label: "Book a Discovery Call →", href: "https://calendar.app.google/G5gpfjVBntAPFQMj6" }
+            cta: { label: "Book a Discovery Call →", href: "https://calendar.app.google/PUsxADQBnpQsTrDbA" }
         }
     };
 
@@ -175,7 +175,7 @@
                             </span>
                         </button>
                     </div>
-                    <a href="https://calendar.app.google/G5gpfjVBntAPFQMj6" target="_blank" class="btn-primary">Let's Talk</a>
+                    <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary">Let's Talk</a>
                     <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">&#9776;</button>
                 </div>
             </div>

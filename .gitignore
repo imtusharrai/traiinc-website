@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Environment secrets
+.env
+
+# Cloudflare Wrangler
+.wrangler/
+
+# Throwaway build/migration scripts
+temp-search/
+
+# Logs
+*.log
+
+# OS files
+Thumbs.db
+.DS_Store

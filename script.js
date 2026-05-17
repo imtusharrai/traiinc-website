@@ -262,7 +262,7 @@ function renderHome(data) {
                 </div>`).join('')}
             </div>
             <div class="hero-actions" style="display: flex; gap: 20px; justify-content: center;">
-                <a href="https://calendar.app.google/G5gpfjVBntAPFQMj6" target="_blank" class="btn-primary large">${data.hero.button_text}</a>
+                <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large">${data.hero.button_text}</a>
                 <a href="solutions.html" class="btn-secondary large">View Solutions</a>
             </div>
         </div>
@@ -386,7 +386,8 @@ function renderIncubation(data) {
             <h4 class="mini-title">${data.hero.subtitle}</h4>
             <h1 class="main-heading" style="font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 25px;">${data.hero.title}</h1>
             <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.7; max-width: 700px; margin: 0 auto 40px;">${data.hero.description}</p>
-            <a href="https://calendar.app.google/G5gpfjVBntAPFQMj6" target="_blank" class="btn-primary large">${data.cta.button_text}</a>
+            <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large">${data.cta.button_text}</a>
+            <p style="color: var(--text-muted); margin-top: 20px; font-size: 0.9rem; font-style: italic; opacity: 0.8;">${data.scarcity || ''}</p>
         </div>
     </header>
 
@@ -482,7 +483,7 @@ function renderIncubation(data) {
                 <div style="position: absolute; bottom: -80px; left: -80px; width: 250px; height: 250px; background: var(--accent-glow); filter: blur(120px); opacity: 0.2; border-radius: 50%;"></div>
                 <h2 style="font-family: var(--font-heading); font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; position: relative;">${data.cta.title}</h2>
                 <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 40px; font-size: 1.1rem; line-height: 1.7; position: relative;">${data.cta.description}</p>
-                <a href="https://calendar.app.google/G5gpfjVBntAPFQMj6" target="_blank" class="btn-primary large" style="position: relative;">${data.cta.button_text}</a>
+                <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large" style="position: relative;">${data.cta.button_text}</a>
             </div>
         </div>
     </section>
@@ -571,7 +572,41 @@ function renderContact(data) {
             <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 1.05rem;">${data.header.description}</p>
             
             
-            <div class="onboarding-timeline" style="margin-top: 40px;">
+            
+            <form id="contactForm" class="premium-form" action="https://api.web3forms.com/submit" method="POST" style="margin-bottom: 40px;">
+                <input type="hidden" name="access_key" value="YOUR_KEY_HERE">
+                <input type="hidden" name="subject" value="New Lead from TraiInc.com">
+                <input type="hidden" name="from_name" value="Trai Inc Website">
+                <input type="checkbox" name="botcheck" style="display:none;">
+                
+                <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                    <div class="form-group">
+                        <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;">Full Name</label>
+                        <input type="text" name="name" required placeholder="Your name" style="width:100%;padding:16px 20px;background:rgba(255,255,255,0.03);border:1px solid var(--border-light);border-radius:12px;color:var(--text-main);font-size:1rem;transition:all 0.3s ease;">
+                    </div>
+                    <div class="form-group">
+                        <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;">Work Email</label>
+                        <input type="email" name="email" required placeholder="you@company.com" style="width:100%;padding:16px 20px;background:rgba(255,255,255,0.03);border:1px solid var(--border-light);border-radius:12px;color:var(--text-main);font-size:1rem;transition:all 0.3s ease;">
+                    </div>
+                </div>
+                <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                    <div class="form-group">
+                        <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;">Phone</label>
+                        <input type="tel" name="phone" placeholder="+91-XXXXXXXXXX" style="width:100%;padding:16px 20px;background:rgba(255,255,255,0.03);border:1px solid var(--border-light);border-radius:12px;color:var(--text-main);font-size:1rem;transition:all 0.3s ease;">
+                    </div>
+                    <div class="form-group">
+                        <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;">Company</label>
+                        <input type="text" name="company" placeholder="Your company" style="width:100%;padding:16px 20px;background:rgba(255,255,255,0.03);border:1px solid var(--border-light);border-radius:12px;color:var(--text-main);font-size:1rem;transition:all 0.3s ease;">
+                    </div>
+                </div>
+                <div class="form-group" style="margin-bottom: 30px;">
+                    <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;">Project Details</label>
+                    <textarea name="message" required rows="4" placeholder="Tell us about your project..." style="width:100%;padding:16px 20px;background:rgba(255,255,255,0.03);border:1px solid var(--border-light);border-radius:12px;color:var(--text-main);font-size:1rem;transition:all 0.3s ease;resize:vertical;"></textarea>
+                </div>
+                <button type="submit" id="contactSubmitBtn" class="btn-primary large" style="width:100%;justify-content:center;font-size:1.1rem;padding:18px;">Send Message</button>
+                <p id="formResult" style="text-align:center;margin-top:15px;font-size:0.95rem;display:none;"></p>
+            </form>
+<div class="onboarding-timeline" style="margin-top: 40px;">
                 <h3 style="font-size: 1.6rem; margin-bottom: 30px; border-bottom: 1px solid var(--border-light); padding-bottom: 15px;">Our Engagement Process</h3>
                 
                 <div style="display: flex; gap: 20px; margin-bottom: 30px;">
@@ -735,12 +770,56 @@ function renderSolutions(data) {
         </div>
     </section>`).join('')}
 
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials-section fade-in" style="padding: 100px 24px;">
+        <div class="container">
+            <div class="section-header center fade-in" style="text-align: center; margin-bottom: 60px;">
+                <h4 class="mini-title">${data.testimonials.subtitle}</h4>
+                <h2 style="font-size: 3rem;">${data.testimonials.title}</h2>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+                ${data.testimonials.items.map(t => `
+                <div class="spec-card fade-in" style="padding: 40px 30px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div style="color: #ffb300; font-size: 1.2rem; margin-bottom: 15px;">${'\u2605'.repeat(t.stars)}</div>
+                        <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; font-style: italic; margin-bottom: 25px;">\u201C${t.quote}\u201D</p>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px; border-top: 1px solid var(--border-light); padding-top: 20px;">
+                        <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--accent-color); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.1rem;">${t.name.charAt(0)}</div>
+                        <div>
+                            <div style="font-weight: 600; font-size: 1rem;">${t.name}</div>
+                            <div style="color: var(--text-muted); font-size: 0.85rem;">${t.role}</div>
+                        </div>
+                    </div>
+                </div>`).join('')}
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="guarantee-section fade-in" style="padding: 80px 24px;">
+        <div class="container">
+            <div class="section-header center fade-in" style="text-align: center; margin-bottom: 50px;">
+                <h2 style="font-size: 2.5rem;">${data.guarantee.title}</h2>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+                ${data.guarantee.items.map(g => `
+                <div class="spec-card fade-in" style="padding: 40px 30px; text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: 20px;">${g.icon}</div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 12px;">${g.title}</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">${g.desc}</p>
+                </div>`).join('')}
+            </div>
+        </div>
+    </section>
+
     <section class="services-cta fade-in" style="padding: 80px 24px; text-align: center;">
         <div class="container" style="background: var(--bg-card); border-radius: 30px; padding: 80px 60px; border: 1px solid var(--bg-light); position: relative; overflow: hidden;">
             <div style="position: absolute; bottom: -60px; left: -60px; width: 250px; height: 250px; background: var(--brand-gradient); filter: blur(120px); opacity: 0.25; border-radius: 50%;"></div>
             <h2 style="font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 15px;">${data.cta.title}</h2>
             <p style="color: var(--text-muted); max-width: 550px; margin: 0 auto 30px;">${data.cta.description}</p>
-            <a href="https://calendar.app.google/G5gpfjVBntAPFQMj6" target="_blank" class="btn-primary large">${data.cta.button_text}</a>
+            <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large">${data.cta.button_text}</a>
         </div>
     </section>
     `;
@@ -773,7 +852,7 @@ function renderIndustries(data) {
             <div style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: var(--brand-gradient); filter: blur(150px); opacity: 0.2; border-radius: 50%;"></div>
             <h2 style="font-family: var(--font-heading); font-size: 3rem; margin-bottom: 20px;">${data.cta.title}</h2>
             <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 40px; font-size: 1.1rem;">${data.cta.desc}</p>
-            <a href="https://calendar.app.google/G5gpfjVBntAPFQMj6" target="_blank" class="btn-primary large">${data.cta.button_text}</a>
+            <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large">${data.cta.button_text}</a>
         </div>
     </section>
     `;
@@ -789,7 +868,43 @@ function initAnimations() {
                 entry.target.classList.add('visible');
                 obs.unobserve(entry.target);
             }
+        
+    // --- Web3Forms Contact Form Handler ---
+    const contactFormEl = document.getElementById('contactForm');
+    if (contactFormEl) {
+        contactFormEl.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('contactSubmitBtn');
+            const result = document.getElementById('formResult');
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+            
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: new FormData(contactFormEl)
+                });
+                const data = await response.json();
+                if (data.success) {
+                    result.style.display = 'block';
+                    result.style.color = '#28a745';
+                    result.innerHTML = '\u2705 Message sent successfully! We\'ll get back within 24 hours.';
+                    contactFormEl.reset();
+                } else {
+                    result.style.display = 'block';
+                    result.style.color = '#dc3545';
+                    result.textContent = 'Something went wrong. Please try again.';
+                }
+            } catch (err) {
+                result.style.display = 'block';
+                result.style.color = '#dc3545';
+                result.textContent = 'Network error. Please try again.';
+            }
+            btn.disabled = false;
+            btn.textContent = 'Send Message';
         });
+    }
+});
     }, observerOptions);
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));

@@ -25,6 +25,8 @@
       "company": "Company Name",
       "message": "Tell us about your project..."
     },
-    "button": "Send Message"
+    "button": "Send Message",
+    "web3forms_key": "YOUR_KEY_HERE",
+    "success_message": "Thank you! Our team will reach out within 24 hours."
   }
 }

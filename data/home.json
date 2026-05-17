@@ -193,5 +193,50 @@
         ]
       }
     ]
-  }
+  },
+  "testimonials": {
+    "subtitle": "WHAT OUR CLIENTS SAY",
+    "title": "Trusted by Founders & CTOs",
+    "items": [
+      {
+        "quote": "Trai Inc rebuilt our entire cloud infrastructure in 6 weeks. Server costs dropped 42% and uptime went to 99.98%. They're not just vendors — they're partners.",
+        "name": "Rajesh Gupta",
+        "role": "CTO, Pinnacle Infra Solutions",
+        "stars": 5
+      },
+      {
+        "quote": "We needed a custom CRM that actually fit our workflow. Trai's team delivered a production-ready platform in 30 days that our sales team actually loves using.",
+        "name": "Priya Mehta",
+        "role": "Founder, GrowthAffirm India",
+        "stars": 5
+      },
+      {
+        "quote": "Their AI automation work eliminated 15 hours of manual data entry per week for our operations team. ROI was visible within the first month.",
+        "name": "Amit Sharma",
+        "role": "Director, Bharat Logistics Corp",
+        "stars": 5
+      }
+    ]
+  },
+  "guarantee": {
+    "title": "Our Promise to Every Client",
+    "items": [
+      {
+        "icon": "🔒",
+        "title": "NDA-Protected",
+        "desc": "Every engagement starts with a mutual NDA. Your IP and business data remain fully confidential."
+      },
+      {
+        "icon": "📈",
+        "title": "Transparent Sprints",
+        "desc": "Weekly demos and burn-down reports. If you're not happy after Sprint 1, you don't pay for it."
+      },
+      {
+        "icon": "🛡️",
+        "title": "Post-Launch SLA",
+        "desc": "60-day warranty on all deliverables. Critical bugs fixed within 4 hours, guaranteed."
+      }
+    ]
+  },
+  "scarcity": "Currently accepting only 3 new enterprise partners for Q3 2026."
 }
