@@ -29,8 +29,8 @@
     "title": "OPEN POSITIONS",
     "sections": [
       {
-        "category": "Internships",
-        "subtitle": "Kickstart your career — learn by building real products",
+        "category": "For Students: Internship Program",
+        "subtitle": "Are you a student or recent grad? Apply below to kickstart your career by building real AI products under senior mentorship.",
         "apply_link": "https://docs.google.com/forms/d/e/1FAIpQLSe1p9f_UHAErIYO5a351uyoI910qbJADyTEMBtpgDJO8JEapA/viewform?usp=sharing&ouid=109114048086511742245",
         "apply_text": "Apply for Internship",
         "jobs": [
@@ -43,10 +43,10 @@
         ]
       },
       {
-        "category": "Freelance Expert Network",
-        "subtitle": "Join our talent pool for project-based engagements. Send your portfolio to hello@traiinc.com",
+        "category": "For Experts: Freelance Network",
+        "subtitle": "Are you an experienced professional? We do not hire full-time employees. Instead, we partner with elite freelancers for project-based contracts. Send your CV/Portfolio to join our network.",
         "apply_link": "mailto:hello@traiinc.com",
-        "apply_text": "Join the Network",
+        "apply_text": "Email Your Portfolio",
         "jobs": [
           {
             "title": "AI Solutions Architect",
