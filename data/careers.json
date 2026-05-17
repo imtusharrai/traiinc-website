@@ -39,24 +39,6 @@
             "location": "Remote",
             "type": "Internship",
             "desc": "Work on real AI agent pipelines, LLM integrations, and prompt engineering under senior mentorship."
-          },
-          {
-            "title": "Full-Stack Development Intern",
-            "location": "Remote",
-            "type": "Internship",
-            "desc": "Build production features across React, Node.js, and cloud platforms with code reviews from senior engineers."
-          },
-          {
-            "title": "Cloud & DevOps Intern",
-            "location": "Remote",
-            "type": "Internship",
-            "desc": "Learn infrastructure-as-code, CI/CD pipelines, and Kubernetes in a real enterprise environment."
-          },
-          {
-            "title": "UI/UX Design Intern",
-            "location": "Remote",
-            "type": "Internship",
-            "desc": "Design premium interfaces for enterprise SaaS products and work directly with the product team."
           }
         ]
       },
