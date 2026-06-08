@@ -62,10 +62,19 @@ pages.forEach(page => {
             let template = fs.readFileSync(templatePath, 'utf8');
             
             // Replace the loader with the actual content
-            const finalHTML = template.replace(
+            let finalHTML = template.replace(
                 '<main id="dynamic-content"><div class="loader">Loading...</div></main>',
                 `<main id="dynamic-content">\n${contentHTML}\n</main>`
             );
+            
+            // Inject early bot detection into the <head> to prevent opacity issues in Google Search Console
+            const inlineScript = `
+    <script>
+        if (/bot|googlebot|crawler|spider|robot|crawling|inspectiontool|lighthouse/i.test(navigator.userAgent)) {
+            document.documentElement.classList.add('bot-detected');
+        }
+    </script>`;
+            finalHTML = finalHTML.replace('</head>', `${inlineScript}\n</head>`);
             
             // Save the statically generated file
             fs.writeFileSync(templatePath, finalHTML);
