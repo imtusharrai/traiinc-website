@@ -735,6 +735,120 @@ footer {
     transform: none !important;
 }
 
+/* ═══════════════════ LEAD MAGNET BANNER ═══════════════════ */
+.lead-magnet-banner {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 60px 40px;
+    background: linear-gradient(135deg, rgba(28, 28, 46, 0.9), rgba(45, 27, 105, 0.9));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+body.light-mode .lead-magnet-banner {
+    background: linear-gradient(135deg, #ffffff, #f3f4f6);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+.lead-magnet-banner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(232, 0, 209, 0.15) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.lead-magnet-content {
+    position: relative;
+    z-index: 1;
+}
+
+.lead-magnet-banner h2 {
+    font-size: 2.5rem;
+    font-family: var(--font-heading);
+    color: var(--text-main);
+    margin-bottom: 15px;
+}
+
+.lead-magnet-banner p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+}
+
+.lead-magnet-form {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.lead-magnet-form input {
+    flex: 1;
+    padding: 16px 24px;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--text-main);
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+body.light-mode .lead-magnet-form input {
+    background: #fff;
+    border-color: rgba(0,0,0,0.1);
+}
+
+.lead-magnet-form input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(232, 0, 209, 0.2);
+}
+
+.lead-magnet-form button {
+    padding: 16px 32px;
+    border-radius: 12px;
+    background: var(--brand-gradient);
+    color: #fff;
+    border: none;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    white-space: nowrap;
+}
+
+.lead-magnet-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px var(--accent-glow);
+}
+
+.lead-magnet-form button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.lead-magnet-message {
+    margin-top: 15px;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+.lead-magnet-message.success { color: #25D366; }
+.lead-magnet-message.error { color: #ff3333; }
+
 /* ═══════════════════ RESPONSIVE ═══════════════════ */
 
 /* Large desktop – newsletter form goes inline */

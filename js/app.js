@@ -96,9 +96,65 @@ document.addEventListener("DOMContentLoaded", async () => {
         </div>
     `;
 
+    const leadMagnetHTML = `
+        <div class="lead-magnet-banner">
+            <div class="lead-magnet-content">
+                <h2>Stop Burning Money on Bad Architecture</h2>
+                <p>Download our free 10-Point Cloud & Architecture Audit Checklist used by top YC founders to scale without crashing.</p>
+                <form id="lead-magnet-form" class="lead-magnet-form">
+                    <input type="email" id="lm-email" placeholder="Enter Work Email" required />
+                    <button type="submit" id="lm-submit">Send Me The PDF</button>
+                </form>
+                <div id="lm-message" class="lead-magnet-message"></div>
+            </div>
+        </div>
+    `;
+
     const footerEl = document.getElementById("footer");
     if (footerEl) {
+        footerEl.insertAdjacentHTML("beforebegin", leadMagnetHTML);
         footerEl.innerHTML = footerHTML;
+    }
+
+    // Lead Magnet Form Handler
+    const lmForm = document.getElementById("lead-magnet-form");
+    if (lmForm) {
+        lmForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const emailInput = document.getElementById("lm-email");
+            const submitBtn = document.getElementById("lm-submit");
+            const msgDiv = document.getElementById("lm-message");
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Sending...";
+            msgDiv.textContent = "";
+            msgDiv.className = "lead-magnet-message";
+
+            const formData = new FormData();
+            formData.append("email", emailInput.value);
+
+            try {
+                const res = await fetch("/api/subscribe", {
+                    method: "POST",
+                    body: formData
+                });
+                const data = await res.json();
+
+                if (res.ok) {
+                    msgDiv.textContent = data.message || "Check your inbox!";
+                    msgDiv.classList.add("success");
+                    emailInput.value = "";
+                } else {
+                    throw new Error(data.error || "Failed to subscribe");
+                }
+            } catch (err) {
+                msgDiv.textContent = err.message;
+                msgDiv.classList.add("error");
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Send Me The PDF";
+            }
+        });
     }
 
     // ─── WhatsApp Click-to-Chat Button ───────────────────────────────────────
