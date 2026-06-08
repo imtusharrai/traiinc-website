@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", async () => {
+    // Bot Detection for SEO
+    if (/bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent)) {
+        document.documentElement.classList.add('bot-detected');
+    }
+
     // Shared Footer Template
     const footerHTML = `
         <div class="container footer-top">

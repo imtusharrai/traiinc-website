@@ -723,6 +723,18 @@ footer {
     transform: translateY(0);
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .fade-in {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+.bot-detected .fade-in {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
 /* ═══════════════════ RESPONSIVE ═══════════════════ */
 
 /* Large desktop – newsletter form goes inline */
