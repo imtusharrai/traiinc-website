@@ -1,0 +1,110 @@
+{
+  "hero": {
+    "title": "Industries We Transform",
+    "subtitle": "Engineering specialized solutions for global industries",
+    "desc": "We don't just build software; we build industry-specific competitive advantages. From highly regulated healthcare systems to high-frequency fintech platforms."
+  },
+  "industries": [
+    {
+      "id": "fintech",
+      "icon": "⚖️",
+      "name": "FinTech & Banking",
+      "desc": "Secure, scalable, and compliant financial systems. We build core banking engines, payment gateways, and AI-driven fraud detection.",
+      "features": [
+        "PCI-DSS Compliance",
+        "Blockchain & Web3",
+        "Real-time Processing",
+        "Algorithmic Trading"
+      ]
+    },
+    {
+      "id": "healthcare",
+      "icon": "🏥",
+      "name": "Healthcare & Life Sciences",
+      "desc": "Empowering providers with HIPAA-compliant patient portals, EHR integrations, and AI diagnostic assistants.",
+      "features": [
+        "HIPAA Compliance",
+        "Telemedicine Platforms",
+        "Medical Imaging AI",
+        "FHIR/HL7 Integrations"
+      ]
+    },
+    {
+      "id": "ecommerce",
+      "icon": "🛍️",
+      "name": "E-Commerce & Retail",
+      "desc": "High-performance storefronts and headless commerce architectures that drive massive conversion and scale.",
+      "features": [
+        "Headless Architecture",
+        "AI Personalization",
+        "Inventory Automation",
+        "Omnichannel Integration"
+      ]
+    },
+    {
+      "id": "logistics",
+      "icon": "🚛",
+      "name": "Logistics & Supply Chain",
+      "desc": "Optimizing global trade with real-time tracking, warehouse automation, and predictive route optimization.",
+      "features": [
+        "IoT Integration",
+        "Route Optimization AI",
+        "Warehouse Management",
+        "Fleet Monitoring"
+      ]
+    },
+    {
+      "id": "edtech",
+      "icon": "🎓",
+      "name": "EdTech & Learning",
+      "desc": "Interactive LMS platforms, virtual classrooms, and AI tutors that personalize the learning journey.",
+      "features": [
+        "LMS Development",
+        "Gamified Learning",
+        "Adaptive Testing AI",
+        "Student Analytics"
+      ]
+    },
+    {
+      "id": "realestate",
+      "icon": "🏠",
+      "name": "Real Estate & PropTech",
+      "desc": "Modernizing property management, virtual tours, and automated valuation models for the modern market.",
+      "features": [
+        "3D Virtual Tours",
+        "Automated Valuation",
+        "CRM for Brokers",
+        "Smart Building IoT"
+      ]
+    },
+    {
+      "id": "media",
+      "icon": "📺",
+      "name": "Media & Entertainment",
+      "desc": "Transforming how audiences consume content with scalable streaming platforms, personalized recommendation engines, and high-engagement digital experiences.",
+      "features": [
+        "OTT Streaming Platforms",
+        "Content Delivery Networks",
+        "Fan Engagement Apps",
+        "DRM & Video Security"
+      ]
+    },
+    {
+      "id": "travel",
+      "icon": "✈️",
+      "name": "Travel & Tourism",
+      "desc": "Elevating the modern travel experience through AI-driven itineraries, seamless booking integrations, and dynamic pricing engines.",
+      "features": [
+        "Smart Booking Systems",
+        "Itinerary Generators",
+        "GDS Integrations",
+        "Loyalty Program Portals"
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Have an industry-specific challenge?",
+    "desc": "Our team of domain experts is ready to engineer your solution.",
+    "button_text": "Schedule a Discovery Call"
+  }
+}

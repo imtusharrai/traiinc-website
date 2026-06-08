@@ -1,0 +1,94 @@
+{
+  "hero": {
+    "subtitle": "TRAI STARTUP INCUBATOR",
+    "title": "Your Startup. Our Infrastructure. Unstoppable Growth.",
+    "description": "We don't just invest — we co-build. Trai Incubator gives early-stage founders the engineering firepower, cloud infrastructure, and go-to-market systems they need to go from zero to funded."
+  },
+  "stats": [
+    { "value": "₹2Cr+", "label": "In Infrastructure Credits" },
+    { "value": "12+", "label": "Startups Incubated" },
+    { "value": "6 Mo", "label": "Average Time to Revenue" },
+    { "value": "85%", "label": "Founders Still Building" }
+  ],
+  "programs": [
+    {
+      "icon": "🚀",
+      "title": "Trai Catalyst — Zero to One",
+      "duration": "6 Months",
+      "desc": "For first-time founders with a validated problem. We help you ship your MVP, set up your tech stack, acquire your first 10 paying customers, and build the foundation for scale.",
+      "includes": [
+        "Dedicated CTO-level engineering support",
+        "MVP architecture & development sprint",
+        "Product-market fit validation framework",
+        "First 10 customers acquisition playbook",
+        "Weekly founder-mentor standups"
+      ]
+    },
+    {
+      "icon": "⚡",
+      "title": "Trai Velocity — Seed to Series A",
+      "duration": "12 Months",
+      "desc": "For startups with early traction. We scale your engineering team, automate your sales funnel, optimize unit economics, and prepare you for institutional fundraising.",
+      "includes": [
+        "Full-stack engineering team augmentation",
+        "Automated sales & marketing engine setup",
+        "Data analytics & KPI dashboard deployment",
+        "Investor deck & data room preparation",
+        "Warm introductions to 50+ VCs & angels"
+      ]
+    }
+  ],
+  "what_you_get": [
+    {
+      "icon": "🛠️",
+      "title": "Elite Engineering Support",
+      "desc": "Direct access to senior solutions architects, full-stack developers, and DevOps engineers. We don't advise — we ship code alongside you."
+    },
+    {
+      "icon": "☁️",
+      "title": "Up to ₹50L in Cloud Credits",
+      "desc": "AWS, Google Cloud, and Azure credits so you can build, test, and scale without burning your runway on infrastructure."
+    },
+    {
+      "icon": "📈",
+      "title": "Automated Sales Engine",
+      "desc": "We deploy high-intent lead generation systems, CRM automation, and AI-powered outreach sequences to fill your sales pipeline from day one."
+    },
+    {
+      "icon": "🎯",
+      "title": "Go-to-Market Strategy",
+      "desc": "SEO, content marketing, performance ads, and social media — our growth team builds your digital presence while you focus on product."
+    },
+    {
+      "icon": "💰",
+      "title": "Investor Network Access",
+      "desc": "Warm introductions to top-tier VC firms, angel investors, and corporate venture arms in the enterprise tech space. We help you raise smart capital."
+    },
+    {
+      "icon": "🏢",
+      "title": "Workspace & Community",
+      "desc": "Co-working space at our Lucknow HQ, access to founder meetups, demo days, and a tight-knit community of builders who push each other forward."
+    }
+  ],
+  "process": [
+    { "step": "01", "title": "Apply", "desc": "Submit your application with your problem statement, early traction, and what you need help with." },
+    { "step": "02", "title": "Deep Dive", "desc": "Our team reviews your application. Selected founders get a 1-on-1 call with our incubation lead." },
+    { "step": "03", "title": "Onboard", "desc": "Accepted founders get a dedicated engineering pod, cloud credits, and a 90-day sprint plan." },
+    { "step": "04", "title": "Build & Ship", "desc": "Weekly standups, monthly demos, and relentless focus on shipping product and acquiring customers." }
+  ],
+  "ideal_founder": {
+    "title": "Who Should Apply?",
+    "traits": [
+      "You have a clearly defined problem and a target customer segment",
+      "You've done initial validation — conversations, waitlists, or early revenue",
+      "You need engineering and infrastructure support, not just advice",
+      "You're building in SaaS, AI/ML, FinTech, HealthTech, or Enterprise software",
+      "You're ready to commit full-time and move fast"
+    ]
+  },
+  "cta": {
+    "title": "Ready to build something real?",
+    "description": "Applications for our Q3 2026 cohort are open. We back founders who ship fast, think deeply, and refuse to quit.",
+    "button_text": "Apply to Trai Incubator"
+  }
+}

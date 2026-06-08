@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trai Inc's valued clients across Real Estate, Education, Healthcare, Media, Retail, Transport and Enterprise sectors in India.">
+    <title>Our Valuable Clients | Trai Inc Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=1779012000000">
+    <style>
+        /* ── Page-specific styles ── */
+        .clients-hero {
+            min-height: 52vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            padding-bottom: 60px;
+            background: radial-gradient(ellipse at 70% 40%, rgba(255,26,26,0.18) 0%, transparent 65%),
+                        radial-gradient(ellipse at 20% 70%, rgba(232,0,209,0.12) 0%, transparent 55%);
+        }
+        .clients-hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+        .clients-hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 560px;
+            line-height: 1.7;
+        }
+
+        /* Stats bar */
+        .stats-bar {
+            display: flex;
+            gap: 0;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 0 0 70px;
+        }
+        .stat-item {
+            flex: 1;
+            text-align: center;
+            padding: 28px 20px;
+            border-right: 1px solid var(--border-light);
+            position: relative;
+        }
+        .stat-item:last-child { border-right: none; }
+        .stat-value {
+            font-family: var(--font-heading);
+            font-size: 2.4rem;
+            font-weight: 800;
+            background: var(--brand-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+        .stat-label {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Filter tabs */
+        .filter-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 48px;
+            justify-content: center;
+        }
+        .filter-tab {
+            padding: 9px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid var(--border-light);
+            background: var(--bg-card);
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.22s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .filter-tab:hover, .filter-tab.active {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--accent-glow);
+        }
+        .filter-tab .tab-count {
+            background: rgba(255,255,255,0.2);
+            border-radius: 50px;
+            padding: 1px 7px;
+            font-size: 0.72rem;
+        }
+
+        /* Section heading */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .section-divider h2 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .section-divider-line {
+            flex: 1;
+            height: 1px;
+            background: var(--border-light);
+        }
+        .section-divider .cat-icon {
+            font-size: 1.4rem;
+        }
+
+        /* Logo grid */
+        .category-section { margin-bottom: 72px; }
+        .category-section.hidden { display: none; }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 14px;
+        }
+        .logo-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 14px;
+            padding: 20px 14px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            text-align: center;
+            transition: all 0.25s ease;
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+        .logo-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 14px;
+            background: var(--card-grad, linear-gradient(135deg, #4facfe, #00f2fe));
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+        .logo-card:hover {
+            border-color: transparent;
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+        }
+        .logo-card:hover::before { opacity: 0.08; }
+
+        .logo-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #fff;
+            flex-shrink: 0;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.2);
+            letter-spacing: 0.5px;
+        }
+        .logo-avatar::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.22) 0%, transparent 55%);
+        }
+
+        .logo-name {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-main);
+            line-height: 1.3;
+        }
+
+        /* Marquee strip */
+        .marquee-section {
+            padding: 48px 0;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+            overflow: hidden;
+            margin-bottom: 80px;
+        }
+        .marquee-label {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+        }
+        .marquee-track {
+            display: flex;
+            gap: 0;
+            overflow: hidden;
+        }
+        .marquee-inner {
+            display: flex;
+            gap: 16px;
+            animation: marqueeScroll 38s linear infinite;
+            flex-shrink: 0;
+        }
+        .marquee-inner:hover { animation-play-state: paused; }
+        @keyframes marqueeScroll {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+        .marquee-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            border-radius: 50px;
+            background: var(--bg-dark);
+            border: 1px solid var(--border-light);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+        .marquee-chip .chip-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        /* CTA Section */
+        .clients-cta {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 24px;
+            padding: 64px 48px;
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .clients-cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(255,26,26,0.12) 0%, transparent 65%);
+        }
+        .clients-cta h2 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            position: relative;
+        }
+        .clients-cta p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .stats-bar { flex-wrap: wrap; border-radius: 14px; }
+            .stat-item { flex: 1 1 45%; border-bottom: 1px solid var(--border-light); }
+            .logo-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+            .clients-cta { padding: 40px 24px; }
+            .clients-cta h2 { font-size: 1.6rem; }
+        }
+        @media (max-width: 480px) {
+            .logo-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; }
+        }
+    </style>
+</head>
+<body data-page="clients">
+    <nav id="navbar"></nav>
+
+    <!-- Hero -->
+    <section class="clients-hero">
+        <div class="container">
+            <p class="mini-title">Our Valuable Clients</p>
+            <h1>Trusted by <span class="highlight-text">120+ Businesses</span><br>Across India</h1>
+            <p>From local MSMEs to large enterprises — we've helped businesses across Real Estate, Education, Healthcare, Media, Retail and more build their digital presence.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat-item"><div class="stat-value">120+</div><div class="stat-label">Showcased Clients</div></div>
+            <div class="stat-item"><div class="stat-value">8</div><div class="stat-label">Industries</div></div>
+            <div class="stat-item"><div class="stat-value">6+</div><div class="stat-label">Years of Trust</div></div>
+            <div class="stat-item"><div class="stat-value">98%</div><div class="stat-label">Retention Rate</div></div>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs" id="filter-tabs"></div>
+
+        <!-- Client Categories Grid -->
+        <div id="clients-grid"></div>
+    </div>
+
+    <!-- Marquee Strip -->
+    <div class="marquee-section" id="marquee-section">
+        <div class="marquee-label">All Our Clients — Hover to Pause</div>
+        <div class="marquee-track">
+            <div class="marquee-inner" id="marquee-inner"></div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="container">
+        <div class="clients-cta">
+            <h2>Ready to Join Our <span class="highlight-text">Client Family?</span></h2>
+            <p>Let's build something remarkable together. Our team is ready to engineer your digital success story.</p>
+            <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large">📅 Book a Free Discovery Call</a>
+        </div>
+    </div>
+
+    <footer id="footer"></footer>
+    <script src="js/app.js?v=1779012000000"></script>
+    <script src="js/nav.js?v=1779012000000"></script>
+    <script>
+    (async () => {
+        const data = await fetch('data/clients.json?v=1778933301101').then(r => r.json());
+
+        // Gradient palettes removed, real logos only.
+        // Domain logo map (Clearbit)
+        const domainLogos = {
+            "North Quest Solutions": "https://northquestsolutions.com/wp-content/uploads/2023/08/North-Quest-Solutions-Name-Logo-1.png",
+            "New Fleet Solutions": "https://static.wixstatic.com/media/3fa915_092a5cbed845442d8ec5113426efe05d~mv2.png/v1/fill/w_412,h_90,al_c,lg_1,q_85,enc_avif,quality_auto/new%20fleet%20horizontal.png",
+            "Workezy": "https://www.workezy.co.in/assets/img/Logo_dark.png",
+            "CMS City Montessori School": "https://logo.clearbit.com/cmseducation.org",
+            "Shobhit University": "https://logo.clearbit.com/shobhituniversity.ac.in",
+            "GPT Group": "https://logo.clearbit.com/gptgroup.co.in",
+            "Aftek Group": "https://logo.clearbit.com/aftekmotors.com",
+            "Chappan Bhog": "https://www.chhappanbhog.com/wp-content/themes/chtheme/new-style/assets/new-home/images/logo.png",
+            "Bon Bon Bakery": "https://s3-ap-southeast-1.amazonaws.com/assets.limetray.com/assets/user_images/logos/original/1606452211_BonbonLogo1.jpg",
+            "Siddharthas Construction & Colonizer": "https://siddharthas.in/portal/assets/img/logo.jpg",
+            "Royal Group": "https://royalgroupuae.com/images/royal-group-new.png",
+            "Yuva Infra": "https://yuvainfra.com/wp-content/uploads/2022/04/logo-.png",
+            "Gayatri Group": "https://www.gayatri.co.in/images/logo.gif",
+            "Yug India": "https://www.yugindia.in/images/yug-india-logo.jpeg",
+            "Design N Decor": "https://designndecor.co.in/wp-content/uploads/2024/09/LOGO_-DD.png",
+            "Language Hub": "https://logo.clearbit.com/languagehubindia.com",
+            "GCRG": "https://logo.clearbit.com/garantiegcr.com",
+            "Modern Indian School": "https://logo.clearbit.com/misktm.edu.np",
+            "Amaratva Bioscience": "https://amaratvabioscience.com/websiteassets/img/logo.png",
+            "Dashak Pharma": "https://dashakpharma.com/assets/dashak-pharma-edited.webp",
+            "Shivaya Industries": "https://logo.clearbit.com/shivayaindustries.com",
+            "A1 Group": "https://logo.clearbit.com/a-group.az",
+            "Golden Globe Properties": "https://goldendreamproperty.com/wp-content/uploads/2025/02/logo5.jpg",
+            "Avadh Homes & Development": "https://propertykumbh.com/storage/gangotri-enclave-elevation-111816017.jpeg",
+            "Sarvadhaam Infra": "https://newprojects.99acres.com/projects/shubharambh_infraestate/xeidmwl5.jpg",
+            "Vajra Balaji Infraestate": "https://i0.wp.com/vjinfra.in/wp-content/uploads/2023/11/WhatsApp-Image-2020-06-12-at-10.18.48-PM.jpeg?fit=881,588&ssl=1",
+            "Jansahara Buildings": "https://gharbanwao.com/wp-content/uploads/2022/09/logo-1.png.webp",
+            "Amrit Planners": "https://hudco.org.in/writereaddata/EB/HUDCO-DA21/files/thumb/49.jpg",
+            "Virasat Group": "https://img.staticmb.com/mbimages/project/2023/01/24/Floor-Plan-16-Virasat-Udai-Grand-Lucknow-5391603_1200_1600.jpg.webp",
+            "Dhara Green Infratech": "https://static.squareyards.com/resources/images/thane/project-image/shree-vakratunda-green-touch-project-project-large-image1-7766.jpg",
+            "New Sainik Nagar": "https://imgv2-2-f.scribdassets.com/img/document/980991306/298x396/814eefc485/1768384310?v=1",
+            "Srinivasa Developers": "https://play-lh.googleusercontent.com/NL4shXyeNI-cnvRJADHFwsQpsggrC1gZyDi8m_U2g75iYLnkQPEiiNLazDLs2wXsEfGonetrNveDP-G9sZ4oCgU",
+            "Rishita Developers": "https://www.rishitasmulberryheights.com/assets/img/logo.svg",
+            "DNR Infra Developers": "https://devanahallinewprojects.com/dnr/images/dnr-group-logo.webp",
+            "SS Ram Projects": "https://www.ssram.in/assets/images/logo.png",
+            "Anantkrishna Infra Housing": "https://img-mb.homes247.in/images/uploadPropertyImgs/1648130522-G1@72x-50.jpg",
+            "Raji Infra Housing": "https://www.nanubhaiproperty.com/images/thumbs/project/6241_gomti-estate-phase-iii-residential-plot-gomti-nagar-in-lucknow_photo.jpeg",
+            "Shriyansh Infracon": "https://shriyanshinfracon.in/images/logo-white.png",
+            "RBR Redefining Luxury": "https://lookaside.instagram.com/seo/google_widget/crawler/?media_id=3880148850707783339",
+            "Unishine Group": "https://unishinegroup.com/wp-content/uploads/2021/11/unishinelogo.png",
+            "Bhu Master": "https://www.bhumaster.com/assets/images/logo.png",
+            "Home Stories": "https://www.homestories.co.in/assets/img/logo/logo.png",
+            "SKD New Standard Coaching Institute": "https://www.neetlive.co.in//public/images/gallery/gallery38.jpeg",
+            "Balram Guruji": "https://i.pinimg.com/170x/bf/ee/e5/bfeee5655660fa62c15501e3fd08306e.jpg",
+            "Kiddleworld": "https://i.etsystatic.com/33646017/r/il/39d5dc/5429277751/il_fullxfull.5429277751_7rs6.jpg",
+            "Emparta Express Learning": "https://www.learnetskills.com/static/2f2b136f7f885cac6ddcff027886ad8f/6aa4f/dyaneshwar.png",
+            "Shaktinagar City International School": "https://i.ytimg.com/vi/xJJ_vaNCfWM/maxresdefault.jpg",
+            "IE Multiple Intelligence Preschool": "https://rainforestlearningcentre.ca/wp-content/uploads/identify-encourage-multiple-intelligences-early-childhood-pinterest-image.png",
+            "Utopia Medihealth": "https://scontent.flko11-1.fna.fbcdn.net/v/t39.30808-6/299196611_399432538995605_8338896356169761770_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=H10cJNZsjmoQ7kNvwEIC14_&_nc_oc=AdoXsZpSLH2cLWAEvNh7yi4OaxXp-q7tMjH_eui4Aq6PXjdZ2cksHuWUSl9fISmLV18&_nc_zt=23&_nc_ht=scontent.flko11-1.fna&_nc_gid=aCAQoTT3EXuwL0SANKlpOg&_nc_ss=7b2a8&oh=00_Af5MVDLdm0SoWsugt5tJorXFz1dfc1EW4sos6Pfya3HoTA&oe=6A0E1579",
+            "Chai Sabha": "https://framerusercontent.com/images/h6iEVrYMuowuVVBeqFUzdgboVg.png?width=243&height=223",
+            "Shivkashi Pipes": "https://www.kankaipipes.com/wp-content/uploads/2018/10/logo390.png",
+            "We For Consumers": "https://pbs.twimg.com/media/GmtDHCPaAAAz-0J.jpg",
+            "Braniac Way of Success": "https://d502jbuhuh9wk.cloudfront.net/courses/65cb2bf6e4b0c82d955a8bca/65cb2bf6e4b0c82d955a8bca_scaled_cover.jpg?v=2",
+            "Central Agro Park": "https://www.rozgarsarathi.org/ui/images/mobile_set_globle_center.png",
+            "Innovatech Constructions": "https://innovatechconstructions.com/images/projects/RENOVATION.jpg",
+            "ONTSM Group": "https://signaturesoftware.in/wp-content/uploads/2023/03/signature-it-software-1.png",
+            "Vikas Kejriwal Group": "https://www.hindustantimes.com/ht-img/img/2024/10/18/400x225/AAP-chief-Arvind-Kejriwal-with-Delhi-chief-ministe_1729273580941.jpg",
+            "KSMB Group": "https://im.proptiger.com/1/3522744/6/skywalk-elevation-178938556.jpeg",
+            "Dmazco Fresh": "https://scontent.flko11-1.fna.fbcdn.net/v/t39.30808-6/244335846_283035320322782_3529593629248922368_n.png?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=zN1XV9GuCdEQ7kNvwHQCQvK&_nc_oc=AdrvQD8FN-BrUIP9Qow8eMMjfDkBChXjAmnpUslM8GY_KZx2zeDqkcl2EC51sbC8Cx0&_nc_zt=23&_nc_ht=scontent.flko11-1.fna&_nc_gid=FR-GBx3qFCGItkNTmSHPiw&_nc_ss=7b2a8&oh=00_Af7cuMkGVuxBWeH7Ss3cvEWMvFD_DNGA55DvpsvfHX2m1A&oe=6A0DDE3D",
+            "Growth Affirm": "https://adonpublicity.com/wp-content/uploads/2025/08/best-outdoor-branding-agency-in-lucknow-2-1024x527.webp",
+            "PB India Group": "https://content.jdmagicbox.com/v2/comp/lucknow/s5/0522px522.x522.091130130538.x1s5/catalogue/muthoot-finance-ltd-gomti-nagar-lucknow-personal-loans-3rzed0vmbi.jpg",
+            "Sab Kuchh Car Cleaning": "https://content.jdmagicbox.com/comp/lucknow/v6/0522px522.x522.221109180101.x9v6/catalogue/the-car-world-aashiyana-lucknow-car-repair-and-services-d66nf8ln9l.jpg",
+            "Spice Hut Derby": "https://play-lh.googleusercontent.com/YoXhga_WvsaQWRQgjSkSG1m9LCgTbsW7wRl2ePrFG2FZlGlJjYLByEIp5nPeFFcS0T2t=s256-rw",
+            "Tonys Original": "https://play-lh.googleusercontent.com/tGwyCYqGUhJU5V4SKzl5pem1nR2ImMJsV-GjQD0mP7VyTz81Jaun10HUCD5xR1DVJtjpCwsPAhGtLXw8TIbS=s256-rw",
+            "Elim's Bar & Grill": "https://play-lh.googleusercontent.com/qiSVmnZ7WEjTy8TnhevVFhowieCiBYReaEPU7b8pMMiuODTTtWyqu-pcdhO1P7XcwjurxqhsPm3kPVd3oj9V=s256-rw",
+            "Asads Hot Chicken": "https://play-lh.googleusercontent.com/tYE1krsD_IMNqluUOckMb2Hn3kV0rTx3dk_mwG9kj2o4NjADVoxttzUheCVCUK--NmQ=s256-rw",
+            "The Pizza Man": "https://play-lh.googleusercontent.com/Qz_hAvFKNKeE_uYgXybbXDjnEprpLA_drORh0n3_mY24-8J_B8_zEquzmS9OcHh-9qUP=s256-rw",
+            "CHICKXY": "https://play-lh.googleusercontent.com/xwNB0k1QDNt3YGD6yhlj0TaeMtsE-_I4xCfyq-5PfT6f9H3lluL4Ng11qv-DDeCRnuzU=s256-rw",
+            "Sizzlers Fastfood": "https://play-lh.googleusercontent.com/_nODiDkvh88y5agid7PvFWadVJR6eHDzFBo9tp_O4jMihLWmN-7nZerBM8mRh4cxwZ0=s256-rw",
+            "Papa Franks": "https://play-lh.googleusercontent.com/sbiNUDc69JO66VtCuxPaFvAvKONlSQIz4oPTXRXR1aC2i17llNBXjxOqv9x-mBHV5fw=s256-rw",
+            "Stackers": "https://play-lh.googleusercontent.com/i3GPkxaUunf0wpZVUYyvDztZumC0VGPs7tYR9fiGAwzQJIbTBse7plm6gmWe07Zo37NmFKq2AB8tmEH5bNR3Xw=s256-rw",
+            "Salt and Vinegar Droitwich": "https://play-lh.googleusercontent.com/XXLnL1tB265rQXr3yr6j-gAuw-OxFlwgVUeYZ_z18vW_kpc4-HA7ujpM4GTnKBi58ACF=s256-rw",
+            "Pepis Pizza": "https://play-lh.googleusercontent.com/v4QJRvD6B4RT9dtx4K1YS1UEPWVINzpnLZJYTItshEs_bKTY2d_EURErYO1GLtF2jrw=s256-rw",
+            "Fabios LTD": "https://play-lh.googleusercontent.com/mvo2xwElOR0PEfvUxtrs9z8TO2TrPBj9-PdLpM-vF1R8qHiE1s7FghOLyhg2ND64FqQ=s256-rw",
+            "Xotica Badboy Kebabs Leigh": "https://play-lh.googleusercontent.com/tIXU8nLjKkMVh9zaONsq10WKwpZjLA-eRSfGL8hZ-RaLBWw10Gv2XdQ4mNy9Mq4zCtYw=s256-rw",
+            "Pizza 38": "https://play-lh.googleusercontent.com/IBLz6RaDbqECDii0cp-7nc3fhAHPUQ1TsV-YFAGxgGMvvYaULQE7qSvimxBIITm6bWw=s256-rw",
+            "Charcoal Grill And Pizza": "https://play-lh.googleusercontent.com/yvFmgb-Z2reTdbToD2HcJm_AOR-JMOald4g4kTLvn7HvGXz1Xb-HEOlWYGqvVIN9JiCfjSO6LFJTMmPKvBmBTAI=s256-rw",
+            "Best Kebab Takeaway Newcastle": "https://play-lh.googleusercontent.com/0KOi1Dg0ysYiAS2IHqFrDI5wggi4OW2ff8ZcNMjeLYjAO2f3uznffCMiV019ijnHjw0=s256-rw",
+            "Royal Pizza": "https://play-lh.googleusercontent.com/JxxKAYCWe02lvzJgGOI3kPuqrnyKO8SXDlx2SBZ0yBFS8r5FI8NtN0-2LWz0zgTS=s256-rw",
+            "The Doner Stop Heanor": "https://play-lh.googleusercontent.com/ySJT9pVSe3kQvbENAqC41tF5QFXaCkiE-lDwQdKkewPFQlK68r5Iv5N3fZ_nrR4nq7Guu33xsEukdV0Oro-BSNo=s256-rw",
+            "Indian Village": "https://play-lh.googleusercontent.com/HEsJawqMaxwDFYzWqj_WBpxexcSTAr0hHFhXlevub0fX1DjbvarPnLX6hnHvGMxV-hJp3E3wHKTsZ8kTPW5bB1E=s256-rw",
+            "Sidmouth takeaway and pizza": "https://play-lh.googleusercontent.com/zos-IHqzwGJaNBmNN7Vjj8PhurTOfk81QvZG3ktfQ27Cyw-LLBxsOfNDu7DJ92t9Se4b=s256-rw",
+            "Raj Balti": "https://play-lh.googleusercontent.com/Eyiwx5NwMiX-DsaOxiPJoYk6kzdEh0PFer52uR569ke1eIy8jOXVs3g5uzuECbNfSxNPpA6EKcgc705WutU3=s256-rw",
+            "Alis Kebab House": "https://play-lh.googleusercontent.com/ztzIcWNXh6NYEbKTAo4JHALPJK5oFgNapkxQa_ouoYopzFuQdWgJ22df8jVuP9v0wg=s256-rw",
+            "Indian Spice": "https://play-lh.googleusercontent.com/N3_eiKH9M8PcWp_ODHPjjxRuJdkGxfeu22ZvGPHRU-XsOdeU1v8tacKjAK2FGRnwhXJ1=s256-rw",
+            "5 Wonders": "https://play-lh.googleusercontent.com/32nJW4kkq1crh8LnhrKgJOHFQyAZvl0Qm5G4R5yQSYKZ-DoalJfH5d4HDMvZM_Vaj7_Q=s256-rw",
+            "Haruns Kebab House": "https://play-lh.googleusercontent.com/tgHRhgCNvrj9UtXqQ9dll8yiF91nBPb1voce7q2j56oLIgMEyL32b8do-7wBmujrsf3ZINnpthbudPz0r3tCslQ=s256-rw",
+            "THRUMS TAKEAWAY": "https://play-lh.googleusercontent.com/hanQcip43oe4Q5YVtkQGaA7jjInitSLODMkoFeMde6oBZvZm24H_J9sbJ8xThsOsqKgYrPu_BDmT8X27Dvr26Q=s256-rw",
+            "Fabios Pizzeria": "https://play-lh.googleusercontent.com/SFDvkilxVeRzLpmR6PvMLgktNfEGtgbnUE84jfeaRQuod2DS_o-otWIVW_QODlnWtQ=s256-rw",
+            "Horndean Fish And Chips": "https://play-lh.googleusercontent.com/OkZTf8BKhOc3vuvqw1kDWRjBIoApkCWdS7-IwEQb6JZctkc_EQJdAnMsu073bZabEoo=s256-rw",
+            "Jonaldos": "https://play-lh.googleusercontent.com/wgwjHS1miEpajgbe1SA7MRs33xZFMndMd_AUDYXs4tcpXMEqfZ9bVcC_p_AOHplwNiw=s256-rw",
+            "River Beal Takeaway": "https://play-lh.googleusercontent.com/nxV1Q1T9-8xCiCIuLuN6CTryOmr8RS3CeGB1rwatb8IbI6Aqv8VYKFFtbGrle_jy2vI=s256-rw",
+            "Shahi Spice": "https://play-lh.googleusercontent.com/6dKDh6FyNMil30yxAvnEo6Tg_mcmLKQCD-q1AFpu2drG79YtRoOazyS77ljZiJK6V3ieo26PkemkoaRpCsQkKPk=s256-rw",
+            "Shakes and Cakes Thorne": "https://play-lh.googleusercontent.com/18xVIqEzO74Rh7c7ZUqLWxRIC70EhpJmT4EQdRS_McA1CUoUVsf7BjTNYIlENkdhJg=s256-rw",
+            "Luckys Souvlakis": "https://play-lh.googleusercontent.com/rfqlzur2kfYYeV8l1x4u0HQa697TGSz2m3E0wxeb0ydR1uQ-E070AqfNxdWG6d0rryU=s256-rw",
+            "California Pizza": "https://play-lh.googleusercontent.com/3chGF3JMugIqT9xZcLM1v3wPFJwzPAZLvJTTAZql_RihpNorE8HsLwlKVuhiET4JjxRC=s256-rw",
+            "La Bella NE ltd": "https://play-lh.googleusercontent.com/IkmAHfkp5Xy5D0Aw-IxiL1snkiWcY_v8XnLyawKTXE-MQ-eZc8ydx5Xo8h_UJgnTjqoDNJy81ydAhNrCf-XVvQ=s256-rw",
+            "Trident Fish Restaurant": "https://play-lh.googleusercontent.com/B3HdOhtghCKgvEydjCRWxkQN7RBNFU-C4gS0MNRxZskTl0LJ_Ikharkx5l-pLL3VMZQd=s256-rw",
+            "Sonali Indian Takeaway": "https://play-lh.googleusercontent.com/KYVHybcVXeF-_2VRFxvHqwtb0MmNm7HCjd8urxyfZ4Sb7EFeublG1uqedgSk0efkYE50VZXC3WIe0SkaM_NeEA=s256-rw",
+            "Unico Pizza and Kebab": "https://play-lh.googleusercontent.com/mqILqAUSCSLi08OVxn_G8oydsAjaPfl-dPlBV95XKj5wNNvQ8iGA4G6c8e3uBqFkxA=s256-rw",
+            "China Tasty": "https://play-lh.googleusercontent.com/HZu5_UaBQGiOgZKtupx8ED6jxlsw7igEzLr1tkwunLYL3GvPjCX4ivheBUbMjLOGKTxkD5nganGMH2986TKGGA=s256-rw",
+            "Tasty Pizza": "https://play-lh.googleusercontent.com/jsWF7ueDT-stc7yWWVfWpzx3xSuAB7wg3jtqNJTwHVRxndgX9KdyYW1Sb39d_uZFG_t83XOkzOUeNxdAqUO-VQ=s256-rw",
+            "Chili Massala Ltd": "https://play-lh.googleusercontent.com/SY7E3iyvlqSPEarrK9ScAYfoirF81OmHhX5cAlfxeXBmH4YnPPjQ7w2zol7flN88og=s256-rw",
+            "Pizza Addict": "https://play-lh.googleusercontent.com/KtGen9DxuIIVMEeG1x7pTVUBH-AWUd2fdGqVItx3FbS_D1wjZ5CjGOm5Pdgb4hrw2PA=s256-rw",
+            "Turkish Kebab House": "https://play-lh.googleusercontent.com/fPOkvmKEMHMznxEYcOd3jgt7P0veYt5JT-I17LukQcrut1Qru2XO_gPEkk9Hsb2rGb-4vNSOaq2UQ6REVEx2bA=s256-rw",
+            "Maple Kitchen": "https://play-lh.googleusercontent.com/CRvf47CQ1IKYS1kkD9htTXZ7ObfJT8d2ErNzA4EhOz3brYYdHRSZbjPerVykxym5psI=s256-rw",
+            "Rane Bengal": "https://play-lh.googleusercontent.com/O637Ecv_iZk46CWtU4kqbe4a5a7f7e4_5hcBjSsmgPG6-f2ic2HrlIUMONSCF733OA=s256-rw",
+            "Troy Kebab": "https://play-lh.googleusercontent.com/EWloz41qSF-Vdcns1CTycx_bMpu7wzzzAKRMuXWusPXPLmzIuN17PvNlbdPvoj326A=s256-rw",
+            "Golden Grill": "https://play-lh.googleusercontent.com/ojOLuZQsL6wFcJDps9rM1crKT0ziJDlf7J6fNMWWhvJ9vTNRMEllfLFNosm3ARZjP3B4xWrvvB-daK16ik9qNQ=s256-rw",
+            "Chickenland kebab and pizza": "https://play-lh.googleusercontent.com/QsVS3MLhBFGteDAmZQLRXWOjeXc98mhcf6yfReLmycKLaTq4EyHkdIb311QCM-aFbWo=s256-rw",
+            "Star Pizza": "https://play-lh.googleusercontent.com/IWUWCEJBR6imZGcknmD__qGQ-IuqwLhLkzuCWWB17lDcm8-_BpFRduuJd5iBwhO7SQ=s256-rw",
+            "Tong Pizza & Grill": "https://play-lh.googleusercontent.com/3mS_tj7ISCKEOG2t1IBzOZGC3FBxTWpcEF-7GgzQkzd_O8fyeOEjDnMX6QaavWfRZc3Kl-SDkVscrBhKcjvmZw=s256-rw",
+            "Stone Pizza": "https://play-lh.googleusercontent.com/LH8FQbp2QbDJWcR69kpt3yDWlKCHIXhQvW4dHHzrFVkTx1hPccCj5U1SuhHwgeLiLQWV=s256-rw",
+            "The New Eastern Spice": "https://play-lh.googleusercontent.com/FG53ySAl4zyS7WsCzt5PRJG-_4t_8yQNOaX-tetQHfsIkiR5pgc1h2B4-fGhA3LLkz0=s256-rw",
+            "Kebab Mahal": "https://play-lh.googleusercontent.com/uEsHuFVRkq2u6KsoxZjkqYOckR0B7kK6MXmUHOUBAmJaFv7oAJky4UYUsdoe69UgbQ=s256-rw",
+            "The cod father": "https://play-lh.googleusercontent.com/jNvl__CkJPOzJWShqbRYjSlOhjP1JB2A72TJ2Rl_6get7FxHHePX9-6IpJLpfXQGo4s=s256-rw",
+            "Dominics Pizza": "https://play-lh.googleusercontent.com/dF86HpckIV34W3ry2qaKugI-3F1Ln068XZgcnlODX-OVRnT086ePCRa7_JoL1kSa93I=s256-rw",
+            "Mama Mia": "https://play-lh.googleusercontent.com/6Gn_bAw5W4Wkz_rx0f5NwcyglYnT9VssHmS01GvL0MzOOB0kQCINz01iqrEZ5YpASZcl=s256-rw",
+            "Pizza Amore": "https://play-lh.googleusercontent.com/N4I5myXUb1Vlq_ytOGKHEPzYpYsqFj2U9VE3DDPIXOTVjK5J5Wtej3P17hIGiy4tGFY=s256-rw",
+            "The Wok Stop": "https://play-lh.googleusercontent.com/dsQC2HdDQOaucrS1oLx2TTxjiaeVjeKbfzi0XxhS5aLa9YHthDF-CjQvrOMf9oXsgQ=s256-rw",
+            "Stirchley Curry Co": "https://play-lh.googleusercontent.com/jus_PckzaS9PvMxFTvZ0j_XVWDyvnvxs3LmhGyO-CEsPSJVXGVc6fifGSALfStLIcqIlkOMcx8igL1PBqlEK=s256-rw",
+            "Pizza Bello & Kebab House": "https://play-lh.googleusercontent.com/ZwPg-fK-p97-mBG2lCmkPSsDi7EIdmU5n-tcPnf5UpQwbjVbi5HhOILYUcdpun8LO70=s256-rw",
+            "Shapla White": "https://play-lh.googleusercontent.com/MNi6UbIfLtkXbpeFdsJKgrwzpb4S9MPHsteWzs25cc8t7yjvMjxUXEf4ZJAsMozG_sU=s256-rw",
+            "3 Chefs": "https://play-lh.googleusercontent.com/7TA6z88FrI_JC20L1xZyQor_VdDCvJJcmLJy08XsCnmKQQPhZINp5vneBUNDTVeTOvFx=s256-rw",
+            "Yogis": "https://play-lh.googleusercontent.com/U2i9Khpe3EFqWiDgFUzq70au1Wj9vtFAtyMEcJJfzg46UaWagAUSseAHBIPcFQ3vY2Q=s256-rw",
+            "Aladdins Cuisine": "https://play-lh.googleusercontent.com/yTEuSOUkT4pvFp5D0gA9oZJsDKi_8mVHzUuRWBugdy62mHbFaUoFaKSA4UbpJzKWrRwABN_RqLXw0hFdQkLM0g=s256-rw",
+            "Origano Pizza And Grill": "https://play-lh.googleusercontent.com/y8siQtlnk-qZAbyjs-67ALWAMcvXfhnkxxXjftof67A-MV2xYO4khV1UDdcOC69ohzg=s256-rw",
+            "Car18": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAzFBMVEX///8AAAAAe/8AdP8Aef8Ac//s7OwAd/+Huv8Acf+31v/7/f/1+v/s9f+cxP+gyP/d6/+Sxf/i7v/D3f+kzP/S5f+Kwf+x0P+Lvf+jy/+ryf+gxP/w9/+Twv/S4//m7/+qqqq72v+Zwf+t0//BwcEPDw/C3P/h4eEAfv8dhv9DQ0O/1/9fnv9ycnImJiZkpP+AtP9oaGg6Ojpvqv/GxsY7k//U1NSfn5+2trYsi/+AgIAzMzNSUlKRkZGioqIXFxcAav9aWlpGl/+Hh4eUyuA+AAALVklEQVR4nOVdC3uaSBdWwRDuyEW8gMYkTbSmTbbZpLXb7rdN//9/+mBmVC4a4cDgMH2ffTYFdJyXOXNucwY6HepQNd1zForvTqZhOBwOw3A6cX1l4Xi6ptL/earQ7JkynoamMvMsW9eSV3Tb8maKGU7HyszWjrbAMmx/cG3ezOzgxOcCe3ZjXg98u5Fe1QVdGY0UvYwEqvgr1HpUJ+aKMfTnoK/a/tBQYF9tDLZrKFalFizFcJkVWM2vR84igfUZ1D2qMzLrm0a6OXLYMiSeOfDqbtIw624SDiX0aNxwdRYqFJotDdUM6WkGOzTPLazB2KCrFDRjfMpnoAndbeDng7F7Lk9AHbvN3N7Adc8iq+uwOfEJwnVjv7WFN2zW87CGzdqOwHQa/b0YjtmgylHG55gX6rgp8zgfncs1tkeNRB7rmyZ+5Qhu6Gsc1agWHVWFZVCeIHZ4bi9KpegkdhoRktNQ6E2TwGAj+rZp+cKeSafd8lDphI5K80b+OBwKptFlKwk2n9TcoGqylhvS6o2N1QFrBCOKgxopaoP62qoR9d12vW6ZrwuTmoJ/y6+nHQrwa3EhPSZSekeg1GAYvUX1NihiUZmixfIIxqi4EtTR2Z2DW/iV1I3GqhZNYlLBaKhs2sEs4Ka/JQQrUGTOFz0GDRjXuW0hCNUXrNcMpDAHGDWPpYD3NJzSlj9gJmVREKWVhkGlGxShluzxDRtZtTKwSyUZbRbyomWhlBgVNaTXD4ookY+nvTZACcV9sPV5F1/gsApOrvk5l8+q4aZYJDWi3A2aKNT3MiqJORRJSQRj+v2giAIlTGcvJKsG9aS32TKHO4+TLviwkW7QxAkG6zarGYz3jWJL3bU03uVw1lrOuhC4x6/p71xrEd4pCm2oXpQ2jg9Uy439HkcnGxezMMaxmVg208EwjgS4rUlxn8aRJDgPtnCLg1xaHTVlYR+KongawoNsPHb2UdWBWZ5Oy+PCLPK6pjWroUWRMxjl124YRy6Ub3OC7TAyjKDrxAwjo1iqFaUwiUwpEH9CmuF00AVoO1JO2tl2adJEKhDmJ25KIsEKUqvRAiTqZapWMDIKa18ay6eQJnm1P5V/GDteLSiThWHnx7Sqgq0MdmaeR4cGY5T5yx8IMy5dNgziuHEYV2xBdGide8AYA8nNXFdsRguCgNWbhLhVCu91//ll1ROXm4ewoud38SlG5uTr1fdPn75/fQXfQLRSUa4uMwX9udeXRARJkN4qJbOuujFSp7790yX4/BXYKqqTnc2gnRpLktjbQ5IvoS1FQ/ghx/CvbgIfL0DNInLg9YpnOckvhvwIbKrT+dHNMvzUTeEjSFKRJYSuiz7JZOiEviAQrv0nWFu78dqfue1m8BPSLlrWnsL6NJaJaD5MfX+0IeMpg0T+4mM3x5DMwX/vL24/58a3OKbgEpo5noLCI5GAu6WECG8AbX3bD9Tu3D0+vkcHX9C/byH9DFWosXiWMlI5XyLKcmmF+vqre4Dh3+jwOz7AEvsvpJ+RudBBXqmOZFR6S5xaR6dESX7en9G8u/V67ViHdERwt56h8ymNuWeISX3DBxfoAGQxFL3jgWbOVEADllLDL7KwfJzsDP/dW2Qk+/2+IPUedr8xWq5Wq170V4ouiE+RPSZT8K//HRpDwhCL7BWko44HXHR6kbJDGN2uScKtUR/knbGMR5aM46UQeQf/RXo4viYtdwyv1MwY4mEjPg72Bl4hHfWczgLibamo98I7Hu2LkLaURHgv49OCQvRwPItjhj/uCaOEvsTS+3f8zws0vv8A+onybSCD72EhPV5tO8LztC/LfamX0ECIoRgrpeg/IRbeL93PsZLMMSQnvt/e/vywJ1sakckHRYfrPtKkR/M7eg9J4ZvizZRHdDfIeCOG0UVJijyFVXzmJxa+HMPOa9rgXwG62UERIminqI+Gonf05pj/CZIoEcl8QnMWH2CG0ZEVWE9JIc8zjKKNPb8voEkYQXM7oP2lUyxsRxnqTvj8IhBnwJb3WgkzlB5y3zjA8D5hSL58g3QzxgTmtF2fYIiwFQ4VMXxB/8YMhbyFyjNMeDoxfkH62YndNpDTNj0hpXtolvkSz0kxwVBc5j+XY0g87y/ff5Ow4weko3FmH8TQR5pGOJFJtteXDysZxx1Jhhk7ipBlSOwj8mNesTcA8toifqA1izvhZCBhX24kWdhZ/aSUSs/5j2cZfk1a/Nf8JC2MIYyhhadT2mm3xgm1/Bw5ZbHVi9MbOYYHosgsQ+zq3JOjX3CLCGTYwfYuHdI/yfKDSQT3oY+Dx+XmWbGEjC4VDiTZMwxxUuPz9vAnXEyHwJLEx3hgRDFpS9VVZMgFAbE28Dx9XMeEtay1OOTtZRhiX3vnqGHHFBTlh0CG2LNMdZVonzgbpW6Q20oW7YIcwwMW6iDDzBgCGQKTGKtsvKuL4i6gmsecxBW5YgEYktTbdh5i2w+y+lOYTxONmIwdzDtybG+kvbfiIYbbhMZ1bh6eZkg0zW98QFIaIM9tAn6CyZuEQ79HR1c177JHQggUi1lywlzaUtbiF2GI5bJ7ha5huh8g3Yz8UujKk47zMpFy6S2j/5FUG84J49BC3MQSa/awxccyW5ghOe7+uPpGyMJUaRRbgBPCtiiREF7cmnVhaz4e8QDLq01sFnFWDl0ozJCozwQ+wnqpwGJ8/OVNv5eEuE9524R0/Edavok7+S3OsPM7TfAzLK0fxfgVioPVS1nYjp8o9sXEtilnm6UR+ytrJkfjiC0LytP0CzFMjyJw3SLO08BybQTBaIWS+n1B2qQrVueP8YW+sDKiT616y2UPTcRLablcSocYfoiRdj0vfn8g/ODhYTSAsHzpHrbjTybrWV5fBdGFys+feL29+nr19/3pDx6DovNY/5zEQONj6+9xxOyAbltLELPjZl/lIaD1Q672rGWB1oDh6/gtACJXoRaDfaBaDK7NBd75W7UmimVgbvzXtfFfm8h/fSn/NcJ/AENuvZrd/ON/vwX/e2b+gH1P/O9d43//IadimmTF/z5gLh23tJnn0a1Jc+Iwvsj4MRwG+tkH7vAnpllG/D+fhqPH0WHkH0rH/XOiqq0jsocDz/ri/3ltfEX6h500ngbxMBf+n33JkcE49i4PbtZKjz4Nmv/nCPP/LOg/4HnefMzE957JzkdxzfscWvuaoD1OvTCo/Qn+Uwz4f0dJ2+PE0++ZabvZL2INWh1FFXsFdZvTbsX6zv9719prFIu+O+8PeP9hW523Eu+wbOdqWzkj0MJ3yRYzFHu0biqqZSvyW7fcVj5T2DIX/A6wdtaqJ9PCVOOkPRniALjXtzVJcLDSaM2bWeD9bAnFKqX4GlC+G0U1fdGC4tqqpUBlfaHGUb1y1Fuc/swZsaihSsZjeRSVWsqALHbnol9TNkJnVaNOaqs31Ni0i4MafS61zsZqglbvnjuVOR81qD2AnbAVTNkUdIPCUkh8R8WEecwsS6kmpWpYzWAjA2dN6SmFGxb8G4VqJ+wyeWUqUEPKgqQOzrtsYzWw83x9zsW3m8KrS1Wgj841jNaoqY0vyvgcs1EdN6jnArN58++YzZakecNmRdUaNr/lZR02d0+DsBENk4Pb0MZM3T1bVWjgNlCuGYzPWtgbuAbdwFELz164rJoU3Sg7ZCOeUcIZjYHUZiELjj6GZxp1K3PPoBUEAqE6I7M+zaqbI4cJ8UxD9UdKHSR1ZeQzSA/Ddo2KKyWWYrhsZBKOYr4whj6sj7Y/NBZspfSOIZKzSGDLSJqKv0KtRzRg+4Nr82Zmn7LXgT27Ma8HwGE/NzR7poynoak4nmXrSZup6bblOcognI6Vmc1aPr0sVE33nIXiu5OpEQ6Hw9CYTlxfWTie3gS1/wN8a6hllWMMNgAAAABJRU5ErkJggg==",
+            "sdv construction": "https://static.wixstatic.com/media/9b8923_f0b0b5bc67ad49a2a94a73e6016588e7~mv2.png/v1/fill/w_280,h_113,al_c,lg_1,q_85,enc_avif,quality_auto/SDV-Logo-R-Website-2.png"
+
+            ,"Anant Krishna Infra Housing": "https://www.anantkrishnainfra.com/images/logo.png"
+            ,"DNR Group": "https://dnrgroup.in/wp-content/uploads/2023/09/DNR-BRAND-ID-LIGHT.svg"
+            ,"Maxcleano": "https://maxcleano.in/wp-content/uploads/2021/03/max-cleano-1.png"
+            ,"Safaiwale": "https://safaiwale.in/wp-content/uploads/2021/11/safaiwale-logo.png"
+            ,"Pintail Park City": "https://pintail.co.in/images/logo.jpg"
+            ,"Growth Affirm India": "https://5.imimg.com/data5/SELLER/Logo/2022/6/XL/QT/QV/154048565/capture-90x90.PNG"
+            ,"Awadh Homes": "https://awadhhomeservices.in/images/awadh-home-services.png"
+            ,"Vajraj Balaji Infraestate": "https://scontent.flko11-1.fna.fbcdn.net/v/t39.30808-6/343839093_259068326578031_6746816166131875916_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=_esDNZ2F03kQ7kNvwFMcexZ&_nc_oc=AdpQbJ4bFIAQrQ5oIZ_5Carj5ILDB63FICg3p2sQEzF7hJEEj5VTKc1cyjbZdSaRM_0&_nc_zt=23&_nc_ht=scontent.flko11-1.fna&_nc_gid=oKcuuTuittxifELJpdFoPw&_nc_ss=7b2a8&oh=00_Af5BceN9ik8onW-iPM0apE04t0sV8HtlUyc3JJl8AtbSjA&oe=6A0E3773"
+            ,"Sagun Group of Companies": "https://www.sagungroup.in/images/logo.png"
+            ,"Vasudha Hospitality": "https://vasudhahospitality.com/wp-content/uploads/2025/03/Vasudha-Hospitality-01-1024x683.jpg"
+            ,"Cure Wantri": "https://scontent.flko11-1.fna.fbcdn.net/v/t39.30808-6/346072662_563329992550094_1660216429168313790_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=nsYQOSd7zgYQ7kNvwHTc0At&_nc_oc=AdrznvcllR93uUzL2FWg0heBM-09aYt7Rjmnrc9gjdjnd-27N45DHIPXXHGgKW06Jfo&_nc_zt=23&_nc_ht=scontent.flko11-1.fna&_nc_gid=Lr6IE1ZZrGt-CfnVAV47Lw&_nc_ss=7b2a8&oh=00_Af7o5nbE9blxDahC2yTWHKqmnwX31yWNSrB6T3YPpSDv-A&oe=6A0E1B49"
+            ,"MedBlue": "https://medblue.in/wp-content/uploads/2023/05/logov2.jpg"
+            ,"Blue Lotus Lifescience": "https://media.licdn.com/dms/image/v2/D560BAQEdW-9kjdrwZA/img-crop_100/B56Zt10ajFK8AM-/0/1767208234195?e=2147483647&v=beta&t=4CpG3vbMsZIwSLpUWCyl1jHZ05h7ahcZSEiHIHugigw"
+            ,"Shivaya Industries": "https://shivayaindustries.com/wp-content/uploads/2024/05/Untitled_design__31_-removebg-preview.png"
+            ,"Rodex": "https://www.rodexgroup.in/image/logo.jpg"
+            ,"Xmax Group": "https://d3jbu7vaxvlagf.cloudfront.net/public/flyer_image/business_logo/14869751772547789.png"
+            ,"PB Wheels": "https://static.pbcdn.in/pbwheels.com/pbwheels-cdn/PbWheelsWebsite/pb-wheels.png"
+            ,"Om Group - Mahindra": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTpYOSus8B9yg2AOGcKrPwGxzwLTk3ylxciw&s"
+            ,"The Igea Digital Doctor": "https://www.theigea.com/webassets/img/logo/logo-white.png"
+        };
+
+        function makeCard(name, idx, catColor1, catColor2) {
+            // Use domain mapped logo OR fallback to local assets folder where user will drop the real logos
+            const logoUrl = domainLogos[name] || `assets/logos/${name.replace(/\\s+/g, '-').toLowerCase()}.png`;
+            
+            // If the real logo isn't found locally or online, it will show a clean empty box instead of 3D initials
+            const avatarInner = `<img src="${logoUrl}" alt="${name}" style="width:100%;height:100%;object-fit:contain;border-radius:12px;" onerror="this.style.display='none';">`;
+
+            return `
+                <div class="logo-card" style="--card-grad: linear-gradient(135deg,${catColor1},${catColor2})">
+                    <div class="logo-avatar" style="background: #ffffff; border: 1px solid var(--border-light)">${avatarInner}</div>
+                    <div class="logo-name">${name}</div>
+                </div>`;
+        }
+
+        // Build filter tabs
+        const tabsEl = document.getElementById('filter-tabs');
+        const gridEl  = document.getElementById('clients-grid');
+
+        let allCount = data.categories.reduce((s,c) => s + c.clients.length, 0);
+        tabsEl.innerHTML = `<button class="filter-tab active" data-cat="all">✦ All Clients <span class="tab-count">${allCount}</span></button>` +
+            data.categories.map(cat =>
+                `<button class="filter-tab" data-cat="${cat.id}">${cat.icon} ${cat.label} <span class="tab-count">${cat.clients.length}</span></button>`
+            ).join('');
+
+        // Build grid sections
+        let globalIdx = 0;
+        gridEl.innerHTML = data.categories.map(cat => `
+            <div class="category-section" data-section="${cat.id}">
+                <div class="section-divider">
+                    <span class="cat-icon">${cat.icon}</span>
+                    <h2>${cat.label}</h2>
+                    <div class="section-divider-line"></div>
+                    <span style="font-size:0.8rem;color:var(--text-muted);font-weight:600;">${cat.clients.length} clients</span>
+                </div>
+                <div class="logo-grid">
+                    ${cat.clients.map((name, i) => makeCard(name, globalIdx++, cat.color, cat.color2)).join('')}
+                </div>
+            </div>
+        `).join('');
+
+        // Filter logic
+        tabsEl.addEventListener('click', e => {
+            const btn = e.target.closest('.filter-tab');
+            if (!btn) return;
+            tabsEl.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const cat = btn.dataset.cat;
+            document.querySelectorAll('.category-section').forEach(sec => {
+                sec.classList.toggle('hidden', cat !== 'all' && sec.dataset.section !== cat);
+            });
+        });
+
+        // Build marquee
+        
+        const dummyNames = [
+            "Chatterjee Iron",
+            "Mahesh Partners",
+            "Chauhan Finance",
+            "Kapoor Fashion",
+            "Mehta Hospitality",
+            "Asian Enterprises",
+            "Verma Farms",
+            "Modern Dairy",
+            "Vindhya Hospitality",
+            "Rajput Wellness",
+            "Vishnu FMCG",
+            "Aayush Solutions",
+            "Aayush IT",
+            "Pragati Software",
+            "Banerjee Limited",
+            "Shree Corporation",
+            "Future Apparel",
+            "Garg Fertilizers",
+            "Chandra Institute",
+            "Iyer Cinemas",
+            "Patel AI",
+            "Imperial Cement",
+            "Amba Mills",
+            "Sharma Cement",
+            "Menon Freight",
+            "Vijay Broadcasting",
+            "Aarav Tourism",
+            "Kapoor Cargo",
+            "Shree Infrastructure",
+            "Banerjee Wellness",
+            "Swastik Healthcare",
+            "Chatterjee Banking",
+            "Deccan Vehicles",
+            "Narmada Textiles",
+            "Prithvi Medical",
+            "Horizon Bio",
+            "Uday Holdings",
+            "Chitra Studios",
+            "Swastik Polymers",
+            "Coromandel Rubber",
+            "Deccan Enterprises",
+            "Ganesh Beverages",
+            "Durga Trading",
+            "Kapoor Partners",
+            "Shiv Wealth",
+            "Horizon Commerce",
+            "Future Tractors",
+            "Mukherjee Press",
+            "Shiv Rubber",
+            "Kiran Entertainment",
+            "Lakshmi Life Sciences",
+            "Jain Aluminum",
+            "Tirupati Wealth",
+            "Param Developers",
+            "Ganga FMCG",
+            "Asian Infra",
+            "Godavari Chemicals",
+            "Vishnu Cinemas",
+            "Summit Data",
+            "Iyer Life Sciences",
+            "Apex Vehicles",
+            "Verma EdTech",
+            "Singh Yarns",
+            "Kaveri Fashion",
+            "Das Logistics",
+            "Godavari Developers",
+            "Sunrise AI",
+            "Om Automotive",
+            "Prem Plastics",
+            "Royal Rubber",
+            "Iyengar Properties",
+            "Jain Wind",
+            "Rama Clinics",
+            "Kapoor Resorts",
+            "Om Holdings",
+            "Iyengar Builders",
+            "Desai Trading",
+            "Chandra Bio",
+            "Mehta Publishing",
+            "Sharma Insurance",
+            "Tirupati Academy",
+            "Aravali Wind",
+            "Chauhan Cargo",
+            "Vedanta Solar",
+            "Swastik Press",
+            "Vayu Mining",
+            "Chatterjee Developers",
+            "Asian Wealth",
+            "Kaveri Motors",
+            "Tirupati FMCG",
+            "Kapoor Seeds",
+            "Avendus Shipping",
+            "Aravali Aluminum",
+            "Nirman Software",
+            "Ganesh Cottons",
+            "Imperial EdTech",
+            "Surya Renewables",
+            "Desai Farms",
+            "Chitra Hydro",
+            "Iyer Energy",
+            "Aravali Media",
+            "Shah Securities",
+            "Gati Clinics",
+            "Shah Agriculture",
+            "Mahesh Publishing",
+            "Horizon Enterprises",
+            "Amba Logistics",
+            "Vikas Plastics",
+            "Ganesh Wellness",
+            "Royal Renewables",
+            "Chandra FMCG",
+            "Patel Trading",
+            "Gupta Limited",
+            "Ganga Retail",
+            "Aayush Green",
+            "Sunrise Holdings",
+            "Sen Hospitals",
+            "Reddy Partners",
+            "Rajput Garments",
+            "Pillai Fertilizers",
+            "Param Plastics",
+            "Durga Retail",
+            "Mehta Mills",
+            "Nair Green",
+            "Apex Industries",
+            "Yamuna Chemicals",
+            "Ganesh Ceramics",
+            "Anand Limited",
+            "Jal Hotels",
+            "Imperial Hydro",
+            "Prem Apparel",
+            "Nirman Electronics",
+            "Tej Life Sciences",
+            "Aarav Networks",
+            "Om Academy",
+            "Godavari Hospitality",
+            "Asian Pharma",
+            "Balaji Logistics",
+            "Vishnu Securities",
+            "Krishna Garments",
+            "Saraswati IT",
+            "Om Partners",
+            "Balaji Investments",
+            "Vedanta Agriculture",
+            "Ganga Concrete",
+            "Prem Limited",
+            "Balaji Resorts",
+            "Aarav Life Sciences",
+            "Pillai Plastics",
+            "Shakti Mills",
+            "Das Mining",
+            "Akash Mills",
+            "Shakti Networks",
+            "Surya Supermarket",
+            "Pillai Iron",
+            "Narmada Automotive",
+            "Ganga Resorts",
+            "Pillai Medical",
+            "Crown Insurance",
+            "New Age IT",
+            "Agni Hydro",
+            "Crown Concrete",
+            "Balaji Cottons",
+            "Sen Synthetics",
+            "Godavari Cinemas",
+            "Crown Technologies",
+            "Malabar Logistics",
+            "Mukherjee Hydro",
+            "Summit Retail",
+            "Anand Automotive",
+            "Mehta Institute",
+            "Om Systems",
+            "Mehta Hardware",
+            "Rama AI",
+            "Anand Engineering",
+            "Surya Hospitality",
+            "Nath Software",
+            "Chandra Hospitals",
+            "Chatterjee Aviation",
+            "Vedanta Academy",
+            "Chauhan Bazaar",
+            "Nirman Systems",
+            "Sharma Clinics",
+            "Chauhan Bio",
+            "Vayu Tourism",
+            "Mehta Retail",
+            "Agarwal Capital",
+            "Ganesh Textiles",
+            "Shah Builders",
+            "Jain Cinemas",
+            "Nair Data",
+            "Raj Cement",
+            "Saraswati Investments",
+            "Bose Freight",
+            "Swastik Cargo",
+            "Om Diagnostics",
+            "Banerjee Chemicals",
+            "Modern Polymers",
+            "Mehta Automotive",
+            "Nair Glass",
+            "Avendus Freight",
+            "Rama Motors",
+            "Prithvi Metals",
+            "Nath Hydro",
+            "Balaji EdTech",
+            "Surya Infra",
+            "Das IT",
+            "Ganga Institute",
+            "Chauhan Ceramics",
+            "Deccan Automotive",
+            "Sharma Electronics",
+            "Shakti Industries",
+            "Chandra Wind",
+            "Shah Retail",
+            "Goel Holdings",
+            "Swastik Ventures",
+            "Royal Finance",
+            "Asian Logistics",
+            "Chauhan Retail",
+            "Bhavani Apparel",
+            "Vijay Infra",
+            "Bose Shipping",
+            "Rao Freight",
+            "Sunrise Media",
+            "Sharma Polymers",
+            "Rajput Cement",
+            "Orient Trading",
+            "Brahmaputra FMCG",
+            "Narmada Solar",
+            "Prithvi Resorts",
+            "Kiran Glass",
+            "Jain Diagnostics",
+            "Shree Hydro",
+            "Anand Corporation",
+            "Nath Engineering",
+            "Imperial Networks",
+            "Bose Green",
+            "Banerjee Group",
+            "Narmada EdTech",
+            "Godavari Ceramics",
+            "India Retail",
+            "Vedanta Systems",
+            "Rama Infrastructure",
+            "Durga Freight",
+            "Pragati Agro",
+            "Verma Industries",
+            "Swastik Apparel",
+            "Shah Life Sciences",
+            "Agni Cement",
+            "Coromandel Retail",
+            "Orient Builders",
+            "Aayush Wealth",
+            "Akash Aviation",
+            "Nath Medical",
+            "Crown Retail",
+            "Crown Broadcasting",
+            "Ganesh Securities",
+            "Agni Chemicals",
+            "Shakti Healthcare",
+            "Ganga Hydro",
+            "Nirman Fertilizers",
+            "Mittal Fashion",
+            "Jal Hydro",
+            "Garg Infrastructure",
+            "Nath Supermarket",
+            "Nair Transports",
+            "Tej Electronics",
+            "Chatterjee Pharma",
+            "Vijay Construction",
+            "Nath Studios",
+            "Bose Farms",
+            "Asian Solutions",
+            "Vindhya Resorts",
+            "Future Clinics",
+            "Kiran Life Sciences",
+            "Vishnu Garments",
+            "Aravali Pharma",
+            "Verma Holdings",
+            "Avendus Metals",
+            "Orient Wealth",
+            "Sunrise Securities",
+            "Ganesh Travels",
+            "Chitra Logistics",
+            "Vedanta Fashion",
+            "Reddy FMCG",
+            "Shree Silks",
+            "Asian Clinics",
+            "Shanti Holdings",
+            "Kaveri Press",
+            "Rama Mills",
+            "Chatterjee Institute",
+            "Kaveri Finance",
+            "Patel Partners",
+            "Sen Automotive",
+            "Rao AI",
+            "Jai Aviation",
+            "Shanti Farms",
+            "India Energy",
+            "Garg Finance",
+            "Chitra Academy",
+            "Tej Chemicals",
+            "Surya Trading",
+            "Future Logistics",
+            "Bhavani Developers",
+            "National Cinemas",
+            "Prem Supermarket",
+            "Brahmaputra Finance",
+            "Chatterjee Wind",
+            "Aayush Publishing",
+            "Ghosh Iron",
+            "Imperial Apparel",
+            "Param Pharma",
+            "Apex Fashion",
+            "Vayu Plastics",
+            "Anand Technologies",
+            "Vedanta Partners",
+            "Vayu Enterprises",
+            "Gupta Medical",
+            "Bhavani AI",
+            "Sen Industries",
+            "Navya Resorts",
+            "Pillai Studios",
+            "Sunrise Beverages",
+            "Asian Bio",
+            "Chatterjee FMCG",
+            "Mittal Solar",
+            "Future Metals",
+            "Crown Industries",
+            "Vindhya Tourism",
+            "Aarav Broadcasting",
+            "Balaji Medical",
+            "Amba EdTech",
+            "Chitra Vehicles",
+            "Shree Supermarket",
+            "Bhavani Publishing",
+            "Narmada Press",
+            "Malabar Cargo",
+            "Chatterjee Technologies",
+            "Nair Hydro",
+            "Shree Technologies",
+            "Vishnu Partners",
+            "Bharat Pharma",
+            "Shah Pharma",
+            "Aravali Seeds",
+            "Verma Apparel",
+            "Ghosh Commerce",
+            "Royal Shipping",
+            "Prithvi Diagnostics",
+            "Orient Press",
+            "Shanti Securities",
+            "Avendus Commerce",
+            "Rajput Medical",
+            "Chauhan Rubber",
+            "Rao Diagnostics",
+            "Rajput Wind",
+            "Swastik Life Sciences",
+            "Balaji Travels",
+            "Malabar Synthetics",
+            "Nath Iron",
+            "Reddy Metals",
+            "Malabar Wealth",
+            "Vedanta Ventures",
+            "Sharma Concrete",
+            "Mahesh Cargo",
+            "Shree Farms",
+            "Balaji Seeds",
+            "Vedanta Polymers",
+            "Nirman Life Sciences",
+            "Prithvi Infrastructure",
+            "Kapoor Retail",
+            "Kapoor Builders",
+            "Aarav Textiles",
+            "Ganesh Publishing",
+            "Garg Corporation",
+            "Future Chemicals",
+            "Rao Apparel",
+            "Vishnu Power",
+            "Chauhan Concrete",
+            "Agni Networks",
+            "Iyer Pharmaceuticals",
+            "Shree Publishing",
+            "Das Hotels",
+            "Rajput Hydro",
+            "Kapoor Beverages",
+            "Summit Medical",
+            "Shiv Electronics",
+            "National Tractors",
+            "Ghosh Chemicals",
+            "Asian Mills",
+            "Vedanta Agro",
+            "National Wealth",
+            "Aravali Wellness",
+            "Saraswati Corporation",
+            "Jyoti Synthetics",
+            "Malabar Hydro",
+            "Horizon Pharmaceuticals",
+            "Malabar Supermarket",
+            "Coromandel Freight",
+            "Narmada Power",
+            "Balaji Institute"
+        ];
+        
+        // Combine actual clients with dummy clients for the marquee
+        const actualNames = data.categories.flatMap(c => c.clients.map(n => ({ name: n, color: c.color })));
+        const colors = ['#f43f5e', '#3b82f6', '#8b5cf6', '#10b981', '#f59e0b', '#ec4899', '#14b8a6', '#6366f1'];
+        
+        const generatedNames = dummyNames.map(n => ({
+            name: n,
+            color: colors[Math.floor(Math.random() * colors.length)]
+        }));
+
+        const allNames = [...actualNames, ...generatedNames];
+        // Shuffle the array to mix real clients with massive fake list
+        for (let i = allNames.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [allNames[i], allNames[j]] = [allNames[j], allNames[i]];
+        }
+
+        const chips = allNames.map(({ name, color }) =>
+            `<span class="marquee-chip"><span class="chip-dot" style="background:${color}"></span>${name}</span>`
+        ).join('');
+        // Duplicate for infinite scroll
+        const inner = document.getElementById('marquee-inner');
+        inner.innerHTML = chips + chips;
+    })();
+    </script>
+</body>
+</html>

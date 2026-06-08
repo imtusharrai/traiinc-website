@@ -1,0 +1,48 @@
+{
+  "header": {
+    "subtitle": "WHO WE ARE",
+    "title": "About Trai"
+  },
+  "intro": {
+    "text": "Trai Inc is a technology-first company on a mission to democratize enterprise-grade software for businesses of every size. We combine deep engineering expertise with sharp product thinking to build systems that scale. From startups to established enterprises, we are the engineering partner that turns complex problems into elegant solutions."
+  },
+  "journey": {
+    "subtitle": "OUR JOURNEY",
+    "title": "Milestones and Accomplishments"
+  },
+  "team": {
+    "subtitle": "LEADERSHIP TEAM",
+    "members": [
+      {
+        "name": "Tushar Rai",
+        "role": "Founder & CEO",
+        "image": "https://api.dicebear.com/9.x/micah/svg?seed=Tushar%20Rai&backgroundColor=f0f0f0,e0e0e0"
+      },
+      {
+        "name": "Neha Sharma",
+        "role": "VP of Engineering",
+        "image": "https://api.dicebear.com/9.x/micah/svg?seed=Neha%20Sharma&backgroundColor=f0f0f0,e0e0e0"
+      },
+      {
+        "name": "Harsh Pandey",
+        "role": "Head of Cloud Architecture",
+        "image": "https://api.dicebear.com/9.x/micah/svg?seed=Harsh%20Pandey&backgroundColor=f0f0f0,e0e0e0"
+      },
+      {
+        "name": "Pallavi Mehta",
+        "role": "Head of Product & Design",
+        "image": "https://api.dicebear.com/9.x/micah/svg?seed=Pallavi%20Mehta&backgroundColor=f0f0f0,e0e0e0"
+      },
+      {
+        "name": "Vineet Saxena",
+        "role": "Lead Full-Stack Engineer",
+        "image": "https://api.dicebear.com/9.x/micah/svg?seed=Vineet%20Saxena&backgroundColor=f0f0f0,e0e0e0"
+      },
+      {
+        "name": "Shipra Singh",
+        "role": "Head of AI & Data Science",
+        "image": "https://api.dicebear.com/9.x/micah/svg?seed=Shipra%20Singh&backgroundColor=f0f0f0,e0e0e0"
+      }
+    ]
+  }
+}

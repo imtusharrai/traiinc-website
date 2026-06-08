@@ -1,0 +1,133 @@
+{
+  "header": {
+    "subtitle": "CAREERS",
+    "title": "Build what matters. Ship what scales.",
+    "description": "We're a team of engineers, designers, and product thinkers who believe great software changes everything. If you're passionate about clean code, scalable systems, and solving hard problems — we want to hear from you."
+  },
+  "values": {
+    "title": "Engineering Culture",
+    "items": [
+      { "icon": "🚀", "title": "Ship Fast, Ship Right", "desc": "We move quickly without cutting corners. CI/CD, code reviews, and automated testing are non-negotiable." },
+      { "icon": "🎯", "title": "Own the Outcome", "desc": "Every engineer owns their feature end-to-end — from architecture to deployment to monitoring." },
+      { "icon": "🧠", "title": "Stay Curious", "desc": "We invest in R&D time, conference talks, and open-source contributions. Learning never stops." },
+      { "icon": "🏗️", "title": "Build for Scale", "desc": "We design systems to handle 10x growth from day one. Performance and reliability are first-class citizens." }
+    ]
+  },
+  "benefits": {
+    "title": "WHY JOIN TRAI",
+    "items": [
+      { "icon": "💻", "title": "Top-tier Equipment", "desc": "MacBook Pro, 4K monitors, and all the tools you need" },
+      { "icon": "📚", "title": "Learning Budget", "desc": "Annual stipend for courses, conferences, and certifications" },
+      { "icon": "🌍", "title": "Remote-first", "desc": "Work from anywhere — we're distributed by default" },
+      { "icon": "⏳", "title": "Flexible Hours", "desc": "Async-friendly culture. Results over hours." },
+      { "icon": "💰", "title": "Equity & Bonuses", "desc": "Competitive comp with stock options for early joiners" },
+      { "icon": "📈", "title": "Career Growth", "desc": "Clear IC and management tracks with mentorship" },
+      { "icon": "🌴", "title": "Team Retreats", "desc": "Annual off-sites to connect and recharge" }
+    ]
+  },
+  "openings": {
+    "title": "OPEN POSITIONS",
+    "sections": [
+      {
+        "category": "For Students: Internship Program",
+        "subtitle": "Are you a student or recent grad? Apply below to kickstart your career by building real AI products under senior mentorship.",
+        "apply_link": "https://docs.google.com/forms/d/e/1FAIpQLSe1p9f_UHAErIYO5a351uyoI910qbJADyTEMBtpgDJO8JEapA/viewform?usp=sharing&ouid=109114048086511742245",
+        "apply_text": "Apply for Internship",
+        "jobs": [
+          {
+            "title": "AI Agent & Prompt Engineer Intern",
+            "location": "Remote",
+            "type": "Internship",
+            "desc": "Master Agentic AI and enterprise automation. Build custom RAG pipelines, design complex system prompts, and orchestrate autonomous AI agents using cutting-edge frameworks."
+          }
+        ]
+      },
+      {
+        "category": "For Experts: Freelance Network",
+        "subtitle": "Are you an experienced professional? We do not hire full-time employees. Instead, we partner with elite freelancers for project-based contracts. Send your CV/Portfolio to join our network.",
+        "apply_link": "mailto:hello@traiinc.com",
+        "apply_text": "Email Your Portfolio",
+        "jobs": [
+          {
+            "title": "AI Solutions Architect",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Partner with us on a project basis to design end-to-end AI solutions, generative AI integrations, and custom ML models."
+          },
+          {
+            "title": "AI Agent Orchestrator",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Take on specialized freelance contracts building multi-agent AI systems, voice agents, and lead scraping bots."
+          },
+          {
+            "title": "Senior Full-Stack Engineer",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Join our network for high-impact web development projects across React, Node.js, and headless CMS platforms."
+          },
+          {
+            "title": "Mobile App Developer (Flutter/Native)",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Freelance opportunities to build scalable iOS and Android applications for our enterprise clients."
+          },
+          {
+            "title": "Cloud & DevOps Engineer",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Architect and manage AWS/GCP infrastructure, Kubernetes clusters, and automated CI/CD pipelines."
+          },
+          {
+            "title": "Data Engineer / Analyst",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Design scalable data pipelines, ETL workflows, and real-time Power BI/Tableau dashboards."
+          },
+          {
+            "title": "UI/UX & Brand Designer",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Craft premium user interfaces in Figma, conduct user research, and build comprehensive brand identity systems."
+          },
+          {
+            "title": "Motion Graphics & 3D Artist",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Create stunning product demos, Lottie animations, and 3D architectural renders for modern web platforms."
+          },
+          {
+            "title": "SEO & Growth Strategist",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Drive digital growth through Technical SEO, Generative Engine Optimization, and paid ad campaigns."
+          },
+          {
+            "title": "Technical Content Copywriter",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Write high-converting SaaS copy, SEO blog strategies, and thought leadership articles for tech brands."
+          },
+          {
+            "title": "Enterprise CRM/ERP Specialist",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Consult and implement custom CRM systems, Salesforce/HubSpot migrations, and supply chain ERPs."
+          },
+          {
+            "title": "Cybersecurity & Compliance Consultant",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Conduct penetration testing and guide clients through SOC 2, HIPAA, and GDPR compliance audits."
+          },
+          {
+            "title": "App Store Publishing & Compliance Expert",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Manage end-to-end publishing, ASO, and strict compliance for iOS, Android, and Windows apps across all business categories (Fintech, Health, E-commerce)."
+          }
+        ]
+      }
+    ]
+  }
+}
