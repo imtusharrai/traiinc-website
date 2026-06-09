@@ -16,3 +16,7 @@ temp-search/
 # OS files
 Thumbs.db
 .DS_Store
+
+.dev.vars*
+!.dev.vars.example
+!.env.example
