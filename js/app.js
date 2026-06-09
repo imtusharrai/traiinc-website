@@ -294,11 +294,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if (renderFn && dynamicContainer) {
         try {
-            const response = await fetch(`data/${pageId}.json?v=` + new Date().getTime());
-            if (!response.ok) throw new Error("Network response was not ok");
-            const data = await response.json();
-
-            dynamicContainer.innerHTML = renderFn(data);
+            // Only fetch and re-render if the static HTML wasn't generated (i.e. if the loader is still there)
+            if (dynamicContainer.querySelector('.loader')) {
+                const response = await fetch(`data/${pageId}.json?v=` + new Date().getTime());
+                if (!response.ok) throw new Error("Network response was not ok");
+                const data = await response.json();
+                dynamicContainer.innerHTML = renderFn(data);
+            }
 
             initAnimations();
 

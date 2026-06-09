@@ -76,6 +76,10 @@ pages.forEach(page => {
     </script>`;
             finalHTML = finalHTML.replace('</head>', `${inlineScript}\n</head>`);
             
+            // Dynamically update cache buster for CSS and JS
+            const newVersion = Date.now();
+            finalHTML = finalHTML.replace(/v=\d+/g, `v=${newVersion}`);
+            
             // Save the statically generated file
             fs.writeFileSync(templatePath, finalHTML);
             console.log(`Static HTML generated successfully for SEO! (${page.file})`);
