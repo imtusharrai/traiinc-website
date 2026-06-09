@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 10-Point Cloud & Architecture Audit Checklist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0510;
+            --bg-card: #140d1c;
+            --accent-color: #E800D1;
+            --accent-gradient: linear-gradient(135deg, #FF2E93 0%, #FF8A00 100%);
+            --text-main: #ffffff;
+            --text-muted: #a09eb0;
+            --border-light: rgba(255, 255, 255, 0.08);
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        h1, h2, h3, .brand {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Cover Page */
+        .page {
+            width: 794px; /* A4 width */
+            height: 1123px; /* A4 height */
+            padding: 80px 60px;
+            position: relative;
+            overflow: hidden;
+            background: var(--bg-dark);
+            page-break-after: always;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cover {
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(circle at 50% -20%, #2a113a 0%, var(--bg-dark) 70%);
+        }
+
+        .brand-logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 60px;
+            color: var(--text-main);
+        }
+
+        .cover-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cover-subtitle {
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 60px;
+            font-weight: 300;
+        }
+
+        .disclaimer {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            padding: 30px;
+            border-radius: 16px;
+            text-align: left;
+            margin-top: auto;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        /* Content Pages */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .page-header .brand {
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .page-header .doc-title {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .audit-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .audit-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .audit-number {
+            background: var(--accent-gradient);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .audit-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .audit-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .checkboxes {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .box {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--border-light);
+            border-radius: 4px;
+            background: var(--bg-dark);
+        }
+
+        .cta-section {
+            background: var(--accent-gradient);
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--bg-dark);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .page-footer {
+            margin-top: auto;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-light);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cover Page -->
+    <div class="page cover">
+        <div class="brand-logo">TRAI INC.</div>
+        <h1 class="cover-title">The 10-Point Cloud & Architecture Audit</h1>
+        <p class="cover-subtitle">Stop burning money on bad architecture. Use this executive checklist to evaluate your startup's technical foundation.</p>
+        
+        <div class="disclaimer">
+            <h3 style="margin-bottom: 10px; color: var(--accent-color);">How to use this document</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Founders are often overpaying for cloud servers or dealing with brittle architecture left behind by cheap freelancers. If you check "No" on more than 3 of these items, your tech stack is actively bleeding money or creating massive security risks.</p>
+        </div>
+    </div>
+
+    <!-- Page 1 of Content -->
+    <div class="page">
+        <div class="page-header">
+            <div class="brand">TRAI INC.</div>
+            <div class="doc-title">Architecture Audit (1/2)</div>
+        </div>
+
+        <div class="audit-grid">
+            <div class="audit-card">
+                <div class="audit-number">1</div>
+                <div class="audit-content">
+                    <div class="checkboxes">
+                        <div class="checkbox-item"><div class="box"></div> YES</div>
+                        <div class="checkbox-item"><div class="box"></div> NO</div>
+                    </div>
+                    <h3>Database Indexing</h3>
+                    <p>Are your most heavily queried database columns properly indexed? Missing indexes are the #1 cause of high Cloud SQL bills and sluggish performance. A simple EXPLAIN ANALYZE on your top queries can save 80% on database costs.</p>
+                </div>
+            </div>
+
+            <div class="audit-card">
+                <div class="audit-number">2</div>
+                <div class="audit-content">
+                    <div class="checkboxes">
+                        <div class="checkbox-item"><div class="box"></div> YES</div>
+                        <div class="checkbox-item"><div class="box"></div> NO</div>
+                    </div>
+                    <h3>Unused Orphaned Resources</h3>
+                    <p>Have you audited your cloud provider for unattached EBS volumes, unassigned Elastic IPs, or idle EC2 instances? Orphaned resources silently drain your startup's runway every single month.</p>
+                </div>
+            </div>
+
+            <div class="audit-card">
+                <div class="audit-number">3</div>
+                <div class="audit-content">
+                    <div class="checkboxes">
+                        <div class="checkbox-item"><div class="box"></div> YES</div>
+                        <div class="checkbox-item"><div class="box"></div> NO</div>
+                    </div>
+                    <h3>CDN Caching Strategy</h3>
+                    <p>Are all your static assets (images, CSS, JS) and marketing pages served entirely via a global CDN like Cloudflare? Serving static assets directly from your origin server wastes bandwidth costs and slows down user experience.</p>
+                </div>
+            </div>
+
+            <div class="audit-card">
+                <div class="audit-number">4</div>
+                <div class="audit-content">
+                    <div class="checkboxes">
+                        <div class="checkbox-item"><div class="box"></div> YES</div>
+                        <div class="checkbox-item"><div class="box"></div> NO</div>
+                    </div>
+                    <h3>Autoscaling Configurations</h3>
+                    <p>Does your application automatically scale down to zero (or a bare minimum) during off-peak hours? If you are running the same amount of servers at 3:00 AM as you are at 3:00 PM, you are paying for unused compute.</p>
+                </div>
+            </div>
+
+            <div class="audit-card">
+                <div class="audit-number">5</div>
+                <div class="audit-content">
+                    <div class="checkboxes">
+                        <div class="checkbox-item"><div class="box"></div> YES</div>
+                        <div class="checkbox-item"><div class="box"></div> NO</div>
+                    </div>
+                    <h3>Secret Management</h3>
+                    <p>Are all API keys, database passwords, and environment variables stored in a secure secret manager rather than hardcoded? A single leaked key on GitHub can result in thousands of dollars in crypto-mining attacks overnight.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">traiinc.com/solutions | Enterprise IT Solutions</div>
+    </div>
+
+    <!-- Page 2 of Content -->
+    <div class="page">
+        <div class="page-header">
+            <div class="brand">TRAI INC.</div>
+            <div class="doc-title">Architecture Audit (2/2)</div>
+        </div>
+
+        <div class="audit-grid">
+            <div class="audit-card">
+                <div class="audit-number">6</div>
+                <div class="audit-content">
+                    <div class="checkboxes">
+                        <div class="checkbox-item"><div class="box"></div> YES</div>
+                        <div class="checkbox-item"><div class="box"></div> NO</div>
+                    </div>
+                    <h3>Monolithic vs. Microservices</h3>
+                    <p>Is your architecture appropriately sized for your team? Many startups prematurely adopt complex microservices (Kubernetes, Kafka) when a simple monolith would suffice, leading to massive DevOps overhead.</p>
+                </div>
+            </div>
+
+            <div class="audit-card">
+                <div class="audit-number">7</div>
+                <div class="audit-content">
+                    <div class="checkboxes">
+                        <div class="checkbox-item"><div class="box"></div> YES</div>
+                        <div class="checkbox-item"><div class="box"></div> NO</div>
+                    </div>
+                    <h3>Automated Backups & DR</h3>
+                    <p>Do you have daily automated database backups, and have you successfully tested a restoration in the last 6 months? A backup is worthless if you haven't proven you can restore it within your RTO.</p>
+                </div>
+            </div>
+
+            <div class="audit-card">
+                <div class="audit-number">8</div>
+                <div class="audit-content">
+                    <div class="checkboxes">
+                        <div class="checkbox-item"><div class="box"></div> YES</div>
+                        <div class="checkbox-item"><div class="box"></div> NO</div>
+                    </div>
+                    <h3>Log Management & Retention</h3>
+                    <p>Are your application logs automatically archived or deleted after 30 days? Keeping gigabytes of verbose debug logs in expensive storage solutions is a common cause of unexpected billing spikes.</p>
+                </div>
+            </div>
+
+            <div class="audit-card">
+                <div class="audit-number">9</div>
+                <div class="audit-content">
+                    <div class="checkboxes">
+                        <div class="checkbox-item"><div class="box"></div> YES</div>
+                        <div class="checkbox-item"><div class="box"></div> NO</div>
+                    </div>
+                    <h3>Next-Gen Image Formats</h3>
+                    <p>Are your user-uploaded images automatically compressed and converted to WebP or AVIF? Serving massive PNGs or JPEGs eats up your egress bandwidth and ruins your Core Web Vitals (SEO).</p>
+                </div>
+            </div>
+
+            <div class="audit-card">
+                <div class="audit-number">10</div>
+                <div class="audit-content">
+                    <div class="checkboxes">
+                        <div class="checkbox-item"><div class="box"></div> YES</div>
+                        <div class="checkbox-item"><div class="box"></div> NO</div>
+                    </div>
+                    <h3>Dependency Security Audit</h3>
+                    <p>Do you regularly run security audits (e.g., npm audit) to find and patch critical vulnerabilities in open-source dependencies? Outdated packages are the easiest vector for attackers to compromise your data.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Need help implementing this?</h2>
+            <p>If you ran this audit and realized your tech stack needs a serious overhaul before you scale, Trai Inc. can help. We offer a free 30-minute architecture review for founders.</p>
+            <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" class="cta-button">Book a Strategy Call</a>
+        </div>
+        
+        <div class="page-footer">traiinc.com/solutions | Enterprise IT Solutions</div>
+    </div>
+
+</body>
+</html>
