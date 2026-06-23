@@ -1,0 +1,86 @@
+{
+  "hero": {
+    "page_label": "📈 Built for Growing Businesses",
+    "title": "You have outgrown spreadsheets.<br>Now <span class=\"gradient-word\">what?</span>",
+    "subtitle": "Custom CRMs, workflow automation, and digital marketing systems that scale with your business — without the cost of an in-house IT team.",
+    "accent_colors": {
+      "primary": "#a1c4fd",
+      "secondary": "#c2e9fb"
+    },
+    "trust": {
+      "avatars": ["SG", "RC", "CC", "+"],
+      "count": "80+ SMBs"
+    },
+    "mockup": {
+      "metrics": [
+        { "label": "👥 Active CRM Users", "value": "450+", "color": "green" },
+        { "label": "⚡ Workflows Automated", "value": "12,000/mo", "color": "gold" },
+        { "label": "💰 IT Cost Savings", "value": "₹15L/yr", "color": "" },
+        { "label": "⭐ Client Retention", "value": "98%", "color": "green" }
+      ],
+      "cards": [
+        { "icon": "📊", "label": "Sales Dashboard", "value": "Live ✓", "active": true },
+        { "icon": "💬", "label": "WhatsApp Bot", "value": "Active", "active": false }
+      ]
+    }
+  },
+  "feature_pills": [
+    "✓ Custom CRM",
+    "✓ Workflow Automation",
+    "✓ Digital Marketing",
+    "✓ Data Dashboards",
+    "✓ WhatsApp Business",
+    "✓ E-commerce"
+  ],
+  "services": {
+    "subtitle": "WHAT WE BUILD",
+    "title": "Systems for Scale",
+    "items": [
+      {
+        "icon": "💼",
+        "title": "Custom CRM Systems",
+        "desc": "Stop paying per-user SaaS fees for bloated platforms. We build custom CRMs that perfectly map to your exact sales process. Track leads, manage pipelines, and automate follow-ups automatically without changing how you work."
+      },
+      {
+        "icon": "📈",
+        "title": "Marketing Automation",
+        "desc": "Accelerate your revenue with automated lead generation engines. We build social media workflows, email drip campaigns, and ad integrations that capture leads and funnel them directly to your sales team 24/7."
+      },
+      {
+        "icon": "📊",
+        "title": "Business Dashboards",
+        "desc": "Gain total operational visibility. We consolidate real-time metrics, sales tracking, and operational KPIs in one place, allowing founders and managers to make data-driven decisions instantly instead of waiting for end-of-month Excel reports."
+      },
+      {
+        "icon": "💬",
+        "title": "WhatsApp Business Integration",
+        "desc": "Meet your customers where they already are. We build automated WhatsApp responses, order capture workflows, and customer support bots directly into WhatsApp, dramatically increasing conversion and engagement rates."
+      }
+    ]
+  },
+  "industries": [
+    {
+      "icon": "🏠",
+      "title": "Real Estate & Construction",
+      "desc": "Lead capture pipelines, property management dashboards, and automated client communication tools tailored for real estate developers and agencies.",
+      "features": ["Lead Funnels", "CRM Integration", "Site Visit Booking", "WhatsApp Follow-ups"]
+    },
+    {
+      "icon": "🛍️",
+      "title": "Retail & Consumer",
+      "desc": "Omnichannel point of sale integrations, inventory tracking, and loyalty programs to help retail businesses scale operations smoothly.",
+      "features": ["Inventory Sync", "Loyalty Programs", "E-Commerce Integrations", "Sales Dashboards"]
+    },
+    {
+      "icon": "🛠️",
+      "title": "Home & Local Services",
+      "desc": "Job scheduling applications, automated invoicing, and field team tracking for service-based businesses like cleaning and maintenance.",
+      "features": ["Job Scheduling", "Automated Invoicing", "Field Tracking", "Review Automation"]
+    }
+  ],
+  "cta": {
+    "title": "Ready to scale your business?",
+    "description": "Book a free consultation and get a fixed-price proposal within 48 hours.",
+    "button_text": "📅 Get a Free Consultation"
+  }
+}
