@@ -1,48 +1,167 @@
 {
   "header": {
     "subtitle": "WHO WE ARE",
-    "title": "About Trai"
+    "title": "138+ Clients. 12+ Industries. Six Years of Engineering Excellence."
   },
   "intro": {
-    "text": "Trai Inc is a technology-first company on a mission to democratize enterprise-grade software for businesses of every size. We combine deep engineering expertise with sharp product thinking to build systems that scale. From startups to established enterprises, we are the engineering partner that turns complex problems into elegant solutions."
+    "text": "Trai Inc is a full-service IT solutions company headquartered in Lucknow, India. Since 2020, our team of engineers, designers, and strategists has delivered custom software, mobile apps, AI automation, cloud platforms, and digital marketing solutions for 138+ clients across 12+ industries — from local MSMEs to enterprise operations."
   },
-  "journey": {
-    "subtitle": "OUR JOURNEY",
-    "title": "Milestones and Accomplishments"
+  "numbers": {
+    "stats": [
+      { "value": "138+", "label": "Clients Served" },
+      { "value": "6+", "label": "Years in Business" },
+      { "value": "12+", "label": "Industries Covered" },
+      { "value": "50+", "label": "Enterprise Projects" }
+    ]
   },
   "team": {
     "subtitle": "LEADERSHIP TEAM",
+    "title": "The engineers and strategists behind our platform",
     "members": [
       {
         "name": "Tushar Rai",
         "role": "Founder & CEO",
-        "image": "https://api.dicebear.com/9.x/micah/svg?seed=Tushar%20Rai&backgroundColor=f0f0f0,e0e0e0"
+        "image": "assets/team/tushar_3d.png"
       },
       {
         "name": "Neha Sharma",
         "role": "VP of Engineering",
-        "image": "https://api.dicebear.com/9.x/micah/svg?seed=Neha%20Sharma&backgroundColor=f0f0f0,e0e0e0"
+        "image": "assets/team/neha_3d.png"
       },
       {
         "name": "Harsh Pandey",
         "role": "Head of Cloud Architecture",
-        "image": "https://api.dicebear.com/9.x/micah/svg?seed=Harsh%20Pandey&backgroundColor=f0f0f0,e0e0e0"
+        "image": "assets/team/harsh_3d.png"
       },
       {
         "name": "Pallavi Mehta",
         "role": "Head of Product & Design",
-        "image": "https://api.dicebear.com/9.x/micah/svg?seed=Pallavi%20Mehta&backgroundColor=f0f0f0,e0e0e0"
+        "image": "assets/team/pallavi_3d.png"
       },
       {
         "name": "Vineet Saxena",
         "role": "Lead Full-Stack Engineer",
-        "image": "https://api.dicebear.com/9.x/micah/svg?seed=Vineet%20Saxena&backgroundColor=f0f0f0,e0e0e0"
+        "image": "assets/team/vineet_3d.png"
       },
       {
         "name": "Shipra Singh",
         "role": "Head of AI & Data Science",
-        "image": "https://api.dicebear.com/9.x/micah/svg?seed=Shipra%20Singh&backgroundColor=f0f0f0,e0e0e0"
+        "image": "assets/team/shipra_3d.png"
       }
     ]
+  },
+  "model": {
+    "subtitle": "HOW WE WORK",
+    "title": "AI-Native Delivery at Scale",
+    "description": "We combine deep engineering expertise with AI-powered development tools to deliver faster, cleaner, and more cost-effective solutions than traditional agencies. Every project gets a dedicated team lead, transparent sprint updates, and direct access to the engineers building your product.",
+    "advantages": [
+      {
+        "icon": "⚡",
+        "title": "Dedicated Team",
+        "desc": "Every project is assigned a dedicated team lead and engineering resources. You get direct access to the people building your product."
+      },
+      {
+        "icon": "🧠",
+        "title": "AI-Augmented Speed",
+        "desc": "Our team uses AI development tools — Claude, Gemini, and agentic coding workflows — to deliver enterprise-quality work in half the time of traditional agencies."
+      },
+      {
+        "icon": "💰",
+        "title": "Fixed-Price Transparency",
+        "desc": "Every project is scoped upfront with a fixed price. No hourly billing, no surprise invoices, no scope creep negotiations."
+      },
+      {
+        "icon": "🔒",
+        "title": "Full IP Ownership",
+        "desc": "You own 100% of the code, design assets, and infrastructure. Complete handover with documentation. Zero vendor lock-in."
+      }
+    ]
+  },
+  "expertise": {
+    "subtitle": "OUR CAPABILITIES",
+    "title": "Full-Spectrum Engineering & Digital Services",
+    "areas": [
+      {
+        "icon": "💻",
+        "title": "Custom Software & Web Apps",
+        "desc": "Full-stack web platforms, SaaS products, admin dashboards, and enterprise tools built with React, Next.js, Node.js, and Python."
+      },
+      {
+        "icon": "📱",
+        "title": "Mobile App Development",
+        "desc": "Native and cross-platform mobile apps for iOS and Android using Flutter and React Native."
+      },
+      {
+        "icon": "🤖",
+        "title": "AI, Automation & Chatbots",
+        "desc": "Custom AI agents, WhatsApp Business API integration, workflow automation with n8n, and intelligent chatbots powered by LLMs."
+      },
+      {
+        "icon": "☁️",
+        "title": "Cloud & DevOps",
+        "desc": "Cloud migrations, serverless architecture, CI/CD pipelines, and infrastructure on AWS, Cloudflare, Firebase, and Vercel."
+      },
+      {
+        "icon": "🎨",
+        "title": "UI/UX & Brand Design",
+        "desc": "User research, wireframing, prototyping in Figma, brand identity systems, motion graphics, and presentation design."
+      },
+      {
+        "icon": "📈",
+        "title": "Digital Marketing & SEO",
+        "desc": "Local SEO, Google and Meta Ads, social media strategy, content marketing, email automation, and lead generation funnels."
+      },
+      {
+        "icon": "⚙️",
+        "title": "Enterprise Platforms",
+        "desc": "Custom CRM, ERP, HRMS, and project management systems tailored to your business workflows with real-time analytics."
+      },
+      {
+        "icon": "🔒",
+        "title": "Cybersecurity & Compliance",
+        "desc": "Security audits, penetration testing, zero-trust architecture, and compliance frameworks for SOC 2, GDPR, and data protection."
+      }
+    ]
+  },
+  "timeline": {
+    "subtitle": "OUR JOURNEY",
+    "title": "Six Years of Building",
+    "milestones": [
+      {
+        "year": "2020",
+        "title": "Founded Trai Inc",
+        "desc": "Launched as a digital marketing and software development firm in Lucknow, serving local businesses and startups."
+      },
+      {
+        "year": "2021",
+        "title": "Scaled to 50+ Clients",
+        "desc": "Expanded service offerings and team. Delivered websites, marketing campaigns, and software across hospitality, retail, and real estate."
+      },
+      {
+        "year": "2022-23",
+        "title": "Enterprise & International Expansion",
+        "desc": "Took on enterprise clients and expanded to international markets including the UK. Crossed 100+ total projects delivered."
+      },
+      {
+        "year": "2024",
+        "title": "AI-Native Transformation",
+        "desc": "Adopted AI-augmented development workflows across the team. Integrated Claude, Gemini, and agentic coding tools into daily operations."
+      },
+      {
+        "year": "2025-26",
+        "title": "138+ Clients & Product Launch",
+        "desc": "Crossed 138+ clients served. Began developing a proprietary SaaS product to scale the tools and systems that power client delivery."
+      }
+    ]
+  },
+  "incubation": {
+    "subtitle": "TALENT DEVELOPMENT",
+    "title": "Intern Incubator Program",
+    "text": "We run an active intern incubation program training the next generation of engineers and marketers. Interns work on real client projects from day one, learning production-grade development, AI-native workflows, and professional delivery under mentorship from our senior team."
+  },
+  "cta": {
+    "title": "Ready to Build Something Exceptional?",
+    "description": "Tell us about your project. Our team will scope it and deliver a fixed-price proposal within 48 hours.",
+    "button_text": "Book a Free Consultation"
   }
 }

@@ -1,36 +1,122 @@
 {
   "header": {
-    "subtitle": "PARTNER ECOSYSTEM",
-    "title": "Scale faster with our technology partner programs.",
-    "description": "Whether you're a SaaS reseller, a systems integrator, or a technology consultant — partnering with Trai gives you access to battle-tested platforms, co-engineering support, and joint go-to-market strategies. Let's build together."
+    "subtitle": "GROW WITH US",
+    "title": "Earn More by Partnering with Trai Inc.",
+    "description": "You know businesses that need software, apps, or digital marketing — but building it yourself isn't your game. Send them to us, and we'll handle the engineering while you earn on every deal."
   },
-  "programs": [
-    {
-      "title": "Referral Partner Program",
-      "desc": "Refer clients who need custom software, cloud migrations, or AI solutions. Earn competitive commissions on every closed deal with zero overhead.",
-      "benefits": [
-        "Revenue share on every referred project.",
-        "Dedicated partner portal with deal tracking.",
-        "Co-branded case studies and collateral."
-      ]
-    },
-    {
-      "title": "Reseller Partner Program",
-      "desc": "White-label and resell our enterprise platforms — CRM, ERP, and HRMS — under your own brand with full technical support from our engineering team.",
-      "benefits": [
-        "Attractive reseller margins.",
-        "Full API access and white-labeling.",
-        "Priority engineering support and SLAs."
-      ]
-    },
-    {
-      "title": "Technology Partner Program",
-      "desc": "Integrate your product with our platform ecosystem. Build joint solutions for shared enterprise clients and go to market together.",
-      "benefits": [
-        "Joint solution architecture and development.",
-        "Certification and integration training.",
-        "Co-marketing campaigns and events."
-      ]
-    }
-  ]
+  "why": {
+    "subtitle": "WHY PARTNER",
+    "title": "Why 138+ Clients Trust Our Delivery",
+    "points": [
+      {
+        "icon": "⚡",
+        "title": "We Deliver, You Earn",
+        "desc": "You bring the relationship. We build the software, run the marketing, or deploy the AI automation. You earn a commission on every project — zero engineering overhead on your side."
+      },
+      {
+        "icon": "🏗️",
+        "title": "6 Years, 138+ Clients, Zero Drama",
+        "desc": "We have been shipping production software since 2020 across 12+ industries. Your referrals go to a team that delivers on time, on budget, with fixed-price contracts."
+      },
+      {
+        "icon": "🤝",
+        "title": "Your Brand, Our Engine",
+        "desc": "Need to white-label our work under your agency brand? We do that. Your client sees your name, we do the engineering behind the scenes."
+      },
+      {
+        "icon": "📈",
+        "title": "Recurring Revenue",
+        "desc": "Many of our projects turn into ongoing retainers — maintenance, marketing, new features. You earn on the initial deal and on every renewal."
+      }
+    ]
+  },
+  "programs": {
+    "subtitle": "PARTNERSHIP MODELS",
+    "title": "Choose How You Want to Work With Us",
+    "tiers": [
+      {
+        "icon": "💼",
+        "title": "Referral Partner",
+        "ideal_for": "CAs, Business Consultants, Freelancers, Other Agencies",
+        "desc": "Know a business that needs a website, app, CRM, or marketing? Introduce them to us. If the deal closes, you earn a referral commission.",
+        "benefits": [
+          "Earn 10-15% commission on every closed project",
+          "No selling required — just warm introductions",
+          "We handle the entire sales call, scoping, and delivery",
+          "Monthly payout on completed milestones"
+        ],
+        "color": "#4facfe"
+      },
+      {
+        "icon": "🏢",
+        "title": "White-Label Partner",
+        "ideal_for": "Digital Agencies, Marketing Firms, IT Consultancies",
+        "desc": "You sell software services but do not have an in-house dev team? We become your invisible engineering department. You own the client relationship, we build under your brand.",
+        "benefits": [
+          "Full white-label delivery — your branding, our code",
+          "Dedicated engineering team for your projects",
+          "Wholesale pricing with healthy margins for you",
+          "NDA-protected — your clients never know about us"
+        ],
+        "color": "#38f9d7"
+      },
+      {
+        "icon": "🔗",
+        "title": "Technology Partner",
+        "ideal_for": "SaaS Companies, Platform Providers, API Businesses",
+        "desc": "Your product plus our engineering creates a stronger offering for shared customers. Joint integrations, co-marketing, and combined go-to-market.",
+        "benefits": [
+          "Joint solution development and integration",
+          "Co-branded case studies and marketing",
+          "Shared lead pipeline",
+          "Technical integration support from our team"
+        ],
+        "color": "#f6d365"
+      }
+    ]
+  },
+  "ideal_partners": {
+    "subtitle": "WHO SHOULD PARTNER",
+    "title": "You Are a Great Fit If You Are",
+    "list": [
+      "A Chartered Accountant serving MSME clients who need digital solutions",
+      "A marketing agency that needs development support for client projects",
+      "A business consultant who advises companies on digital transformation",
+      "A freelance designer who needs a dev team to build what you design",
+      "An IT consultancy without in-house engineering capacity",
+      "A SaaS platform looking for integration and go-to-market partners"
+    ]
+  },
+  "process": {
+    "subtitle": "HOW IT WORKS",
+    "title": "Three Steps to Start Earning",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Apply",
+        "desc": "Fill in the form below or message us on WhatsApp. Tell us about your business and how you typically interact with clients who need tech services.",
+        "color": "#4facfe"
+      },
+      {
+        "number": "02",
+        "title": "Get Onboarded",
+        "desc": "We set you up with a partner agreement, commission structure, and a direct line to our team. The whole process takes less than a week.",
+        "color": "#38f9d7"
+      },
+      {
+        "number": "03",
+        "title": "Refer & Earn",
+        "desc": "Send us warm introductions whenever you spot an opportunity. We handle the rest — scoping, building, delivering. You get paid when milestones are completed.",
+        "color": "#f6d365"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Partner?",
+    "description": "Whether you want to refer one client or white-label our entire engineering team — let us talk. Book a 15-minute call or message us directly on WhatsApp.",
+    "button_text": "Book a Partner Call",
+    "button_href": "https://calendar.app.google/PUsxADQBnpQsTrDbA",
+    "whatsapp_text": "Message on WhatsApp →",
+    "whatsapp_href": "https://wa.me/917905495478?text=Hi%20Trai!%20I%20am%20interested%20in%20your%20partner%20program."
+  }
 }
