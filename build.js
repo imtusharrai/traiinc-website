@@ -61,6 +61,12 @@ server.listen(PORT, async () => {
                 pretendToBeVisual: true,
                 virtualConsole,
                 beforeParse(window) {
+                    window.fetch = (reqUrl, options) => {
+                        let finalUrl = reqUrl;
+                        if (finalUrl.startsWith('/')) finalUrl = `http://localhost:${PORT}${finalUrl}`;
+                        else if (!finalUrl.startsWith('http')) finalUrl = `http://localhost:${PORT}/${finalUrl}`;
+                        return fetch(finalUrl, options);
+                    };
                     window.IntersectionObserver = class IntersectionObserver {
                         constructor() {}
                         observe() {}
@@ -102,7 +108,9 @@ server.listen(PORT, async () => {
                 if (l.href && l.href.includes('?v=')) l.href = l.href.replace(/v=\d+/, `v=${newVersion}`);
             });
             
-            fs.writeFileSync(path.join(distDir, file), dom.serialize());
+            let html = dom.serialize();
+            html = html.replace(/http:\/\/localhost:9999\//g, '');
+            fs.writeFileSync(path.join(distDir, file), html);
             console.log(`Successfully built ${file}`);
             dom.window.close();
         } catch (err) {
