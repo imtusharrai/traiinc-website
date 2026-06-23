@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             </div>
         </div>
         <div class="footer-bottom">
-            <p>Copyright © 2025 Trai, Inc. All Rights Reserved &nbsp;·&nbsp; Made with ❤️ in India</p>
+            <p>Copyright © 2026 Trai, Inc. All Rights Reserved &nbsp;·&nbsp; Made with ❤️ in India</p>
             <div class="legal-links">
                 <a href="terms.html">Terms of Services</a> | 
                 <a href="privacy.html">Privacy Policy</a>
@@ -96,65 +96,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         </div>
     `;
 
-    const leadMagnetHTML = `
-        <div class="lead-magnet-banner">
-            <div class="lead-magnet-content">
-                <h2>Stop Burning Money on Bad Architecture</h2>
-                <p>Download our free 10-Point Cloud & Architecture Audit Checklist used by top YC founders to scale without crashing.</p>
-                <form id="lead-magnet-form" class="lead-magnet-form">
-                    <input type="email" id="lm-email" placeholder="Enter Work Email" required />
-                    <button type="submit" id="lm-submit">Send Me The PDF</button>
-                </form>
-                <div id="lm-message" class="lead-magnet-message"></div>
-            </div>
-        </div>
-    `;
-
     const footerEl = document.getElementById("footer");
     if (footerEl) {
-        footerEl.insertAdjacentHTML("beforebegin", leadMagnetHTML);
         footerEl.innerHTML = footerHTML;
-    }
-
-    // Lead Magnet Form Handler
-    const lmForm = document.getElementById("lead-magnet-form");
-    if (lmForm) {
-        lmForm.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            const emailInput = document.getElementById("lm-email");
-            const submitBtn = document.getElementById("lm-submit");
-            const msgDiv = document.getElementById("lm-message");
-
-            submitBtn.disabled = true;
-            submitBtn.textContent = "Sending...";
-            msgDiv.textContent = "";
-            msgDiv.className = "lead-magnet-message";
-
-            const formData = new FormData();
-            formData.append("email", emailInput.value);
-
-            try {
-                const res = await fetch("/api/subscribe", {
-                    method: "POST",
-                    body: formData
-                });
-                const data = await res.json();
-
-                if (res.ok) {
-                    msgDiv.textContent = data.message || "Check your inbox!";
-                    msgDiv.classList.add("success");
-                    emailInput.value = "";
-                } else {
-                    throw new Error(data.error || "Failed to subscribe");
-                }
-            } catch (err) {
-                msgDiv.textContent = err.message;
-                msgDiv.classList.add("error");
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = "Send Me The PDF";
-            }
-        });
     }
 
     // ─── WhatsApp Click-to-Chat Button ───────────────────────────────────────
@@ -198,45 +142,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (badge) badge.style.display = 'none';
     });
 
-    // Theme Toggle
-    const themeBtn = document.createElement("button");
-    themeBtn.id = "theme-toggle";
-    themeBtn.setAttribute("aria-label", "Toggle Theme");
-    themeBtn.style.cssText = "padding: 8px 12px; margin-right: 15px; border-radius: 50%; border: 1px solid var(--border-light); background: transparent; cursor: pointer; color: var(--text-main); font-size: 1.2rem; display: flex; align-items: center; justify-content: center;";
-    themeBtn.innerHTML = "🌙";
-
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-        document.body.classList.add('light-mode');
-        themeBtn.innerHTML = "☀️";
-    }
-
-    themeBtn.addEventListener('click', () => {
-        document.body.classList.toggle('light-mode');
-        if (document.body.classList.contains('light-mode')) {
-            localStorage.setItem('theme', 'light');
-            themeBtn.innerHTML = "☀️";
-        } else {
-            localStorage.setItem('theme', 'dark');
-            themeBtn.innerHTML = "🌙";
-        }
-    });
-
-    const navContactBtn = document.querySelector(".nav-container > .btn-primary");
-    if (navContactBtn) {
-        navContactBtn.parentNode.insertBefore(themeBtn, navContactBtn);
-    }
-
-    // Sticky Navbar
-    const navbar = document.getElementById("navbar");
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add("scrolled");
-        } else {
-            navbar.classList.remove("scrolled");
-        }
-    });
-
     // Newsletter Intercept
     const newsletterForm = document.querySelector(".newsletter-form");
     if (newsletterForm) {
@@ -253,30 +158,16 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }
 
-    // Mobile Menu Toggle
-    const mobileBtn = document.querySelector(".mobile-menu-btn");
-    const navLinks = document.querySelector(".nav-links");
-    if (mobileBtn && navLinks) {
-        mobileBtn.addEventListener("click", () => {
-            if (navLinks.style.display === "flex") {
-                navLinks.style.display = "none";
-            } else {
-                navLinks.style.display = "flex";
-                navLinks.style.flexDirection = "column";
-                navLinks.style.position = "absolute";
-                navLinks.style.top = "70px";
-                navLinks.style.left = "0";
-                navLinks.style.width = "100%";
-                navLinks.style.background = "var(--bg-dark)";
-                navLinks.style.padding = "20px";
-                navLinks.style.borderBottom = "1px solid var(--border-light)";
-            }
-        });
-    }
-
     // Fetch and Render Dynamic Content
     const pageId = document.body.getAttribute("data-page");
-    const dynamicContainer = document.getElementById("dynamic-content");
+    const dynamicContainer = document.getElementById("content") || document.getElementById("dynamic-content");
+
+    const servicePages = [
+        'ai-agents', 'ai-automation', 'ai-voice-agents', 'cloud-devops', 
+        'custom-software', 'cybersecurity', 'data-analytics', 'digital-marketing', 
+        'enterprise-platforms', 'lead-gen-scraping', 'mobile-apps', 'motion-video', 
+        'ui-ux-design', 'web-development', 'workflow-automation'
+    ];
 
     // Only pages with a registered renderer should fetch JSON
     const renderers = {
@@ -287,19 +178,29 @@ document.addEventListener("DOMContentLoaded", async () => {
         incubation: renderIncubation,
         careers: renderCareers,
         partner: renderPartner,
-        contact: renderContact
+        contact: renderContact,
+        clients: renderClients,
+        startups: renderAudiencePage,
+        smb: renderAudiencePage,
+        enterprise: renderAudiencePage,
+        msmes: renderMSME
     };
+
+    servicePages.forEach(slug => {
+        renderers[slug] = renderServicePage;
+    });
 
     const renderFn = renderers[pageId];
 
     if (renderFn && dynamicContainer) {
         try {
-            // Only fetch and re-render if the static HTML wasn't generated (i.e. if the loader is still there)
-            if (dynamicContainer.querySelector('.loader')) {
-                const response = await fetch(`data/${pageId}.json?v=` + new Date().getTime());
+            // Only fetch and re-render if the static HTML wasn't generated (i.e. if the loader is still there or it says Loading...)
+            if (dynamicContainer.querySelector('.loader') || dynamicContainer.innerHTML.includes('Loading...')) {
+                const fetchUrl = servicePages.includes(pageId) ? `data/services.json` : `data/${pageId}.json`;
+                const response = await fetch(`${fetchUrl}?v=` + new Date().getTime());
                 if (!response.ok) throw new Error("Network response was not ok");
                 const data = await response.json();
-                dynamicContainer.innerHTML = renderFn(data);
+                dynamicContainer.innerHTML = renderFn(data, pageId);
             }
 
             initAnimations();
@@ -353,103 +254,143 @@ document.addEventListener("DOMContentLoaded", async () => {
 /* ===== PAGE RENDERERS ===== */
 
 function renderHome(data) {
+    const hero = data.hero;
+    const sr = data.solutions_routing;
+
     return `
-    <header class="hero" style="text-align: center; padding: 180px 24px 100px;">
-        <div class="hero-content fade-in" style="display: flex; flex-direction: column; align-items: center; max-width: 1000px; margin: 0 auto;">
-            <h2 class="sub-heading" style="color: var(--accent-color); letter-spacing: 2px; text-transform: uppercase; font-weight: 800; margin-bottom: 20px;">${data.hero.subheading}</h2>
-            <h1 class="main-heading" style="font-size: 4.5rem; line-height: 1.1; margin-bottom: 30px;">${data.hero.heading_part1} <br> ${data.hero.heading_part2} <span class="highlight-text">${data.hero.highlight}</span> ${data.hero.emoji}</h1>
-            <div class="hero-ratings" style="display: flex; gap: 30px; margin-bottom: 40px; justify-content: center;">
-                ${data.hero.ratings.map(r => `
-                <div class="rating" style="text-align: center;">
-                    <span class="stars" style="color: #ffb300; font-size: 1.2rem;">${r.stars}</span>
-                    <p style="color: var(--text-muted); font-weight: 500; font-size: 0.95rem;">${r.text}</p>
-                </div>`).join('')}
+    <!-- ════════ HERO ════════ -->
+    <section class="msme-hero">
+        <div class="msme-hero-inner">
+            <div>
+                <div class="msme-badge">${hero.badge}</div>
+                <h1>${hero.heading_line1}<br>${hero.heading_line2} <span class="gradient-word">${hero.heading_highlight}</span></h1>
+                <p class="msme-hero-sub">${hero.subtitle}</p>
+                <div class="hero-cta-row">
+                    <a href="${hero.cta_primary.href}" target="_blank" class="btn-primary large">${hero.cta_primary.icon} ${hero.cta_primary.text}</a>
+                    <a href="${hero.cta_secondary.href}" class="btn-secondary large">${hero.cta_secondary.icon} ${hero.cta_secondary.text}</a>
+                </div>
+                <div class="hero-trust">
+                    <div class="hero-trust-avatars">
+                        ${hero.trust_avatars.map((a, i) => `<span class="trust-avatar trust-avatar-${i + 1}">${a}</span>`).join('')}
+                    </div>
+                    <span>Trusted by <strong class="trust-count">${hero.trust_line}</strong> ${hero.trust_suffix}</span>
+                </div>
             </div>
-            <div class="hero-actions" style="display: flex; gap: 20px; justify-content: center;">
-                <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large">${data.hero.button_text}</a>
-                <a href="solutions.html" class="btn-secondary large">View Solutions</a>
-            </div>
-        </div>
-    </header>
-    
-    <section class="trust-banner">
-        <div class="container">
-            <p style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 35px; font-weight: 800; text-align: center;">${data.trust.title}</p>
-            <div class="logo-ticker">
-                ${[...data.trust.logos, ...data.trust.logos].map(logo => `<span class="logo-item">${logo}</span>`).join('')}
-            </div>
-        </div>
-    </section>
-
-    <section class="specialise-section">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>${data.specialise.title}</h2>
-                <div class="header-line"></div>
-            </div>
-            <div class="specialise-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
-                ${data.specialise.categories.map(c => `
-                <div class="spec-card fade-in" style="padding: 40px 30px; position: relative; overflow: hidden; display: flex; flex-direction: column; height: 100%;">
-                    <div style="font-size: 2.5rem; margin-bottom: 20px; line-height: 1;">${c.icon}</div>
-                    <h3 style="font-size: 1.3rem; margin-bottom: 12px;">${c.title}</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; flex-grow: 1;">${c.desc}</p>
+            <div class="hero-mockup">
+                <div class="mockup-main">
+                    <div class="mockup-bar"><span></span><span></span><span></span></div>
+                    <div class="mockup-metrics">
+                        ${hero.mockup_metrics.map(m => `
+                        <div class="mockup-metric">
+                            <div class="mockup-metric-label">${m.icon} ${m.label}</div>
+                            <div class="mockup-metric-value ${m.color}">${m.value}</div>
+                        </div>`).join('')}
+                    </div>
+                    <div class="mockup-chart"></div>
+                </div>
+                ${hero.float_cards.map((fc, i) => `
+                <div class="float-card float-card-${i + 1}">
+                    <div class="fc-icon">${fc.icon}</div>
+                    <div class="fc-label">${fc.label}</div>
+                    <div class="fc-value ${fc.active ? 'fc-value-active' : ''}">${fc.value}</div>
                 </div>`).join('')}
             </div>
         </div>
     </section>
 
-    <section class="popular-services">
+    <!-- ════════ FEATURE PILLS ════════ -->
+    <section class="container fade-in section-pills">
+        <div class="feature-pills">
+            ${data.feature_pills.map(p => `<div class="feature-pill">${p}</div>`).join('')}
+        </div>
+    </section>
+
+    <!-- ════════ SOLUTIONS ROUTING ════════ -->
+    <section id="solutions" class="bento-section">
         <div class="container">
             <div class="section-header center fade-in">
-                <h4 class="mini-title">${data.popular_services.subtitle}</h4>
-                <h2>${data.popular_services.title}</h2>
+                <h4 class="mini-title">${sr.subtitle}</h4>
+                <h2>${sr.title}</h2>
             </div>
-            <div class="services-wrapper fade-in">
-                ${data.popular_services.categories.map(cat => `
-                <div class="service-category spec-card fade-in" style="padding: 30px; border-radius: 16px; background: var(--bg-card);">
-                    <div class="cat-header">
-                        <h3 style="border-bottom: none; margin-bottom: 25px; font-size: 1.4rem; color: var(--text-main);">${cat.name}</h3>
-                    </div>
-                    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-                        ${cat.items.map(i => `<span style="padding: 8px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 500; background: var(--bg-light); border: 1px solid var(--border-light); color: var(--text-muted); transition: all 0.3s ease; cursor: default;" onmouseover="this.style.color='var(--text-main)'; this.style.borderColor='var(--accent-color)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.color='var(--text-muted)'; this.style.borderColor='var(--border-light)'; this.style.transform='none';">${i}</span>`).join('')}
+            <div class="home-bento-grid">
+                ${sr.cards.map(c => `
+                <div class="home-bento-card fade-in">
+                    <div class="home-bento-icon">${c.icon}</div>
+                    <div class="home-bento-title">${c.title}</div>
+                    <div class="home-bento-desc">${c.desc}</div>
+                    <a href="${c.link}" class="home-bento-link">${c.link_text}</a>
+                </div>`).join('')}
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════ CORE EXPERTISE ════════ -->
+    <section class="bento-section fade-in">
+        <div class="container">
+            <div class="section-header center">
+                <h4 class="mini-title">${data.expertise.subtitle}</h4>
+                <h2>${data.expertise.title}</h2>
+            </div>
+            <div class="bento-grid">
+                ${data.expertise.cards.map(c => `
+                <div class="bento-card ${c.wide ? 'wide' : ''} fade-in" style="border-top: 4px solid ${c.color};">
+                    <div class="bento-icon" style="background: linear-gradient(135deg, ${c.color}26, transparent); color: ${c.color};">${c.icon}</div>
+                    <h3 class="bento-title">${c.title}</h3>
+                    <p class="bento-desc">${c.desc}</p>
+                    <div class="feature-pills" style="margin-bottom: 0; margin-top: 20px;">
+                        ${c.tags.map(t => `<div class="feature-pill">${t}</div>`).join('')}
                     </div>
                 </div>`).join('')}
             </div>
         </div>
     </section>
 
-    <section class="case-studies-section" style="padding: 100px 0; background: var(--bg-darker);">
+    <!-- ════════ CASE STUDIES ════════ -->
+    <section class="content-section fade-in" style="padding: 100px 0; background: var(--bg-darker);">
         <div class="container">
-            <div class="section-header center fade-in">
+            <div class="section-header center">
                 <h4 class="mini-title">${data.case_studies.subtitle}</h4>
                 <h2>${data.case_studies.title}</h2>
             </div>
-            <div class="grid-3 fade-in" style="margin-top: 50px;">
-                ${data.case_studies.studies.map(study => `
-                <div class="spec-card" style="padding: 40px; background: var(--bg-card); border-top: 4px solid var(--accent-color);">
-                    <p style="color: var(--accent-color); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">${study.client}</p>
-                    <h3 style="font-size: 1.4rem; margin-bottom: 15px;">${study.title}</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px; line-height: 1.6;">${study.impact}</p>
+            <div class="grid-3" style="margin-top: 50px;">
+                ${data.case_studies.studies.map(s => `
+                <div class="spec-card fade-in" style="padding: 36px; border-top: 4px solid ${s.color};">
+                    <p style="color: ${s.color}; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">${s.client}</p>
+                    <h3 style="font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 14px;">${s.title}</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px;">${s.impact}</p>
                     <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                        ${study.tags.map(t => `<span style="padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 500; background: var(--bg-light); border: 1px solid var(--border-light); color: var(--text-muted);">${t}</span>`).join('')}
+                        ${s.tags.map(t => `<span style="padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; background: var(--bg-light); border: 1px solid var(--border-light); color: var(--text-muted);">${t}</span>`).join('')}
                     </div>
                 </div>`).join('')}
             </div>
         </div>
     </section>
 
-    <section class="growth-section">
-        <div class="container growth-container fade-in">
-            <div class="growth-text">
-                <h4 class="mini-title">${data.growth.subtitle}</h4>
-                <h2>${data.growth.title}</h2>
-                <div class="growth-stats">
-                    ${data.growth.stats.map(s => `
-                    <div class="stat">
-                        <h3>${s.title}</h3>
-                        <p>${s.desc}</p>
-                    </div>`).join('')}
-                </div>
+    <!-- ════════ DELIVERY PROCESS ════════ -->
+    <section class="compare-section fade-in">
+        <div class="container">
+            <div class="section-header center">
+                <h4 class="mini-title">${data.process.subtitle}</h4>
+                <h2>${data.process.title}</h2>
+            </div>
+            <div class="grid-3" style="margin-top: 50px;">
+                ${data.process.steps.map(s => `
+                <div class="spec-card fade-in" style="padding: 30px;">
+                    <div style="font-size: 2rem; margin-bottom: 15px; color: ${s.color}; font-family: var(--font-heading); font-weight: 800;">${s.number}</div>
+                    <h3 style="font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 10px;">${s.title}</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">${s.desc}</p>
+                </div>`).join('')}
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════ GRAND CTA ════════ -->
+    <section class="grand-cta fade-in">
+        <div class="container">
+            <div class="grand-cta-inner">
+                <h2>${data.cta.title}</h2>
+                <p>${data.cta.description}</p>
+                <a href="${data.cta.button_href}" target="_blank" class="btn-primary large">${data.cta.button_text}</a>
             </div>
         </div>
     </section>
@@ -458,16 +399,30 @@ function renderHome(data) {
 
 function renderAbout(data) {
     return `
-    <header class="page-header" style="padding: 150px 24px 50px; text-align: center; max-width: 800px; margin: 0 auto;">
+    <header class="page-header" style="padding: 150px 24px 60px; text-align: center; max-width: 850px; margin: 0 auto;">
         <h4 class="mini-title fade-in">${data.header.subtitle}</h4>
-        <h1 class="main-heading fade-in">${data.header.title}</h1>
-        <p class="fade-in" style="color: var(--text-muted); font-size: 1.2rem;">${data.intro.text}</p>
+        <h1 class="main-heading fade-in" style="font-size: clamp(2.4rem, 5vw, 3.8rem); margin-bottom: 24px;">${data.header.title}</h1>
+        <p class="fade-in" style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.7;">${data.intro.text}</p>
     </header>
-    
-    <section class="team-section container" style="padding: 100px 24px;">
+
+    <!-- Numbers bar -->
+    <section style="padding: 50px 0; background: var(--bg-card); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+        <div class="container">
+            <div style="display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; text-align: center;">
+                ${data.numbers.stats.map(s => `
+                <div class="fade-in">
+                    <h3 style="font-size: 2.5rem; font-family: var(--font-heading); font-weight: 800; background: var(--brand-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">${s.value}</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 5px;">${s.label}</p>
+                </div>`).join('')}
+            </div>
+        </div>
+    </section>
+
+    <!-- Team section -->
+    <section class="container" style="padding: 100px 24px;">
         <div class="section-header center fade-in">
             <h4 class="mini-title">${data.team.subtitle}</h4>
-            <h2>The engineers and leaders behind our platform</h2>
+            <h2>${data.team.title}</h2>
         </div>
         <div class="grid-3 fade-in" style="margin-top: 50px;">
             ${data.team.members.map(m => `
@@ -478,6 +433,87 @@ function renderAbout(data) {
                 <h3 style="margin-bottom: 5px;">${m.name}</h3>
                 <p style="color: var(--text-muted); font-size: 0.95rem;">${m.role}</p>
             </div>`).join('')}
+        </div>
+    </section>
+
+    <!-- How We Work -->
+    <section style="padding: 100px 0; background: var(--bg-darker);">
+        <div class="container">
+            <div class="section-header center fade-in" style="max-width: 700px; margin: 0 auto 50px;">
+                <h4 class="mini-title">${data.model.subtitle}</h4>
+                <h2 style="margin-bottom: 16px;">${data.model.title}</h2>
+                <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7;">${data.model.description}</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; max-width: 1100px; margin: 0 auto;">
+                ${data.model.advantages.map(a => `
+                <div class="spec-card fade-in" style="padding: 32px 28px;">
+                    <div style="font-size: 2rem; margin-bottom: 14px;">${a.icon}</div>
+                    <h3 style="font-size: 1.15rem; margin-bottom: 10px; font-family: var(--font-heading);">${a.title}</h3>
+                    <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;">${a.desc}</p>
+                </div>`).join('')}
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise -->
+    <section style="padding: 100px 0;">
+        <div class="container">
+            <div class="section-header center fade-in">
+                <h4 class="mini-title">${data.expertise.subtitle}</h4>
+                <h2>${data.expertise.title}</h2>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 50px; max-width: 1100px; margin-left: auto; margin-right: auto;">
+                ${data.expertise.areas.map(a => `
+                <div class="spec-card fade-in" style="padding: 36px 30px; display: flex; gap: 18px; align-items: flex-start;">
+                    <div style="font-size: 2rem; flex-shrink: 0; margin-top: 2px;">${a.icon}</div>
+                    <div>
+                        <h3 style="font-size: 1.15rem; margin-bottom: 8px; font-family: var(--font-heading);">${a.title}</h3>
+                        <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;">${a.desc}</p>
+                    </div>
+                </div>`).join('')}
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section style="padding: 100px 0; background: var(--bg-darker);">
+        <div class="container" style="max-width: 800px;">
+            <div class="section-header center fade-in">
+                <h4 class="mini-title">${data.timeline.subtitle}</h4>
+                <h2>${data.timeline.title}</h2>
+            </div>
+            <div style="margin-top: 50px; position: relative; padding-left: 40px; border-left: 2px solid var(--border-light);">
+                ${data.timeline.milestones.map(m => `
+                <div class="fade-in" style="margin-bottom: 40px; position: relative;">
+                    <div style="position: absolute; left: -49px; top: 4px; width: 16px; height: 16px; border-radius: 50%; background: var(--accent-color); border: 3px solid var(--bg-darker);"></div>
+                    <span style="display: inline-block; padding: 4px 12px; border-radius: 6px; background: var(--bg-light); color: var(--accent-color); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 10px;">${m.year}</span>
+                    <h3 style="font-size: 1.2rem; font-family: var(--font-heading); margin-bottom: 8px;">${m.title}</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">${m.desc}</p>
+                </div>`).join('')}
+            </div>
+        </div>
+    </section>
+
+    <!-- Incubation -->
+    <section style="padding: 80px 0;">
+        <div class="container" style="max-width: 700px; text-align: center;">
+            <div class="fade-in">
+                <h4 class="mini-title">${data.incubation.subtitle}</h4>
+                <h2 style="font-size: 2rem; margin-bottom: 16px;">${data.incubation.title}</h2>
+                <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7;">${data.incubation.text}</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="padding: 100px 0;">
+        <div class="container">
+            <div class="spec-card fade-in" style="padding: 80px 60px; text-align: center; border-radius: 30px; position: relative; overflow: hidden; max-width: 900px; margin: 0 auto;">
+                <div style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: var(--brand-gradient); filter: blur(150px); opacity: 0.12; border-radius: 50%;"></div>
+                <h2 style="font-family: var(--font-heading); font-size: clamp(1.8rem, 3.5vw, 2.6rem); margin-bottom: 16px; position: relative;">${data.cta.title}</h2>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 36px; font-size: 1.05rem; line-height: 1.7; position: relative;">${data.cta.description}</p>
+                <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large" style="position: relative;">${data.cta.button_text}</a>
+            </div>
         </div>
     </section>
     `;
@@ -642,8 +678,8 @@ function renderCareers(data) {
                     <div>
                         <h3 style="font-size: 1.25rem; margin-bottom: 10px;">${job.title}</h3>
                         <div style="display: flex; gap: 12px; margin-bottom: 15px;">
-                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); padding: 5px 14px; border-radius: 20px; font-size: 0.8rem; color: var(--text-muted);">${job.location}</span>
-                            <span style="background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); padding: 5px 14px; border-radius: 20px; font-size: 0.8rem; color: var(--text-muted);">${job.type}</span>
+                            <span style="background: var(--bg-light); border: 1px solid var(--border-light); padding: 5px 14px; border-radius: 20px; font-size: 0.8rem; color: var(--text-muted);">${job.location}</span>
+                            <span style="background: var(--bg-light); border: 1px solid var(--border-light); padding: 5px 14px; border-radius: 20px; font-size: 0.8rem; color: var(--text-muted);">${job.type}</span>
                         </div>
                         <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">${job.desc}</p>
                     </div>
@@ -659,22 +695,100 @@ function renderCareers(data) {
 }
 function renderPartner(data) {
     return `
-    <header class="page-header container fade-in" style="padding: 150px 24px 80px; text-align: center; max-width: 800px; margin: 0 auto;">
-        <h4 class="mini-title">${data.header.subtitle}</h4>
-        <h1 class="main-heading">${data.header.title}</h1>
-        <p style="color: var(--text-muted);">${data.header.description}</p>
+    <!-- Hero -->
+    <header class="page-header" style="padding: 150px 24px 60px; text-align: center; max-width: 850px; margin: 0 auto;">
+        <h4 class="mini-title fade-in">${data.header.subtitle}</h4>
+        <h1 class="main-heading fade-in" style="font-size: clamp(2.4rem, 5vw, 3.8rem); margin-bottom: 24px;">${data.header.title}</h1>
+        <p class="fade-in" style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.7;">${data.header.description}</p>
     </header>
 
-    <section class="programs-section container fade-in" style="padding: 50px 24px 100px;">
-        <div class="grid-3">
-            ${data.programs.map(p => `
-            <div class="spec-card">
-                <h3 style="color: var(--accent-color);">${p.title}</h3>
-                <p style="margin-bottom: 20px;">${p.desc}</p>
-                <ul style="color: var(--text-muted); font-size: 0.9rem; margin-left: 20px; list-style: disc;">
-                    ${p.benefits.map(b => `<li style="margin-bottom: 5px;">${b}</li>`).join('')}
+    <!-- Why Partner -->
+    <section style="padding: 80px 24px; background: var(--bg-card); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+        <div class="container">
+            <div class="section-header center fade-in">
+                <h4 class="mini-title">${data.why.subtitle}</h4>
+                <h2>${data.why.title}</h2>
+            </div>
+            <div class="grid-3 fade-in" style="margin-top: 50px;">
+                ${data.why.points.map(p => `
+                <div class="spec-card" style="padding: 30px;">
+                    <div style="font-size: 2rem; margin-bottom: 15px;">${p.icon}</div>
+                    <h3 style="margin-bottom: 10px; font-size: 1.25rem;">${p.title}</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">${p.desc}</p>
+                </div>`).join('')}
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Models -->
+    <section class="container" style="padding: 100px 24px;">
+        <div class="section-header center fade-in">
+            <h4 class="mini-title">${data.programs.subtitle}</h4>
+            <h2>${data.programs.title}</h2>
+        </div>
+        <div class="grid-3 fade-in" style="margin-top: 50px;">
+            ${data.programs.tiers.map(t => `
+            <div class="spec-card" style="padding: 40px 30px; border-top: 4px solid ${t.color};">
+                <div style="font-size: 2.5rem; margin-bottom: 15px;">${t.icon}</div>
+                <h3 style="font-size: 1.5rem; margin-bottom: 10px;">${t.title}</h3>
+                <p style="font-size: 0.85rem; font-weight: 600; color: ${t.color}; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">IDEAL FOR: ${t.ideal_for}</p>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 25px;">${t.desc}</p>
+                <ul style="list-style: none; padding: 0;">
+                    ${t.benefits.map(b => `
+                    <li style="display: flex; align-items: flex-start; margin-bottom: 10px; font-size: 0.9rem;">
+                        <span style="color: ${t.color}; margin-right: 10px; font-weight: bold;">✓</span>
+                        <span style="color: var(--text-main);">${b}</span>
+                    </li>`).join('')}
                 </ul>
             </div>`).join('')}
+        </div>
+    </section>
+
+    <!-- Ideal Partners -->
+    <section style="padding: 80px 24px; background: var(--bg-darker);">
+        <div class="container fade-in" style="max-width: 800px; margin: 0 auto; background: var(--bg-card); padding: 50px; border-radius: 20px; border: 1px solid var(--border-light);">
+            <div class="section-header center">
+                <h4 class="mini-title">${data.ideal_partners.subtitle}</h4>
+                <h2>${data.ideal_partners.title}</h2>
+            </div>
+            <ul style="margin-top: 30px; list-style: none; padding: 0;">
+                ${data.ideal_partners.list.map(item => `
+                <li style="display: flex; align-items: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid var(--border-light);">
+                    <span style="font-size: 1.2rem; margin-right: 15px;">🎯</span>
+                    <span style="font-size: 1.05rem; color: var(--text-main);">${item}</span>
+                </li>`).join('')}
+            </ul>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="container" style="padding: 100px 24px;">
+        <div class="section-header center fade-in">
+            <h4 class="mini-title">${data.process.subtitle}</h4>
+            <h2>${data.process.title}</h2>
+        </div>
+        <div class="grid-3 fade-in" style="margin-top: 50px;">
+            ${data.process.steps.map(s => `
+            <div class="spec-card" style="padding: 30px; position: relative; overflow: hidden;">
+                <div style="font-size: 5rem; font-weight: 800; color: ${s.color}; opacity: 0.1; position: absolute; top: -10px; right: 10px; line-height: 1;">${s.number}</div>
+                <h3 style="margin-bottom: 15px; font-size: 1.3rem; display: flex; align-items: center; gap: 10px; position: relative; z-index: 1;">
+                    <span style="display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; background: ${s.color}; color: #000; border-radius: 50%; font-size: 0.9rem;">${s.number}</span>
+                    ${s.title}
+                </h3>
+                <p style="color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; position: relative; z-index: 1;">${s.desc}</p>
+            </div>`).join('')}
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="padding: 100px 24px; text-align: center; background: var(--bg-card); border-top: 1px solid var(--border-light);">
+        <div class="container fade-in" style="max-width: 600px; margin: 0 auto;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">${data.cta.title}</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; margin-bottom: 40px;">${data.cta.description}</p>
+            <div style="display: flex; gap: 16px; align-items: center; justify-content: center; flex-wrap: wrap;">
+                <a href="${data.cta.button_href}" target="_blank" class="btn-primary">${data.cta.button_text}</a>
+                <a href="${data.cta.whatsapp_href}" target="_blank" class="whatsapp-btn">${data.cta.whatsapp_text}</a>
+            </div>
         </div>
     </section>
     `;
@@ -682,140 +796,108 @@ function renderPartner(data) {
 
 function renderContact(data) {
     return `
-    <section class="contact-section container fade-in" style="padding: 150px 24px 100px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: start;">
-        
-        <!-- Left Column: Premium Form -->
-        <div class="contact-form-wrapper" style="background: var(--bg-card); padding: 50px; border-radius: 24px; border: 1px solid var(--border-light); box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
-            <h4 class="mini-title">GET IN TOUCH</h4>
-            <h2 style="font-size: 2.2rem; margin-bottom: 10px;">${data.header.title}</h2>
-            <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 1.05rem;">${data.header.description}</p>
-            
-            
-            
-            <form id="contactForm" class="premium-form" action="https://formsubmit.co/hello@traiinc.com" method="POST" method="POST" style="margin-bottom: 40px;">
-                <input type="hidden" name="_subject" value="New Lead from TraiInc.com">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_next" value="https://traiinc.com/contact.html">
-                <input type="text" name="_honey" style="display:none;">
-                
-                <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
-                    <div class="form-group">
-                        <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;">Full Name</label>
-                        <input type="text" name="name" required placeholder="Your name" style="width:100%;padding:16px 20px;background:rgba(255,255,255,0.03);border:1px solid var(--border-light);border-radius:12px;color:var(--text-main);font-size:1rem;transition:all 0.3s ease;">
-                    </div>
-                    <div class="form-group">
-                        <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;">Work Email</label>
-                        <input type="email" name="email" required placeholder="you@company.com" style="width:100%;padding:16px 20px;background:rgba(255,255,255,0.03);border:1px solid var(--border-light);border-radius:12px;color:var(--text-main);font-size:1rem;transition:all 0.3s ease;">
-                    </div>
-                </div>
-                <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
-                    <div class="form-group">
-                        <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;">Phone</label>
-                        <input type="tel" name="phone" placeholder="+91-XXXXXXXXXX" style="width:100%;padding:16px 20px;background:rgba(255,255,255,0.03);border:1px solid var(--border-light);border-radius:12px;color:var(--text-main);font-size:1rem;transition:all 0.3s ease;">
-                    </div>
-                    <div class="form-group">
-                        <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;">Company</label>
-                        <input type="text" name="company" placeholder="Your company" style="width:100%;padding:16px 20px;background:rgba(255,255,255,0.03);border:1px solid var(--border-light);border-radius:12px;color:var(--text-main);font-size:1rem;transition:all 0.3s ease;">
-                    </div>
-                </div>
-                <div class="form-group" style="margin-bottom: 30px;">
-                    <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;">Project Details</label>
-                    <textarea name="message" required rows="4" placeholder="Tell us about your project..." style="width:100%;padding:16px 20px;background:rgba(255,255,255,0.03);border:1px solid var(--border-light);border-radius:12px;color:var(--text-main);font-size:1rem;transition:all 0.3s ease;resize:vertical;"></textarea>
-                </div>
-                <button type="submit" id="contactSubmitBtn" class="btn-primary large" style="width:100%;justify-content:center;font-size:1.1rem;padding:18px;">Send Message</button>
-                <p id="formResult" style="text-align:center;margin-top:15px;font-size:0.95rem;display:none;"></p>
-            </form>
-<div class="onboarding-timeline" style="margin-top: 40px;">
-                <h3 style="font-size: 1.6rem; margin-bottom: 30px; border-bottom: 1px solid var(--border-light); padding-bottom: 15px;">Our Engagement Process</h3>
-                
-                <div style="display: flex; gap: 20px; margin-bottom: 30px;">
-                    <div style="background: var(--accent-color); color: white; width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; font-size: 1.2rem;">1</div>
-                    <div>
-                        <h4 style="font-size: 1.2rem; margin-bottom: 8px;">Discovery & Scoping</h4>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">We schedule a call to understand your business objectives, technical constraints, and current architecture.</p>
-                    </div>
-                </div>
-                
-                <div style="display: flex; gap: 20px; margin-bottom: 30px;">
-                    <div style="background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); color: var(--text-main); width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; font-size: 1.2rem;">2</div>
-                    <div>
-                        <h4 style="font-size: 1.2rem; margin-bottom: 8px;">Proposal & Timeline</h4>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Our engineering team delivers a comprehensive roadmap, system architecture draft, and transparent pricing.</p>
-                    </div>
-                </div>
-                
-                <div style="display: flex; gap: 20px;">
-                    <div style="background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); color: var(--text-main); width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; font-size: 1.2rem;">3</div>
-                    <div>
-                        <h4 style="font-size: 1.2rem; margin-bottom: 8px;">Project Kickoff</h4>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">We allocate your dedicated squad, set up communication channels, and execute the first development sprint.</p>
-                    </div>
-                </div>
-            </div>
-
+    <!-- ═══ HERO ═══ -->
+    <section class="cf-hero-wrapper" style="--cf-accent-1: #4facfe; --cf-accent-2: #00f2fe; --cf-stroke-color: rgba(79, 172, 254, 0.1); min-height: 75vh; padding-top: 150px;">
+        <div class="cf-bg-text-container" aria-hidden="true" role="presentation">
+            <h1 class="cf-bg-text outline">CONTACT</h1>
+            <h1 class="cf-bg-text filled">CONTACT</h1>
+            <h1 class="cf-bg-text outline">CONTACT</h1>
         </div>
-        
-        <!-- Right Column: Info & Calendar -->
-        <div class="contact-sidebar" style="display: flex; flex-direction: column; gap: 40px;">
-            
-            <div class="contact-info-blocks" style="display: grid; gap: 30px;">
-                <div class="info-block" style="display: flex; gap: 20px; align-items: flex-start;">
-                    <div class="info-icon" style="font-size: 1.8rem; background: rgba(255,255,255,0.05); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 16px; border: 1px solid var(--border-light);">✅</div>
-                    <div>
-                        <h4 style="font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">Call Us Directly</h4>
-                        <a href="tel:${data.contact_info.phone}" style="font-size: 1.4rem; font-weight: 600; color: var(--text-main); text-decoration: none;">${data.contact_info.phone}</a>
-                    </div>
-                </div>
-                
-                <div class="info-block" style="display: flex; gap: 20px; align-items: flex-start;">
-                    <div class="info-icon" style="font-size: 1.8rem; background: rgba(255,255,255,0.05); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 16px; border: 1px solid var(--border-light);">📞</div>
-                    <div>
-                        <h4 style="font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">Email Us</h4>
-                        <a href="mailto:${data.contact_info.email}" style="font-size: 1.4rem; font-weight: 600; color: var(--text-main); text-decoration: none;">${data.contact_info.email}</a>
-                    </div>
-                </div>
-                
-                <div class="info-block" style="display: flex; gap: 20px; align-items: flex-start;">
-                    <div class="info-icon" style="font-size: 1.8rem; background: rgba(255,255,255,0.05); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 16px; border: 1px solid var(--border-light);">✉️</div>
-                    <div>
-                        <h4 style="font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">Headquarters</h4>
-                        <p style="font-size: 1.1rem; color: var(--text-main); line-height: 1.5; max-width: 250px;">${data.contact_info.address}</p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="booking-card" style="background: linear-gradient(135deg, rgba(255,255,255,0.05), transparent); padding: 40px; border-radius: 24px; border: 1px solid var(--border-light); text-align: center; position: relative; overflow: hidden;">
-                <!-- Decorative glow -->
-                <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: var(--accent-color); filter: blur(80px); opacity: 0.3; border-radius: 50%;"></div>
-                
-                <div style="font-size: 3rem; margin-bottom: 20px; position: relative; z-index: 1;">📍</div>
-                <h3 style="font-size: 1.8rem; margin-bottom: 15px; position: relative; z-index: 1;">${data.booking.title}</h3>
-                <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 1.05rem; line-height: 1.6; position: relative; z-index: 1;">${data.booking.description}</p>
-                <a href="${data.booking.calendar_url}" target="_blank" class="btn-primary large" style="width: 100%; position: relative; z-index: 1; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">${data.booking.button_text}</a>
-            </div>
-            
+        <div class="cf-grid-layer" aria-hidden="true" role="presentation">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="grid" width="120" height="120" patternUnits="userSpaceOnUse">
+                        <circle cx="60" cy="60" r="2" fill="rgba(79, 172, 254, 0.4)" />
+                        <path d="M 120 0 L 0 0 0 120" fill="none" stroke="rgba(79, 172, 254, 0.05)" stroke-width="1" stroke-dasharray="4 4"/>
+                        <path d="M 0 120 L 120 0" fill="none" stroke="rgba(79, 172, 254, 0.05)" stroke-width="1" stroke-dasharray="4 4"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+        </div>
+
+        <div class="cf-floating-cards-layer" aria-hidden="true" role="presentation">
+            <div class="cf-glass-card anim-slow" style="top: 15%; left: 10%;">📧</div>
+            <div class="cf-glass-card anim-medium" style="top: 25%; right: 12%;">📞</div>
+            <div class="cf-glass-card anim-fast" style="bottom: 20%; left: 15%;">📍</div>
+            <div class="cf-glass-card anim-slow" style="bottom: 15%; right: 18%;">💬</div>
+        </div>
+
+        <div class="cf-hero-content fade-in">
+            <div class="biz-badge" style="margin-bottom: 20px;">${data.hero.badge}</div>
+            <h1 style="color: var(--text-main); font-size: clamp(3rem, 6vw, 5rem); line-height: 1.1; margin-bottom: 25px;">${data.hero.title}</h1>
+            <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 650px; margin: 0 auto;">${data.hero.description}</p>
         </div>
     </section>
-    
-    <!-- CSS for Inputs -->
-    <style>
-        .premium-form input:focus, .premium-form textarea:focus {
-            outline: none;
-            border-color: var(--accent-color);
-            background: rgba(255,255,255,0.08);
-            box-shadow: 0 0 0 4px rgba(255, 62, 108, 0.1);
-        }
-        @media (max-width: 768px) {
-            .contact-section {
-                grid-template-columns: 1fr !important;
-                padding: 120px 20px 80px !important;
-            }
-            .premium-form .form-row {
-                grid-template-columns: 1fr !important;
-            }
-        }
-    </style>
+
+    <!-- ═══ CONTACT SPLIT SECTION ═══ -->
+    <section class="container fade-in" style="padding: 80px 24px 100px;">
+        <div class="contact-split">
+
+            <!-- Left Column — Contact Info -->
+            <div class="contact-info-card">
+                <h3>${data.info.title}</h3>
+
+                ${data.info.items.map(item => `
+                    <div class="contact-detail">
+                        <div class="contact-detail-icon">${item.icon}</div>
+                        <div class="contact-detail-text">
+                            <h4>${item.label}</h4>
+                            <p>${item.value}</p>
+                        </div>
+                    </div>
+                `).join('')}
+
+                <a href="${data.info.whatsapp_url}" target="_blank" rel="noopener noreferrer" class="whatsapp-btn">
+                    ${data.info.whatsapp_text}
+                </a>
+            </div>
+
+            <!-- Right Column — Contact Form -->
+            <div class="contact-form-card">
+                <h3>${data.form.title}</h3>
+
+                <form action="https://formsubmit.co/hello@traiinc.com" method="POST" class="estimator-form">
+                    <input type="hidden" name="_subject" value="New Contact Inquiry from TraiInc.com">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="https://traiinc.com/contact.html">
+                    <input type="text" name="_honey" style="display:none;">
+
+                    ${data.form.fields.map(field => `
+                        <label for="${field.id}">${field.label}</label>
+                        <input type="${field.type}" id="${field.id}" name="${field.name}" placeholder="${field.placeholder}" ${field.required ? 'required' : ''}>
+                    `).join('')}
+
+                    <label for="${data.form.budget.id}">${data.form.budget.label}</label>
+                    <select id="${data.form.budget.id}" name="${data.form.budget.name}">
+                        ${data.form.budget.options.map(opt => `
+                            <option value="${opt.value}" ${opt.disabled ? 'disabled' : ''} ${opt.selected ? 'selected' : ''}>${opt.label}</option>
+                        `).join('')}
+                    </select>
+
+                    <label for="${data.form.message.id}">${data.form.message.label}</label>
+                    <textarea id="${data.form.message.id}" name="${data.form.message.name}" placeholder="${data.form.message.placeholder}" rows="5"></textarea>
+
+                    <button type="submit" class="btn-primary" style="width: 100%; font-size: 1.05rem; padding: 16px 32px; margin-top: 8px;">${data.form.button}</button>
+                    <p class="form-note">${data.form.note}</p>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ═══ GRAND CTA ═══ -->
+    <section class="grand-cta fade-in">
+        <div class="container">
+            <div class="grand-cta-inner">
+                <h2>${data.grand_cta.title}</h2>
+                <p>${data.grand_cta.description}</p>
+                <a href="${data.grand_cta.url}" target="_blank" class="btn-primary" style="font-size: 1.1rem; padding: 18px 40px;">${data.grand_cta.button_text}</a>
+            </div>
+        </div>
+    </section>
     `;
 }
 function renderSolutions(data) {
@@ -890,50 +972,6 @@ function renderSolutions(data) {
         </div>
     </section>`).join('')}
 
-    
-    <!-- Testimonials Section -->
-    <section class="testimonials-section fade-in" style="padding: 100px 24px;">
-        <div class="container">
-            <div class="section-header center fade-in" style="text-align: center; margin-bottom: 60px;">
-                <h4 class="mini-title">${data.testimonials.subtitle}</h4>
-                <h2 style="font-size: 3rem;">${data.testimonials.title}</h2>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
-                ${data.testimonials.items.map(t => `
-                <div class="spec-card fade-in" style="padding: 40px 30px; display: flex; flex-direction: column; justify-content: space-between;">
-                    <div>
-                        <div style="color: #ffb300; font-size: 1.2rem; margin-bottom: 15px;">${'\u2605'.repeat(t.stars)}</div>
-                        <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; font-style: italic; margin-bottom: 25px;">\u201C${t.quote}\u201D</p>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 15px; border-top: 1px solid var(--border-light); padding-top: 20px;">
-                        <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--accent-color); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.1rem;">${t.name.charAt(0)}</div>
-                        <div>
-                            <div style="font-weight: 600; font-size: 1rem;">${t.name}</div>
-                            <div style="color: var(--text-muted); font-size: 0.85rem;">${t.role}</div>
-                        </div>
-                    </div>
-                </div>`).join('')}
-            </div>
-        </div>
-    </section>
-
-    <!-- Guarantee Section -->
-    <section class="guarantee-section fade-in" style="padding: 80px 24px;">
-        <div class="container">
-            <div class="section-header center fade-in" style="text-align: center; margin-bottom: 50px;">
-                <h2 style="font-size: 2.5rem;">${data.guarantee.title}</h2>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
-                ${data.guarantee.items.map(g => `
-                <div class="spec-card fade-in" style="padding: 40px 30px; text-align: center;">
-                    <div style="font-size: 2.5rem; margin-bottom: 20px;">${g.icon}</div>
-                    <h3 style="font-size: 1.3rem; margin-bottom: 12px;">${g.title}</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">${g.desc}</p>
-                </div>`).join('')}
-            </div>
-        </div>
-    </section>
-
     <section class="services-cta fade-in" style="padding: 80px 24px; text-align: center;">
         <div class="container" style="background: var(--bg-card); border-radius: 30px; padding: 80px 60px; border: 1px solid var(--bg-light); position: relative; overflow: hidden;">
             <div style="position: absolute; bottom: -60px; left: -60px; width: 250px; height: 250px; background: var(--brand-gradient); filter: blur(120px); opacity: 0.25; border-radius: 50%;"></div>
@@ -992,4 +1030,482 @@ function initAnimations() {
     }, observerOptions);
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+}
+
+function renderClients(data) {
+    return `
+    <header class="page-header" style="padding: 150px 24px 60px; text-align: center; max-width: 850px; margin: 0 auto;">
+        <h4 class="mini-title fade-in">OUR CLIENTS</h4>
+        <h1 class="main-heading fade-in" style="font-size: clamp(2.4rem, 5vw, 3.8rem); margin-bottom: 24px;">Trusted by 138+ Businesses</h1>
+        <p class="fade-in" style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.7;">From local MSMEs to enterprise operations, we've delivered scalable solutions across 12+ industries.</p>
+    </header>
+
+    <section style="padding: 50px 0; background: var(--bg-card); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+        <div class="container">
+            <div style="display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; text-align: center;">
+                ${data.stats.map(s => `
+                <div class="fade-in">
+                    <h3 style="font-size: 2.5rem; font-family: var(--font-heading); font-weight: 800; background: var(--brand-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">${s.value}</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 5px;">${s.label}</p>
+                </div>`).join('')}
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 100px 0;">
+        <div class="container">
+            ${data.categories.map(c => `
+            <div class="fade-in" style="margin-bottom: 60px;">
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 30px;">
+                    <div style="width: 50px; height: 50px; border-radius: 12px; background: linear-gradient(135deg, ${c.color}, ${c.color2}); display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">${c.icon}</div>
+                    <h2 style="font-size: 1.8rem;">${c.label}</h2>
+                </div>
+                <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+                    ${c.logoClients ? c.logoClients.map(lc => `
+                        <div style="padding: 12px 20px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; font-weight: 600;">${lc.name}</div>
+                    `).join('') : ''}
+                    ${c.clients ? c.clients.map(client => `
+                        <div style="padding: 12px 20px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px;">${client}</div>
+                    `).join('') : ''}
+                </div>
+            </div>`).join('')}
+        </div>
+    </section>
+    `;
+}
+
+function renderAudiencePage(data) {
+    const { hero, feature_pills, services, industries, cta } = data;
+    
+    // Set custom properties for accent colors on the document root
+    if (hero.accent_colors) {
+        document.documentElement.style.setProperty('--cf-accent-1', hero.accent_colors.primary);
+        document.documentElement.style.setProperty('--cf-accent-2', hero.accent_colors.secondary);
+    }
+
+    let industriesHtml = '';
+    if (industries && industries.length > 0) {
+        industriesHtml = `
+        <section class="container fade-in content-section">
+            <div class="section-header">
+                <h4 class="mini-title">INDUSTRIES</h4>
+                <h2>Where we excel</h2>
+            </div>
+            <div class="bento-grid">
+                ${industries.map(ind => `
+                    <div class="bento-card fade-in">
+                        <div class="bento-icon">${ind.icon}</div>
+                        <h3>${ind.title}</h3>
+                        <p>${ind.desc}</p>
+                        <div style="margin-top: 15px; border-top: 1px solid var(--border-light); padding-top: 15px; font-size: 0.9rem; color: var(--text-muted);">
+                            ${ind.features ? ind.features.map(f => `<div>✓ ${f}</div>`).join('') : ''}
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+        `;
+    }
+
+    return `
+        <!-- HERO -->
+        <section class="msme-hero">
+            <div class="msme-hero-inner">
+                <div>
+                    <div class="msme-badge">${hero.page_label}</div>
+                    <h1>${hero.title}</h1>
+                    <p class="msme-hero-sub">${hero.subtitle}</p>
+                    <div class="hero-cta-row">
+                        <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large">📅 Book a Free Consultation</a>
+                    </div>
+                    <div class="hero-trust">
+                        <div class="hero-trust-avatars">
+                            ${hero.trust.avatars.map((av, i) => `<span class="trust-avatar trust-avatar-${i+1}">${av}</span>`).join('')}
+                        </div>
+                        <span>Trusted by <strong class="trust-count">${hero.trust.count}</strong></span>
+                    </div>
+                </div>
+                <div class="hero-mockup">
+                    <div class="mockup-main">
+                        <div class="mockup-bar"><span></span><span></span><span></span></div>
+                        <div class="mockup-metrics">
+                            ${hero.mockup.metrics.map(m => `
+                                <div class="mockup-metric">
+                                    <div class="mockup-metric-label">${m.label}</div>
+                                    <div class="mockup-metric-value ${m.color || ''}">${m.value}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div class="mockup-chart"></div>
+                    </div>
+                    ${hero.mockup.cards.map((c, i) => `
+                        <div class="float-card float-card-${i+1}">
+                            <div class="fc-icon">${c.icon}</div>
+                            <div class="fc-label">${c.label}</div>
+                            <div class="fc-value ${c.active ? 'fc-value-active' : ''}">${c.value}</div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURE PILLS -->
+        <section class="container fade-in section-pills">
+            <div class="feature-pills">
+                ${feature_pills.map(pill => `<div class="feature-pill">${pill}</div>`).join('')}
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section class="container fade-in content-section">
+            <div class="section-header">
+                <h4 class="mini-title">${services.subtitle}</h4>
+                <h2>${services.title}</h2>
+            </div>
+            <div class="bento-grid">
+                ${services.items.map((item, index) => `
+                    <div class="bento-card ${index === 0 || index === 3 ? 'wide' : ''} fade-in">
+                        <div class="bento-icon">${item.icon}</div>
+                        <h3>${item.title}</h3>
+                        <p>${item.desc}</p>
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+
+        <!-- INDUSTRIES -->
+        ${industriesHtml}
+
+        <!-- CTA -->
+        <section class="container fade-in biz-cta-section">
+            <div class="biz-cta">
+                <div class="biz-cta-glow"></div>
+                <h2>${cta.title}</h2>
+                <p>${cta.description}</p>
+                <div class="hero-cta-row">
+                    <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large">${cta.button_text}</a>
+                    <a href="contact.html" class="btn-secondary large">✉️ Send a Message</a>
+                </div>
+            </div>
+        </section>
+    `;
+}
+
+function renderMSME(data) {
+    return `
+        <!-- HERO -->
+        <section class="msme-hero">
+            <div class="msme-hero-inner">
+                <div class="fade-in">
+                    <div class="msme-badge">${data.hero.badge}</div>
+                    <h1>${data.hero.title}</h1>
+                    <p class="msme-hero-sub">${data.hero.subtitle}</p>
+                    <div class="hero-cta-row">
+                        <a href="${data.hero.cta.primary.url}" target="_blank" class="btn-primary large">${data.hero.cta.primary.text}</a>
+                        <a href="${data.hero.cta.secondary.url}" class="btn-secondary large">${data.hero.cta.secondary.text}</a>
+                    </div>
+                    <div class="hero-trust">
+                        <div class="hero-trust-avatars">
+                            ${data.hero.trust.avatars.map((av, i) => `<span class="trust-avatar trust-avatar-${i+1}">${av}</span>`).join('')}
+                        </div>
+                        <span>Trusted by <strong class="trust-count">${data.hero.trust.count}</strong> across India</span>
+                    </div>
+                </div>
+
+                <!-- Floating Dashboard Mockup -->
+                <div class="hero-mockup fade-in">
+                    <div class="mockup-main">
+                        <div class="mockup-bar"><span></span><span></span><span></span></div>
+                        <div class="mockup-metrics">
+                            ${data.hero.mockup.metrics.map(m => `
+                                <div class="mockup-metric">
+                                    <div class="mockup-metric-label">${m.label}</div>
+                                    <div class="mockup-metric-value ${m.color || ''}">${m.value}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div class="mockup-chart"></div>
+                    </div>
+                    ${data.hero.mockup.cards.map((c, i) => `
+                        <div class="float-card float-card-${i+1}">
+                            <div class="fc-icon">${c.icon}</div>
+                            <div class="fc-label">${c.label}</div>
+                            <div class="fc-value ${c.active ? 'fc-value-active' : ''}">${c.value}</div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURE PILLS -->
+        <section class="container fade-in" style="padding: 60px 24px 0;">
+            <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;margin-bottom:20px;">What We Offer for MSMEs</h2>
+            <div class="feature-pills">
+                ${data.feature_pills.map(pill => `<div class="feature-pill">${pill}</div>`).join('')}
+            </div>
+        </section>
+
+        <!-- BENTO SERVICE GRID -->
+        <section class="container fade-in" style="padding: 40px 24px 0;">
+            <div class="section-header">
+                <h4 class="mini-title">${data.services.subtitle}</h4>
+                <h2>${data.services.title}</h2>
+            </div>
+            <div class="bento-grid">
+                ${data.services.items.map((item, idx) => `
+                    <div class="bento-card ${idx === 0 || idx === 3 ? 'wide' : ''} fade-in">
+                        <div class="bento-icon" style="background:${item.icon_gradient}">${item.icon}</div>
+                        <h3>${item.title}</h3>
+                        <p>${item.desc}</p>
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+
+        <!-- OLD WAY vs TRAI WAY -->
+        <section class="compare-section fade-in">
+            <div class="container">
+                <div class="section-header center">
+                    <h4 class="mini-title">${data.comparison.subtitle}</h4>
+                    <h2>${data.comparison.title}</h2>
+                </div>
+                <div class="compare-grid">
+                    <div class="compare-col compare-old">
+                        <h3>${data.comparison.old_way.title}</h3>
+                        ${data.comparison.old_way.items.map(i => `<div class="compare-item"><span class="ci-icon">❌</span> ${i}</div>`).join('')}
+                    </div>
+                    <div class="compare-vs"><span>VS</span></div>
+                    <div class="compare-col compare-new">
+                        <h3>${data.comparison.new_way.title}</h3>
+                        ${data.comparison.new_way.items.map(i => `<div class="compare-item"><span class="ci-icon">✅</span> ${i}</div>`).join('')}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CLIENTS -->
+        <section class="container fade-in" style="padding: 100px 24px;">
+            <div class="clients-heading">
+                <h2>
+                    <span class="slash-deco"><span></span><span></span><span></span></span>
+                    ${data.clients.title}
+                    <span class="slash-deco"><span></span><span></span><span></span></span>
+                </h2>
+                <p>${data.clients.subtitle}</p>
+            </div>
+
+            ${data.clients.categories.map(cat => `
+                <div class="cat-section fade-in">
+                    <div class="section-divider">
+                        <span class="cat-icon">${cat.icon}</span>
+                        <h3>${cat.title}</h3>
+                        <div class="section-divider-line"></div>
+                        <span class="client-count">${cat.count}</span>
+                    </div>
+                    <div class="logo-grid">
+                        ${cat.logos.map(l => `
+                            <div class="logo-card">
+                                <div class="logo-avatar" style="background:${l.gradient}">${l.initials}</div>
+                                <div class="logo-name">${l.name}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('')}
+
+            <div style="text-align:center;margin-bottom:48px;"></div>
+        </section>
+
+        <!-- INLINE COST ESTIMATOR -->
+        <section id="estimator" class="estimator-section fade-in">
+            <div class="container">
+                <div class="estimator-card">
+                    <div class="estimator-left">
+                        <h4 class="mini-title">${data.estimator.subtitle}</h4>
+                        <h2>${data.estimator.title}</h2>
+                        <p>${data.estimator.desc}</p>
+                        <div style="margin-top:30px;">
+                            ${data.estimator.bullets.map(b => `
+                                <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;font-size:0.9rem;color:var(--text-muted);">
+                                    <span style="color:var(--accent-color);font-weight:700;">✔</span> ${b}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    <div>
+                        <form id="estimatorForm" class="estimator-form" action="https://formsubmit.co/hello@traiinc.com" method="POST">
+                            <input type="hidden" name="_subject" value="New MSME Cost Estimate from TraiInc.com">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="hidden" name="_next" value="https://traiinc.com/msmes.html#estimator">
+                            <input type="text" name="_honey" style="display:none;">
+
+                            <label>What do you need built?</label>
+                            <select id="calcType" name="service_type" required>
+                                ${data.estimator.options.map(opt => `<option value="${opt.value}">${opt.label}</option>`).join('')}
+                            </select>
+
+                            <label>Do you need user logins?</label>
+                            <select id="calcLogin" name="needs_login" required>
+                                <option value="no">No</option>
+                                <option value="yes">Yes (+₹20K)</option>
+                            </select>
+
+                            <label>Your Name</label>
+                            <input type="text" name="name" required placeholder="Your name">
+
+                            <label>WhatsApp Number</label>
+                            <input type="tel" name="phone" required placeholder="+91 XXXXX XXXXX">
+
+                            <button type="button" class="btn-primary large" style="width:100%;justify-content:center;" onclick="calculateEstimate()">Calculate Estimate</button>
+                        </form>
+
+                        <div id="estimateResult" class="estimator-result">
+                            <h3 id="estimatePrice">₹0</h3>
+                            <p>Estimated starting cost. We'll WhatsApp you a detailed quote!</p>
+                            <button type="submit" form="estimatorForm" class="btn-primary" style="margin-top:16px;">📩 Send Me the Quote</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CASE STUDIES -->
+        <section style="padding: 80px 0; background: var(--bg-darker);">
+            <div class="container fade-in">
+                <div class="section-header center">
+                    <h4 class="mini-title">${data.success_stories.subtitle}</h4>
+                    <h2>${data.success_stories.title}</h2>
+                </div>
+                <div class="cases-grid">
+                    ${data.success_stories.items.map(cs => `
+                        <div class="case-card-v2 fade-in">
+                            <div class="case-client">${cs.client}</div>
+                            <h3>${cs.title}</h3>
+                            <p><strong>Problem:</strong> ${cs.problem}</p>
+                            <p><strong>Solution:</strong> ${cs.solution}</p>
+                            <div>${cs.tags.map(t => `<span class="case-tag">${t}</span>`).join('')}</div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        </section>
+
+        <!-- GRAND CTA -->
+        <section class="grand-cta fade-in">
+            <div class="container">
+                <div class="grand-cta-inner">
+                    <h2>${data.grand_cta.title}</h2>
+                    <p>${data.grand_cta.description}</p>
+                    <a href="${data.grand_cta.url}" target="_blank" class="btn-primary large">${data.grand_cta.button_text}</a>
+                </div>
+            </div>
+        </section>
+    `;
+}
+
+function renderServicePage(data, slug) {
+    const service = data[slug];
+    if (!service) return `<div class="container" style="padding: 100px 0; text-align: center;"><h2>Service Not Found</h2></div>`;
+    
+    return `
+    <!-- ════════ HERO ════════ -->
+    <section class="msme-hero">
+        <div class="msme-hero-inner">
+            <div>
+                <div class="msme-badge">${service.badge}</div>
+                <h1>${service.title}</h1>
+                <p class="msme-hero-sub">${service.subtitle}</p>
+                <div class="hero-cta-row">
+                    <a href="contact.html" class="btn-primary large">📅 ${service.cta.button_text || "Discuss Your Project"}</a>
+                </div>
+            </div>
+            <div class="hero-mockup">
+                <div class="mockup-main">
+                    <div class="mockup-bar"><span></span><span></span><span></span></div>
+                    <div class="mockup-metrics">
+                        <div class="mockup-metric">
+                            <div class="mockup-metric-label">⚡ Deployment Speed</div>
+                            <div class="mockup-metric-value green">2x Faster</div>
+                        </div>
+                        <div class="mockup-metric">
+                            <div class="mockup-metric-label">🛡️ Reliability</div>
+                            <div class="mockup-metric-value">99.9%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="float-card float-card-1">
+                    <div class="fc-icon">${service.icon}</div>
+                    <div class="fc-label">Tech Stack</div>
+                    <div class="fc-value fc-value-active">${service.tech_stack[0]}</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE SOLUTIONS -->
+    <section class="bento-section fade-in content-section">
+        <div class="section-header center" style="margin-bottom: 50px; text-align: center;">
+            <h4 class="mini-title" style="color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 10px;">CAPABILITIES</h4>
+            <h2 style="font-family: var(--font-heading); font-size: 2.5rem; font-weight: 800;">Core Features</h2>
+        </div>
+        <div class="bento-grid">
+            ${service.features.map(f => `
+                <div class="bento-card" style="border-top: 4px solid ${f.color};">
+                    <div class="bento-icon" style="color: ${f.color}; font-size: 2rem; margin-bottom: 20px;">${f.icon}</div>
+                    <h3 class="bento-title">${f.title}</h3>
+                    <p class="bento-desc">${f.desc}</p>
+                </div>
+            `).join('')}
+        </div>
+    </section>
+
+    <!-- TECH STACK & USE CASES -->
+    <section class="container fade-in" style="padding: 50px 0;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+            <div style="background: var(--bg-card); padding: 40px; border-radius: 20px; border: 1px solid var(--border-light);">
+                <h3 style="font-family: var(--font-heading); margin-bottom: 20px;">Tech Stack</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    ${service.tech_stack.map(tech => `<span class="blog-tag" style="background: var(--bg-light); color: var(--text-main); font-size: 0.85rem; padding: 6px 14px; border: 1px solid var(--border-light);">${tech}</span>`).join('')}
+                </div>
+            </div>
+            <div style="background: var(--bg-card); padding: 40px; border-radius: 20px; border: 1px solid var(--border-light);">
+                <h3 style="font-family: var(--font-heading); margin-bottom: 20px;">Use Cases</h3>
+                <ul style="list-style: none; padding: 0;">
+                    ${service.use_cases.map(uc => `<li style="margin-bottom: 12px; color: var(--text-muted);"><span style="color: var(--accent-color); margin-right: 10px;">✓</span>${uc}</li>`).join('')}
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- DELIVERY PROCESS -->
+    <section class="compare-section fade-in content-section">
+        <div class="container">
+            <div class="section-header center" style="text-align: center; margin-bottom: 50px;">
+                <h4 class="mini-title" style="color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 10px;">THE METHODOLOGY</h4>
+                <h2 style="font-family: var(--font-heading); font-size: 2.5rem; font-weight: 800;">How We Deliver Quality</h2>
+            </div>
+            <div class="process-grid">
+                ${service.process.map(p => `
+                    <div class="process-card">
+                        <div class="process-number">${p.number}</div>
+                        <h3>${p.title}</h3>
+                        <p>${p.desc}</p>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    </section>
+
+    <!-- GRAND CTA -->
+    <section class="grand-cta fade-in">
+        <div class="container">
+            <div class="grand-cta-inner">
+                <h2>${service.cta.title}</h2>
+                <p>${service.cta.description}</p>
+                <a href="contact.html" class="btn-primary" style="font-size: 1.1rem; padding: 18px 40px;">${service.cta.button_text}</a>
+            </div>
+        </div>
+    </section>
+    `;
 }

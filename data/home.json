@@ -1,242 +1,171 @@
 {
   "hero": {
-    "subheading": "ENTERPRISE IT SOLUTIONS",
-    "heading_part1": "Building the",
-    "heading_part2": "technology behind",
-    "highlight": "tomorrow's leaders.",
-    "emoji": "⚡",
-    "ratings": [
-      {
-        "stars": "★★★★★",
-        "text": "4.9/5 Client Satisfaction"
-      },
-      {
-        "stars": "★★★★★",
-        "text": "5 Star Google Rated"
-      }
+    "badge": "⚡ AI-Native Software Engineering",
+    "heading_line1": "Smart engineering.",
+    "heading_line2": "Faster",
+    "heading_highlight": "delivery.",
+    "subtitle": "Our team of senior engineers delivers custom software, AI automation, and cloud platforms. No outsourcing, no junior devs — just direct execution. Fixed-price contracts from ₹15,000.",
+    "cta_primary": {
+      "icon": "📅",
+      "text": "Book a Free Consultation",
+      "href": "https://calendar.app.google/PUsxADQBnpQsTrDbA"
+    },
+    "cta_secondary": {
+      "icon": "⚙️",
+      "text": "Explore Solutions",
+      "href": "#solutions"
+    },
+    "trust_line": "138+ businesses",
+    "trust_suffix": "across India",
+    "trust_avatars": ["CM", "BM", "DP", "JH", "+"],
+    "mockup_metrics": [
+      { "icon": "📊", "label": "Projects Delivered", "value": "138+", "color": "green" },
+      { "icon": "🚀", "label": "Active Clients", "value": "5", "color": "gold" },
+      { "icon": "⚡", "label": "Avg. Delivery", "value": "4–8 Weeks", "color": "" },
+      { "icon": "⭐", "label": "Client Retention", "value": "94%", "color": "green" }
     ],
-    "button_text": "Get a Free Consultation"
+    "float_cards": [
+      { "icon": "📱", "label": "Mobile App", "value": "Deployed ✓", "active": true },
+      { "icon": "🤖", "label": "AI Automation", "value": "Building", "active": false }
+    ]
   },
-  "specialise": {
-    "title": "OUR CORE CAPABILITIES",
-    "categories": [
+  "feature_pills": [
+    "✓ Custom Software",
+    "✓ Mobile Apps (Flutter)",
+    "✓ AI & Automation",
+    "✓ WhatsApp Business",
+    "✓ Cloud & DevOps",
+    "✓ CRM & Dashboards",
+    "✓ Digital Marketing",
+    "✓ Fixed-Price Contracts"
+  ],
+  "solutions_routing": {
+    "subtitle": "SOLUTIONS",
+    "title": "Engineered for every stage",
+    "cards": [
       {
-        "icon": "💻",
-        "title": "Custom Software Development",
-        "desc": "Full-stack web apps, enterprise platforms, APIs, and SaaS products built to scale."
+        "icon": "🚀",
+        "title": "Startups",
+        "desc": "Rapid MVP development, cloud architecture, and go-to-market engineering. Launch your product without burning venture capital.",
+        "link": "startups.html",
+        "link_text": "Explore Startup Solutions →"
       },
       {
-        "icon": "📱",
-        "title": "Mobile App Development",
-        "desc": "Native iOS, Android, and cross-platform mobile experiences using Flutter & React Native."
-      },
-      {
-        "icon": "☁️",
-        "title": "Cloud & DevOps",
-        "desc": "AWS, Azure, GCP migrations, Kubernetes, CI/CD pipelines, Infrastructure as Code, and serverless."
-      },
-      {
-        "icon": "⚡",
-        "title": "AI Agents & Automation",
-        "desc": "Custom LangChain agents, AI voice telephony (Vapi, Retell), and no-code n8n/Zapier workflows to automate your business."
-      },
-      {
-        "icon": "🧠",
-        "title": "AI & Machine Learning",
-        "desc": "Chatbots, generative AI, predictive analytics, computer vision, NLP, and ML model deployment."
-      },
-      {
-        "icon": "🎨",
-        "title": "UI/UX & Creative Design",
-        "desc": "User research, brand identity, motion graphics, prototyping, 3D rendering, and design systems."
-      },
-      {
-        "icon": "📊",
-        "title": "Data Engineering & Analytics",
-        "desc": "ETL pipelines, data lakes, real-time dashboards, BI tools, and data-driven decision frameworks."
-      },
-      {
-        "icon": "📈",
-        "title": "Digital Marketing & SEO",
-        "desc": "SEO, GEO, paid ads, social media, email automation, content strategy, and marketing funnels."
+        "icon": "🏪",
+        "title": "Micro & Small Business",
+        "desc": "Affordable websites, WhatsApp AI, and local SEO to digitize your local operations. From ₹15K.",
+        "link": "msmes.html",
+        "link_text": "Explore MSME Solutions →"
       },
       {
         "icon": "🏢",
-        "title": "Enterprise Platforms",
-        "desc": "CRM, ERP, HRMS, project management, billing & inventory, and workforce management systems."
+        "title": "Growing SMBs",
+        "desc": "Custom CRMs, workflow automation, and digital marketing that scales with your growth. Eliminate spreadsheet chaos.",
+        "link": "smb.html",
+        "link_text": "Explore SMB Solutions →"
       },
       {
-        "icon": "🔒",
-        "title": "Cybersecurity & Consulting",
-        "desc": "Penetration testing, compliance (SOC 2, GDPR), zero-trust architecture, and IT strategy audits."
+        "icon": "🏗️",
+        "title": "Large Enterprises",
+        "desc": "Cloud migrations, AI agents, and secure enterprise platforms at scale. Enterprise-grade engineering without the enterprise price tag.",
+        "link": "enterprise.html",
+        "link_text": "Explore Enterprise Solutions →"
       }
     ]
   },
-  "popular_services": {
-    "subtitle": "TECHNOLOGY STACK",
-    "title": "End-to-end engineering across the modern stack",
-    "categories": [
+  "expertise": {
+    "subtitle": "CORE EXPERTISE",
+    "title": "Our Engineering Solutions",
+    "cards": [
       {
-        "name": "Frontend & Mobile",
-        "items": [
-          "React & Next.js",
-          "Flutter & React Native",
-          "TypeScript",
-          "Tailwind CSS",
-          "Progressive Web Apps",
-          "Electron Desktop Apps"
-        ]
+        "icon": "🌐",
+        "title": "Custom Web Applications",
+        "desc": "High-performance, scalable web apps built with Next.js, React, and modern cloud architecture. Blazing fast load times, SEO optimization, and flawless user experiences across all devices.",
+        "tags": ["Next.js", "React", "Tailwind CSS", "TypeScript"],
+        "color": "#00f2fe",
+        "wide": true
       },
       {
-        "name": "Backend & Cloud",
-        "items": [
-          "Node.js & Python",
-          "Go & Rust",
-          "AWS / Azure / GCP",
-          "Docker & Kubernetes",
-          "Serverless & Edge",
-          "Terraform & Pulumi"
-        ]
+        "icon": "🤖",
+        "title": "WhatsApp & AI Automation",
+        "desc": "Turn WhatsApp into a revenue engine. AI chatbots, automated ticketing systems, and integrated CRM workflows directly into the tools your customers already use.",
+        "tags": ["OpenAI / LLMs", "WhatsApp API"],
+        "color": "#4facfe",
+        "wide": false
       },
       {
-        "name": "AI Agents & Workflow Automation",
-        "items": [
-          "LangChain & LlamaIndex",
-          "n8n & Zapier",
-          "Vapi & Retell AI (Voice)",
-          "OpenAI & Anthropic APIs",
-          "AutoGPT & Agentic Workflows",
-          "Custom Chatbots"
-        ]
+        "icon": "📊",
+        "title": "Custom CRMs & Dashboards",
+        "desc": "Stop paying for bloated SaaS products. Bespoke CRMs and internal tools tailored exactly to your operational workflows, giving you total data ownership and zero per-seat licensing fees.",
+        "tags": ["Admin Panels", "Data Vis"],
+        "color": "#38f9d7",
+        "wide": false
       },
       {
-        "name": "Data, ML & Marketing",
-        "items": [
-          "TensorFlow & PyTorch",
-          "PostgreSQL & MongoDB",
-          "Apache Kafka & Spark",
-          "Power BI & Tableau",
-          "SEO & Content Ops",
-          "Marketing Automation"
-        ]
+        "icon": "☁️",
+        "title": "Lean Cloud Infrastructure",
+        "desc": "Serverless architecture that scales infinitely but costs pennies when idle. Cloudflare Workers, Firebase, and Vercel for enterprise-grade reliability without the massive AWS bill.",
+        "tags": ["Cloudflare", "Firebase", "Vercel", "Supabase"],
+        "color": "#f6d365",
+        "wide": true
       }
-    ]
-  },
-  "growth": {
-    "subtitle": "PROVEN IMPACT",
-    "title": "We engineer systems that power high-growth companies",
-    "stats": [
-      {
-        "title": "50+",
-        "desc": "Enterprise projects delivered"
-      },
-      {
-        "title": "99.9%",
-        "desc": "Uptime across managed infrastructure"
-      },
-      {
-        "title": "36+",
-        "desc": "Services across 6 domains"
-      }
-    ]
-  },
-  "trust": {
-    "title": "POWERED BY INDUSTRY-LEADING TECHNOLOGIES & PLATFORMS",
-    "logos": [
-      "AWS",
-      "Google Cloud",
-      "Microsoft Azure",
-      "Zoho",
-      "Canva",
-      "GoDaddy",
-      "Google Workspace",
-      "Meta",
-      "WhatsApp Business",
-      "HubSpot",
-      "Odoo",
-      "Zoho ERP",
-      "LinkedIn"
     ]
   },
   "case_studies": {
-    "subtitle": "OUR IMPACT",
+    "subtitle": "OUR WORK",
     "title": "Real solutions. Measurable results.",
     "studies": [
       {
-        "client": "FinTech Innovator",
-        "title": "Modernizing Legacy Core Banking",
-        "impact": "Reduced transaction latency by 400% and successfully migrated 2M+ users to AWS with zero downtime.",
-        "tags": [
-          "Cloud Migration",
-          "Node.js",
-          "Kubernetes"
-        ]
+        "client": "Chitravan",
+        "title": "Custom CRM for Regional Real Estate",
+        "impact": "Built a custom CRM that handles end-to-end customer relationships — lead capture, inventory tracking, booking management — replacing spreadsheets with a single dashboard.",
+        "tags": ["CRM Platform", "Next.js", "Cloudflare D1"],
+        "color": "#4facfe"
       },
       {
-        "client": "Global E-Commerce",
-        "title": "AI-Powered Personalization Engine",
-        "impact": "Increased checkout conversion by 28% using custom LangChain recommendation agents.",
-        "tags": [
-          "AI Agents",
-          "Python",
-          "Data Engineering"
-        ]
+        "client": "Bhu Master Pvt Ltd",
+        "title": "Real Estate Property Platform",
+        "impact": "Delivered a complete property listing and management platform with buyer-facing search, project pages with amenities and photos, and an admin dashboard for inventory management.",
+        "tags": ["Real Estate", "Web App", "Data Modeling"],
+        "color": "#38f9d7"
       },
       {
-        "client": "Healthcare SaaS",
-        "title": "HIPAA-Compliant Patient Portal",
-        "impact": "Delivered a secure, cross-platform mobile app in React Native serving 500k+ patients daily.",
-        "tags": [
-          "Mobile App",
-          "React Native",
-          "Security"
-        ]
+        "client": "Dashak Pharma",
+        "title": "B2B WhatsApp Ordering & Automation",
+        "impact": "Built a WhatsApp-first ordering system for B2B pharmacy distribution — automated order capture, invoicing, and follow-ups with zero new app downloads required from retailers.",
+        "tags": ["WhatsApp API", "n8n", "AI Automation"],
+        "color": "#f6d365"
       }
     ]
   },
-  "testimonials": {
-    "subtitle": "WHAT OUR CLIENTS SAY",
-    "title": "Trusted by Founders & CTOs",
-    "items": [
+  "process": {
+    "subtitle": "THE METHODOLOGY",
+    "title": "How We Deliver Quality",
+    "steps": [
       {
-        "quote": "Trai Inc rebuilt our entire cloud infrastructure in 6 weeks. Server costs dropped 42% and uptime went to 99.98%. They're not just vendors — they're partners.",
-        "name": "Rajesh Gupta",
-        "role": "CTO, Pinnacle Infra Solutions",
-        "stars": 5
+        "number": "01",
+        "title": "Discovery & Scoping",
+        "desc": "We strip away the noise. We analyze your core business problem and propose a lean, high-impact technical architecture.",
+        "color": "#00f2fe"
       },
       {
-        "quote": "We needed a custom CRM that actually fit our workflow. Trai's team delivered a production-ready platform in 30 days that our sales team actually loves using.",
-        "name": "Priya Mehta",
-        "role": "Founder, GrowthAffirm India",
-        "stars": 5
+        "number": "02",
+        "title": "Agile Build",
+        "desc": "We build in rapid sprints. You get weekly video updates, staging links, and complete transparency into the codebase.",
+        "color": "#4facfe"
       },
       {
-        "quote": "Their AI automation work eliminated 15 hours of manual data entry per week for our operations team. ROI was visible within the first month.",
-        "name": "Amit Sharma",
-        "role": "Director, Bharat Logistics Corp",
-        "stars": 5
+        "number": "03",
+        "title": "Deployment & Handoff",
+        "desc": "We deploy to production, setup analytics, and provide full documentation. You own 100% of the IP and infrastructure.",
+        "color": "#38f9d7"
       }
     ]
   },
-  "guarantee": {
-    "title": "Our Promise to Every Client",
-    "items": [
-      {
-        "icon": "🔒",
-        "title": "NDA-Protected",
-        "desc": "Every engagement starts with a mutual NDA. Your IP and business data remain fully confidential."
-      },
-      {
-        "icon": "📈",
-        "title": "Transparent Sprints",
-        "desc": "Weekly demos and burn-down reports. If you're not happy after Sprint 1, you don't pay for it."
-      },
-      {
-        "icon": "🛡️",
-        "title": "Post-Launch SLA",
-        "desc": "60-day warranty on all deliverables. Critical bugs fixed within 4 hours, guaranteed."
-      }
-    ]
-  },
-  "scarcity": "Currently accepting only 3 new enterprise partners for Q3 2026."
+  "cta": {
+    "title": "Ready to build something exceptional?",
+    "description": "Stop settling for mediocre agencies. Let us discuss your product roadmap and engineer a solution that accelerates your growth.",
+    "button_text": "Book a Consultation",
+    "button_href": "https://calendar.app.google/PUsxADQBnpQsTrDbA"
+  }
 }

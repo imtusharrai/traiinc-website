@@ -1,0 +1,86 @@
+{
+  "hero": {
+    "page_label": "🚀 From Idea to MVP in Weeks",
+    "title": "Stop building decks.<br>Start shipping <span class=\"gradient-word\">product.</span>",
+    "subtitle": "We build MVPs, mobile apps, and cloud platforms for early-stage startups — fixed price, no equity, delivered in 4-8 weeks. Direct access to senior engineers who actually build your product.",
+    "accent_colors": {
+      "primary": "#96fbc4",
+      "secondary": "#f9f586"
+    },
+    "trust": {
+      "avatars": ["BM", "CV", "DP", "+"],
+      "count": "50+ startups"
+    },
+    "mockup": {
+      "metrics": [
+        { "label": "🚀 MVP Status", "value": "Live", "color": "green" },
+        { "label": "📅 Timeline", "value": "6 Weeks", "color": "gold" },
+        { "label": "👥 Users", "value": "2,340", "color": "" },
+        { "label": "💰 Saved vs Agency", "value": "₹18L", "color": "green" }
+      ],
+      "cards": [
+        { "icon": "✅", "label": "Sprint 4 Complete", "value": "Deployed ✓", "active": true },
+        { "icon": "🔔", "label": "App Store", "value": "Approved", "active": false }
+      ]
+    }
+  },
+  "feature_pills": [
+    "✓ MVP in 4-8 Weeks",
+    "✓ Flutter & Next.js",
+    "✓ Cloud Architecture",
+    "✓ AI Integration",
+    "✓ Fixed-Price Contracts",
+    "✓ No Equity Required"
+  ],
+  "services": {
+    "subtitle": "WHAT WE BUILD",
+    "title": "The modern startup stack",
+    "items": [
+      {
+        "icon": "📱",
+        "title": "Mobile Apps",
+        "desc": "We build cross-platform applications using Flutter and React Native. This lets you ship to both iOS and Android simultaneously from a single codebase without sacrificing native performance, allowing you to reach users on all platforms from day one."
+      },
+      {
+        "icon": "🌐",
+        "title": "Web Applications",
+        "desc": "High-performance web platforms and SaaS products engineered with Next.js and React. Our web apps are SEO-friendly, blazing fast, and designed with infinite scalability in mind to handle rapid user growth without breaking."
+      },
+      {
+        "icon": "🤖",
+        "title": "AI Chatbots & Automation",
+        "desc": "Turn AI into an actual product feature. We integrate cutting-edge LLMs, build interactive WhatsApp bots, and automate complex workflows to give your startup an unfair technological advantage over traditional competitors."
+      },
+      {
+        "icon": "☁️",
+        "title": "Cloud Infrastructure",
+        "desc": "Serverless architecture deployed on Firebase, Supabase, or Cloudflare Workers. We keep your initial cloud bill close to zero while you search for product-market fit, ensuring you only pay for what you use as you scale."
+      }
+    ]
+  },
+  "industries": [
+    {
+      "icon": "💸",
+      "title": "FinTech & SaaS",
+      "desc": "Scalable web applications, subscription billing integrations, and secure data handling designed to comply with financial standards.",
+      "features": ["Stripe/Razorpay Integration", "Data Security", "Subscription Logic", "Analytics Dashboards"]
+    },
+    {
+      "icon": "🛍️",
+      "title": "D2C & E-Commerce",
+      "desc": "High-conversion storefronts, inventory management systems, and automated fulfillment workflows tailored for direct-to-consumer brands.",
+      "features": ["Headless Commerce", "Payment Gateways", "Inventory Sync", "Order Tracking"]
+    },
+    {
+      "icon": "🏥",
+      "title": "HealthTech & EdTech",
+      "desc": "HIPAA-compliant infrastructure, real-time video streaming, and user-centric interfaces for modern healthcare and education platforms.",
+      "features": ["Video Conferencing", "Compliance Hardening", "User Profiles", "Booking Systems"]
+    }
+  ],
+  "cta": {
+    "title": "Ready to ship your MVP?",
+    "description": "Book a free scoping call. We will review your idea and give you a fixed quote within 48 hours.",
+    "button_text": "📅 Book a Free Scoping Call"
+  }
+}

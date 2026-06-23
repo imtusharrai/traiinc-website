@@ -94,6 +94,7 @@
         { "name": "AI Chatbot Development", "desc": "GPT-powered chatbots, customer support agents, and conversational AI." },
         { "name": "Machine Learning Models", "desc": "Custom ML models for prediction, classification, and recommendation." },
         { "name": "Generative AI Integration", "desc": "LLM-powered content generation, code assistants, and image synthesis." },
+        { "name": "AI-Native Development Workflows", "desc": "Agentic IDE integration, Claude Code, Gemini Pro, and Antigravity automation." },
         { "name": "Data Analytics & Visualization", "desc": "Power BI, Tableau, Metabase dashboards with real-time insights." },
         { "name": "Data Engineering & ETL", "desc": "Scalable data pipelines with Airflow, Spark, dbt, and Snowflake." },
         { "name": "Computer Vision & NLP", "desc": "Image recognition, OCR, sentiment analysis, and text extraction." }
@@ -148,30 +149,6 @@
       ]
     }
   ],
-  "testimonials": {
-    "subtitle": "CLIENT STORIES",
-    "title": "What our clients say",
-    "items": [
-      {
-        "quote": "Trai Inc transformed our legacy systems into a modern cloud-native architecture. Our deployment time dropped from days to minutes.",
-        "name": "Rahul Sharma",
-        "role": "CTO, Radiance City",
-        "stars": 5
-      },
-      {
-        "quote": "The AI agents they built for our sales team automate 80% of our lead qualification. ROI was visible within the first month.",
-        "name": "Priya Mehta",
-        "role": "VP Sales, Kohli Group",
-        "stars": 5
-      },
-      {
-        "quote": "From UI/UX design to full-stack development, Trai delivered a premium product that our users love. Truly world-class engineering.",
-        "name": "Amit Verma",
-        "role": "Founder, GharSaathi LLP",
-        "stars": 5
-      }
-    ]
-  },
   "guarantee": {
     "title": "Our Commitment to You",
     "items": [

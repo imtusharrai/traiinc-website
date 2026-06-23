@@ -1,0 +1,662 @@
+{
+  "ai-agents": {
+    "hero": {
+      "badge": "\ud83e\udde0 Data & Intelligence",
+      "title": "Autonomous teams.<br>Infinite <span class='gradient-word'>scale.</span>",
+      "subtitle": "LangChain and custom conversational agents that act autonomously, process data, and serve your customers 24/7."
+    },
+    "features": [
+      {
+        "icon": "\ud83d\udcac",
+        "color": "#d299c2",
+        "title": "Customer Support Agents",
+        "desc": "AI agents that resolve complex customer tickets 24/7, reading your internal documentation to provide accurate answers."
+      },
+      {
+        "icon": "\ud83d\udd75\ufe0f",
+        "color": "#fef9d7",
+        "title": "Research Agents",
+        "desc": "Agents that scrape the web, summarize competitor pricing, and generate weekly market reports autonomously."
+      },
+      {
+        "icon": "\ud83d\udee0\ufe0f",
+        "color": "#00f2fe",
+        "title": "LangChain & Multi-Agent",
+        "desc": "Complex orchestration where multiple AI agents collaborate to solve multi-step problems."
+      }
+    ],
+    "process": [
+      {
+        "number": "01",
+        "title": "Workflow Analysis",
+        "desc": "We identify which operational workflows are repetitive and can be entirely delegated to an AI agent."
+      },
+      {
+        "number": "02",
+        "title": "Agent Prompt Engineering",
+        "desc": "We build custom tools (APIs) and refine the system prompts so the agent behaves exactly like a human employee."
+      },
+      {
+        "number": "03",
+        "title": "Testing & Deployment",
+        "desc": "We run the agent in a sandbox, verify its decision-making, and deploy it to Slack, WhatsApp, or your web app."
+      }
+    ]
+  },
+  "ai-automation": {
+    "hero": {
+      "badge": "\ud83e\udd16 Core Engineering",
+      "title": "Smarter operations.<br>Automated <span class='gradient-word'>growth.</span>",
+      "subtitle": "Leverage LLMs, custom agents, and intelligent workflows to automate redundant tasks and scale your business without scaling your headcount."
+    },
+    "features": [
+      {
+        "icon": "\ud83e\udde0",
+        "color": "#f093fb",
+        "title": "Custom LLM Integration",
+        "desc": "Connect GPT-4 or Claude to your proprietary data. We build secure RAG (Retrieval-Augmented Generation) systems."
+      },
+      {
+        "icon": "\u2699\ufe0f",
+        "color": "#f5576c",
+        "title": "Process Automation",
+        "desc": "Automate data entry, customer support, and document parsing using AI-driven workflows."
+      },
+      {
+        "icon": "\ud83e\udd16",
+        "color": "#fa709a",
+        "title": "Autonomous Agents",
+        "desc": "Deploy specialized AI agents that can research, email, and make decisions 24/7 without human intervention."
+      }
+    ],
+    "process": [
+      {
+        "number": "01",
+        "title": "Process Mapping",
+        "desc": "We identify repetitive tasks and data silos in your operations that are ripe for AI disruption."
+      },
+      {
+        "number": "02",
+        "title": "Model Selection & RAG",
+        "desc": "We select the right LLMs and connect them securely to your company knowledge base."
+      },
+      {
+        "number": "03",
+        "title": "Deployment & Training",
+        "desc": "We deploy the AI tools to your team and train them on how to leverage their new digital workforce."
+      }
+    ]
+  },
+  "ai-voice-agents": {
+    "hero": {
+      "badge": "\ud83c\udf99\ufe0f Creative & Growth",
+      "title": "Conversational AI.<br>Human <span class='gradient-word'>voice.</span>",
+      "subtitle": "Inbound and outbound voice AI systems that sound natural, qualify leads, and handle customer support."
+    },
+    "features": [
+      {
+        "icon": "\ud83d\udcde",
+        "color": "#a1c4fd",
+        "title": "Inbound Support",
+        "desc": "AI receptionists that answer calls instantly, answer FAQs, and route complex queries to human agents."
+      },
+      {
+        "icon": "\ud83c\udfaf",
+        "color": "#c2e9fb",
+        "title": "Outbound Lead Gen",
+        "desc": "AI agents that call your lead lists, qualify prospects based on your script, and book meetings on your calendar."
+      },
+      {
+        "icon": "\ud83d\udde3\ufe0f",
+        "color": "#00f2fe",
+        "title": "Natural Synthesis",
+        "desc": "Ultra-realistic voice models with less than 500ms latency, complete with conversational interruptions."
+      }
+    ],
+    "process": [
+      {
+        "number": "01",
+        "title": "Script Engineering",
+        "desc": "We design the conversational tree, define the agent's persona, and write the qualification logic."
+      },
+      {
+        "number": "02",
+        "title": "System Integration",
+        "desc": "We integrate the voice agent with your CRM (HubSpot/Salesforce) and calendar scheduling tools."
+      },
+      {
+        "number": "03",
+        "title": "Live Testing",
+        "desc": "We conduct extensive role-play testing to ensure the AI handles objections naturally before going live."
+      }
+    ]
+  },
+  "cloud-devops": {
+    "hero": {
+      "badge": "\u2601\ufe0f Core Engineering",
+      "title": "Scalable Infrastructure.<br>Zero <span class='gradient-word'>Downtime.</span>",
+      "subtitle": "AWS, Azure, and GCP migrations. We build resilient, auto-scaling cloud architectures and CI/CD pipelines that let your team ship code faster."
+    },
+    "features": [
+      {
+        "icon": "\u2601\ufe0f",
+        "color": "#00f2fe",
+        "title": "Cloud Migrations",
+        "desc": "Seamless lift-and-shift or refactoring to AWS, Azure, or GCP. We handle the complexity so you experience zero downtime."
+      },
+      {
+        "icon": "\u26a1",
+        "color": "#4facfe",
+        "title": "CI/CD Pipelines",
+        "desc": "Automate your testing and deployment. We set up GitHub Actions, GitLab CI, and Jenkins to ensure reliable and rapid releases."
+      },
+      {
+        "icon": "\ud83d\udee1\ufe0f",
+        "color": "#38f9d7",
+        "title": "Infrastructure as Code",
+        "desc": "Manage your entire stack with Terraform and Ansible. Version-controlled, reproducible, and secure cloud environments."
+      }
+    ],
+    "process": [
+      {
+        "number": "01",
+        "title": "Infrastructure Audit",
+        "desc": "We analyze your current stack, identify bottlenecks, and map out a highly available architecture."
+      },
+      {
+        "number": "02",
+        "title": "Automated Provisioning",
+        "desc": "We write Terraform scripts to build your new environment, ensuring it's secure, scalable, and reproducible."
+      },
+      {
+        "number": "03",
+        "title": "Migration & CI/CD",
+        "desc": "We migrate your workloads, set up automated deployment pipelines, and hand over the keys to your team."
+      }
+    ]
+  },
+  "custom-software": {
+    "hero": {
+      "badge": "\ud83c\udfd7\ufe0f Core Engineering",
+      "title": "Build products, not<br>technical <span class='gradient-word'>debt.</span>",
+      "subtitle": "Full-cycle product engineering. We architect and build premium software solutions designed for growth, avoiding bloated teams and unnecessary overhead."
+    },
+    "features": [
+      {
+        "icon": "\ud83c\udf10",
+        "color": "#00f2fe",
+        "title": "Scalable Architectures",
+        "desc": "We build microservices and serverless architectures designed to handle millions of users."
+      },
+      {
+        "icon": "\ud83d\udee1\ufe0f",
+        "color": "#4facfe",
+        "title": "Enterprise Security",
+        "desc": "SOC2-compliant development lifecycle with built-in encryption, role-based access, and vulnerability scanning."
+      },
+      {
+        "icon": "\ud83d\ude80",
+        "color": "#43e97b",
+        "title": "High Performance",
+        "desc": "Blazing fast APIs and optimized databases. We focus on low latency and high throughput for core systems."
+      }
+    ],
+    "process": [
+      {
+        "number": "01",
+        "title": "Discovery & Scoping",
+        "desc": "We strip away the noise. We analyze your core business problem and propose a lean, high-impact technical architecture."
+      },
+      {
+        "number": "02",
+        "title": "Agile Build",
+        "desc": "We build in rapid sprints. You get weekly video updates, staging links, and complete transparency into the codebase."
+      },
+      {
+        "number": "03",
+        "title": "Deployment & Handoff",
+        "desc": "We deploy to production, setup analytics, and provide full documentation. You own 100% of the IP."
+      }
+    ]
+  },
+  "cybersecurity": {
+    "hero": {
+      "badge": "\ud83d\udd12 Core Engineering",
+      "title": "Zero trust.<br>Total <span class='gradient-word'>protection.</span>",
+      "subtitle": "SOC2 and GDPR compliant architectures. We secure your infrastructure, audit codebases, and implement enterprise-grade security protocols."
+    },
+    "features": [
+      {
+        "icon": "\ud83d\udee1\ufe0f",
+        "color": "#a18cd1",
+        "title": "Security Audits",
+        "desc": "Comprehensive penetration testing and vulnerability assessments of your web and mobile applications."
+      },
+      {
+        "icon": "\ud83d\udcdc",
+        "color": "#fbc2eb",
+        "title": "Compliance Prep",
+        "desc": "We architect your systems to be ready for SOC2, HIPAA, or GDPR compliance audits."
+      },
+      {
+        "icon": "\ud83d\udd10",
+        "color": "#00f2fe",
+        "title": "Zero-Trust Architecture",
+        "desc": "Implementing strict access controls, multi-factor authentication, and end-to-end encryption."
+      }
+    ],
+    "process": [
+      {
+        "number": "01",
+        "title": "Vulnerability Assessment",
+        "desc": "We scan your infrastructure and codebase to identify critical security flaws and misconfigurations."
+      },
+      {
+        "number": "02",
+        "title": "Hardening & Patching",
+        "desc": "We implement zero-trust policies, patch vulnerabilities, and secure your database endpoints."
+      },
+      {
+        "number": "03",
+        "title": "Continuous Monitoring",
+        "desc": "We set up automated alerts and SIEM tools to detect and respond to threats in real-time."
+      }
+    ]
+  },
+  "data-analytics": {
+    "hero": {
+      "badge": "\ud83d\udcca Data & Intelligence",
+      "title": "Turn data into<br>actionable <span class='gradient-word'>insight.</span>",
+      "subtitle": "Data pipelines, real-time dashboards, and Business Intelligence setups that help you make informed decisions instantly."
+    },
+    "features": [
+      {
+        "icon": "\ud83d\udd04",
+        "color": "#fa709a",
+        "title": "ETL Pipelines",
+        "desc": "Automated data extraction, transformation, and loading from multiple sources into a centralized data warehouse."
+      },
+      {
+        "icon": "\ud83d\udcc8",
+        "color": "#fee140",
+        "title": "BI Dashboards",
+        "desc": "Real-time visualizations using Tableau, PowerBI, or custom React dashboards tailored to your KPIs."
+      },
+      {
+        "icon": "\ud83d\udd2e",
+        "color": "#00f2fe",
+        "title": "Predictive Analytics",
+        "desc": "Machine learning models that forecast sales trends, customer churn, and inventory requirements."
+      }
+    ],
+    "process": [
+      {
+        "number": "01",
+        "title": "Data Auditing",
+        "desc": "We evaluate your current data sources and identify the key metrics that drive your business."
+      },
+      {
+        "number": "02",
+        "title": "Pipeline Construction",
+        "desc": "We build robust ETL pipelines using tools like dbt and Snowflake to unify your data."
+      },
+      {
+        "number": "03",
+        "title": "Dashboard Delivery",
+        "desc": "We deliver intuitive, real-time dashboards so your leadership can make data-driven decisions."
+      }
+    ]
+  },
+  "digital-marketing": {
+    "hero": {
+      "badge": "\ud83d\udcc8 Creative & Growth",
+      "title": "Data-driven ROI.<br>Predictable <span class='gradient-word'>revenue.</span>",
+      "subtitle": "SEO, PPC, and social media campaigns engineered for measurable returns. We turn traffic into actual business."
+    },
+    "features": [
+      {
+        "icon": "\ud83d\udd0d",
+        "color": "#96fbc4",
+        "title": "SEO & Content",
+        "desc": "Technical SEO and high-quality content marketing that compounds traffic over time without ad spend."
+      },
+      {
+        "icon": "\ud83d\udcb0",
+        "color": "#f9f586",
+        "title": "Performance Marketing",
+        "desc": "Highly targeted Google Ads and Meta Ads campaigns focused strictly on lowering your Cost Per Acquisition."
+      },
+      {
+        "icon": "\ud83d\udce7",
+        "color": "#00f2fe",
+        "title": "Email & WhatsApp",
+        "desc": "Automated retention sequences that turn one-time buyers into loyal, repeat customers."
+      }
+    ],
+    "process": [
+      {
+        "number": "01",
+        "title": "Funnel Audit",
+        "desc": "We audit your current traffic sources, conversion rates, and tracking pixels to find the leaky buckets."
+      },
+      {
+        "number": "02",
+        "title": "Campaign Launch",
+        "desc": "We develop ad creatives, write copy, set up A/B tests, and launch targeted campaigns."
+      },
+      {
+        "number": "03",
+        "title": "Scale & Optimize",
+        "desc": "We monitor the data daily, killing underperforming ads and scaling the winners to maximize ROAS."
+      }
+    ]
+  },
+  "enterprise-platforms": {
+    "hero": {
+      "badge": "\u2699\ufe0f Data & Intelligence",
+      "title": "Complex workflows.<br>Unified <span class='gradient-word'>systems.</span>",
+      "subtitle": "Custom CRM, ERP, and HRMS solutions tailored exactly to your operational needs without the SaaS subscription bloat."
+    },
+    "features": [
+      {
+        "icon": "\ud83c\udfe2",
+        "color": "#ffecd2",
+        "title": "Custom ERP/CRM",
+        "desc": "Stop forcing your business into rigid SaaS tools. We build systems that match your exact operational workflows."
+      },
+      {
+        "icon": "\ud83d\udd17",
+        "color": "#fcb69f",
+        "title": "API Integrations",
+        "desc": "Connecting legacy systems with modern cloud infrastructure to eliminate manual data entry and silos."
+      },
+      {
+        "icon": "\ud83d\udc65",
+        "color": "#00f2fe",
+        "title": "Role-Based Access",
+        "desc": "Complex organizational hierarchies, permission sets, and audit logs built-in from day one."
+      }
+    ],
+    "process": [
+      {
+        "number": "01",
+        "title": "Process Mapping",
+        "desc": "We spend time with your stakeholders to map out every single operational workflow and bottleneck."
+      },
+      {
+        "number": "02",
+        "title": "Modular Build",
+        "desc": "We develop the platform in modules (e.g., HR, Sales, Inventory) so you can start using it faster."
+      },
+      {
+        "number": "03",
+        "title": "Data Migration & Training",
+        "desc": "We migrate your historical data from legacy systems and train your staff on the new platform."
+      }
+    ]
+  },
+  "lead-gen-scraping": {
+    "hero": {
+      "badge": "\ud83d\udd77\ufe0f Data & Intelligence",
+      "title": "Automated growth.<br>Targeted <span class='gradient-word'>leads.</span>",
+      "subtitle": "Automated data extraction and CRM population systems that fill your sales pipeline with high-quality prospects."
+    },
+    "features": [
+      {
+        "icon": "\ud83d\udd77\ufe0f",
+        "color": "#96fbc4",
+        "title": "Custom Web Scrapers",
+        "desc": "Extract competitor pricing, real estate listings, or directory data at scale using headless browsers."
+      },
+      {
+        "icon": "\ud83c\udfaf",
+        "color": "#f9f586",
+        "title": "Lead Enrichment",
+        "desc": "Automatically enrich basic email lists with LinkedIn profiles, company size, and revenue metrics."
+      },
+      {
+        "icon": "\ud83d\udd04",
+        "color": "#00f2fe",
+        "title": "CRM Automation",
+        "desc": "Push newly scraped and enriched leads directly into HubSpot or Salesforce without manual entry."
+      }
+    ],
+    "process": [
+      {
+        "number": "01",
+        "title": "Target Identification",
+        "desc": "We define your ideal customer profile and identify the best data sources and directories to scrape."
+      },
+      {
+        "number": "02",
+        "title": "Script Development",
+        "desc": "We write resilient Python scrapers that bypass anti-bot protections and extract structured data."
+      },
+      {
+        "number": "03",
+        "title": "Delivery & Automation",
+        "desc": "We provide the data in CSV format or set up a daily cron job that pushes new leads to your CRM."
+      }
+    ]
+  },
+  "mobile-apps": {
+    "hero": {
+      "badge": "\ud83d\udcf1 Core Engineering",
+      "title": "Native performance.<br>Cross-platform <span class='gradient-word'>speed.</span>",
+      "subtitle": "High-performance iOS and Android applications built with Flutter, React Native, or Swift. Beautiful UI combined with rock-solid backends."
+    },
+    "features": [
+      {
+        "icon": "\ud83d\udcf1",
+        "color": "#38f9d7",
+        "title": "Cross-Platform",
+        "desc": "Flutter and React Native development for deploying to both iOS and Android from a single codebase."
+      },
+      {
+        "icon": "\ud83c\udf4e",
+        "color": "#43e97b",
+        "title": "Native iOS & Android",
+        "desc": "Swift and Kotlin development for applications requiring deep OS integration and maximum performance."
+      },
+      {
+        "icon": "\ud83c\udfa8",
+        "color": "#00f2fe",
+        "title": "Premium UI/UX",
+        "desc": "Fluid animations, gesture controls, and pixel-perfect interfaces that feel native to the device."
+      }
+    ],
+    "process": [
+      {
+        "number": "01",
+        "title": "Prototyping & UX",
+        "desc": "We design high-fidelity Figma prototypes and map out the entire user journey before writing a line of code."
+      },
+      {
+        "number": "02",
+        "title": "Sprint Development",
+        "desc": "We build the app features incrementally, providing TestFlight and APK builds weekly for your review."
+      },
+      {
+        "number": "03",
+        "title": "App Store Launch",
+        "desc": "We handle the rigorous Apple App Store and Google Play Store review processes for a smooth launch."
+      }
+    ]
+  },
+  "motion-video": {
+    "hero": {
+      "badge": "\ud83c\udfac Creative & Growth",
+      "title": "Explainers that<br>actually <span class='gradient-word'>explain.</span>",
+      "subtitle": "High-quality animations and video content that break down complex products into digestible, engaging stories."
+    },
+    "features": [
+      {
+        "icon": "\ud83c\udfa5",
+        "color": "#fbc7d4",
+        "title": "Product Explainers",
+        "desc": "Sleek 2D and 3D animations that explain your complex B2B SaaS product in under 60 seconds."
+      },
+      {
+        "icon": "\ud83d\udcf1",
+        "color": "#9796f0",
+        "title": "Social Short-Form",
+        "desc": "High-retention Reels, TikToks, and Shorts optimized for algorithmic reach and engagement."
+      },
+      {
+        "icon": "\ud83c\udfac",
+        "color": "#00f2fe",
+        "title": "Corporate Video",
+        "desc": "Professional brand anthems and testimonial videos that build trust and authority."
+      }
+    ],
+    "process": [
+      {
+        "number": "01",
+        "title": "Script & Storyboard",
+        "desc": "We write a compelling script and draw a scene-by-scene storyboard to align on the visual direction."
+      },
+      {
+        "number": "02",
+        "title": "Voiceover & Animation",
+        "desc": "We record professional voiceovers and animate the graphics with smooth, dynamic motion."
+      },
+      {
+        "number": "03",
+        "title": "Sound Design & Delivery",
+        "desc": "We add sound effects and music, delivering the final video optimized for web and social media."
+      }
+    ]
+  },
+  "ui-ux-design": {
+    "hero": {
+      "badge": "\ud83c\udfa8 Creative & Growth",
+      "title": "Experiences that<br>drive <span class='gradient-word'>conversion.</span>",
+      "subtitle": "Figma prototypes, branding, and user-centric interfaces designed to look premium and perform flawlessly."
+    },
+    "features": [
+      {
+        "icon": "\ud83d\udd8b\ufe0f",
+        "color": "#f6d365",
+        "title": "Wireframing & Prototyping",
+        "desc": "Interactive Figma prototypes that let you click through the product before engineering begins."
+      },
+      {
+        "icon": "\ud83c\udfa8",
+        "color": "#fda085",
+        "title": "Design Systems",
+        "desc": "Comprehensive component libraries, typography rules, and color palettes for consistent branding."
+      },
+      {
+        "icon": "\ud83d\uddb1\ufe0f",
+        "color": "#00f2fe",
+        "title": "Conversion Optimization",
+        "desc": "UX audits and redesigns focused specifically on reducing friction and increasing conversion rates."
+      }
+    ],
+    "process": [
+      {
+        "number": "01",
+        "title": "User Research",
+        "desc": "We analyze your target audience, competitors, and core user journeys to inform our design strategy."
+      },
+      {
+        "number": "02",
+        "title": "Wireframing",
+        "desc": "We create low-fidelity wireframes to nail the layout, hierarchy, and navigation structure first."
+      },
+      {
+        "number": "03",
+        "title": "High-Fidelity Design",
+        "desc": "We apply colors, typography, and micro-interactions, delivering a pixel-perfect Figma file ready for dev."
+      }
+    ]
+  },
+  "web-development": {
+    "hero": {
+      "badge": "\ud83d\udcbb Data & Intelligence",
+      "title": "Blazing fast.<br>Highly <span class='gradient-word'>scalable.</span>",
+      "subtitle": "React, Next.js, and full-stack web platforms built for speed, SEO, and flawless user experiences."
+    },
+    "features": [
+      {
+        "icon": "\u26a1",
+        "color": "#30cfd0",
+        "title": "Next.js & React",
+        "desc": "Server-side rendered web applications that provide instantaneous load times and perfect SEO scores."
+      },
+      {
+        "icon": "\ud83d\udda5\ufe0f",
+        "color": "#667eea",
+        "title": "Node.js & Python",
+        "desc": "Robust backend APIs built with Express, Django, or FastAPI to power your frontend experiences securely."
+      },
+      {
+        "icon": "\ud83d\udcf1",
+        "color": "#00f2fe",
+        "title": "Responsive Design",
+        "desc": "Flawless layouts across desktop, tablet, and mobile devices using modern CSS architecture."
+      }
+    ],
+    "process": [
+      {
+        "number": "01",
+        "title": "Architecture Design",
+        "desc": "We select the optimal tech stack and database schema for your specific web application requirements."
+      },
+      {
+        "number": "02",
+        "title": "Component Development",
+        "desc": "We build reusable UI components and integrate them with secure backend APIs in rapid iterations."
+      },
+      {
+        "number": "03",
+        "title": "Optimization & Launch",
+        "desc": "We optimize images, minify code, configure CDN caching, and launch the site for maximum performance."
+      }
+    ]
+  },
+  "workflow-automation": {
+    "hero": {
+      "badge": "\u26a1 Creative & Growth",
+      "title": "Connect everything.<br>Automate <span class='gradient-word'>anything.</span>",
+      "subtitle": "n8n, Zapier, and Make integrations that tie your software stack together to eliminate manual data entry forever."
+    },
+    "features": [
+      {
+        "icon": "\ud83d\udd17",
+        "color": "#fddb92",
+        "title": "API Integrations",
+        "desc": "We connect your CRM, accounting software, and marketing tools so data flows seamlessly between them."
+      },
+      {
+        "icon": "\u26a1",
+        "color": "#d1fdff",
+        "title": "n8n & Zapier",
+        "desc": "We build complex, multi-step automated workflows to replace hours of manual data entry."
+      },
+      {
+        "icon": "\ud83e\udd16",
+        "color": "#00f2fe",
+        "title": "AI Enhancements",
+        "desc": "Add AI steps into your workflows to automatically summarize emails, categorize leads, or draft responses."
+      }
+    ],
+    "process": [
+      {
+        "number": "01",
+        "title": "Process Audit",
+        "desc": "We identify repetitive manual tasks like copying data from emails to spreadsheets to your CRM."
+      },
+      {
+        "number": "02",
+        "title": "Workflow Architecture",
+        "desc": "We design the automation logic, mapping out triggers, conditions, and actions across your apps."
+      },
+      {
+        "number": "03",
+        "title": "Testing & Monitoring",
+        "desc": "We build the automation, test edge cases, and set up error alerts so you know it's always running."
+      }
+    ]
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "hero": {
+    "page_label": "🏢 Enterprise Grade. Startup Speed.",
+    "title": "Digital transformation.<br>Without the <span class=\"gradient-word\">bloat.</span>",
+    "subtitle": "We modernize legacy systems, build scalable cloud architectures, and integrate AI into enterprise workflows. Delivered by senior engineers, not massive offshore teams.",
+    "accent_colors": {
+      "primary": "#fbc7d4",
+      "secondary": "#9796f0"
+    },
+    "trust": {
+      "avatars": ["TV", "JH", "CS", "+"],
+      "count": "Enterprise Leaders"
+    },
+    "mockup": {
+      "metrics": [
+        { "label": "⚡ System Uptime", "value": "99.99%", "color": "green" },
+        { "label": "🚀 Legacy Migrations", "value": "12+", "color": "gold" },
+        { "label": "🛡️ Security Score", "value": "A+", "color": "" },
+        { "label": "💰 Team Overhead", "value": "Zero", "color": "green" }
+      ],
+      "cards": [
+        { "icon": "☁️", "label": "Cloud Migration", "value": "Complete ✓", "active": true },
+        { "icon": "🤖", "label": "AI Integration", "value": "Deploying", "active": false }
+      ]
+    }
+  },
+  "feature_pills": [
+    "✓ Cloud Migration",
+    "✓ AI Agent Systems",
+    "✓ Custom Platforms",
+    "✓ Data Engineering",
+    "✓ API Development",
+    "✓ Security Compliance"
+  ],
+  "services": {
+    "subtitle": "CAPABILITIES",
+    "title": "What We Deliver",
+    "items": [
+      {
+        "icon": "🏗️",
+        "title": "Custom Enterprise Platforms",
+        "desc": "We build highly specialized ERP modules, complex billing systems, and cross-departmental operational dashboards mapped directly to your internal workflows. Stop forcing your complex business logic to fit into rigid, off-the-shelf software."
+      },
+      {
+        "icon": "☁️",
+        "title": "Cloud & Infrastructure",
+        "desc": "We engineer modern, serverless architectures utilizing Firebase, Cloudflare Workers, and Turso. Our infrastructure solutions guarantee high availability, infinite scalability for peak loads, and dramatic reductions in traditional server maintenance costs."
+      },
+      {
+        "icon": "🤖",
+        "title": "AI Agents & Automation",
+        "desc": "Radically reduce operational overhead by implementing autonomous systems. We integrate custom LangChain agents, deploy secure internal LLM tools, and automate complex enterprise workflows using tools like n8n and Voice AI."
+      },
+      {
+        "icon": "📊",
+        "title": "Data Engineering",
+        "desc": "Turn fragmented data into actionable intelligence. We architect robust ETL pipelines, integrate disparate BI systems, and build real-time dashboards to give your executive team a clear, reliable framework for decision making."
+      },
+      {
+        "icon": "🔌",
+        "title": "API & Integration Layer",
+        "desc": "Connect your fragmented software ecosystem. We build secure third-party integrations, resilient payment gateways, legacy CRM connectors, and complex webhook orchestration to ensure data flows securely across your enterprise."
+      }
+    ]
+  },
+  "industries": [
+    {
+      "icon": "🏦",
+      "title": "Banking & Finance",
+      "desc": "High-security API layers, custom loan origination systems, and compliance-first data architecture for financial institutions.",
+      "features": ["Secure Architecture", "Legacy Integration", "Compliance Audit", "High Availability"]
+    },
+    {
+      "icon": "📦",
+      "title": "Logistics & Supply Chain",
+      "desc": "End-to-end tracking systems, warehouse management dashboards, and automated routing logic for complex logistics networks.",
+      "features": ["Fleet Tracking", "Inventory Sync", "Vendor Portals", "Automated Routing"]
+    },
+    {
+      "icon": "🏭",
+      "title": "Manufacturing",
+      "desc": "IoT data aggregation, custom production line tracking, and enterprise-wide ERP synchronization for modern factories.",
+      "features": ["IoT Integration", "ERP Sync", "Production Dashboards", "Quality Control"]
+    }
+  ],
+  "cta": {
+    "title": "Ready for digital transformation?",
+    "description": "Schedule a technical deep-dive. We analyze your legacy systems and deliver a complete architecture draft within 1 week.",
+    "button_text": "📅 Schedule Architecture Review"
+  }
+}

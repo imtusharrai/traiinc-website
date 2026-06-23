@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trai Inc — Your customers are online. Is your business? Affordable websites, WhatsApp AI, CRMs, and local SEO for micro businesses and MSMEs in India. 120+ businesses trust us.">
+    <meta property="og:title" content="MSMEs & Micro Business | Trai Inc — Affordable Digital Solutions">
+    <meta property="og:description" content="We help local shops, clinics, schools, and small teams go digital — fast, affordable, and AI-powered. From ₹15K.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://traiinc.com/msmes.html">
+    <meta property="og:image" content="https://traiinc.com/assets/logos/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://traiinc.com/msmes.html">
+    <link rel="icon" type="image/x-icon" href="assets/logos/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/logos/apple-touch-icon.png">
+    <title>MSMEs & Micro Business | Trai Inc — Affordable Digital Solutions for Local Businesses</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=4">
+    <!-- End Google Tag Manager -->
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":
+    new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
+    "https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,"script","dataLayer","GTM-THH39FFH");</script>
+    <!-- End Google Tag Manager -->
+</head>
+<body data-page="msmes">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THH39FFH"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <script src="js/nav.js"></script>
+    <script src="js/animations.js"></script>
+    <script>
+        // Inline Cost Estimator Logic
+        function calculateEstimate() {
+            const typeValue = parseInt(document.getElementById('calcType').value);
+            const loginValue = document.getElementById('calcLogin').value;
+            let total = typeValue;
+            if (loginValue === 'yes') total += 20000;
+
+            const formatted = new Intl.NumberFormat('en-IN').format(total);
+            document.getElementById('estimatePrice').textContent = '₹' + formatted;
+            document.getElementById('estimateResult').style.display = 'block';
+            document.getElementById('estimateResult').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    </script>
+</body>
+</html>
