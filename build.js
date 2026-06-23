@@ -59,7 +59,19 @@ server.listen(PORT, async () => {
                 runScripts: "dangerously",
                 resources: "usable",
                 pretendToBeVisual: true,
-                virtualConsole
+                virtualConsole,
+                beforeParse(window) {
+                    window.IntersectionObserver = class IntersectionObserver {
+                        constructor() {}
+                        observe() {}
+                        unobserve() {}
+                        disconnect() {}
+                    };
+                    window.matchMedia = function() {
+                        return { matches: false, addListener: function() {}, removeListener: function() {} };
+                    };
+                    window.scrollTo = function() {};
+                }
             });
             
             await new Promise(resolve => {
