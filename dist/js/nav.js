@@ -256,7 +256,7 @@
                 <div class="footer-brand-name">Trai Inc Services</div>
                 <p class="footer-tagline">Full-service IT solutions company delivering world-class software from Lucknow, India.</p>
                 <div class="footer-contact">
-                    <a href="tel:+917905495478" class="contact-link">📞 +91-7905495478</a><br>
+                    <a href="tel:+917905495478" class="contact-link">📞 +91 79054 95478</a><br>
                     <a href="mailto:hello@traiinc.com" class="contact-link">✉️ hello@traiinc.com</a>
                 </div>
                 <div class="footer-social">
@@ -301,7 +301,7 @@
             </div>
             <div class="link-group">
                 <h4>Location</h4>
-                <p>DLF MyPad, Vibhuti Khand,<br>Gomti Nagar, Lucknow,<br>India — 226010</p>
+                <p>Tower B-2, 1109, DLF MyPad,<br>Opposite Hyatt Regency, Vibhuti Khand,<br>Gomti Nagar, Lucknow, Uttar Pradesh 226010</p>
                 <h4 class="footer-hours-heading">Hours</h4>
                 <p>Mon–Sat: 10am – 7pm IST<br>Sun: By appointment</p>
             </div>
