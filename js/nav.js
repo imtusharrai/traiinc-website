@@ -72,7 +72,8 @@
                     heading: "Business by Size",
                     items: [
                         { icon: icon3d("🚀","#96fbc4","#f9f586"), label: "Startups",                 href: "startups.html",       desc: "Innovative product builders" },
-                        { icon: icon3d("🏢","#a1c4fd","#c2e9fb"), label: "Small & Medium Business",  href: "smb.html",            desc: "Regional & national reach" },
+                        { icon: icon3d("🏪","#f6d365","#fda085"), label: "Micro & Small Business",   href: "msmes.html",          desc: "Local ops & WhatsApp AI" },
+                        { icon: icon3d("🏢","#a1c4fd","#c2e9fb"), label: "Growing SMBs",             href: "smb.html",            desc: "Regional & national reach" },
                         { icon: icon3d("🏗️","#fbc7d4","#9796f0"), label: "Large Enterprises",       href: "enterprise.html",     desc: "Global corp solutions" }
                     ]
                 }
