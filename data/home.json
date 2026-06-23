@@ -20,7 +20,7 @@
     "trust_avatars": ["CM", "BM", "DP", "JH", "+"],
     "mockup_metrics": [
       { "icon": "📊", "label": "Projects Delivered", "value": "138+", "color": "green" },
-      { "icon": "🚀", "label": "Active Clients", "value": "5", "color": "gold" },
+      { "icon": "👨‍💻", "label": "Engineers", "value": "Senior Only", "color": "gold" },
       { "icon": "⚡", "label": "Avg. Delivery", "value": "4–8 Weeks", "color": "" },
       { "icon": "⭐", "label": "Client Retention", "value": "94%", "color": "green" }
     ],
