@@ -194,61 +194,57 @@
                     { heading: "CMS & E-Commerce", cats: ['cms'] }
                 ];
 
-                const getTechIcon = (techId) => {
-                    const techIcons = {
-                        'react': { emoji: "⚛️", from: "#4facfe", to: "#00f2fe" },
-                        'nextjs': { emoji: "▲", from: "#8e9eab", to: "#eef2f3" },
-                        'tailwindcss': { emoji: "🌊", from: "#38b2ac", to: "#81e6d9" },
-                        'typescript': { emoji: "🛡️", from: "#3182ce", to: "#63b3ed" },
-                        'nodejs': { emoji: "🟢", from: "#48bb78", to: "#68d391" },
-                        'python': { emoji: "🐍", from: "#f6e05e", to: "#ecc94b" },
-                        'go': { emoji: "🏎️", from: "#63b3ed", to: "#90cdf4" },
-                        'flutter': { emoji: "⚡", from: "#4facfe", to: "#00f2fe" },
-                        'react-native': { emoji: "📱", from: "#9f7aea", to: "#b794f4" },
-                        'kotlin': { emoji: "🎯", from: "#f6ad55", to: "#fbd38d" },
-                        'swift': { emoji: "🍎", from: "#fc8181", to: "#feb2b2" },
-                        'gemini': { emoji: "✨", from: "#d299c2", to: "#fef9d7" },
-                        'claude': { emoji: "🧠", from: "#fbc2eb", to: "#a18cd1" },
-                        'langchain': { emoji: "🔗", from: "#48bb78", to: "#68d391" },
-                        'groq': { emoji: "⚡", from: "#f56565", to: "#feb2b2" },
-                        'rag': { emoji: "🔍", from: "#4299e1", to: "#63b3ed" },
-                        'postgresql': { emoji: "🐘", from: "#3182ce", to: "#63b3ed" },
-                        'mongodb': { emoji: "🍃", from: "#48bb78", to: "#68d391" },
-                        'firebase': { emoji: "🔥", from: "#ed8936", to: "#fbd38d" },
-                        'turso': { emoji: "🚀", from: "#a18cd1", to: "#fbc2eb" },
-                        'aws': { emoji: "☁️", from: "#f6ad55", to: "#fbd38d" },
-                        'azure': { emoji: "🏢", from: "#4299e1", to: "#63b3ed" },
-                        'gcp': { emoji: "🌐", from: "#f56565", to: "#feb2b2" },
-                        'cloudflare-workers': { emoji: "⚡", from: "#ed8936", to: "#fbd38d" },
-                        'docker': { emoji: "🐳", from: "#3182ce", to: "#63b3ed" },
-                        'wordpress': { emoji: "📰", from: "#4299e1", to: "#63b3ed" },
-                        'shopify': { emoji: "🛍️", from: "#48bb78", to: "#68d391" },
-                        'woocommerce': { emoji: "🛒", from: "#9f7aea", to: "#b794f4" },
-                        'headless-cms': { emoji: "🧩", from: "#ed64a6", to: "#fbb6ce" }
-                    };
-                    const i = techIcons[techId] || { emoji: "⚙️", from: "#a18cd1", to: "#fbc2eb" };
-                    return icon3d(i.emoji, i.from, i.to);
-                };
-
-                const mappedCols = colMaps.map(colMap => {
-                    const items = [];
-                    colMap.cats.forEach(catId => {
-                        const cat = techData.categories.find(c => c.id === catId);
-                        if (cat) {
-                            cat.technologies.forEach(tech => {
-                                items.push({
-                                    icon: getTechIcon(tech.id),
-                                    label: tech.name,
-                                    href: `tech-${tech.id}.html`,
-                                    desc: tech.description
+                function buildTechDropdown(data, cols) {
+                    const groupsHTML = cols.map((col, idx) => {
+                        const items = [];
+                        col.cats.forEach(catId => {
+                            const cat = data.categories.find(c => c.id === catId);
+                            if (cat) {
+                                cat.technologies.forEach(tech => {
+                                    items.push(`
+                                        <a href="tech-${tech.id}.html" class="tech-item-link">
+                                            <strong>${tech.name}</strong>
+                                            <span>${tech.description}</span>
+                                        </a>
+                                    `);
                                 });
-                            });
-                        }
-                    });
-                    return { heading: colMap.heading, items: items };
-                });
+                            }
+                        });
 
-                techHTML = buildDropdown({ cols: mappedCols, cta: null });
+                        return `
+                            <div class="tech-group">
+                                <div class="tech-cat-btn ${idx === 0 ? 'active' : ''}" data-target="tech-pane-${idx}">
+                                    ${col.heading}
+                                    <svg viewBox="0 0 10 6" width="10" height="6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+                                </div>
+                                <div class="tech-pane ${idx === 0 ? 'active' : ''}" id="tech-pane-${idx}">
+                                    <div class="tech-pane-grid">
+                                        ${items.join('')}
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
+
+                    return `
+                        <div class="mega-dropdown tech-mega-dropdown">
+                            <div class="tech-mega-inner">
+                                <div class="tech-sidebar">
+                                    ${groupsHTML}
+                                </div>
+                                <div class="tech-featured">
+                                    <div class="tech-featured-box">
+                                        <h3>AI-First for Modern Businesses</h3>
+                                        <p>Build scalable, intelligent systems tailored to your workflows.</p>
+                                        <a href="solutions.html" class="tech-featured-cta">Explore Solutions →</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                techHTML = buildTechDropdown(techData, colMaps);
             }
         } catch (e) {
             console.error("Failed to load technologies for nav", e);
