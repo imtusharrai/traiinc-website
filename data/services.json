@@ -1007,5 +1007,343 @@
       "description": "Stop settling for mediocre agencies. Let's discuss your product roadmap and engineer a solution that accelerates your growth.",
       "button_text": "Book a Consultation"
     }
+  },
+  "flutter-app-development": {
+    "title": "Cross-platform mobile apps.<br>Built with <span class='gradient-word'>Flutter.</span>",
+    "badge": "\ud83d\udcf1 Mobile Engineering",
+    "subtitle": "Native performance on iOS and Android from a single codebase. We build scalable, beautiful mobile applications for MSMEs and growing startups.",
+    "icon": "\ud83d\udcf1",
+    "color": "#00f2fe",
+    "features": [
+      {
+        "icon": "\u26a1",
+        "color": "#4facfe",
+        "title": "Single Codebase",
+        "desc": "Launch on both iOS and Android simultaneously without doubling your engineering budget."
+      },
+      {
+        "icon": "\ud83c\udfa8",
+        "color": "#00f2fe",
+        "title": "Custom UI/UX",
+        "desc": "Pixel-perfect designs that feel native, with smooth 60fps animations and transitions."
+      },
+      {
+        "icon": "\ud83d\udd17",
+        "color": "#4facfe",
+        "title": "API Integration",
+        "desc": "Seamless connections to your existing backend, payment gateways, and third-party tools."
+      },
+      {
+        "icon": "\ud83d\ude80",
+        "color": "#00f2fe",
+        "title": "App Store Deployment",
+        "desc": "We handle the entire submission process for the Apple App Store and Google Play Store."
+      }
+    ],
+    "process": [
+      {
+        "number": "01",
+        "title": "Architecture & Prototyping",
+        "desc": "We design the app screens and map out the data flow."
+      },
+      {
+        "number": "02",
+        "title": "Flutter Development",
+        "desc": "Our engineers build the app using Dart and Flutter, integrating with Firebase or custom APIs."
+      },
+      {
+        "number": "03",
+        "title": "Launch & Maintenance",
+        "desc": "We deploy to the stores and provide ongoing support."
+      }
+    ],
+    "tech_stack": [
+      "Flutter",
+      "Dart",
+      "Firebase",
+      "REST APIs",
+      "Provider/Riverpod"
+    ],
+    "use_cases": [
+      "E-commerce Apps",
+      "Delivery & Logistics",
+      "SaaS Companions"
+    ],
+    "cta": {
+      "title": "Ready to launch your mobile app?",
+      "description": "Stop managing two separate codebases. Let's build a cross-platform app that scales.",
+      "button_text": "Discuss Your App"
+    }
+  },
+  "ecommerce-development": {
+    "title": "High-converting storefronts.<br>Powered by <span class='gradient-word'>Shopify & WooCommerce.</span>",
+    "badge": "\ud83d\udecd\ufe0f Digital Commerce",
+    "subtitle": "Custom e-commerce development that drives sales. We build blazing fast, conversion-optimized stores tailored to your brand.",
+    "icon": "\ud83d\uded2",
+    "color": "#f093fb",
+    "features": [
+      {
+        "icon": "\ud83c\udfa8",
+        "color": "#f5576c",
+        "title": "Custom Theme Development",
+        "desc": "Stand out from the competition with a unique, brand-aligned storefront."
+      },
+      {
+        "icon": "\ud83d\udcb3",
+        "color": "#f093fb",
+        "title": "Payment & Logistics Integration",
+        "desc": "Seamless Razorpay, Stripe, and local shipping integrations for smooth checkouts."
+      },
+      {
+        "icon": "\u26a1",
+        "color": "#f5576c",
+        "title": "Speed Optimization",
+        "desc": "Lightning-fast page loads to decrease bounce rates and improve conversions."
+      },
+      {
+        "icon": "\ud83d\udcf1",
+        "color": "#f093fb",
+        "title": "Mobile-First Design",
+        "desc": "Over 70% of e-commerce traffic is mobile. We ensure your store looks perfect on every device."
+      }
+    ],
+    "process": [
+      {
+        "number": "01",
+        "title": "Store Strategy",
+        "desc": "We analyze your catalog and plan the user journey."
+      },
+      {
+        "number": "02",
+        "title": "Custom Build",
+        "desc": "We develop your store, migrate your products, and set up all integrations."
+      },
+      {
+        "number": "03",
+        "title": "Launch & Scale",
+        "desc": "We test thoroughly and hand over the keys for you to start selling."
+      }
+    ],
+    "tech_stack": [
+      "Shopify",
+      "WooCommerce",
+      "Liquid",
+      "React",
+      "Next.js (Headless)"
+    ],
+    "use_cases": [
+      "D2C Brands",
+      "B2B Wholesale Portals",
+      "Multi-vendor Marketplaces"
+    ],
+    "cta": {
+      "title": "Ready to scale your online sales?",
+      "description": "Get a custom e-commerce store that converts visitors into loyal customers.",
+      "button_text": "Start Selling"
+    }
+  },
+  "custom-crm-development": {
+    "title": "Total data control.<br>Bespoke <span class='gradient-word'>CRMs.</span>",
+    "badge": "\ud83d\udcca Internal Tools",
+    "subtitle": "Stop paying per-seat licenses for bloated SaaS. We build custom CRMs and internal dashboards perfectly fitted to your exact workflows.",
+    "icon": "\ud83d\udcc8",
+    "color": "#4facfe",
+    "features": [
+      {
+        "icon": "\ud83d\udeab",
+        "color": "#00f2fe",
+        "title": "Zero Per-Seat Fees",
+        "desc": "Pay once for development, own the software forever. No monthly subscription bloat."
+      },
+      {
+        "icon": "\ud83e\udde9",
+        "color": "#4facfe",
+        "title": "Perfect Workflow Fit",
+        "desc": "No unnecessary features. Exactly what your team needs to operate efficiently."
+      },
+      {
+        "icon": "\ud83d\udd10",
+        "color": "#00f2fe",
+        "title": "Complete Data Ownership",
+        "desc": "Your data stays on your servers, fully secure and under your control."
+      },
+      {
+        "icon": "\ud83e\udd16",
+        "color": "#4facfe",
+        "title": "AI & Automation Ready",
+        "desc": "Built to seamlessly integrate with automated workflows and AI agents."
+      }
+    ],
+    "process": [
+      {
+        "number": "01",
+        "title": "Workflow Mapping",
+        "desc": "We map out how your business actually runs, not how a template thinks it runs."
+      },
+      {
+        "number": "02",
+        "title": "Database & Dashboard Build",
+        "desc": "We engineer the backend and create an intuitive, lightning-fast interface."
+      },
+      {
+        "number": "03",
+        "title": "Deployment & Training",
+        "desc": "We deploy to your secure cloud and onboard your team."
+      }
+    ],
+    "tech_stack": [
+      "Node.js",
+      "React",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "AWS/GCP"
+    ],
+    "use_cases": [
+      "Sales Pipelines",
+      "Inventory Management",
+      "Custom ERPs"
+    ],
+    "cta": {
+      "title": "Ready to ditch bloated SaaS?",
+      "description": "Let's build a CRM that actually works the way your business does.",
+      "button_text": "Discuss Your CRM"
+    }
+  },
+  "wordpress-cms-development": {
+    "title": "Content at scale.<br>Custom <span class='gradient-word'>WordPress.</span>",
+    "badge": "\ud83d\udcdd Web Engineering",
+    "subtitle": "High-performance WordPress and CMS development. We build secure, easy-to-manage, and SEO-optimized corporate websites.",
+    "icon": "\ud83c\udf10",
+    "color": "#fa709a",
+    "features": [
+      {
+        "icon": "\u26a1",
+        "color": "#fee140",
+        "title": "Custom Theme Development",
+        "desc": "No bloated templates. We code from scratch for maximum speed and security."
+      },
+      {
+        "icon": "\ud83d\udcdd",
+        "color": "#fa709a",
+        "title": "Easy Content Management",
+        "desc": "Custom fields and intuitive backend setups so your marketing team can publish effortlessly."
+      },
+      {
+        "icon": "\ud83d\udd0d",
+        "color": "#fee140",
+        "title": "SEO Optimized Foundation",
+        "desc": "Built with semantic HTML, Schema.org markup, and rapid Core Web Vitals out of the box."
+      },
+      {
+        "icon": "\ud83d\udee1\ufe0f",
+        "color": "#fa709a",
+        "title": "Enterprise Security",
+        "desc": "Hardened WordPress installations to protect against vulnerabilities and attacks."
+      }
+    ],
+    "process": [
+      {
+        "number": "01",
+        "title": "UI/UX Design",
+        "desc": "We design a custom interface tailored to your brand identity."
+      },
+      {
+        "number": "02",
+        "title": "Custom Development",
+        "desc": "We build the theme and configure the CMS for peak performance."
+      },
+      {
+        "number": "03",
+        "title": "SEO & Launch",
+        "desc": "We implement on-page SEO and launch your new platform."
+      }
+    ],
+    "tech_stack": [
+      "WordPress",
+      "PHP",
+      "MySQL",
+      "ACF",
+      "React (Headless WP)"
+    ],
+    "use_cases": [
+      "Corporate Websites",
+      "News Publishers",
+      "Marketing Hubs"
+    ],
+    "cta": {
+      "title": "Ready for a better website?",
+      "description": "Get a blazing fast, secure, and beautiful CMS that works for your business.",
+      "button_text": "Start Your Project"
+    }
+  },
+  "ai-automation-development": {
+    "title": "AI-powered automation.<br>Built for <span class='gradient-word'>your workflows.</span>",
+    "badge": "\ud83e\udd16 AI & Automation",
+    "subtitle": "Custom AI automation systems that eliminate manual work, reduce errors, and scale your operations \u2014 built specifically for Indian MSMEs and growing businesses.",
+    "icon": "\ud83e\udd16",
+    "color": "#a18cd1",
+    "features": [
+      {
+        "icon": "\ud83e\udde0",
+        "color": "#f093fb",
+        "title": "Custom LLM Integration",
+        "desc": "Connect GPT-4, Claude, or open-source models to your proprietary data with secure RAG pipelines."
+      },
+      {
+        "icon": "\u2699\ufe0f",
+        "color": "#f5576c",
+        "title": "End-to-End Process Automation",
+        "desc": "Automate invoice processing, customer onboarding, inventory updates, and reporting \u2014 tasks that currently eat hours every week."
+      },
+      {
+        "icon": "\ud83d\udcac",
+        "color": "#4facfe",
+        "title": "Intelligent Chatbots & Voice Agents",
+        "desc": "Deploy AI assistants on WhatsApp, your website, or phone lines that handle queries, qualify leads, and escalate intelligently."
+      },
+      {
+        "icon": "\ud83d\udcc4",
+        "color": "#fda085",
+        "title": "Document Intelligence",
+        "desc": "Extract and structure data from PDFs, invoices, handwritten forms, and contracts automatically with high accuracy."
+      }
+    ],
+    "process": [
+      {
+        "number": "01",
+        "title": "Workflow Audit",
+        "desc": "We map your current manual processes and identify the highest-ROI automation targets."
+      },
+      {
+        "number": "02",
+        "title": "AI System Design & Build",
+        "desc": "We select the right models, build secure integrations with your existing tools, and develop the automation pipeline."
+      },
+      {
+        "number": "03",
+        "title": "Deploy, Train & Monitor",
+        "desc": "We deploy to your environment, train your team, and set up monitoring to ensure the system improves over time."
+      }
+    ],
+    "tech_stack": [
+      "LangChain",
+      "OpenAI API",
+      "Python",
+      "FastAPI",
+      "n8n",
+      "Hugging Face",
+      "AWS Lambda"
+    ],
+    "use_cases": [
+      "Invoice & Document Processing",
+      "Customer Support Automation",
+      "Sales Lead Qualification",
+      "Inventory & Order Management"
+    ],
+    "cta": {
+      "title": "Ready to automate your operations?",
+      "description": "Tell us which manual processes are slowing your business down. We'll scope an AI automation system that pays for itself.",
+      "button_text": "Book a Consultation"
+    }
   }
 }

@@ -1,8 +1,8 @@
 {
   "hero": {
     "page_label": "🚀 From Idea to MVP in Weeks",
-    "title": "Stop building decks.<br>Start shipping <span class=\"gradient-word\">product.</span>",
-    "subtitle": "We build MVPs, mobile apps, and cloud platforms for early-stage startups — fixed price, no equity, delivered in 4-8 weeks. Direct access to senior engineers who actually build your product.",
+    "title": "Stop refining the pitch deck.<br>Start shipping <span class='gradient-word'>product.</span>",
+    "subtitle": "We build MVPs, mobile apps, and cloud platforms for early-stage startups — fixed price, no equity, AI-augmented delivery. Transparent pricing from day one, not a quote-only mystery.",
     "accent_colors": {
       "primary": "#96fbc4",
       "secondary": "#f9f586"
@@ -28,7 +28,7 @@
     "✓ MVP in 4-8 Weeks",
     "✓ Flutter & Next.js",
     "✓ Cloud Architecture",
-    "✓ AI Integration",
+    "✓ AI-Augmented Builds",
     "✓ Fixed-Price Contracts",
     "✓ No Equity Required"
   ],
@@ -38,23 +38,23 @@
     "items": [
       {
         "icon": "📱",
-        "title": "Mobile Apps",
-        "desc": "We build cross-platform applications using Flutter and React Native. This lets you ship to both iOS and Android simultaneously from a single codebase without sacrificing native performance, allowing you to reach users on all platforms from day one."
+        "title": "Cross-Platform Mobile Apps",
+        "desc": "Ship to iOS and Android simultaneously from a single Flutter codebase. We use AI-assisted development to compress what used to take 3 months into 4-8 weeks — without cutting corners on code quality or native performance."
       },
       {
         "icon": "🌐",
-        "title": "Web Applications",
-        "desc": "High-performance web platforms and SaaS products engineered with Next.js and React. Our web apps are SEO-friendly, blazing fast, and designed with infinite scalability in mind to handle rapid user growth without breaking."
+        "title": "Web Applications & SaaS",
+        "desc": "Production-grade web platforms built with Next.js and React. SEO-optimized from launch, architected for scale, and deployed on serverless infrastructure so your hosting costs stay near zero until you have real traction."
       },
       {
         "icon": "🤖",
-        "title": "AI Chatbots & Automation",
-        "desc": "Turn AI into an actual product feature. We integrate cutting-edge LLMs, build interactive WhatsApp bots, and automate complex workflows to give your startup an unfair technological advantage over traditional competitors."
+        "title": "AI as a Product Feature",
+        "desc": "Integrate LLMs, build WhatsApp bots, or add intelligent automation directly into your product. We treat AI as a tool that ships faster products, not a buzzword that inflates budgets."
       },
       {
         "icon": "☁️",
-        "title": "Cloud Infrastructure",
-        "desc": "Serverless architecture deployed on Firebase, Supabase, or Cloudflare Workers. We keep your initial cloud bill close to zero while you search for product-market fit, ensuring you only pay for what you use as you scale."
+        "title": "Zero-to-Production Infrastructure",
+        "desc": "Firebase, Supabase, or Cloudflare Workers — serverless architecture that keeps your cloud bill near zero while you find product-market fit, then scales without re-architecture when you do."
       }
     ]
   },
@@ -62,25 +62,25 @@
     {
       "icon": "💸",
       "title": "FinTech & SaaS",
-      "desc": "Scalable web applications, subscription billing integrations, and secure data handling designed to comply with financial standards.",
+      "desc": "Subscription billing, payment gateway integrations, and secure data handling — built to comply with financial standards from day one, not patched in later.",
       "features": ["Stripe/Razorpay Integration", "Data Security", "Subscription Logic", "Analytics Dashboards"]
     },
     {
       "icon": "🛍️",
       "title": "D2C & E-Commerce",
-      "desc": "High-conversion storefronts, inventory management systems, and automated fulfillment workflows tailored for direct-to-consumer brands.",
+      "desc": "High-conversion storefronts, inventory management, and automated fulfillment workflows for direct-to-consumer brands that need to ship fast and iterate faster.",
       "features": ["Headless Commerce", "Payment Gateways", "Inventory Sync", "Order Tracking"]
     },
     {
       "icon": "🏥",
       "title": "HealthTech & EdTech",
-      "desc": "HIPAA-compliant infrastructure, real-time video streaming, and user-centric interfaces for modern healthcare and education platforms.",
+      "desc": "Compliance-ready infrastructure, real-time video, and user-centric interfaces for platforms where trust, uptime, and data privacy are non-negotiable.",
       "features": ["Video Conferencing", "Compliance Hardening", "User Profiles", "Booking Systems"]
     }
   ],
   "cta": {
     "title": "Ready to ship your MVP?",
-    "description": "Book a free scoping call. We will review your idea and give you a fixed quote within 48 hours.",
-    "button_text": "📅 Book a Free Scoping Call"
+    "description": "Book a free scoping call. We'll review your idea and give you a fixed quote within 48 hours — no equity ask, no hourly billing surprises.",
+    "button_text": "📅 Book a Free Consultation"
   }
 }

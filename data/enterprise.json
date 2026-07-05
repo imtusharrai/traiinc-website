@@ -1,8 +1,8 @@
 {
   "hero": {
     "page_label": "🏢 Enterprise Grade. Startup Speed.",
-    "title": "Digital transformation.<br>Without the <span class=\"gradient-word\">bloat.</span>",
-    "subtitle": "We modernize legacy systems, build scalable cloud architectures, and integrate AI into enterprise workflows. Delivered by senior engineers, not massive offshore teams.",
+    "title": "Digital transformation.<br>Without the <span class='gradient-word'>bloat.</span>",
+    "subtitle": "We modernize legacy systems, build compliance-hardened cloud architectures, and integrate AI into enterprise workflows — delivered by senior engineers with direct accountability, not a rotating offshore bench.",
     "accent_colors": {
       "primary": "#fbc7d4",
       "secondary": "#9796f0"
@@ -30,62 +30,62 @@
     "✓ Custom Platforms",
     "✓ Data Engineering",
     "✓ API Development",
-    "✓ Security Compliance"
+    "✓ Security & Compliance"
   ],
   "services": {
     "subtitle": "CAPABILITIES",
-    "title": "What We Deliver",
+    "title": "What we deliver for enterprise",
     "items": [
       {
         "icon": "🏗️",
         "title": "Custom Enterprise Platforms",
-        "desc": "We build highly specialized ERP modules, complex billing systems, and cross-departmental operational dashboards mapped directly to your internal workflows. Stop forcing your complex business logic to fit into rigid, off-the-shelf software."
+        "desc": "ERP modules, billing systems, and cross-departmental dashboards mapped to your internal workflows. Built to enforce your business rules natively — not force-fitted into a vendor's rigid schema that requires workarounds for every edge case."
       },
       {
         "icon": "☁️",
-        "title": "Cloud & Infrastructure",
-        "desc": "We engineer modern, serverless architectures utilizing Firebase, Cloudflare Workers, and Turso. Our infrastructure solutions guarantee high availability, infinite scalability for peak loads, and dramatic reductions in traditional server maintenance costs."
+        "title": "Cloud Infrastructure & Migration",
+        "desc": "Production-grade serverless architecture on AWS, GCP, or Azure with multi-region failover, automated scaling, and infrastructure-as-code. We migrate legacy on-prem systems without the 18-month timeline and seven-figure budget that big consultancies quote."
       },
       {
         "icon": "🤖",
-        "title": "AI Agents & Automation",
-        "desc": "Radically reduce operational overhead by implementing autonomous systems. We integrate custom LangChain agents, deploy secure internal LLM tools, and automate complex enterprise workflows using tools like n8n and Voice AI."
+        "title": "AI Agents & Process Automation",
+        "desc": "Autonomous AI systems that reduce operational overhead at scale. Secure RAG pipelines connected to your internal knowledge base, LangChain agents for complex decision workflows, and voice AI for customer-facing operations — all deployed within your security perimeter."
       },
       {
         "icon": "📊",
-        "title": "Data Engineering",
-        "desc": "Turn fragmented data into actionable intelligence. We architect robust ETL pipelines, integrate disparate BI systems, and build real-time dashboards to give your executive team a clear, reliable framework for decision making."
+        "title": "Data Engineering & BI",
+        "desc": "Turn fragmented data silos into a single source of truth. We architect ETL pipelines, integrate disparate BI systems, and build real-time dashboards that give your leadership team reliable, auditable data — not spreadsheets compiled the night before a board meeting."
       },
       {
         "icon": "🔌",
         "title": "API & Integration Layer",
-        "desc": "Connect your fragmented software ecosystem. We build secure third-party integrations, resilient payment gateways, legacy CRM connectors, and complex webhook orchestration to ensure data flows securely across your enterprise."
+        "desc": "Secure third-party integrations, payment gateways, legacy CRM connectors, and webhook orchestration. We connect your fragmented software ecosystem so data flows reliably between systems that were never designed to talk to each other."
       }
     ]
   },
   "industries": [
     {
       "icon": "🏦",
-      "title": "Banking & Finance",
-      "desc": "High-security API layers, custom loan origination systems, and compliance-first data architecture for financial institutions.",
+      "title": "Banking & Financial Services",
+      "desc": "High-security API layers, custom loan origination systems, and compliance-first data architecture for institutions where a breach or audit failure isn't just costly — it's existential.",
       "features": ["Secure Architecture", "Legacy Integration", "Compliance Audit", "High Availability"]
     },
     {
       "icon": "📦",
       "title": "Logistics & Supply Chain",
-      "desc": "End-to-end tracking systems, warehouse management dashboards, and automated routing logic for complex logistics networks.",
+      "desc": "End-to-end tracking systems, warehouse management dashboards, and automated routing logic for logistics networks where a 2% efficiency gain at scale translates to crores saved annually.",
       "features": ["Fleet Tracking", "Inventory Sync", "Vendor Portals", "Automated Routing"]
     },
     {
       "icon": "🏭",
-      "title": "Manufacturing",
-      "desc": "IoT data aggregation, custom production line tracking, and enterprise-wide ERP synchronization for modern factories.",
+      "title": "Manufacturing & Industrial",
+      "desc": "IoT data aggregation, production line tracking, and enterprise-wide ERP synchronization for factories where downtime is measured in lakhs per hour and data integrity is non-negotiable.",
       "features": ["IoT Integration", "ERP Sync", "Production Dashboards", "Quality Control"]
     }
   ],
   "cta": {
     "title": "Ready for digital transformation?",
-    "description": "Schedule a technical deep-dive. We analyze your legacy systems and deliver a complete architecture draft within 1 week.",
-    "button_text": "📅 Schedule Architecture Review"
+    "description": "Schedule a technical deep-dive with our senior engineering team. We'll analyze your current systems and deliver a complete architecture proposal within one week.",
+    "button_text": "📅 Request a Technical Scoping Call"
   }
 }

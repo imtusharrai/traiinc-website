@@ -1187,9 +1187,9 @@ body.light-mode .theme-tooltip::after {
     right: 0;
     top: 60px;
     z-index: 9000;
-    background: rgba(18, 11, 14, 0.97);
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    background: rgb(18, 11, 14);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     border-bottom: 1px solid rgba(255,255,255,0.08);
     border-top: 1px solid rgba(255,255,255,0.06);
     box-shadow: 0 20px 60px rgba(0,0,0,0.6);
@@ -1197,7 +1197,7 @@ body.light-mode .theme-tooltip::after {
     transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
 }
 body.light-mode .mega-dropdown {
-    background: rgba(255,255,255,0.97);
+    background: rgb(255, 255, 255);
     border-color: rgba(0,0,0,0.08);
     box-shadow: 0 20px 60px rgba(0,0,0,0.15);
 }
@@ -1224,27 +1224,12 @@ body.light-mode .mega-dropdown {
 
 .mega-col {
     flex: 1;
-    min-width: 190px;
-    padding: 0 16px;
+    min-width: 170px;
+    padding: 0 14px;
     border-right: 1px solid rgba(255,255,255,0.05);
 }
 .mega-col:last-child { border-right: none; }
-
-/* The 2nd col is the "Industries We Serve" continuation —
-   remove its left border so the two industry cols read as one block */
-.mega-col:nth-child(2) {
-    border-right: 1px solid rgba(255,255,255,0.05);
-    padding-left: 12px;
-}
-
-/* Give the Business by Size col a stronger visual separator */
-.mega-col:last-child {
-    border-left: 2px solid rgba(255,255,255,0.10);
-    padding-left: 20px;
-    margin-left: 4px;
-}
 body.light-mode .mega-col { border-color: rgba(0,0,0,0.06); }
-body.light-mode .mega-col:last-child { border-left-color: rgba(0,0,0,0.10); }
 
 
 .mega-col-heading {
@@ -1310,6 +1295,8 @@ body.light-mode .mega-footer { border-color: rgba(0,0,0,0.07); }
     transition: opacity 0.2s;
 }
 .mega-cta:hover { opacity: 0.75; }
+
+
 
 /* ═══════════════════════════════════════════════════════════════
    MOBILE NAV OVERRIDES

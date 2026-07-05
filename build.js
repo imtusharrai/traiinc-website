@@ -35,6 +35,20 @@ copyDirectory(rootDir, distDir);
 
 const server = http.createServer((req, res) => {
     let filePath = path.join(rootDir, req.url.split('?')[0]);
+    
+    // Intercept synthetic tech pages
+    const techMatch = req.url.match(/^\/tech-(.*)\.html/);
+    if (techMatch) {
+        const id = techMatch[1];
+        fs.readFile(path.join(rootDir, 'index.html'), 'utf8', (err, data) => {
+            if (err) { res.writeHead(404); res.end(); return; }
+            const modData = data.replace('data-page="home"', `data-page="tech-${id}"`);
+            res.writeHead(200, {'Content-Type': 'text/html'});
+            res.end(modData);
+        });
+        return;
+    }
+
     if (filePath === rootDir || filePath === rootDir + '/') filePath = path.join(rootDir, 'index.html');
     fs.readFile(filePath, (err, data) => {
         if (err) { res.writeHead(404); res.end(); return; }
@@ -49,6 +63,18 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, async () => {
     console.log(`Local server started on port ${PORT}`);
     const htmlFiles = fs.readdirSync(rootDir).filter(f => f.endsWith('.html') && f !== '404.html');
+    
+    // Inject tech pages
+    const techDataPath = path.join(rootDir, 'data/technologies.json');
+    if (fs.existsSync(techDataPath)) {
+        const techData = JSON.parse(fs.readFileSync(techDataPath, 'utf8'));
+        techData.categories.forEach(cat => {
+            cat.technologies.forEach(tech => {
+                htmlFiles.push(`tech-${tech.id}.html`);
+            });
+        });
+    }
+
     const virtualConsole = new jsdom.VirtualConsole();
     
     // For sitemap generation
@@ -88,7 +114,11 @@ server.listen(PORT, async () => {
                 const interval = setInterval(() => {
                     attempts++;
                     const content = dom.window.document.getElementById('content');
-                    if ((content && !content.innerHTML.includes('Loading...')) || attempts > 50 || !content) {
+                    const navbar = dom.window.document.getElementById('navbar');
+                    const contentReady = content && !content.innerHTML.includes('Loading...');
+                    const navReady = navbar && navbar.innerHTML.trim() !== '';
+                    
+                    if ((contentReady && navReady) || attempts > 50 || (!content && navReady)) {
                         clearInterval(interval);
                         resolve();
                     }
@@ -140,8 +170,10 @@ server.listen(PORT, async () => {
                 'cloud-devops.html', 'custom-software.html', 'cybersecurity.html', 
                 'data-analytics.html', 'digital-marketing.html', 'enterprise-platforms.html', 
                 'lead-gen-scraping.html', 'mobile-apps.html', 'motion-video.html', 
-                'ui-ux-design.html', 'web-development.html', 'workflow-automation.html'
-            ].includes(file)) {
+                'ui-ux-design.html', 'web-development.html', 'workflow-automation.html',
+                'flutter-app-development.html', 'ecommerce-development.html', 'custom-crm-development.html', 'wordpress-cms-development.html',
+                'ai-automation-development.html'
+            ].includes(file) || file.startsWith('tech-')) {
                 let serviceName = file.replace('.html', '').split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
                 schemaJson = {
                     "@context": "https://schema.org",
@@ -152,6 +184,20 @@ server.listen(PORT, async () => {
                         "name": "Trai Inc"
                     },
                     "areaServed": "IN"
+                };
+            } else if (file === 'choosing-a-development-partner.html') {
+                schemaJson = {
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": "What to check before choosing a development partner",
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Trai Inc",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://traiinc.com/assets/logos/logo.png"
+                        }
+                    }
                 };
             }
             

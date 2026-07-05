@@ -1,0 +1,63 @@
+{
+  "header": {
+    "subtitle": "YOUR DUE-DILIGENCE CHECKLIST",
+    "title": "What to check before choosing a development partner."
+  },
+  "intro": "This page exists because choosing the wrong development company is expensive and slow to reverse. We've written the checklist we'd want a client to use when evaluating anyone — including us. For each item, we've stated our specific policy so you can verify it directly.",
+  "checklist": [
+    {
+      "icon": "📜",
+      "principle": "Code & IP Ownership",
+      "what_to_check": "Paying for software doesn't automatically give you ownership. Under default IP law, the developer retains copyright unless the contract explicitly assigns it — and 'work for hire' labels are often legally insufficient. Look for a present-tense assignment clause.",
+      "trai_answer": "Full assignment of all source code and IP to you upon final payment. Not a vague 'work for hire' label — an explicit, present-tense assignment clause in every contract."
+    },
+    {
+      "icon": "📦",
+      "principle": "Full Repository Handover",
+      "what_to_check": "Getting the compiled app isn't the same as getting the source code. Confirm you'll receive the actual Git repository, build scripts, environment configs, and documentation — enough for a different team to pick up the codebase without the original developer.",
+      "trai_answer": "Complete Git repository, build scripts, environment configs, and documentation — not just the compiled app. Handed over on final payment, no extra fee."
+    },
+    {
+      "icon": "🚫",
+      "principle": "No Ransom Clauses",
+      "what_to_check": "Some vendors charge a separate fee specifically to hand over source code after the project is paid for. Source code handover should be included in the base project price, not billed as an add-on.",
+      "trai_answer": "Source code handover is included in the project price. No separate fee to receive what you already paid for."
+    },
+    {
+      "icon": "📱",
+      "principle": "App Store Account Ownership",
+      "what_to_check": "If your app is published under the agency's Google Play or Apple developer account rather than yours, you don't actually control it. Ask whose developer account the app will be published under, and what the transfer process looks like if it starts under theirs.",
+      "trai_answer": "Your choice: publish under your own Google Play / App Store developer account from day one, or under Trai Inc.'s account with a formal ownership transfer when you're ready."
+    },
+    {
+      "icon": "🌐",
+      "principle": "Domain & Hosting Ownership",
+      "what_to_check": "For website projects, confirm the domain registration and hosting account are in your business's name, not the developer's. Without direct access to the registrar login and authorisation code, you cannot transfer the domain elsewhere — even if you technically 'own' it on paper.",
+      "trai_answer": "Domain and hosting accounts are registered in your business's name, not ours. You get direct access — we never hold your infrastructure as leverage."
+    },
+    {
+      "icon": "💳",
+      "principle": "Payment Structure",
+      "what_to_check": "Avoid paying 100% upfront — it removes the vendor's incentive to finish. Milestone-based payments tied to delivered features are the healthiest structure: typically 20-30% deposit, 40-50% across milestones, and 20-30% on final delivery.",
+      "trai_answer": "Milestone-based payments tied to delivered work, not 100% upfront."
+    },
+    {
+      "icon": "🔧",
+      "principle": "Post-Launch Maintenance",
+      "what_to_check": "Get the maintenance cost quoted before signing the initial contract, not after launch when you have no negotiating leverage. It should cover OS/platform updates, bug fixes, and minor iteration.",
+      "trai_answer": "20% of project cost annually, covering updates, bug fixes, and OS/platform compatibility — quoted upfront, not sprung on you after signing."
+    },
+    {
+      "icon": "💬",
+      "principle": "Communication & Accountability",
+      "what_to_check": "Vague reassurances of 'regular updates' predict poor communication once work begins. Ask for a named point of contact and a defined update cadence (e.g. weekly written update).",
+      "trai_answer": "A named point of contact and a defined update cadence from day one."
+    }
+  ],
+  "closing": {
+    "title": "The two questions worth asking most directly",
+    "text": "Before signing anything, ask in writing: 'Who owns the code and IP once I've paid, and in exactly what form?' and 'What accounts — app store, domain, hosting — will this be published under, and can I get direct access to all of them?' Vendors who answer both clearly and specifically, without hedging, are meaningfully lower-risk than those who give general reassurances.",
+    "cta_text": "Discuss Your Project",
+    "cta_link": "https://calendar.app.google/PUsxADQBnpQsTrDbA"
+  }
+}
