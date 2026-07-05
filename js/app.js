@@ -183,7 +183,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         startups: renderAudiencePage,
         smb: renderAudiencePage,
         enterprise: renderAudiencePage,
-        msmes: renderMSME
+        msmes: renderMSME,
+        'app-store': renderAppStore
     };
 
     servicePages.forEach(slug => {
@@ -252,6 +253,28 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 /* ===== PAGE RENDERERS ===== */
+
+function renderFaq(faq) {
+    if (!faq || !faq.items || !faq.items.length) return '';
+    return `
+    <!-- ════════ FAQ ════════ -->
+    <section class="faq-section fade-in" style="padding: 100px 0; background: var(--bg-card); border-top: 1px solid var(--border-light);">
+        <div class="container" style="max-width: 800px;">
+            <div class="section-header center">
+                <h4 class="mini-title">${faq.subtitle}</h4>
+                <h2>${faq.title}</h2>
+            </div>
+            <div class="faq-accordion" style="margin-top: 40px;">
+                ${faq.items.map((item, i) => `
+                <div class="faq-item" style="border-bottom: 1px solid var(--border-light); padding: 24px 0;">
+                    <h3 style="font-size: 1.15rem; font-family: var(--font-heading); margin-bottom: 12px; color: var(--text-color);">${item.q}</h3>
+                    <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6;">${item.a}</p>
+                </div>`).join('')}
+            </div>
+        </div>
+    </section>
+    `;
+}
 
 function renderHome(data) {
     const hero = data.hero;
@@ -384,6 +407,8 @@ function renderHome(data) {
         </div>
     </section>
 
+    ${renderFaq(data.faq)}
+
     <!-- ════════ GRAND CTA ════════ -->
     <section class="grand-cta fade-in">
         <div class="container">
@@ -504,6 +529,8 @@ function renderAbout(data) {
             </div>
         </div>
     </section>
+
+    ${renderFaq(data.faq)}
 
     <!-- CTA -->
     <section style="padding: 100px 0;">
@@ -885,6 +912,23 @@ function renderContact(data) {
                 </form>
             </div>
 
+        </div>
+    </section>
+
+    <!-- ═══ MAP SECTION ═══ -->
+    <section style="margin: 0 24px 100px;">
+        <div class="container" style="max-width: 1200px; padding: 0;">
+            <div style="border-radius: 20px; overflow: hidden; height: 450px; background: var(--bg-darker); border: 1px solid var(--border-light); position: relative;">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.421731671954!2d80.99971847543763!3d26.858309176681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be2c086eb0c2b%3A0xe54e60b2eb7f4b82!2sDLF%20MyPad!5e0!3m2!1sen!2sin!4v1709210000000!5m2!1sen!2sin" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0; position: absolute; top: 0; left: 0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
         </div>
     </section>
 
@@ -1505,6 +1549,46 @@ function renderServicePage(data, slug) {
                 <p>${service.cta.description}</p>
                 <a href="contact.html" class="btn-primary" style="font-size: 1.1rem; padding: 18px 40px;">${service.cta.button_text}</a>
             </div>
+        </div>
+    </section>
+    `;
+}
+
+function renderAppStore(data) {
+    return `
+    <header class="page-header" style="padding: 150px 24px 60px; text-align: center; max-width: 850px; margin: 0 auto;">
+        <h4 class="mini-title fade-in">${data.header.subtitle}</h4>
+        <h1 class="main-heading fade-in" style="font-size: clamp(2.4rem, 5vw, 3.8rem); margin-bottom: 24px;">${data.header.title}</h1>
+        <p class="fade-in" style="color: var(--text-muted); font-size: 1.15rem; margin-top: 20px; font-weight: 500; padding: 15px; border-radius: 8px; background: rgba(255,255,255,0.05); display: inline-block;">${data.positioning_callout}</p>
+    </header>
+
+    <section class="container" style="padding: 50px 24px 100px;">
+        <div style="display: flex; flex-direction: column; gap: 80px;">
+            ${data.apps.map(app => `
+            <div class="spec-card fade-in" style="padding: 40px; border-radius: 20px; border-top: 4px solid var(--accent-color);">
+                <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <h2 style="font-size: 2.2rem; font-family: var(--font-heading); margin-bottom: 10px;">${app.name}</h2>
+                        <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">${app.description}</p>
+                    </div>
+                </div>
+                
+                <h3 style="margin-top: 20px; margin-bottom: 20px; font-size: 1.4rem; border-bottom: 1px solid var(--border-light); padding-bottom: 10px;">Pricing & Delivery Options</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;">
+                    ${app.tiers.map(tier => `
+                    <div style="background: var(--bg-darker); border-radius: 12px; padding: 30px; border: 1px solid var(--border-light);">
+                        <h4 style="font-size: 1.3rem; margin-bottom: 10px; color: var(--text-color);">${tier.name}</h4>
+                        <div style="font-size: 2rem; font-family: var(--font-heading); font-weight: 700; margin-bottom: 20px; color: var(--accent-color);">${tier.price}</div>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            ${tier.features.map(f => `<li style="margin-bottom: 12px; color: var(--text-muted); display: flex; align-items: flex-start; gap: 10px;"><span style="color: var(--accent-color);">✓</span> ${f}</li>`).join('')}
+                        </ul>
+                    </div>`).join('')}
+                </div>
+                <div style="margin-top: 40px; text-align: center;">
+                     <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary">Discuss Requirements</a>
+                </div>
+            </div>
+            `).join('')}
         </div>
     </section>
     `;
