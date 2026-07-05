@@ -4,7 +4,7 @@
     "title": "138+ Clients. 12+ Industries. Six Years of Engineering Excellence."
   },
   "intro": {
-    "text": "Trai Inc is a full-service IT solutions company headquartered in Lucknow, India. Since 2020, our team of engineers, designers, and strategists has delivered custom software, mobile apps, AI automation, cloud platforms, and digital marketing solutions for 138+ clients across 12+ industries — from local MSMEs to enterprise operations."
+    "text": "Built in the AI era, not retrofitted for it. Trai Inc is a full-service IT solutions company headquartered in Lucknow, India. Since 2020, our team of engineers, designers, and strategists has delivered custom software, mobile apps, AI automation, cloud platforms, and digital marketing solutions for 138+ clients across 12+ industries — from local MSMEs to enterprise operations."
   },
   "numbers": {
     "stats": [
@@ -158,6 +158,24 @@
     "subtitle": "TALENT DEVELOPMENT",
     "title": "Intern Incubator Program",
     "text": "We run an active intern incubation program training the next generation of engineers and marketers. Interns work on real client projects from day one, learning production-grade development, AI-native workflows, and professional delivery under mentorship from our senior team."
+  },
+  "faq": {
+    "subtitle": "QUESTIONS & ANSWERS",
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "q": "How long does an MVP take to build?",
+        "a": "Our senior engineers work in rapid sprints, and we typically deliver a complete, launch-ready MVP in 4 to 8 weeks depending on the complexity of the requirements."
+      },
+      {
+        "q": "What is the typical cost for a custom software project?",
+        "a": "For standard scopes like web applications or internal CRMs, pricing generally ranges from ₹2-8L depending on scope. For fully bespoke enterprise solutions, we provide a quote-based estimate after a scoping call."
+      },
+      {
+        "q": "Are you the best software development company in Lucknow?",
+        "a": "We believe our results speak for themselves. Based in Lucknow, we bring Silicon Valley-grade engineering to Indian MSMEs across the country without the bloat of traditional IT agencies. We focus purely on lean architecture and rapid execution."
+      }
+    ]
   },
   "cta": {
     "title": "Ready to Build Something Exceptional?",

@@ -4,7 +4,7 @@
     "heading_line1": "Smart engineering.",
     "heading_line2": "Faster",
     "heading_highlight": "delivery.",
-    "subtitle": "Our team of senior engineers delivers custom software, AI automation, and cloud platforms. No outsourcing, no junior devs — just direct execution. Fixed-price contracts from ₹15,000.",
+    "subtitle": "Built in the AI era, not retrofitted for it. Our team of senior engineers delivers custom software, AI automation, and cloud platforms. Based in Lucknow, serving businesses across India. Fixed-price contracts from ₹15,000.",
     "cta_primary": {
       "icon": "📅",
       "text": "Book a Free Consultation",
@@ -159,6 +159,24 @@
         "title": "Deployment & Handoff",
         "desc": "We deploy to production, setup analytics, and provide full documentation. You own 100% of the IP and infrastructure.",
         "color": "#38f9d7"
+      }
+    ]
+  },
+  "faq": {
+    "subtitle": "QUESTIONS & ANSWERS",
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "q": "How long does an MVP take to build?",
+        "a": "Our senior engineers work in rapid sprints, and we typically deliver a complete, launch-ready MVP in 4 to 8 weeks depending on the complexity of the requirements."
+      },
+      {
+        "q": "What is the typical cost for a custom software project?",
+        "a": "For standard scopes like web applications or internal CRMs, pricing generally ranges from ₹2-8L depending on scope. For fully bespoke enterprise solutions, we provide a quote-based estimate after a scoping call."
+      },
+      {
+        "q": "Are you the best software development company in Lucknow?",
+        "a": "We believe our results speak for themselves. Based in Lucknow, we bring Silicon Valley-grade engineering to Indian MSMEs across the country without the bloat of traditional IT agencies. We focus purely on lean architecture and rapid execution."
       }
     ]
   },
