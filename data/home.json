@@ -4,7 +4,7 @@
     "heading_line1": "Smart engineering.",
     "heading_line2": "Faster",
     "heading_highlight": "delivery.",
-    "subtitle": "Built in the AI era, not retrofitted for it. Our team of senior engineers delivers custom software, AI automation, and cloud platforms. Based in Lucknow, serving businesses across India. Fixed-price contracts from ₹15,000.",
+    "subtitle": "Built in the AI era. Not retrofitted for it. Traditional IT agencies are bloated, slow, and expensive by design. We are an AI-native engineering team that ships Silicon Valley-grade custom software in weeks, not months. Lean architecture, rapid execution, zero bloat. Transparent pricing, not quote-only mystery.",
     "cta_primary": {
       "icon": "📅",
       "text": "Book a Free Consultation",
@@ -39,6 +39,54 @@
     "✓ Digital Marketing",
     "✓ Fixed-Price Contracts"
   ],
+  "engagement_models": {
+    "subtitle": "HOW WE WORK",
+    "title": "Flexible Engagement Models",
+    "cards": [
+      {
+        "icon": "📦",
+        "title": "Fixed Scope",
+        "desc": "Defined project, defined price. Best for clear, bounded requirements.",
+        "link": "contact.html",
+        "link_text": "Get a Quote →"
+      },
+      {
+        "icon": "🤝",
+        "title": "Ongoing Partner",
+        "desc": "Retained/dedicated ongoing work. Best for evolving requirements and long-term support.",
+        "link": "contact.html",
+        "link_text": "Discuss Partnership →"
+      },
+      {
+        "icon": "🛒",
+        "title": "App Store Ready-Made",
+        "desc": "Pre-scoped vertical apps ready for customization. Fixed pricing tiers.",
+        "link": "app-store.html",
+        "link_text": "View App Pricing →"
+      }
+    ]
+  },
+  "portfolio_gallery": {
+    "subtitle": "SELECTED WORK",
+    "title": "Visual Portfolio",
+    "items": [
+      {
+        "client": "Chitravan",
+        "image": "assets/images/placeholder.jpg",
+        "alt": "Chitravan Resort Management System"
+      },
+      {
+        "client": "Bhu Master",
+        "image": "assets/images/placeholder.jpg",
+        "alt": "Bhu Master Real Estate CRM"
+      },
+      {
+        "client": "Dashak Pharma",
+        "image": "assets/images/placeholder.jpg",
+        "alt": "Dashak Pharma B2B Portal"
+      }
+    ]
+  },
   "solutions_routing": {
     "subtitle": "SOLUTIONS",
     "title": "Engineered for every stage",
@@ -176,7 +224,11 @@
       },
       {
         "q": "Are you the best software development company in Lucknow?",
-        "a": "We believe our results speak for themselves. Based in Lucknow, we bring Silicon Valley-grade engineering to Indian MSMEs across the country without the bloat of traditional IT agencies. We focus purely on lean architecture and rapid execution."
+        "a": "We believe our results speak for themselves. We bring Silicon Valley-grade engineering to Indian MSMEs across the country without the bloat of traditional IT agencies. We focus purely on lean architecture and rapid execution."
+      },
+      {
+        "q": "How do I know I'll actually own my app or software?",
+        "a": "We believe in complete transparency. We've published a <a href=\"choosing-a-development-partner.html\">due-diligence checklist</a> covering code ownership, app store accounts, and hosting. We assign full source code and IP to you upon final payment, and give you direct access to all infrastructure."
       }
     ]
   },

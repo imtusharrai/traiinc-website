@@ -4,6 +4,12 @@
     "title": "Own your app outright. Built for your business."
   },
   "positioning_callout": "Want to own a single app outright? Browse below. Want an all-in-one growing platform with ongoing updates? Explore Minis.",
+  "trust_signals": {
+    "publishing": "Choose how your app is published: under your own Google Play developer account from day one, or under Trai Inc.'s account with a formal ownership transfer once you're ready — your call.",
+    "source_code": "Full repository handover — source code, build scripts, and documentation included, no extra fee.",
+    "payments": "Milestone-based payments — you pay as work is delivered, not 100% upfront.",
+    "maintenance": "Post-launch maintenance: 20% of project cost annually, covering updates, bug fixes, and OS/platform compatibility."
+  },
   "apps": [
     {
       "name": "E-Commerce App",
@@ -13,17 +19,17 @@
         {
           "name": "Basic",
           "price": "₹45,000 + GST",
-          "features": ["Typical delivery: 1-2 weeks", "Source code included", "Core store functionality", "Standard branding", "Up to 50 products", "Delivery tracking"]
+          "features": ["Typical delivery: 1-2 weeks", "Full repository handover included", "Core store functionality", "Standard branding", "Up to 50 products", "Delivery tracking"]
         },
         {
           "name": "Pro",
           "price": "₹85,000 + GST",
-          "features": ["Typical delivery: 2-3 weeks", "Source code included", "Payment gateway integration", "Push notifications", "Advanced sales reporting"]
+          "features": ["Typical delivery: 2-3 weeks", "Full repository handover included", "Payment gateway integration", "Push notifications", "Advanced sales reporting"]
         },
         {
           "name": "Custom",
           "price": "Quote-based",
-          "features": ["Timeline based on scope", "Source code included", "Bespoke UI/UX modifications", "Custom ERP integrations", "Multi-vendor support", "Dedicated onboarding"]
+          "features": ["Timeline based on scope", "Full repository handover included", "Bespoke UI/UX modifications", "Custom ERP integrations", "Multi-vendor support", "Dedicated onboarding"]
         }
       ]
     },
@@ -35,17 +41,17 @@
         {
           "name": "Basic",
           "price": "₹50,000 + GST",
-          "features": ["Typical delivery: 1-2 weeks", "Source code included", "Prescription upload", "Standard branding", "Order management dashboard", "Basic catalog"]
+          "features": ["Typical delivery: 1-2 weeks", "Full repository handover included", "Prescription upload", "Standard branding", "Order management dashboard", "Basic catalog"]
         },
         {
           "name": "Pro",
           "price": "₹95,000 + GST",
-          "features": ["Typical delivery: 2-3 weeks", "Source code included", "Digital payments integration", "Delivery tracking map", "Inventory management sync"]
+          "features": ["Typical delivery: 2-3 weeks", "Full repository handover included", "Digital payments integration", "Delivery tracking map", "Inventory management sync"]
         },
         {
           "name": "Custom",
           "price": "Quote-based",
-          "features": ["Timeline based on scope", "Source code included", "Bespoke design", "Local delivery partner API", "Wholesale/B2B portal", "Custom integrations"]
+          "features": ["Timeline based on scope", "Full repository handover included", "Bespoke design", "Local delivery partner API", "Wholesale/B2B portal", "Custom integrations"]
         }
       ]
     },
@@ -57,17 +63,17 @@
         {
           "name": "Basic",
           "price": "₹40,000 + GST",
-          "features": ["Typical delivery: 1-2 weeks", "Source code included", "Digital menu", "Order management", "Standard branding", "Takeaway scheduling"]
+          "features": ["Typical delivery: 1-2 weeks", "Full repository handover included", "Digital menu", "Order management", "Standard branding", "Takeaway scheduling"]
         },
         {
           "name": "Pro",
           "price": "₹75,000 + GST",
-          "features": ["Typical delivery: 2-3 weeks", "Source code included", "Payment gateway integration", "Loyalty points system", "Dine-in QR ordering"]
+          "features": ["Typical delivery: 2-3 weeks", "Full repository handover included", "Payment gateway integration", "Loyalty points system", "Dine-in QR ordering"]
         },
         {
           "name": "Custom",
           "price": "Quote-based",
-          "features": ["Timeline based on scope", "Source code included", "Multi-outlet management", "POS integration", "Custom rewards engine", "Full bespoke design"]
+          "features": ["Timeline based on scope", "Full repository handover included", "Multi-outlet management", "POS integration", "Custom rewards engine", "Full bespoke design"]
         }
       ]
     }

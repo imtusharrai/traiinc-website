@@ -158,15 +158,66 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }
 
+    // --- Tech Page Renderer ---
+    function renderTechPage(data, pageId) {
+        return `
+            <!-- HERO -->
+            <header class="hero" style="min-height: 50vh;">
+                <div class="container hero-content center">
+                    <h1 class="hero-title">${data.name} Development</h1>
+                    <p class="hero-subtitle">${data.description}</p>
+                    <div class="hero-cta" style="justify-content:center;">
+                        <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large">Book a Discovery Call</a>
+                    </div>
+                </div>
+            </header>
+            <!-- WHY TRAI -->
+            <section class="container fade-in" style="padding: 80px 24px;">
+                <div class="section-header">
+                    <h4 class="mini-title">Why Trai Inc for ${data.name}?</h4>
+                    <h2>Engineering that drives results.</h2>
+                </div>
+                <div style="font-size: 1.1rem; line-height: 1.8; color: var(--text-muted); max-width: 800px; margin: 0 auto; text-align: center;">
+                    <p>${data.why_us}</p>
+                </div>
+            </section>
+            <!-- USE CASES -->
+            <section class="container fade-in" style="padding: 0 24px 80px;">
+                <div class="section-header center">
+                    <h4 class="mini-title">Common Applications</h4>
+                    <h2>Where we apply ${data.name}</h2>
+                </div>
+                <div class="bento-grid">
+                    ${data.use_cases.map((useCase, idx) => `
+                        <div class="bento-card ${idx % 3 === 0 ? 'wide' : ''} fade-in">
+                            <div class="bento-icon" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">🎯</div>
+                            <h3>${useCase}</h3>
+                        </div>
+                    `).join('')}
+                </div>
+            </section>
+            <!-- BOTTOM CTA -->
+            <section class="container fade-in" style="padding: 80px 24px; text-align: center;">
+                <div class="hero-card">
+                    <h2>Ready to build with ${data.name}?</h2>
+                    <p style="color:var(--text-muted);margin:16px 0 32px;">Talk directly to senior engineers — no sales reps, no fluff.</p>
+                    <a href="contact.html" class="btn-primary large" style="margin: 0 auto;">Start Your Project</a>
+                </div>
+            </section>
+        `;
+    }
+
     // Fetch and Render Dynamic Content
-    const pageId = document.body.getAttribute("data-page");
+    const pageId = document.body.getAttribute("data-page") || "";
     const dynamicContainer = document.getElementById("content") || document.getElementById("dynamic-content");
 
     const servicePages = [
         'ai-agents', 'ai-automation', 'ai-voice-agents', 'cloud-devops', 
         'custom-software', 'cybersecurity', 'data-analytics', 'digital-marketing', 
         'enterprise-platforms', 'lead-gen-scraping', 'mobile-apps', 'motion-video', 
-        'ui-ux-design', 'web-development', 'workflow-automation'
+        'ui-ux-design', 'web-development', 'workflow-automation',
+        'flutter-app-development', 'ecommerce-development', 'custom-crm-development', 'wordpress-cms-development',
+        'ai-automation-development'
     ];
 
     // Only pages with a registered renderer should fetch JSON
@@ -184,23 +235,48 @@ document.addEventListener("DOMContentLoaded", async () => {
         smb: renderAudiencePage,
         enterprise: renderAudiencePage,
         msmes: renderMSME,
-        'app-store': renderAppStore
+        'app-store': renderAppStore,
+        'choosing-a-development-partner': renderTrustPage
     };
 
     servicePages.forEach(slug => {
         renderers[slug] = renderServicePage;
     });
 
-    const renderFn = renderers[pageId];
+    let renderFn = renderers[pageId];
+    if (pageId.startsWith('tech-')) {
+        renderFn = renderTechPage;
+    }
 
     if (renderFn && dynamicContainer) {
         try {
             // Only fetch and re-render if the static HTML wasn't generated (i.e. if the loader is still there or it says Loading...)
             if (dynamicContainer.querySelector('.loader') || dynamicContainer.innerHTML.includes('Loading...')) {
-                const fetchUrl = servicePages.includes(pageId) ? `data/services.json` : `data/${pageId}.json`;
+                let fetchUrl = '';
+                if (pageId.startsWith('tech-')) {
+                    fetchUrl = 'data/technologies.json';
+                } else {
+                    fetchUrl = servicePages.includes(pageId) ? `data/services.json` : `data/${pageId}.json`;
+                }
+
                 const response = await fetch(`${fetchUrl}?v=` + new Date().getTime());
                 if (!response.ok) throw new Error("Network response was not ok");
-                const data = await response.json();
+                let data = await response.json();
+                
+                if (pageId.startsWith('tech-')) {
+                    const techId = pageId.replace('tech-', '');
+                    let foundTech = null;
+                    for (const cat of data.categories) {
+                        const tech = cat.technologies.find(t => t.id === techId);
+                        if (tech) { foundTech = tech; break; }
+                    }
+                    if (foundTech) {
+                        data = foundTech;
+                    } else {
+                        throw new Error("Technology not found in technologies.json");
+                    }
+                }
+
                 dynamicContainer.innerHTML = renderFn(data, pageId);
             }
 
@@ -278,7 +354,9 @@ function renderFaq(faq) {
 
 function renderHome(data) {
     const hero = data.hero;
+    const em = data.engagement_models;
     const sr = data.solutions_routing;
+    const pg = data.portfolio_gallery;
 
     return `
     <!-- ════════ HERO ════════ -->
@@ -328,6 +406,25 @@ function renderHome(data) {
         </div>
     </section>
 
+    <!-- ════════ ENGAGEMENT MODELS ════════ -->
+    <section class="bento-section fade-in" style="background: var(--bg-card); border-bottom: 1px solid var(--border-light);">
+        <div class="container">
+            <div class="section-header center">
+                <h4 class="mini-title">${em.subtitle}</h4>
+                <h2>${em.title}</h2>
+            </div>
+            <div class="home-bento-grid" style="margin-top: 40px;">
+                ${em.cards.map(c => `
+                <div class="home-bento-card fade-in">
+                    <div class="home-bento-icon">${c.icon}</div>
+                    <div class="home-bento-title">${c.title}</div>
+                    <div class="home-bento-desc">${c.desc}</div>
+                    <a href="${c.link}" class="home-bento-link">${c.link_text}</a>
+                </div>`).join('')}
+            </div>
+        </div>
+    </section>
+
     <!-- ════════ SOLUTIONS ROUTING ════════ -->
     <section id="solutions" class="bento-section">
         <div class="container">
@@ -368,8 +465,27 @@ function renderHome(data) {
         </div>
     </section>
 
+    <!-- ════════ PORTFOLIO GALLERY ════════ -->
+    <section class="bento-section fade-in" style="background: var(--bg-darker);">
+        <div class="container">
+            <div class="section-header center">
+                <h4 class="mini-title">${pg.subtitle}</h4>
+                <h2>${pg.title}</h2>
+            </div>
+            <div class="grid-4" style="margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                ${pg.items.map(item => `
+                <div class="portfolio-item fade-in" style="border: 1px solid var(--border-light); border-radius: 8px; overflow: hidden; background: var(--bg-card);">
+                    <img src="${item.image}" alt="${item.alt}" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;">
+                    <div style="padding: 12px; text-align: center; font-weight: 600; font-size: 0.9rem;">
+                        ${item.client}
+                    </div>
+                </div>`).join('')}
+            </div>
+        </div>
+    </section>
+
     <!-- ════════ CASE STUDIES ════════ -->
-    <section class="content-section fade-in" style="padding: 100px 0; background: var(--bg-darker);">
+    <section class="content-section fade-in" style="padding: 100px 0; background: var(--bg-card); border-top: 1px solid var(--border-light);">
         <div class="container">
             <div class="section-header center">
                 <h4 class="mini-title">${data.case_studies.subtitle}</h4>
@@ -1245,8 +1361,8 @@ function renderMSME(data) {
                     <h1>${data.hero.title}</h1>
                     <p class="msme-hero-sub">${data.hero.subtitle}</p>
                     <div class="hero-cta-row">
-                        <a href="${data.hero.cta.primary.url}" target="_blank" class="btn-primary large">${data.hero.cta.primary.text}</a>
-                        <a href="${data.hero.cta.secondary.url}" class="btn-secondary large">${data.hero.cta.secondary.text}</a>
+                        <a href="${data.hero.cta.primary.url}" ${data.hero.cta.primary.url.startsWith('http') ? 'target="_blank"' : ''} class="btn-primary large">${data.hero.cta.primary.text}</a>
+                        <a href="${data.hero.cta.secondary.url}" ${data.hero.cta.secondary.url.startsWith('http') ? 'target="_blank"' : ''} class="btn-secondary large">${data.hero.cta.secondary.text}</a>
                     </div>
                     <div class="hero-trust">
                         <div class="hero-trust-avatars">
@@ -1555,12 +1671,44 @@ function renderServicePage(data, slug) {
 }
 
 function renderAppStore(data) {
+    const ts = data.trust_signals || {};
     return `
     <header class="page-header" style="padding: 150px 24px 60px; text-align: center; max-width: 850px; margin: 0 auto;">
         <h4 class="mini-title fade-in">${data.header.subtitle}</h4>
         <h1 class="main-heading fade-in" style="font-size: clamp(2.4rem, 5vw, 3.8rem); margin-bottom: 24px;">${data.header.title}</h1>
         <p class="fade-in" style="color: var(--text-muted); font-size: 1.15rem; margin-top: 20px; font-weight: 500; padding: 15px; border-radius: 8px; background: rgba(255,255,255,0.05); display: inline-block;">${data.positioning_callout}</p>
     </header>
+
+    <!-- Trust Signals -->
+    <section class="container fade-in" style="padding: 0 24px 60px; max-width: 900px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+            <div class="spec-card" style="padding: 24px; border-radius: 12px; border-left: 3px solid var(--accent-color);">
+                <div style="display: flex; align-items: flex-start; gap: 12px;">
+                    <span style="font-size: 1.4rem;">📱</span>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">${ts.publishing || ''}</p>
+                </div>
+            </div>
+            <div class="spec-card" style="padding: 24px; border-radius: 12px; border-left: 3px solid var(--accent-color);">
+                <div style="display: flex; align-items: flex-start; gap: 12px;">
+                    <span style="font-size: 1.4rem;">📦</span>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">${ts.source_code || ''}</p>
+                </div>
+            </div>
+            <div class="spec-card" style="padding: 24px; border-radius: 12px; border-left: 3px solid var(--accent-color);">
+                <div style="display: flex; align-items: flex-start; gap: 12px;">
+                    <span style="font-size: 1.4rem;">💳</span>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">${ts.payments || ''}</p>
+                </div>
+            </div>
+            <div class="spec-card" style="padding: 24px; border-radius: 12px; border-left: 3px solid var(--accent-color);">
+                <div style="display: flex; align-items: flex-start; gap: 12px;">
+                    <span style="font-size: 1.4rem;">🔧</span>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">${ts.maintenance || ''}</p>
+                </div>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 16px; font-size: 0.9rem; color: var(--text-muted);">Read our full <a href="choosing-a-development-partner.html" style="color: var(--accent-color);">due-diligence checklist</a> for more detail on each commitment.</p>
+    </section>
 
     <section class="container" style="padding: 50px 24px 100px;">
         <div style="display: flex; flex-direction: column; gap: 80px;">
@@ -1589,6 +1737,49 @@ function renderAppStore(data) {
                 </div>
             </div>
             `).join('')}
+        </div>
+    </section>
+    `;
+}
+
+function renderTrustPage(data) {
+    return `
+    <header class="page-header" style="padding: 150px 24px 60px; text-align: center; max-width: 850px; margin: 0 auto;">
+        <h4 class="mini-title fade-in">${data.header.subtitle}</h4>
+        <h1 class="main-heading fade-in" style="font-size: clamp(2.4rem, 5vw, 3.8rem); margin-bottom: 24px;">${data.header.title}</h1>
+        <p class="fade-in" style="color: var(--text-muted); font-size: 1.15rem; margin-top: 20px; line-height: 1.7; max-width: 700px; margin-left: auto; margin-right: auto;">${data.intro}</p>
+    </header>
+
+    <section class="container" style="padding: 50px 24px 60px; max-width: 900px; margin: 0 auto;">
+        <div style="display: flex; flex-direction: column; gap: 40px;">
+            ${data.checklist.map((item, i) => `
+            <div class="spec-card fade-in" style="padding: 36px; border-radius: 16px; border-left: 4px solid var(--accent-color);">
+                <div style="display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px;">
+                    <span style="font-size: 1.6rem; line-height: 1;">${item.icon}</span>
+                    <h2 style="font-size: 1.5rem; font-family: var(--font-heading); margin: 0;">${item.principle}</h2>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <h3 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 8px;">What to check</h3>
+                    <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6;">${item.what_to_check}</p>
+                </div>
+                <div style="background: rgba(0, 242, 254, 0.05); border-radius: 10px; padding: 20px; border: 1px solid rgba(0, 242, 254, 0.15);">
+                    <h3 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-color); margin-bottom: 8px;">How Trai Inc. does it</h3>
+                    <p style="color: var(--text-color); font-size: 1rem; line-height: 1.6; font-weight: 500;">${item.trai_answer}</p>
+                </div>
+            </div>
+            `).join('')}
+        </div>
+    </section>
+
+    <section class="container fade-in" style="padding: 40px 24px 100px; max-width: 800px; margin: 0 auto; text-align: center;">
+        <div class="spec-card" style="padding: 50px 40px; border-radius: 20px; border-top: 4px solid var(--accent-color);">
+            <h2 style="font-size: 1.8rem; font-family: var(--font-heading); margin-bottom: 16px;">${data.closing.title}</h2>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 30px;">${data.closing.text}</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;">
+                <a href="${data.closing.cta_link}" target="_blank" class="btn-primary">${data.closing.cta_text}</a>
+                <a href="app-store.html" class="btn-primary" style="background: transparent; border: 1px solid var(--accent-color); color: var(--accent-color);">View App Pricing</a>
+                <a href="solutions.html" class="btn-primary" style="background: transparent; border: 1px solid var(--accent-color); color: var(--accent-color);">View Custom Solutions</a>
+            </div>
         </div>
     </section>
     `;

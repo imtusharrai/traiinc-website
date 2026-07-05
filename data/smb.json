@@ -1,8 +1,8 @@
 {
   "hero": {
-    "page_label": "📈 Built for Growing Businesses",
-    "title": "You have outgrown spreadsheets.<br>Now <span class=\"gradient-word\">what?</span>",
-    "subtitle": "Custom CRMs, workflow automation, and digital marketing systems that scale with your business — without the cost of an in-house IT team.",
+    "page_label": "📈 Systems That Scale With You",
+    "title": "You've outgrown spreadsheets.<br>Now <span class='gradient-word'>what?</span>",
+    "subtitle": "Custom CRMs, workflow automation, and business dashboards that replace the patchwork of tools holding your operations together — built to integrate with what you already use, priced transparently.",
     "accent_colors": {
       "primary": "#a1c4fd",
       "secondary": "#c2e9fb"
@@ -30,31 +30,31 @@
     "✓ Digital Marketing",
     "✓ Data Dashboards",
     "✓ WhatsApp Business",
-    "✓ E-commerce"
+    "✓ E-commerce Integration"
   ],
   "services": {
     "subtitle": "WHAT WE BUILD",
-    "title": "Systems for Scale",
+    "title": "Systems that replace the tool sprawl",
     "items": [
       {
         "icon": "💼",
         "title": "Custom CRM Systems",
-        "desc": "Stop paying per-user SaaS fees for bloated platforms. We build custom CRMs that perfectly map to your exact sales process. Track leads, manage pipelines, and automate follow-ups automatically without changing how you work."
+        "desc": "Stop paying per-seat SaaS fees for platforms that don't match your actual sales process. We build CRMs that map to how your team actually works — tracking leads, managing pipelines, and automating follow-ups without forcing you to change your workflow."
       },
       {
         "icon": "📈",
-        "title": "Marketing Automation",
-        "desc": "Accelerate your revenue with automated lead generation engines. We build social media workflows, email drip campaigns, and ad integrations that capture leads and funnel them directly to your sales team 24/7."
+        "title": "Marketing & Lead Automation",
+        "desc": "Automated lead generation engines that capture, qualify, and route prospects to your sales team 24/7. Email drip campaigns, social integrations, and ad pipeline tracking — all wired together instead of scattered across five different tools."
       },
       {
         "icon": "📊",
-        "title": "Business Dashboards",
-        "desc": "Gain total operational visibility. We consolidate real-time metrics, sales tracking, and operational KPIs in one place, allowing founders and managers to make data-driven decisions instantly instead of waiting for end-of-month Excel reports."
+        "title": "Business Intelligence Dashboards",
+        "desc": "Real-time operational visibility in one place. We consolidate sales metrics, inventory data, and operational KPIs into dashboards your managers actually use — replacing the end-of-month Excel report scramble with live, actionable data."
       },
       {
         "icon": "💬",
-        "title": "WhatsApp Business Integration",
-        "desc": "Meet your customers where they already are. We build automated WhatsApp responses, order capture workflows, and customer support bots directly into WhatsApp, dramatically increasing conversion and engagement rates."
+        "title": "WhatsApp & Tool Integration",
+        "desc": "Connect your existing tools into one operational flow. WhatsApp order capture, payment gateway hooks, ERP sync, and automated notifications — we wire together the systems you already run instead of asking you to replace everything."
       }
     ]
   },
@@ -62,25 +62,25 @@
     {
       "icon": "🏠",
       "title": "Real Estate & Construction",
-      "desc": "Lead capture pipelines, property management dashboards, and automated client communication tools tailored for real estate developers and agencies.",
+      "desc": "Lead capture pipelines, property management dashboards, and automated client communication tools for developers and agencies managing hundreds of prospects across multiple projects.",
       "features": ["Lead Funnels", "CRM Integration", "Site Visit Booking", "WhatsApp Follow-ups"]
     },
     {
       "icon": "🛍️",
       "title": "Retail & Consumer",
-      "desc": "Omnichannel point of sale integrations, inventory tracking, and loyalty programs to help retail businesses scale operations smoothly.",
+      "desc": "Omnichannel POS integrations, inventory tracking, and loyalty programs for retail businesses scaling from one location to many without multiplying their operational headcount.",
       "features": ["Inventory Sync", "Loyalty Programs", "E-Commerce Integrations", "Sales Dashboards"]
     },
     {
       "icon": "🛠️",
       "title": "Home & Local Services",
-      "desc": "Job scheduling applications, automated invoicing, and field team tracking for service-based businesses like cleaning and maintenance.",
+      "desc": "Job scheduling, automated invoicing, and field team tracking for service businesses where the back-office work grows faster than the team doing it.",
       "features": ["Job Scheduling", "Automated Invoicing", "Field Tracking", "Review Automation"]
     }
   ],
   "cta": {
-    "title": "Ready to scale your business?",
-    "description": "Book a free consultation and get a fixed-price proposal within 48 hours.",
-    "button_text": "📅 Get a Free Consultation"
+    "title": "Ready to replace the tool sprawl?",
+    "description": "Book a scoping call. We'll map your current systems, identify the highest-impact automation targets, and give you a fixed-price proposal within a week.",
+    "button_text": "📅 Request a Scoping Call"
   }
 }

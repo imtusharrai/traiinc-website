@@ -1,0 +1,249 @@
+{
+    "categories": [
+        {
+            "id": "frontend",
+            "name": "Frontend",
+            "technologies": [
+                {
+                    "id": "react",
+                    "name": "React",
+                    "description": "Component-based UI library for building dynamic, highly responsive web interfaces.",
+                    "why_us": "We architect scalable React applications with clean state management, modular components, and performance optimizations that keep TTI (Time to Interactive) low.",
+                    "use_cases": ["SaaS dashboards", "Interactive data visualizations", "Complex single-page applications (SPAs)"]
+                },
+                {
+                    "id": "nextjs",
+                    "name": "Next.js",
+                    "description": "The React framework for production. Server-rendered by default for incredible performance and SEO.",
+                    "why_us": "Our default choice for web platforms. We leverage Next.js App Router, SSR, and ISR to build lightning-fast, highly ranked applications.",
+                    "use_cases": ["SEO-critical web applications", "E-commerce storefronts", "High-traffic marketing sites"]
+                },
+                {
+                    "id": "tailwindcss",
+                    "name": "Tailwind CSS",
+                    "description": "Utility-first CSS framework for rapidly building custom designs without leaving your HTML.",
+                    "why_us": "We use Tailwind to build pixel-perfect, highly maintainable design systems that scale without CSS bloat.",
+                    "use_cases": ["Custom design systems", "Responsive web apps", "Rapid MVP prototyping"]
+                },
+                {
+                    "id": "typescript",
+                    "name": "TypeScript",
+                    "description": "Strongly typed programming language that builds on JavaScript to catch errors early.",
+                    "why_us": "Every line of code we write is strictly typed. This eliminates entire classes of runtime bugs and makes large codebases vastly easier to refactor and maintain.",
+                    "use_cases": ["Enterprise-scale applications", "Complex state management", "API integrations"]
+                }
+            ]
+        },
+        {
+            "id": "backend",
+            "name": "Backend & Languages",
+            "technologies": [
+                {
+                    "id": "nodejs",
+                    "name": "Node.js",
+                    "description": "Asynchronous event-driven JavaScript runtime designed to build scalable network applications.",
+                    "why_us": "We build non-blocking, high-throughput APIs using Node.js, Express, or Hono to power real-time apps and complex backends.",
+                    "use_cases": ["Real-time applications", "RESTful APIs", "Microservices architecture"]
+                },
+                {
+                    "id": "python",
+                    "name": "Python",
+                    "description": "Versatile, high-level programming language dominating the data science and AI ecosystems.",
+                    "why_us": "Our go-to for AI integration, data pipelines, and heavy computational backends using Django or FastAPI.",
+                    "use_cases": ["AI model integration", "Data processing pipelines", "Backend APIs"]
+                },
+                {
+                    "id": "go",
+                    "name": "Go",
+                    "description": "Statically typed, compiled language known for extreme performance and concurrent processing.",
+                    "why_us": "We use Go when microsecond latency and high concurrency are non-negotiable requirements.",
+                    "use_cases": ["High-performance microservices", "Concurrent data processing", "Network tools"]
+                }
+            ]
+        },
+        {
+            "id": "mobile",
+            "name": "Mobile",
+            "technologies": [
+                {
+                    "id": "flutter",
+                    "name": "Flutter",
+                    "description": "Google's UI toolkit for building natively compiled applications for mobile from a single codebase.",
+                    "why_us": "Our flagship mobile framework. We build beautiful, fluid iOS and Android apps in half the time and cost of dual-native development.",
+                    "use_cases": ["Cross-platform mobile apps", "MVP launches", "Beautiful custom UIs"]
+                },
+                {
+                    "id": "react-native",
+                    "name": "React Native",
+                    "description": "Framework for building native apps using React.",
+                    "why_us": "We use React Native to leverage existing web engineering skills while delivering truly native mobile experiences.",
+                    "use_cases": ["Cross-platform mobile apps", "Apps integrating with existing React codebases", "Rapid mobile development"]
+                },
+                {
+                    "id": "kotlin",
+                    "name": "Kotlin",
+                    "description": "Modern, expressive programming language for Android development.",
+                    "why_us": "When you need deep hardware integration or maximum Android performance, we build natively with Kotlin.",
+                    "use_cases": ["Android-first applications", "Apps requiring deep hardware access", "High-performance mobile utilities"]
+                },
+                {
+                    "id": "swift",
+                    "name": "Swift",
+                    "description": "Powerful and intuitive programming language for iOS, iPadOS, macOS, tvOS, and watchOS.",
+                    "why_us": "For premium, Apple-ecosystem-first experiences, we build natively with Swift and SwiftUI.",
+                    "use_cases": ["iOS-first applications", "Apple ecosystem integration", "Premium mobile experiences"]
+                }
+            ]
+        },
+        {
+            "id": "ai-llms",
+            "name": "AI & LLMs",
+            "technologies": [
+                {
+                    "id": "gemini",
+                    "name": "Google Gemini",
+                    "description": "Google's highly capable, multimodal AI models.",
+                    "why_us": "We deeply integrate Gemini's multimodal capabilities (text, image, audio) and long context windows to build next-generation AI features.",
+                    "use_cases": ["Multimodal data analysis", "Intelligent document processing", "AI-powered agents"]
+                },
+                {
+                    "id": "claude",
+                    "name": "Claude API",
+                    "description": "Anthropic's family of AI models focused on safety, steerability, and long context.",
+                    "why_us": "We leverage Claude for complex reasoning tasks, code generation, and analyzing massive documents accurately.",
+                    "use_cases": ["Complex reasoning engines", "Large document analysis", "Advanced AI assistants"]
+                },
+                {
+                    "id": "langchain",
+                    "name": "LangChain",
+                    "description": "Framework for developing applications powered by language models.",
+                    "why_us": "We use LangChain to orchestrate complex AI workflows, chain prompts, and connect LLMs to your private data sources.",
+                    "use_cases": ["Custom AI agents", "Multi-step reasoning workflows", "LLM tool integration"]
+                },
+                {
+                    "id": "groq",
+                    "name": "Groq",
+                    "description": "The LPU Inference Engine providing blazing fast AI speeds.",
+                    "why_us": "When AI response time matters, we use Groq to deliver near-instantaneous LLM inference for real-time voice and chat applications.",
+                    "use_cases": ["Real-time voice AI", "Low-latency chatbots", "High-throughput inference"]
+                },
+                {
+                    "id": "rag",
+                    "name": "RAG & Vector Search",
+                    "description": "Retrieval-Augmented Generation using vector databases to ground AI in your private data.",
+                    "why_us": "We build robust RAG pipelines that prevent hallucinations, ensuring your AI assistants give accurate answers based only on your company's knowledge base.",
+                    "use_cases": ["Internal knowledge bots", "Customer support AI", "Semantic search engines"]
+                }
+            ]
+        },
+        {
+            "id": "database",
+            "name": "Database",
+            "technologies": [
+                {
+                    "id": "postgresql",
+                    "name": "PostgreSQL",
+                    "description": "The world's most advanced open source relational database.",
+                    "why_us": "Our default choice for complex relational data. We design highly normalized schemas and optimize queries for scale.",
+                    "use_cases": ["Complex SaaS applications", "Financial systems", "Enterprise data platforms"]
+                },
+                {
+                    "id": "mongodb",
+                    "name": "MongoDB",
+                    "description": "Document-based, distributed database built for modern application developers.",
+                    "why_us": "We use MongoDB for flexible, schema-less data structures and high-volume data ingestion.",
+                    "use_cases": ["IoT data storage", "Content management systems", "Rapid prototyping"]
+                },
+                {
+                    "id": "firebase",
+                    "name": "Firebase",
+                    "description": "App development platform backed by Google.",
+                    "why_us": "We leverage Firebase for blazing fast MVPs, rock-solid authentication, and real-time database synchronization.",
+                    "use_cases": ["Real-time chat apps", "MVP launches", "Serverless mobile backends"]
+                },
+                {
+                    "id": "turso",
+                    "name": "Turso (libSQL)",
+                    "description": "Edge-hosted distributed SQLite database.",
+                    "why_us": "We use Turso for edge computing architectures, ensuring your data is always close to your users for ultra-low latency.",
+                    "use_cases": ["Global edge applications", "Low-latency SaaS", "Serverless edge functions"]
+                }
+            ]
+        },
+        {
+            "id": "cloud-devops",
+            "name": "Cloud & DevOps",
+            "technologies": [
+                {
+                    "id": "aws",
+                    "name": "AWS",
+                    "description": "The world's most comprehensive and broadly adopted cloud platform.",
+                    "why_us": "We architect secure, scalable, and highly available infrastructures on AWS, optimizing for both performance and cost.",
+                    "use_cases": ["Enterprise infrastructure", "Scalable web applications", "Data lakes"]
+                },
+                {
+                    "id": "azure",
+                    "name": "Microsoft Azure",
+                    "description": "Cloud computing platform with deep enterprise integration.",
+                    "why_us": "We deploy on Azure for clients with existing Microsoft ecosystems, ensuring seamless enterprise compliance and integration.",
+                    "use_cases": ["Enterprise migrations", "Active Directory integration", "Corporate applications"]
+                },
+                {
+                    "id": "gcp",
+                    "name": "Google Cloud",
+                    "description": "Suite of cloud computing services offered by Google.",
+                    "why_us": "We leverage GCP for its world-class data analytics, machine learning tools, and global network performance.",
+                    "use_cases": ["Data-intensive applications", "Machine learning infrastructure", "Global web platforms"]
+                },
+                {
+                    "id": "cloudflare-workers",
+                    "name": "Cloudflare Workers",
+                    "description": "Serverless execution environment running on Cloudflare's global network.",
+                    "why_us": "We build APIs and middleware on Cloudflare Workers to achieve 0ms cold starts and run code milliseconds away from your users.",
+                    "use_cases": ["Edge APIs", "Global middleware", "High-performance serverless functions"]
+                },
+                {
+                    "id": "docker",
+                    "name": "Docker",
+                    "description": "Platform for developing, shipping, and running applications in containers.",
+                    "why_us": "We containerize every application we build to ensure absolute consistency between development, staging, and production environments.",
+                    "use_cases": ["Microservices deployment", "CI/CD pipelines", "Environment standardization"]
+                }
+            ]
+        },
+        {
+            "id": "cms",
+            "name": "CMS & E-commerce",
+            "technologies": [
+                {
+                    "id": "wordpress",
+                    "name": "WordPress",
+                    "description": "The world's most popular content management system.",
+                    "why_us": "We build custom, highly optimized WordPress themes and plugins, often running it as a headless CMS powered by a Next.js frontend.",
+                    "use_cases": ["Corporate websites", "Content-heavy portals", "Headless CMS architectures"]
+                },
+                {
+                    "id": "shopify",
+                    "name": "Shopify",
+                    "description": "Leading global commerce company providing trusted tools to start, grow, market, and manage a retail business.",
+                    "why_us": "We build custom Liquid themes, private apps, and full headless Shopify storefronts for high-volume merchants.",
+                    "use_cases": ["D2C e-commerce", "High-volume retail", "Headless storefronts"]
+                },
+                {
+                    "id": "woocommerce",
+                    "name": "WooCommerce",
+                    "description": "Customizable, open-source e-commerce platform built on WordPress.",
+                    "why_us": "We build highly customized WooCommerce architectures for businesses that need total control over their e-commerce data and checkout flows.",
+                    "use_cases": ["Custom e-commerce platforms", "B2B wholesale portals", "Subscription businesses"]
+                },
+                {
+                    "id": "headless-cms",
+                    "name": "Headless CMS",
+                    "description": "Content management systems that separate the backend content repository from the frontend presentation layer.",
+                    "why_us": "We implement Sanity, Contentful, and Strapi to give marketing teams total control without sacrificing engineering performance.",
+                    "use_cases": ["Omnichannel content delivery", "High-performance marketing sites", "Enterprise content architecture"]
+                }
+            ]
+        }
+    ]
+}
