@@ -7,7 +7,7 @@
   "trust_signals": {
     "publishing": "Choose how your app is published: under your own Google Play developer account from day one, or under Trai Inc.'s account with a formal ownership transfer once you're ready — your call.",
     "source_code": "Full repository handover — source code, build scripts, and documentation included, no extra fee.",
-    "payments": "Milestone-based payments — you pay as work is delivered, not 100% upfront.",
+    "payments": "Fixed-price contracts with advance payment. You know the exact cost before we start. Milestone payments on larger projects.",
     "maintenance": "Post-launch maintenance: 20% of project cost annually, covering updates, bug fixes, and OS/platform compatibility."
   },
   "apps": [

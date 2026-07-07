@@ -1,0 +1,64 @@
+{
+  "header": {
+    "subtitle": "COMMUNICATION STRATEGY",
+    "title": "Clear, Predictable Updates"
+  },
+  "intro": {
+    "text": "Vague reassurances of 'regular updates' predict poor communication once work begins. We eliminate that with a clear communication strategy so you always know exactly where your project stands."
+  },
+  "numbers": {
+    "stats": []
+  },
+  "team": {
+    "subtitle": "",
+    "title": "",
+    "members": []
+  },
+  "model": {
+    "subtitle": "OUR STANDARDS",
+    "title": "Accountability Built-In",
+    "description": "We establish accountability from day one with named contacts and defined cadences.",
+    "advantages": [
+      {
+        "icon": "👤",
+        "title": "Named Point of Contact",
+        "desc": "You will have a dedicated team lead from day one. You always know exactly who is responsible for your project's success."
+      },
+      {
+        "icon": "📅",
+        "title": "Defined Update Cadence",
+        "desc": "We establish a fixed, regular cadence (e.g. weekly written updates) so you never have to chase us for a progress report."
+      },
+      {
+        "icon": "💬",
+        "title": "Direct Engineering Access",
+        "desc": "Talk directly to the senior engineers building your platform — no sales reps, no fluff."
+      }
+    ]
+  },
+  "expertise": {
+    "subtitle": "",
+    "title": "",
+    "areas": []
+  },
+  "timeline": {
+    "subtitle": "",
+    "title": "",
+    "milestones": []
+  },
+  "incubation": {
+    "subtitle": "",
+    "title": "",
+    "text": ""
+  },
+  "faq": {
+    "subtitle": "",
+    "title": "",
+    "items": []
+  },
+  "cta": {
+    "title": "Ready to Work with a Transparent Partner?",
+    "description": "Tell us about your project. Our team will scope it and deliver a fixed-price proposal within 48 hours.",
+    "button_text": "Book a Free Consultation"
+  }
+}

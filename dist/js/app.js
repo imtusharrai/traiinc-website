@@ -207,6 +207,55 @@ document.addEventListener("DOMContentLoaded", async () => {
         `;
     }
 
+    // --- Mobile Service Page Renderer ---
+    function renderMobileServicePage(data, pageId) {
+        return `
+            <!-- HERO -->
+            <header class="hero" style="min-height: 50vh;">
+                <div class="container hero-content center">
+                    <h1 class="hero-title">${data.name}</h1>
+                    <p class="hero-subtitle">${data.description}</p>
+                    <div class="hero-cta" style="justify-content:center;">
+                        <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large">Book a Discovery Call</a>
+                    </div>
+                </div>
+            </header>
+            <!-- WHY TRAI -->
+            <section class="container fade-in" style="padding: 80px 24px;">
+                <div class="section-header">
+                    <h4 class="mini-title">Why Trai Inc for ${data.name}?</h4>
+                    <h2>Engineering that drives results.</h2>
+                </div>
+                <div style="font-size: 1.1rem; line-height: 1.8; color: var(--text-muted); max-width: 800px; margin: 0 auto; text-align: center;">
+                    <p>${data.why_us}</p>
+                </div>
+            </section>
+            <!-- USE CASES -->
+            <section class="container fade-in" style="padding: 0 24px 80px;">
+                <div class="section-header center">
+                    <h4 class="mini-title">Common Applications</h4>
+                    <h2>Where we apply ${data.name}</h2>
+                </div>
+                <div class="bento-grid">
+                    ${data.use_cases.map((useCase, idx) => `
+                        <div class="bento-card ${idx % 3 === 0 ? 'wide' : ''} fade-in">
+                            <div class="bento-icon" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">📱</div>
+                            <h3>${useCase}</h3>
+                        </div>
+                    `).join('')}
+                </div>
+            </section>
+            <!-- BOTTOM CTA -->
+            <section class="container fade-in" style="padding: 80px 24px; text-align: center;">
+                <div class="hero-card">
+                    <h2>Ready to build your ${data.name}?</h2>
+                    <p style="color:var(--text-muted);margin:16px 0 32px;">Talk directly to senior engineers — no sales reps, no fluff.</p>
+                    <a href="contact.html" class="btn-primary large" style="margin: 0 auto;">Start Your Project</a>
+                </div>
+            </section>
+        `;
+    }
+
     // Fetch and Render Dynamic Content
     const pageId = document.body.getAttribute("data-page") || "";
     const dynamicContainer = document.getElementById("content") || document.getElementById("dynamic-content");
@@ -224,6 +273,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     const renderers = {
         home: renderHome,
         about: renderAbout,
+        'why-trai': renderAbout,
+        'our-purpose': renderAbout,
+        'hire-dedicated-developers': renderAbout,
+        team: renderAbout,
+        'client-reviews': renderAbout,
+        'our-development-process': renderAbout,
+        'engagement-models': renderAbout,
+        'project-communication-strategy': renderAbout,
         solutions: renderSolutions,
         industries: renderIndustries,
         incubation: renderIncubation,
@@ -246,6 +303,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     let renderFn = renderers[pageId];
     if (pageId.startsWith('tech-')) {
         renderFn = renderTechPage;
+    } else if (pageId.startsWith('mobile-') && pageId !== 'mobile-apps') {
+        renderFn = renderMobileServicePage;
     }
 
     if (renderFn && dynamicContainer) {
@@ -255,6 +314,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                 let fetchUrl = '';
                 if (pageId.startsWith('tech-')) {
                     fetchUrl = 'data/technologies.json';
+                } else if (pageId.startsWith('mobile-') && pageId !== 'mobile-apps') {
+                    fetchUrl = 'data/mobile-services.json';
                 } else {
                     fetchUrl = servicePages.includes(pageId) ? `data/services.json` : `data/${pageId}.json`;
                 }
@@ -274,6 +335,14 @@ document.addEventListener("DOMContentLoaded", async () => {
                         data = foundTech;
                     } else {
                         throw new Error("Technology not found in technologies.json");
+                    }
+                } else if (pageId.startsWith('mobile-') && pageId !== 'mobile-apps') {
+                    const mobileId = pageId.replace('mobile-', '');
+                    let foundService = data.services.find(s => s.id === mobileId);
+                    if (foundService) {
+                        data = foundService;
+                    } else {
+                        throw new Error("Mobile service not found in mobile-services.json");
                     }
                 }
 
