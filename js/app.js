@@ -1790,7 +1790,7 @@ function renderServicePage(data, slug) {
         </div>
         <div class="bento-grid">
             ${service.features.map(f => `
-                <div class="bento-card" style="border-top: 4px solid ${f.color};">
+                <div class="bento-card" ${f.id ? 'id="' + f.id + '" style="scroll-margin-top: 100px; border-top: 4px solid ' + f.color + ';"' : 'style="border-top: 4px solid ' + f.color + ';"'}>
                     <div class="bento-icon" style="color: ${f.color}; font-size: 2rem; margin-bottom: 20px;">${f.icon}</div>
                     <h3 class="bento-title">${f.title}</h3>
                     <p class="bento-desc">${f.desc}</p>
