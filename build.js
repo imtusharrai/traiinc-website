@@ -135,6 +135,25 @@ server.listen(PORT, async () => {
             
             // Schema Injection
             let schemaJson = null;
+            let breadcrumbSchema = null;
+            if (file !== 'index.html' && file !== '404.html') {
+                const title = (dom.window.document.title.split('|')[0] || dom.window.document.title.split('-')[0] || file.replace('.html', '')).trim();
+                breadcrumbSchema = {
+                    "@context": "https://schema.org",
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [{
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://traiinc.com"
+                    },{
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": title,
+                        "item": `https://traiinc.com/${file.replace('.html', '')}`
+                    }]
+                };
+            }
             if (file === 'index.html' || file === 'contact.html') {
                 schemaJson = {
                     "@context": "https://schema.org",
@@ -150,6 +169,10 @@ server.listen(PORT, async () => {
                         "postalCode": "226010",
                         "addressCountry": "IN"
                     },
+                    "founder": {
+                        "@type": "Person",
+                        "name": "Tushar Rai"
+                    },
                     "sameAs": [
                         "https://www.linkedin.com/company/trai-inc",
                         "https://x.com/trai_inc",
@@ -158,11 +181,12 @@ server.listen(PORT, async () => {
                     ]
                 };
             } else if ([
-                'ai-agents.html', 'ai-automation.html', 'ai-voice-agents.html', 
-                'cloud-devops.html', 'custom-software.html', 'cybersecurity.html', 
-                'data-analytics.html', 'digital-marketing.html', 'enterprise-platforms.html', 
-                'lead-gen-scraping.html', 'mobile-apps.html', 'motion-video.html', 
-                'ui-ux-design.html', 'web-development.html', 'workflow-automation.html'
+                'ai-automation.html', 'cloud-devops.html', 'custom-software.html', 
+                'cybersecurity.html', 'data-analytics.html', 'digital-marketing.html', 
+                'enterprise-platforms.html', 'lead-gen-scraping.html', 'mobile-apps.html', 
+                'motion-video.html', 'ui-ux-design.html', 'web-development.html', 
+                'solutions.html', 'custom-crm-development.html', 'ecommerce-development.html',
+                'wordpress-cms-development.html'
             ].includes(file)) {
                 let serviceName = file.replace('.html', '').split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
                 schemaJson = {
@@ -196,6 +220,46 @@ server.listen(PORT, async () => {
                 schemaScript.type = 'application/ld+json';
                 schemaScript.textContent = JSON.stringify(schemaJson);
                 head.appendChild(schemaScript);
+            }
+            if (breadcrumbSchema) {
+                const breadcrumbScript = dom.window.document.createElement('script');
+                breadcrumbScript.type = 'application/ld+json';
+                breadcrumbScript.textContent = JSON.stringify(breadcrumbSchema);
+                head.appendChild(breadcrumbScript);
+            }
+            
+            // Person Schema for about.html
+            if (file === 'about.html') {
+                try {
+                    let aboutPath = path.join(rootDir, 'data', 'about.json');
+                    if (fs.existsSync(aboutPath)) {
+                        let aboutData = JSON.parse(fs.readFileSync(aboutPath, 'utf8'));
+                        if (aboutData.team && aboutData.team.members) {
+                            aboutData.team.members.forEach(member => {
+                                let personSchema = {
+                                    "@context": "https://schema.org",
+                                    "@type": "Person",
+                                    "name": member.name,
+                                    "jobTitle": member.role,
+                                    "worksFor": {
+                                        "@type": "Organization",
+                                        "name": "Trai Inc"
+                                    }
+                                };
+                                if (member.linkedin && member.linkedin !== "#") {
+                                    personSchema.sameAs = [member.linkedin];
+                                }
+                                if (member.image) {
+                                    personSchema.image = member.image.startsWith('http') ? member.image : `https://traiinc.com/${member.image}`;
+                                }
+                                const personScript = dom.window.document.createElement('script');
+                                personScript.type = 'application/ld+json';
+                                personScript.textContent = JSON.stringify(personSchema);
+                                head.appendChild(personScript);
+                            });
+                        }
+                    }
+                } catch(e) {}
             }
             
             // FAQPage Schema Injection

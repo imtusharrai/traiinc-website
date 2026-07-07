@@ -352,6 +352,16 @@ document.addEventListener("DOMContentLoaded", async () => {
             const contactFormEl = document.getElementById('contactForm');
             if (contactFormEl) {
                 contactFormEl.addEventListener('submit', async function(e) {
+                    const budgetSelect = document.getElementById('contact-budget');
+                    if (budgetSelect && budgetSelect.value === 'under-50k') {
+                        e.preventDefault();
+                        const name = document.getElementById('contact-name').value || '';
+                        const msg = document.getElementById('contact-message').value || '';
+                        const text = encodeURIComponent(`Hi Trai Inc, my name is ${name}. I'm looking for a digital solution under ₹50K. \n\nDetails: ${msg}`);
+                        window.open(`https://wa.me/917905495478?text=${text}`, '_blank');
+                        return;
+                    }
+
                     e.preventDefault();
                     const btn = document.getElementById('contactSubmitBtn');
                     const result = document.getElementById('formResult');
@@ -1112,6 +1122,54 @@ function renderContact(data) {
                 </div>
             </div>
 
+        </div>
+    </section>
+
+    <!-- ═══ DETAILED FORM SECTION ═══ -->
+    <section class="container fade-in" style="padding: 0 24px 100px;">
+        <div style="max-width: 800px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 20px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <h3 style="font-size: 2rem; margin-bottom: 10px;">${data.form.title}</h3>
+                <p style="color: var(--text-muted);">${data.form.note}</p>
+            </div>
+            <form id="contactForm" action="https://formsubmit.co/hello@traiinc.com" method="POST" style="display: flex; flex-direction: column; gap: 20px;">
+                <!-- Hide captcha -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://traiinc.com/contact.html?success=true">
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    ${data.form.fields.slice(0, 2).map(f => `
+                        <div style="display: flex; flex-direction: column; gap: 8px;">
+                            <label for="${f.id}" style="font-weight: 500; font-size: 0.9rem;">${f.label} ${f.required ? '<span style="color: #ff5e9a;">*</span>' : ''}</label>
+                            <input type="${f.type}" id="${f.id}" name="${f.name}" placeholder="${f.placeholder}" ${f.required ? 'required' : ''} style="padding: 14px 16px; border-radius: 10px; border: 1px solid var(--border-light); background: var(--bg-darker); color: var(--text-main); font-family: inherit;">
+                        </div>
+                    `).join('')}
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    ${data.form.fields.slice(2, 4).map(f => `
+                        <div style="display: flex; flex-direction: column; gap: 8px;">
+                            <label for="${f.id}" style="font-weight: 500; font-size: 0.9rem;">${f.label} ${f.required ? '<span style="color: #ff5e9a;">*</span>' : ''}</label>
+                            <input type="${f.type}" id="${f.id}" name="${f.name}" placeholder="${f.placeholder}" ${f.required ? 'required' : ''} style="padding: 14px 16px; border-radius: 10px; border: 1px solid var(--border-light); background: var(--bg-darker); color: var(--text-main); font-family: inherit;">
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <label for="${data.form.budget.id}" style="font-weight: 500; font-size: 0.9rem;">${data.form.budget.label} <span style="color: #ff5e9a;">*</span></label>
+                    <select id="${data.form.budget.id}" name="${data.form.budget.name}" required style="padding: 14px 16px; border-radius: 10px; border: 1px solid var(--border-light); background: var(--bg-darker); color: var(--text-main); font-family: inherit; appearance: none; cursor: pointer;">
+                        ${data.form.budget.options.map(opt => `
+                            <option value="${opt.value}" ${opt.disabled ? 'disabled' : ''} ${opt.selected ? 'selected' : ''}>${opt.label}</option>
+                        `).join('')}
+                    </select>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <label for="${data.form.message.id}" style="font-weight: 500; font-size: 0.9rem;">${data.form.message.label} <span style="color: #ff5e9a;">*</span></label>
+                    <textarea id="${data.form.message.id}" name="${data.form.message.name}" placeholder="${data.form.message.placeholder}" required style="padding: 14px 16px; border-radius: 10px; border: 1px solid var(--border-light); background: var(--bg-darker); color: var(--text-main); font-family: inherit; min-height: 120px; resize: vertical;"></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary large" style="width: 100%; justify-content: center; margin-top: 10px;">${data.form.button}</button>
+            </form>
         </div>
     </section>
 
