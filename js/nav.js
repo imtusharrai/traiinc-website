@@ -11,163 +11,133 @@
 
     // ── Nav Mega-Menu Data (5 top-level items) ──────────────────────────────
     const navData = {
-        services: {
-            layout: "2-column",
-            featured: {
-                title: "Core Capabilities",
-                desc: "End-to-end product engineering tailored to your workflows.",
-                ctaLabel: "Book a Consultation →",
-                ctaHref: "https://calendar.app.google/PUsxADQBnpQsTrDbA"
+    whoWeHelp: {
+        label: "Who We Help",
+        cols: [
+            {
+                heading: "By Business Size",
+                items: [
+                    { icon: icon3d("🏪","#96fbc4","#f9f586"), label: "MSMEs & Local Business", href: "msmes.html", desc: "Websites, WhatsApp, SEO from ₹15K" },
+                    { icon: icon3d("🚀","#4facfe","#00f2fe"), label: "Startups", href: "startups.html", desc: "MVPs, cloud, go-to-market" },
+                    { icon: icon3d("🏢","#a1c4fd","#c2e9fb"), label: "Small & Medium Business", href: "smb.html", desc: "CRMs, automation, scaling" },
+                    { icon: icon3d("🏗️","#fbc7d4","#9796f0"), label: "Enterprise", href: "enterprise.html", desc: "Cloud migration, AI, security" }
+                ]
             },
-            groups: [
-                {
-                    heading: "Services",
-                    items: [
-                        { icon: "🤖", label: "AI & Automation", href: "ai-automation.html", desc: "Intelligent workflows & agents" },
-                        { icon: "📱", label: "Mobile App Development", href: "mobile-apps.html", desc: "iOS, Android & cross-platform" },
-                        { icon: "💻", label: "Web & SaaS Development", href: "web-development.html", desc: "Scalable platforms & portals" },
-                        { icon: "👥", label: "Dedicated Developers", href: "hire-dedicated-developers.html", desc: "Scale your engineering team" }
-                    ]
-                }
-            ]
-        },
-        industries: {
-            layout: "2-column",
-            featured: {
-                title: "Domain Expertise",
-                desc: "We build secure, compliant systems tailored to industry standards.",
-                ctaLabel: "See Case Studies →",
-                ctaHref: "clients.html"
+            {
+                heading: "By Industry",
+                items: [
+                    { icon: icon3d("🏠","#f6d365","#fda085"), label: "Real Estate & PropTech", href: "industries.html", desc: "CRM, listings, virtual tours" },
+                    { icon: icon3d("🏥","#f093fb","#f5576c"), label: "Healthcare", href: "industries.html", desc: "Patient portals, compliance" },
+                    { icon: icon3d("💰","#4facfe","#00f2fe"), label: "FinTech & Banking", href: "industries.html", desc: "Payments & compliance" },
+                    { icon: icon3d("🛒","#30cfd0","#667eea"), label: "E-Commerce & Retail", href: "industries.html", desc: "Storefronts & fulfillment" },
+                    { icon: icon3d("🎓","#fa709a","#fee140"), label: "Education & EdTech", href: "industries.html", desc: "LMS, virtual classrooms" },
+                    { icon: icon3d("🍽️","#ffecd2","#fcb69f"), label: "Food & Restaurant", href: "industries.html", desc: "Ordering & POS" }
+                ]
+            }
+        ],
+        cta: { label: "See All Industries →", href: "industries.html" }
+    },
+
+    services: {
+        label: "Services",
+        cols: [
+            {
+                heading: "Engineering",
+                items: [
+                    { icon: icon3d("💻","#4facfe","#00f2fe"), label: "Custom Software & Web", href: "custom-software.html", desc: "Web apps, SaaS, enterprise tools" },
+                    { icon: icon3d("📱","#43e97b","#38f9d7"), label: "Mobile App Development", href: "mobile-apps.html", desc: "iOS, Android, cross-platform" },
+                    { icon: icon3d("🤖","#f093fb","#f5576c"), label: "AI & Automation", href: "ai-automation.html", desc: "Chatbots, agents, workflows" },
+                    { icon: icon3d("☁️","#667eea","#764ba2"), label: "Cloud & DevOps", href: "cloud-devops.html", desc: "AWS, Cloudflare, CI/CD" }
+                ]
             },
-            groups: [
-                {
-                    heading: "Key Industries",
-                    items: [
-                        { icon: "🏥", label: "Healthcare", href: "industries.html", desc: "EHR & Telemedicine" },
-                        { icon: "💳", label: "FinTech", href: "industries.html", desc: "Payments & Compliance" },
-                        { icon: "🛒", label: "E-commerce & Retail", href: "industries.html", desc: "Storefronts & Fulfillment" },
-                        { icon: "🚀", label: "Startups & MSMEs", href: "msmes.html", desc: "Affordable tech solutions" }
-                    ]
-                }
-            ]
-        },
-        work: {
-            layout: "2-column",
-            featured: {
-                title: "Proven Results",
-                desc: "Explore how we've helped organizations transform their operations.",
-                ctaLabel: "View Portfolio →",
-                ctaHref: "clients.html"
+            {
+                heading: "Growth & Platforms",
+                items: [
+                    { icon: icon3d("📈","#96fbc4","#f9f586"), label: "Digital Marketing & SEO", href: "digital-marketing.html", desc: "Google Ads, Meta, local SEO" },
+                    { icon: icon3d("⚙️","#ffecd2","#fcb69f"), label: "CRM & Enterprise Platforms", href: "enterprise-platforms.html", desc: "Custom CRM, ERP, dashboards" },
+                    { icon: icon3d("👥","#a1c4fd","#c2e9fb"), label: "Dedicated Developers", href: "hire-dedicated-developers.html", desc: "Augment your engineering team" }
+                ]
+            }
+        ],
+        cta: { label: "View All Services →", href: "solutions.html" }
+    },
+
+    work: {
+        label: "Our Work",
+        cols: [
+            {
+                heading: "Proof",
+                items: [
+                    { icon: icon3d("📊","#4facfe","#00f2fe"), label: "Case Studies", href: "clients.html", desc: "Real results for real businesses" },
+                    { icon: icon3d("⭐","#f6d365","#fda085"), label: "Client Reviews", href: "client-reviews.html", desc: "What our clients say" }
+                ]
             },
-            groups: [
-                {
-                    heading: "Our Work",
-                    items: [
-                        { icon: "📋", label: "Case Studies", href: "clients.html", desc: "Real results for real businesses" },
-                        { icon: "⭐", label: "Client Reviews", href: "client-reviews.html", desc: "What our clients say" }
-                    ]
-                }
-            ]
-        },
-        company: {
-            layout: "2-column",
-            featured: {
-                title: "Built for the Future",
-                desc: "We are engineers and product strategists redefining how software is built.",
-                ctaLabel: "Meet the Team →",
-                ctaHref: "about.html"
+            {
+                heading: "How We Operate",
+                items: [
+                    { icon: icon3d("💰","#96fbc4","#f9f586"), label: "Pricing & Engagement", href: "pricing.html", desc: "Fixed price, advance-first" },
+                    { icon: icon3d("⚡","#30cfd0","#667eea"), label: "Development Process", href: "our-development-process.html", desc: "AI-native workflow" }
+                ]
+            }
+        ],
+        cta: { label: "Book a Free Consultation →", href: "https://calendar.app.google/PUsxADQBnpQsTrDbA" }
+    },
+
+    company: {
+        label: "Company",
+        cols: [
+            {
+                heading: "About",
+                items: [
+                    { icon: icon3d("🏢","#667eea","#764ba2"), label: "About Us", href: "about.html", desc: "Our story & mission" },
+                    { icon: icon3d("💼","#4facfe","#00f2fe"), label: "Careers", href: "careers.html", desc: "Join the team" },
+                    { icon: icon3d("🤝","#43e97b","#38f9d7"), label: "Partner With Us", href: "partner.html", desc: "Referral & white-label" },
+                    { icon: icon3d("🚀","#fbc7d4","#9796f0"), label: "Incubation Program", href: "incubation.html", desc: "Intern mentorship" }
+                ]
             },
-            groups: [
-                {
-                    heading: "Company",
-                    items: [
-                        { icon: "ℹ️", label: "About Us", href: "about.html", desc: "Our story & mission" },
-                        { icon: "🔄", label: "Development Process", href: "our-development-process.html", desc: "AI-native workflow" },
-                        { icon: "💰", label: "Pricing & Engagement", href: "pricing.html", desc: "Fixed price, advance-first" }
-                    ]
-                }
-            ]
-        }
-    };
+            {
+                heading: "Contact",
+                items: [
+                    { icon: icon3d("📞","#f6d365","#fda085"), label: "Contact Us", href: "contact.html", desc: "Book a consultation" }
+                ]
+            }
+        ],
+        cta: { label: "Meet the Team →", href: "about.html" }
+    }
+};
 
     // ── Build generalized mega-menu ───────────────────────────────────────
     function buildMegaMenu(menuId, data) {
-        let sidebarHTML = '';
-        let panesHTML = '';
-
-        if (data.layout === "3-column") {
-            const accordionHTML = data.groups.map((group, idx) => {
-                const gridClass = group.items.length >= 4 ? 'tech-pane-grid grid-cols-2' : 'tech-pane-grid grid-cols-1';
-                return `
-                <div class="tech-cat-btn ${idx === 0 ? 'active' : ''}" data-target="${menuId}-pane-${idx}">
-                    ${group.heading}
-                    <svg viewBox="0 0 10 6" width="10" height="6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
-                </div>
-                <div class="tech-pane ${idx === 0 ? 'active' : ''}" id="${menuId}-pane-${idx}">
-                    <div class="${gridClass}">
-                        ${group.items.map(item => `
-                            <a href="${item.href}" class="tech-item-link">
-                                <strong><span class="inline-icon">${item.icon}</span> ${item.label}</strong>
-                                <span>${item.desc}</span>
-                            </a>
-                        `).join('')}
-                    </div>
-                </div>
-                `;
-            }).join('');
-
+        const panesHTML = data.cols.map((col) => {
+            const gridClass = col.items.length >= 4 ? 'tech-pane-grid grid-cols-2' : 'tech-pane-grid grid-cols-1';
             return `
-                <div class="mega-dropdown mega-${menuId} layout-3-col">
-                    <div class="mega-inner-generalized">
-                        <div class="tech-accordion">
-                            ${accordionHTML}
-                        </div>
-                        <div class="tech-featured">
-                            <div class="tech-featured-box">
-                                <h3>${data.featured.title}</h3>
-                                <p>${data.featured.desc}</p>
-                                <a href="${data.featured.ctaHref}" class="tech-featured-cta">${data.featured.ctaLabel}</a>
-                            </div>
-                        </div>
-                    </div>
+            <div class="mega-group">
+                <h3 class="mega-group-heading">${col.heading}</h3>
+                <div class="${gridClass}">
+                    ${col.items.map(item => `
+                        <a href="${item.href}" class="tech-item-link">
+                            <strong><span class="inline-icon">${item.icon}</span> ${item.label}</strong>
+                            <span>${item.desc}</span>
+                        </a>
+                    `).join('')}
                 </div>
-            `;
-        } else {
-            // 2-column layout (no sidebar, just panes in a grid + featured panel)
-            panesHTML = data.groups.map((group, idx) => {
-                const gridClass = group.items.length >= 4 ? 'tech-pane-grid grid-cols-2' : 'tech-pane-grid grid-cols-1';
-                return `
-                <div class="mega-group">
-                    <h3 class="mega-group-heading">${group.heading}</h3>
-                    <div class="${gridClass}">
-                        ${group.items.map(item => `
-                            <a href="${item.href}" class="tech-item-link">
-                                <strong><span class="inline-icon">${item.icon}</span> ${item.label}</strong>
-                                <span>${item.desc}</span>
-                            </a>
-                        `).join('')}
-                    </div>
-                </div>
-            `;
-            }).join('');
+            </div>
+        `;
+        }).join('');
 
-            return `
-                <div class="mega-dropdown mega-${menuId} layout-2-col">
-                    <div class="mega-inner-generalized">
-                        <div class="tech-panes-container two-col-panes">
-                            ${panesHTML}
-                        </div>
-                        <div class="tech-featured">
-                            <div class="tech-featured-box">
-                                <h3>${data.featured.title}</h3>
-                                <p>${data.featured.desc}</p>
-                                <a href="${data.featured.ctaHref}" class="tech-featured-cta">${data.featured.ctaLabel}</a>
-                            </div>
-                        </div>
+        return `
+            <div class="mega-dropdown mega-${menuId} layout-2-col">
+                <div class="mega-inner-generalized" style="display:flex; flex-direction:column; padding-bottom: 20px;">
+                    <div class="tech-panes-container two-col-panes" style="width:100%; border-right: none; padding-right: 0;">
+                        ${panesHTML}
+                    </div>
+                    <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border-color); text-align: center; width: 100%;">
+                        <a href="${data.cta.href}" class="tech-featured-cta" style="display:inline-block;">${data.cta.label}</a>
                     </div>
                 </div>
-            `;
-        }
+            </div>
+        `;
+    }
     }
 
     // ── Chevron SVG ──────────────────────────────────────────────────────────
@@ -190,20 +160,20 @@
             <div class="nav-container">
                 <a href="index.html" class="logo">TRAI</a>
                 <ul class="nav-links" id="nav-links">
-                    <li class="has-dropdown">
-                        <a href="industries.html" class="${['industries','msmes'].includes(page)?'active':''}">Who We Help ${chevron}</a>
-                        ${buildMegaMenu('industries', navData.industries)}
+                                        <li class="has-dropdown">
+                        <a href="industries.html" class="${['industries','msmes','startups','smb','enterprise'].includes(page)?'active':''}">Who We Help ${chevron}</a>
+                        ${buildMegaMenu('whoWeHelp', navData.whoWeHelp)}
                     </li>
                     <li class="has-dropdown">
                         <a href="solutions.html" class="${['ai-automation','mobile-apps','web-development','hire-dedicated-developers'].includes(page)?'active':''}">Services ${chevron}</a>
                         ${buildMegaMenu('services', navData.services)}
                     </li>
                     <li class="has-dropdown">
-                        <a href="clients.html" class="${['clients','client-reviews'].includes(page)?'active':''}">Work ${chevron}</a>
+                        <a href="clients.html" class="${['clients','client-reviews','pricing','our-development-process'].includes(page)?'active':''}">Work ${chevron}</a>
                         ${buildMegaMenu('work', navData.work)}
                     </li>
                     <li class="has-dropdown">
-                        <a href="about.html" class="${['about','our-development-process','pricing'].includes(page)?'active':''}">Company ${chevron}</a>
+                        <a href="about.html" class="${['about','careers','partner','incubation','contact'].includes(page)?'active':''}">Company ${chevron}</a>
                         ${buildMegaMenu('company', navData.company)}
                     </li>
                 </ul>
@@ -335,10 +305,10 @@
         const col3 = document.getElementById('fm-level3');
 
         if (fullMenuBtn && fullMenuOverlay) {
-            const l1Items = [
-                { id: 'industries', label: 'Who We Help' },
+                        const l1Items = [
+                { id: 'whoWeHelp', label: 'Who We Help' },
                 { id: 'services', label: 'Services' },
-                { id: 'work', label: 'Work' },
+                { id: 'work', label: 'Our Work' },
                 { id: 'company', label: 'Company' }
             ];
 
@@ -355,11 +325,11 @@
                 ).join('');
 
                 // Column 2
-                const dataL1 = navData[activeL1];
-                if (dataL1 && dataL1.groups) {
-                    col2.innerHTML = dataL1.groups.map((group, idx) => 
+                                const dataL1 = navData[activeL1];
+                if (dataL1 && dataL1.cols) {
+                    col2.innerHTML = dataL1.cols.map((col, idx) => 
                         `<button class="fm-l2-btn ${activeL2 === idx ? 'active' : ''}" data-idx="${idx}">
-                            ${group.heading}
+                            ${col.heading}
                             <span class="fm-arrow">→</span>
                         </button>`
                     ).join('');
@@ -368,9 +338,9 @@
                 }
 
                 // Column 3
-                if (dataL1 && dataL1.groups && dataL1.groups[activeL2]) {
-                    const group = dataL1.groups[activeL2];
-                    col3.innerHTML = group.items.map(item => 
+                if (dataL1 && dataL1.cols && dataL1.cols[activeL2]) {
+                    const col = dataL1.cols[activeL2];
+                    col3.innerHTML = col.items.map(item => 
                         `<a href="${item.href}" class="fm-l3-link">
                             <span class="fm-l3-icon">${item.icon}</span>
                             <div class="fm-l3-text">
