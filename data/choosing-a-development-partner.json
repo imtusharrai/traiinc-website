@@ -38,8 +38,8 @@
     {
       "icon": "💳",
       "principle": "Payment Structure",
-      "what_to_check": "Avoid paying 100% upfront — it removes the vendor's incentive to finish. Milestone-based payments tied to delivered features are the healthiest structure: typically 20-30% deposit, 40-50% across milestones, and 20-30% on final delivery.",
-      "trai_answer": "Milestone-based payments tied to delivered work, not 100% upfront."
+      "what_to_check": "Look for fixed-price quotes with clear deliverables. An advance payment protects both sides — it confirms commitment and funds the build.",
+      "trai_answer": "Fixed-price with advance payment. Larger projects use milestone-based billing tied to deliverables."
     },
     {
       "icon": "🔧",

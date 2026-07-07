@@ -48,6 +48,19 @@ const server = http.createServer((req, res) => {
         });
         return;
     }
+    
+    // Intercept synthetic mobile pages
+    const mobileMatch = req.url.match(/^\/mobile-(.*)\.html/);
+    if (mobileMatch && mobileMatch[1] !== 'apps') {
+        const id = mobileMatch[1];
+        fs.readFile(path.join(rootDir, 'index.html'), 'utf8', (err, data) => {
+            if (err) { res.writeHead(404); res.end(); return; }
+            const modData = data.replace('data-page="home"', `data-page="mobile-${id}"`);
+            res.writeHead(200, {'Content-Type': 'text/html'});
+            res.end(modData);
+        });
+        return;
+    }
 
     if (filePath === rootDir || filePath === rootDir + '/') filePath = path.join(rootDir, 'index.html');
     fs.readFile(filePath, (err, data) => {
@@ -55,7 +68,18 @@ const server = http.createServer((req, res) => {
         if (filePath.endsWith('.js')) res.writeHead(200, {'Content-Type': 'application/javascript'});
         else if (filePath.endsWith('.css')) res.writeHead(200, {'Content-Type': 'text/css'});
         else if (filePath.endsWith('.json')) res.writeHead(200, {'Content-Type': 'application/json'});
-        else res.writeHead(200, {'Content-Type': 'text/html'});
+        else {
+            res.writeHead(200, {'Content-Type': 'text/html'});
+            if (filePath.endsWith('.html')) {
+                let htmlStr = data.toString('utf8');
+                const vNow = Date.now();
+                htmlStr = htmlStr.replace(/css\/style\.css\?v=\d+/g, `css/style.css?v=${vNow}`);
+                htmlStr = htmlStr.replace(/js\/app\.js\?v=\d+/g, `js/app.js?v=${vNow}`);
+                htmlStr = htmlStr.replace(/js\/nav\.js\?v=\d+/g, `js/nav.js?v=${vNow}`);
+                res.end(htmlStr);
+                return;
+            }
+        }
         res.end(data);
     });
 });
@@ -72,6 +96,15 @@ server.listen(PORT, async () => {
             cat.technologies.forEach(tech => {
                 htmlFiles.push(`tech-${tech.id}.html`);
             });
+        });
+    }
+
+    // Inject mobile pages
+    const mobileDataPath = path.join(rootDir, 'data/mobile-services.json');
+    if (fs.existsSync(mobileDataPath)) {
+        const mobileData = JSON.parse(fs.readFileSync(mobileDataPath, 'utf8'));
+        mobileData.services.forEach(service => {
+            htmlFiles.push(`mobile-${service.id}.html`);
         });
     }
 
@@ -173,7 +206,7 @@ server.listen(PORT, async () => {
                 'ui-ux-design.html', 'web-development.html', 'workflow-automation.html',
                 'flutter-app-development.html', 'ecommerce-development.html', 'custom-crm-development.html', 'wordpress-cms-development.html',
                 'ai-automation-development.html'
-            ].includes(file) || file.startsWith('tech-')) {
+            ].includes(file) || file.startsWith('tech-') || (file.startsWith('mobile-') && file !== 'mobile-apps.html')) {
                 let serviceName = file.replace('.html', '').split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
                 schemaJson = {
                     "@context": "https://schema.org",
