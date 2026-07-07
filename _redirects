@@ -9,6 +9,7 @@
 /services/* /index.html 301
 /services /solutions.html 301
 /team /about.html 301
+/team.html /about.html 301
 /about /about.html 301
 /contact /contact.html 301
 
