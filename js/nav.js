@@ -13,6 +13,13 @@
     const navData = {
     whoWeHelp: {
         label: "Who We Help",
+        featured: {
+            title: "138+ Businesses Served",
+            desc: "Real Estate, Healthcare, FinTech, and more — across 12+ industries in 6 years.",
+            stat: "94% client retention",
+            ctaLabel: "See Case Studies →",
+            ctaHref: "clients.html"
+        },
         cols: [
             {
                 heading: "By Business Size",
@@ -26,20 +33,26 @@
             {
                 heading: "By Industry",
                 items: [
-                    { icon: icon3d("🏠","#f6d365","#fda085"), label: "Real Estate & PropTech", href: "industries.html", desc: "CRM, listings, virtual tours" },
-                    { icon: icon3d("🏥","#f093fb","#f5576c"), label: "Healthcare", href: "industries.html", desc: "Patient portals, compliance" },
-                    { icon: icon3d("💰","#4facfe","#00f2fe"), label: "FinTech & Banking", href: "industries.html", desc: "Payments & compliance" },
-                    { icon: icon3d("🛒","#30cfd0","#667eea"), label: "E-Commerce & Retail", href: "industries.html", desc: "Storefronts & fulfillment" },
-                    { icon: icon3d("🎓","#fa709a","#fee140"), label: "Education & EdTech", href: "industries.html", desc: "LMS, virtual classrooms" },
-                    { icon: icon3d("🍽️","#ffecd2","#fcb69f"), label: "Food & Restaurant", href: "industries.html", desc: "Ordering & POS" }
+                    { icon: icon3d("🏠","#f6d365","#fda085"), label: "Real Estate & PropTech", href: "industries.html#realestate", desc: "CRM, listings, virtual tours" },
+                    { icon: icon3d("🏥","#f093fb","#f5576c"), label: "Healthcare", href: "industries.html#healthcare", desc: "Patient portals, compliance" },
+                    { icon: icon3d("💰","#4facfe","#00f2fe"), label: "FinTech & Banking", href: "industries.html#fintech", desc: "Payments & compliance" },
+                    { icon: icon3d("🛒","#30cfd0","#667eea"), label: "E-Commerce & Retail", href: "industries.html#ecommerce", desc: "Storefronts & fulfillment" },
+                    { icon: icon3d("🎓","#fa709a","#fee140"), label: "Education & EdTech", href: "industries.html#edtech", desc: "LMS, virtual classrooms" },
+                    { icon: icon3d("🚛","#ffecd2","#fcb69f"), label: "Logistics & Supply Chain", href: "industries.html#logistics", desc: "Route optimization, tracking" }
                 ]
             }
-        ],
-        cta: { label: "See All Industries →", href: "industries.html" }
+        ]
     },
 
     services: {
         label: "Services",
+        featured: {
+            title: "Full-Stack Excellence",
+            desc: "End-to-end engineering from MVP to enterprise scale.",
+            stat: "10x faster execution",
+            ctaLabel: "View All Services →",
+            ctaHref: "solutions.html"
+        },
         cols: [
             {
                 heading: "Engineering",
@@ -58,12 +71,18 @@
                     { icon: icon3d("👥","#a1c4fd","#c2e9fb"), label: "Dedicated Developers", href: "hire-dedicated-developers.html", desc: "Augment your engineering team" }
                 ]
             }
-        ],
-        cta: { label: "View All Services →", href: "solutions.html" }
+        ]
     },
 
     work: {
         label: "Our Work",
+        featured: {
+            title: "Proven Results",
+            desc: "See how we help businesses scale with data-driven engineering.",
+            stat: "₹4.5L+ Revenue Generated",
+            ctaLabel: "Book a Free Consultation →",
+            ctaHref: "contact.html"
+        },
         cols: [
             {
                 heading: "Proof",
@@ -79,12 +98,18 @@
                     { icon: icon3d("⚡","#30cfd0","#667eea"), label: "Development Process", href: "our-development-process.html", desc: "AI-native workflow" }
                 ]
             }
-        ],
-        cta: { label: "Book a Free Consultation →", href: "https://calendar.app.google/PUsxADQBnpQsTrDbA" }
+        ]
     },
 
     company: {
         label: "Company",
+        featured: {
+            title: "Join the Mission",
+            desc: "We are building the future of software development.",
+            stat: "Zero bloat, 100% execution",
+            ctaLabel: "Meet the Team →",
+            ctaHref: "about.html"
+        },
         cols: [
             {
                 heading: "About",
@@ -96,13 +121,13 @@
                 ]
             },
             {
-                heading: "Contact",
+                heading: "Programs & Contact",
                 items: [
+                    { icon: icon3d("🚀","#4facfe","#00f2fe"), label: "Bharat Startup Launchpad ↗", href: "https://bharatstartuplaunchpad.com", desc: "Startup grants & funding support", external: true },
                     { icon: icon3d("📞","#f6d365","#fda085"), label: "Contact Us", href: "contact.html", desc: "Book a consultation" }
                 ]
             }
-        ],
-        cta: { label: "Meet the Team →", href: "about.html" }
+        ]
     }
 };
 
@@ -112,27 +137,42 @@
             const gridClass = col.items.length >= 4 ? 'tech-pane-grid grid-cols-2' : 'tech-pane-grid grid-cols-1';
             return `
             <div class="mega-group">
-                <h3 class="mega-group-heading">${col.heading}</h3>
+                <h3 class="mega-group-heading">${col.heading} <sup>${col.items.length}</sup></h3>
                 <div class="${gridClass}">
-                    ${col.items.map(item => `
-                        <a href="${item.href}" class="tech-item-link">
+                    ${col.items.map(item => {
+                        const targetAttr = item.external ? 'target="_blank" rel="noopener"' : '';
+                        return `
+                        <a href="${item.href}" class="tech-item-link" ${targetAttr}>
                             <strong><span class="inline-icon">${item.icon}</span> ${item.label}</strong>
                             <span>${item.desc}</span>
                         </a>
-                    `).join('')}
+                        `;
+                    }).join('')}
                 </div>
             </div>
         `;
         }).join('');
 
+        const featuredHTML = data.featured ? `
+            <div class="mega-featured">
+                <h3 class="mega-group-heading">Featured</h3>
+                <div class="featured-card">
+                    <h4>${data.featured.title}</h4>
+                    <p>${data.featured.desc}</p>
+                    <div class="featured-stat">${data.featured.stat}</div>
+                    <a href="${data.featured.ctaHref}" class="tech-featured-cta mt-4">${data.featured.ctaLabel}</a>
+                </div>
+            </div>
+        ` : '';
+
         return `
-            <div class="mega-dropdown mega-${menuId} layout-2-col">
-                <div class="mega-inner-generalized" style="display:flex; flex-direction:column; padding-bottom: 20px;">
-                    <div class="tech-panes-container two-col-panes" style="width:100%; border-right: none; padding-right: 0;">
+            <div class="mega-dropdown mega-${menuId}">
+                <div class="mega-inner-generalized" style="display:flex; justify-content: space-between; gap: 40px; padding: 30px;">
+                    <div class="tech-panes-container" style="flex: 1; display: flex; gap: 40px; border-right: 1px solid var(--border-color); padding-right: 40px;">
                         ${panesHTML}
                     </div>
-                    <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border-color); text-align: center; width: 100%;">
-                        <a href="${data.cta.href}" class="tech-featured-cta" style="display:inline-block;">${data.cta.label}</a>
+                    <div class="mega-featured-container" style="width: 320px; flex-shrink: 0;">
+                        ${featuredHTML}
                     </div>
                 </div>
             </div>

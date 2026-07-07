@@ -862,13 +862,21 @@ function renderIncubation(data) {
 
     <section style="padding: 120px 0;">
         <div class="container">
-            <div class="spec-card fade-in" style="padding: 80px 60px; text-align: center; border-radius: 30px; position: relative; overflow: hidden;">
+            <div class="spec-card fade-in" style="padding: 80px 60px; text-align: center; border-radius: 30px; position: relative; overflow: hidden; margin-bottom: 40px;">
                 <div style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: var(--brand-gradient); filter: blur(150px); opacity: 0.15; border-radius: 50%;"></div>
                 <div style="position: absolute; bottom: -80px; left: -80px; width: 250px; height: 250px; background: var(--accent-glow); filter: blur(120px); opacity: 0.2; border-radius: 50%;"></div>
                 <h2 style="font-family: var(--font-heading); font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; position: relative;">${data.cta.title}</h2>
                 <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 40px; font-size: 1.1rem; line-height: 1.7; position: relative;">${data.cta.description}</p>
                 <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large" style="position: relative;">${data.cta.button_text}</a>
             </div>
+            
+            ${data.external_cta ? `
+            <div class="spec-card fade-in" style="padding: 60px 40px; text-align: center; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); background: rgba(0,0,0,0.2);">
+                <h3 style="font-family: var(--font-heading); font-size: 2rem; margin-bottom: 15px;">${data.external_cta.title}</h3>
+                <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 30px; font-size: 1rem; line-height: 1.6;">${data.external_cta.description}</p>
+                <a href="${data.external_cta.button_href}" target="_blank" rel="noopener" class="btn-secondary">${data.external_cta.button_text}</a>
+            </div>
+            ` : ''}
         </div>
     </section>
     `;
@@ -1296,7 +1304,7 @@ function renderIndustries(data) {
     <section class="container" style="padding: 60px 24px;">
         <div class="grid-2" style="gap: 40px;">
             ${data.industries.map(ind => `
-            <div class="spec-card fade-in" style="padding: 50px; position: relative; border: 1px solid var(--border-light); background: var(--bg-card);">
+            <div id="${ind.id}" class="spec-card fade-in" style="padding: 50px; position: relative; border: 1px solid var(--border-light); background: var(--bg-card); scroll-margin-top: 100px;">
                 <div style="font-size: 3rem; margin-bottom: 20px;">${ind.icon}</div>
                 <h3 style="font-size: 1.8rem; margin-bottom: 15px;">${ind.name}</h3>
                 <p style="margin-bottom: 25px; color: var(--text-muted); font-size: 1rem; line-height: 1.7;">${ind.desc}</p>

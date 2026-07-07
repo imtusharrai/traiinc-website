@@ -1185,14 +1185,16 @@ body.light-mode .theme-tooltip::after {
     position: fixed;
     left: 0;
     right: 0;
+    width: 100%;
+    max-width: 100vw;
     top: 60px;
     z-index: 9000;
-    background: #120b0e !important;
+    background: var(--bg-card) !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     border-bottom: 1px solid rgba(255,255,255,0.08);
     border-top: 1px solid rgba(255,255,255,0.06);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
     transform: translateY(-8px);
     transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
 }
