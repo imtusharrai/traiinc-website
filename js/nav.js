@@ -138,7 +138,7 @@
             </div>
         `;
     }
-    }
+
 
     // ── Chevron SVG ──────────────────────────────────────────────────────────
     const chevron = `<svg class="chevron" viewBox="0 0 10 6" width="10" height="6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>`;
