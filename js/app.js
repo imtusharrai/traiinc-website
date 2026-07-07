@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     <a href="https://www.youtube.com/@traiinc" target="_blank" rel="noopener" class="social-icon" aria-label="YouTube">
                         <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                     </a>
-                    <a href="https://wa.me/917905495478" target="_blank" rel="noopener" class="social-icon social-wa" aria-label="WhatsApp">
+                    <a href="https://wa.me/917905495478?text=Hi%20Trai%20Inc,%20I'm%20looking%20for%20a%20digital%20solution%20for%20my%20business." target="_blank" rel="noopener" class="social-icon social-wa" aria-label="WhatsApp">
                         <svg viewBox="0 0 32 32" fill="currentColor" width="18" height="18"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.13 6.744 3.048 9.38L1.054 31.2l6.044-1.94a15.9 15.9 0 008.906 2.704C24.826 31.964 32 24.788 32 16.004S24.826 0 16.004 0zm9.35 22.616c-.396 1.116-1.958 2.042-3.212 2.312-.86.182-1.98.328-5.754-1.236-4.83-2.004-7.938-6.902-8.18-7.222-.232-.32-1.948-2.596-1.948-4.952s1.232-3.508 1.67-3.988c.438-.48.956-.6 1.276-.6.32 0 .636.004.914.016.294.014.688-.112 1.076.82.396.952 1.348 3.288 1.466 3.528.118.24.198.518.04.836-.16.32-.24.518-.478.8-.24.28-.504.626-.72.84-.24.24-.488.498-.21.976.28.48 1.244 2.054 2.672 3.328 1.836 1.636 3.384 2.144 3.864 2.384.48.24.76.2 1.04-.12.278-.32 1.196-1.392 1.514-1.872.318-.48.636-.396 1.076-.24.438.16 2.784 1.312 3.262 1.552.48.24.798.356.916.556.118.198.118 1.156-.278 2.272z"/></svg>
                     </a>
                 </div>
@@ -272,6 +272,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Only pages with a registered renderer should fetch JSON
     const renderers = {
         home: renderHome,
+        pricing: renderPricing,
         about: renderAbout,
         'why-trai': renderAbout,
         'our-purpose': renderAbout,
@@ -303,8 +304,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     let renderFn = renderers[pageId];
     if (pageId.startsWith('tech-')) {
         renderFn = renderTechPage;
-    } else if (pageId.startsWith('mobile-') && pageId !== 'mobile-apps') {
-        renderFn = renderMobileServicePage;
     }
 
     if (renderFn && dynamicContainer) {
@@ -314,8 +313,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 let fetchUrl = '';
                 if (pageId.startsWith('tech-')) {
                     fetchUrl = 'data/technologies.json';
-                } else if (pageId.startsWith('mobile-') && pageId !== 'mobile-apps') {
-                    fetchUrl = 'data/mobile-services.json';
                 } else {
                     fetchUrl = servicePages.includes(pageId) ? `data/services.json` : `data/${pageId}.json`;
                 }
@@ -472,6 +469,31 @@ function renderHome(data) {
     <section class="container fade-in section-pills">
         <div class="feature-pills">
             ${data.feature_pills.map(p => `<div class="feature-pill">${p}</div>`).join('')}
+        </div>
+    </section>
+
+    <!-- ════════ ANTI-AGENCY MANIFESTO ════════ -->
+    <section class="bento-section fade-in" style="background: var(--bg-darker); border-bottom: 1px solid var(--border-light);">
+        <div class="container">
+            <div class="section-header center">
+                <h4 class="mini-title">${data.anti_agency.subtitle}</h4>
+                <h2>${data.anti_agency.title}</h2>
+            </div>
+            <div class="grid-3" style="margin-top: 40px;">
+                ${data.anti_agency.cards.map(c => `
+                <div class="spec-card fade-in" style="padding: 30px; background: var(--bg-card);">
+                    <div style="font-size: 2rem; margin-bottom: 15px;">${c.icon}</div>
+                    <h3 style="font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 20px;">${c.title}</h3>
+                    <div style="margin-bottom: 15px;">
+                        <strong style="color: #28a745; display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;">✅ Trai Inc</strong>
+                        <p style="font-size: 0.95rem; color: var(--text-color); margin: 0;">${c.us}</p>
+                    </div>
+                    <div>
+                        <strong style="color: #dc3545; display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;">❌ Traditional Agencies</strong>
+                        <p style="font-size: 0.95rem; color: var(--text-muted); margin: 0;">${c.them}</p>
+                    </div>
+                </div>`).join('')}
+            </div>
         </div>
     </section>
 
@@ -1066,35 +1088,28 @@ function renderContact(data) {
                 </a>
             </div>
 
-            <!-- Right Column — Contact Form -->
-            <div class="contact-form-card">
-                <h3>${data.form.title}</h3>
+            <!-- Right Column — Booking & WhatsApp -->
+            <div class="contact-form-card" style="display: flex; flex-direction: column; gap: 20px;">
+                <div style="text-align: center; margin-bottom: 10px;">
+                    <h3 style="margin-bottom: 15px;">Book a Consultation</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 25px;">Schedule a 30-minute scoping call directly on our calendar. No sales pitch, just a technical discussion.</p>
+                    <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" rel="noopener noreferrer" class="btn-primary large" style="width: 100%; justify-content: center;">
+                        📅 Book on Google Calendar
+                    </a>
+                </div>
+                
+                <div style="position: relative; padding: 20px 0; text-align: center;">
+                    <span style="background: var(--bg-card); padding: 0 15px; color: var(--text-muted); position: relative; z-index: 1;">OR</span>
+                    <hr style="position: absolute; top: 50%; left: 0; right: 0; border: none; border-top: 1px solid var(--border-light); z-index: 0;">
+                </div>
 
-                <form action="https://formsubmit.co/hello@traiinc.com" method="POST" class="estimator-form">
-                    <input type="hidden" name="_subject" value="New Contact Inquiry from TraiInc.com">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_next" value="https://traiinc.com/contact.html">
-                    <input type="text" name="_honey" style="display:none;">
-
-                    ${data.form.fields.map(field => `
-                        <label for="${field.id}">${field.label}</label>
-                        <input type="${field.type}" id="${field.id}" name="${field.name}" placeholder="${field.placeholder}" ${field.required ? 'required' : ''}>
-                    `).join('')}
-
-                    <label for="${data.form.budget.id}">${data.form.budget.label}</label>
-                    <select id="${data.form.budget.id}" name="${data.form.budget.name}">
-                        ${data.form.budget.options.map(opt => `
-                            <option value="${opt.value}" ${opt.disabled ? 'disabled' : ''} ${opt.selected ? 'selected' : ''}>${opt.label}</option>
-                        `).join('')}
-                    </select>
-
-                    <label for="${data.form.message.id}">${data.form.message.label}</label>
-                    <textarea id="${data.form.message.id}" name="${data.form.message.name}" placeholder="${data.form.message.placeholder}" rows="5"></textarea>
-
-                    <button type="submit" class="btn-primary" style="width: 100%; font-size: 1.05rem; padding: 16px 32px; margin-top: 8px;">${data.form.button}</button>
-                    <p class="form-note">${data.form.note}</p>
-                </form>
+                <div style="text-align: center;">
+                    <h3 style="margin-bottom: 15px;">Chat Immediately</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 25px;">Prefer texting? Reach out directly to our founders on WhatsApp for a quick response.</p>
+                    <a href="https://wa.me/917905495478?text=Hi%20Trai%20Inc,%20I'm%20looking%20for%20a%20digital%20solution%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="whatsapp-btn" style="width: 100%; justify-content: center;">
+                        💬 Start WhatsApp Chat
+                    </a>
+                </div>
             </div>
 
         </div>
@@ -1105,7 +1120,7 @@ function renderContact(data) {
         <div class="container" style="max-width: 1200px; padding: 0;">
             <div style="border-radius: 20px; overflow: hidden; height: 450px; background: var(--bg-darker); border: 1px solid var(--border-light); position: relative;">
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.421731671954!2d80.99971847543763!3d26.858309176681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be2c086eb0c2b%3A0xe54e60b2eb7f4b82!2sDLF%20MyPad!5e0!3m2!1sen!2sin!4v1709210000000!5m2!1sen!2sin" 
+                    data-mock-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.421731671954!2d80.99971847543763!3d26.858309176681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be2c086eb0c2b%3A0xe54e60b2eb7f4b82!2sDLF%20MyPad!5e0!3m2!1sen!2sin!4v1709210000000!5m2!1sen!2sin" 
                     width="100%" 
                     height="100%" 
                     style="border:0; position: absolute; top: 0; left: 0;" 
@@ -1545,6 +1560,35 @@ function renderMSME(data) {
             <div style="text-align:center;margin-bottom:48px;"></div>
         </section>
 
+        <!-- MSME BUNDLES -->
+        <section class="bento-section fade-in" style="background: var(--bg-card); border-bottom: 1px solid var(--border-light);">
+            <div class="container">
+                <div class="section-header center">
+                    <h4 class="mini-title">${data.bundles.subtitle}</h4>
+                    <h2>${data.bundles.title}</h2>
+                </div>
+                <div class="grid-3" style="margin-top: 40px;">
+                    ${data.bundles.tiers.map(tier => `
+                    <div class="pricing-tier fade-in ${tier.popular ? 'popular' : ''}" style="background: ${tier.popular ? 'var(--bg-darker)' : 'transparent'}; border: 1px solid var(--border-light); border-radius: 12px; padding: 40px 30px; position: relative;">
+                        ${tier.popular ? '<div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent-color); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">MOST POPULAR</div>' : ''}
+                        <h3 style="font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 10px;">${tier.name}</h3>
+                        <div style="font-size: 2.2rem; font-weight: 800; color: var(--accent-color); margin-bottom: 15px;">${tier.price}</div>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px;">${tier.desc}</p>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 40px;">
+                            ${tier.features.map(f => `
+                            <li style="display: flex; align-items: start; gap: 10px; margin-bottom: 15px; font-size: 0.95rem;">
+                                <span style="color: var(--accent-color);">✔</span>
+                                <span>${f}</span>
+                            </li>
+                            `).join('')}
+                        </ul>
+                        <a href="https://wa.me/917905495478?text=Hi%20Trai%20Inc,%20I'm%20interested%20in%20the%20${encodeURIComponent(tier.name)}%20bundle." target="_blank" class="btn-primary" style="width: 100%; justify-content: center;">Get Started</a>
+                    </div>
+                    `).join('')}
+                </div>
+            </div>
+        </section>
+
         <!-- INLINE COST ESTIMATOR -->
         <section id="estimator" class="estimator-section fade-in">
             <div class="container">
@@ -1848,6 +1892,107 @@ function renderTrustPage(data) {
                 <a href="${data.closing.cta_link}" target="_blank" class="btn-primary">${data.closing.cta_text}</a>
                 <a href="app-store.html" class="btn-primary" style="background: transparent; border: 1px solid var(--accent-color); color: var(--accent-color);">View App Pricing</a>
                 <a href="solutions.html" class="btn-primary" style="background: transparent; border: 1px solid var(--accent-color); color: var(--accent-color);">View Custom Solutions</a>
+            </div>
+        </div>
+    </section>
+    `;
+}
+
+function renderPricing(data) {
+    return `
+    <section class="cf-hero-wrapper" style="--cf-accent-1: #4facfe; --cf-accent-2: #00f2fe; --cf-stroke-color: rgba(79, 172, 254, 0.1); min-height: 70vh; padding-top: 150px;">
+        <div class="cf-bg-text-container" aria-hidden="true">
+            <h1 class="cf-bg-text outline">PRICING</h1>
+            <h1 class="cf-bg-text filled">PRICING</h1>
+            <h1 class="cf-bg-text outline">PRICING</h1>
+        </div>
+        <div class="cf-grid-layer" aria-hidden="true">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="grid" width="120" height="120" patternUnits="userSpaceOnUse">
+                        <circle cx="60" cy="60" r="2" fill="rgba(79, 172, 254, 0.4)" />
+                        <path d="M 120 0 L 0 0 0 120" fill="none" stroke="rgba(79, 172, 254, 0.05)" stroke-width="1" stroke-dasharray="4 4"/>
+                        <path d="M 0 120 L 120 0" fill="none" stroke="rgba(79, 172, 254, 0.05)" stroke-width="1" stroke-dasharray="4 4"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+        </div>
+        <div class="cf-hero-content fade-in">
+            <div class="biz-badge" style="margin-bottom: 20px;">${data.hero.badge}</div>
+            <h1 style="color: var(--text-main); font-size: clamp(3rem, 6vw, 5rem); line-height: 1.1; margin-bottom: 25px;">${data.hero.title}</h1>
+            <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 650px; margin: 0 auto;">${data.hero.description}</p>
+        </div>
+    </section>
+
+    <section class="container fade-in" style="padding: 80px 24px;">
+        <div class="section-header" style="text-align: center; margin-bottom: 60px;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">${data.pricing_tiers.title}</h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto; font-size: 1.1rem;">${data.pricing_tiers.description}</p>
+        </div>
+        
+        <div class="pricing-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 100px;">
+            ${data.pricing_tiers.tiers.map(tier => `
+                <div class="pricing-card" style="background: var(--bg-card); padding: 40px; border-radius: 20px; border: 1px solid ${tier.highlight ? 'var(--primary)' : 'var(--border-light)'}; position: relative; ${tier.highlight ? 'box-shadow: 0 0 30px rgba(79, 172, 254, 0.1); transform: scale(1.02);' : ''}">
+                    ${tier.highlight ? '<div style="position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); background: var(--gradient-primary); color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 600;">Most Popular</div>' : ''}
+                    <h3 style="font-size: 1.5rem; margin-bottom: 10px;">${tier.name}</h3>
+                    <div style="font-size: 2.5rem; font-weight: 800; color: var(--text-main); margin-bottom: 15px;">${tier.price}</div>
+                    <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 0.95rem;">${tier.description}</p>
+                    <ul style="list-style: none; padding: 0; margin: 0; margin-bottom: 40px;">
+                        ${tier.features.map(f => `
+                            <li style="margin-bottom: 15px; display: flex; align-items: start; gap: 10px;">
+                                <span style="color: var(--primary);">✓</span>
+                                <span style="color: var(--text-main); font-size: 0.95rem;">${f}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            `).join('')}
+        </div>
+
+        <div class="section-header" style="text-align: center; margin-bottom: 60px;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">${data.engagement_models.title}</h2>
+        </div>
+        
+        <div class="models-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-bottom: 100px;">
+            ${data.engagement_models.models.map(model => `
+                <div class="model-card" style="background: var(--bg-card); padding: 40px; border-radius: 20px; border: 1px solid var(--border-light);">
+                    <div style="font-size: 3rem; margin-bottom: 20px;">${model.icon}</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">${model.title}</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 20px; line-height: 1.6;">${model.description}</p>
+                    <div style="background: var(--bg-darker); padding: 15px; border-radius: 10px; border: 1px solid var(--border-light);">
+                        <strong style="color: var(--text-main);">Best for:</strong> <span style="color: var(--text-muted);">${model.best_for}</span>
+                    </div>
+                </div>
+            `).join('')}
+        </div>
+
+        <div class="section-header" style="text-align: center; margin-bottom: 60px;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">${data.faq.title}</h2>
+        </div>
+        
+        <div class="faq-grid" style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; margin-bottom: 100px;">
+            ${data.faq.questions.map(q => `
+                <div class="faq-item" style="background: var(--bg-card); padding: 30px; border-radius: 15px; border: 1px solid var(--border-light);">
+                    <h4 style="font-size: 1.2rem; margin-bottom: 15px; color: var(--text-main);">${q.q}</h4>
+                    <p style="color: var(--text-muted); line-height: 1.6;">${q.a}</p>
+                </div>
+            `).join('')}
+        </div>
+    </section>
+
+    <!-- GRAND CTA -->
+    <section class="grand-cta fade-in" style="margin-bottom: 100px;">
+        <div class="container">
+            <div class="grand-cta-box">
+                <div class="grand-cta-bg"></div>
+                <div class="grand-cta-content">
+                    <h2>${data.cta.title}</h2>
+                    <p>${data.cta.description}</p>
+                    <a href="${data.cta.url}" target="_blank" rel="noopener noreferrer" class="btn-primary large">
+                        ${data.cta.button_text}
+                    </a>
+                </div>
             </div>
         </div>
     </section>
