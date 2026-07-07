@@ -29,7 +29,8 @@
       "label": "Budget Range",
       "options": [
         { "value": "", "label": "Select your budget range", "disabled": true, "selected": true },
-        { "value": "under-1l", "label": "Under ₹1L" },
+        { "value": "under-50k", "label": "Under ₹50K" },
+        { "value": "50k-1l", "label": "₹50K–1L" },
         { "value": "1l-3l", "label": "₹1–3L" },
         { "value": "3l-5l", "label": "₹3–5L" },
         { "value": "5l-10l", "label": "₹5–10L" },
