@@ -343,8 +343,6 @@
             ];
 
             let activeL1 = 'services';
-
-            let activeL1 = 'company';
             let activeL2 = 0;
 
             function renderFullMenu() {
