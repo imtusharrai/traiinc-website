@@ -1,74 +1,6 @@
 {
-  "ai-agents": {
-    "title": "Autonomous teams.<br>Infinite <span class='gradient-word'>scale.</span>",
-    "badge": "\ud83e\udde0 Data & Intelligence",
-    "subtitle": "LangChain and custom conversational agents that act autonomously, process data, and serve your customers 24/7.",
-    "icon": "\ud83e\udde0",
-    "color": "#d299c2",
-    "features": [
-      {
-        "icon": "\ud83d\udcac",
-        "color": "#d299c2",
-        "title": "Customer Support Agents",
-        "desc": "AI agents that resolve complex customer tickets 24/7, reading your internal documentation to provide accurate answers."
-      },
-      {
-        "icon": "\ud83d\udd75\ufe0f",
-        "color": "#fef9d7",
-        "title": "Research Agents",
-        "desc": "Agents that scrape the web, summarize competitor pricing, and generate weekly market reports autonomously."
-      },
-      {
-        "icon": "\ud83d\udee0\ufe0f",
-        "color": "#00f2fe",
-        "title": "LangChain & Multi-Agent",
-        "desc": "Complex orchestration where multiple AI agents collaborate to solve multi-step problems."
-      },
-      {
-        "icon": "\ud83d\udd04",
-        "color": "#fbc2eb",
-        "title": "Continuous Learning",
-        "desc": "Agents that adapt and improve over time based on feedback and new data."
-      }
-    ],
-    "process": [
-      {
-        "number": "01",
-        "title": "Workflow Analysis",
-        "desc": "We identify which operational workflows are repetitive and can be entirely delegated to an AI agent."
-      },
-      {
-        "number": "02",
-        "title": "Agent Prompt Engineering",
-        "desc": "We build custom tools (APIs) and refine the system prompts so the agent behaves exactly like a human employee."
-      },
-      {
-        "number": "03",
-        "title": "Testing & Deployment",
-        "desc": "We run the agent in a sandbox, verify its decision-making, and deploy it to Slack, WhatsApp, or your web app."
-      }
-    ],
-    "tech_stack": [
-      "LangChain",
-      "OpenAI",
-      "LlamaIndex",
-      "Pinecone",
-      "Python",
-      "FastAPI"
-    ],
-    "use_cases": [
-      "Customer Support Automation",
-      "Internal Knowledge Retrieval",
-      "Competitive Analysis Research"
-    ],
-    "cta": {
-      "title": "Ready to build something exceptional?",
-      "description": "Stop settling for mediocre agencies. Let's discuss your product roadmap and engineer a solution that accelerates your growth.",
-      "button_text": "Book a Consultation"
-    }
-  },
   "ai-automation": {
-    "title": "Smarter operations.<br>Automated <span class='gradient-word'>growth.</span>",
+    "title": "Enterprise AI.<br>Automated <span class=\"gradient-word\">scale.</span>",
     "badge": "\ud83e\udd16 Core Engineering",
     "subtitle": "Leverage LLMs, custom agents, and intelligent workflows to automate redundant tasks and scale your business without scaling your headcount.",
     "icon": "\ud83e\udd16",
@@ -97,6 +29,72 @@
         "color": "#fda085",
         "title": "Intelligent Document Processing",
         "desc": "Extract and structure data from PDFs, invoices, and hand-written forms automatically."
+      },
+      {
+        "icon": "\ud83d\udcac",
+        "color": "#d299c2",
+        "title": "Customer Support Agents",
+        "desc": "AI agents that resolve complex customer tickets 24/7, reading your internal documentation to provide accurate answers."
+      },
+      {
+        "icon": "\ud83d\udd75\ufe0f",
+        "color": "#fef9d7",
+        "title": "Research Agents",
+        "desc": "Agents that scrape the web, summarize competitor pricing, and generate weekly market reports autonomously."
+      },
+      {
+        "icon": "\ud83d\udee0\ufe0f",
+        "color": "#00f2fe",
+        "title": "LangChain & Multi-Agent",
+        "desc": "Complex orchestration where multiple AI agents collaborate to solve multi-step problems."
+      },
+      {
+        "icon": "\ud83d\udd04",
+        "color": "#fbc2eb",
+        "title": "Continuous Learning",
+        "desc": "Agents that adapt and improve over time based on feedback and new data."
+      },
+      {
+        "icon": "\ud83d\udcde",
+        "color": "#a1c4fd",
+        "title": "Inbound Support",
+        "desc": "AI receptionists that answer calls instantly, answer FAQs, and route complex queries to human agents."
+      },
+      {
+        "icon": "\ud83c\udfaf",
+        "color": "#c2e9fb",
+        "title": "Outbound Lead Gen",
+        "desc": "AI agents that call your lead lists, qualify prospects based on your script, and book meetings on your calendar."
+      },
+      {
+        "icon": "\ud83d\udde3\ufe0f",
+        "color": "#00f2fe",
+        "title": "Natural Synthesis",
+        "desc": "Ultra-realistic voice models with less than 500ms latency, complete with conversational interruptions."
+      },
+      {
+        "icon": "\ud83d\udde3\ufe0f",
+        "color": "#ff9a9e",
+        "title": "Human-like TTS",
+        "desc": "Ultra-realistic text-to-speech with natural pauses and conversational pacing."
+      },
+      {
+        "icon": "\u2699\ufe0f",
+        "color": "#f5576c",
+        "title": "End-to-End Process Automation",
+        "desc": "Automate invoice processing, customer onboarding, inventory updates, and reporting \u2014 tasks that currently eat hours every week."
+      },
+      {
+        "icon": "\ud83d\udcac",
+        "color": "#4facfe",
+        "title": "Intelligent Chatbots & Voice Agents",
+        "desc": "Deploy AI assistants on WhatsApp, your website, or phone lines that handle queries, qualify leads, and escalate intelligently."
+      },
+      {
+        "icon": "\ud83d\udcc4",
+        "color": "#fda085",
+        "title": "Document Intelligence",
+        "desc": "Extract and structure data from PDFs, invoices, handwritten forms, and contracts automatically with high accuracy."
       }
     ],
     "process": [
@@ -121,79 +119,34 @@
       "PyTorch",
       "Hugging Face",
       "AWS SageMaker",
-      "OpenAI API"
-    ],
-    "use_cases": [
-      "Document Processing",
-      "Predictive Maintenance",
-      "Automated QA"
-    ],
-    "cta": {
-      "title": "Ready to build something exceptional?",
-      "description": "Stop settling for mediocre agencies. Let's discuss your product roadmap and engineer a solution that accelerates your growth.",
-      "button_text": "Book a Consultation"
-    }
-  },
-  "ai-voice-agents": {
-    "title": "Conversational AI.<br>Human <span class='gradient-word'>voice.</span>",
-    "badge": "\ud83c\udf99\ufe0f Creative & Growth",
-    "subtitle": "Inbound and outbound voice AI systems that sound natural, qualify leads, and handle customer support.",
-    "icon": "\ud83c\udf99\ufe0f",
-    "color": "#f6d365",
-    "features": [
-      {
-        "icon": "\ud83d\udcde",
-        "color": "#a1c4fd",
-        "title": "Inbound Support",
-        "desc": "AI receptionists that answer calls instantly, answer FAQs, and route complex queries to human agents."
-      },
-      {
-        "icon": "\ud83c\udfaf",
-        "color": "#c2e9fb",
-        "title": "Outbound Lead Gen",
-        "desc": "AI agents that call your lead lists, qualify prospects based on your script, and book meetings on your calendar."
-      },
-      {
-        "icon": "\ud83d\udde3\ufe0f",
-        "color": "#00f2fe",
-        "title": "Natural Synthesis",
-        "desc": "Ultra-realistic voice models with less than 500ms latency, complete with conversational interruptions."
-      },
-      {
-        "icon": "\ud83d\udde3\ufe0f",
-        "color": "#ff9a9e",
-        "title": "Human-like TTS",
-        "desc": "Ultra-realistic text-to-speech with natural pauses and conversational pacing."
-      }
-    ],
-    "process": [
-      {
-        "number": "01",
-        "title": "Script Engineering",
-        "desc": "We design the conversational tree, define the agent's persona, and write the qualification logic."
-      },
-      {
-        "number": "02",
-        "title": "System Integration",
-        "desc": "We integrate the voice agent with your CRM (HubSpot/Salesforce) and calendar scheduling tools."
-      },
-      {
-        "number": "03",
-        "title": "Live Testing",
-        "desc": "We conduct extensive role-play testing to ensure the AI handles objections naturally before going live."
-      }
-    ],
-    "tech_stack": [
+      "OpenAI API",
+      "LangChain",
+      "OpenAI",
+      "LlamaIndex",
+      "Pinecone",
+      "Python",
+      "FastAPI",
       "Vapi",
       "Retell AI",
       "ElevenLabs",
       "Twilio",
-      "Deepgram"
+      "Deepgram",
+      "n8n",
+      "AWS Lambda"
     ],
     "use_cases": [
+      "Document Processing",
+      "Predictive Maintenance",
+      "Automated QA",
+      "Customer Support Automation",
+      "Internal Knowledge Retrieval",
+      "Competitive Analysis Research",
       "Inbound Call Routing",
       "Outbound Lead Qualification",
-      "Appointment Scheduling"
+      "Appointment Scheduling",
+      "Invoice & Document Processing",
+      "Sales Lead Qualification",
+      "Inventory & Order Management"
     ],
     "cta": {
       "title": "Ready to build something exceptional?",
@@ -1274,76 +1227,6 @@
       "title": "Ready for a better website?",
       "description": "Get a blazing fast, secure, and beautiful CMS that works for your business.",
       "button_text": "Start Your Project"
-    }
-  },
-  "ai-automation-development": {
-    "title": "AI-powered automation.<br>Built for <span class='gradient-word'>your workflows.</span>",
-    "badge": "\ud83e\udd16 AI & Automation",
-    "subtitle": "Custom AI automation systems that eliminate manual work, reduce errors, and scale your operations \u2014 built specifically for Indian MSMEs and growing businesses.",
-    "icon": "\ud83e\udd16",
-    "color": "#a18cd1",
-    "features": [
-      {
-        "icon": "\ud83e\udde0",
-        "color": "#f093fb",
-        "title": "Custom LLM Integration",
-        "desc": "Connect GPT-4, Claude, or open-source models to your proprietary data with secure RAG pipelines."
-      },
-      {
-        "icon": "\u2699\ufe0f",
-        "color": "#f5576c",
-        "title": "End-to-End Process Automation",
-        "desc": "Automate invoice processing, customer onboarding, inventory updates, and reporting \u2014 tasks that currently eat hours every week."
-      },
-      {
-        "icon": "\ud83d\udcac",
-        "color": "#4facfe",
-        "title": "Intelligent Chatbots & Voice Agents",
-        "desc": "Deploy AI assistants on WhatsApp, your website, or phone lines that handle queries, qualify leads, and escalate intelligently."
-      },
-      {
-        "icon": "\ud83d\udcc4",
-        "color": "#fda085",
-        "title": "Document Intelligence",
-        "desc": "Extract and structure data from PDFs, invoices, handwritten forms, and contracts automatically with high accuracy."
-      }
-    ],
-    "process": [
-      {
-        "number": "01",
-        "title": "Workflow Audit",
-        "desc": "We map your current manual processes and identify the highest-ROI automation targets."
-      },
-      {
-        "number": "02",
-        "title": "AI System Design & Build",
-        "desc": "We select the right models, build secure integrations with your existing tools, and develop the automation pipeline."
-      },
-      {
-        "number": "03",
-        "title": "Deploy, Train & Monitor",
-        "desc": "We deploy to your environment, train your team, and set up monitoring to ensure the system improves over time."
-      }
-    ],
-    "tech_stack": [
-      "LangChain",
-      "OpenAI API",
-      "Python",
-      "FastAPI",
-      "n8n",
-      "Hugging Face",
-      "AWS Lambda"
-    ],
-    "use_cases": [
-      "Invoice & Document Processing",
-      "Customer Support Automation",
-      "Sales Lead Qualification",
-      "Inventory & Order Management"
-    ],
-    "cta": {
-      "title": "Ready to automate your operations?",
-      "description": "Tell us which manual processes are slowing your business down. We'll scope an AI automation system that pays for itself.",
-      "button_text": "Book a Consultation"
     }
   }
 }

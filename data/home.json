@@ -39,6 +39,30 @@
     "✓ Digital Marketing",
     "✓ Fixed-Price Contracts"
   ],
+  "anti_agency": {
+    "subtitle": "THE ANTI-AGENCY",
+    "title": "Why Trai Inc is Different",
+    "cards": [
+      {
+        "icon": "🛡️",
+        "title": "Fixed Price Guarantee",
+        "us": "We scope the work and give you a fixed price. No surprises.",
+        "them": "Hourly billing that incentivizes them to work slowly and bloat your bill."
+      },
+      {
+        "icon": "⚡",
+        "title": "48-Hour Proposals",
+        "us": "Get a detailed technical proposal and fixed quote within 48 hours of our scoping call.",
+        "them": "Wait 2-3 weeks just to get an estimated 'range' from their sales team."
+      },
+      {
+        "icon": "🚀",
+        "title": "AI-Native Speed",
+        "us": "We use AI to accelerate boilerplate coding, shipping your product 40% faster.",
+        "them": "Bloated teams manually writing every line of code, delaying your launch."
+      }
+    ]
+  },
   "engagement_models": {
     "subtitle": "HOW WE WORK",
     "title": "Flexible Engagement Models",

@@ -64,6 +64,48 @@
       }
     ]
   },
+  "bundles": {
+    "subtitle": "MSME STARTER BUNDLES",
+    "title": "Fixed-Price Solutions for Local Businesses",
+    "tiers": [
+      {
+        "name": "The Starter Web",
+        "price": "₹15,000",
+        "desc": "Perfect for establishing your local online presence and getting found on Google Maps.",
+        "features": [
+          "5-Page Mobile-Optimized Website",
+          "Google Business Profile Setup",
+          "Basic Local SEO & Analytics",
+          "WhatsApp Floating Button"
+        ],
+        "popular": false
+      },
+      {
+        "name": "The WhatsApp Engine",
+        "price": "₹25,000",
+        "desc": "Automate your customer inquiries, bookings, and lead capture directly on WhatsApp.",
+        "features": [
+          "AI Auto-Responder Setup",
+          "Automated Lead Capture",
+          "Basic CRM Integration",
+          "Broadcast Messaging Ready"
+        ],
+        "popular": true
+      },
+      {
+        "name": "Custom CRM Dashboard",
+        "price": "₹50,000",
+        "desc": "Ditch the spreadsheets. A custom admin panel to manage your daily operations.",
+        "features": [
+          "Lead & Sales Tracking",
+          "Inventory / Booking Manager",
+          "Staff Task Assignment",
+          "Automated Invoice Generation"
+        ],
+        "popular": false
+      }
+    ]
+  },
   "comparison": {
     "subtitle": "THE DIFFERENCE",
     "title": "Stop bleeding money. Start growing.",

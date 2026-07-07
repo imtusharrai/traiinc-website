@@ -12,5 +12,15 @@
 /about /about.html 301
 /contact /contact.html 301
 
+# Redirections for consolidated/deleted service pages
+/ai-agents.html /ai-automation.html 301
+/ai-voice-agents.html /ai-automation.html 301
+/ai-automation-development.html /ai-automation.html 301
+/workflow-automation.html /ai-automation.html 301
+/mobile-ios-app-development.html /mobile-apps.html 301
+/mobile-android-app-development.html /mobile-apps.html 301
+/tech-react.html /web-development.html 301
+/tech-aws.html /cloud-devops.html 301
+
 # Catch any other old paths that don't match a real file
 /* /index.html 404

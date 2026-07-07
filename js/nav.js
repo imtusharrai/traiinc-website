@@ -12,201 +12,65 @@
     // ── Nav Mega-Menu Data (5 top-level items) ──────────────────────────────
     const navData = {
         services: {
-            layout: "3-column",
+            layout: "2-column",
             featured: {
-                title: "End-to-End Product Engineering",
-                desc: "Build scalable, intelligent systems tailored to your workflows.",
-                ctaLabel: "Book a Scoping Call →",
+                title: "Core Capabilities",
+                desc: "End-to-end product engineering tailored to your workflows.",
+                ctaLabel: "Book a Consultation →",
                 ctaHref: "https://calendar.app.google/PUsxADQBnpQsTrDbA"
             },
             groups: [
                 {
-                    heading: "Software Development",
+                    heading: "Services",
                     items: [
-                        { icon: "🏗️", label: "Custom Software",       href: "custom-software.html", desc: "Full-cycle product engineering" },
-                        { icon: "🏢", label: "Enterprise Platforms",  href: "enterprise-platforms.html", desc: "ERP, HRMS & integrations" },
-                        { icon: "🤝", label: "Custom CRM",            href: "custom-crm-development.html", desc: "Zero per-seat-fee internal tools" },
-                    ]
-                },
-                {
-                    heading: "Web Development",
-                    items: [
-                        { icon: "💻", label: "Web Development",       href: "web-development.html", desc: "React, Next.js & full-stack" },
-                        { icon: "📰", label: "WordPress & CMS",       href: "wordpress-cms-development.html", desc: "Custom themes & headless CMS" },
-                        { icon: "🛍️", label: "E-commerce",            href: "ecommerce-development.html", desc: "Shopify, WooCommerce & headless" },
-                    ]
-                },
-                {
-                    heading: "Mobile Apps Development",
-                    items: [
-                        { icon: "📱", label: "Mobile Apps",           href: "mobile-apps.html", desc: "iOS, Android & cross-platform" },
-                        { icon: "🤖", label: "Android App Development", href: "mobile-android-app-development.html", desc: "Native Android applications" },
-                        { icon: "🍎", label: "iOS App Development",    href: "mobile-ios-app-development.html", desc: "Native iPhone & iPad apps" },
-                        { icon: "🪶", label: "Flutter Development",   href: "flutter-app-development.html", desc: "Single codebase, native performance" },
-                        { icon: "🌐", label: "PWA Development",        href: "mobile-pwa-development.html", desc: "Progressive Web Apps" },
-                        { icon: "⌚", label: "Wearable App Development", href: "mobile-wearable-app-development.html", desc: "Apple Watch & Wear OS" },
-                        { icon: "🔄", label: "Cross-Platform App Dev", href: "mobile-cross-platform-app-development.html", desc: "React Native & Flutter" },
-                        { icon: "🎮", label: "Mobile Game Development", href: "mobile-mobile-game-development.html", desc: "Unity & 2D/3D games" },
-                        { icon: "⚡", label: "Native Mobile App Dev",   href: "mobile-native-mobile-app-development.html", desc: "High-performance native code" },
-                        { icon: "📐", label: "App Prototype & Strategy", href: "mobile-app-prototype-strategy.html", desc: "UI/UX & technical scoping" },
-                    ]
-                },
-                {
-                    heading: "AI Development",
-                    items: [
-                        { icon: "⚙️", label: "AI Automation",         href: "ai-automation.html", desc: "LLMs, RAG & intelligent workflows" },
-                        { icon: "🤖", label: "AI Agents & Chatbots",  href: "ai-agents.html", desc: "LangChain & autonomous agents" },
-                        { icon: "🎙️", label: "AI Voice Agents",      href: "ai-voice-agents.html", desc: "Inbound/outbound voice AI" },
-                        { icon: "🔄", label: "Workflow Automation",   href: "workflow-automation.html", desc: "n8n, Zapier, Make" },
-                        { icon: "⚡", label: "AI Development",        href: "ai-automation-development.html", desc: "Custom AI systems for MSMEs" },
-                    ]
-                },
-                {
-                    heading: "Cloud Development",
-                    items: [
-                        { icon: "☁️", label: "Cloud & DevOps",        href: "cloud-devops.html", desc: "AWS, Azure, GCP migration" },
-                    ]
-                },
-                {
-                    heading: "Cybersecurity",
-                    items: [
-                        { icon: "🔒", label: "Cybersecurity",         href: "cybersecurity.html", desc: "Compliance, audits & zero-trust" },
-                    ]
-                },
-                {
-                    heading: "Design & Branding",
-                    items: [
-                        { icon: "🎨", label: "UI/UX Design",          href: "ui-ux-design.html", desc: "Figma, prototypes & branding" },
-                        { icon: "🎬", label: "Motion & Video",        href: "motion-video.html", desc: "Animations & explainers" },
-                    ]
-                },
-                {
-                    heading: "Growth Marketing",
-                    items: [
-                        { icon: "📈", label: "Digital Marketing",     href: "digital-marketing.html", desc: "SEO, PPC & social media" },
-                        { icon: "📊", label: "Data & Analytics",      href: "data-analytics.html", desc: "Pipelines, dashboards & BI" },
-                        { icon: "🕸️", label: "Lead Gen & Scraping",  href: "lead-gen-scraping.html", desc: "Automated CRM population" },
-                    ]
-                },
-                {
-                    heading: "Dedicated Teams",
-                    items: [
-                        { icon: "👥", label: "Hire Dedicated Developers", href: "hire-dedicated-developers.html", desc: "Scale your engineering team" },
+                        { icon: "🤖", label: "AI & Automation", href: "ai-automation.html", desc: "Intelligent workflows & agents" },
+                        { icon: "📱", label: "Mobile App Development", href: "mobile-apps.html", desc: "iOS, Android & cross-platform" },
+                        { icon: "💻", label: "Web & SaaS Development", href: "web-development.html", desc: "Scalable platforms & portals" },
+                        { icon: "👥", label: "Dedicated Developers", href: "hire-dedicated-developers.html", desc: "Scale your engineering team" }
                     ]
                 }
             ]
         },
-
-        solutions: {
+        industries: {
             layout: "2-column",
             featured: {
-                title: "Tailored for Your Scale",
-                desc: "Solutions mapped directly to your organization's maturity.",
-                ctaLabel: "Find Your Solution →",
-                ctaHref: "solutions.html"
-            },
-            groups: [
-                {
-                    heading: "By Business Size",
-                    items: [
-                        { icon: "🚀", label: "Startups",               href: "startups.html",   desc: "Speed to MVP, cost transparency" },
-                        { icon: "🏪", label: "MSMEs",                  href: "msmes.html",      desc: "Ready-made apps, affordability" },
-                        { icon: "📈", label: "SMB",                    href: "smb.html",        desc: "Scaling, automation, integration" },
-                        { icon: "🏢", label: "Enterprise",             href: "enterprise.html", desc: "Compliance, process rigor, security" },
-                    ]
-                }
-            ]
-        },
-
-        industries: {
-            layout: "3-column",
-            featured: {
-                title: "Domain-Specific Expertise",
+                title: "Domain Expertise",
                 desc: "We build secure, compliant systems tailored to industry standards.",
                 ctaLabel: "See Case Studies →",
                 ctaHref: "clients.html"
             },
             groups: [
                 {
-                    heading: "FinTech & Banking",
+                    heading: "Key Industries",
                     items: [
-                        { icon: "💳", label: "Payment Gateways",             href: "industries.html", desc: "Secure transaction processing" },
-                        { icon: "🪪", label: "KYC & Onboarding Systems",     href: "industries.html", desc: "Identity verification workflows" },
-                        { icon: "🛡️", label: "Fraud Detection Engines",      href: "industries.html", desc: "Real-time anomaly detection" },
-                        { icon: "🏦", label: "Loan Management Systems",      href: "industries.html", desc: "Origination to servicing" },
-                        { icon: "📋", label: "Compliance & Reporting",        href: "industries.html", desc: "Regulatory dashboards & audit trails" },
+                        { icon: "🏥", label: "Healthcare", href: "industries.html", desc: "EHR & Telemedicine" },
+                        { icon: "💳", label: "FinTech", href: "industries.html", desc: "Payments & Compliance" },
+                        { icon: "🛒", label: "E-commerce & Retail", href: "industries.html", desc: "Storefronts & Fulfillment" },
+                        { icon: "🚀", label: "Startups & MSMEs", href: "msmes.html", desc: "Affordable tech solutions" }
                     ]
-                },
+                }
+            ]
+        },
+        work: {
+            layout: "2-column",
+            featured: {
+                title: "Proven Results",
+                desc: "Explore how we've helped organizations transform their operations.",
+                ctaLabel: "View Portfolio →",
+                ctaHref: "clients.html"
+            },
+            groups: [
                 {
-                    heading: "Healthcare",
+                    heading: "Our Work",
                     items: [
-                        { icon: "🏥", label: "Electronic Health Records",    href: "industries.html", desc: "Patient data management (EHR)" },
-                        { icon: "📅", label: "Appointment Scheduling",       href: "industries.html", desc: "Booking & calendar systems" },
-                        { icon: "🩺", label: "Telemedicine Platforms",        href: "industries.html", desc: "Remote consultation & video visits" },
-                        { icon: "🔐", label: "HIPAA-Compliant Data Systems", href: "industries.html", desc: "Secure health data storage" },
-                        { icon: "🧾", label: "Medical Billing & Claims",     href: "industries.html", desc: "Insurance claims processing" },
-                    ]
-                },
-                {
-                    heading: "E-Commerce & Retail",
-                    items: [
-                        { icon: "🛒", label: "Storefront & Checkout",        href: "industries.html", desc: "Cart, payment & order flow" },
-                        { icon: "📦", label: "Inventory Management",         href: "industries.html", desc: "Stock tracking & replenishment" },
-                        { icon: "🚚", label: "Order Fulfillment",            href: "industries.html", desc: "Picking, packing & shipping" },
-                        { icon: "⭐", label: "Loyalty & Rewards Platforms",  href: "industries.html", desc: "Customer retention programs" },
-                        { icon: "🏷️", label: "Product Information (PIM)",    href: "industries.html", desc: "Catalog & attribute management" },
-                    ]
-                },
-                {
-                    heading: "Logistics & Supply Chain",
-                    items: [
-                        { icon: "🚛", label: "Fleet Tracking & Telematics",  href: "industries.html", desc: "Real-time vehicle monitoring" },
-                        { icon: "🗺️", label: "Route Optimization",           href: "industries.html", desc: "Shortest path & fuel savings" },
-                        { icon: "🏭", label: "Warehouse Management (WMS)",   href: "industries.html", desc: "Storage & pick/pack systems" },
-                        { icon: "📍", label: "Last-Mile Delivery Tracking",  href: "industries.html", desc: "Live delivery status & ETA" },
-                    ]
-                },
-                {
-                    heading: "EdTech & Learning",
-                    items: [
-                        { icon: "🎓", label: "Learning Management (LMS)",    href: "industries.html", desc: "Course delivery & tracking" },
-                        { icon: "👩‍🎓", label: "Student & Learner Portals",    href: "industries.html", desc: "Dashboards & progress views" },
-                        { icon: "🧠", label: "Adaptive Learning Engines",    href: "industries.html", desc: "Personalized learning paths" },
-                        { icon: "📝", label: "Assessment & Certification",   href: "industries.html", desc: "Exams, grading & credentials" },
-                    ]
-                },
-                {
-                    heading: "Real Estate & PropTech",
-                    items: [
-                        { icon: "🏠", label: "Property Listing & CRM",       href: "industries.html", desc: "Lead & deal management" },
-                        { icon: "🔭", label: "Virtual Tour Platforms",        href: "industries.html", desc: "360° property walkthroughs" },
-                        { icon: "📄", label: "Lease & Tenant Management",    href: "industries.html", desc: "Contracts & rent tracking" },
-                        { icon: "📐", label: "Plot & Inventory Tracking",    href: "industries.html", desc: "Land records & availability maps" },
-                    ]
-                },
-                {
-                    heading: "Media & Entertainment",
-                    items: [
-                        { icon: "📺", label: "Streaming & CMS Platforms",    href: "industries.html", desc: "Video delivery & content mgmt" },
-                        { icon: "🔑", label: "Subscription & Paywall",       href: "industries.html", desc: "Membership & gated content" },
-                        { icon: "💬", label: "Fan Engagement Tools",          href: "industries.html", desc: "Community & social features" },
-                        { icon: "©️", label: "Digital Rights Management",     href: "industries.html", desc: "Content protection & licensing" },
-                        { icon: "📢", label: "Ad Serving & Monetization",    href: "industries.html", desc: "Programmatic ad platforms" },
-                    ]
-                },
-                {
-                    heading: "Travel & Tourism",
-                    items: [
-                        { icon: "✈️", label: "Booking & Reservation",        href: "industries.html", desc: "Flights, hotels & packages" },
-                        { icon: "🗓️", label: "Itinerary Planning Tools",     href: "industries.html", desc: "Trip builder & scheduling" },
-                        { icon: "🔗", label: "Channel Management (OTA)",     href: "industries.html", desc: "Multi-platform distribution" },
-                        { icon: "💰", label: "Dynamic Pricing Systems",       href: "industries.html", desc: "Demand-based rate optimization" },
+                        { icon: "📋", label: "Case Studies", href: "clients.html", desc: "Real results for real businesses" },
+                        { icon: "⭐", label: "Client Reviews", href: "client-reviews.html", desc: "What our clients say" }
                     ]
                 }
             ]
         },
         company: {
-            layout: "3-column",
+            layout: "2-column",
             featured: {
                 title: "Built for the Future",
                 desc: "We are engineers and product strategists redefining how software is built.",
@@ -218,51 +82,8 @@
                     heading: "Company",
                     items: [
                         { icon: "ℹ️", label: "About Us", href: "about.html", desc: "Our story & mission" },
-                        { icon: "👥", label: "Our Team", href: "team.html", desc: "Meet our leadership" },
-                        { icon: "💼", label: "Career", href: "careers.html", desc: "Join our growing team" },
-                        { icon: "📞", label: "Contact Us", href: "contact.html", desc: "Get in touch" },
-                        { icon: "💡", label: "Our Purpose", href: "our-purpose.html", desc: "Our mission & vision" }
-                    ]
-                },
-                {
-                    heading: "Why Trai",
-                    items: [
-                        { icon: "⭐", label: "Client Reviews", href: "client-reviews.html", desc: "What our clients say" },
-                        { icon: "🤝", label: "Our Clients", href: "clients.html", desc: "Organizations we work with" }
-                    ]
-                },
-                {
-                    heading: "Our Process",
-                    items: [
-                        { icon: "🔄", label: "Our Development Process", href: "our-development-process.html", desc: "AI-native workflow" },
-                        { icon: "📋", label: "Engagement Models", href: "engagement-models.html", desc: "Ways we work together" },
-                        { icon: "💬", label: "Project Communication Strategy", href: "project-communication-strategy.html", desc: "How we keep you updated" },
-                        { icon: "✅", label: "Hiring Checklist", href: "choosing-a-development-partner.html", desc: "What to check before you hire" }
-                    ]
-                },
-                {
-                    heading: "Partner With Us",
-                    items: [
-                        { icon: "🤝", label: "Partner With Us", href: "partner.html", desc: "Reseller & agency programs" }
-                    ]
-                }
-            ]
-        },
-
-        case_studies: {
-            layout: "2-column",
-            featured: {
-                title: "Real Results",
-                desc: "Explore how we've helped organizations transform their operations and build scalable software.",
-                ctaLabel: "View All Work →",
-                ctaHref: "clients.html"
-            },
-            groups: [
-                {
-                    heading: "Our Work",
-                    items: [
-                        { icon: "📋", label: "Case Studies", href: "clients.html", desc: "Real results for real businesses" },
-                        { icon: "📦", label: "App Store", href: "app-store.html", desc: "Own your app outright" }
+                        { icon: "🔄", label: "Development Process", href: "our-development-process.html", desc: "AI-native workflow" },
+                        { icon: "💰", label: "Pricing & Engagement", href: "pricing.html", desc: "Fixed price, advance-first" }
                     ]
                 }
             ]
@@ -365,78 +186,25 @@
     async function buildNav() {
         const page = document.body.getAttribute('data-page') || '';
         
-        let techHTML = '';
-        try {
-            const techRes = await fetch('data/technologies.json');
-            if (techRes.ok) {
-                const techData = await techRes.json();
-                
-                const techMegaData = {
-                    layout: "3-column",
-                    featured: {
-                        title: "AI-First for Modern Businesses",
-                        desc: "Build scalable, intelligent systems tailored to your workflows.",
-                        ctaLabel: "Explore Solutions →",
-                        ctaHref: "solutions.html"
-                    },
-                    groups: [
-                        { heading: "Frontend & Mobile", cats: ['frontend', 'mobile'] },
-                        { heading: "Backend & Databases", cats: ['backend', 'database'] },
-                        { heading: "AI & Automation", cats: ['ai-llms'] },
-                        { heading: "Cloud & DevOps", cats: ['cloud-devops'] },
-                        { heading: "CMS & E-Commerce", cats: ['cms'] }
-                    ].map(col => {
-                        const items = [];
-                        col.cats.forEach(catId => {
-                            const cat = techData.categories.find(c => c.id === catId);
-                            if (cat) {
-                                cat.technologies.forEach(tech => {
-                                    items.push({
-                                        icon: tech.icon || "💻",
-                                        label: tech.name,
-                                        href: `tech-${tech.id}.html`,
-                                        desc: tech.description
-                                    });
-                                });
-                            }
-                        });
-                        return { heading: col.heading, items: items };
-                    })
-                };
-                navData.tech = techMegaData;
-                techHTML = buildMegaMenu('tech', techMegaData);
-            }
-        } catch (e) {
-            console.error("Failed to load technologies for nav", e);
-        }
-
         const navHTML = `
             <div class="nav-container">
                 <a href="index.html" class="logo">TRAI</a>
                 <ul class="nav-links" id="nav-links">
                     <li class="has-dropdown">
-                        <a href="about.html" class="${['about','team','careers','contact','our-purpose','client-reviews','clients','our-development-process','engagement-models','project-communication-strategy','partner'].includes(page)?'active':''}">Who We Are ${chevron}</a>
-                        ${buildMegaMenu('company', navData.company)}
-                    </li>
-                    <li class="has-dropdown">
-                        <a href="solutions.html" class="${['solutions','custom-software','web-development','ai-automation','ai-agents','ai-voice-agents','cloud-devops','cybersecurity','data-analytics','digital-marketing','enterprise-platforms','lead-gen-scraping','mobile-apps','motion-video','ui-ux-design','workflow-automation','flutter-app-development','ecommerce-development','custom-crm-development','wordpress-cms-development','ai-automation-development'].includes(page)?'active':''}">Services ${chevron}</a>
-                        ${buildMegaMenu('services', navData.services)}
-                    </li>
-                    <li class="has-dropdown">
-                        <a href="#" class="${['startups','msmes','smb','enterprise'].includes(page)?'active':''}">Solutions ${chevron}</a>
-                        ${buildMegaMenu('solutions', navData.solutions)}
-                    </li>
-                    <li class="has-dropdown">
-                        <a href="industries.html" class="${page==='industries'?'active':''}">Industries ${chevron}</a>
+                        <a href="industries.html" class="${['industries','msmes'].includes(page)?'active':''}">Who We Help ${chevron}</a>
                         ${buildMegaMenu('industries', navData.industries)}
                     </li>
                     <li class="has-dropdown">
-                        <a href="#" class="${page.startsWith('tech-')?'active':''}">Technologies ${chevron}</a>
-                        ${techHTML}
+                        <a href="solutions.html" class="${['ai-automation','mobile-apps','web-development','hire-dedicated-developers'].includes(page)?'active':''}">Services ${chevron}</a>
+                        ${buildMegaMenu('services', navData.services)}
                     </li>
                     <li class="has-dropdown">
-                        <a href="clients.html" class="${['clients','app-store','choosing-a-development-partner'].includes(page)?'active':''}">Case Studies ${chevron}</a>
-                        ${buildMegaMenu('case_studies', navData.case_studies)}
+                        <a href="clients.html" class="${['clients','client-reviews'].includes(page)?'active':''}">Work ${chevron}</a>
+                        ${buildMegaMenu('work', navData.work)}
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="about.html" class="${['about','our-development-process','pricing'].includes(page)?'active':''}">Company ${chevron}</a>
+                        ${buildMegaMenu('company', navData.company)}
                     </li>
                 </ul>
                 <div class="nav-actions">
@@ -568,13 +336,13 @@
 
         if (fullMenuBtn && fullMenuOverlay) {
             const l1Items = [
-                { id: 'company', label: 'Who We Are' },
+                { id: 'industries', label: 'Who We Help' },
                 { id: 'services', label: 'Services' },
-                { id: 'solutions', label: 'Solutions' },
-                { id: 'industries', label: 'Industries' },
-                { id: 'tech', label: 'Technologies' },
-                { id: 'case_studies', label: 'Case Studies' }
+                { id: 'work', label: 'Work' },
+                { id: 'company', label: 'Company' }
             ];
+
+            let activeL1 = 'services';
 
             let activeL1 = 'company';
             let activeL2 = 0;
@@ -673,7 +441,7 @@
                     <a href="https://x.com/inctrai" target="_blank" rel="noopener" class="social-icon" aria-label="Twitter / X">${socialIcons.twitter}</a>
                     <a href="https://www.instagram.com/traiinc" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">${socialIcons.instagram}</a>
                     <a href="https://www.youtube.com/@traiinc" target="_blank" rel="noopener" class="social-icon" aria-label="YouTube">${socialIcons.youtube}</a>
-                    <a href="https://wa.me/917905495478" target="_blank" rel="noopener" class="social-icon social-wa" aria-label="WhatsApp">${socialIcons.whatsapp}</a>
+                    <a href="https://wa.me/917905495478?text=Hi%20Trai%20Inc,%20I'm%20looking%20for%20a%20digital%20solution%20for%20my%20business." target="_blank" rel="noopener" class="social-icon social-wa" aria-label="WhatsApp">${socialIcons.whatsapp}</a>
                 </div>
             </div>
             <div class="link-group">
@@ -749,7 +517,7 @@
 
         // ── WhatsApp Click-to-Chat FAB ────────────────────────────────────
         var whatsappNumber = '917905495478';
-        var whatsappMessage = encodeURIComponent('Hi Trai! I am interested in learning more about your services.');
+        var whatsappMessage = encodeURIComponent("Hi Trai Inc, I'm looking for a digital solution for my business.");
         var whatsappURL = 'https://wa.me/' + whatsappNumber + '?text=' + whatsappMessage;
 
         var fabLogo = document.createElement('a');

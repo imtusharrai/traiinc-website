@@ -36,32 +36,6 @@ copyDirectory(rootDir, distDir);
 const server = http.createServer((req, res) => {
     let filePath = path.join(rootDir, req.url.split('?')[0]);
     
-    // Intercept synthetic tech pages
-    const techMatch = req.url.match(/^\/tech-(.*)\.html/);
-    if (techMatch) {
-        const id = techMatch[1];
-        fs.readFile(path.join(rootDir, 'index.html'), 'utf8', (err, data) => {
-            if (err) { res.writeHead(404); res.end(); return; }
-            const modData = data.replace('data-page="home"', `data-page="tech-${id}"`);
-            res.writeHead(200, {'Content-Type': 'text/html'});
-            res.end(modData);
-        });
-        return;
-    }
-    
-    // Intercept synthetic mobile pages
-    const mobileMatch = req.url.match(/^\/mobile-(.*)\.html/);
-    if (mobileMatch && mobileMatch[1] !== 'apps') {
-        const id = mobileMatch[1];
-        fs.readFile(path.join(rootDir, 'index.html'), 'utf8', (err, data) => {
-            if (err) { res.writeHead(404); res.end(); return; }
-            const modData = data.replace('data-page="home"', `data-page="mobile-${id}"`);
-            res.writeHead(200, {'Content-Type': 'text/html'});
-            res.end(modData);
-        });
-        return;
-    }
-
     if (filePath === rootDir || filePath === rootDir + '/') filePath = path.join(rootDir, 'index.html');
     fs.readFile(filePath, (err, data) => {
         if (err) { res.writeHead(404); res.end(); return; }
@@ -76,6 +50,8 @@ const server = http.createServer((req, res) => {
                 htmlStr = htmlStr.replace(/css\/style\.css\?v=\d+/g, `css/style.css?v=${vNow}`);
                 htmlStr = htmlStr.replace(/js\/app\.js\?v=\d+/g, `js/app.js?v=${vNow}`);
                 htmlStr = htmlStr.replace(/js\/nav\.js\?v=\d+/g, `js/nav.js?v=${vNow}`);
+                // Prevent JSDOM from loading external maps script which crashes it
+                htmlStr = htmlStr.replace(/<script src="https:\/\/maps\.googleapis\.com/g, '<script data-mocked-src="https://maps.googleapis.com');
                 res.end(htmlStr);
                 return;
             }
@@ -88,26 +64,6 @@ server.listen(PORT, async () => {
     console.log(`Local server started on port ${PORT}`);
     const htmlFiles = fs.readdirSync(rootDir).filter(f => f.endsWith('.html') && f !== '404.html');
     
-    // Inject tech pages
-    const techDataPath = path.join(rootDir, 'data/technologies.json');
-    if (fs.existsSync(techDataPath)) {
-        const techData = JSON.parse(fs.readFileSync(techDataPath, 'utf8'));
-        techData.categories.forEach(cat => {
-            cat.technologies.forEach(tech => {
-                htmlFiles.push(`tech-${tech.id}.html`);
-            });
-        });
-    }
-
-    // Inject mobile pages
-    const mobileDataPath = path.join(rootDir, 'data/mobile-services.json');
-    if (fs.existsSync(mobileDataPath)) {
-        const mobileData = JSON.parse(fs.readFileSync(mobileDataPath, 'utf8'));
-        mobileData.services.forEach(service => {
-            htmlFiles.push(`mobile-${service.id}.html`);
-        });
-    }
-
     const virtualConsole = new jsdom.VirtualConsole();
     
     // For sitemap generation
@@ -139,6 +95,9 @@ server.listen(PORT, async () => {
                         return { matches: false, addListener: function() {}, removeListener: function() {} };
                     };
                     window.scrollTo = function() {};
+                    if (window.performance) {
+                        Object.getPrototypeOf(window.performance).getEntriesByType = () => [];
+                    }
                 }
             });
             
@@ -203,10 +162,8 @@ server.listen(PORT, async () => {
                 'cloud-devops.html', 'custom-software.html', 'cybersecurity.html', 
                 'data-analytics.html', 'digital-marketing.html', 'enterprise-platforms.html', 
                 'lead-gen-scraping.html', 'mobile-apps.html', 'motion-video.html', 
-                'ui-ux-design.html', 'web-development.html', 'workflow-automation.html',
-                'flutter-app-development.html', 'ecommerce-development.html', 'custom-crm-development.html', 'wordpress-cms-development.html',
-                'ai-automation-development.html'
-            ].includes(file) || file.startsWith('tech-') || (file.startsWith('mobile-') && file !== 'mobile-apps.html')) {
+                'ui-ux-design.html', 'web-development.html', 'workflow-automation.html'
+            ].includes(file)) {
                 let serviceName = file.replace('.html', '').split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
                 schemaJson = {
                     "@context": "https://schema.org",
@@ -303,6 +260,11 @@ server.listen(PORT, async () => {
             
             let html = dom.serialize();
             html = html.replace(/http:\/\/localhost:9999\//g, '');
+            // Restore Google Maps script
+            html = html.replace(/<script data-mocked-src="https:\/\/maps\.googleapis\.com/g, '<script src="https://maps.googleapis.com');
+            // Restore Google Maps iframe
+            html = html.replace(/<iframe data-mock-src="https:\/\/www\.google\.com/g, '<iframe src="https://www.google.com');
+            html = html.replace(/<iframe\s+data-mock-src="https:\/\/www\.google\.com/g, '<iframe src="https://www.google.com');
             fs.writeFileSync(path.join(distDir, file), html);
             console.log(`Successfully built ${file}`);
             dom.window.close();
