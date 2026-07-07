@@ -1,189 +1,14 @@
 /**
- * Trai Inc — Mega Dropdown Navigation + Footer (nav.js)
- * Phase 9: 5-item mega-menu, 5-column sitemap footer
+ * Trai Inc — Quytech-style Hanging Dropdown Navigation + Footer (nav.js)
+ * Hanging mega-dropdowns with mixed-depth Layer 2 → Layer 3 switching
  */
 (function () {
 
-    // ── 3D Gradient Icon helper ──────────────────────────────────────────────
-    function icon3d(emoji, from, to) {
-        return `<span class="icon-3d" style="background:linear-gradient(135deg,${from},${to})">${emoji}</span>`;
-    }
+    // ── Chevron SVGs ─────────────────────────────────────────────────────
+    const chevronDown = `<svg class="chevron" viewBox="0 0 10 6" width="10" height="6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>`;
+    const chevronRight = `<svg class="nav-l2-chevron" viewBox="0 0 6 10" width="6" height="10"><path d="M1 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>`;
 
-    // ── Nav Mega-Menu Data (5 top-level items) ──────────────────────────────
-    const navData = {
-    whoWeHelp: {
-        label: "Who We Help",
-        featured: {
-            title: "138+ Businesses Served",
-            desc: "Real Estate, Healthcare, FinTech, and more — across 12+ industries in 6 years.",
-            stat: "94% client retention",
-            ctaLabel: "See Case Studies →",
-            ctaHref: "clients.html"
-        },
-        cols: [
-            {
-                heading: "By Business Size",
-                items: [
-                    { icon: icon3d("🏪","#96fbc4","#f9f586"), label: "MSMEs & Local Business", href: "msmes.html", desc: "Websites, WhatsApp, SEO from ₹15K" },
-                    { icon: icon3d("🚀","#4facfe","#00f2fe"), label: "Startups", href: "startups.html", desc: "MVPs, cloud, go-to-market" },
-                    { icon: icon3d("🏢","#a1c4fd","#c2e9fb"), label: "Small & Medium Business", href: "smb.html", desc: "CRMs, automation, scaling" },
-                    { icon: icon3d("🏗️","#fbc7d4","#9796f0"), label: "Enterprise", href: "enterprise.html", desc: "Cloud migration, AI, security" }
-                ]
-            },
-            {
-                heading: "By Industry",
-                items: [
-                    { icon: icon3d("🏠","#f6d365","#fda085"), label: "Real Estate & PropTech", href: "industries.html#realestate", desc: "CRM, listings, virtual tours" },
-                    { icon: icon3d("🏥","#f093fb","#f5576c"), label: "Healthcare", href: "industries.html#healthcare", desc: "Patient portals, compliance" },
-                    { icon: icon3d("💰","#4facfe","#00f2fe"), label: "FinTech & Banking", href: "industries.html#fintech", desc: "Payments & compliance" },
-                    { icon: icon3d("🛒","#30cfd0","#667eea"), label: "E-Commerce & Retail", href: "industries.html#ecommerce", desc: "Storefronts & fulfillment" },
-                    { icon: icon3d("🎓","#fa709a","#fee140"), label: "Education & EdTech", href: "industries.html#edtech", desc: "LMS, virtual classrooms" },
-                    { icon: icon3d("🚛","#ffecd2","#fcb69f"), label: "Logistics & Supply Chain", href: "industries.html#logistics", desc: "Route optimization, tracking" }
-                ]
-            }
-        ]
-    },
-
-    services: {
-        label: "Services",
-        featured: {
-            title: "Full-Stack Excellence",
-            desc: "End-to-end engineering from MVP to enterprise scale.",
-            stat: "10x faster execution",
-            ctaLabel: "View All Services →",
-            ctaHref: "solutions.html"
-        },
-        cols: [
-            {
-                heading: "Engineering",
-                items: [
-                    { icon: icon3d("💻","#4facfe","#00f2fe"), label: "Custom Software & Web", href: "custom-software.html", desc: "Web apps, SaaS, enterprise tools" },
-                    { icon: icon3d("📱","#43e97b","#38f9d7"), label: "Mobile App Development", href: "mobile-apps.html", desc: "iOS, Android, cross-platform" },
-                    { icon: icon3d("🤖","#f093fb","#f5576c"), label: "AI & Automation", href: "ai-automation.html", desc: "Chatbots, agents, workflows" },
-                    { icon: icon3d("☁️","#667eea","#764ba2"), label: "Cloud & DevOps", href: "cloud-devops.html", desc: "AWS, Cloudflare, CI/CD" }
-                ]
-            },
-            {
-                heading: "Growth & Platforms",
-                items: [
-                    { icon: icon3d("📈","#96fbc4","#f9f586"), label: "Digital Marketing & SEO", href: "digital-marketing.html", desc: "Google Ads, Meta, local SEO" },
-                    { icon: icon3d("⚙️","#ffecd2","#fcb69f"), label: "CRM & Enterprise Platforms", href: "enterprise-platforms.html", desc: "Custom CRM, ERP, dashboards" },
-                    { icon: icon3d("👥","#a1c4fd","#c2e9fb"), label: "Dedicated Developers", href: "hire-dedicated-developers.html", desc: "Augment your engineering team" }
-                ]
-            }
-        ]
-    },
-
-    work: {
-        label: "Our Work",
-        featured: {
-            title: "Proven Results",
-            desc: "See how we help businesses scale with data-driven engineering.",
-            stat: "₹4.5L+ Revenue Generated",
-            ctaLabel: "Book a Free Consultation →",
-            ctaHref: "contact.html"
-        },
-        cols: [
-            {
-                heading: "Proof",
-                items: [
-                    { icon: icon3d("📊","#4facfe","#00f2fe"), label: "Case Studies", href: "clients.html", desc: "Real results for real businesses" },
-                    { icon: icon3d("⭐","#f6d365","#fda085"), label: "Client Reviews", href: "client-reviews.html", desc: "What our clients say" }
-                ]
-            },
-            {
-                heading: "How We Operate",
-                items: [
-                    { icon: icon3d("💰","#96fbc4","#f9f586"), label: "Pricing & Engagement", href: "pricing.html", desc: "Fixed price, advance-first" },
-                    { icon: icon3d("⚡","#30cfd0","#667eea"), label: "Development Process", href: "our-development-process.html", desc: "AI-native workflow" }
-                ]
-            }
-        ]
-    },
-
-    company: {
-        label: "Company",
-        featured: {
-            title: "Join the Mission",
-            desc: "We are building the future of software development.",
-            stat: "Zero bloat, 100% execution",
-            ctaLabel: "Meet the Team →",
-            ctaHref: "about.html"
-        },
-        cols: [
-            {
-                heading: "About",
-                items: [
-                    { icon: icon3d("🏢","#667eea","#764ba2"), label: "About Us", href: "about.html", desc: "Our story & mission" },
-                    { icon: icon3d("💼","#4facfe","#00f2fe"), label: "Careers", href: "careers.html", desc: "Join the team" },
-                    { icon: icon3d("🤝","#43e97b","#38f9d7"), label: "Partner With Us", href: "partner.html", desc: "Referral & white-label" },
-                    { icon: icon3d("🚀","#fbc7d4","#9796f0"), label: "Incubation Program", href: "incubation.html", desc: "Intern mentorship" }
-                ]
-            },
-            {
-                heading: "Programs & Contact",
-                items: [
-                    { icon: icon3d("🚀","#4facfe","#00f2fe"), label: "Bharat Startup Launchpad ↗", href: "https://bharatstartuplaunchpad.com", desc: "Startup grants & funding support", external: true },
-                    { icon: icon3d("📞","#f6d365","#fda085"), label: "Contact Us", href: "contact.html", desc: "Book a consultation" }
-                ]
-            }
-        ]
-    }
-};
-
-    // ── Build generalized mega-menu ───────────────────────────────────────
-    function buildMegaMenu(menuId, data) {
-        const panesHTML = data.cols.map((col) => {
-            const gridClass = col.items.length >= 4 ? 'tech-pane-grid grid-cols-2' : 'tech-pane-grid grid-cols-1';
-            return `
-            <div class="mega-group">
-                <h3 class="mega-group-heading">${col.heading} <sup>${col.items.length}</sup></h3>
-                <div class="${gridClass}">
-                    ${col.items.map(item => {
-                        const targetAttr = item.external ? 'target="_blank" rel="noopener"' : '';
-                        return `
-                        <a href="${item.href}" class="tech-item-link" ${targetAttr}>
-                            <strong><span class="inline-icon">${item.icon}</span> ${item.label}</strong>
-                            <span>${item.desc}</span>
-                        </a>
-                        `;
-                    }).join('')}
-                </div>
-            </div>
-        `;
-        }).join('');
-
-        const featuredHTML = data.featured ? `
-            <div class="mega-featured">
-                <h3 class="mega-group-heading">Featured</h3>
-                <div class="featured-card">
-                    <h4>${data.featured.title}</h4>
-                    <p>${data.featured.desc}</p>
-                    <div class="featured-stat">${data.featured.stat}</div>
-                    <a href="${data.featured.ctaHref}" class="tech-featured-cta mt-4">${data.featured.ctaLabel}</a>
-                </div>
-            </div>
-        ` : '';
-
-        return `
-            <div class="mega-dropdown mega-${menuId}">
-                <div class="mega-inner-generalized" style="display:flex; justify-content: space-between; gap: 40px; padding: 30px;">
-                    <div class="tech-panes-container" style="flex: 1; display: flex; gap: 40px; border-right: 1px solid var(--border-color); padding-right: 40px;">
-                        ${panesHTML}
-                    </div>
-                    <div class="mega-featured-container" style="width: 320px; flex-shrink: 0;">
-                        ${featuredHTML}
-                    </div>
-                </div>
-            </div>
-        `;
-    }
-
-
-    // ── Chevron SVG ──────────────────────────────────────────────────────────
-    const chevron = `<svg class="chevron" viewBox="0 0 10 6" width="10" height="6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>`;
-
-    // ── SVG Icons for footer socials ─────────────────────────────────────────
+    // ── Social icons ─────────────────────────────────────────────────────
     const socialIcons = {
         linkedin: `<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>`,
         twitter: `<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`,
@@ -192,29 +17,352 @@
         whatsapp: `<svg viewBox="0 0 32 32" fill="currentColor" width="18" height="18"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.13 6.744 3.048 9.38L1.054 31.2l6.044-1.94a15.9 15.9 0 008.906 2.704C24.826 31.964 32 24.788 32 16.004S24.826 0 16.004 0zm9.35 22.616c-.396 1.116-1.958 2.042-3.212 2.312-.86.182-1.98.328-5.754-1.236-4.83-2.004-7.938-6.902-8.18-7.222-.232-.32-1.948-2.596-1.948-4.952s1.232-3.508 1.67-3.988c.438-.48.956-.6 1.276-.6.32 0 .636.004.914.016.294.014.688-.112 1.076.82.396.952 1.348 3.288 1.466 3.528.118.24.198.518.04.836-.16.32-.24.518-.478.8-.24.28-.504.626-.72.84-.24.24-.488.498-.21.976.28.48 1.244 2.054 2.672 3.328 1.836 1.636 3.384 2.144 3.864 2.384.48.24.76.2 1.04-.12.278-.32 1.196-1.392 1.514-1.872.318-.48.636-.396 1.076-.24.438.16 2.784 1.312 3.262 1.552.48.24.798.356.916.556.118.198.118 1.156-.278 2.272z"/></svg>`
     };
 
-    // ── Inject full nav ──────────────────────────────────────────────────────
+    // ══════════════════════════════════════════════════════════════════════
+    // NAV DATA
+    // ══════════════════════════════════════════════════════════════════════
+    const navData = {
+        whoWeHelp: {
+            label: "Industries",
+            type: "flat",
+            cols: [
+                {
+                    heading: "By Business Size",
+                    items: [
+                        { icon: "🏪", label: "MSMEs & Local Business", href: "msmes.html", desc: "Websites, WhatsApp from ₹15K" },
+                        { icon: "🚀", label: "Startups", href: "startups.html", desc: "MVPs, cloud, go-to-market" },
+                        { icon: "🏢", label: "Small & Medium Business", href: "smb.html", desc: "CRMs, automation, scaling" },
+                        { icon: "🏗️", label: "Enterprise", href: "enterprise.html", desc: "Cloud migration, AI, security" }
+                    ]
+                },
+                {
+                    heading: "By Industry",
+                    items: [
+                        { icon: "🏠", label: "Real Estate & PropTech", href: "industries.html#realestate", desc: "CRM, listings, virtual tours" },
+                        { icon: "🏥", label: "Healthcare", href: "industries.html#healthcare", desc: "Patient portals, compliance" },
+                        { icon: "💰", label: "FinTech & Banking", href: "industries.html#fintech", desc: "Payments & compliance" },
+                        { icon: "🛒", label: "E-Commerce & Retail", href: "industries.html#ecommerce", desc: "Storefronts & fulfillment" },
+                        { icon: "🎓", label: "Education & EdTech", href: "industries.html#edtech", desc: "LMS, virtual classrooms" },
+                        { icon: "🚚", label: "Logistics & Supply Chain", href: "industries.html#logistics", desc: "Route optimization, tracking" },
+                        { icon: "🎬", label: "Media & Entertainment", href: "industries.html#media", desc: "Streaming, content platforms" },
+                        { icon: "✈️", label: "Travel & Hospitality", href: "industries.html#travel", desc: "Booking, guest experience" },
+                        { icon: "🍽️", label: "Food & Restaurant", href: "industries.html#food", desc: "POS, delivery, ordering" },
+                        { icon: "🏭", label: "Manufacturing", href: "industries.html#manufacturing", desc: "ERP, inventory, automation" }
+                    ]
+                }
+            ],
+            featured: {
+                title: "138+ Businesses Served",
+                desc: "Real Estate, Healthcare, FinTech, and more — across 12+ industries.",
+                stat: "94% client retention",
+                ctaLabel: "See Our Work →",
+                ctaHref: "clients.html"
+            }
+        },
+
+        services: {
+            label: "Services",
+            type: "layered",
+            categories: [
+                {
+                    id: "custom-software",
+                    label: "Custom Software & Web",
+                    hasChildren: true,
+                    href: "custom-software.html",
+                    subitems: [
+                        { label: "Web Applications", href: "custom-software.html#web-apps" },
+                        { label: "SaaS Platforms", href: "custom-software.html#saas" },
+                        { label: "Enterprise Tools", href: "custom-software.html#enterprise" },
+                        { label: "API Development", href: "custom-software.html#api" }
+                    ],
+                    miniFeature: {
+                        title: "Full-Stack <span class='highlight'>Excellence</span>",
+                        desc: "End-to-end engineering from MVP to enterprise scale.",
+                        ctaLabel: "View All Services →",
+                        ctaHref: "solutions.html"
+                    }
+                },
+                {
+                    id: "mobile-apps",
+                    label: "Mobile App Development",
+                    hasChildren: true,
+                    href: "mobile-apps.html",
+                    subitems: [
+                        { label: "iOS & Android Native", href: "mobile-apps.html#native" },
+                        { label: "Cross-Platform (Flutter)", href: "mobile-apps.html#flutter" },
+                        { label: "App Store Deployment", href: "mobile-apps.html#deployment" }
+                    ],
+                    miniFeature: {
+                        title: "Smart, Scalable, <span class='highlight'>Secure</span>",
+                        desc: "One codebase. Both platforms. Delivered in weeks.",
+                        ctaLabel: "Explore Mobile →",
+                        ctaHref: "mobile-apps.html"
+                    }
+                },
+                {
+                    id: "ai-automation",
+                    label: "AI & Automation",
+                    hasChildren: true,
+                    href: "ai-automation.html",
+                    subitems: [
+                        { label: "AI Chatbots & Agents", href: "ai-automation.html#chatbots" },
+                        { label: "Workflow Automation", href: "ai-automation.html#workflows" },
+                        { label: "Voice AI", href: "ai-automation.html#voice" },
+                        { label: "LLM Integration", href: "ai-automation.html#llm" }
+                    ],
+                    miniFeature: {
+                        title: "AI-First for <span class='highlight'>Business</span>",
+                        desc: "Intelligent solutions that automate and scale.",
+                        ctaLabel: "Explore AI →",
+                        ctaHref: "ai-automation.html"
+                    }
+                },
+                {
+                    id: "cloud-devops",
+                    label: "Cloud & DevOps",
+                    hasChildren: true,
+                    href: "cloud-devops.html",
+                    subitems: [
+                        { label: "Cloud Migration", href: "cloud-devops.html#migration" },
+                        { label: "CI/CD Pipelines", href: "cloud-devops.html#cicd" },
+                        { label: "Serverless Architecture", href: "cloud-devops.html#serverless" }
+                    ],
+                    miniFeature: {
+                        title: "Scale Without the <span class='highlight'>Bill</span>",
+                        desc: "Modern infrastructure that costs pennies when idle.",
+                        ctaLabel: "Explore Cloud →",
+                        ctaHref: "cloud-devops.html"
+                    }
+                },
+                {
+                    id: "digital-marketing",
+                    label: "Digital Marketing & SEO",
+                    hasChildren: false,
+                    href: "digital-marketing.html",
+                    featured: {
+                        emoji: "📈",
+                        gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                        title: "Grow Your <span class='highlight'>Reach</span>",
+                        desc: "Data-driven marketing that delivers measurable ROI.",
+                        ctaLabel: "Explore Marketing →",
+                        ctaHref: "digital-marketing.html"
+                    }
+                },
+                {
+                    id: "crm-enterprise",
+                    label: "CRM & Enterprise Platforms",
+                    hasChildren: false,
+                    href: "enterprise-platforms.html",
+                    featured: {
+                        emoji: "⚙️",
+                        gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+                        title: "Replace <span class='highlight'>Spreadsheets</span>",
+                        desc: "Custom CRMs and dashboards tailored to your workflow.",
+                        ctaLabel: "Explore CRM →",
+                        ctaHref: "enterprise-platforms.html"
+                    }
+                }
+            ]
+        },
+
+        work: {
+            label: "Case Studies",
+            type: "flat",
+            cols: [
+                {
+                    heading: "Proof",
+                    items: [
+                        { icon: "📊", label: "Case Studies", href: "clients.html", desc: "Real results for real businesses" },
+                        { icon: "⭐", label: "Client Reviews", href: "client-reviews.html", desc: "What our clients say" },
+                        { icon: "💰", label: "Pricing & Engagement", href: "pricing.html", desc: "Fixed price, advance-first" }
+                    ]
+                }
+            ],
+            featured: {
+                title: "Proven Results",
+                desc: "See how we have helped 138+ businesses transform their operations.",
+                stat: "138+ Projects Delivered",
+                ctaLabel: "Book a Free Consultation →",
+                ctaHref: "https://calendar.app.google/PUsxADQBnpQsTrDbA"
+            }
+        },
+
+        whoWeAre: {
+            label: "Company",
+            type: "flat",
+            cols: [
+                {
+                    heading: "About",
+                    items: [
+                        { icon: "ℹ️", label: "About Us", href: "about.html", desc: "Our story & mission" },
+                        { icon: "👥", label: "Our Team", href: "about.html#team", desc: "Meet the leadership" },
+                        { icon: "💼", label: "Careers", href: "careers.html", desc: "Join the team" },
+                        { icon: "🎓", label: "Incubation Program", href: "incubation.html", desc: "Intern mentorship" }
+                    ]
+                },
+                {
+                    heading: "Programs & Connect",
+                    items: [
+                        { icon: "🤝", label: "Partner With Us", href: "partner.html", desc: "Referral & white-label" },
+                        { icon: "🚀", label: "Bharat Startup Launchpad ↗", href: "https://bharatstartuplaunchpad.com", external: true, desc: "Startup grants & funding" },
+                        { icon: "📞", label: "Contact Us", href: "contact.html", desc: "Book a consultation" }
+                    ]
+                }
+            ],
+            featured: {
+                title: "Join the Mission",
+                desc: "We are building the future of software development. Zero bloat, 100% execution.",
+                stat: "6+ years, 138+ clients",
+                ctaLabel: "Meet the Team →",
+                ctaHref: "about.html"
+            }
+        }
+    };
+
+    // ══════════════════════════════════════════════════════════════════════
+    // DROPDOWN BUILDERS
+    // ══════════════════════════════════════════════════════════════════════
+
+    function buildFeaturedCard(featured) {
+        if (!featured) return '';
+        return `
+            <div class="nav-featured-card">
+                ${featured.stat ? `<div class="nav-featured-stat">${featured.stat}</div>` : ''}
+                <h4>${featured.title}</h4>
+                <p>${featured.desc}</p>
+                <a href="${featured.ctaHref}" class="nav-featured-link">${featured.ctaLabel}</a>
+            </div>
+        `;
+    }
+
+    function buildFlatDropdown(menuId, data) {
+        const colsHTML = data.cols.map(col => {
+            const isGrid = col.items.length > 4;
+            const containerClass = isGrid ? 'nav-dd-items-grid' : 'nav-dd-items';
+            return `
+            <div class="nav-dd-col">
+                <div class="nav-dd-heading">${col.heading}</div>
+                <div class="${containerClass}">
+                ${col.items.map(item => {
+                    const ext = item.external ? 'target="_blank" rel="noopener"' : '';
+                    return `
+                    <a href="${item.href}" class="nav-dd-item" ${ext}>
+                        <span class="nav-dd-icon">${item.icon}</span>
+                        <div class="nav-dd-text">
+                            <span class="nav-dd-label">${item.label}</span>
+                            <span class="nav-dd-desc">${item.desc}</span>
+                        </div>
+                    </a>`;
+                }).join('')}
+                </div>
+            </div>
+        `}).join('');
+
+        return `
+            <div class="nav-mega-dropdown nav-dd-${menuId}">
+                <div class="nav-dd-inner">
+                    <div class="nav-dd-cols">${colsHTML}</div>
+                    <div class="nav-dd-featured">${buildFeaturedCard(data.featured)}</div>
+                </div>
+            </div>
+        `;
+    }
+
+    function buildLayeredDropdown(menuId, data) {
+        // Layer 2 list (left column)
+        const l2HTML = data.categories.map((cat, idx) => `
+            <div class="nav-l2-item ${idx === 0 ? 'active' : ''}"
+                 data-cat-id="${cat.id}"
+                 data-has-children="${cat.hasChildren}">
+                <span>${cat.label}</span>
+                ${cat.hasChildren ? chevronRight : ''}
+            </div>
+        `).join('');
+
+        // Layer 3 panels (one per category with children)
+        const l3PanelsHTML = data.categories.filter(c => c.hasChildren).map((cat, idx) => {
+            const gridHTML = cat.subitems.map(sub =>
+                `<a href="${sub.href}" class="nav-l3-link">${sub.label}</a>`
+            ).join('');
+
+            const miniHTML = cat.miniFeature ? `
+                <div class="nav-mini-feature">
+                    <h4>${cat.miniFeature.title}</h4>
+                    <p>${cat.miniFeature.desc}</p>
+                    <a href="${cat.miniFeature.ctaHref}" class="nav-featured-link">${cat.miniFeature.ctaLabel}</a>
+                </div>
+            ` : '';
+
+            return `
+                <div class="nav-l3-panel ${idx === 0 ? 'active' : ''}" data-panel="${cat.id}">
+                    <div class="nav-l3-grid">${gridHTML}</div>
+                    ${miniHTML}
+                </div>
+            `;
+        }).join('');
+
+        // Featured panels (one per category WITHOUT children)
+        const featuredPanelsHTML = data.categories.filter(c => !c.hasChildren).map(cat => `
+            <div class="nav-l3-panel nav-featured-panel" data-panel="${cat.id}">
+                <div class="nav-featured-full">
+                    <div class="nav-featured-placeholder" style="background:${cat.featured.gradient}">
+                        <span>${cat.featured.emoji}</span>
+                    </div>
+                    <h4>${cat.featured.title}</h4>
+                    <p>${cat.featured.desc}</p>
+                    <a href="${cat.featured.ctaHref}" class="nav-featured-link">${cat.featured.ctaLabel}</a>
+                </div>
+            </div>
+        `).join('');
+
+        return `
+            <div class="nav-mega-dropdown nav-dd-${menuId} nav-dd-layered">
+                <div class="nav-dd-layered-inner">
+                    <div class="nav-l2-list">${l2HTML}</div>
+                    <div class="nav-l3-container">
+                        ${l3PanelsHTML}
+                        ${featuredPanelsHTML}
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    function buildDropdown(menuId, data) {
+        if (data.type === 'layered') {
+            return buildLayeredDropdown(menuId, data);
+        }
+        return buildFlatDropdown(menuId, data);
+    }
+
+    // ══════════════════════════════════════════════════════════════════════
+    // MAIN NAV BUILDER
+    // ══════════════════════════════════════════════════════════════════════
+
     async function buildNav() {
         const page = document.body.getAttribute('data-page') || '';
-        
+
         const navHTML = `
             <div class="nav-container">
                 <a href="index.html" class="logo">TRAI</a>
                 <ul class="nav-links" id="nav-links">
-                                        <li class="has-dropdown">
-                        <a href="industries.html" class="${['industries','msmes','startups','smb','enterprise'].includes(page)?'active':''}">Who We Help ${chevron}</a>
-                        ${buildMegaMenu('whoWeHelp', navData.whoWeHelp)}
+                    <li class="has-dropdown">
+                        <a href="about.html" class="${['about','careers','partner','incubation','contact'].includes(page)?'active':''}">${navData.whoWeAre.label} ${chevronDown}</a>
+                        ${buildDropdown('whoWeAre', navData.whoWeAre)}
                     </li>
                     <li class="has-dropdown">
-                        <a href="solutions.html" class="${['ai-automation','mobile-apps','web-development','hire-dedicated-developers'].includes(page)?'active':''}">Services ${chevron}</a>
-                        ${buildMegaMenu('services', navData.services)}
+                        <a href="solutions.html" class="${['ai-automation','mobile-apps','web-development','custom-software','cloud-devops','digital-marketing','enterprise-platforms','hire-dedicated-developers'].includes(page)?'active':''}">${navData.services.label} ${chevronDown}</a>
+                        ${buildDropdown('services', navData.services)}
+                    </li>
+                    <li>
+                        <a href="solutions.html" class="${page==='solutions'?'active':''}">Technologies</a>
                     </li>
                     <li class="has-dropdown">
-                        <a href="clients.html" class="${['clients','client-reviews','pricing','our-development-process'].includes(page)?'active':''}">Work ${chevron}</a>
-                        ${buildMegaMenu('work', navData.work)}
+                        <a href="industries.html" class="${['industries','msmes','startups','smb','enterprise'].includes(page)?'active':''}">${navData.whoWeHelp.label} ${chevronDown}</a>
+                        ${buildDropdown('whoWeHelp', navData.whoWeHelp)}
                     </li>
                     <li class="has-dropdown">
-                        <a href="about.html" class="${['about','careers','partner','incubation','contact'].includes(page)?'active':''}">Company ${chevron}</a>
-                        ${buildMegaMenu('company', navData.company)}
+                        <a href="clients.html" class="${['clients','client-reviews','pricing'].includes(page)?'active':''}">${navData.work.label} ${chevronDown}</a>
+                        ${buildDropdown('work', navData.work)}
                     </li>
                 </ul>
                 <div class="nav-actions">
@@ -222,34 +370,19 @@
                         <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"/></svg>
                         <span class="full-menu-label">Menu</span>
                     </button>
-                    <!-- Theme Toggle Switch -->
                     <div class="theme-toggle-wrap" id="theme-toggle-wrap">
                         <span class="theme-tooltip" id="theme-tooltip">Switch to Light Mode</span>
                         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
                             <span class="theme-toggle-track">
                                 <span class="theme-toggle-thumb">
-                                    <!-- Sun icon -->
                                     <svg class="icon-sun" viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 17a5 5 0 100-10 5 5 0 000 10zm0-12a1 1 0 001-1V3a1 1 0 00-2 0v1a1 1 0 001 1zm0 14a1 1 0 00-1 1v1a1 1 0 002 0v-1a1 1 0 00-1-1zm8-7a1 1 0 000-2h-1a1 1 0 000 2h1zM5 12a1 1 0 00-1-1H3a1 1 0 000 2h1a1 1 0 001-1zm11.95-6.364a1 1 0 000-1.414l-.707-.707a1 1 0 00-1.414 1.414l.707.707a1 1 0 001.414 0zM7.757 17.657a1 1 0 00-1.414 0l-.707.707a1 1 0 001.414 1.414l.707-.707a1 1 0 000-1.414zm9.9 1.414l-.707-.707a1 1 0 00-1.414 1.414l.707.707a1 1 0 001.414-1.414zM7.05 7.05a1 1 0 000-1.414l-.707-.707A1 1 0 004.93 6.343l.707.707A1 1 0 007.05 7.05z"/></svg>
-                                    <!-- Moon icon -->
                                     <svg class="icon-moon" viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/></svg>
                                 </span>
                             </span>
                         </button>
                     </div>
-                    <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary">Let's Talk</a>
+                    <a href="contact.html" class="btn-primary">Get a Quote</a>
                     <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">&#9776;</button>
-                </div>
-            </div>
-
-            <div id="full-menu-overlay" class="full-menu-overlay">
-                <div class="full-menu-header">
-                    <a href="index.html" class="logo">TRAI</a>
-                    <button class="full-menu-close" id="full-menu-close" aria-label="Close menu">✕</button>
-                </div>
-                <div class="full-menu-body">
-                    <div class="fm-col fm-level1" id="fm-level1"></div>
-                    <div class="fm-col fm-level2" id="fm-level2"></div>
-                    <div class="fm-col fm-level3" id="fm-level3"></div>
                 </div>
             </div>
         `;
@@ -257,11 +390,30 @@
         const navbar = document.getElementById('navbar');
         if (navbar) {
             navbar.innerHTML = navHTML;
-            // Scroll effect
             window.addEventListener('scroll', () => {
                 navbar.classList.toggle('scrolled', window.scrollY > 20);
             });
         }
+
+        // ── Layer 2 → Layer 3 hover switching (Services dropdown) ──
+        document.querySelectorAll('.nav-l2-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                const catId = item.dataset.catId;
+                const dropdown = item.closest('.nav-mega-dropdown');
+
+                // Deactivate all L2 items
+                dropdown.querySelectorAll('.nav-l2-item').forEach(i => i.classList.remove('active'));
+                // Deactivate all L3 panels
+                dropdown.querySelectorAll('.nav-l3-panel').forEach(p => p.classList.remove('active'));
+
+                // Activate this item
+                item.classList.add('active');
+
+                // Activate matching panel
+                const panel = dropdown.querySelector(`.nav-l3-panel[data-panel="${catId}"]`);
+                if (panel) panel.classList.add('active');
+            });
+        });
 
         // ── Mobile toggle ──
         const mobileBtn = document.getElementById('mobile-menu-btn');
@@ -284,26 +436,6 @@
             });
         });
 
-        // ── Tech Flyout Hover Logic ──
-        const catBtns = document.querySelectorAll('.tech-cat-btn');
-        const panes = document.querySelectorAll('.tech-pane');
-        catBtns.forEach(btn => {
-            btn.addEventListener('mouseenter', () => {
-                catBtns.forEach(b => b.classList.remove('active'));
-                panes.forEach(p => p.classList.remove('active'));
-                btn.classList.add('active');
-                document.getElementById(btn.dataset.target).classList.add('active');
-            });
-            // Support click for mobile/touch
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                catBtns.forEach(b => b.classList.remove('active'));
-                panes.forEach(p => p.classList.remove('active'));
-                btn.classList.add('active');
-                document.getElementById(btn.dataset.target).classList.add('active');
-            });
-        });
-
         // ── Close on outside click ──
         document.addEventListener('click', (e) => {
             if (!e.target.closest('#navbar') && navLinks) {
@@ -312,7 +444,17 @@
                 if (mobileBtn) mobileBtn.innerHTML = '&#9776;';
             }
         });
-        // ── Theme Toggle Logic ──────────────────────────────────────────────
+
+        // ── Close on Escape ──
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks) {
+                navLinks.classList.remove('mobile-open');
+                document.querySelectorAll('.has-dropdown').forEach(li => li.classList.remove('mobile-expanded'));
+                if (mobileBtn) mobileBtn.innerHTML = '&#9776;';
+            }
+        });
+
+        // ── Theme Toggle ──
         function applyTheme(isLight) {
             document.body.classList.toggle('light-mode', isLight);
             const tooltip = document.getElementById('theme-tooltip');
@@ -322,11 +464,9 @@
             if (toggle)  toggle.classList.toggle('is-light', isLight);
         }
 
-        // Init from localStorage
         const savedTheme = localStorage.getItem('trai-theme');
         applyTheme(savedTheme === 'light');
 
-        // Click handler
         const themeBtn = document.getElementById('theme-toggle');
         if (themeBtn) {
             themeBtn.addEventListener('click', () => {
@@ -336,99 +476,20 @@
             });
         }
 
-        // ── Full Menu Overlay Logic ─────────────────────────────────────────
+        // ── Hamburger → Full Menu Button (opens mobile nav on desktop too) ──
         const fullMenuBtn = document.getElementById('full-menu-btn');
-        const fullMenuOverlay = document.getElementById('full-menu-overlay');
-        const fullMenuClose = document.getElementById('full-menu-close');
-        const col1 = document.getElementById('fm-level1');
-        const col2 = document.getElementById('fm-level2');
-        const col3 = document.getElementById('fm-level3');
-
-        if (fullMenuBtn && fullMenuOverlay) {
-                        const l1Items = [
-                { id: 'whoWeHelp', label: 'Who We Help' },
-                { id: 'services', label: 'Services' },
-                { id: 'work', label: 'Our Work' },
-                { id: 'company', label: 'Company' }
-            ];
-
-            let activeL1 = 'services';
-            let activeL2 = 0;
-
-            function renderFullMenu() {
-                // Column 1
-                col1.innerHTML = l1Items.map(item => 
-                    `<button class="fm-l1-btn ${activeL1 === item.id ? 'active' : ''}" data-id="${item.id}">
-                        ${item.label}
-                        <span class="fm-arrow">→</span>
-                    </button>`
-                ).join('');
-
-                // Column 2
-                                const dataL1 = navData[activeL1];
-                if (dataL1 && dataL1.cols) {
-                    col2.innerHTML = dataL1.cols.map((col, idx) => 
-                        `<button class="fm-l2-btn ${activeL2 === idx ? 'active' : ''}" data-idx="${idx}">
-                            ${col.heading}
-                            <span class="fm-arrow">→</span>
-                        </button>`
-                    ).join('');
-                } else {
-                    col2.innerHTML = '';
-                }
-
-                // Column 3
-                if (dataL1 && dataL1.cols && dataL1.cols[activeL2]) {
-                    const col = dataL1.cols[activeL2];
-                    col3.innerHTML = col.items.map(item => 
-                        `<a href="${item.href}" class="fm-l3-link">
-                            <span class="fm-l3-icon">${item.icon}</span>
-                            <div class="fm-l3-text">
-                                <span class="fm-l3-label">${item.label}</span>
-                                <span class="fm-l3-desc">${item.desc}</span>
-                            </div>
-                        </a>`
-                    ).join('');
-                } else {
-                    col3.innerHTML = '';
-                }
-            }
-
+        if (fullMenuBtn && navLinks) {
             fullMenuBtn.addEventListener('click', () => {
-                fullMenuOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
-                activeL1 = 'company';
-                activeL2 = 0;
-                renderFullMenu();
-            });
-
-            fullMenuClose.addEventListener('click', () => {
-                fullMenuOverlay.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-
-            fullMenuOverlay.addEventListener('click', (e) => {
-                const l1Btn = e.target.closest('.fm-l1-btn');
-                if (l1Btn) {
-                    activeL1 = l1Btn.dataset.id;
-                    activeL2 = 0;
-                    renderFullMenu();
-                }
-
-                const l2Btn = e.target.closest('.fm-l2-btn');
-                if (l2Btn) {
-                    activeL2 = parseInt(l2Btn.dataset.idx);
-                    renderFullMenu();
-                }
+                navLinks.classList.toggle('mobile-open');
             });
         }
 
-        // ── Bot Detection for SEO ─────────────────────────────────────────
+        // ── Bot Detection for SEO ──
         if (/bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent)) {
             document.documentElement.classList.add('bot-detected');
         }
 
-        // ── Footer Builder (5-column sitemap) ─────────────────────────────
+        // ── Footer ──
         const footerEl = document.getElementById('footer');
         if (footerEl) {
             footerEl.innerHTML = `
@@ -459,11 +520,9 @@
                     <li><a href="web-development.html">Web Development</a></li>
                     <li><a href="mobile-apps.html">Mobile Apps</a></li>
                     <li><a href="ai-automation.html">AI & Automation</a></li>
-                    <li><a href="ai-agents.html">AI Agents</a></li>
                     <li><a href="cloud-devops.html">Cloud & DevOps</a></li>
-                    <li><a href="cybersecurity.html">Cybersecurity</a></li>
-                    <li><a href="ui-ux-design.html">UI/UX Design</a></li>
                     <li><a href="digital-marketing.html">Digital Marketing</a></li>
+                    <li><a href="ui-ux-design.html">UI/UX Design</a></li>
                     <li><a href="data-analytics.html">Data & Analytics</a></li>
                 </ul>
             </div>
@@ -475,7 +534,7 @@
                     <li><a href="smb.html">SMB</a></li>
                     <li><a href="enterprise.html">Enterprise</a></li>
                 </ul>
-                <h4 style="margin-top: 24px;">Company</h4>
+                <h4 style="margin-top: 24px;">Who We Are</h4>
                 <ul>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="careers.html">Careers</a></li>
@@ -492,6 +551,7 @@
                     <li><a href="app-store.html">App Store</a></li>
                     <li><a href="choosing-a-development-partner.html">Trust & Due Diligence</a></li>
                     <li><a href="industries.html">Industries</a></li>
+                    <li><a href="our-development-process.html">How We Work</a></li>
                 </ul>
                 <h4 style="margin-top: 24px;">Location</h4>
                 <p>Tower B-2, 1109, DLF MyPad,<br>Opposite Hyatt Regency, Vibhuti Khand,<br>Gomti Nagar, Lucknow, UP 226010</p>
@@ -523,7 +583,7 @@
             `;
         }
 
-        // ── WhatsApp Click-to-Chat FAB ────────────────────────────────────
+        // ── WhatsApp FAB ──
         var whatsappNumber = '917905495478';
         var whatsappMessage = encodeURIComponent("Hi Trai Inc, I'm looking for a digital solution for my business.");
         var whatsappURL = 'https://wa.me/' + whatsappNumber + '?text=' + whatsappMessage;
@@ -537,7 +597,7 @@
         fabLogo.innerHTML = '<svg viewBox="0 0 32 32" width="32" height="32" fill="white"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.13 6.744 3.048 9.38L1.054 31.2l6.044-1.94a15.9 15.9 0 008.906 2.704C24.826 31.964 32 24.788 32 16.004S24.826 0 16.004 0zm9.35 22.616c-.396 1.116-1.958 2.042-3.212 2.312-.86.182-1.98.328-5.754-1.236-4.83-2.004-7.938-6.902-8.18-7.222-.232-.32-1.948-2.596-1.948-4.952s1.232-3.508 1.67-3.988c.438-.48.956-.6 1.276-.6.32 0 .636.004.914.016.294.014.688-.112 1.076.82.396.952 1.348 3.288 1.466 3.528.118.24.198.518.04.836-.16.32-.24.518-.478.8-.24.28-.504.626-.72.84-.24.24-.488.498-.21.976.28.48 1.244 2.054 2.672 3.328 1.836 1.636 3.384 2.144 3.864 2.384.48.24.76.2 1.04-.12.278-.32 1.196-1.392 1.514-1.872.318-.48.636-.396 1.076-.24.438.16 2.784 1.312 3.262 1.552.48.24.798.356.916.556.118.198.118 1.156-.278 2.272z"/></svg><div class="chat-badge">1</div>';
         document.body.appendChild(fabLogo);
 
-        // Newsletter form handler
+        // ── Newsletter form ──
         var newsletterForm = document.querySelector('.newsletter-form');
         if (newsletterForm) {
             newsletterForm.addEventListener('submit', function(e) {
