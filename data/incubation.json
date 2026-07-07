@@ -90,5 +90,11 @@
     "title": "Ready to build something real?",
     "description": "Applications for our Q3 2026 cohort are open. We back founders who ship fast, think deeply, and refuse to quit.",
     "button_text": "Apply to Trai Incubator"
+  },
+  "external_cta": {
+    "title": "Need startup funding or grants?",
+    "description": "Bharat Startup Launchpad helps founders access government grants, credits, and funding programs.",
+    "button_text": "Visit Bharat Startup Launchpad →",
+    "button_href": "https://bharatstartuplaunchpad.com"
   }
 }
