@@ -674,6 +674,20 @@
                 "color": "#8fd3f4",
                 "title": "Offline-First Sync",
                 "desc": "Apps that work perfectly without an internet connection and sync seamlessly when online."
+            },
+            {
+                "icon": "🛡️",
+                "color": "#a8edea",
+                "title": "App Store Compliances",
+                "desc": "Ensuring your app meets all strict App Store and Play Store guidelines, including data privacy and security requirements.",
+                "id": "compliances"
+            },
+            {
+                "icon": "🚀",
+                "color": "#fed6e3",
+                "title": "App Store Publishing",
+                "desc": "End-to-end management of the app submission, review, and publishing process.",
+                "id": "publishing"
             }
         ],
         "process": [

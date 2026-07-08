@@ -90,7 +90,9 @@
                         { label: "iOS & Android Native", href: "mobile-apps.html#native" },
                         { label: "Cross-Platform (Flutter)", href: "mobile-apps.html#flutter" },
                         { label: "Desktop Applications", href: "mobile-apps.html#desktop" },
-                        { label: "App Store Deployment", href: "mobile-apps.html#deployment" }
+                        { label: "App Store Deployment", href: "mobile-apps.html#deployment" },
+                        { label: "App Store Compliances", href: "mobile-apps.html#compliances" },
+                        { label: "App Store Publishing", href: "mobile-apps.html#publishing" }
                     ],
                     miniFeature: {
                         title: "Smart, Scalable, <span class='highlight'>Secure</span>",
@@ -553,7 +555,7 @@
                     <li><a href="our-development-process.html">How We Work</a></li>
                 </ul>
                 <h4 style="margin-top: 24px;">Location</h4>
-                <p>Tower B-2, 1109, DLF MyPad,<br>Opposite Hyatt Regency, Vibhuti Khand,<br>Gomti Nagar, Lucknow, UP 226010</p>
+                <p>Tower B-2, DLF MyPad,<br>Opposite Hyatt Regency, Vibhuti Khand,<br>Gomti Nagar, Lucknow, UP 226010</p>
                 <h4 class="footer-hours-heading">Hours</h4>
                 <p>Mon–Sat: 10am – 7pm IST<br>Sun: By appointment</p>
             </div>

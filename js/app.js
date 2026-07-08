@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             <!-- Col 4: Location + Hours -->
             <div class="link-group">
                 <h4>📍 Location</h4>
-                <p>Tower B-2, 1109, DLF MyPad,<br>Opposite Hyatt Regency, Vibhuti Khand,<br>Gomti Nagar, Lucknow, Uttar Pradesh 226010</p>
+                <p>Tower B-2, DLF MyPad,<br>Opposite Hyatt Regency, Vibhuti Khand,<br>Gomti Nagar, Lucknow, Uttar Pradesh 226010</p>
                 <h4 style="margin-top:20px;">⏰ Hours</h4>
                 <p>Mon–Sat: 9am – 7pm IST<br>Sun: By appointment</p>
             </div>
