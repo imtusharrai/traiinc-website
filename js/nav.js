@@ -90,7 +90,6 @@
                         { label: "iOS & Android Native", href: "mobile-apps.html#native", desc: "High-performance native apps" },
                         { label: "Cross-Platform (Flutter)", href: "mobile-apps.html#flutter", desc: "One codebase for all platforms" },
                         { label: "Desktop Applications", href: "mobile-apps.html#desktop", desc: "Robust apps for Windows & macOS" },
-                        { label: "App Store Deployment", href: "mobile-apps.html#deployment", desc: "End-to-end launch on app stores" },
                         { label: "App Store Compliances", href: "mobile-apps.html#compliances", desc: "Ensure apps meet strict guidelines" },
                         { label: "App Store Publishing", href: "mobile-apps.html#publishing", desc: "Seamless submission services" }
                     ],
