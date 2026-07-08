@@ -3529,14 +3529,28 @@ body.light-mode .full-menu-btn:hover { background: rgba(0,0,0,0.08); }
     display: block;
     padding: 10px 14px;
     border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.18s;
+}
+.nav-l3-label {
+    display: block;
     color: var(--text-muted);
     font-size: 0.92rem;
     font-weight: 500;
-    text-decoration: none;
-    transition: background 0.18s, color 0.18s;
+    transition: color 0.18s;
+}
+.nav-l3-desc {
+    display: block;
+    font-size: 0.82rem;
+    color: #B0A0A5;
+    line-height: 1.4;
+    margin-top: 3px;
+    font-weight: 400;
 }
 .nav-l3-link:hover {
     background: var(--bg-light);
+}
+.nav-l3-link:hover .nav-l3-label {
     color: var(--accent-color);
 }
 
