@@ -69,10 +69,10 @@
                     hasChildren: true,
                     href: "custom-software.html",
                     subitems: [
-                        { label: "Web Applications", href: "custom-software.html#web-apps" },
-                        { label: "SaaS Platforms", href: "custom-software.html#saas" },
-                        { label: "Enterprise Tools", href: "custom-software.html#enterprise" },
-                        { label: "API Development", href: "custom-software.html#api" }
+                        { label: "Web Applications", href: "custom-software.html#web-apps", desc: "Scalable front-end & back-end systems" },
+                        { label: "SaaS Platforms", href: "custom-software.html#saas", desc: "Multi-tenant software products" },
+                        { label: "Enterprise Tools", href: "custom-software.html#enterprise", desc: "Internal tools tailored for your operations" },
+                        { label: "API Development", href: "custom-software.html#api", desc: "Secure and high-performance endpoints" }
                     ],
                     miniFeature: {
                         title: "Full-Stack <span class='highlight'>Excellence</span>",
@@ -87,12 +87,12 @@
                     hasChildren: true,
                     href: "mobile-apps.html",
                     subitems: [
-                        { label: "iOS & Android Native", href: "mobile-apps.html#native" },
-                        { label: "Cross-Platform (Flutter)", href: "mobile-apps.html#flutter" },
-                        { label: "Desktop Applications", href: "mobile-apps.html#desktop" },
-                        { label: "App Store Deployment", href: "mobile-apps.html#deployment" },
-                        { label: "App Store Compliances", href: "mobile-apps.html#compliances" },
-                        { label: "App Store Publishing", href: "mobile-apps.html#publishing" }
+                        { label: "iOS & Android Native", href: "mobile-apps.html#native", desc: "High-performance native apps" },
+                        { label: "Cross-Platform (Flutter)", href: "mobile-apps.html#flutter", desc: "One codebase for all platforms" },
+                        { label: "Desktop Applications", href: "mobile-apps.html#desktop", desc: "Robust apps for Windows & macOS" },
+                        { label: "App Store Deployment", href: "mobile-apps.html#deployment", desc: "End-to-end launch on app stores" },
+                        { label: "App Store Compliances", href: "mobile-apps.html#compliances", desc: "Ensure apps meet strict guidelines" },
+                        { label: "App Store Publishing", href: "mobile-apps.html#publishing", desc: "Seamless submission services" }
                     ],
                     miniFeature: {
                         title: "Smart, Scalable, <span class='highlight'>Secure</span>",
@@ -107,10 +107,10 @@
                     hasChildren: true,
                     href: "ai-automation.html",
                     subitems: [
-                        { label: "Task & Process Automation Agents", href: "ai-automation.html#workflows" },
-                        { label: "Customer Service & Collaboration Agents", href: "ai-automation.html#customer-service" },
-                        { label: "Enterprise & Role-Based Agents", href: "ai-automation.html#enterprise-agents" },
-                        { label: "Multi-Agent Systems (MAS)", href: "ai-automation.html#mas" }
+                        { label: "Task & Process Automation Agents", href: "ai-automation.html#workflows", desc: "Rule-driven agents for back-office tasks" },
+                        { label: "Customer Service & Collaboration Agents", href: "ai-automation.html#customer-service", desc: "Handle inquiries and retrieve internal data" },
+                        { label: "Enterprise & Role-Based Agents", href: "ai-automation.html#enterprise-agents", desc: "Secure, governed AI in your ecosystem" },
+                        { label: "Multi-Agent Systems (MAS)", href: "ai-automation.html#mas", desc: "Distributed networks solving complex logistics" }
                     ],
                     miniFeature: {
                         title: "AI-First for <span class='highlight'>Business</span>",
@@ -125,9 +125,9 @@
                     hasChildren: true,
                     href: "cloud-devops.html",
                     subitems: [
-                        { label: "Cloud Migration", href: "cloud-devops.html#migration" },
-                        { label: "CI/CD Pipelines", href: "cloud-devops.html#cicd" },
-                        { label: "Serverless Architecture", href: "cloud-devops.html#serverless" }
+                        { label: "Cloud Migration", href: "cloud-devops.html#migration", desc: "Seamless transition to AWS or GCP" },
+                        { label: "CI/CD Pipelines", href: "cloud-devops.html#cicd", desc: "Automated testing and rapid deployments" },
+                        { label: "Serverless Architecture", href: "cloud-devops.html#serverless", desc: "Scale infinitely and reduce costs" }
                     ],
                     miniFeature: {
                         title: "Scale Without the <span class='highlight'>Bill</span>",
@@ -283,7 +283,10 @@
         // Layer 3 panels (one per category with children)
         const l3PanelsHTML = data.categories.filter(c => c.hasChildren).map((cat, idx) => {
             const gridHTML = cat.subitems.map(sub =>
-                `<a href="${sub.href}" class="nav-l3-link">${sub.label}</a>`
+                `<a href="${sub.href}" class="nav-l3-link">
+                    <span class="nav-l3-label">${sub.label}</span>
+                    ${sub.desc ? `<span class="nav-l3-desc">${sub.desc}</span>` : ''}
+                </a>`
             ).join('');
 
             const miniHTML = cat.miniFeature ? `
