@@ -159,7 +159,7 @@
                 },
                 {
                     id: "crm-enterprise",
-                    label: "CRM & ERP",
+                    label: "CRM, ERP & Billing Softwares",
                     hasChildren: false,
                     href: "enterprise-platforms.html",
                     featured: {
