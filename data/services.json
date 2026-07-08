@@ -225,31 +225,60 @@
         "color": "#43e97b",
         "features": [
             {
-                "icon": "\ud83c\udf10",
+                "icon": "🌐",
                 "color": "#00f2fe",
-                "title": "Scalable Architectures",
-                "desc": "We build microservices and serverless architectures designed to handle millions of users.",
+                "title": "Custom Website Design",
+                "desc": "Bespoke digital experiences built for performance and brand identity.",
+                "id": "web-design"
+            },
+            {
+                "icon": "🛒",
+                "color": "#4facfe",
+                "title": "E-Commerce Application",
+                "desc": "Robust online retail platforms designed for conversion and scale.",
+                "id": "ecommerce"
+            },
+            {
+                "icon": "📝",
+                "color": "#43e97b",
+                "title": "CMS Development",
+                "desc": "Content management solutions tailored to your workflow.",
+                "id": "cms"
+            },
+            {
+                "icon": "💻",
+                "color": "#38f9d7",
+                "title": "Web Applications",
+                "desc": "Scalable front-end & back-end systems that power your business.",
                 "id": "web-apps"
             },
             {
-                "icon": "\ud83d\udee1\ufe0f",
-                "color": "#4facfe",
-                "title": "Enterprise Security",
-                "desc": "SOC2-compliant development lifecycle with built-in encryption, role-based access, and vulnerability scanning.",
+                "icon": "☁️",
+                "color": "#fa709a",
+                "title": "SaaS Platforms",
+                "desc": "Multi-tenant software products with enterprise-grade security.",
                 "id": "saas"
             },
             {
-                "icon": "\ud83d\ude80",
-                "color": "#43e97b",
-                "title": "High Performance",
-                "desc": "Blazing fast APIs and optimized databases. We focus on low latency and high throughput for core systems.",
+                "icon": "🏢",
+                "color": "#a18cd1",
+                "title": "Enterprise Software",
+                "desc": "Designing back-office tools to manage operations, supply chains, and customer relationships, such as Customer Relationship Management tools.",
                 "id": "enterprise"
             },
             {
-                "icon": "\ud83e\udde9",
-                "color": "#38f9d7",
-                "title": "Modular Architecture",
-                "desc": "Microservices and decoupled architectures that scale infinitely as your user base grows."
+                "icon": "🔗",
+                "color": "#f093fb",
+                "title": "System Integration",
+                "desc": "Connecting your web presence with internal databases and external APIs.",
+                "id": "integration"
+            },
+            {
+                "icon": "🔌",
+                "color": "#ff1a1a",
+                "title": "API Development",
+                "desc": "Secure and high-performance endpoints for modern architectures.",
+                "id": "api"
             }
         ],
         "process": [
