@@ -7,58 +7,48 @@
         "color": "#a18cd1",
         "features": [
             {
-                "icon": "\ud83e\udde0",
+                "icon": "🧠",
                 "color": "#f093fb",
                 "title": "Custom LLM Integration",
                 "desc": "Connect GPT-4 or Claude to your proprietary data. We build secure RAG (Retrieval-Augmented Generation) systems.",
                 "id": "chatbots"
             },
             {
-                "icon": "\u2699\ufe0f",
+                "icon": "⚙️",
                 "color": "#f5576c",
-                "title": "Process Automation",
-                "desc": "Automate data entry, customer support, and document parsing using AI-driven workflows.",
+                "title": "Task & Process Automation Agents",
+                "desc": "Highly focused, rule-driven agents designed for synchronous back-office workflows, such as Accounts Payable Invoice Matching or HR Resume Screening.",
                 "id": "workflows"
             },
             {
-                "icon": "\ud83e\udd16",
-                "color": "#fa709a",
-                "title": "Autonomous Agents",
-                "desc": "Deploy specialized AI agents that can research, email, and make decisions 24/7 without human intervention.",
-                "id": "voice"
+                "icon": "🗣️",
+                "color": "#d299c2",
+                "title": "Customer Service & Collaboration Agents",
+                "desc": "Conversational systems that handle inquiries, retrieve internal data, and manage iterative human-in-the-loop dialogue. Many E-Commerce and financial firms use them for vendor and customer relations.",
+                "id": "customer-service"
             },
             {
-                "icon": "\ud83d\udcc4",
+                "icon": "🤖",
+                "color": "#fa709a",
+                "title": "Enterprise & Role-Based Agents",
+                "desc": "Deeply embedded, governed AI systems deployed inside existing enterprise ecosystems like Salesforce or Microsoft 365 to assist with complex tasks in secure, controlled environments.",
+                "id": "enterprise-agents"
+            },
+            {
+                "icon": "🌐",
+                "color": "#00f2fe",
+                "title": "Multi-Agent Systems (MAS)",
+                "desc": "Distributed networks of independent agents coordinating or competing within a shared environment to solve highly complex problems. Pioneers like OpenAI and Alphabet rely on these architectures for intricate logistics and coding operations.",
+                "id": "mas"
+            },
+            {
+                "icon": "📄",
                 "color": "#fda085",
                 "title": "Intelligent Document Processing",
                 "desc": "Extract and structure data from PDFs, invoices, and hand-written forms automatically."
             },
             {
-                "icon": "\ud83d\udcac",
-                "color": "#d299c2",
-                "title": "Customer Support Agents",
-                "desc": "AI agents that resolve complex customer tickets 24/7, reading your internal documentation to provide accurate answers."
-            },
-            {
-                "icon": "\ud83d\udd75\ufe0f",
-                "color": "#fef9d7",
-                "title": "Research Agents",
-                "desc": "Agents that scrape the web, summarize competitor pricing, and generate weekly market reports autonomously."
-            },
-            {
-                "icon": "\ud83d\udee0\ufe0f",
-                "color": "#00f2fe",
-                "title": "LangChain & Multi-Agent",
-                "desc": "Complex orchestration where multiple AI agents collaborate to solve multi-step problems."
-            },
-            {
-                "icon": "\ud83d\udd04",
-                "color": "#fbc2eb",
-                "title": "Continuous Learning",
-                "desc": "Agents that adapt and improve over time based on feedback and new data."
-            },
-            {
-                "icon": "\ud83d\udcde",
+                "icon": "📞",
                 "color": "#a1c4fd",
                 "title": "Inbound Support",
                 "desc": "AI receptionists that answer calls instantly, answer FAQs, and route complex queries to human agents."
