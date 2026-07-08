@@ -45,8 +45,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                     <li><a href="about.html">🏢 About Us</a></li>
                     <li><a href="solutions.html">⚙️ Solutions</a></li>
                     <li><a href="industries.html">🏭 Industries</a></li>
-                    <li><a href="incubation.html">🚀 Incubation</a></li>
                     <li><a href="careers.html">💼 Careers</a></li>
+                    <li><a href="https://bharatstartuplaunchpad.com" target="_blank">🚀 Incubation & Grants</a></li>
                     <li><a href="partner.html">🤝 Partner</a></li>
                 </ul>
             </div>
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <ul>
                     <li><a href="solutions.html">☁️ Cloud & DevOps</a></li>
                     <li><a href="solutions.html">🤖 AI & Automation</a></li>
-                    <li><a href="solutions.html">📱 Mobile Apps</a></li>
+                    <li><a href="mobile-apps.html">📱 Application Development</a></li>
                     <li><a href="solutions.html">🎨 UI/UX Design</a></li>
                     <li><a href="solutions.html">📈 Digital Marketing</a></li>
                     <li><a href="solutions.html">🔒 Cybersecurity</a></li>

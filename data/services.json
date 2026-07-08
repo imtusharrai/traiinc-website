@@ -636,13 +636,20 @@
     },
     "mobile-apps": {
         "title": "Native performance.<br>Cross-platform <span class='gradient-word'>speed.</span>",
-        "badge": "\ud83d\udcf1 Core Engineering",
-        "subtitle": "High-performance iOS and Android applications built with Flutter, React Native, or Swift. Beautiful UI combined with rock-solid backends.",
-        "icon": "\ud83d\udcf1",
+        "badge": "📱 Core Engineering",
+        "subtitle": "High-performance iOS, Android, and Desktop applications built with Flutter, React Native, Electron, or Swift. Beautiful UI combined with rock-solid backends.",
+        "icon": "📱",
         "color": "#84fab0",
         "features": [
             {
-                "icon": "\ud83d\udcf1",
+                "icon": "💻",
+                "color": "#ff0844",
+                "title": "Desktop Applications",
+                "desc": "Powerful desktop applications for Windows, macOS, and Linux using Electron and Tauri.",
+                "id": "desktop"
+            },
+            {
+                "icon": "📱",
                 "color": "#38f9d7",
                 "title": "Cross-Platform",
                 "desc": "Flutter and React Native development for deploying to both iOS and Android from a single codebase.",

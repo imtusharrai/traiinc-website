@@ -83,12 +83,13 @@
                 },
                 {
                     id: "mobile-apps",
-                    label: "Mobile App Development",
+                    label: "Application Development",
                     hasChildren: true,
                     href: "mobile-apps.html",
                     subitems: [
                         { label: "iOS & Android Native", href: "mobile-apps.html#native" },
                         { label: "Cross-Platform (Flutter)", href: "mobile-apps.html#flutter" },
+                        { label: "Desktop Applications", href: "mobile-apps.html#desktop" },
                         { label: "App Store Deployment", href: "mobile-apps.html#deployment" }
                     ],
                     miniFeature: {
@@ -195,15 +196,14 @@
                     items: [
                         { icon: "ℹ️", label: "About Us", href: "about.html", desc: "Our story & mission" },
                         { icon: "👥", label: "Our Team", href: "about.html#team", desc: "Meet the leadership" },
-                        { icon: "💼", label: "Careers", href: "careers.html", desc: "Join the team" },
-                        { icon: "🎓", label: "Incubation Program", href: "incubation.html", desc: "Intern mentorship" }
+                        { icon: "💼", label: "Careers", href: "careers.html", desc: "Join the team" }
                     ]
                 },
                 {
                     heading: "Programs & Connect",
                     items: [
                         { icon: "🤝", label: "Partner With Us", href: "partner.html", desc: "Referral & white-label" },
-                        { icon: "🚀", label: "Bharat Startup Launchpad ↗", href: "https://bharatstartuplaunchpad.com", external: true, desc: "Startup grants & funding" },
+                        { icon: "🚀", label: "Bharat Startup Launchpad ↗", href: "https://bharatstartuplaunchpad.com", external: true, desc: "Incubation, grants & funding" },
                         { icon: "📞", label: "Contact Us", href: "contact.html", desc: "Book a consultation" }
                     ]
                 }
@@ -518,7 +518,7 @@
                 <ul>
                     <li><a href="custom-software.html">Custom Software</a></li>
                     <li><a href="web-development.html">Web Development</a></li>
-                    <li><a href="mobile-apps.html">Mobile Apps</a></li>
+                    <li><a href="mobile-apps.html">Application Development</a></li>
                     <li><a href="ai-automation.html">AI & Automation</a></li>
                     <li><a href="cloud-devops.html">Cloud & DevOps</a></li>
                     <li><a href="digital-marketing.html">Digital Marketing</a></li>
@@ -538,7 +538,6 @@
                 <ul>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="careers.html">Careers</a></li>
-                    <li><a href="incubation.html">Incubation</a></li>
                     <li><a href="partner.html">Partners</a></li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="contact.html">Contact</a></li>
