@@ -1007,12 +1007,6 @@
                 "color": "#4facfe",
                 "title": "API Integration",
                 "desc": "Seamless connections to your existing backend, payment gateways, and third-party tools."
-            },
-            {
-                "icon": "\ud83d\ude80",
-                "color": "#00f2fe",
-                "title": "App Store Deployment",
-                "desc": "We handle the entire submission process for the Apple App Store and Google Play Store."
             }
         ],
         "process": [
