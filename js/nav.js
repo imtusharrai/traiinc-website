@@ -69,9 +69,13 @@
                     hasChildren: true,
                     href: "custom-software.html",
                     subitems: [
+                        { label: "Custom Website Design", href: "custom-software.html#web-design", desc: "Bespoke digital experiences" },
+                        { label: "E-Commerce Application", href: "custom-software.html#ecommerce", desc: "Robust online retail platforms" },
+                        { label: "CMS Development", href: "custom-software.html#cms", desc: "Content management solutions" },
                         { label: "Web Applications", href: "custom-software.html#web-apps", desc: "Scalable front-end & back-end systems" },
                         { label: "SaaS Platforms", href: "custom-software.html#saas", desc: "Multi-tenant software products" },
-                        { label: "Enterprise Tools", href: "custom-software.html#enterprise", desc: "Internal tools tailored for your operations" },
+                        { label: "Enterprise Software", href: "custom-software.html#enterprise", desc: "Designing back-office tools to manage operations, supply chains, and customer relationships, such as Customer Relationship Management tools." },
+                        { label: "System Integration", href: "custom-software.html#integration", desc: "Connecting your web presence with internal databases and external APIs." },
                         { label: "API Development", href: "custom-software.html#api", desc: "Secure and high-performance endpoints" }
                     ],
                     miniFeature: {
