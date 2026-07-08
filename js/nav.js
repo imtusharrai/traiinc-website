@@ -142,11 +142,16 @@
                 {
                     id: "digital-marketing",
                     label: "Digital Marketing & SEO",
-                    hasChildren: false,
+                    hasChildren: true,
                     href: "digital-marketing.html",
-                    featured: {
-                        emoji: "📈",
-                        gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                    subitems: [
+                        { label: "Organic Visibility & Content", href: "digital-marketing.html#organic", desc: "SEO & organic social media" },
+                        { label: "Paid Advertising", href: "digital-marketing.html#paid", desc: "SEM & display ads" },
+                        { label: "Direct Nurturing & Retention", href: "digital-marketing.html#nurturing", desc: "Email & SMS marketing" },
+                        { label: "Strategy, Tech & Analytics", href: "digital-marketing.html#strategy", desc: "Analytics & CRO" },
+                        { label: "AI Content Creation", href: "digital-marketing.html#ai-content", desc: "Audio, video, text & graphics" }
+                    ],
+                    miniFeature: {
                         title: "Grow Your <span class='highlight'>Reach</span>",
                         desc: "Data-driven marketing that delivers measurable ROI.",
                         ctaLabel: "Explore Marketing →",
@@ -165,6 +170,24 @@
                         desc: "Custom CRMs and dashboards tailored to your workflow.",
                         ctaLabel: "Explore CRM →",
                         ctaHref: "enterprise-platforms.html"
+                    }
+                },
+                {
+                    id: "content-creation",
+                    label: "AI Content Creation",
+                    hasChildren: true,
+                    href: "content-creation.html",
+                    subitems: [
+                        { label: "AI Text Generation", href: "content-creation.html#text", desc: "Automated communication" },
+                        { label: "AI Audio Generation", href: "content-creation.html#audio", desc: "Synthetic voiceovers" },
+                        { label: "AI Video Generation", href: "content-creation.html#video", desc: "Text-to-video clips" },
+                        { label: "AI Graphics & Visuals", href: "content-creation.html#graphics", desc: "Rapid design iteration" }
+                    ],
+                    miniFeature: {
+                        title: "AI Content <span class='highlight'>Creation</span>",
+                        desc: "High-quality audio, video, text, and graphics at scale.",
+                        ctaLabel: "Explore Content Creation →",
+                        ctaHref: "content-creation.html"
                     }
                 }
             ]
@@ -358,7 +381,7 @@
                         ${buildDropdown('whoWeAre', navData.whoWeAre)}
                     </li>
                     <li class="has-dropdown">
-                        <a href="solutions.html" class="${['ai-automation','mobile-apps','web-development','custom-software','cloud-devops','digital-marketing','enterprise-platforms','hire-dedicated-developers'].includes(page)?'active':''}">${navData.services.label} ${chevronDown}</a>
+                        <a href="solutions.html" class="${['ai-automation','mobile-apps','web-development','custom-software','cloud-devops','digital-marketing','enterprise-platforms','hire-dedicated-developers','content-creation'].includes(page)?'active':''}">${navData.services.label} ${chevronDown}</a>
                         ${buildDropdown('services', navData.services)}
                     </li>
                     <li>
@@ -530,6 +553,7 @@
                     <li><a href="ai-automation.html">AI & Automation</a></li>
                     <li><a href="cloud-devops.html">Cloud & DevOps</a></li>
                     <li><a href="digital-marketing.html">Digital Marketing</a></li>
+                    <li><a href="content-creation.html">Content Creation</a></li>
                     <li><a href="ui-ux-design.html">UI/UX Design</a></li>
                     <li><a href="data-analytics.html">Data & Analytics</a></li>
                 </ul>

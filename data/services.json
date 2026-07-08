@@ -454,34 +454,45 @@
     },
     "digital-marketing": {
         "title": "Data-driven ROI.<br>Predictable <span class='gradient-word'>revenue.</span>",
-        "badge": "\ud83d\udcc8 Creative & Growth",
+        "badge": "📈 Creative & Growth",
         "subtitle": "SEO, PPC, and social media campaigns engineered for measurable returns. We turn traffic into actual business.",
-        "icon": "\ud83d\udcc8",
+        "icon": "📈",
         "color": "#f093fb",
         "features": [
             {
-                "icon": "\ud83d\udd0d",
-                "color": "#96fbc4",
-                "title": "SEO & Content",
-                "desc": "Technical SEO and high-quality content marketing that compounds traffic over time without ad spend."
+                "icon": "🌱",
+                "color": "#43e97b",
+                "title": "Organic Visibility & Content",
+                "desc": "SEO, Content Marketing, and Organic Social Media to earn long-term visibility.",
+                "id": "organic"
             },
             {
-                "icon": "\ud83d\udcb0",
-                "color": "#f9f586",
-                "title": "Performance Marketing",
-                "desc": "Highly targeted Google Ads and Meta Ads campaigns focused strictly on lowering your Cost Per Acquisition."
+                "icon": "🎯",
+                "color": "#f093fb",
+                "title": "Paid Advertising",
+                "desc": "SEM, Social Media Ads, and Programmatic Advertising to drive immediate traffic and conversions.",
+                "id": "paid"
             },
             {
-                "icon": "\ud83d\udce7",
+                "icon": "💌",
                 "color": "#00f2fe",
-                "title": "Email & WhatsApp",
-                "desc": "Automated retention sequences that turn one-time buyers into loyal, repeat customers."
+                "title": "Direct Nurturing & Retention",
+                "desc": "Email Marketing, SMS & WhatsApp, and Marketing Automation for direct communication.",
+                "id": "nurturing"
             },
             {
-                "icon": "\ud83c\udfaf",
-                "color": "#f5576c",
-                "title": "Conversion Rate Optimization",
-                "desc": "A/B testing and funnel optimization to turn more visitors into paying customers."
+                "icon": "📊",
+                "color": "#f9f586",
+                "title": "Strategy, Tech & Analytics",
+                "desc": "Web Analytics, CRO, and Influencer Marketing to track campaigns and ensure high ROI.",
+                "id": "strategy"
+            },
+            {
+                "icon": "🤖",
+                "color": "#a18cd1",
+                "title": "AI Content Creation",
+                "desc": "Scalable, high-quality audio, video, text, and graphics generation.",
+                "id": "ai-content"
             }
         ],
         "process": [
@@ -1272,6 +1283,77 @@
             "title": "Ready for a better website?",
             "description": "Get a blazing fast, secure, and beautiful CMS that works for your business.",
             "button_text": "Start Your Project"
+        }
+    },
+    "content-creation": {
+        "title": "AI Content <span class='gradient-word'>Generation.</span>",
+        "badge": "🎨 Creative Services",
+        "subtitle": "High-quality audio, video, text, and graphics at scale using advanced AI.",
+        "icon": "🎨",
+        "color": "#a18cd1",
+        "features": [
+            {
+                "icon": "📝",
+                "color": "#96fbc4",
+                "title": "AI Text Generation",
+                "desc": "Automated high-volume communication and creative writing, including SEO content, document summaries, and email outreach.",
+                "id": "text"
+            },
+            {
+                "icon": "🎙️",
+                "color": "#f9f586",
+                "title": "AI Audio Generation",
+                "desc": "Synthetic voice technology for professional voiceovers, AI voice agents, and multilingual dubbing.",
+                "id": "audio"
+            },
+            {
+                "icon": "🎥",
+                "color": "#00f2fe",
+                "title": "AI Video Generation",
+                "desc": "Text-to-video production, cinematic marketing clips, and AI-assisted editing to drastically reduce costs.",
+                "id": "video"
+            },
+            {
+                "icon": "🖼️",
+                "color": "#f5576c",
+                "title": "AI Graphics & Visuals",
+                "desc": "Rapid design iteration, automated graphic design for brand assets, and scalable brand campaigns.",
+                "id": "graphics"
+            }
+        ],
+        "process": [
+            {
+                "number": "01",
+                "title": "Brand Alignment",
+                "desc": "We establish specific brand guidelines and voice tones for AI models to follow."
+            },
+            {
+                "number": "02",
+                "title": "Content Generation",
+                "desc": "Producing high-quality content across audio, video, text, and graphics."
+            },
+            {
+                "number": "03",
+                "title": "Human Review",
+                "desc": "Expert creative oversight to ensure brand consistency and top-tier quality."
+            }
+        ],
+        "tech_stack": [
+            "GPT-4",
+            "DALL-E",
+            "Midjourney",
+            "ElevenLabs",
+            "Synthesia"
+        ],
+        "use_cases": [
+            "Multilingual Campaigns",
+            "Scalable Asset Creation",
+            "Automated Video Demos"
+        ],
+        "cta": {
+            "title": "Ready to scale your content?",
+            "description": "Produce exceptional content faster than ever before.",
+            "button_text": "Explore AI Content"
         }
     }
 }
