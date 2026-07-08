@@ -486,13 +486,6 @@
                 "title": "Strategy, Tech & Analytics",
                 "desc": "Web Analytics, CRO, and Influencer Marketing to track campaigns and ensure high ROI.",
                 "id": "strategy"
-            },
-            {
-                "icon": "🤖",
-                "color": "#a18cd1",
-                "title": "AI Content Creation",
-                "desc": "Scalable, high-quality audio, video, text, and graphics generation.",
-                "id": "ai-content"
             }
         ],
         "process": [

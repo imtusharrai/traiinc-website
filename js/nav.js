@@ -148,8 +148,7 @@
                         { label: "Organic Visibility & Content", href: "digital-marketing.html#organic", desc: "SEO & organic social media" },
                         { label: "Paid Advertising", href: "digital-marketing.html#paid", desc: "SEM & display ads" },
                         { label: "Direct Nurturing & Retention", href: "digital-marketing.html#nurturing", desc: "Email, SMS & WhatsApp marketing" },
-                        { label: "Strategy, Tech & Analytics", href: "digital-marketing.html#strategy", desc: "Analytics & CRO" },
-                        { label: "AI Content Creation", href: "digital-marketing.html#ai-content", desc: "Audio, video, text & graphics" }
+                        { label: "Strategy, Tech & Analytics", href: "digital-marketing.html#strategy", desc: "Analytics & CRO" }
                     ],
                     miniFeature: {
                         title: "Grow Your <span class='highlight'>Reach</span>",
