@@ -3534,17 +3534,17 @@ body.light-mode .full-menu-btn:hover { background: rgba(0,0,0,0.08); }
 }
 .nav-l3-label {
     display: block;
-    color: var(--text-muted);
-    font-size: 0.92rem;
-    font-weight: 500;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    font-weight: 600;
     transition: color 0.18s;
 }
 .nav-l3-desc {
     display: block;
-    font-size: 0.82rem;
-    color: #B0A0A5;
+    font-size: 0.8rem;
+    color: var(--text-muted);
     line-height: 1.4;
-    margin-top: 3px;
+    margin-top: 4px;
     font-weight: 400;
 }
 .nav-l3-link:hover {
