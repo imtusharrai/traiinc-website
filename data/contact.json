@@ -8,7 +8,7 @@
     "title": "Get in Touch",
     "items": [
       { "icon": "📧", "label": "Email", "value": "<a href=\"mailto:hello@traiinc.com\">hello@traiinc.com</a>" },
-      { "icon": "📍", "label": "Location", "value": "Tower B-2, 1109, DLF MyPad, Opposite Hyatt Regency, Vibhuti Khand, Gomti Nagar, Lucknow, Uttar Pradesh 226010" },
+      { "icon": "📍", "label": "Location", "value": "Tower B-2, DLF MyPad, Opposite Hyatt Regency, Vibhuti Khand, Gomti Nagar, Lucknow, Uttar Pradesh 226010" },
       { "icon": "⏱️", "label": "Response Time", "value": "We respond to every inquiry within 24 hours." },
       { "icon": "🕙", "label": "Office Hours", "value": "Mon–Sat, 10 AM – 7 PM IST" }
     ],
