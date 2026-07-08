@@ -107,10 +107,10 @@
                     hasChildren: true,
                     href: "ai-automation.html",
                     subitems: [
-                        { label: "AI Chatbots & Agents", href: "ai-automation.html#chatbots" },
-                        { label: "Workflow Automation", href: "ai-automation.html#workflows" },
-                        { label: "Voice AI", href: "ai-automation.html#voice" },
-                        { label: "LLM Integration", href: "ai-automation.html#llm" }
+                        { label: "Task & Process Automation Agents", href: "ai-automation.html#workflows" },
+                        { label: "Customer Service & Collaboration Agents", href: "ai-automation.html#customer-service" },
+                        { label: "Enterprise & Role-Based Agents", href: "ai-automation.html#enterprise-agents" },
+                        { label: "Multi-Agent Systems (MAS)", href: "ai-automation.html#mas" }
                     ],
                     miniFeature: {
                         title: "AI-First for <span class='highlight'>Business</span>",
