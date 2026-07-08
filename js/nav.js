@@ -159,7 +159,7 @@
                 },
                 {
                     id: "crm-enterprise",
-                    label: "CRM & Enterprise Platforms",
+                    label: "CRM & ERP",
                     hasChildren: false,
                     href: "enterprise-platforms.html",
                     featured: {
