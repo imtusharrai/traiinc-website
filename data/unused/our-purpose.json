@@ -1,0 +1,48 @@
+{
+  "header": {
+    "subtitle": "OUR PURPOSE",
+    "title": "Empowering businesses through accessible, enterprise-grade engineering."
+  },
+  "intro": {
+    "text": "We believe that high-quality engineering shouldn't be gated by massive budgets or Silicon Valley zip codes. Our mission is to democratize access to top-tier software development and AI automation for MSMEs and scaling enterprises worldwide."
+  },
+  "numbers": {
+    "stats": [
+      { "value": "138+", "label": "Businesses Scaled" },
+      { "value": "12+", "label": "Industries Transformed" },
+      { "value": "100%", "label": "Commitment to Quality" }
+    ]
+  },
+  "model": {
+    "subtitle": "VISION & VALUES",
+    "title": "The principles that guide our work",
+    "description": "We are driven by a commitment to transparency, technical excellence, and genuine partnership. We don't just write code; we build the digital infrastructure that helps your business thrive.",
+    "advantages": [
+      {
+        "icon": "🌟",
+        "title": "Excellence as a Standard",
+        "desc": "We bring Silicon Valley-grade engineering to every project, regardless of size."
+      },
+      {
+        "icon": "🤝",
+        "title": "True Partnership",
+        "desc": "We sit on the same side of the table as our clients. Your success is our success."
+      },
+      {
+        "icon": "💡",
+        "title": "Innovation First",
+        "desc": "We continuously adopt the latest technologies and AI workflows to deliver better results faster."
+      },
+      {
+        "icon": "🔍",
+        "title": "Radical Transparency",
+        "desc": "Honest scoping, clear timelines, and upfront pricing. No hidden fees or surprises."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Let's Build the Future Together",
+    "description": "Partner with a team that shares your vision and has the technical capability to realize it.",
+    "button_text": "Start a Conversation"
+  }
+}
