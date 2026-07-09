@@ -4,14 +4,26 @@
     "title": "138+ Clients. 12+ Industries. Six Years of Engineering Excellence."
   },
   "intro": {
-    "text": "Built in the AI era. Not retrofitted for it. Traditional IT agencies are bloated, slow, and expensive by design. Trai Inc is an AI-native engineering team that ships Silicon Valley-grade custom software in weeks, not months. Lean architecture, rapid execution, zero bloat. Transparent pricing, not quote-only mystery. Since 2020, we've delivered solutions for 138+ clients across 12+ industries."
+    "text": "Built in the AI era. Not retrofitted for it. Traditional IT agencies are bloated, slow, and expensive by design. Trai Inc is an AI-native engineering team that ships Silicon Valley-grade custom software in weeks, not months. Lean architecture, rapid execution, zero bloat. Transparent pricing, not quote-only mystery. Since 2020, we've delivered solutions for 138+ clients across 12+ industries. Our mission is to democratize access to top-tier software development and AI automation for MSMEs and scaling enterprises worldwide."
   },
   "numbers": {
     "stats": [
-      { "value": "138+", "label": "Clients Served" },
-      { "value": "6+", "label": "Years in Business" },
-      { "value": "12+", "label": "Industries Covered" },
-      { "value": "50+", "label": "Enterprise Projects" }
+      {
+        "value": "138+",
+        "label": "Clients Served"
+      },
+      {
+        "value": "6+",
+        "label": "Years in Business"
+      },
+      {
+        "value": "12+",
+        "label": "Industries Covered"
+      },
+      {
+        "value": "50+",
+        "label": "Enterprise Projects"
+      }
     ]
   },
   "team": {
@@ -74,6 +86,16 @@
         "icon": "🔒",
         "title": "Full IP Ownership",
         "desc": "You own 100% of the code, design assets, and infrastructure. Complete handover with documentation. Zero vendor lock-in."
+      },
+      {
+        "icon": "👤",
+        "title": "Named Point of Contact",
+        "desc": "Every project has a dedicated team lead from day one. You always know exactly who is responsible for your project's success."
+      },
+      {
+        "icon": "📅",
+        "title": "Defined Update Cadence",
+        "desc": "Fixed weekly written updates and scheduled calls so you never have to chase for a progress report."
       }
     ]
   },

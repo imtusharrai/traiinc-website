@@ -61,8 +61,27 @@
         "title": "Dedicated Team (Retainer)",
         "description": "Hire our engineers, designers, or product managers on a monthly retainer. You get flexible capacity without the overhead of full-time hiring, allowing you to pivot priorities sprint-by-sprint.",
         "best_for": "Ongoing product development, maintenance, and evolving scopes."
+      },
+      {
+        "icon": "📦",
+        "title": "Fixed Scope",
+        "description": "Defined project, defined price. Best for clear, bounded requirements. We scope the work upfront and deliver against a fixed timeline.",
+        "best_for": ""
+      },
+      {
+        "icon": "🤝",
+        "title": "Ongoing Partner",
+        "description": "Retained/dedicated ongoing work. Best for evolving requirements, continuous delivery, and long-term support for your platform.",
+        "best_for": ""
+      },
+      {
+        "icon": "🛒",
+        "title": "App Store Ready-Made",
+        "description": "Pre-scoped vertical apps ready for customization. Fixed pricing tiers. Own your app outright with delivery in 5-7 business days.",
+        "best_for": ""
       }
-    ]
+    ],
+    "description": "We offer clear, transparent engagement models designed to align with your project's maturity, scope, and ongoing needs."
   },
   "faq": {
     "title": "Common Questions",

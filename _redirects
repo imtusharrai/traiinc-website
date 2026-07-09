@@ -23,5 +23,33 @@
 /tech-react.html /web-development.html 301
 /tech-aws.html /cloud-devops.html 301
 
+# Redirections for orphaned service pages → pillar pages
+/ecommerce-development.html /custom-software.html 301
+/wordpress-cms-development.html /custom-software.html 301
+/custom-crm-development.html /enterprise-platforms.html 301
+/cybersecurity.html /cloud-devops.html 301
+/lead-gen-scraping.html /digital-marketing.html 301
+/motion-video.html /digital-marketing.html 301
+/content-creation.html /digital-marketing.html 301
+/ui-ux-design.html /digital-marketing.html 301
+/data-analytics.html /cloud-devops.html 301
+
+# Redirections for orphaned company/trust pages → about
+/engagement-models.html /about.html 301
+/hire-dedicated-developers.html /about.html 301
+/our-purpose.html /about.html 301
+/project-communication-strategy.html /about.html 301
+/why-trai.html /about.html 301
+/incubation.html /about.html 301
+
+# Redirections for deleted mobile app sub-pages
+/flutter-app-development.html /mobile-apps.html 301
+/mobile-mobile-game-development.html /mobile-apps.html 301
+/mobile-pwa-development.html /mobile-apps.html 301
+/mobile-wearable-app-development.html /mobile-apps.html 301
+/mobile-app-prototype-strategy.html /mobile-apps.html 301
+/mobile-cross-platform-app-development.html /mobile-apps.html 301
+/mobile-native-mobile-app-development.html /mobile-apps.html 301
+
 # Catch any other old paths that don't match a real file
 /* /index.html 404
