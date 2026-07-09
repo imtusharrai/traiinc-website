@@ -9,9 +9,22 @@
     "description": "Every project is unique, but here is what you can generally expect based on scope and complexity.",
     "tiers": [
       {
+        "id": "msme",
+        "name": "Local Business & MSME",
+        "price": "₹15K - ₹50K",
+        "description": "Get your business online with a professional website, Google Business Profile setup, and WhatsApp integration. Fixed price, 1-2 week delivery.",
+        "features": [
+          "Responsive website (up to 5 pages)",
+          "Google Business Profile setup & optimization",
+          "WhatsApp Business integration",
+          "Basic local SEO setup",
+          "1 month post-launch support"
+        ]
+      },
+      {
         "name": "Custom MVPs (Startups & MSMEs)",
         "price": "₹1.5L - ₹3L",
-        "description": "Perfect for custom software, rapid prototyping, and digitizing core business workflows. (Looking for a simple business website? See our ₹15K-₹50K <a href='/msmes.html' style='text-decoration: underline;'>MSME Starter Bundles</a>).",
+        "description": "Perfect for custom software, rapid prototyping, and digitizing core business workflows.",
         "features": [
           "Custom Minimum Viable Products (MVPs)",
           "Single-platform mobile apps",
