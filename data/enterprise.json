@@ -83,6 +83,42 @@
       "features": ["IoT Integration", "ERP Sync", "Production Dashboards", "Quality Control"]
     }
   ],
+  "compliance": {
+    "subtitle": "SECURITY & GOVERNANCE",
+    "title": "Enterprise-Grade Security Practices",
+    "items": [
+      {
+        "title": "Secure Development Lifecycle",
+        "desc": "Code reviews, dependency auditing, and automated security scanning integrated into every sprint."
+      },
+      {
+        "title": "Data Protection",
+        "desc": "Encryption at rest and in transit. Role-based access control. Regular backup protocols. GDPR-aware data handling practices."
+      },
+      {
+        "title": "Infrastructure Security",
+        "desc": "Deployed on Cloudflare and AWS with DDoS protection, WAF, and automated monitoring. Zero-trust network architecture."
+      },
+      {
+        "title": "Formal Engagement Process",
+        "desc": "Every enterprise engagement begins with a mutual NDA. Followed by a detailed Statement of Work (SOW) with milestones, acceptance criteria, and SLAs before any code is written."
+      }
+    ]
+  },
+  "enterprise_cta": {
+    "title": "Enterprise Inquiries",
+    "description": "For projects requiring formal procurement, NDA, or compliance review — reach out directly to our enterprise team.",
+    "email": "hello@traiinc.com",
+    "subject": "Enterprise Project Inquiry",
+    "process": [
+      "Mutual NDA signed",
+      "Requirements discovery (1-2 sessions)",
+      "Detailed SOW with milestones and acceptance criteria",
+      "Commercial proposal with SLA terms",
+      "PO/contract execution",
+      "Dedicated team assignment and kickoff"
+    ]
+  },
   "cta": {
     "title": "Ready for digital transformation?",
     "description": "Schedule a technical deep-dive with our senior engineering team. We'll analyze your current systems and deliver a complete architecture proposal within one week.",

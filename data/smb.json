@@ -16,7 +16,7 @@
         { "label": "👥 Active CRM Users", "value": "450+", "color": "green" },
         { "label": "⚡ Workflows Automated", "value": "12,000/mo", "color": "gold" },
         { "label": "💰 IT Cost Savings", "value": "₹15L/yr", "color": "" },
-        { "label": "⭐ Client Retention", "value": "98%", "color": "green" }
+        { "label": "⭐ Client Retention", "value": "94%", "color": "green" }
       ],
       "cards": [
         { "icon": "📊", "label": "Sales Dashboard", "value": "Live ✓", "active": true },

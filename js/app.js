@@ -1393,6 +1393,53 @@ function renderAudiencePage(data) {
         document.documentElement.style.setProperty('--cf-accent-2', hero.accent_colors.secondary);
     }
 
+    let complianceHtml = '';
+    if (data.compliance && data.compliance.items && data.compliance.items.length > 0) {
+        complianceHtml = `
+        <section class="container fade-in content-section">
+            <div class="section-header">
+                <h4 class="mini-title">${data.compliance.subtitle}</h4>
+                <h2>${data.compliance.title}</h2>
+            </div>
+            <div class="bento-grid">
+                ${data.compliance.items.map(item => `
+                    <div class="bento-card fade-in">
+                        <h3>${item.title}</h3>
+                        <p>${item.desc}</p>
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+        `;
+    }
+
+    let enterpriseCtaHtml = '';
+    if (data.enterprise_cta) {
+        const ec = data.enterprise_cta;
+        enterpriseCtaHtml = `
+        <section class="container fade-in content-section">
+            <div class="biz-cta">
+                <div class="biz-cta-glow"></div>
+                <h2>${ec.title}</h2>
+                <p>${ec.description}</p>
+                <div class="hero-cta-row">
+                    <a href="mailto:${ec.email}?subject=${encodeURIComponent(ec.subject)}" class="btn-primary large">✉️ ${ec.email}</a>
+                </div>
+                ${ec.process ? `
+                <div style="margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; text-align: left;">
+                    ${ec.process.map((step, i) => `
+                        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 15px;">
+                            <div style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 5px;">Step ${i + 1}</div>
+                            <div style="color: var(--text-main); font-size: 0.95rem;">${step}</div>
+                        </div>
+                    `).join('')}
+                </div>
+                ` : ''}
+            </div>
+        </section>
+        `;
+    }
+
     let industriesHtml = '';
     if (industries && industries.length > 0) {
         industriesHtml = `
@@ -1485,6 +1532,12 @@ function renderAudiencePage(data) {
 
         <!-- INDUSTRIES -->
         ${industriesHtml}
+
+        <!-- COMPLIANCE -->
+        ${complianceHtml}
+
+        <!-- ENTERPRISE CTA -->
+        ${enterpriseCtaHtml}
 
         <!-- CTA -->
         <section class="container fade-in biz-cta-section">
