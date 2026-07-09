@@ -1999,7 +1999,7 @@ function renderPricing(data) {
         
         <div class="pricing-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 100px;">
             ${data.pricing_tiers.tiers.map(tier => `
-                <div class="pricing-card" style="background: var(--bg-card); padding: 40px; border-radius: 20px; border: 1px solid ${tier.highlight ? 'var(--primary)' : 'var(--border-light)'}; position: relative; ${tier.highlight ? 'box-shadow: 0 0 30px rgba(79, 172, 254, 0.1); transform: scale(1.02);' : ''}">
+                <div ${tier.id ? `id="${tier.id}"` : ''} class="pricing-card" style="background: var(--bg-card); padding: 40px; border-radius: 20px; border: 1px solid ${tier.highlight ? 'var(--primary)' : 'var(--border-light)'}; position: relative; ${tier.highlight ? 'box-shadow: 0 0 30px rgba(79, 172, 254, 0.1); transform: scale(1.02);' : ''}">
                     ${tier.highlight ? '<div style="position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); background: var(--gradient-primary); color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 600;">Most Popular</div>' : ''}
                     <h3 style="font-size: 1.5rem; margin-bottom: 10px;">${tier.name}</h3>
                     <div style="font-size: 2.5rem; font-weight: 800; color: var(--text-main); margin-bottom: 15px;">${tier.price}</div>
