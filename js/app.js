@@ -1554,15 +1554,15 @@ function renderMSME(data) {
         </section>
 
         <!-- FEATURE PILLS -->
-        <section class="container fade-in" style="padding: 60px 24px 0;">
-            <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;margin-bottom:20px;">What We Offer for MSMEs</h2>
+        <section class="container fade-in msme-section-tight-top">
+            <h2 class="msme-section-heading">What We Offer for MSMEs</h2>
             <div class="feature-pills">
                 ${data.feature_pills.map(pill => `<div class="feature-pill">${pill}</div>`).join('')}
             </div>
         </section>
 
         <!-- BENTO SERVICE GRID -->
-        <section class="container fade-in" style="padding: 40px 24px 0;">
+        <section class="container fade-in msme-section-loose-top">
             <div class="section-header">
                 <h4 class="mini-title">${data.services.subtitle}</h4>
                 <h2>${data.services.title}</h2>
@@ -1570,7 +1570,7 @@ function renderMSME(data) {
             <div class="bento-grid">
                 ${data.services.items.map((item, idx) => `
                     <div class="bento-card ${idx === 0 || idx === 3 ? 'wide' : ''} fade-in">
-                        <div class="bento-icon" style="background:${item.icon_gradient}">${item.icon}</div>
+                        <div class="bento-icon msme-icon-dynamic" style="--icon-bg: ${item.icon_gradient};">${item.icon}</div>
                         <h3>${item.title}</h3>
                         <p>${item.desc}</p>
                     </div>
@@ -1600,7 +1600,7 @@ function renderMSME(data) {
         </section>
 
         <!-- CLIENTS -->
-        <section class="container fade-in" style="padding: 100px 24px;">
+        <section class="container fade-in msme-section-wide">
             <div class="clients-heading">
                 <h2>
                     <span class="slash-deco"><span></span><span></span><span></span></span>
@@ -1621,7 +1621,7 @@ function renderMSME(data) {
                     <div class="logo-grid">
                         ${cat.logos.map(l => `
                             <div class="logo-card">
-                                <div class="logo-avatar" style="background:${l.gradient}">${l.initials}</div>
+                                <div class="logo-avatar msme-icon-dynamic" style="--icon-bg: ${l.gradient};">${l.initials}</div>
                                 <div class="logo-name">${l.name}</div>
                             </div>
                         `).join('')}
@@ -1629,32 +1629,32 @@ function renderMSME(data) {
                 </div>
             `).join('')}
 
-            <div style="text-align:center;margin-bottom:48px;"></div>
+            <div class="msme-spacer-bottom"></div>
         </section>
 
         <!-- MSME BUNDLES -->
-        <section class="bento-section fade-in" style="background: var(--bg-card); border-bottom: 1px solid var(--border-light);">
+        <section class="bento-section fade-in msme-section-card-bg msme-section-bordered-bottom">
             <div class="container">
                 <div class="section-header center">
                     <h4 class="mini-title">${data.bundles.subtitle}</h4>
                     <h2>${data.bundles.title}</h2>
                 </div>
-                <div class="grid-3" style="margin-top: 40px;">
+                <div class="grid-3 msme-grid-loose">
                     ${data.bundles.tiers.map(tier => `
-                    <div class="pricing-tier fade-in ${tier.popular ? 'popular' : ''}" style="background: ${tier.popular ? 'var(--bg-darker)' : 'transparent'}; border: 1px solid var(--border-light); border-radius: 12px; padding: 40px 30px; position: relative;">
-                        ${tier.popular ? '<div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent-color); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">MOST POPULAR</div>' : ''}
-                        <h3 style="font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 10px;">${tier.name}</h3>
-                        <div style="font-size: 2.2rem; font-weight: 800; color: var(--accent-color); margin-bottom: 15px;">${tier.price}</div>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px;">${tier.desc}</p>
-                        <ul style="list-style: none; padding: 0; margin-bottom: 40px;">
+                    <div class="pricing-tier fade-in ${tier.popular ? 'popular' : ''}">
+                        ${tier.popular ? '<div class="pricing-tier-badge">MOST POPULAR</div>' : ''}
+                        <h3 class="pricing-tier-name">${tier.name}</h3>
+                        <div class="pricing-tier-price">${tier.price}</div>
+                        <p class="pricing-tier-desc">${tier.desc}</p>
+                        <ul class="pricing-tier-features">
                             ${tier.features.map(f => `
-                            <li style="display: flex; align-items: start; gap: 10px; margin-bottom: 15px; font-size: 0.95rem;">
-                                <span style="color: var(--accent-color);">✔</span>
+                            <li class="pricing-tier-feature">
+                                <span class="pricing-tier-feature-check">✔</span>
                                 <span>${f}</span>
                             </li>
                             `).join('')}
                         </ul>
-                        <a href="https://wa.me/917905495478?text=Hi%20Trai%20Inc,%20I'm%20interested%20in%20the%20${encodeURIComponent(tier.name)}%20bundle." target="_blank" class="btn-primary" style="width: 100%; justify-content: center;">Get Started</a>
+                        <a href="https://wa.me/917905495478?text=Hi%20Trai%20Inc,%20I'm%20interested%20in%20the%20${encodeURIComponent(tier.name)}%20bundle." target="_blank" class="btn-primary pricing-tier-cta">Get Started</a>
                     </div>
                     `).join('')}
                 </div>
@@ -1669,10 +1669,10 @@ function renderMSME(data) {
                         <h4 class="mini-title">${data.estimator.subtitle}</h4>
                         <h2>${data.estimator.title}</h2>
                         <p>${data.estimator.desc}</p>
-                        <div style="margin-top:30px;">
+                        <div class="msme-estimator-bullets">
                             ${data.estimator.bullets.map(b => `
-                                <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;font-size:0.9rem;color:var(--text-muted);">
-                                    <span style="color:var(--accent-color);font-weight:700;">✔</span> ${b}
+                                <div class="msme-estimator-bullet">
+                                    <span class="msme-estimator-check">✔</span> ${b}
                                 </div>
                             `).join('')}
                         </div>
@@ -1683,7 +1683,7 @@ function renderMSME(data) {
                             <input type="hidden" name="_captcha" value="false">
                             <input type="hidden" name="_template" value="table">
                             <input type="hidden" name="_next" value="https://traiinc.com/msmes.html#estimator">
-                            <input type="text" name="_honey" style="display:none;">
+                            <input type="text" name="_honey" class="msme-honeypot">
 
                             <label>What do you need built?</label>
                             <select id="calcType" name="service_type" required>
@@ -1702,13 +1702,13 @@ function renderMSME(data) {
                             <label>WhatsApp Number</label>
                             <input type="tel" name="phone" required placeholder="+91 XXXXX XXXXX">
 
-                            <button type="button" class="btn-primary large" style="width:100%;justify-content:center;" onclick="calculateEstimate()">Calculate Estimate</button>
+                            <button type="button" class="btn-primary large msme-btn-block" onclick="calculateEstimate()">Calculate Estimate</button>
                         </form>
 
                         <div id="estimateResult" class="estimator-result">
                             <h3 id="estimatePrice">₹0</h3>
                             <p>Estimated starting cost. We'll WhatsApp you a detailed quote!</p>
-                            <button type="submit" form="estimatorForm" class="btn-primary" style="margin-top:16px;">📩 Send Me the Quote</button>
+                            <button type="submit" form="estimatorForm" class="btn-primary msme-btn-spaced">📩 Send Me the Quote</button>
                         </div>
                     </div>
                 </div>
@@ -1716,7 +1716,7 @@ function renderMSME(data) {
         </section>
 
         <!-- CASE STUDIES -->
-        <section style="padding: 80px 0; background: var(--bg-darker);">
+        <section class="msme-section-shaded-wide">
             <div class="container fade-in">
                 <div class="section-header center">
                     <h4 class="mini-title">${data.success_stories.subtitle}</h4>

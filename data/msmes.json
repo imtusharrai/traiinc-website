@@ -4,8 +4,8 @@
     "title": "Your Customers Are Online.<br>Is Your <span class=\"gradient-word\">Business?</span>",
     "subtitle": "Stop losing customers to competitors with better websites. We build affordable apps, WhatsApp automations, and digital tools that turn foot traffic into repeat revenue — starting from ₹15,000.",
     "cta": {
-      "primary": { "text": "💰 See Pricing", "url": "pricing.html#msme" },
-      "secondary": { "text": "📅 Free Consultation", "url": "https://calendar.app.google/PUsxADQBnpQsTrDbA" }
+      "primary": { "text": "💬 Message Us on WhatsApp", "url": "https://wa.me/917905495478?text=Hi%20Trai%20Inc%2C%20I%27m%20interested%20in%20getting%20my%20business%20online." },
+      "secondary": { "text": "💰 See Pricing", "url": "pricing.html#msme" }
     },
     "trust": {
       "avatars": ["CM", "JH", "TV", "BG", "+"],
@@ -27,12 +27,12 @@
   "feature_pills": [
     "✓ Affordable Websites",
     "✓ WhatsApp AI Chatbot",
-    "✓ Local SEO & Google Maps",
+    "✓ Show Up on Google Maps",
     "✓ Social Media Setup",
     "✓ GST & Invoicing Tools",
     "✓ Branding & Logo",
-    "✓ Custom CRM",
-    "✓ Payment Integration"
+    "✓ Customer Tracking System",
+    "✓ Accept Payments Online"
   ],
   "services": {
     "subtitle": "HOW WE HELP",
@@ -53,7 +53,7 @@
       {
         "icon": "📊",
         "icon_gradient": "linear-gradient(135deg,#fa709a,#fee140)",
-        "title": "Custom CRM & Dashboard",
+        "title": "Customer Tracking System",
         "desc": "Replace spreadsheets with a real system. Track leads, sales, inventory, and staff — all in one place."
       },
       {
@@ -85,15 +85,15 @@
         "price": "₹25,000",
         "desc": "Automate your customer inquiries, bookings, and lead capture directly on WhatsApp.",
         "features": [
-          "AI Auto-Responder Setup",
+          "Automatic WhatsApp Replies",
           "Automated Lead Capture",
-          "Basic CRM Integration",
+          "Automatic Customer Tracking",
           "Broadcast Messaging Ready"
         ],
         "popular": true
       },
       {
-        "name": "Custom CRM Dashboard",
+        "name": "Custom CRM Dashboard (Customer Tracking System)",
         "price": "₹50,000",
         "desc": "Ditch the spreadsheets. A custom admin panel to manage your daily operations.",
         "features": [
@@ -124,8 +124,8 @@
       "title": "🚀 The Trai Inc Way",
       "items": [
         "WhatsApp AI bot replies instantly, captures every lead",
-        "Custom CRM tracks every customer, never loses a deal",
-        "SEO-optimized website — ranked on Google page 1",
+        "Customer tracking system remembers every lead, never loses a deal",
+        "Website that shows up on Google page 1",
         "Automated GST invoicing in one click",
         "Staff dashboard with attendance & task tracking",
         "One-time affordable build + optional monthly support"
@@ -202,7 +202,7 @@
     "options": [
       { "value": "15000", "label": "Business Website (Starts ₹15K)" },
       { "value": "30000", "label": "E-commerce Store (Starts ₹30K)" },
-      { "value": "50000", "label": "Custom CRM / Dashboard (Starts ₹50K)" },
+      { "value": "50000", "label": "Customer Tracking System (Starts ₹50K)" },
       { "value": "25000", "label": "WhatsApp AI Chatbot (Starts ₹25K)" },
       { "value": "100000", "label": "Mobile App — iOS/Android (Starts ₹1L)" },
       { "value": "150000", "label": "Full Digital Suite (Starts ₹1.5L)" }
