@@ -15,7 +15,7 @@
       "metrics": [
         { "label": "⚡ System Uptime", "value": "99.99%", "color": "green" },
         { "label": "🚀 Legacy Migrations", "value": "12+", "color": "gold" },
-        { "label": "🛡️ Security Score", "value": "A+", "color": "" },
+        { "label": "👨‍💻 Engineering Team", "value": "Senior Only", "color": "" },
         { "label": "💰 Team Overhead", "value": "Zero", "color": "green" }
       ],
       "cards": [
