@@ -4,160 +4,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.documentElement.classList.add('bot-detected');
     }
 
-    // Shared Footer Template
-    const footerHTML = `
-        <div class="container footer-top">
-            <div class="footer-brand">
-                <!-- Logo image with pulse glow -->
-                <a href="index.html" class="footer-logo-wrap" aria-label="Trai Inc Services home">
-                    <span class="footer-logo-pulse"></span>
-                    <img src="assets/logos/logo.png" alt="Trai Inc Services" class="footer-logo-img">
-                </a>
-                <div class="footer-brand-name">Trai Inc Services</div>
-                <p class="footer-tagline">🚀 Empowering small businesses<br>with big dreams ✨💡</p>
-                <div class="footer-contact">
-                    <a href="tel:+917905495478" class="contact-link">📞 +91 79054 95478</a><br>
-                    <a href="mailto:hello@traiinc.com" class="contact-link">✉️ hello@traiinc.com</a>
-                </div>
-                <!-- Social Media Icons -->
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/company/trai-inc" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
-                        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                    </a>
-                    <a href="https://x.com/inctrai" target="_blank" rel="noopener" class="social-icon" aria-label="Twitter / X">
-                        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                    </a>
-                    <a href="https://www.instagram.com/traiinc" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                    </a>
-                    <a href="https://www.youtube.com/@traiinc" target="_blank" rel="noopener" class="social-icon" aria-label="YouTube">
-                        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                    </a>
-                    <a href="https://wa.me/917905495478?text=Hi%20Trai%20Inc,%20I'm%20looking%20for%20a%20digital%20solution%20for%20my%20business." target="_blank" rel="noopener" class="social-icon social-wa" aria-label="WhatsApp">
-                        <svg viewBox="0 0 32 32" fill="currentColor" width="18" height="18"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.13 6.744 3.048 9.38L1.054 31.2l6.044-1.94a15.9 15.9 0 008.906 2.704C24.826 31.964 32 24.788 32 16.004S24.826 0 16.004 0zm9.35 22.616c-.396 1.116-1.958 2.042-3.212 2.312-.86.182-1.98.328-5.754-1.236-4.83-2.004-7.938-6.902-8.18-7.222-.232-.32-1.948-2.596-1.948-4.952s1.232-3.508 1.67-3.988c.438-.48.956-.6 1.276-.6.32 0 .636.004.914.016.294.014.688-.112 1.076.82.396.952 1.348 3.288 1.466 3.528.118.24.198.518.04.836-.16.32-.24.518-.478.8-.24.28-.504.626-.72.84-.24.24-.488.498-.21.976.28.48 1.244 2.054 2.672 3.328 1.836 1.636 3.384 2.144 3.864 2.384.48.24.76.2 1.04-.12.278-.32 1.196-1.392 1.514-1.872.318-.48.636-.396 1.076-.24.438.16 2.784 1.312 3.262 1.552.48.24.798.356.916.556.118.198.118 1.156-.278 2.272z"/></svg>
-                    </a>
-                </div>
-            </div>
-            <!-- Col 2: Company -->
-            <div class="link-group">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="about.html">🏢 About Us</a></li>
-                    <li><a href="solutions.html">⚙️ Solutions</a></li>
-                    <li><a href="industries.html">🏭 Industries</a></li>
-                    <li><a href="careers.html">💼 Careers</a></li>
-                    <li><a href="https://bharatstartuplaunchpad.com" target="_blank">🚀 Incubation & Grants</a></li>
-                    <li><a href="partner.html">🤝 Partner</a></li>
-                </ul>
-            </div>
-
-            <!-- Col 3: Services -->
-            <div class="link-group">
-                <h4>Services</h4>
-                <ul>
-                    <li><a href="solutions.html">☁️ Cloud & DevOps</a></li>
-                    <li><a href="solutions.html">🤖 AI & Automation</a></li>
-                    <li><a href="mobile-apps.html">📱 Application Development</a></li>
-                    <li><a href="solutions.html">🎨 UI/UX Design</a></li>
-                    <li><a href="solutions.html">📈 Digital Marketing</a></li>
-                    <li><a href="solutions.html">🔒 Cybersecurity</a></li>
-                </ul>
-            </div>
-
-            <!-- Col 4: Location + Hours -->
-            <div class="link-group">
-                <h4>📍 Location</h4>
-                <p>Tower B-2, DLF MyPad,<br>Opposite Hyatt Regency, Vibhuti Khand,<br>Gomti Nagar, Lucknow, Uttar Pradesh 226010</p>
-                <h4 style="margin-top:20px;">⏰ Hours</h4>
-                <p>Mon–Sat: 9am – 7pm IST<br>Sun: By appointment</p>
-            </div>
-
-            <!-- Col 5: Newsletter -->
-            <div class="footer-newsletter">
-                <h4>📬 Stay in the loop</h4>
-                <p>Get monthly insights on cloud, AI trends, and engineering best practices — straight to your inbox.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Work Email" required>
-                    <button type="submit">Subscribe</button>
-                </form>
-                <div class="footer-badges">
-                    <span class="footer-badge">🔐 SOC 2 Ready</span>
-                    <span class="footer-badge">🌍 Global Clients</span>
-                    <span class="footer-badge">⚡ 99.9% Uptime</span>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>Copyright © 2026 Trai, Inc. All Rights Reserved &nbsp;·&nbsp; Made with ❤️ in India</p>
-            <div class="legal-links">
-                <a href="terms.html">Terms of Services</a> | 
-                <a href="privacy.html">Privacy Policy</a>
-            </div>
-        </div>
-    `;
-
-    const footerEl = document.getElementById("footer");
-    if (footerEl) {
-        footerEl.innerHTML = footerHTML;
-    }
-
-    // ─── WhatsApp Click-to-Chat Button ───────────────────────────────────────
-    const whatsappNumber = "917905495478";
-    const whatsappMessage = encodeURIComponent("Hi Trai! I'm interested in learning more about your services. Can we chat?");
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
-
-    const fabLogo = document.createElement("a");
-    fabLogo.className = "fab-logo";
-    fabLogo.href = whatsappURL;
-    fabLogo.target = "_blank";
-    fabLogo.rel = "noopener noreferrer";
-    fabLogo.setAttribute("aria-label", "Chat with us on WhatsApp");
-    fabLogo.innerHTML = `
-        <svg viewBox="0 0 32 32" width="32" height="32" fill="white">
-            <path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.13 6.744 3.048 9.38L1.054 31.2l6.044-1.94a15.9 15.9 0 008.906 2.704C24.826 31.964 32 24.788 32 16.004S24.826 0 16.004 0zm9.35 22.616c-.396 1.116-1.958 2.042-3.212 2.312-.86.182-1.98.328-5.754-1.236-4.83-2.004-7.938-6.902-8.18-7.222-.232-.32-1.948-2.596-1.948-4.952s1.232-3.508 1.67-3.988c.438-.48.956-.6 1.276-.6.32 0 .636.004.914.016.294.014.688-.112 1.076.82.396.952 1.348 3.288 1.466 3.528.118.24.198.518.04.836-.16.32-.24.518-.478.8-.24.28-.504.626-.72.84-.24.24-.488.498-.21.976.28.48 1.244 2.054 2.672 3.328 1.836 1.636 3.384 2.144 3.864 2.384.48.24.76.2 1.04-.12.278-.32 1.196-1.392 1.514-1.872.318-.48.636-.396 1.076-.24.438.16 2.784 1.312 3.262 1.552.48.24.798.356.916.556.118.198.118 1.156-.278 2.272z"/>
-        </svg>
-        <div class="chat-badge">1</div>
-    `;
-    document.body.appendChild(fabLogo);
-
-    // Tooltip
-    const chatTooltip = document.createElement("div");
-    chatTooltip.className = "chat-tooltip";
-    chatTooltip.innerHTML = `💬 Chat on WhatsApp`;
-    document.body.appendChild(chatTooltip);
-
-    // Hover logic
-    let tooltipTimeout;
-    fabLogo.addEventListener("mouseenter", () => {
-        clearTimeout(tooltipTimeout);
-        chatTooltip.classList.add("active");
-    });
-    fabLogo.addEventListener("mouseleave", () => {
-        tooltipTimeout = setTimeout(() => chatTooltip.classList.remove("active"), 300);
-    });
-
-    // Hide badge on click
-    fabLogo.addEventListener("click", () => {
-        const badge = fabLogo.querySelector('.chat-badge');
-        if (badge) badge.style.display = 'none';
-    });
-
-    // Newsletter Intercept
-    const newsletterForm = document.querySelector(".newsletter-form");
-    if (newsletterForm) {
-        newsletterForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const btn = newsletterForm.querySelector("button");
-            btn.innerHTML = "Subscribed! ✅";
-            btn.style.background = "#28a745";
-            setTimeout(() => {
-                btn.innerHTML = "Subscribe";
-                btn.style.background = "var(--text-main)";
-                newsletterForm.reset();
-            }, 3000);
-        });
-    }
-
     // --- Tech Page Renderer ---
     function renderTechPage(data, pageId) {
         return `
@@ -1032,9 +878,9 @@ function renderContact(data) {
     <!-- ═══ HERO ═══ -->
     <section class="cf-hero-wrapper contact-hero-wrapper">
         <div class="cf-bg-text-container" aria-hidden="true" role="presentation">
-            <h1 class="cf-bg-text outline">CONTACT</h1>
-            <h1 class="cf-bg-text filled">CONTACT</h1>
-            <h1 class="cf-bg-text outline">CONTACT</h1>
+            <div class="cf-bg-text outline">CONTACT</div>
+            <div class="cf-bg-text filled">CONTACT</div>
+            <div class="cf-bg-text outline">CONTACT</div>
         </div>
 
         <div class="cf-grid-layer" aria-hidden="true" role="presentation">
@@ -2228,9 +2074,9 @@ function renderPricing(data) {
     return `
     <section class="cf-hero-wrapper pricing-hero-wrapper">
         <div class="cf-bg-text-container" aria-hidden="true">
-            <h1 class="cf-bg-text outline">PRICING</h1>
-            <h1 class="cf-bg-text filled">PRICING</h1>
-            <h1 class="cf-bg-text outline">PRICING</h1>
+            <div class="cf-bg-text outline">PRICING</div>
+            <div class="cf-bg-text filled">PRICING</div>
+            <div class="cf-bg-text outline">PRICING</div>
         </div>
         <div class="cf-grid-layer" aria-hidden="true">
             <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
