@@ -3812,3 +3812,11 @@ body.light-mode .nav-l3-link:hover {
 .msme-btn-block { width: 100%; justify-content: center; }
 .msme-btn-spaced { margin-top: 16px; }
 
+/* ═══════════════════ AUDIENCE PAGES — extracted classes (renderAudiencePage) ═══════════════════ */
+.audience-industry-features { margin-top: 15px; border-top: 1px solid var(--border-light); padding-top: 15px; font-size: 0.9rem; color: var(--text-muted); }
+
+.enterprise-process-grid { margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; text-align: left; }
+.enterprise-process-step { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 15px; }
+.enterprise-process-step-label { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 5px; }
+.enterprise-process-step-text { color: var(--text-main); font-size: 0.95rem; }
+
