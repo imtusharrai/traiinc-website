@@ -3859,3 +3859,25 @@ body.light-mode .nav-l3-link:hover {
 .pricing-faq-q { font-size: 1.2rem; margin-bottom: 15px; color: var(--text-main); }
 .pricing-faq-a { color: var(--text-muted); line-height: 1.6; }
 
+/* ═══════════════════ SERVICE PAGES — extracted classes (renderServicePage) ═══════════════════ */
+.service-section-header { margin-bottom: 50px; text-align: center; }
+.service-mini-title { color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 10px; }
+.service-section-h2 { font-family: var(--font-heading); font-size: 2.5rem; font-weight: 800; }
+.service-feature-card { scroll-margin-top: 100px; border-top: 4px solid var(--card-accent); }
+.service-feature-icon { color: var(--card-accent); font-size: 2rem; margin-bottom: 20px; }
+
+.service-tech-section { padding: 50px 0; }
+.service-tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.service-tech-card { background: var(--bg-card); padding: 40px; border-radius: 20px; border: 1px solid var(--border-light); }
+.service-tech-card-title { font-family: var(--font-heading); margin-bottom: 20px; }
+.service-tech-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+.service-tech-tag { background: var(--bg-light); color: var(--text-main); font-size: 0.85rem; padding: 6px 14px; border: 1px solid var(--border-light); }
+.service-use-cases-list { list-style: none; padding: 0; }
+.service-use-case-item { margin-bottom: 12px; color: var(--text-muted); }
+.service-use-case-check { color: var(--accent-color); margin-right: 10px; }
+.service-grand-cta-btn { font-size: 1.1rem; padding: 18px 40px; }
+
+@media (max-width: 768px) {
+    .service-tech-grid { grid-template-columns: 1fr; }
+}
+

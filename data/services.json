@@ -107,6 +107,19 @@
         "desc": "We deploy the AI tools to your team and train them on how to leverage their new digital workforce."
       }
     ],
+    "proof": {
+      "subtitle": "OUR WORK",
+      "title": "Real automation, real businesses",
+      "studies": [
+        {
+          "client": "Dashak Pharma",
+          "title": "B2B WhatsApp Ordering & Automation",
+          "impact": "Built a WhatsApp-first ordering system for B2B pharmacy distribution — automated order capture, invoicing, and follow-ups with zero new app downloads required from retailers.",
+          "tags": ["WhatsApp API", "n8n", "AI Automation"],
+          "color": "#f6d365"
+        }
+      ]
+    },
     "tech_stack": [
       "TensorFlow",
       "PyTorch",
@@ -142,9 +155,10 @@
       "Inventory & Order Management"
     ],
     "cta": {
-      "title": "Ready to build something exceptional?",
-      "description": "Stop settling for mediocre agencies. Let's discuss your product roadmap and engineer a solution that accelerates your growth.",
-      "button_text": "Book a Consultation"
+      "title": "Ready to put AI to work in your business?",
+      "description": "Book a scoping call. We'll map where automation actually saves you time and money — not just where it sounds impressive.",
+      "button_text": "Book a Consultation",
+      "pricing_url": "pricing.html"
     }
   },
   "cloud-devops": {
@@ -232,9 +246,10 @@
       "Vulnerability Management"
     ],
     "cta": {
-      "title": "Ready to build something exceptional?",
-      "description": "Stop settling for mediocre agencies. Let's discuss your product roadmap and engineer a solution that accelerates your growth.",
-      "button_text": "Book a Consultation"
+      "title": "Ready to modernize your infrastructure?",
+      "description": "Book a scoping call. We'll audit your current setup and show you exactly where lean architecture cuts cost without cutting reliability.",
+      "button_text": "Book a Consultation",
+      "pricing_url": "pricing.html"
     }
   },
   "custom-software": {
@@ -301,24 +316,32 @@
         "id": "api"
       },
       {
-        "icon": "🛒",
-        "color": "#43e97b",
-        "title": "E-Commerce Storefronts",
-        "desc": "High-converting online stores powered by Shopify, WooCommerce, or fully custom checkout experiences with payment gateway integration."
-      },
-      {
         "icon": "💳",
         "color": "#f5576c",
         "title": "Payment & Inventory Systems",
         "desc": "Secure multi-currency payment processing, real-time inventory tracking, and automated order fulfillment pipelines."
-      },
-      {
-        "icon": "📝",
-        "color": "#a18cd1",
-        "title": "CMS & Content Platforms",
-        "desc": "Custom WordPress themes, headless CMS with React frontends, and enterprise content management systems with role-based publishing workflows."
       }
     ],
+    "proof": {
+      "subtitle": "OUR WORK",
+      "title": "Real platforms we've shipped",
+      "studies": [
+        {
+          "client": "Chitravan",
+          "title": "Custom CRM for Regional Real Estate",
+          "impact": "Built a custom CRM that handles end-to-end customer relationships — lead capture, inventory tracking, booking management — replacing spreadsheets with a single dashboard.",
+          "tags": ["CRM Platform", "Next.js", "Cloudflare D1"],
+          "color": "#4facfe"
+        },
+        {
+          "client": "Bhu Master Pvt Ltd",
+          "title": "Real Estate Property Platform",
+          "impact": "Delivered a complete property listing and management platform with buyer-facing search, project pages with amenities and photos, and an admin dashboard for inventory management.",
+          "tags": ["Real Estate", "Web App", "Data Modeling"],
+          "color": "#38f9d7"
+        }
+      ]
+    },
     "process": [
       {
         "number": "01",
@@ -358,9 +381,10 @@
       "API Development & System Integration"
     ],
     "cta": {
-      "title": "Ready to build something exceptional?",
-      "description": "Stop settling for mediocre agencies. Let's discuss your product roadmap and engineer a solution that accelerates your growth.",
-      "button_text": "Book a Consultation"
+      "title": "Ready to build your platform?",
+      "description": "Book a scoping call. We'll turn your requirements into a fixed-price technical proposal within 48 hours.",
+      "button_text": "Book a Consultation",
+      "pricing_url": "pricing.html"
     }
   },
   "cybersecurity": {
@@ -587,9 +611,10 @@
       "Social Media Content Production"
     ],
     "cta": {
-      "title": "Ready to build something exceptional?",
-      "description": "Stop settling for mediocre agencies. Let's discuss your product roadmap and engineer a solution that accelerates your growth.",
-      "button_text": "Book a Consultation"
+      "title": "Ready for marketing that pays for itself?",
+      "description": "Book a scoping call. We'll audit your current funnel and show you where the highest-ROI opportunities actually are.",
+      "button_text": "Book a Consultation",
+      "pricing_url": "pricing.html"
     }
   },
   "enterprise-platforms": {
@@ -659,6 +684,26 @@
         "desc": "We migrate your historical data from legacy systems and train your staff on the new platform."
       }
     ],
+    "proof": {
+      "subtitle": "OUR WORK",
+      "title": "Real platforms replacing real spreadsheets",
+      "studies": [
+        {
+          "client": "Chitravan",
+          "title": "Custom CRM for Regional Real Estate",
+          "impact": "Built a custom CRM that handles end-to-end customer relationships — lead capture, inventory tracking, booking management — replacing spreadsheets with a single dashboard.",
+          "tags": ["CRM Platform", "Next.js", "Cloudflare D1"],
+          "color": "#4facfe"
+        },
+        {
+          "client": "Bhu Master Pvt Ltd",
+          "title": "Real Estate Property Platform",
+          "impact": "Delivered a complete property listing and management platform with buyer-facing search, project pages with amenities and photos, and an admin dashboard for inventory management.",
+          "tags": ["Real Estate", "Web App", "Data Modeling"],
+          "color": "#38f9d7"
+        }
+      ]
+    },
     "tech_stack": [
       "Salesforce",
       "SAP",
@@ -679,9 +724,10 @@
       "Operational Dashboards"
     ],
     "cta": {
-      "title": "Ready to build something exceptional?",
-      "description": "Stop settling for mediocre agencies. Let's discuss your product roadmap and engineer a solution that accelerates your growth.",
-      "button_text": "Book a Consultation"
+      "title": "Ready to replace the spreadsheets and shadow IT?",
+      "description": "Book a scoping call. We'll map your current systems and propose an architecture that scales with your operations, not against them.",
+      "button_text": "Book a Consultation",
+      "pricing_url": "pricing.html"
     }
   },
   "lead-gen-scraping": {
@@ -837,9 +883,10 @@
       "Mobile E-Commerce"
     ],
     "cta": {
-      "title": "Ready to build something exceptional?",
-      "description": "Stop settling for mediocre agencies. Let's discuss your product roadmap and engineer a solution that accelerates your growth.",
-      "button_text": "Book a Consultation"
+      "title": "Ready to ship to iOS and Android?",
+      "description": "Book a scoping call. We'll scope your app and give you a fixed-price, fixed-timeline proposal within 48 hours.",
+      "button_text": "Book a Consultation",
+      "pricing_url": "pricing.html"
     }
   },
   "motion-video": {

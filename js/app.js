@@ -1818,14 +1818,14 @@ function renderServicePage(data, slug) {
 
     <!-- CORE SOLUTIONS -->
     <section class="bento-section fade-in content-section">
-        <div class="section-header center" style="margin-bottom: 50px; text-align: center;">
-            <h4 class="mini-title" style="color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 10px;">CAPABILITIES</h4>
-            <h2 style="font-family: var(--font-heading); font-size: 2.5rem; font-weight: 800;">Core Features</h2>
+        <div class="section-header center service-section-header">
+            <h4 class="mini-title service-mini-title">CAPABILITIES</h4>
+            <h2 class="service-section-h2">Core Features</h2>
         </div>
         <div class="bento-grid">
             ${service.features.map(f => `
-                <div class="bento-card" ${f.id ? 'id="' + f.id + '" style="scroll-margin-top: 100px; border-top: 4px solid ' + f.color + ';"' : 'style="border-top: 4px solid ' + f.color + ';"'}>
-                    <div class="bento-icon" style="color: ${f.color}; font-size: 2rem; margin-bottom: 20px;">${f.icon}</div>
+                <div class="bento-card service-feature-card" ${f.id ? `id="${f.id}"` : ''} style="--card-accent: ${f.color};">
+                    <div class="bento-icon service-feature-icon" style="--card-accent: ${f.color};">${f.icon}</div>
                     <h3 class="bento-title">${f.title}</h3>
                     <p class="bento-desc">${f.desc}</p>
                 </div>
@@ -1833,19 +1833,42 @@ function renderServicePage(data, slug) {
         </div>
     </section>
 
+    <!-- PROOF -->
+    ${service.proof && service.proof.studies && service.proof.studies.length > 0 ? `
+    <section class="content-section fade-in home-section-shaded home-section-bordered-top">
+        <div class="container">
+            <div class="section-header center">
+                <h4 class="mini-title">${service.proof.subtitle}</h4>
+                <h2>${service.proof.title}</h2>
+            </div>
+            <div class="grid-3 home-grid-spaced">
+                ${service.proof.studies.map(s => `
+                <div class="spec-card fade-in home-accent-card" style="--card-accent: ${s.color};">
+                    <p class="home-accent-eyebrow">${s.client}</p>
+                    <h3 class="home-card-title">${s.title}</h3>
+                    <p class="home-card-body">${s.impact}</p>
+                    <div class="home-tag-row">
+                        ${s.tags.map(t => `<span class="home-tag">${t}</span>`).join('')}
+                    </div>
+                </div>`).join('')}
+            </div>
+        </div>
+    </section>
+    ` : ''}
+
     <!-- TECH STACK & USE CASES -->
-    <section class="container fade-in" style="padding: 50px 0;">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
-            <div style="background: var(--bg-card); padding: 40px; border-radius: 20px; border: 1px solid var(--border-light);">
-                <h3 style="font-family: var(--font-heading); margin-bottom: 20px;">Tech Stack</h3>
-                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-                    ${service.tech_stack.map(tech => `<span class="blog-tag" style="background: var(--bg-light); color: var(--text-main); font-size: 0.85rem; padding: 6px 14px; border: 1px solid var(--border-light);">${tech}</span>`).join('')}
+    <section class="container fade-in service-tech-section">
+        <div class="service-tech-grid">
+            <div class="service-tech-card">
+                <h3 class="service-tech-card-title">Tech Stack</h3>
+                <div class="service-tech-tags">
+                    ${service.tech_stack.map(tech => `<span class="blog-tag service-tech-tag">${tech}</span>`).join('')}
                 </div>
             </div>
-            <div style="background: var(--bg-card); padding: 40px; border-radius: 20px; border: 1px solid var(--border-light);">
-                <h3 style="font-family: var(--font-heading); margin-bottom: 20px;">Use Cases</h3>
-                <ul style="list-style: none; padding: 0;">
-                    ${service.use_cases.map(uc => `<li style="margin-bottom: 12px; color: var(--text-muted);"><span style="color: var(--accent-color); margin-right: 10px;">✓</span>${uc}</li>`).join('')}
+            <div class="service-tech-card">
+                <h3 class="service-tech-card-title">Use Cases</h3>
+                <ul class="service-use-cases-list">
+                    ${service.use_cases.map(uc => `<li class="service-use-case-item"><span class="service-use-case-check">✓</span>${uc}</li>`).join('')}
                 </ul>
             </div>
         </div>
@@ -1854,9 +1877,9 @@ function renderServicePage(data, slug) {
     <!-- DELIVERY PROCESS -->
     <section class="compare-section fade-in content-section">
         <div class="container">
-            <div class="section-header center" style="text-align: center; margin-bottom: 50px;">
-                <h4 class="mini-title" style="color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 10px;">THE METHODOLOGY</h4>
-                <h2 style="font-family: var(--font-heading); font-size: 2.5rem; font-weight: 800;">How We Deliver Quality</h2>
+            <div class="section-header center service-section-header">
+                <h4 class="mini-title service-mini-title">THE METHODOLOGY</h4>
+                <h2 class="service-section-h2">How We Deliver Quality</h2>
             </div>
             <div class="process-grid">
                 ${service.process.map(p => `
@@ -1876,7 +1899,8 @@ function renderServicePage(data, slug) {
             <div class="grand-cta-inner">
                 <h2>${service.cta.title}</h2>
                 <p>${service.cta.description}</p>
-                <a href="contact.html" class="btn-primary" style="font-size: 1.1rem; padding: 18px 40px;">${service.cta.button_text}</a>
+                <a href="contact.html" class="btn-primary service-grand-cta-btn">${service.cta.button_text}</a>
+                ${service.cta.pricing_url ? `<a href="${service.cta.pricing_url}" class="btn-secondary service-grand-cta-btn">💰 See Pricing</a>` : ''}
             </div>
         </div>
     </section>
