@@ -1,7 +1,7 @@
 {
   "hero": {
     "badge": "💰 Pricing & Engagement",
-    "title": "Transparent Pricing. <span class=\"gradient-word\" style=\"background: linear-gradient(135deg, #ff5e9a 0%, #ff7a1a 50%, #ffd34d 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;\">No Surprises.</span>",
+    "title": "Transparent Pricing. <span class=\"pricing-hero-gradient\">No Surprises.</span>",
     "description": "We believe in fixed-price contracts and upfront honesty. You will always know exactly what your software will cost before we write a single line of code."
   },
   "pricing_tiers": {
@@ -22,7 +22,7 @@
         ]
       },
       {
-        "name": "Custom MVPs (Startups & MSMEs)",
+        "name": "Custom MVPs (Startups)",
         "price": "₹1.5L - ₹3L",
         "description": "Perfect for custom software, rapid prototyping, and digitizing core business workflows.",
         "features": [
@@ -48,11 +48,11 @@
       },
       {
         "name": "Enterprise",
-        "price": "₹5L+",
+        "price": "Contact for Custom Proposal",
         "description": "Custom engineering for high-compliance, high-volume, or highly complex requirements.",
         "features": [
           "Enterprise resource planning (ERP)",
-          "HIPAA / PCI compliant systems",
+          "Built to your compliance requirements (HIPAA, PCI, etc.)",
           "Custom AI/LLM deployment",
           "Dedicated engineering pods",
           "Custom engagement models"

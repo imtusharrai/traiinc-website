@@ -2000,7 +2000,7 @@ function renderTrustPage(data) {
 
 function renderPricing(data) {
     return `
-    <section class="cf-hero-wrapper" style="--cf-accent-1: #4facfe; --cf-accent-2: #00f2fe; --cf-stroke-color: rgba(79, 172, 254, 0.1); min-height: 70vh; padding-top: 150px;">
+    <section class="cf-hero-wrapper pricing-hero-wrapper">
         <div class="cf-bg-text-container" aria-hidden="true">
             <h1 class="cf-bg-text outline">PRICING</h1>
             <h1 class="cf-bg-text filled">PRICING</h1>
@@ -2019,30 +2019,30 @@ function renderPricing(data) {
             </svg>
         </div>
         <div class="cf-hero-content fade-in">
-            <div class="biz-badge" style="margin-bottom: 20px;">${data.hero.badge}</div>
-            <h1 style="color: var(--text-main); font-size: clamp(3rem, 6vw, 5rem); line-height: 1.1; margin-bottom: 25px;">${data.hero.title}</h1>
-            <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 650px; margin: 0 auto;">${data.hero.description}</p>
+            <div class="biz-badge pricing-hero-badge">${data.hero.badge}</div>
+            <h1 class="pricing-hero-title">${data.hero.title}</h1>
+            <p class="pricing-hero-desc">${data.hero.description}</p>
         </div>
     </section>
 
-    <section class="container fade-in" style="padding: 80px 24px;">
-        <div class="section-header" style="text-align: center; margin-bottom: 60px;">
-            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">${data.pricing_tiers.title}</h2>
-            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto; font-size: 1.1rem;">${data.pricing_tiers.description}</p>
+    <section class="container fade-in pricing-section">
+        <div class="section-header pricing-section-header">
+            <h2 class="pricing-section-title">${data.pricing_tiers.title}</h2>
+            <p class="pricing-section-desc">${data.pricing_tiers.description}</p>
         </div>
-        
-        <div class="pricing-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 100px;">
+
+        <div class="pricing-grid">
             ${data.pricing_tiers.tiers.map(tier => `
-                <div ${tier.id ? `id="${tier.id}"` : ''} class="pricing-card" style="background: var(--bg-card); padding: 40px; border-radius: 20px; border: 1px solid ${tier.highlight ? 'var(--primary)' : 'var(--border-light)'}; position: relative; ${tier.highlight ? 'box-shadow: 0 0 30px rgba(79, 172, 254, 0.1); transform: scale(1.02);' : ''}">
-                    ${tier.highlight ? '<div style="position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); background: var(--gradient-primary); color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 600;">Most Popular</div>' : ''}
-                    <h3 style="font-size: 1.5rem; margin-bottom: 10px;">${tier.name}</h3>
-                    <div style="font-size: 2.5rem; font-weight: 800; color: var(--text-main); margin-bottom: 15px;">${tier.price}</div>
-                    <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 0.95rem;">${tier.description}</p>
-                    <ul style="list-style: none; padding: 0; margin: 0; margin-bottom: 40px;">
+                <div ${tier.id ? `id="${tier.id}"` : ''} class="pricing-card ${tier.highlight ? 'pricing-card-highlight' : ''}">
+                    ${tier.highlight ? '<div class="pricing-card-badge">Most Popular</div>' : ''}
+                    <h3 class="pricing-card-name">${tier.name}</h3>
+                    <div class="pricing-card-price">${tier.price}</div>
+                    <p class="pricing-card-desc">${tier.description}</p>
+                    <ul class="pricing-card-features">
                         ${tier.features.map(f => `
-                            <li style="margin-bottom: 15px; display: flex; align-items: start; gap: 10px;">
-                                <span style="color: var(--primary);">✓</span>
-                                <span style="color: var(--text-main); font-size: 0.95rem;">${f}</span>
+                            <li class="pricing-card-feature">
+                                <span class="pricing-card-feature-check">✓</span>
+                                <span class="pricing-card-feature-text">${f}</span>
                             </li>
                         `).join('')}
                     </ul>
@@ -2050,39 +2050,39 @@ function renderPricing(data) {
             `).join('')}
         </div>
 
-        <div class="section-header" style="text-align: center; margin-bottom: 60px;">
-            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">${data.engagement_models.title}</h2>
+        <div class="section-header pricing-section-header">
+            <h2 class="pricing-section-title">${data.engagement_models.title}</h2>
         </div>
-        
-        <div class="models-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-bottom: 100px;">
+
+        <div class="models-grid">
             ${data.engagement_models.models.map(model => `
-                <div class="model-card" style="background: var(--bg-card); padding: 40px; border-radius: 20px; border: 1px solid var(--border-light);">
-                    <div style="font-size: 3rem; margin-bottom: 20px;">${model.icon}</div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">${model.title}</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 20px; line-height: 1.6;">${model.description}</p>
-                    <div style="background: var(--bg-darker); padding: 15px; border-radius: 10px; border: 1px solid var(--border-light);">
-                        <strong style="color: var(--text-main);">Best for:</strong> <span style="color: var(--text-muted);">${model.best_for}</span>
+                <div class="model-card">
+                    <div class="model-card-icon">${model.icon}</div>
+                    <h3 class="model-card-title">${model.title}</h3>
+                    <p class="model-card-desc">${model.description}</p>
+                    <div class="model-card-footer">
+                        <strong class="model-card-footer-label">Best for:</strong> <span class="model-card-footer-text">${model.best_for}</span>
                     </div>
                 </div>
             `).join('')}
         </div>
 
-        <div class="section-header" style="text-align: center; margin-bottom: 60px;">
-            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">${data.faq.title}</h2>
+        <div class="section-header pricing-section-header">
+            <h2 class="pricing-section-title">${data.faq.title}</h2>
         </div>
-        
-        <div class="faq-grid" style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; margin-bottom: 100px;">
+
+        <div class="faq-grid pricing-faq-grid">
             ${data.faq.questions.map(q => `
-                <div class="faq-item" style="background: var(--bg-card); padding: 30px; border-radius: 15px; border: 1px solid var(--border-light);">
-                    <h4 style="font-size: 1.2rem; margin-bottom: 15px; color: var(--text-main);">${q.q}</h4>
-                    <p style="color: var(--text-muted); line-height: 1.6;">${q.a}</p>
+                <div class="faq-item pricing-faq-item">
+                    <h4 class="pricing-faq-q">${q.q}</h4>
+                    <p class="pricing-faq-a">${q.a}</p>
                 </div>
             `).join('')}
         </div>
     </section>
 
     <!-- GRAND CTA -->
-    <section class="grand-cta fade-in" style="margin-bottom: 100px;">
+    <section class="grand-cta fade-in pricing-grand-cta">
         <div class="container">
             <div class="grand-cta-box">
                 <div class="grand-cta-bg"></div>
