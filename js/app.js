@@ -594,76 +594,76 @@ function renderHome(data) {
 
 function renderAbout(data) {
     return `
-    <header class="page-header" style="padding: 150px 24px 60px; text-align: center; max-width: 850px; margin: 0 auto;">
+    <header class="page-header about-header">
         <h4 class="mini-title fade-in">${data.header.subtitle}</h4>
-        <h1 class="main-heading fade-in" style="font-size: clamp(2.4rem, 5vw, 3.8rem); margin-bottom: 24px;">${data.header.title}</h1>
-        <p class="fade-in" style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.7;">${data.intro.text}</p>
+        <h1 class="main-heading fade-in about-header-title">${data.header.title}</h1>
+        <p class="fade-in about-header-intro">${data.intro.text}</p>
     </header>
 
     <!-- Numbers bar -->
-    <section style="padding: 50px 0; background: var(--bg-card); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+    <section class="about-numbers-section">
         <div class="container">
-            <div style="display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; text-align: center;">
+            <div class="about-numbers-row">
                 ${data.numbers.stats.map(s => `
                 <div class="fade-in">
-                    <h3 style="font-size: 2.5rem; font-family: var(--font-heading); font-weight: 800; background: var(--brand-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">${s.value}</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 5px;">${s.label}</p>
+                    <h3 class="about-numbers-value">${s.value}</h3>
+                    <p class="about-numbers-label">${s.label}</p>
                 </div>`).join('')}
             </div>
         </div>
     </section>
 
     <!-- Team section -->
-    <section class="container" style="padding: 100px 24px;">
+    <section class="container about-team-section">
         <div class="section-header center fade-in">
             <h4 class="mini-title">${data.team.subtitle}</h4>
             <h2>${data.team.title}</h2>
         </div>
-        <div class="grid-3 fade-in" style="margin-top: 50px;">
+        <div class="grid-3 fade-in about-grid-spaced">
             ${data.team.members.map(m => `
-            <div class="spec-card text-center" style="padding: 30px;">
-                <div style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 20px; overflow: hidden; border: 3px solid var(--border-light);">
-                    <img src="${m.image}" alt="${m.name}" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="spec-card text-center about-team-card">
+                <div class="about-team-avatar">
+                    <img src="${m.image}" alt="${m.name}" class="about-team-avatar-img">
                 </div>
-                <h3 style="margin-bottom: 5px;">${m.name}</h3>
-                <p style="color: var(--text-muted); font-size: 0.95rem;">${m.role}</p>
+                <h3 class="about-team-name">${m.name}</h3>
+                <p class="about-team-role">${m.role}</p>
             </div>`).join('')}
         </div>
     </section>
 
     <!-- How We Work -->
-    <section style="padding: 100px 0; background: var(--bg-darker);">
+    <section class="about-section-shaded">
         <div class="container">
-            <div class="section-header center fade-in" style="max-width: 700px; margin: 0 auto 50px;">
+            <div class="section-header center fade-in about-model-header">
                 <h4 class="mini-title">${data.model.subtitle}</h4>
-                <h2 style="margin-bottom: 16px;">${data.model.title}</h2>
-                <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7;">${data.model.description}</p>
+                <h2 class="about-model-title">${data.model.title}</h2>
+                <p class="about-model-desc">${data.model.description}</p>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; max-width: 1100px; margin: 0 auto;">
+            <div class="about-model-grid">
                 ${data.model.advantages.map(a => `
-                <div class="spec-card fade-in" style="padding: 32px 28px;">
-                    <div style="font-size: 2rem; margin-bottom: 14px;">${a.icon}</div>
-                    <h3 style="font-size: 1.15rem; margin-bottom: 10px; font-family: var(--font-heading);">${a.title}</h3>
-                    <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;">${a.desc}</p>
+                <div class="spec-card fade-in about-advantage-card">
+                    <div class="about-advantage-icon">${a.icon}</div>
+                    <h3 class="about-advantage-title">${a.title}</h3>
+                    <p class="about-advantage-desc">${a.desc}</p>
                 </div>`).join('')}
             </div>
         </div>
     </section>
 
     <!-- Expertise -->
-    <section style="padding: 100px 0;">
+    <section class="about-section-plain">
         <div class="container">
             <div class="section-header center fade-in">
                 <h4 class="mini-title">${data.expertise.subtitle}</h4>
                 <h2>${data.expertise.title}</h2>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 50px; max-width: 1100px; margin-left: auto; margin-right: auto;">
+            <div class="about-expertise-grid">
                 ${data.expertise.areas.map(a => `
-                <div class="spec-card fade-in" style="padding: 36px 30px; display: flex; gap: 18px; align-items: flex-start;">
-                    <div style="font-size: 2rem; flex-shrink: 0; margin-top: 2px;">${a.icon}</div>
+                <div class="spec-card fade-in about-expertise-card">
+                    <div class="about-expertise-icon">${a.icon}</div>
                     <div>
-                        <h3 style="font-size: 1.15rem; margin-bottom: 8px; font-family: var(--font-heading);">${a.title}</h3>
-                        <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;">${a.desc}</p>
+                        <h3 class="about-expertise-title">${a.title}</h3>
+                        <p class="about-expertise-desc">${a.desc}</p>
                     </div>
                 </div>`).join('')}
             </div>
@@ -671,31 +671,31 @@ function renderAbout(data) {
     </section>
 
     <!-- Timeline -->
-    <section style="padding: 100px 0; background: var(--bg-darker);">
-        <div class="container" style="max-width: 800px;">
+    <section class="about-section-shaded">
+        <div class="container about-timeline-container">
             <div class="section-header center fade-in">
                 <h4 class="mini-title">${data.timeline.subtitle}</h4>
                 <h2>${data.timeline.title}</h2>
             </div>
-            <div style="margin-top: 50px; position: relative; padding-left: 40px; border-left: 2px solid var(--border-light);">
+            <div class="about-timeline-track">
                 ${data.timeline.milestones.map(m => `
-                <div class="fade-in" style="margin-bottom: 40px; position: relative;">
-                    <div style="position: absolute; left: -49px; top: 4px; width: 16px; height: 16px; border-radius: 50%; background: var(--accent-color); border: 3px solid var(--bg-darker);"></div>
-                    <span style="display: inline-block; padding: 4px 12px; border-radius: 6px; background: var(--bg-light); color: var(--accent-color); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 10px;">${m.year}</span>
-                    <h3 style="font-size: 1.2rem; font-family: var(--font-heading); margin-bottom: 8px;">${m.title}</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">${m.desc}</p>
+                <div class="fade-in about-timeline-item">
+                    <div class="about-timeline-dot"></div>
+                    <span class="about-timeline-year">${m.year}</span>
+                    <h3 class="about-timeline-title">${m.title}</h3>
+                    <p class="about-timeline-desc">${m.desc}</p>
                 </div>`).join('')}
             </div>
         </div>
     </section>
 
     <!-- Incubation -->
-    <section style="padding: 80px 0;">
-        <div class="container" style="max-width: 700px; text-align: center;">
+    <section class="about-section-narrow">
+        <div class="container about-incubation-container">
             <div class="fade-in">
                 <h4 class="mini-title">${data.incubation.subtitle}</h4>
-                <h2 style="font-size: 2rem; margin-bottom: 16px;">${data.incubation.title}</h2>
-                <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7;">${data.incubation.text}</p>
+                <h2 class="about-incubation-title">${data.incubation.title}</h2>
+                <p class="about-incubation-text">${data.incubation.text}</p>
             </div>
         </div>
     </section>
@@ -703,13 +703,13 @@ function renderAbout(data) {
     ${renderFaq(data.faq)}
 
     <!-- CTA -->
-    <section style="padding: 100px 0;">
+    <section class="about-section-plain">
         <div class="container">
-            <div class="spec-card fade-in" style="padding: 80px 60px; text-align: center; border-radius: 30px; position: relative; overflow: hidden; max-width: 900px; margin: 0 auto;">
-                <div style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: var(--brand-gradient); filter: blur(150px); opacity: 0.12; border-radius: 50%;"></div>
-                <h2 style="font-family: var(--font-heading); font-size: clamp(1.8rem, 3.5vw, 2.6rem); margin-bottom: 16px; position: relative;">${data.cta.title}</h2>
-                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 36px; font-size: 1.05rem; line-height: 1.7; position: relative;">${data.cta.description}</p>
-                <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large" style="position: relative;">${data.cta.button_text}</a>
+            <div class="spec-card fade-in about-cta-card">
+                <div class="about-cta-glow"></div>
+                <h2 class="about-cta-title">${data.cta.title}</h2>
+                <p class="about-cta-desc">${data.cta.description}</p>
+                <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large about-cta-btn">${data.cta.button_text}</a>
             </div>
         </div>
     </section>
@@ -1002,7 +1002,7 @@ function renderPartner(data) {
 function renderContact(data) {
     return `
     <!-- ═══ HERO ═══ -->
-    <section class="cf-hero-wrapper" style="--cf-accent-1: #4facfe; --cf-accent-2: #00f2fe; --cf-stroke-color: rgba(79, 172, 254, 0.1); min-height: 75vh; padding-top: 150px;">
+    <section class="cf-hero-wrapper contact-hero-wrapper">
         <div class="cf-bg-text-container" aria-hidden="true" role="presentation">
             <h1 class="cf-bg-text outline">CONTACT</h1>
             <h1 class="cf-bg-text filled">CONTACT</h1>
@@ -1023,21 +1023,21 @@ function renderContact(data) {
         </div>
 
         <div class="cf-floating-cards-layer" aria-hidden="true" role="presentation">
-            <div class="cf-glass-card anim-slow" style="top: 15%; left: 10%;">📧</div>
-            <div class="cf-glass-card anim-medium" style="top: 25%; right: 12%;">📞</div>
-            <div class="cf-glass-card anim-fast" style="bottom: 20%; left: 15%;">📍</div>
-            <div class="cf-glass-card anim-slow" style="bottom: 15%; right: 18%;">💬</div>
+            <div class="cf-glass-card anim-slow contact-glass-card-1">📧</div>
+            <div class="cf-glass-card anim-medium contact-glass-card-2">📞</div>
+            <div class="cf-glass-card anim-fast contact-glass-card-3">📍</div>
+            <div class="cf-glass-card anim-slow contact-glass-card-4">💬</div>
         </div>
 
         <div class="cf-hero-content fade-in">
-            <div class="biz-badge" style="margin-bottom: 20px;">${data.hero.badge}</div>
-            <h1 style="color: var(--text-main); font-size: clamp(3rem, 6vw, 5rem); line-height: 1.1; margin-bottom: 25px;">${data.hero.title}</h1>
-            <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 650px; margin: 0 auto;">${data.hero.description}</p>
+            <div class="biz-badge contact-hero-badge">${data.hero.badge}</div>
+            <h1 class="contact-hero-title">${data.hero.title}</h1>
+            <p class="contact-hero-desc">${data.hero.description}</p>
         </div>
     </section>
 
     <!-- ═══ CONTACT SPLIT SECTION ═══ -->
-    <section class="container fade-in" style="padding: 80px 24px 100px;">
+    <section class="container fade-in contact-split-section">
         <div class="contact-split">
 
             <!-- Left Column — Contact Info -->
@@ -1060,24 +1060,24 @@ function renderContact(data) {
             </div>
 
             <!-- Right Column — Booking & WhatsApp -->
-            <div class="contact-form-card" style="display: flex; flex-direction: column; gap: 20px;">
-                <div style="text-align: center; margin-bottom: 10px;">
-                    <h3 style="margin-bottom: 15px;">Book a Consultation</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 25px;">Schedule a 30-minute scoping call directly on our calendar. No sales pitch, just a technical discussion.</p>
-                    <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" rel="noopener noreferrer" class="btn-primary large" style="width: 100%; justify-content: center;">
+            <div class="contact-form-card contact-form-card-flex">
+                <div class="contact-book-block">
+                    <h3 class="contact-book-title">Book a Consultation</h3>
+                    <p class="contact-book-desc">Schedule a 30-minute scoping call directly on our calendar. No sales pitch, just a technical discussion.</p>
+                    <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" rel="noopener noreferrer" class="btn-primary large contact-book-btn">
                         📅 Book on Google Calendar
                     </a>
                 </div>
-                
-                <div style="position: relative; padding: 20px 0; text-align: center;">
-                    <span style="background: var(--bg-card); padding: 0 15px; color: var(--text-muted); position: relative; z-index: 1;">OR</span>
-                    <hr style="position: absolute; top: 50%; left: 0; right: 0; border: none; border-top: 1px solid var(--border-light); z-index: 0;">
+
+                <div class="contact-divider">
+                    <span class="contact-divider-label">OR</span>
+                    <hr class="contact-divider-line">
                 </div>
 
-                <div style="text-align: center;">
-                    <h3 style="margin-bottom: 15px;">Chat Immediately</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 25px;">Prefer texting? Reach out directly to our founders on WhatsApp for a quick response.</p>
-                    <a href="https://wa.me/917905495478?text=Hi%20Trai%20Inc,%20I'm%20looking%20for%20a%20digital%20solution%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="whatsapp-btn" style="width: 100%; justify-content: center;">
+                <div class="contact-chat-block">
+                    <h3 class="contact-chat-title">Chat Immediately</h3>
+                    <p class="contact-chat-desc">Prefer texting? Reach out directly to our founders on WhatsApp for a quick response.</p>
+                    <a href="https://wa.me/917905495478?text=Hi%20Trai%20Inc,%20I'm%20looking%20for%20a%20digital%20solution%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="whatsapp-btn contact-chat-btn">
                         💬 Start WhatsApp Chat
                     </a>
                 </div>
@@ -1087,64 +1087,64 @@ function renderContact(data) {
     </section>
 
     <!-- ═══ DETAILED FORM SECTION ═══ -->
-    <section class="container fade-in" style="padding: 0 24px 100px;">
-        <div style="max-width: 800px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 20px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-            <div style="text-align: center; margin-bottom: 30px;">
-                <h3 style="font-size: 2rem; margin-bottom: 10px;">${data.form.title}</h3>
-                <p style="color: var(--text-muted);">${data.form.note}</p>
+    <section class="container fade-in contact-form-section">
+        <div class="contact-form-wrapper">
+            <div class="contact-form-header">
+                <h3 class="contact-form-title">${data.form.title}</h3>
+                <p class="contact-form-note">${data.form.note}</p>
             </div>
-            <form id="contactForm" action="https://formsubmit.co/hello@traiinc.com" method="POST" style="display: flex; flex-direction: column; gap: 20px;">
+            <form id="contactForm" action="https://formsubmit.co/hello@traiinc.com" method="POST" class="contact-form">
                 <!-- Hide captcha -->
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_next" value="https://traiinc.com/contact.html?success=true">
-                
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+
+                <div class="contact-form-row">
                     ${data.form.fields.slice(0, 2).map(f => `
-                        <div style="display: flex; flex-direction: column; gap: 8px;">
-                            <label for="${f.id}" style="font-weight: 500; font-size: 0.9rem;">${f.label} ${f.required ? '<span style="color: #ff5e9a;">*</span>' : ''}</label>
-                            <input type="${f.type}" id="${f.id}" name="${f.name}" placeholder="${f.placeholder}" ${f.required ? 'required' : ''} style="padding: 14px 16px; border-radius: 10px; border: 1px solid var(--border-light); background: var(--bg-darker); color: var(--text-main); font-family: inherit;">
+                        <div class="contact-field">
+                            <label for="${f.id}" class="contact-field-label">${f.label} ${f.required ? '<span class="contact-required">*</span>' : ''}</label>
+                            <input type="${f.type}" id="${f.id}" name="${f.name}" placeholder="${f.placeholder}" ${f.required ? 'required' : ''} class="contact-field-input">
                         </div>
                     `).join('')}
                 </div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="contact-form-row">
                     ${data.form.fields.slice(2, 4).map(f => `
-                        <div style="display: flex; flex-direction: column; gap: 8px;">
-                            <label for="${f.id}" style="font-weight: 500; font-size: 0.9rem;">${f.label} ${f.required ? '<span style="color: #ff5e9a;">*</span>' : ''}</label>
-                            <input type="${f.type}" id="${f.id}" name="${f.name}" placeholder="${f.placeholder}" ${f.required ? 'required' : ''} style="padding: 14px 16px; border-radius: 10px; border: 1px solid var(--border-light); background: var(--bg-darker); color: var(--text-main); font-family: inherit;">
+                        <div class="contact-field">
+                            <label for="${f.id}" class="contact-field-label">${f.label} ${f.required ? '<span class="contact-required">*</span>' : ''}</label>
+                            <input type="${f.type}" id="${f.id}" name="${f.name}" placeholder="${f.placeholder}" ${f.required ? 'required' : ''} class="contact-field-input">
                         </div>
                     `).join('')}
                 </div>
 
-                <div style="display: flex; flex-direction: column; gap: 8px;">
-                    <label for="${data.form.budget.id}" style="font-weight: 500; font-size: 0.9rem;">${data.form.budget.label} <span style="color: #ff5e9a;">*</span></label>
-                    <select id="${data.form.budget.id}" name="${data.form.budget.name}" required style="padding: 14px 16px; border-radius: 10px; border: 1px solid var(--border-light); background: var(--bg-darker); color: var(--text-main); font-family: inherit; appearance: none; cursor: pointer;">
+                <div class="contact-field">
+                    <label for="${data.form.budget.id}" class="contact-field-label">${data.form.budget.label} <span class="contact-required">*</span></label>
+                    <select id="${data.form.budget.id}" name="${data.form.budget.name}" required class="contact-field-input contact-field-select">
                         ${data.form.budget.options.map(opt => `
                             <option value="${opt.value}" ${opt.disabled ? 'disabled' : ''} ${opt.selected ? 'selected' : ''}>${opt.label}</option>
                         `).join('')}
                     </select>
                 </div>
 
-                <div style="display: flex; flex-direction: column; gap: 8px;">
-                    <label for="${data.form.message.id}" style="font-weight: 500; font-size: 0.9rem;">${data.form.message.label} <span style="color: #ff5e9a;">*</span></label>
-                    <textarea id="${data.form.message.id}" name="${data.form.message.name}" placeholder="${data.form.message.placeholder}" required style="padding: 14px 16px; border-radius: 10px; border: 1px solid var(--border-light); background: var(--bg-darker); color: var(--text-main); font-family: inherit; min-height: 120px; resize: vertical;"></textarea>
+                <div class="contact-field">
+                    <label for="${data.form.message.id}" class="contact-field-label">${data.form.message.label} <span class="contact-required">*</span></label>
+                    <textarea id="${data.form.message.id}" name="${data.form.message.name}" placeholder="${data.form.message.placeholder}" required class="contact-field-input contact-field-textarea"></textarea>
                 </div>
 
-                <button type="submit" class="btn-primary large" style="width: 100%; justify-content: center; margin-top: 10px;">${data.form.button}</button>
+                <button type="submit" class="btn-primary large contact-submit-btn">${data.form.button}</button>
             </form>
         </div>
     </section>
 
     <!-- ═══ MAP SECTION ═══ -->
-    <section style="margin: 0 24px 100px;">
-        <div class="container" style="max-width: 1200px; padding: 0;">
-            <div style="border-radius: 20px; overflow: hidden; height: 450px; background: var(--bg-darker); border: 1px solid var(--border-light); position: relative;">
-                <iframe 
-                    data-mock-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.421731671954!2d80.99971847543763!3d26.858309176681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be2c086eb0c2b%3A0xe54e60b2eb7f4b82!2sDLF%20MyPad!5e0!3m2!1sen!2sin!4v1709210000000!5m2!1sen!2sin" 
-                    width="100%" 
-                    height="100%" 
-                    style="border:0; position: absolute; top: 0; left: 0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
+    <section class="contact-map-section">
+        <div class="container contact-map-container">
+            <div class="contact-map-frame-wrap">
+                <iframe
+                    data-mock-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.421731671954!2d80.99971847543763!3d26.858309176681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be2c086eb0c2b%3A0xe54e60b2eb7f4b82!2sDLF%20MyPad!5e0!3m2!1sen!2sin!4v1709210000000!5m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    class="contact-map-iframe"
+                    allowfullscreen=""
+                    loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
@@ -1157,7 +1157,7 @@ function renderContact(data) {
             <div class="grand-cta-inner">
                 <h2>${data.grand_cta.title}</h2>
                 <p>${data.grand_cta.description}</p>
-                <a href="${data.grand_cta.url}" target="_blank" class="btn-primary" style="font-size: 1.1rem; padding: 18px 40px;">${data.grand_cta.button_text}</a>
+                <a href="${data.grand_cta.url}" target="_blank" class="btn-primary contact-grand-cta-btn">${data.grand_cta.button_text}</a>
             </div>
         </div>
     </section>
