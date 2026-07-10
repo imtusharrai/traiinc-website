@@ -517,9 +517,10 @@
       "Predictive Analytics"
     ],
     "cta": {
-      "title": "Ready to build something exceptional?",
-      "description": "Stop settling for mediocre agencies. Let's discuss your product roadmap and engineer a solution that accelerates your growth.",
-      "button_text": "Book a Consultation"
+      "title": "Ready to make decisions with real data?",
+      "description": "Book a scoping call. We'll audit your current data sources and show you what a real-time dashboard would actually surface.",
+      "button_text": "Book a Consultation",
+      "pricing_url": "pricing.html"
     }
   },
   "digital-marketing": {
@@ -1018,9 +1019,10 @@
       "Design System Creation"
     ],
     "cta": {
-      "title": "Ready to build something exceptional?",
-      "description": "Stop settling for mediocre agencies. Let's discuss your product roadmap and engineer a solution that accelerates your growth.",
-      "button_text": "Book a Consultation"
+      "title": "Ready for a design that actually converts?",
+      "description": "Book a scoping call. We'll review your current product and show you where users are dropping off.",
+      "button_text": "Book a Consultation",
+      "pricing_url": "pricing.html"
     }
   },
   "web-development": {
@@ -1506,9 +1508,10 @@
       "Automated Video Demos"
     ],
     "cta": {
-      "title": "Ready to scale your content?",
-      "description": "Produce exceptional content faster than ever before.",
-      "button_text": "Explore AI Content"
+      "title": "Ready to scale your content production?",
+      "description": "Book a scoping call. We'll show you what's actually production-ready vs. what still needs a human pass.",
+      "button_text": "Book a Consultation",
+      "pricing_url": "pricing.html"
     }
   }
 }

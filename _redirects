@@ -28,9 +28,10 @@
 /cybersecurity.html /cloud-devops.html 301
 /lead-gen-scraping.html /digital-marketing.html 301
 /motion-video.html /digital-marketing.html 301
-/content-creation.html /digital-marketing.html 301
-/ui-ux-design.html /digital-marketing.html 301
-/data-analytics.html /cloud-devops.html 301
+
+# No real testimonial content exists site-wide (confirmed zero quotes in data/*.json) -
+# redirect to the real proof page instead of shipping an "Error loading content" page
+/client-reviews.html /clients.html 301
 
 # Redirections for orphaned company/trust pages → about
 /engagement-models.html /about.html 301
