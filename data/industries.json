@@ -100,6 +100,30 @@
         "GDS Integrations",
         "Loyalty Program Portals"
       ]
+    },
+    {
+      "id": "manufacturing",
+      "icon": "🏭",
+      "name": "Manufacturing & Industrial",
+      "desc": "IoT data aggregation, production line tracking, and enterprise-wide ERP synchronization for factories where downtime is measured in lakhs per hour and data integrity is non-negotiable.",
+      "features": [
+        "IoT Integration",
+        "ERP Sync",
+        "Production Dashboards",
+        "Quality Control"
+      ]
+    },
+    {
+      "id": "food",
+      "icon": "🍽️",
+      "name": "Food & Restaurant",
+      "desc": "Order management, POS integrations, and delivery workflow automation for restaurants and food businesses that need every order tracked from kitchen to customer.",
+      "features": [
+        "POS Integration",
+        "Online Ordering",
+        "Delivery Tracking",
+        "Inventory & Wastage Control"
+      ]
     }
   ],
   "cta": {

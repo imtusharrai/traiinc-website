@@ -261,9 +261,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     const dynamicContainer = document.getElementById("content") || document.getElementById("dynamic-content");
 
     const servicePages = [
-        'ai-agents', 'ai-automation', 'ai-voice-agents', 'cloud-devops', 
-        'custom-software', 'cybersecurity', 'data-analytics', 'digital-marketing', 
-        'enterprise-platforms', 'lead-gen-scraping', 'mobile-apps', 'motion-video', 
+        'ai-agents', 'ai-automation', 'ai-voice-agents', 'cloud-devops',
+        'custom-software', 'content-creation', 'cybersecurity', 'data-analytics', 'digital-marketing',
+        'enterprise-platforms', 'lead-gen-scraping', 'mobile-apps', 'motion-video',
         'ui-ux-design', 'web-development', 'workflow-automation',
         'flutter-app-development', 'ecommerce-development', 'custom-crm-development', 'wordpress-cms-development',
         'ai-automation-development'
@@ -614,7 +614,7 @@ function renderAbout(data) {
     </section>
 
     <!-- Team section -->
-    <section class="container about-team-section">
+    <section id="team" class="container about-team-section">
         <div class="section-header center fade-in">
             <h4 class="mini-title">${data.team.subtitle}</h4>
             <h2>${data.team.title}</h2>

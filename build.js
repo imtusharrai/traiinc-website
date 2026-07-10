@@ -181,10 +181,10 @@ server.listen(PORT, async () => {
                     ]
                 };
             } else if ([
-                'ai-automation.html', 'cloud-devops.html', 'custom-software.html', 
-                'cybersecurity.html', 'data-analytics.html', 'digital-marketing.html', 
-                'enterprise-platforms.html', 'lead-gen-scraping.html', 'mobile-apps.html', 
-                'motion-video.html', 'ui-ux-design.html', 'web-development.html', 
+                'ai-automation.html', 'cloud-devops.html', 'content-creation.html', 'custom-software.html',
+                'cybersecurity.html', 'data-analytics.html', 'digital-marketing.html',
+                'enterprise-platforms.html', 'lead-gen-scraping.html', 'mobile-apps.html',
+                'motion-video.html', 'ui-ux-design.html', 'web-development.html',
                 'solutions.html', 'custom-crm-development.html', 'ecommerce-development.html',
                 'wordpress-cms-development.html'
             ].includes(file)) {

@@ -200,7 +200,7 @@
                     heading: "Proof",
                     items: [
                         { icon: "📊", label: "Case Studies", href: "clients.html", desc: "Real results for real businesses" },
-                        { icon: "⭐", label: "Client Reviews", href: "client-reviews.html", desc: "What our clients say" },
+                        { icon: "⭐", label: "Client Reviews", href: "clients.html", desc: "What our clients say" },
                         { icon: "💰", label: "Pricing & Engagement", href: "pricing.html", desc: "Fixed price, advance-first" }
                     ]
                 }
