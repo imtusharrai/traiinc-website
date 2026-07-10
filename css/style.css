@@ -34,7 +34,9 @@ body.light-mode {
     --chat-border: rgba(255, 255, 255, 0.1);
     --chat-msg-bot: rgba(255, 255, 255, 0.05);
     --chat-input-bg: rgba(255, 255, 255, 0.03);
-    
+    --color-success: #28a745;
+    --color-danger: #dc3545;
+
     --font-heading: 'Outfit', sans-serif;
     --font-body: 'Inter', sans-serif;
     
@@ -3744,4 +3746,39 @@ body.light-mode .nav-l3-link:hover {
         height: 80px;
     }
 }
+
+/* ═══════════════════ HOMEPAGE — extracted classes (renderHome) ═══════════════════ */
+.home-section-tight { padding-top: 40px; }
+.home-section-shaded { background: var(--bg-darker); }
+.home-section-bordered-top { border-top: 1px solid var(--border-light); }
+.home-section-bordered-bottom { border-bottom: 1px solid var(--border-light); }
+.home-grid-spaced { margin-top: 50px; }
+.home-grid-tight { margin-top: 40px; }
+
+.home-accent-card { padding: 36px; border-top: 4px solid var(--card-accent); }
+.home-accent-eyebrow { color: var(--card-accent); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+.home-accent-top { border-top: 4px solid var(--card-accent); }
+.home-accent-icon { background: linear-gradient(135deg, color-mix(in srgb, var(--card-accent) 15%, transparent), transparent); color: var(--card-accent); }
+
+.home-card-title { font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 14px; }
+.home-card-body { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px; }
+.home-card-body-muted { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+
+.home-tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.home-tag { padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; background: var(--bg-light); border: 1px solid var(--border-light); color: var(--text-muted); }
+
+.home-pills-tight { margin-bottom: 0; margin-top: 20px; }
+
+.home-compare-card { padding: 30px; background: var(--bg-card); }
+.home-compare-icon { font-size: 2rem; margin-bottom: 15px; }
+.home-compare-title { font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 20px; }
+.home-compare-row { margin-bottom: 15px; }
+.home-compare-label { display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+.home-compare-us { color: var(--color-success); }
+.home-compare-them { color: var(--color-danger); }
+.home-compare-text { font-size: 0.95rem; color: var(--text-main); margin: 0; }
+.home-compare-text-muted { color: var(--text-muted); }
+
+.home-process-card { padding: 30px; }
+.home-process-number { font-size: 2rem; margin-bottom: 15px; color: var(--card-accent); font-family: var(--font-heading); font-weight: 800; }
 
