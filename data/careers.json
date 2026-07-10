@@ -20,9 +20,9 @@
       { "icon": "📚", "title": "Learning Budget", "desc": "Annual stipend for courses, conferences, and certifications" },
       { "icon": "🌍", "title": "Remote-first", "desc": "Work from anywhere — we're distributed by default" },
       { "icon": "⏳", "title": "Flexible Hours", "desc": "Async-friendly culture. Results over hours." },
-      { "icon": "💰", "title": "Equity & Bonuses", "desc": "Competitive comp with stock options for early joiners" },
+      { "icon": "💰", "title": "Competitive Rates", "desc": "Project-based pay benchmarked to senior-level freelance rates, paid on milestones" },
       { "icon": "📈", "title": "Career Growth", "desc": "Clear IC and management tracks with mentorship" },
-      { "icon": "🌴", "title": "Team Retreats", "desc": "Annual off-sites to connect and recharge" }
+      { "icon": "🔁", "title": "Steady Project Pipeline", "desc": "Consistent freelance opportunities across a growing client base, not one-off gigs" }
     ]
   },
   "openings": {
