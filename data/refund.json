@@ -1,0 +1,33 @@
+{
+  "subtitle": "REFUND POLICY",
+  "title": "Refund Policy",
+  "effective_date": "10 July 2026",
+  "intro": "This policy explains how refunds work for services provided by Trai Inc (\"Trai Inc\", \"we\", \"us\"). Because we build custom software to order, our refund terms reflect the work and resources committed to each project. Where an individual signed contract states specific terms, that contract takes precedence.",
+  "sections": [
+    {
+      "heading": "Advance Payments",
+      "body": ["Engagements begin on receipt of an advance payment. This advance funds the initial architecture, design, and environment setup and confirms your commitment. Once work has commenced, the advance is non-refundable, because the resources and senior engineering time it pays for have already been allocated to your project.", "If you cancel before any work has commenced, we will refund the advance minus any third-party costs or setup expenses already incurred on your behalf."]
+    },
+    {
+      "heading": "Milestone Payments",
+      "body": ["On larger projects billed against milestones, each milestone payment covers work delivered and accepted up to that point. Payments for milestones that have been completed and accepted are non-refundable. If you choose to end an engagement partway through, you pay only for work completed up to the point of cancellation."]
+    },
+    {
+      "heading": "App Store Ready-Made &amp; Fixed-Package Products",
+      "body": ["For pre-scoped, fixed-package products, once development has started the fee is non-refundable, as the package is built specifically for you. Before development starts, you may cancel for a full refund of any amount paid."]
+    },
+    {
+      "heading": "Third-Party Costs",
+      "body": ["Costs paid to third parties on your behalf — such as Apple Developer or Google Play accounts, domain registration, cloud hosting, or paid APIs — are non-refundable, as these are charged by those providers and not by us."]
+    },
+    {
+      "heading": "Maintenance Contracts",
+      "body": ["Annual maintenance fees are billed in advance for the coverage period. If you cancel a maintenance contract mid-term, we can refund the unused portion on a pro-rata basis, minus any work already carried out in the current period."]
+    },
+    {
+      "heading": "How to Request a Refund",
+      "body": ["To request a refund or discuss cancellation, email us at hello@traiinc.com with your project details. We aim to review and respond to all refund requests within a reasonable time and to resolve them fairly."]
+    }
+  ],
+  "contact": "Questions about refunds or cancellations? Contact us at <a href=\"mailto:hello@traiinc.com\">hello@traiinc.com</a> or Tower B-2, DLF MyPad, Vibhuti Khand, Gomti Nagar, Lucknow, Uttar Pradesh 226010, India."
+}

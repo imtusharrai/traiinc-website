@@ -4235,3 +4235,18 @@ body.light-mode .nav-l3-link:hover {
 .service-pricing-timeline { color: var(--accent-color); font-size: 0.9rem; font-weight: 600; margin-bottom: 10px; }
 .service-pricing-best-for { color: var(--text-muted); font-size: 0.85rem; margin-top: var(--space-sm); }
 
+/* ═══════════════════ LEGAL PAGES — Privacy / Terms / Refund (renderLegal) ═══════════════════ */
+.legal-header { padding: var(--hero-y) 24px var(--section-y-sm); text-align: center; max-width: 850px; margin: 0 auto; }
+.legal-title { font-size: clamp(2.4rem, 5vw, 3.8rem); margin-bottom: 16px; }
+.legal-effective { color: var(--text-muted); font-size: 0.95rem; }
+.legal-body { max-width: 800px; padding-bottom: var(--section-y-lg); }
+.legal-intro { color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: var(--space-lg); }
+.legal-section { margin-bottom: var(--space-lg); }
+.legal-section-title { font-size: 1.5rem; font-family: var(--font-heading); margin-bottom: 16px; }
+.legal-para { color: var(--text-muted); font-size: 1rem; line-height: 1.8; margin-bottom: 14px; }
+.legal-list { margin: 0 0 14px; padding-left: 22px; color: var(--text-muted); line-height: 1.8; }
+.legal-list li { margin-bottom: 10px; }
+.legal-list strong, .legal-para strong { color: var(--text-main); }
+.legal-contact { margin-top: var(--space-xl); padding: var(--space-md); background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; color: var(--text-muted); line-height: 1.7; }
+.legal-contact a, .legal-para a, .legal-list a { color: var(--accent-color); }
+

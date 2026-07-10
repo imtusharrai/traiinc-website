@@ -1,0 +1,49 @@
+{
+  "subtitle": "TERMS OF SERVICE",
+  "title": "Terms of Service",
+  "effective_date": "10 July 2026",
+  "intro": "These terms govern your use of traiinc.com and the services provided by Trai Inc (\"Trai Inc\", \"we\", \"us\"). By using our site or engaging us for a project, you agree to these terms. Specific project work is also governed by the individual proposal or contract we sign with you, which takes precedence where it differs from these general terms.",
+  "sections": [
+    {
+      "heading": "Our Services",
+      "body": ["Trai Inc provides custom software development, mobile and web applications, AI automation, cloud infrastructure, and related digital services. The exact scope, deliverables, timeline, and price for any engagement are defined in a written proposal or contract agreed between us before work begins."]
+    },
+    {
+      "heading": "Quotes &amp; Fixed-Price Contracts",
+      "body": ["We work on fixed-price contracts wherever the scope allows. We define the scope, deliverables, and price upfront, and you know the cost before we write a line of code. Prices quoted are valid for the period stated in the proposal.", "Any change to the agreed scope is quoted and agreed separately as a change request before it is carried out. It is not added silently to your invoice."]
+    },
+    {
+      "heading": "Payments",
+      "body": ["Engagements commence on receipt of an advance payment, which confirms your commitment and funds the initial architecture, design, and environment setup. Larger projects are billed against clear, outcome-based milestones.", "Optional post-launch maintenance is quoted at 20% of the initial project cost annually, covering platform updates, security patches, and minor bug fixes. Third-party costs (for example, Apple Developer and Google Play accounts, cloud hosting, or paid APIs) are billed to or paid directly by you."]
+    },
+    {
+      "heading": "Intellectual Property &amp; Ownership",
+      "body": ["Upon final payment for a project, we assign to you full ownership of the source code, design assets, and intellectual property we create for that project, and hand over the complete repository and documentation. Until final payment is received, all work product remains our property.", "You are responsible for ensuring that any content, trademarks, or materials you provide to us do not infringe the rights of others."]
+    },
+    {
+      "heading": "Your Responsibilities",
+      "body": ["To deliver on time, we rely on you to provide timely feedback, approvals, content, and any access or credentials the project requires. Delays in providing these may affect the agreed timeline."]
+    },
+    {
+      "heading": "Warranties &amp; Support",
+      "body": ["We deliver work built to professional standards and include a defined post-launch bug-fix window as stated in your proposal. Beyond that window, ongoing support is available under a separate maintenance agreement. We do not warrant that software will be uninterrupted or entirely error-free."]
+    },
+    {
+      "heading": "Limitation of Liability",
+      "body": ["To the maximum extent permitted by law, our total liability arising from any engagement is limited to the fees you paid us for that engagement. We are not liable for indirect, incidental, or consequential losses, including lost profits or data."]
+    },
+    {
+      "heading": "Confidentiality",
+      "body": ["We treat the business information you share with us as confidential and use it only to deliver your project. Where a project requires it, we are happy to sign a mutual non-disclosure agreement."]
+    },
+    {
+      "heading": "Governing Law",
+      "body": ["These terms are governed by the laws of India. Any disputes are subject to the exclusive jurisdiction of the courts of Lucknow, Uttar Pradesh."]
+    },
+    {
+      "heading": "Changes to These Terms",
+      "body": ["We may update these terms from time to time. The \"Last updated\" date above reflects the current version. Continued use of our site after changes constitutes acceptance of the updated terms."]
+    }
+  ],
+  "contact": "Questions about these terms? Contact us at <a href=\"mailto:hello@traiinc.com\">hello@traiinc.com</a> or Tower B-2, DLF MyPad, Vibhuti Khand, Gomti Nagar, Lucknow, Uttar Pradesh 226010, India."
+}
