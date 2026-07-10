@@ -1139,13 +1139,13 @@ function renderContact(data) {
         <div class="container contact-map-container">
             <div class="contact-map-frame-wrap">
                 <iframe
-                    data-mock-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.421731671954!2d80.99971847543763!3d26.858309176681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be2c086eb0c2b%3A0xe54e60b2eb7f4b82!2sDLF%20MyPad!5e0!3m2!1sen!2sin!4v1709210000000!5m2!1sen!2sin"
+                    data-mock-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.1873668357084!2d81.00383977498238!3d26.865787576675164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be3476bea2077%3A0x38da389b84f7126b!2sTrai%20Inc!5e0!3m2!1sen!2sin!4v1783671039319!5m2!1sen!2sin"
                     width="100%"
                     height="100%"
                     class="contact-map-iframe"
                     allowfullscreen=""
                     loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
+                    referrerpolicy="strict-origin-when-cross-origin">
                 </iframe>
             </div>
         </div>
