@@ -430,13 +430,11 @@ function renderFaq(faq) {
 
 function renderHome(data) {
     const hero = data.hero;
-    const em = data.engagement_models;
     const sr = data.solutions_routing;
-    const pg = data.portfolio_gallery;
 
     return `
     <!-- ════════ HERO ════════ -->
-    <section class="msme-hero">
+    <section class="msme-hero home-hero">
         <div class="msme-hero-inner">
             <div>
                 <div class="msme-badge">${hero.badge}</div>
@@ -475,59 +473,8 @@ function renderHome(data) {
         </div>
     </section>
 
-    <!-- ════════ FEATURE PILLS ════════ -->
-    <section class="container fade-in section-pills">
-        <div class="feature-pills">
-            ${data.feature_pills.map(p => `<div class="feature-pill">${p}</div>`).join('')}
-        </div>
-    </section>
-
-    <!-- ════════ ANTI-AGENCY MANIFESTO ════════ -->
-    <section class="bento-section fade-in" style="background: var(--bg-darker); border-bottom: 1px solid var(--border-light);">
-        <div class="container">
-            <div class="section-header center">
-                <h4 class="mini-title">${data.anti_agency.subtitle}</h4>
-                <h2>${data.anti_agency.title}</h2>
-            </div>
-            <div class="grid-3" style="margin-top: 40px;">
-                ${data.anti_agency.cards.map(c => `
-                <div class="spec-card fade-in" style="padding: 30px; background: var(--bg-card);">
-                    <div style="font-size: 2rem; margin-bottom: 15px;">${c.icon}</div>
-                    <h3 style="font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 20px;">${c.title}</h3>
-                    <div style="margin-bottom: 15px;">
-                        <strong style="color: #28a745; display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;">✅ Trai Inc</strong>
-                        <p style="font-size: 0.95rem; color: var(--text-color); margin: 0;">${c.us}</p>
-                    </div>
-                    <div>
-                        <strong style="color: #dc3545; display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;">❌ Traditional Agencies</strong>
-                        <p style="font-size: 0.95rem; color: var(--text-muted); margin: 0;">${c.them}</p>
-                    </div>
-                </div>`).join('')}
-            </div>
-        </div>
-    </section>
-
-    <!-- ════════ ENGAGEMENT MODELS ════════ -->
-    <section class="bento-section fade-in" style="background: var(--bg-card); border-bottom: 1px solid var(--border-light);">
-        <div class="container">
-            <div class="section-header center">
-                <h4 class="mini-title">${em.subtitle}</h4>
-                <h2>${em.title}</h2>
-            </div>
-            <div class="home-bento-grid" style="margin-top: 40px;">
-                ${em.cards.map(c => `
-                <div class="home-bento-card fade-in">
-                    <div class="home-bento-icon">${c.icon}</div>
-                    <div class="home-bento-title">${c.title}</div>
-                    <div class="home-bento-desc">${c.desc}</div>
-                    <a href="${c.link}" class="home-bento-link">${c.link_text}</a>
-                </div>`).join('')}
-            </div>
-        </div>
-    </section>
-
-    <!-- ════════ SOLUTIONS ROUTING ════════ -->
-    <section id="solutions" class="bento-section">
+    <!-- ════════ SOLUTIONS ROUTING (moved up — audience self-select right after hero) ════════ -->
+    <section id="solutions" class="bento-section home-section-tight">
         <div class="container">
             <div class="section-header center fade-in">
                 <h4 class="mini-title">${sr.subtitle}</h4>
@@ -545,6 +492,27 @@ function renderHome(data) {
         </div>
     </section>
 
+    <!-- ════════ OUR WORK (merged case studies + portfolio, text-only, no broken images) ════════ -->
+    <section class="content-section fade-in home-section-shaded home-section-bordered-top">
+        <div class="container">
+            <div class="section-header center">
+                <h4 class="mini-title">${data.case_studies.subtitle}</h4>
+                <h2>${data.case_studies.title}</h2>
+            </div>
+            <div class="grid-3 home-grid-spaced">
+                ${data.case_studies.studies.map(s => `
+                <div class="spec-card fade-in home-accent-card" style="--card-accent: ${s.color};">
+                    <p class="home-accent-eyebrow">${s.client}</p>
+                    <h3 class="home-card-title">${s.title}</h3>
+                    <p class="home-card-body">${s.impact}</p>
+                    <div class="home-tag-row">
+                        ${s.tags.map(t => `<span class="home-tag">${t}</span>`).join('')}
+                    </div>
+                </div>`).join('')}
+            </div>
+        </div>
+    </section>
+
     <!-- ════════ CORE EXPERTISE ════════ -->
     <section class="bento-section fade-in">
         <div class="container">
@@ -554,11 +522,11 @@ function renderHome(data) {
             </div>
             <div class="bento-grid">
                 ${data.expertise.cards.map(c => `
-                <div class="bento-card ${c.wide ? 'wide' : ''} fade-in" style="border-top: 4px solid ${c.color};">
-                    <div class="bento-icon" style="background: linear-gradient(135deg, ${c.color}26, transparent); color: ${c.color};">${c.icon}</div>
+                <div class="bento-card ${c.wide ? 'wide' : ''} fade-in home-accent-top" style="--card-accent: ${c.color};">
+                    <div class="bento-icon home-accent-icon" style="--card-accent: ${c.color};">${c.icon}</div>
                     <h3 class="bento-title">${c.title}</h3>
                     <p class="bento-desc">${c.desc}</p>
-                    <div class="feature-pills" style="margin-bottom: 0; margin-top: 20px;">
+                    <div class="feature-pills home-pills-tight">
                         ${c.tags.map(t => `<div class="feature-pill">${t}</div>`).join('')}
                     </div>
                 </div>`).join('')}
@@ -566,40 +534,25 @@ function renderHome(data) {
         </div>
     </section>
 
-    <!-- ════════ PORTFOLIO GALLERY ════════ -->
-    <section class="bento-section fade-in" style="background: var(--bg-darker);">
+    <!-- ════════ ANTI-AGENCY MANIFESTO ════════ -->
+    <section class="bento-section fade-in home-section-shaded home-section-bordered-bottom">
         <div class="container">
             <div class="section-header center">
-                <h4 class="mini-title">${pg.subtitle}</h4>
-                <h2>${pg.title}</h2>
+                <h4 class="mini-title">${data.anti_agency.subtitle}</h4>
+                <h2>${data.anti_agency.title}</h2>
             </div>
-            <div class="grid-4" style="margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
-                ${pg.items.map(item => `
-                <div class="portfolio-item fade-in" style="border: 1px solid var(--border-light); border-radius: 8px; overflow: hidden; background: var(--bg-card);">
-                    <img src="${item.image}" alt="${item.alt}" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;">
-                    <div style="padding: 12px; text-align: center; font-weight: 600; font-size: 0.9rem;">
-                        ${item.client}
+            <div class="grid-3 home-grid-tight">
+                ${data.anti_agency.cards.map(c => `
+                <div class="spec-card fade-in home-compare-card">
+                    <div class="home-compare-icon">${c.icon}</div>
+                    <h3 class="home-compare-title">${c.title}</h3>
+                    <div class="home-compare-row">
+                        <strong class="home-compare-label home-compare-us">✅ Trai Inc</strong>
+                        <p class="home-compare-text">${c.us}</p>
                     </div>
-                </div>`).join('')}
-            </div>
-        </div>
-    </section>
-
-    <!-- ════════ CASE STUDIES ════════ -->
-    <section class="content-section fade-in" style="padding: 100px 0; background: var(--bg-card); border-top: 1px solid var(--border-light);">
-        <div class="container">
-            <div class="section-header center">
-                <h4 class="mini-title">${data.case_studies.subtitle}</h4>
-                <h2>${data.case_studies.title}</h2>
-            </div>
-            <div class="grid-3" style="margin-top: 50px;">
-                ${data.case_studies.studies.map(s => `
-                <div class="spec-card fade-in" style="padding: 36px; border-top: 4px solid ${s.color};">
-                    <p style="color: ${s.color}; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">${s.client}</p>
-                    <h3 style="font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 14px;">${s.title}</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px;">${s.impact}</p>
-                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                        ${s.tags.map(t => `<span style="padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; background: var(--bg-light); border: 1px solid var(--border-light); color: var(--text-muted);">${t}</span>`).join('')}
+                    <div>
+                        <strong class="home-compare-label home-compare-them">❌ Traditional Agencies</strong>
+                        <p class="home-compare-text home-compare-text-muted">${c.them}</p>
                     </div>
                 </div>`).join('')}
             </div>
@@ -613,12 +566,12 @@ function renderHome(data) {
                 <h4 class="mini-title">${data.process.subtitle}</h4>
                 <h2>${data.process.title}</h2>
             </div>
-            <div class="grid-3" style="margin-top: 50px;">
+            <div class="grid-3 home-grid-spaced">
                 ${data.process.steps.map(s => `
-                <div class="spec-card fade-in" style="padding: 30px;">
-                    <div style="font-size: 2rem; margin-bottom: 15px; color: ${s.color}; font-family: var(--font-heading); font-weight: 800;">${s.number}</div>
-                    <h3 style="font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 10px;">${s.title}</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">${s.desc}</p>
+                <div class="spec-card fade-in home-process-card">
+                    <div class="home-process-number" style="--card-accent: ${s.color};">${s.number}</div>
+                    <h3 class="home-card-title">${s.title}</h3>
+                    <p class="home-card-body home-card-body-muted">${s.desc}</p>
                 </div>`).join('')}
             </div>
         </div>
