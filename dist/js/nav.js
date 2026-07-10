@@ -592,7 +592,7 @@
                 <h4>Stay in the loop</h4>
                 <p>Monthly insights on cloud, AI trends, and engineering best practices.</p>
                 <form class="newsletter-form">
-                    <input type="email" placeholder="Work Email" required>
+                    <input type="email" name="email" placeholder="Work Email" required>
                     <button type="submit">Subscribe</button>
                 </form>
                 <div class="footer-badges">
@@ -627,19 +627,29 @@
         fabLogo.innerHTML = '<svg viewBox="0 0 32 32" width="32" height="32" fill="white"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.13 6.744 3.048 9.38L1.054 31.2l6.044-1.94a15.9 15.9 0 008.906 2.704C24.826 31.964 32 24.788 32 16.004S24.826 0 16.004 0zm9.35 22.616c-.396 1.116-1.958 2.042-3.212 2.312-.86.182-1.98.328-5.754-1.236-4.83-2.004-7.938-6.902-8.18-7.222-.232-.32-1.948-2.596-1.948-4.952s1.232-3.508 1.67-3.988c.438-.48.956-.6 1.276-.6.32 0 .636.004.914.016.294.014.688-.112 1.076.82.396.952 1.348 3.288 1.466 3.528.118.24.198.518.04.836-.16.32-.24.518-.478.8-.24.28-.504.626-.72.84-.24.24-.488.498-.21.976.28.48 1.244 2.054 2.672 3.328 1.836 1.636 3.384 2.144 3.864 2.384.48.24.76.2 1.04-.12.278-.32 1.196-1.392 1.514-1.872.318-.48.636-.396 1.076-.24.438.16 2.784 1.312 3.262 1.552.48.24.798.356.916.556.118.198.118 1.156-.278 2.272z"/></svg><div class="chat-badge">1</div>';
         document.body.appendChild(fabLogo);
 
-        // ── Newsletter form ──
+        // ── Newsletter form (real submit → /api/subscribe) ──
         var newsletterForm = document.querySelector('.newsletter-form');
         if (newsletterForm) {
-            newsletterForm.addEventListener('submit', function(e) {
+            newsletterForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 var btn = newsletterForm.querySelector('button');
-                btn.innerHTML = 'Subscribed! ✅';
-                btn.style.background = '#28a745';
-                setTimeout(function() {
-                    btn.innerHTML = 'Subscribe';
-                    btn.style.background = '';
+                var input = newsletterForm.querySelector('input[name="email"]');
+                var original = btn.innerHTML;
+                btn.disabled = true;
+                btn.innerHTML = 'Sending…';
+                try {
+                    var res = await fetch('/api/subscribe', { method: 'POST', body: new FormData(newsletterForm) });
+                    if (!res.ok) throw new Error('subscribe failed');
+                    btn.innerHTML = 'Subscribed! ✅';
                     newsletterForm.reset();
-                }, 3000);
+                } catch (err) {
+                    btn.innerHTML = 'Try again';
+                } finally {
+                    setTimeout(function() {
+                        btn.innerHTML = original;
+                        btn.disabled = false;
+                    }, 3000);
+                }
             });
         }
     }
