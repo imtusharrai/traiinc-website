@@ -2,7 +2,7 @@
   "hero": {
     "page_label": "📈 Systems That Scale With You",
     "title": "You've outgrown spreadsheets.<br>Now <span class='gradient-word'>what?</span>",
-    "subtitle": "Custom CRMs, workflow automation, and business dashboards that replace the patchwork of tools holding your operations together — built to integrate with what you already use, priced transparently.",
+    "subtitle": "Custom CRMs, workflow automation, and business dashboards that replace the patchwork of tools holding your operations together — built to integrate with what you already use. Typically ₹3L-₹5L, fixed price, quoted upfront.",
     "accent_colors": {
       "primary": "#a1c4fd",
       "secondary": "#c2e9fb"
@@ -25,6 +25,7 @@
     }
   },
   "feature_pills": [
+    "✓ Systems from ₹3L-₹5L",
     "✓ Custom CRM",
     "✓ Workflow Automation",
     "✓ Digital Marketing",
@@ -32,6 +33,33 @@
     "✓ WhatsApp Business",
     "✓ E-commerce Integration"
   ],
+  "proof": {
+    "subtitle": "OUR WORK",
+    "title": "Real systems that replaced real spreadsheets",
+    "studies": [
+      {
+        "client": "Chitravan",
+        "title": "Custom CRM for Regional Real Estate",
+        "impact": "Built a custom CRM that handles end-to-end customer relationships — lead capture, inventory tracking, booking management — replacing spreadsheets with a single dashboard.",
+        "tags": ["CRM Platform", "Next.js", "Cloudflare D1"],
+        "color": "#4facfe"
+      },
+      {
+        "client": "Bhu Master Pvt Ltd",
+        "title": "Real Estate Property Platform",
+        "impact": "Delivered a complete property listing and management platform with buyer-facing search, project pages with amenities and photos, and an admin dashboard for inventory management.",
+        "tags": ["Real Estate", "Web App", "Data Modeling"],
+        "color": "#38f9d7"
+      },
+      {
+        "client": "Dashak Pharma",
+        "title": "B2B WhatsApp Ordering & Automation",
+        "impact": "Built a WhatsApp-first ordering system for B2B pharmacy distribution — automated order capture, invoicing, and follow-ups with zero new app downloads required from retailers.",
+        "tags": ["WhatsApp API", "n8n", "AI Automation"],
+        "color": "#f6d365"
+      }
+    ]
+  },
   "services": {
     "subtitle": "WHAT WE BUILD",
     "title": "Systems that replace the tool sprawl",
@@ -78,6 +106,28 @@
       "features": ["Job Scheduling", "Automated Invoicing", "Field Tracking", "Review Automation"]
     }
   ],
+  "compliance": {
+    "subtitle": "WHY THIS TIME IS DIFFERENT",
+    "title": "We don't disappear after launch",
+    "items": [
+      {
+        "title": "Milestone-Based Delivery",
+        "desc": "No black-box development. You get weekly video updates and live staging links throughout the build, with sign-off at each milestone before we move to the next."
+      },
+      {
+        "title": "Post-Launch Support Included",
+        "desc": "An annual maintenance contract (20% of project cost) covers platform updates, security patches, and bug fixes — so the system doesn't rot the day after handover."
+      },
+      {
+        "title": "You Own the System",
+        "desc": "Full source code and infrastructure access assigned to you on final payment. If you ever need a different team to take over, there's nothing locking you in."
+      },
+      {
+        "title": "Fixed Price, Change Requests Quoted Separately",
+        "desc": "Scope is agreed upfront. If requirements evolve mid-project, we quote the change as a separate item — never a silent addition to your bill."
+      }
+    ]
+  },
   "cta": {
     "title": "Ready to replace the tool sprawl?",
     "description": "Book a scoping call. We'll map your current systems, identify the highest-impact automation targets, and give you a fixed-price proposal within a week.",
