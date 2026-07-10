@@ -410,23 +410,48 @@ function renderFaq(faq) {
     if (!faq || !faq.items || !faq.items.length) return '';
     return `
     <!-- ════════ FAQ ════════ -->
-    <section class="faq-section fade-in" style="padding: 100px 0; background: var(--bg-card); border-top: 1px solid var(--border-light);">
-        <div class="container" style="max-width: 800px;">
+    <section class="faq-section fade-in">
+        <div class="container faq-container">
             <div class="section-header center">
                 <h4 class="mini-title">${faq.subtitle}</h4>
                 <h2>${faq.title}</h2>
             </div>
-            <div class="faq-accordion" style="margin-top: 40px;">
+            <div class="faq-accordion">
                 ${faq.items.map((item, i) => `
-                <div class="faq-item" style="border-bottom: 1px solid var(--border-light); padding: 24px 0;">
-                    <h3 style="font-size: 1.15rem; font-family: var(--font-heading); margin-bottom: 12px; color: var(--text-main);">${item.q}</h3>
-                    <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6;">${item.a}</p>
+                <div class="faq-item">
+                    <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-${i}">
+                        <span>${item.q}</span>
+                        <span class="faq-chevron" aria-hidden="true">${chevronDownSvg}</span>
+                    </button>
+                    <div id="faq-answer-${i}" class="faq-answer" role="region">
+                        <p class="faq-answer-text">${item.a}</p>
+                    </div>
                 </div>`).join('')}
             </div>
         </div>
     </section>
     `;
 }
+
+const chevronDownSvg = `<svg viewBox="0 0 10 6" width="10" height="6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>`;
+
+document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.faq-question, .pricing-faq-question');
+    if (!btn) return;
+    const item = btn.closest('.faq-item, .pricing-faq-item');
+    const isOpen = item.classList.contains('open');
+    item.classList.toggle('open', !isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+});
+
+document.addEventListener('click', (e) => {
+    const tab = e.target.closest('.service-tech-tab');
+    if (!tab) return;
+    const wrapper = tab.closest('.service-tech-card');
+    const index = tab.dataset.tabIndex;
+    wrapper.querySelectorAll('.service-tech-tab').forEach(t => t.classList.toggle('active', t.dataset.tabIndex === index));
+    wrapper.querySelectorAll('.service-tech-panel').forEach(p => p.classList.toggle('active', p.dataset.panelIndex === index));
+});
 
 function renderHome(data) {
     const hero = data.hero;
@@ -1780,7 +1805,140 @@ function renderMSME(data) {
 function renderServicePage(data, slug) {
     const service = data[slug];
     if (!service) return `<div class="container" style="padding: 100px 0; text-align: center;"><h2>Service Not Found</h2></div>`;
-    
+
+    const firstTech = Array.isArray(service.tech_stack)
+        ? service.tech_stack[0]
+        : (service.tech_stack && service.tech_stack.categories ? service.tech_stack.categories[0].tools[0] : '');
+
+    const primaryHref = (service.cta && service.cta.primary_href) || 'contact.html';
+    const primaryLabel = (service.cta && service.cta.button_text) || 'Discuss Your Project';
+
+    let statsHtml = '';
+    if (service.stats && service.stats.length > 0) {
+        statsHtml = `
+        <section class="service-stats-section">
+            <div class="container service-stats-row">
+                ${service.stats.map(s => `
+                <div class="fade-in">
+                    <h3 class="service-stats-value">${s.value}</h3>
+                    <p class="service-stats-label">${s.label}</p>
+                </div>`).join('')}
+            </div>
+        </section>
+        `;
+    }
+
+    let techStackHtml = '';
+    if (Array.isArray(service.tech_stack)) {
+        techStackHtml = `
+            <div class="service-tech-tags">
+                ${service.tech_stack.map(tech => `<span class="blog-tag service-tech-tag">${tech}</span>`).join('')}
+            </div>
+        `;
+    } else if (service.tech_stack && service.tech_stack.categories) {
+        techStackHtml = `
+            <div class="service-tech-tabs" role="tablist">
+                ${service.tech_stack.categories.map((cat, i) => `
+                    <button type="button" class="service-tech-tab ${i === 0 ? 'active' : ''}" role="tab" data-tab-index="${i}">${cat.name}</button>
+                `).join('')}
+            </div>
+            <div class="service-tech-panels">
+                ${service.tech_stack.categories.map((cat, i) => `
+                    <div class="service-tech-panel ${i === 0 ? 'active' : ''}" data-panel-index="${i}">
+                        ${cat.tools.map(tool => `<span class="blog-tag service-tech-tag">${tool}</span>`).join('')}
+                    </div>
+                `).join('')}
+            </div>
+        `;
+    }
+
+    let benefitsHtml = '';
+    if (service.benefits && service.benefits.items && service.benefits.items.length > 0) {
+        benefitsHtml = `
+        <section class="bento-section fade-in content-section">
+            <div class="section-header center service-section-header">
+                <h4 class="mini-title service-mini-title">${service.benefits.subtitle}</h4>
+                <h2 class="service-section-h2">${service.benefits.title}</h2>
+            </div>
+            <div class="bento-grid">
+                ${service.benefits.items.map(b => `
+                    <div class="bento-card">
+                        <h3 class="bento-title">${b.title}</h3>
+                        <p class="bento-desc">${b.desc}</p>
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+        `;
+    }
+
+    let whyUsHtml = '';
+    if (service.why_us && service.why_us.items && service.why_us.items.length > 0) {
+        whyUsHtml = `
+        <section class="bento-section fade-in content-section home-section-shaded home-section-bordered-top home-section-bordered-bottom">
+            <div class="section-header center service-section-header">
+                <h4 class="mini-title service-mini-title">${service.why_us.subtitle}</h4>
+                <h2 class="service-section-h2">${service.why_us.title}</h2>
+            </div>
+            <div class="bento-grid">
+                ${service.why_us.items.map(w => `
+                    <div class="bento-card">
+                        <h3 class="bento-title">${w.title}</h3>
+                        <p class="bento-desc">${w.desc}</p>
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+        `;
+    }
+
+    let industriesHtml = '';
+    if (service.industries && service.industries.items && service.industries.items.length > 0) {
+        industriesHtml = `
+        <section class="bento-section fade-in content-section">
+            <div class="section-header center service-section-header">
+                <h4 class="mini-title service-mini-title">${service.industries.subtitle}</h4>
+                <h2 class="service-section-h2">${service.industries.title}</h2>
+            </div>
+            <div class="bento-grid">
+                ${service.industries.items.map(ind => `
+                    <div class="bento-card">
+                        <h3 class="bento-title">${ind.title}</h3>
+                        <p class="bento-desc">${ind.desc}</p>
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+        `;
+    }
+
+    let appPricingHtml = '';
+    if (service.app_pricing && service.app_pricing.tiers && service.app_pricing.tiers.length > 0) {
+        appPricingHtml = `
+        <section class="bento-section fade-in content-section home-section-shaded home-section-bordered-top home-section-bordered-bottom">
+            <div class="section-header center service-section-header">
+                <h2 class="service-section-h2">${service.app_pricing.title}</h2>
+            </div>
+            <div class="grid-3 home-grid-spaced">
+                ${service.app_pricing.tiers.map(t => `
+                    <div class="pricing-tier">
+                        <h3 class="pricing-tier-name">${t.name}</h3>
+                        <div class="pricing-tier-price">${t.price}</div>
+                        <p class="service-pricing-timeline">${t.timeline}</p>
+                        <p class="pricing-tier-desc">${t.includes}</p>
+                        <p class="service-pricing-best-for"><strong>Best for:</strong> ${t.best_for}</p>
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+        `;
+    }
+
+    let faqHtml = '';
+    if (service.faq && service.faq.length > 0) {
+        faqHtml = renderFaq({ subtitle: 'QUESTIONS & ANSWERS', title: 'Frequently Asked Questions', items: service.faq });
+    }
+
     return `
     <!-- ════════ HERO ════════ -->
     <section class="msme-hero">
@@ -1790,7 +1948,8 @@ function renderServicePage(data, slug) {
                 <h1>${service.title}</h1>
                 <p class="msme-hero-sub">${service.subtitle}</p>
                 <div class="hero-cta-row">
-                    <a href="contact.html" class="btn-primary large">📅 ${service.cta.button_text || "Discuss Your Project"}</a>
+                    <a href="${primaryHref}" ${primaryHref.startsWith('http') ? 'target="_blank"' : ''} class="btn-primary large">📅 ${primaryLabel}</a>
+                    ${service.cta && service.cta.secondary_href ? `<a href="${service.cta.secondary_href}" target="_blank" class="btn-secondary large">${service.cta.secondary_text || 'Contact Us'}</a>` : ''}
                 </div>
             </div>
             <div class="hero-mockup">
@@ -1810,11 +1969,14 @@ function renderServicePage(data, slug) {
                 <div class="float-card float-card-1">
                     <div class="fc-icon">${service.icon}</div>
                     <div class="fc-label">Tech Stack</div>
-                    <div class="fc-value fc-value-active">${service.tech_stack[0]}</div>
+                    <div class="fc-value fc-value-active">${firstTech}</div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- STATS -->
+    ${statsHtml}
 
     <!-- CORE SOLUTIONS -->
     <section class="bento-section fade-in content-section">
@@ -1861,9 +2023,7 @@ function renderServicePage(data, slug) {
         <div class="service-tech-grid">
             <div class="service-tech-card">
                 <h3 class="service-tech-card-title">Tech Stack</h3>
-                <div class="service-tech-tags">
-                    ${service.tech_stack.map(tech => `<span class="blog-tag service-tech-tag">${tech}</span>`).join('')}
-                </div>
+                ${techStackHtml}
             </div>
             <div class="service-tech-card">
                 <h3 class="service-tech-card-title">Use Cases</h3>
@@ -1873,6 +2033,18 @@ function renderServicePage(data, slug) {
             </div>
         </div>
     </section>
+
+    <!-- BENEFITS -->
+    ${benefitsHtml}
+
+    <!-- WHY US -->
+    ${whyUsHtml}
+
+    <!-- INDUSTRIES -->
+    ${industriesHtml}
+
+    <!-- APP PRICING -->
+    ${appPricingHtml}
 
     <!-- DELIVERY PROCESS -->
     <section class="compare-section fade-in content-section">
@@ -1893,14 +2065,17 @@ function renderServicePage(data, slug) {
         </div>
     </section>
 
+    <!-- FAQ -->
+    ${faqHtml}
+
     <!-- GRAND CTA -->
     <section class="grand-cta fade-in">
         <div class="container">
             <div class="grand-cta-inner">
                 <h2>${service.cta.title}</h2>
                 <p>${service.cta.description}</p>
-                <a href="contact.html" class="btn-primary service-grand-cta-btn">${service.cta.button_text}</a>
-                ${service.cta.pricing_url ? `<a href="${service.cta.pricing_url}" class="btn-secondary service-grand-cta-btn">💰 See Pricing</a>` : ''}
+                <a href="${primaryHref}" ${primaryHref.startsWith('http') ? 'target="_blank"' : ''} class="btn-primary service-grand-cta-btn">${primaryLabel}</a>
+                ${service.cta.secondary_href ? `<a href="${service.cta.secondary_href}" target="_blank" class="btn-secondary service-grand-cta-btn">${service.cta.secondary_text || 'Contact Us'}</a>` : (service.cta.pricing_url ? `<a href="${service.cta.pricing_url}" class="btn-secondary service-grand-cta-btn">💰 See Pricing</a>` : '')}
             </div>
         </div>
     </section>
@@ -2096,10 +2271,15 @@ function renderPricing(data) {
         </div>
 
         <div class="faq-grid pricing-faq-grid">
-            ${data.faq.questions.map(q => `
-                <div class="faq-item pricing-faq-item">
-                    <h4 class="pricing-faq-q">${q.q}</h4>
-                    <p class="pricing-faq-a">${q.a}</p>
+            ${data.faq.questions.map((q, i) => `
+                <div class="pricing-faq-item">
+                    <button type="button" class="pricing-faq-question" aria-expanded="false" aria-controls="pricing-faq-answer-${i}">
+                        <span class="pricing-faq-q">${q.q}</span>
+                        <span class="faq-chevron" aria-hidden="true">${chevronDownSvg}</span>
+                    </button>
+                    <div id="pricing-faq-answer-${i}" class="pricing-faq-answer">
+                        <p class="pricing-faq-a">${q.a}</p>
+                    </div>
                 </div>
             `).join('')}
         </div>

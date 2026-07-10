@@ -264,7 +264,8 @@ server.listen(PORT, async () => {
             
             // FAQPage Schema Injection
             try {
-                let dataPath = path.join(rootDir, 'data', file.replace('.html', '.json'));
+                const faqDataFile = file === 'index.html' ? 'home.json' : file.replace('.html', '.json');
+                let dataPath = path.join(rootDir, 'data', faqDataFile);
                 if (fs.existsSync(dataPath)) {
                     let pageData = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
                     if (pageData.faq && pageData.faq.items && pageData.faq.items.length > 0) {
