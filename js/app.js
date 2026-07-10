@@ -294,7 +294,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         enterprise: renderAudiencePage,
         msmes: renderMSME,
         'app-store': renderAppStore,
-        'choosing-a-development-partner': renderTrustPage
+        'choosing-a-development-partner': renderTrustPage,
+        privacy: renderLegal,
+        terms: renderLegal,
+        refund: renderLegal
     };
 
     servicePages.forEach(slug => {
@@ -2149,6 +2152,30 @@ function renderAppStore(data) {
                 </div>
             </div>
             `).join('')}
+        </div>
+    </section>
+    `;
+}
+
+function renderLegal(data) {
+    return `
+    <header class="page-header legal-header">
+        <h4 class="mini-title fade-in">${data.subtitle}</h4>
+        <h1 class="main-heading fade-in legal-title">${data.title}</h1>
+        <p class="fade-in legal-effective">Last updated: ${data.effective_date}</p>
+    </header>
+
+    <section class="container fade-in legal-body">
+        ${data.intro ? `<p class="legal-intro">${data.intro}</p>` : ''}
+        ${data.sections.map(s => `
+            <div class="legal-section">
+                <h2 class="legal-section-title">${s.heading}</h2>
+                ${s.body.map(p => `<p class="legal-para">${p}</p>`).join('')}
+                ${s.list ? `<ul class="legal-list">${s.list.map(li => `<li>${li}</li>`).join('')}</ul>` : ''}
+            </div>
+        `).join('')}
+        <div class="legal-contact">
+            <p>${data.contact}</p>
         </div>
     </section>
     `;

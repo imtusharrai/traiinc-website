@@ -9,7 +9,7 @@
     },
     "trust": {
       "avatars": ["CM", "JH", "TV", "BG", "+"],
-      "count": "120+ businesses"
+      "count": "local businesses"
     },
     "mockup": {
       "metrics": [
@@ -237,7 +237,7 @@
   },
   "grand_cta": {
     "title": "Ready to Take Your 🏪 Business Online?",
-    "description": "Join 120+ local businesses who stopped losing customers to competitors with better digital presence. Book a free 30-minute consultation — no pitch, just honest advice.",
+    "description": "Join the local businesses who stopped losing customers to competitors with better digital presence. Book a free 30-minute consultation — no pitch, just honest advice.",
     "button_text": "📅 Book a Free Discovery Call",
     "url": "https://calendar.app.google/PUsxADQBnpQsTrDbA"
   }
