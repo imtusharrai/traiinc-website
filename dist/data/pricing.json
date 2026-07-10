@@ -1,7 +1,7 @@
 {
   "hero": {
     "badge": "💰 Pricing & Engagement",
-    "title": "Transparent Pricing. <span class=\"pricing-hero-gradient\">No Surprises.</span>",
+    "title": "Transparent Pricing. <span class=\"gradient-text-warm\">No Surprises.</span>",
     "description": "We believe in fixed-price contracts and upfront honesty. You will always know exactly what your software will cost before we write a single line of code."
   },
   "pricing_tiers": {
