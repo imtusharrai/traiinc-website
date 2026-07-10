@@ -1025,7 +1025,7 @@
   },
   "web-development": {
     "title": "Blazing fast.<br>Highly <span class='gradient-word'>scalable.</span>",
-    "badge": "💻 Data & Intelligence",
+    "badge": "💻 Core Engineering",
     "subtitle": "React, Next.js, and full-stack web platforms built for speed, SEO, and flawless user experiences.",
     "icon": "🌐",
     "color": "#13547a",
@@ -1052,9 +1052,29 @@
         "icon": "⚡",
         "color": "#80d0c7",
         "title": "Core Web Vitals",
-        "desc": "Guaranteed 90+ Lighthouse scores with sub-second page loads and optimized asset delivery."
+        "desc": "Consistently 90+ Lighthouse scores with sub-second page loads and optimized asset delivery."
       }
     ],
+    "proof": {
+      "subtitle": "OUR WORK",
+      "title": "Real web apps we've shipped",
+      "studies": [
+        {
+          "client": "Chitravan",
+          "title": "Custom CRM for Regional Real Estate",
+          "impact": "Built a custom CRM that handles end-to-end customer relationships — lead capture, inventory tracking, booking management — replacing spreadsheets with a single dashboard.",
+          "tags": ["Next.js", "Cloudflare D1", "CRM Platform"],
+          "color": "#4facfe"
+        },
+        {
+          "client": "Bhu Master Pvt Ltd",
+          "title": "Real Estate Property Platform",
+          "impact": "Delivered a complete property listing and management platform with buyer-facing search, project pages with amenities and photos, and an admin dashboard for inventory management.",
+          "tags": ["Real Estate", "Web App", "Data Modeling"],
+          "color": "#38f9d7"
+        }
+      ]
+    },
     "process": [
       {
         "number": "01",
@@ -1085,9 +1105,10 @@
       "Web Applications"
     ],
     "cta": {
-      "title": "Ready to build something exceptional?",
-      "description": "Stop settling for mediocre agencies. Let's discuss your product roadmap and engineer a solution that accelerates your growth.",
-      "button_text": "Book a Consultation"
+      "title": "Ready for a website that's actually fast?",
+      "description": "Book a scoping call. We'll turn your requirements into a fixed-price technical proposal within 48 hours.",
+      "button_text": "Book a Consultation",
+      "pricing_url": "pricing.html"
     }
   },
   "workflow-automation": {
