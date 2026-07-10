@@ -837,61 +837,61 @@ function renderIncubation(data) {
 
 function renderCareers(data) {
     return `
-    <header class="page-header container fade-in" style="padding: 150px 24px 80px; text-align: center; max-width: 900px; margin: 0 auto;">
+    <header class="page-header container fade-in careers-header">
         <h4 class="mini-title">${data.header.subtitle}</h4>
-        <h1 style="font-size: 4rem; margin-bottom: 25px;">${data.header.title}</h1>
-        <p style="color: var(--text-muted); font-size: 1.2rem; line-height: 1.6;">${data.header.description}</p>
+        <h1 class="careers-header-title">${data.header.title}</h1>
+        <p class="careers-header-desc">${data.header.description}</p>
     </header>
 
-    <section class="container fade-in" style="padding: 60px 24px;">
-        <h2 style="text-align: center; font-size: 2.2rem; margin-bottom: 50px;">${data.values.title}</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px;">
+    <section class="container fade-in careers-section">
+        <h2 class="careers-section-title">${data.values.title}</h2>
+        <div class="careers-values-grid">
             ${data.values.items.map(v => `
-            <div class="spec-card fade-in" style="padding: 40px 30px;">
-                <div style="font-size: 2.5rem; margin-bottom: 15px;">${v.icon}</div>
-                <h3 style="font-size: 1.3rem; margin-bottom: 12px;">${v.title}</h3>
-                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">${v.desc}</p>
+            <div class="spec-card fade-in careers-value-card">
+                <div class="careers-value-icon">${v.icon}</div>
+                <h3 class="careers-value-title">${v.title}</h3>
+                <p class="careers-value-desc">${v.desc}</p>
             </div>`).join('')}
         </div>
     </section>
 
-    <section class="container fade-in" style="padding: 80px 24px;">
-        <h4 class="mini-title" style="text-align: center;">${data.benefits.title}</h4>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; margin-top: 40px;">
+    <section class="container fade-in careers-section-loose">
+        <h4 class="mini-title careers-centered">${data.benefits.title}</h4>
+        <div class="careers-benefits-grid">
             ${data.benefits.items.map(b => `
-            <div class="spec-card fade-in" style="padding: 30px; text-align: center;">
-                <div style="font-size: 2rem; margin-bottom: 15px;">${b.icon}</div>
-                <h4 style="font-size: 1.1rem; margin-bottom: 10px;">${b.title}</h4>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">${b.desc}</p>
+            <div class="spec-card fade-in careers-benefit-card">
+                <div class="careers-benefit-icon">${b.icon}</div>
+                <h4 class="careers-benefit-title">${b.title}</h4>
+                <p class="careers-benefit-desc">${b.desc}</p>
             </div>`).join('')}
         </div>
     </section>
 
-    <section class="container fade-in" style="padding: 80px 24px;">
-        <h4 class="mini-title" style="text-align: center;">${data.openings.title}</h4>
+    <section class="container fade-in careers-section-loose">
+        <h4 class="mini-title careers-centered">${data.openings.title}</h4>
 
         ${data.openings.sections.map(section => `
-        <div style="margin-top: 50px;">
-            <div style="text-align: center; margin-bottom: 40px;">
-                <h2 style="font-size: 2.2rem; margin-bottom: 10px;">${section.category}</h2>
-                <p style="color: var(--text-muted); font-size: 1.05rem;">${section.subtitle}</p>
+        <div class="careers-opening-block">
+            <div class="careers-opening-header">
+                <h2 class="careers-opening-category">${section.category}</h2>
+                <p class="careers-opening-subtitle">${section.subtitle}</p>
             </div>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+            <div class="careers-jobs-grid">
                 ${section.jobs.map(job => `
-                <div class="spec-card fade-in" style="padding: 35px 30px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div class="spec-card fade-in careers-job-card">
                     <div>
-                        <h3 style="font-size: 1.25rem; margin-bottom: 10px;">${job.title}</h3>
-                        <div style="display: flex; gap: 12px; margin-bottom: 15px;">
-                            <span style="background: var(--bg-light); border: 1px solid var(--border-light); padding: 5px 14px; border-radius: 20px; font-size: 0.8rem; color: var(--text-muted);">${job.location}</span>
-                            <span style="background: var(--bg-light); border: 1px solid var(--border-light); padding: 5px 14px; border-radius: 20px; font-size: 0.8rem; color: var(--text-muted);">${job.type}</span>
+                        <h3 class="careers-job-title">${job.title}</h3>
+                        <div class="careers-job-tags">
+                            <span class="careers-job-tag">${job.location}</span>
+                            <span class="careers-job-tag">${job.type}</span>
                         </div>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">${job.desc}</p>
+                        <p class="careers-job-desc">${job.desc}</p>
                     </div>
                 </div>`).join('')}
             </div>
 
-            <div style="text-align: center; margin-top: 35px;">
+            <div class="careers-apply-row">
                 <a href="${section.apply_link}" target="_blank" class="btn-primary large">${section.apply_text}</a>
             </div>
         </div>`).join('')}
@@ -901,48 +901,48 @@ function renderCareers(data) {
 function renderPartner(data) {
     return `
     <!-- Hero -->
-    <header class="page-header" style="padding: 150px 24px 60px; text-align: center; max-width: 850px; margin: 0 auto;">
+    <header class="page-header partner-header">
         <h4 class="mini-title fade-in">${data.header.subtitle}</h4>
-        <h1 class="main-heading fade-in" style="font-size: clamp(2.4rem, 5vw, 3.8rem); margin-bottom: 24px;">${data.header.title}</h1>
-        <p class="fade-in" style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.7;">${data.header.description}</p>
+        <h1 class="main-heading fade-in partner-header-title">${data.header.title}</h1>
+        <p class="fade-in partner-header-desc">${data.header.description}</p>
     </header>
 
     <!-- Why Partner -->
-    <section style="padding: 80px 24px; background: var(--bg-card); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+    <section class="partner-why-section">
         <div class="container">
             <div class="section-header center fade-in">
                 <h4 class="mini-title">${data.why.subtitle}</h4>
                 <h2>${data.why.title}</h2>
             </div>
-            <div class="grid-3 fade-in" style="margin-top: 50px;">
+            <div class="grid-3 fade-in partner-grid-spaced">
                 ${data.why.points.map(p => `
-                <div class="spec-card" style="padding: 30px;">
-                    <div style="font-size: 2rem; margin-bottom: 15px;">${p.icon}</div>
-                    <h3 style="margin-bottom: 10px; font-size: 1.25rem;">${p.title}</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">${p.desc}</p>
+                <div class="spec-card partner-point-card">
+                    <div class="partner-point-icon">${p.icon}</div>
+                    <h3 class="partner-point-title">${p.title}</h3>
+                    <p class="partner-point-desc">${p.desc}</p>
                 </div>`).join('')}
             </div>
         </div>
     </section>
 
     <!-- Partnership Models -->
-    <section class="container" style="padding: 100px 24px;">
+    <section class="container partner-section-wide">
         <div class="section-header center fade-in">
             <h4 class="mini-title">${data.programs.subtitle}</h4>
             <h2>${data.programs.title}</h2>
         </div>
-        <div class="grid-3 fade-in" style="margin-top: 50px;">
+        <div class="grid-3 fade-in partner-grid-spaced">
             ${data.programs.tiers.map(t => `
-            <div class="spec-card" style="padding: 40px 30px; border-top: 4px solid ${t.color};">
-                <div style="font-size: 2.5rem; margin-bottom: 15px;">${t.icon}</div>
-                <h3 style="font-size: 1.5rem; margin-bottom: 10px;">${t.title}</h3>
-                <p style="font-size: 0.85rem; font-weight: 600; color: ${t.color}; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">IDEAL FOR: ${t.ideal_for}</p>
-                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 25px;">${t.desc}</p>
-                <ul style="list-style: none; padding: 0;">
+            <div class="spec-card partner-tier-card" style="--card-accent: ${t.color};">
+                <div class="partner-tier-icon">${t.icon}</div>
+                <h3 class="partner-tier-title">${t.title}</h3>
+                <p class="partner-tier-ideal">IDEAL FOR: ${t.ideal_for}</p>
+                <p class="partner-tier-desc">${t.desc}</p>
+                <ul class="partner-tier-benefits">
                     ${t.benefits.map(b => `
-                    <li style="display: flex; align-items: flex-start; margin-bottom: 10px; font-size: 0.9rem;">
-                        <span style="color: ${t.color}; margin-right: 10px; font-weight: bold;">✓</span>
-                        <span style="color: var(--text-main);">${b}</span>
+                    <li class="partner-tier-benefit">
+                        <span class="partner-tier-check">✓</span>
+                        <span class="partner-tier-benefit-text">${b}</span>
                     </li>`).join('')}
                 </ul>
             </div>`).join('')}
@@ -950,47 +950,47 @@ function renderPartner(data) {
     </section>
 
     <!-- Ideal Partners -->
-    <section style="padding: 80px 24px; background: var(--bg-darker);">
-        <div class="container fade-in" style="max-width: 800px; margin: 0 auto; background: var(--bg-card); padding: 50px; border-radius: 20px; border: 1px solid var(--border-light);">
+    <section class="partner-ideal-section">
+        <div class="container fade-in partner-ideal-card">
             <div class="section-header center">
                 <h4 class="mini-title">${data.ideal_partners.subtitle}</h4>
                 <h2>${data.ideal_partners.title}</h2>
             </div>
-            <ul style="margin-top: 30px; list-style: none; padding: 0;">
+            <ul class="partner-ideal-list">
                 ${data.ideal_partners.list.map(item => `
-                <li style="display: flex; align-items: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid var(--border-light);">
-                    <span style="font-size: 1.2rem; margin-right: 15px;">🎯</span>
-                    <span style="font-size: 1.05rem; color: var(--text-main);">${item}</span>
+                <li class="partner-ideal-item">
+                    <span class="partner-ideal-icon">🎯</span>
+                    <span class="partner-ideal-text">${item}</span>
                 </li>`).join('')}
             </ul>
         </div>
     </section>
 
     <!-- How It Works -->
-    <section class="container" style="padding: 100px 24px;">
+    <section class="container partner-section-wide">
         <div class="section-header center fade-in">
             <h4 class="mini-title">${data.process.subtitle}</h4>
             <h2>${data.process.title}</h2>
         </div>
-        <div class="grid-3 fade-in" style="margin-top: 50px;">
+        <div class="grid-3 fade-in partner-grid-spaced">
             ${data.process.steps.map(s => `
-            <div class="spec-card" style="padding: 30px; position: relative; overflow: hidden;">
-                <div style="font-size: 5rem; font-weight: 800; color: ${s.color}; opacity: 0.1; position: absolute; top: -10px; right: 10px; line-height: 1;">${s.number}</div>
-                <h3 style="margin-bottom: 15px; font-size: 1.3rem; display: flex; align-items: center; gap: 10px; position: relative; z-index: 1;">
-                    <span style="display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; background: ${s.color}; color: #000; border-radius: 50%; font-size: 0.9rem;">${s.number}</span>
+            <div class="spec-card partner-step-card">
+                <div class="partner-step-number-bg" style="--card-accent: ${s.color};">${s.number}</div>
+                <h3 class="partner-step-title">
+                    <span class="partner-step-badge" style="--card-accent: ${s.color};">${s.number}</span>
                     ${s.title}
                 </h3>
-                <p style="color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; position: relative; z-index: 1;">${s.desc}</p>
+                <p class="partner-step-desc">${s.desc}</p>
             </div>`).join('')}
         </div>
     </section>
 
     <!-- CTA -->
-    <section style="padding: 100px 24px; text-align: center; background: var(--bg-card); border-top: 1px solid var(--border-light);">
-        <div class="container fade-in" style="max-width: 600px; margin: 0 auto;">
-            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">${data.cta.title}</h2>
-            <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; margin-bottom: 40px;">${data.cta.description}</p>
-            <div style="display: flex; gap: 16px; align-items: center; justify-content: center; flex-wrap: wrap;">
+    <section class="partner-cta-section">
+        <div class="container fade-in partner-cta-inner">
+            <h2 class="partner-cta-title">${data.cta.title}</h2>
+            <p class="partner-cta-desc">${data.cta.description}</p>
+            <div class="partner-cta-buttons">
                 <a href="${data.cta.button_href}" target="_blank" class="btn-primary">${data.cta.button_text}</a>
                 <a href="${data.cta.whatsapp_href}" target="_blank" class="whatsapp-btn">${data.cta.whatsapp_text}</a>
             </div>
@@ -1165,81 +1165,81 @@ function renderContact(data) {
 }
 function renderSolutions(data) {
     return `
-    <header class="page-header container fade-in" style="padding: 150px 24px 80px; text-align: center; max-width: 900px; margin: 0 auto;">
+    <header class="page-header container fade-in solutions-header">
         <div>
             <h4 class="mini-title">${data.header.subtitle}</h4>
-            <h1 class="main-heading" style="font-size: 4rem; margin-bottom: 20px;">${data.header.title}</h1>
-            <p style="color: var(--text-muted); font-size: 1.2rem; max-width: 650px; margin: 0 auto;">${data.header.description}</p>
+            <h1 class="main-heading solutions-header-title">${data.header.title}</h1>
+            <p class="solutions-header-desc">${data.header.description}</p>
         </div>
     </header>
 
     <!-- Enterprise Solutions Section -->
-    <section class="container" style="padding: 40px 24px 80px;">
-        <div class="section-header center fade-in" style="margin-bottom: 40px;">
+    <section class="container solutions-section">
+        <div class="section-header center fade-in solutions-section-header">
             <h4 class="mini-title">ENTERPRISE SOLUTIONS</h4>
             <h2>How we solve your biggest challenges</h2>
         </div>
-        <div class="grid-2" style="gap: 30px;">
+        <div class="grid-2 solutions-grid-gap">
             ${data.solutions.map(s => `
-            <div class="spec-card fade-in" style="padding: 40px; position: relative; overflow: hidden;">
-                <div style="font-size: 2.5rem; margin-bottom: 15px;">${s.icon}</div>
-                <h3 style="margin-bottom: 12px;">${s.title}</h3>
-                <p style="margin-bottom: 20px; font-size: 0.95rem;">${s.desc}</p>
-                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                    ${s.tags.map(t => `<span style="padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 500; background: var(--bg-light); border: 1px solid var(--border-light); color: var(--text-muted);">${t}</span>`).join('')}
+            <div class="spec-card fade-in solutions-card">
+                <div class="solutions-card-icon">${s.icon}</div>
+                <h3 class="solutions-card-title">${s.title}</h3>
+                <p class="solutions-card-desc">${s.desc}</p>
+                <div class="solutions-tag-row">
+                    ${s.tags.map(t => `<span class="solutions-tag">${t}</span>`).join('')}
                 </div>
             </div>`).join('')}
         </div>
     </section>
 
     <!-- AI Agents & Automation Section -->
-    <section class="container" style="padding: 40px 24px 80px;">
-        <div class="section-header center fade-in" style="margin-bottom: 40px;">
-            <h4 class="mini-title" style="color: #ff3366;">FUTURE-READY TECH</h4>
+    <section class="container solutions-section">
+        <div class="section-header center fade-in solutions-section-header">
+            <h4 class="mini-title solutions-accent-title">FUTURE-READY TECH</h4>
             <h2>AI Agents & Automation Workflows</h2>
         </div>
-        <div class="grid-2" style="gap: 30px;">
+        <div class="grid-2 solutions-grid-gap">
             ${data.ai_agents.map(a => `
-            <div class="spec-card fade-in" style="padding: 40px; position: relative; overflow: hidden; border: 1px solid rgba(255, 51, 102, 0.2); box-shadow: 0 10px 30px rgba(255, 51, 102, 0.05);">
-                <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: var(--brand-gradient); filter: blur(80px); opacity: 0.15; border-radius: 50%;"></div>
-                <div style="font-size: 2.5rem; margin-bottom: 15px;">${a.icon}</div>
-                <h3 style="margin-bottom: 12px;">${a.title}</h3>
-                <p style="margin-bottom: 20px; font-size: 0.95rem;">${a.desc}</p>
-                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                    ${a.tags.map(t => `<span style="padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 500; background: rgba(255, 51, 102, 0.1); border: 1px solid rgba(255, 51, 102, 0.2); color: #ff3366;">${t}</span>`).join('')}
+            <div class="spec-card fade-in solutions-accent-card">
+                <div class="solutions-accent-glow"></div>
+                <div class="solutions-card-icon">${a.icon}</div>
+                <h3 class="solutions-card-title">${a.title}</h3>
+                <p class="solutions-card-desc">${a.desc}</p>
+                <div class="solutions-tag-row">
+                    ${a.tags.map(t => `<span class="solutions-accent-tag">${t}</span>`).join('')}
                 </div>
             </div>`).join('')}
         </div>
     </section>
 
     <!-- Detailed Service Catalog -->
-    <section class="container fade-in" style="padding: 60px 24px 20px;">
-        <div class="section-header center" style="margin-bottom: 50px;">
+    <section class="container fade-in solutions-catalog-header">
+        <div class="section-header center solutions-catalog-header-inner">
             <h4 class="mini-title">FULL SERVICE CATALOG</h4>
             <h2>36+ services across every domain</h2>
         </div>
     </section>
 
     ${data.service_groups.map(group => `
-    <section class="service-group container fade-in" style="padding: 20px 24px 40px;">
-        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 30px; padding-bottom: 15px; border-bottom: 1px solid var(--border-light);">
-            <span style="font-size: 2rem;">${group.icon}</span>
-            <h2 style="font-family: var(--font-heading); font-size: 1.8rem;">${group.group_title}</h2>
+    <section class="service-group container fade-in solutions-group-section">
+        <div class="solutions-group-header">
+            <span class="solutions-group-icon">${group.icon}</span>
+            <h2 class="solutions-group-title">${group.group_title}</h2>
         </div>
-        <div class="grid-3" style="gap: 20px;">
+        <div class="grid-3 solutions-group-grid">
             ${group.services.map(s => `
-            <div class="spec-card" style="padding: 25px;">
-                <h3 style="font-size: 1.1rem; margin-bottom: 8px;">${s.name}</h3>
-                <p style="font-size: 0.9rem;">${s.desc}</p>
+            <div class="spec-card solutions-service-card">
+                <h3 class="solutions-service-name">${s.name}</h3>
+                <p class="solutions-service-desc">${s.desc}</p>
             </div>`).join('')}
         </div>
     </section>`).join('')}
 
-    <section class="services-cta fade-in" style="padding: 80px 24px; text-align: center;">
-        <div class="container" style="background: var(--bg-card); border-radius: 30px; padding: 80px 60px; border: 1px solid var(--bg-light); position: relative; overflow: hidden;">
-            <div style="position: absolute; bottom: -60px; left: -60px; width: 250px; height: 250px; background: var(--brand-gradient); filter: blur(120px); opacity: 0.25; border-radius: 50%;"></div>
-            <h2 style="font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 15px;">${data.cta.title}</h2>
-            <p style="color: var(--text-muted); max-width: 550px; margin: 0 auto 30px;">${data.cta.description}</p>
+    <section class="services-cta fade-in solutions-cta-section">
+        <div class="container solutions-cta-inner">
+            <div class="solutions-cta-glow"></div>
+            <h2 class="solutions-cta-title">${data.cta.title}</h2>
+            <p class="solutions-cta-desc">${data.cta.description}</p>
             <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large">${data.cta.button_text}</a>
         </div>
     </section>
@@ -1297,38 +1297,38 @@ function initAnimations() {
 
 function renderClients(data) {
     return `
-    <header class="page-header" style="padding: 150px 24px 60px; text-align: center; max-width: 850px; margin: 0 auto;">
+    <header class="page-header clients-header">
         <h4 class="mini-title fade-in">OUR CLIENTS</h4>
-        <h1 class="main-heading fade-in" style="font-size: clamp(2.4rem, 5vw, 3.8rem); margin-bottom: 24px;">Trusted by 138+ Businesses</h1>
-        <p class="fade-in" style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.7;">From local MSMEs to enterprise operations, we've delivered scalable solutions across 12+ industries.</p>
+        <h1 class="main-heading fade-in clients-header-title">Trusted by 138+ Businesses</h1>
+        <p class="fade-in clients-header-desc">From local MSMEs to enterprise operations, we've delivered scalable solutions across 12+ industries.</p>
     </header>
 
-    <section style="padding: 50px 0; background: var(--bg-card); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+    <section class="clients-stats-section">
         <div class="container">
-            <div style="display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; text-align: center;">
+            <div class="clients-stats-row">
                 ${data.stats.map(s => `
                 <div class="fade-in">
-                    <h3 style="font-size: 2.5rem; font-family: var(--font-heading); font-weight: 800; background: var(--brand-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">${s.value}</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 5px;">${s.label}</p>
+                    <h3 class="clients-stats-value">${s.value}</h3>
+                    <p class="clients-stats-label">${s.label}</p>
                 </div>`).join('')}
             </div>
         </div>
     </section>
 
-    <section style="padding: 100px 0;">
+    <section class="clients-categories-section">
         <div class="container">
             ${data.categories.map(c => `
-            <div class="fade-in" style="margin-bottom: 60px;">
-                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 30px;">
-                    <div style="width: 50px; height: 50px; border-radius: 12px; background: linear-gradient(135deg, ${c.color}, ${c.color2}); display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">${c.icon}</div>
-                    <h2 style="font-size: 1.8rem;">${c.label}</h2>
+            <div class="fade-in clients-category">
+                <div class="clients-category-header">
+                    <div class="clients-category-icon" style="--icon-bg: linear-gradient(135deg, ${c.color}, ${c.color2});">${c.icon}</div>
+                    <h2 class="clients-category-label">${c.label}</h2>
                 </div>
-                <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+                <div class="clients-logo-row">
                     ${c.logoClients ? c.logoClients.map(lc => `
-                        <div style="padding: 12px 20px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; font-weight: 600;">${lc.name}</div>
+                        <div class="clients-logo-chip clients-logo-chip-named">${lc.name}</div>
                     `).join('') : ''}
                     ${c.clients ? c.clients.map(client => `
-                        <div style="padding: 12px 20px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px;">${client}</div>
+                        <div class="clients-logo-chip">${client}</div>
                     `).join('') : ''}
                 </div>
             </div>`).join('')}
@@ -1910,66 +1910,66 @@ function renderServicePage(data, slug) {
 function renderAppStore(data) {
     const ts = data.trust_signals || {};
     return `
-    <header class="page-header" style="padding: 150px 24px 60px; text-align: center; max-width: 850px; margin: 0 auto;">
+    <header class="page-header appstore-header">
         <h4 class="mini-title fade-in">${data.header.subtitle}</h4>
-        <h1 class="main-heading fade-in" style="font-size: clamp(2.4rem, 5vw, 3.8rem); margin-bottom: 24px;">${data.header.title}</h1>
-        <p class="fade-in" style="color: var(--text-muted); font-size: 1.15rem; margin-top: 20px; font-weight: 500; padding: 15px; border-radius: 8px; background: rgba(255,255,255,0.05); display: inline-block;">${data.positioning_callout}</p>
+        <h1 class="main-heading fade-in appstore-header-title">${data.header.title}</h1>
+        <p class="fade-in appstore-callout">${data.positioning_callout}</p>
     </header>
 
     <!-- Trust Signals -->
-    <section class="container fade-in" style="padding: 0 24px 60px; max-width: 900px; margin: 0 auto;">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-            <div class="spec-card" style="padding: 24px; border-radius: 12px; border-left: 3px solid var(--accent-color);">
-                <div style="display: flex; align-items: flex-start; gap: 12px;">
-                    <span style="font-size: 1.4rem;">📱</span>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">${ts.publishing || ''}</p>
+    <section class="container fade-in appstore-trust-section">
+        <div class="appstore-trust-grid">
+            <div class="spec-card appstore-trust-card">
+                <div class="appstore-trust-row">
+                    <span class="appstore-trust-icon">📱</span>
+                    <p class="appstore-trust-text">${ts.publishing || ''}</p>
                 </div>
             </div>
-            <div class="spec-card" style="padding: 24px; border-radius: 12px; border-left: 3px solid var(--accent-color);">
-                <div style="display: flex; align-items: flex-start; gap: 12px;">
-                    <span style="font-size: 1.4rem;">📦</span>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">${ts.source_code || ''}</p>
+            <div class="spec-card appstore-trust-card">
+                <div class="appstore-trust-row">
+                    <span class="appstore-trust-icon">📦</span>
+                    <p class="appstore-trust-text">${ts.source_code || ''}</p>
                 </div>
             </div>
-            <div class="spec-card" style="padding: 24px; border-radius: 12px; border-left: 3px solid var(--accent-color);">
-                <div style="display: flex; align-items: flex-start; gap: 12px;">
-                    <span style="font-size: 1.4rem;">💳</span>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">${ts.payments || ''}</p>
+            <div class="spec-card appstore-trust-card">
+                <div class="appstore-trust-row">
+                    <span class="appstore-trust-icon">💳</span>
+                    <p class="appstore-trust-text">${ts.payments || ''}</p>
                 </div>
             </div>
-            <div class="spec-card" style="padding: 24px; border-radius: 12px; border-left: 3px solid var(--accent-color);">
-                <div style="display: flex; align-items: flex-start; gap: 12px;">
-                    <span style="font-size: 1.4rem;">🔧</span>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">${ts.maintenance || ''}</p>
+            <div class="spec-card appstore-trust-card">
+                <div class="appstore-trust-row">
+                    <span class="appstore-trust-icon">🔧</span>
+                    <p class="appstore-trust-text">${ts.maintenance || ''}</p>
                 </div>
             </div>
         </div>
-        <p style="text-align: center; margin-top: 16px; font-size: 0.9rem; color: var(--text-muted);">Read our full <a href="choosing-a-development-partner.html" style="color: var(--accent-color);">due-diligence checklist</a> for more detail on each commitment.</p>
+        <p class="appstore-trust-footnote">Read our full <a href="choosing-a-development-partner.html" class="appstore-trust-link">due-diligence checklist</a> for more detail on each commitment.</p>
     </section>
 
-    <section class="container" style="padding: 50px 24px 100px;">
-        <div style="display: flex; flex-direction: column; gap: 80px;">
+    <section class="container appstore-apps-section">
+        <div class="appstore-apps-list">
             ${data.apps.map(app => `
-            <div class="spec-card fade-in" style="padding: 40px; border-radius: 20px; border-top: 4px solid var(--accent-color);">
-                <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start;">
-                    <div style="flex: 1; min-width: 300px;">
-                        <h2 style="font-size: 2.2rem; font-family: var(--font-heading); margin-bottom: 10px;">${app.name}</h2>
-                        <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">${app.description}</p>
+            <div class="spec-card fade-in appstore-app-card">
+                <div class="appstore-app-header">
+                    <div class="appstore-app-info">
+                        <h2 class="appstore-app-name">${app.name}</h2>
+                        <p class="appstore-app-desc">${app.description}</p>
                     </div>
                 </div>
-                
-                <h3 style="margin-top: 20px; margin-bottom: 20px; font-size: 1.4rem; border-bottom: 1px solid var(--border-light); padding-bottom: 10px;">Pricing & Delivery Options</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;">
+
+                <h3 class="appstore-tiers-title">Pricing & Delivery Options</h3>
+                <div class="appstore-tiers-grid">
                     ${app.tiers.map(tier => `
-                    <div style="background: var(--bg-darker); border-radius: 12px; padding: 30px; border: 1px solid var(--border-light);">
-                        <h4 style="font-size: 1.3rem; margin-bottom: 10px; color: var(--text-main);">${tier.name}</h4>
-                        <div style="font-size: 2rem; font-family: var(--font-heading); font-weight: 700; margin-bottom: 20px; color: var(--accent-color);">${tier.price}</div>
-                        <ul style="list-style: none; padding: 0; margin: 0;">
-                            ${tier.features.map(f => `<li style="margin-bottom: 12px; color: var(--text-muted); display: flex; align-items: flex-start; gap: 10px;"><span style="color: var(--accent-color);">✓</span> ${f}</li>`).join('')}
+                    <div class="appstore-tier-card">
+                        <h4 class="appstore-tier-name">${tier.name}</h4>
+                        <div class="appstore-tier-price">${tier.price}</div>
+                        <ul class="appstore-tier-features">
+                            ${tier.features.map(f => `<li class="appstore-tier-feature"><span class="appstore-tier-check">✓</span> ${f}</li>`).join('')}
                         </ul>
                     </div>`).join('')}
                 </div>
-                <div style="margin-top: 40px; text-align: center;">
+                <div class="appstore-app-cta">
                      <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary">Discuss Requirements</a>
                 </div>
             </div>
@@ -1981,41 +1981,41 @@ function renderAppStore(data) {
 
 function renderTrustPage(data) {
     return `
-    <header class="page-header" style="padding: 150px 24px 60px; text-align: center; max-width: 850px; margin: 0 auto;">
+    <header class="page-header trust-header">
         <h4 class="mini-title fade-in">${data.header.subtitle}</h4>
-        <h1 class="main-heading fade-in" style="font-size: clamp(2.4rem, 5vw, 3.8rem); margin-bottom: 24px;">${data.header.title}</h1>
-        <p class="fade-in" style="color: var(--text-muted); font-size: 1.15rem; margin-top: 20px; line-height: 1.7; max-width: 700px; margin-left: auto; margin-right: auto;">${data.intro}</p>
+        <h1 class="main-heading fade-in trust-header-title">${data.header.title}</h1>
+        <p class="fade-in trust-header-intro">${data.intro}</p>
     </header>
 
-    <section class="container" style="padding: 50px 24px 60px; max-width: 900px; margin: 0 auto;">
-        <div style="display: flex; flex-direction: column; gap: 40px;">
+    <section class="container trust-checklist-section">
+        <div class="trust-checklist-list">
             ${data.checklist.map((item, i) => `
-            <div class="spec-card fade-in" style="padding: 36px; border-radius: 16px; border-left: 4px solid var(--accent-color);">
-                <div style="display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px;">
-                    <span style="font-size: 1.6rem; line-height: 1;">${item.icon}</span>
-                    <h2 style="font-size: 1.5rem; font-family: var(--font-heading); margin: 0;">${item.principle}</h2>
+            <div class="spec-card fade-in trust-checklist-card">
+                <div class="trust-checklist-header">
+                    <span class="trust-checklist-icon">${item.icon}</span>
+                    <h2 class="trust-checklist-principle">${item.principle}</h2>
                 </div>
-                <div style="margin-bottom: 20px;">
-                    <h3 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 8px;">What to check</h3>
-                    <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6;">${item.what_to_check}</p>
+                <div class="trust-checklist-what">
+                    <h3 class="trust-checklist-label">What to check</h3>
+                    <p class="trust-checklist-what-text">${item.what_to_check}</p>
                 </div>
-                <div style="background: rgba(0, 242, 254, 0.05); border-radius: 10px; padding: 20px; border: 1px solid rgba(0, 242, 254, 0.15);">
-                    <h3 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-color); margin-bottom: 8px;">How Trai Inc. does it</h3>
-                    <p style="color: var(--text-main); font-size: 1rem; line-height: 1.6; font-weight: 500;">${item.trai_answer}</p>
+                <div class="trust-checklist-answer">
+                    <h3 class="trust-checklist-label trust-checklist-label-accent">How Trai Inc. does it</h3>
+                    <p class="trust-checklist-answer-text">${item.trai_answer}</p>
                 </div>
             </div>
             `).join('')}
         </div>
     </section>
 
-    <section class="container fade-in" style="padding: 40px 24px 100px; max-width: 800px; margin: 0 auto; text-align: center;">
-        <div class="spec-card" style="padding: 50px 40px; border-radius: 20px; border-top: 4px solid var(--accent-color);">
-            <h2 style="font-size: 1.8rem; font-family: var(--font-heading); margin-bottom: 16px;">${data.closing.title}</h2>
-            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 30px;">${data.closing.text}</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;">
+    <section class="container fade-in trust-closing-section">
+        <div class="spec-card trust-closing-card">
+            <h2 class="trust-closing-title">${data.closing.title}</h2>
+            <p class="trust-closing-text">${data.closing.text}</p>
+            <div class="trust-closing-buttons">
                 <a href="${data.closing.cta_link}" target="_blank" class="btn-primary">${data.closing.cta_text}</a>
-                <a href="app-store.html" class="btn-primary" style="background: transparent; border: 1px solid var(--accent-color); color: var(--accent-color);">View App Pricing</a>
-                <a href="solutions.html" class="btn-primary" style="background: transparent; border: 1px solid var(--accent-color); color: var(--accent-color);">View Custom Solutions</a>
+                <a href="app-store.html" class="btn-primary trust-closing-btn-outline">View App Pricing</a>
+                <a href="solutions.html" class="btn-primary trust-closing-btn-outline">View Custom Solutions</a>
             </div>
         </div>
     </section>
