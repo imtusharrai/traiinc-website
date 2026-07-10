@@ -2,7 +2,7 @@
   "hero": {
     "page_label": "🚀 From Idea to MVP in Weeks",
     "title": "Stop refining the pitch deck.<br>Start shipping <span class='gradient-word'>product.</span>",
-    "subtitle": "We build MVPs, mobile apps, and cloud platforms for early-stage startups — fixed price, no equity, AI-augmented delivery. Transparent pricing from day one, not a quote-only mystery.",
+    "subtitle": "We build MVPs, mobile apps, and cloud platforms for early-stage startups — fixed price, no equity, AI-augmented delivery. MVP builds typically run ₹1.5L-₹3L, fixed and quoted upfront — not a quote-only mystery.",
     "accent_colors": {
       "primary": "#96fbc4",
       "secondary": "#f9f586"
@@ -25,6 +25,7 @@
     }
   },
   "feature_pills": [
+    "✓ MVPs from ₹1.5L-₹3L",
     "✓ MVP in 4-8 Weeks",
     "✓ Flutter & Next.js",
     "✓ Cloud Architecture",
@@ -32,6 +33,33 @@
     "✓ Fixed-Price Contracts",
     "✓ No Equity Required"
   ],
+  "proof": {
+    "subtitle": "OUR WORK",
+    "title": "Real builds. Real founders' problems solved.",
+    "studies": [
+      {
+        "client": "Chitravan",
+        "title": "Custom CRM for Regional Real Estate",
+        "impact": "Built a custom CRM that handles end-to-end customer relationships — lead capture, inventory tracking, booking management — replacing spreadsheets with a single dashboard.",
+        "tags": ["CRM Platform", "Next.js", "Cloudflare D1"],
+        "color": "#4facfe"
+      },
+      {
+        "client": "Bhu Master Pvt Ltd",
+        "title": "Real Estate Property Platform",
+        "impact": "Delivered a complete property listing and management platform with buyer-facing search, project pages with amenities and photos, and an admin dashboard for inventory management.",
+        "tags": ["Real Estate", "Web App", "Data Modeling"],
+        "color": "#38f9d7"
+      },
+      {
+        "client": "Dashak Pharma",
+        "title": "B2B WhatsApp Ordering & Automation",
+        "impact": "Built a WhatsApp-first ordering system for B2B pharmacy distribution — automated order capture, invoicing, and follow-ups with zero new app downloads required from retailers.",
+        "tags": ["WhatsApp API", "n8n", "AI Automation"],
+        "color": "#f6d365"
+      }
+    ]
+  },
   "services": {
     "subtitle": "WHAT WE BUILD",
     "title": "The modern startup stack",
@@ -78,6 +106,28 @@
       "features": ["Video Conferencing", "Compliance Hardening", "User Profiles", "Booking Systems"]
     }
   ],
+  "compliance": {
+    "subtitle": "FOUNDER GUARANTEES",
+    "title": "What we promise, in writing",
+    "items": [
+      {
+        "title": "You Own 100% of the IP",
+        "desc": "Full source code, infrastructure access, and intellectual property assigned to you upon final payment. No licensing fees, no ransom clauses, no exceptions."
+      },
+      {
+        "title": "Weekly Progress, Not Radio Silence",
+        "desc": "Weekly video updates and live staging links throughout the build, so you always know exactly where your product stands."
+      },
+      {
+        "title": "Senior Engineers Only",
+        "desc": "No junior devs, no outsourced bench, no rotating team. The engineers who scope your project are the ones who build it."
+      },
+      {
+        "title": "Fixed Price, No Surprises",
+        "desc": "We scope the work and quote a fixed price before writing a line of code. Scope changes are quoted separately, never silently added to your bill."
+      }
+    ]
+  },
   "cta": {
     "title": "Ready to ship your MVP?",
     "description": "Book a free scoping call. We'll review your idea and give you a fixed quote within 48 hours — no equity ask, no hourly billing surprises.",

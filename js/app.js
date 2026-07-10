@@ -1379,11 +1379,11 @@ function renderAudiencePage(data) {
                     <a href="mailto:${ec.email}?subject=${encodeURIComponent(ec.subject)}" class="btn-primary large">✉️ ${ec.email}</a>
                 </div>
                 ${ec.process ? `
-                <div style="margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; text-align: left;">
+                <div class="enterprise-process-grid">
                     ${ec.process.map((step, i) => `
-                        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 15px;">
-                            <div style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 5px;">Step ${i + 1}</div>
-                            <div style="color: var(--text-main); font-size: 0.95rem;">${step}</div>
+                        <div class="enterprise-process-step">
+                            <div class="enterprise-process-step-label">Step ${i + 1}</div>
+                            <div class="enterprise-process-step-text">${step}</div>
                         </div>
                     `).join('')}
                 </div>
@@ -1407,11 +1407,36 @@ function renderAudiencePage(data) {
                         <div class="bento-icon">${ind.icon}</div>
                         <h3>${ind.title}</h3>
                         <p>${ind.desc}</p>
-                        <div style="margin-top: 15px; border-top: 1px solid var(--border-light); padding-top: 15px; font-size: 0.9rem; color: var(--text-muted);">
+                        <div class="audience-industry-features">
                             ${ind.features ? ind.features.map(f => `<div>✓ ${f}</div>`).join('') : ''}
                         </div>
                     </div>
                 `).join('')}
+            </div>
+        </section>
+        `;
+    }
+
+    let proofHtml = '';
+    if (data.proof && data.proof.studies && data.proof.studies.length > 0) {
+        proofHtml = `
+        <section class="content-section fade-in home-section-shaded home-section-bordered-top">
+            <div class="container">
+                <div class="section-header center">
+                    <h4 class="mini-title">${data.proof.subtitle}</h4>
+                    <h2>${data.proof.title}</h2>
+                </div>
+                <div class="grid-3 home-grid-spaced">
+                    ${data.proof.studies.map(s => `
+                    <div class="spec-card fade-in home-accent-card" style="--card-accent: ${s.color};">
+                        <p class="home-accent-eyebrow">${s.client}</p>
+                        <h3 class="home-card-title">${s.title}</h3>
+                        <p class="home-card-body">${s.impact}</p>
+                        <div class="home-tag-row">
+                            ${s.tags.map(t => `<span class="home-tag">${t}</span>`).join('')}
+                        </div>
+                    </div>`).join('')}
+                </div>
             </div>
         </section>
         `;
@@ -1465,6 +1490,9 @@ function renderAudiencePage(data) {
                 ${feature_pills.map(pill => `<div class="feature-pill">${pill}</div>`).join('')}
             </div>
         </section>
+
+        <!-- PROOF -->
+        ${proofHtml}
 
         <!-- SERVICES -->
         <section class="container fade-in content-section">
