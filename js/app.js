@@ -419,7 +419,7 @@ function renderFaq(faq) {
             <div class="faq-accordion" style="margin-top: 40px;">
                 ${faq.items.map((item, i) => `
                 <div class="faq-item" style="border-bottom: 1px solid var(--border-light); padding: 24px 0;">
-                    <h3 style="font-size: 1.15rem; font-family: var(--font-heading); margin-bottom: 12px; color: var(--text-color);">${item.q}</h3>
+                    <h3 style="font-size: 1.15rem; font-family: var(--font-heading); margin-bottom: 12px; color: var(--text-main);">${item.q}</h3>
                     <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6;">${item.a}</p>
                 </div>`).join('')}
             </div>
@@ -1962,7 +1962,7 @@ function renderAppStore(data) {
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;">
                     ${app.tiers.map(tier => `
                     <div style="background: var(--bg-darker); border-radius: 12px; padding: 30px; border: 1px solid var(--border-light);">
-                        <h4 style="font-size: 1.3rem; margin-bottom: 10px; color: var(--text-color);">${tier.name}</h4>
+                        <h4 style="font-size: 1.3rem; margin-bottom: 10px; color: var(--text-main);">${tier.name}</h4>
                         <div style="font-size: 2rem; font-family: var(--font-heading); font-weight: 700; margin-bottom: 20px; color: var(--accent-color);">${tier.price}</div>
                         <ul style="list-style: none; padding: 0; margin: 0;">
                             ${tier.features.map(f => `<li style="margin-bottom: 12px; color: var(--text-muted); display: flex; align-items: flex-start; gap: 10px;"><span style="color: var(--accent-color);">✓</span> ${f}</li>`).join('')}
@@ -2001,7 +2001,7 @@ function renderTrustPage(data) {
                 </div>
                 <div style="background: rgba(0, 242, 254, 0.05); border-radius: 10px; padding: 20px; border: 1px solid rgba(0, 242, 254, 0.15);">
                     <h3 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-color); margin-bottom: 8px;">How Trai Inc. does it</h3>
-                    <p style="color: var(--text-color); font-size: 1rem; line-height: 1.6; font-weight: 500;">${item.trai_answer}</p>
+                    <p style="color: var(--text-main); font-size: 1rem; line-height: 1.6; font-weight: 500;">${item.trai_answer}</p>
                 </div>
             </div>
             `).join('')}
