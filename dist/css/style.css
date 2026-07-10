@@ -2485,7 +2485,7 @@ body.light-mode .cf-hero-wrapper {
         /* ─── Case Studies ─── */
         .cases-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
             gap: 24px;
             margin-top: 50px;
         }
@@ -3781,4 +3781,34 @@ body.light-mode .nav-l3-link:hover {
 
 .home-process-card { padding: 30px; }
 .home-process-number { font-size: 2rem; margin-bottom: 15px; color: var(--card-accent); font-family: var(--font-heading); font-weight: 800; }
+
+/* ═══════════════════ MSME PAGE — extracted classes (renderMSME) ═══════════════════ */
+.msme-section-tight-top { padding: 60px 24px 0; }
+.msme-section-loose-top { padding: 40px 24px 0; }
+.msme-section-wide { padding: 100px 24px; }
+.msme-section-shaded-wide { padding: 80px 0; background: var(--bg-darker); }
+.msme-section-card-bg { background: var(--bg-card); }
+.msme-section-bordered-bottom { border-bottom: 1px solid var(--border-light); }
+.msme-section-heading { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; margin-bottom: 20px; }
+.msme-grid-loose { margin-top: 40px; }
+.msme-spacer-bottom { text-align: center; margin-bottom: 48px; }
+.msme-icon-dynamic { background: var(--icon-bg); }
+
+.pricing-tier { background: transparent; border: 1px solid var(--border-light); border-radius: 12px; padding: 40px 30px; position: relative; }
+.pricing-tier.popular { background: var(--bg-darker); }
+.pricing-tier-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent-color); color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; }
+.pricing-tier-name { font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 10px; }
+.pricing-tier-price { font-size: 2.2rem; font-weight: 800; color: var(--accent-color); margin-bottom: 15px; }
+.pricing-tier-desc { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px; }
+.pricing-tier-features { list-style: none; padding: 0; margin-bottom: 40px; }
+.pricing-tier-feature { display: flex; align-items: start; gap: 10px; margin-bottom: 15px; font-size: 0.95rem; }
+.pricing-tier-feature-check { color: var(--accent-color); }
+.pricing-tier-cta { width: 100%; justify-content: center; }
+
+.msme-estimator-bullets { margin-top: 30px; }
+.msme-estimator-bullet { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; font-size: 0.9rem; color: var(--text-muted); }
+.msme-estimator-check { color: var(--accent-color); font-weight: 700; }
+.msme-honeypot { display: none; }
+.msme-btn-block { width: 100%; justify-content: center; }
+.msme-btn-spaced { margin-top: 16px; }
 
