@@ -10,8 +10,6 @@
 /services /solutions.html 301
 /team /about.html 301
 /team.html /about.html 301
-/about /about.html 301
-/contact /contact.html 301
 
 # Redirections for consolidated/deleted service pages
 /ai-agents.html /ai-automation.html 301
