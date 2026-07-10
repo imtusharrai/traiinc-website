@@ -801,10 +801,30 @@
   "mobile-apps": {
     "title": "Native performance.<br>Cross-platform <span class='gradient-word'>speed.</span>",
     "badge": "📱 Core Engineering",
-    "subtitle": "High-performance iOS, Android, and Desktop applications built with Flutter, React Native, Electron, or Swift. Beautiful UI combined with rock-solid backends.",
+    "subtitle": "We build iOS and Android apps using Flutter — one codebase, both platforms, delivered in 4-8 weeks. From a ₹1.5L MVP for your startup to a full-featured enterprise app.",
     "icon": "📱",
     "color": "#84fab0",
+    "stats": [
+      { "value": "138+", "label": "Projects Delivered" },
+      { "value": "6+", "label": "Years Experience" },
+      { "value": "4-8", "label": "Weeks Avg. Delivery" },
+      { "value": "₹1.5L+", "label": "Starting Price" }
+    ],
     "features": [
+      {
+        "icon": "🍎",
+        "color": "#43e97b",
+        "title": "iOS & Android Native",
+        "desc": "High-performance native apps for when you need platform-specific features — camera APIs, Bluetooth, NFC, or deep OS integration. Built with Swift for iOS and Kotlin for Android.",
+        "id": "native"
+      },
+      {
+        "icon": "📱",
+        "color": "#38f9d7",
+        "title": "Cross-Platform (Flutter)",
+        "desc": "One codebase that runs on both iOS and Android — meaningfully faster and cheaper to build and maintain than two separate native apps. Our default recommendation for most projects.",
+        "id": "flutter"
+      },
       {
         "icon": "💻",
         "color": "#ff0844",
@@ -813,31 +833,11 @@
         "id": "desktop"
       },
       {
-        "icon": "📱",
-        "color": "#38f9d7",
-        "title": "Cross-Platform",
-        "desc": "Flutter and React Native development for deploying to both iOS and Android from a single codebase.",
-        "id": "native"
-      },
-      {
-        "icon": "🍎",
-        "color": "#43e97b",
-        "title": "Native iOS & Android",
-        "desc": "Swift and Kotlin development for applications requiring deep OS integration and maximum performance.",
-        "id": "flutter"
-      },
-      {
         "icon": "🎨",
         "color": "#00f2fe",
-        "title": "Premium UI/UX",
-        "desc": "Fluid animations, gesture controls, and pixel-perfect interfaces that feel native to the device.",
-        "id": "deployment"
-      },
-      {
-        "icon": "🚀",
-        "color": "#8fd3f4",
-        "title": "Offline-First Sync",
-        "desc": "Apps that work perfectly without an internet connection and sync seamlessly when online."
+        "title": "UI/UX Design for Mobile",
+        "desc": "Wireframes and interactive prototypes in Figma before any code is written. You see and approve every screen before development starts.",
+        "id": "ui-ux"
       },
       {
         "icon": "🛡️",
@@ -849,11 +849,87 @@
       {
         "icon": "🚀",
         "color": "#fed6e3",
-        "title": "App Store Publishing",
-        "desc": "End-to-end management of the app submission, review, and publishing process.",
+        "title": "App Store & Play Store Publishing",
+        "desc": "We handle the entire submission process — screenshots, descriptions, compliance review, and approval — so your app goes live on both stores.",
         "id": "publishing"
+      },
+      {
+        "icon": "⚙️",
+        "color": "#8fd3f4",
+        "title": "Backend & API Development",
+        "desc": "Every app needs a backend. We build RESTful APIs, real-time databases, and push notification systems — hosted on Cloudflare Workers or Firebase for maximum uptime at minimum cost.",
+        "id": "backend"
+      },
+      {
+        "icon": "🩹",
+        "color": "#f6d365",
+        "title": "Post-Launch Support",
+        "desc": "A 30-day bug fix window is included with every project. Optional ongoing maintenance covers updates, OS compatibility, and new features.",
+        "id": "maintenance"
       }
     ],
+    "benefits": {
+      "subtitle": "WHY YOUR BUSINESS NEEDS AN APP",
+      "title": "What a mobile app actually gets you",
+      "items": [
+        { "title": "Reach Customers on Their Phone", "desc": "Your customers spend hours daily on their phones. An app puts your business in their pocket — accessible instantly, no browser required." },
+        { "title": "Work Offline", "desc": "Unlike websites, apps can work without internet. Your field sales team, delivery staff, or customers in low-connectivity areas can still use your system." },
+        { "title": "Push Notifications", "desc": "Send updates, offers, and reminders directly to your customer's phone — the most direct re-engagement channel available, with far higher visibility than email." },
+        { "title": "Faster Than a Website", "desc": "Native and Flutter apps load instantly — no waiting for pages to download. Smooth animations and responsive interfaces that feel premium." },
+        { "title": "Build Customer Loyalty", "desc": "An app on someone's home screen is a constant reminder of your brand. Loyalty programs, reorder buttons, and personalized experiences keep customers coming back." },
+        { "title": "Competitive Advantage", "desc": "Most local businesses and SMBs in India don't have an app yet. Being first in your market gives you an edge that's hard for competitors to match." }
+      ]
+    },
+    "why_us": {
+      "subtitle": "WHY TRAI INC",
+      "title": "Why work with us on your app",
+      "items": [
+        { "title": "Flutter-First Approach", "desc": "We recommend Flutter for most projects because it delivers both iOS and Android from one codebase, cutting your cost and timeline versus building two separate native apps." },
+        { "title": "Fixed Price, No Surprises", "desc": "You get a written scope and exact price before we write a single line of code. No hourly billing, no scope-creep charges, no surprise invoices." },
+        { "title": "Weekly Staging Builds", "desc": "Every week you get a testable version of your app. You see progress in real time and never wonder what's happening with your money." },
+        { "title": "You Own Everything", "desc": "100% code ownership. Complete source code handover. Your app runs on your own Apple Developer and Google Play accounts. Zero vendor lock-in." },
+        { "title": "AI-Augmented Speed", "desc": "Our team uses Claude, Gemini, and AI coding tools to write and review code faster, without cutting corners on quality." },
+        { "title": "Post-Launch Support", "desc": "We don't disappear after delivery. A 30-day bug fix window is included, with an optional maintenance retainer for ongoing updates and OS compatibility." }
+      ]
+    },
+    "industries": {
+      "subtitle": "WHO NEEDS A MOBILE APP",
+      "title": "Built for your industry",
+      "items": [
+        { "title": "E-Commerce & Retail", "desc": "Product catalogs, cart, payment integration, order tracking, push notifications for offers." },
+        { "title": "Healthcare", "desc": "Appointment booking, teleconsultation, health records, prescription management." },
+        { "title": "Real Estate", "desc": "Property listings, virtual tours, lead capture, agent dashboards." },
+        { "title": "Food & Restaurant", "desc": "Menu browsing, online ordering, delivery tracking, table reservations." },
+        { "title": "Education", "desc": "Course catalogs, video streaming, quizzes, progress tracking, certificate generation." },
+        { "title": "Logistics", "desc": "Fleet tracking, driver apps, proof of delivery, route optimization." }
+      ]
+    },
+    "app_pricing": {
+      "title": "How Much Does a Mobile App Cost?",
+      "tiers": [
+        {
+          "name": "MVP / Starter App",
+          "price": "₹1,50,000 – ₹3,00,000",
+          "timeline": "6-8 weeks",
+          "includes": "5-10 screens, Firebase backend, Play Store + App Store submission",
+          "best_for": "Startups validating an idea"
+        },
+        {
+          "name": "Business App",
+          "price": "₹3,00,000 – ₹5,00,000",
+          "timeline": "8-12 weeks",
+          "includes": "15-25 screens, custom backend, admin dashboard, push notifications, analytics",
+          "best_for": "SMBs digitizing their operations"
+        },
+        {
+          "name": "Enterprise / Complex App",
+          "price": "Contact for Custom Proposal",
+          "timeline": "12-20 weeks",
+          "includes": "Full custom build, API integrations, role-based access, compliance, dedicated support",
+          "best_for": "Large businesses with complex workflows"
+        }
+      ]
+    },
     "process": [
       {
         "number": "01",
@@ -871,23 +947,62 @@
         "desc": "We handle the rigorous Apple App Store and Google Play Store review processes for a smooth launch."
       }
     ],
-    "tech_stack": [
-      "React Native",
-      "Flutter",
-      "Swift",
-      "Kotlin",
-      "Firebase"
-    ],
+    "tech_stack": {
+      "categories": [
+        { "name": "Cross-Platform", "tools": ["Flutter", "Dart", "React Native"] },
+        { "name": "iOS Native", "tools": ["Swift", "SwiftUI", "Xcode"] },
+        { "name": "Android Native", "tools": ["Kotlin", "Jetpack Compose", "Android Studio"] },
+        { "name": "Backend", "tools": ["Firebase", "Cloudflare Workers", "Supabase", "Node.js", "REST APIs"] },
+        { "name": "Design", "tools": ["Figma", "Adobe XD"] }
+      ]
+    },
     "use_cases": [
       "Consumer iOS/Android Apps",
       "Enterprise Field Worker Apps",
       "Mobile E-Commerce"
     ],
+    "proof": {
+      "subtitle": "OUR WORK",
+      "title": "Mobile-first thinking in action",
+      "studies": [
+        {
+          "client": "Dashak Pharma",
+          "title": "B2B WhatsApp Ordering System",
+          "impact": "Built a WhatsApp-first ordering system for pharmaceutical distribution — retailers place orders via WhatsApp, the system auto-captures, invoices, and follows up. Zero app downloads required from end users, proof that sometimes the best 'app' is smart use of a platform your customers already have.",
+          "tags": ["WhatsApp API", "n8n", "AI Automation"],
+          "color": "#f6d365"
+        }
+      ]
+    },
+    "faq": [
+      {
+        "q": "Do I need separate apps for iOS and Android?",
+        "a": "No. We use Flutter to build one app that works on both platforms, which meaningfully lowers cost and timeline compared to building two separate native apps."
+      },
+      {
+        "q": "Can I see a working version before the app is finished?",
+        "a": "Yes. You get weekly staging builds you can install on your own phone and test — real progress every week, not just status reports."
+      },
+      {
+        "q": "Will I own the source code?",
+        "a": "Yes. 100% code ownership is included. We hand over the complete source code, documentation, and all credentials. Your app runs on your own Apple Developer and Google Play accounts."
+      },
+      {
+        "q": "What happens after the app is launched?",
+        "a": "We provide a 30-day bug fix window at no extra cost. After that, you can optionally sign an annual maintenance contract (20% of the initial project cost) covering updates, security patches, and OS compatibility fixes."
+      },
+      {
+        "q": "How much does it cost to maintain an app after launch?",
+        "a": "Apple Developer account costs $99/year and Google Play is a one-time $25 — both paid directly to Apple/Google, not to us. Hosting on Firebase or Cloudflare is typically pennies for a small-to-mid-size app. Our optional maintenance contract is 20% of the initial project cost annually."
+      }
+    ],
     "cta": {
-      "title": "Ready to ship to iOS and Android?",
-      "description": "Book a scoping call. We'll scope your app and give you a fixed-price, fixed-timeline proposal within 48 hours.",
+      "title": "Ready to build your app?",
+      "description": "Tell us your idea. We'll scope it, design the screens, and give you a fixed-price quote within 48 hours.",
       "button_text": "Book a Consultation",
-      "pricing_url": "pricing.html"
+      "primary_href": "https://calendar.app.google/PUsxADQBnpQsTrDbA",
+      "secondary_text": "💬 Message on WhatsApp",
+      "secondary_href": "https://wa.me/917905495478?text=Hi%20Trai%20Inc%2C%20I%20want%20to%20build%20a%20mobile%20app."
     }
   },
   "motion-video": {

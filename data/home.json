@@ -181,12 +181,12 @@
     "title": "Frequently Asked Questions",
     "items": [
       {
-        "q": "How long does an MVP take to build?",
-        "a": "Our senior engineers work in rapid sprints, and we typically deliver a complete, launch-ready MVP in 4 to 8 weeks depending on the complexity of the requirements."
+        "q": "How long does a project take to build?",
+        "a": "Our senior engineers work in rapid sprints, and most projects ship in 4 to 8 weeks depending on complexity — simpler builds like a business website can be live even faster."
       },
       {
-        "q": "What is the typical cost for a custom software project?",
-        "a": "For standard scopes like web applications or internal CRMs, pricing generally ranges from ₹2-8L depending on scope. For fully bespoke enterprise solutions, we provide a quote-based estimate after a scoping call."
+        "q": "What does a project actually cost?",
+        "a": "It depends on your business size. A business website for a local shop starts at ₹15,000. A custom MVP or internal tool typically runs ₹1.5L-₹3L. Growth-stage systems — CRMs, automation, multi-platform builds — run ₹3L-₹5L. For enterprise-scale or highly custom requirements, we quote after a scoping call. See the full <a href=\"pricing.html\">pricing breakdown</a> for exact tiers."
       },
       {
         "q": "What if I need changes after the project is delivered?",

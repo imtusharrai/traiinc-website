@@ -65,12 +65,12 @@
   "model": {
     "subtitle": "HOW WE WORK",
     "title": "AI-Native Delivery at Scale",
-    "description": "We combine deep engineering expertise with AI-powered development tools to deliver faster, cleaner, and more cost-effective solutions than traditional agencies. Every project gets a dedicated team lead, transparent sprint updates, and direct access to the engineers building your product.",
+    "description": "We combine deep engineering expertise with AI-powered development tools to deliver faster, cleaner, and more cost-effective solutions than traditional agencies. Every project gets a dedicated project manager, transparent sprint updates, and direct coordination with the senior engineers building your product.",
     "advantages": [
       {
         "icon": "⚡",
         "title": "Dedicated Team",
-        "desc": "Every project is assigned a dedicated team lead and engineering resources. You get direct access to the people building your product."
+        "desc": "Every project is assigned a dedicated project manager who coordinates directly with our senior engineers on your behalf — one clear point of contact, not a relay of account managers."
       },
       {
         "icon": "🧠",
@@ -186,20 +186,20 @@
     "title": "Frequently Asked Questions",
     "items": [
       {
-        "q": "How long does an MVP take to build?",
-        "a": "Our senior engineers work in rapid sprints, and we typically deliver a complete, launch-ready MVP in 4 to 8 weeks depending on the complexity of the requirements."
+        "q": "How long has Trai Inc been in business?",
+        "a": "We've been building production software since 2020 — six years and 138+ clients across 12+ industries, from local MSMEs to enterprise operations."
       },
       {
-        "q": "What is the typical cost for a custom software project?",
-        "a": "For standard scopes like web applications or internal CRMs, pricing generally ranges from ₹2-8L depending on scope. For fully bespoke enterprise solutions, we provide a quote-based estimate after a scoping call."
+        "q": "Do you outsource work or use junior developers?",
+        "a": "No. Every project is built by our senior in-house team — no outsourcing, no junior-only bench. Your dedicated project manager coordinates directly with those engineers on your behalf."
       },
       {
-        "q": "What if I need changes after the project is delivered?",
-        "a": "We offer an annual maintenance contract (20% of the initial project cost) covering platform updates, security patches, and minor bug fixes. For larger feature additions, we scope and quote them as separate change requests — you're never locked out of your own product."
+        "q": "Who will I actually be talking to during my project?",
+        "a": "A dedicated project manager, assigned from day one. They coordinate with the senior engineers building your product and give you weekly written updates — so you always have one clear point of contact, not a rotating cast."
       },
       {
-        "q": "How do I know I'll actually own my app or software?",
-        "a": "We believe in complete transparency. We've published a <a href=\"choosing-a-development-partner.html\">due-diligence checklist</a> covering code ownership, app store accounts, and hosting. We assign full source code and IP to you upon final payment, and give you direct access to all infrastructure."
+        "q": "What's your policy on code and IP ownership?",
+        "a": "You own everything, full stop — it's core to how we operate, not a clause we hope you never read. We've published a public <a href=\"choosing-a-development-partner.html\">due-diligence checklist</a> so you can verify our commitments on code ownership, app store accounts, and hosting before you even sign."
       }
     ]
   },

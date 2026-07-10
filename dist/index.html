@@ -15,10 +15,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=1783671174096">
+    <link rel="stylesheet" href="css/style.css?v=1783686028089">
 
     <!-- Schema Markup -->
-    <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-L8PVFRHGJC&amp;cx=c&amp;gtm=4e6781"></script><script src="https://www.googletagmanager.com/gtm.js?id=GTM-THH39FFH"></script><script type="application/ld+json">
+    <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-L8PVFRHGJC&amp;cx=c&amp;gtm=4e6781h1"></script><script src="https://www.googletagmanager.com/gtm.js?id=GTM-THH39FFH"></script><script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
@@ -52,7 +52,7 @@
 <script>
         if (/bot|googlebot|crawler|spider|robot|crawling|inspectiontool|lighthouse/i.test(navigator.userAgent)) {
             document.documentElement.classList.add('bot-detected');
-        }</script><script type="application/ld+json">{"@context":"https://schema.org","@type":["Organization","LocalBusiness"],"name":"Trai Inc","url":"https://traiinc.com","logo":"https://traiinc.com/assets/logos/logo.png","image":"https://traiinc.com/assets/logos/logo.png","address":{"@type":"PostalAddress","streetAddress":"Tower B2, DLF Mypad, Vibhuti Khand, Gomti Nagar","addressLocality":"Lucknow","postalCode":"226010","addressCountry":"IN"},"founder":{"@type":"Person","name":"Tushar Rai"},"sameAs":["https://www.linkedin.com/company/trai-inc","https://x.com/trai_inc","https://www.instagram.com/trai.inc","https://www.youtube.com/@trai-inc"]}</script></head>
+        }</script><script type="application/ld+json">{"@context":"https://schema.org","@type":["Organization","LocalBusiness"],"name":"Trai Inc","url":"https://traiinc.com","logo":"https://traiinc.com/assets/logos/logo.png","image":"https://traiinc.com/assets/logos/logo.png","address":{"@type":"PostalAddress","streetAddress":"Tower B2, DLF Mypad, Vibhuti Khand, Gomti Nagar","addressLocality":"Lucknow","postalCode":"226010","addressCountry":"IN"},"founder":{"@type":"Person","name":"Tushar Rai"},"sameAs":["https://www.linkedin.com/company/trai-inc","https://x.com/trai_inc","https://www.instagram.com/trai.inc","https://www.youtube.com/@trai-inc"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How long does a project take to build?","acceptedAnswer":{"@type":"Answer","text":"Our senior engineers work in rapid sprints, and most projects ship in 4 to 8 weeks depending on complexity — simpler builds like a business website can be live even faster."}},{"@type":"Question","name":"What does a project actually cost?","acceptedAnswer":{"@type":"Answer","text":"It depends on your business size. A business website for a local shop starts at ₹15,000. A custom MVP or internal tool typically runs ₹1.5L-₹3L. Growth-stage systems — CRMs, automation, multi-platform builds — run ₹3L-₹5L. For enterprise-scale or highly custom requirements, we quote after a scoping call. See the full <a href=\"pricing.html\">pricing breakdown</a> for exact tiers."}},{"@type":"Question","name":"What if I need changes after the project is delivered?","acceptedAnswer":{"@type":"Answer","text":"We offer an annual maintenance contract (20% of the initial project cost) covering platform updates, security patches, and minor bug fixes. For larger feature additions, we scope and quote them as separate change requests — you're never locked out of your own product."}},{"@type":"Question","name":"How do I know I'll actually own my app or software?","acceptedAnswer":{"@type":"Answer","text":"We believe in complete transparency. We've published a <a href=\"choosing-a-development-partner.html\">due-diligence checklist</a> covering code ownership, app store accounts, and hosting. We assign full source code and IP to you upon final payment, and give you direct access to all infrastructure."}}]}</script></head>
 <body data-page="home">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THH39FFH"
@@ -804,29 +804,49 @@
 
     
     <!-- ════════ FAQ ════════ -->
-    <section class="faq-section fade-in" style="padding: 100px 0; background: var(--bg-card); border-top: 1px solid var(--border-light);">
-        <div class="container" style="max-width: 800px;">
+    <section class="faq-section fade-in">
+        <div class="container faq-container">
             <div class="section-header center">
                 <h4 class="mini-title">QUESTIONS &amp; ANSWERS</h4>
                 <h2>Frequently Asked Questions</h2>
             </div>
-            <div class="faq-accordion" style="margin-top: 40px;">
+            <div class="faq-accordion">
                 
-                <div class="faq-item" style="border-bottom: 1px solid var(--border-light); padding: 24px 0;">
-                    <h3 style="font-size: 1.15rem; font-family: var(--font-heading); margin-bottom: 12px; color: var(--text-main);">How long does an MVP take to build?</h3>
-                    <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6;">Our senior engineers work in rapid sprints, and we typically deliver a complete, launch-ready MVP in 4 to 8 weeks depending on the complexity of the requirements.</p>
+                <div class="faq-item">
+                    <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-0">
+                        <span>How long does a project take to build?</span>
+                        <span class="faq-chevron" aria-hidden="true"><svg viewBox="0 0 10 6" width="10" height="6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"></path></svg></span>
+                    </button>
+                    <div id="faq-answer-0" class="faq-answer" role="region">
+                        <p class="faq-answer-text">Our senior engineers work in rapid sprints, and most projects ship in 4 to 8 weeks depending on complexity — simpler builds like a business website can be live even faster.</p>
+                    </div>
                 </div>
-                <div class="faq-item" style="border-bottom: 1px solid var(--border-light); padding: 24px 0;">
-                    <h3 style="font-size: 1.15rem; font-family: var(--font-heading); margin-bottom: 12px; color: var(--text-main);">What is the typical cost for a custom software project?</h3>
-                    <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6;">For standard scopes like web applications or internal CRMs, pricing generally ranges from ₹2-8L depending on scope. For fully bespoke enterprise solutions, we provide a quote-based estimate after a scoping call.</p>
+                <div class="faq-item">
+                    <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
+                        <span>What does a project actually cost?</span>
+                        <span class="faq-chevron" aria-hidden="true"><svg viewBox="0 0 10 6" width="10" height="6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"></path></svg></span>
+                    </button>
+                    <div id="faq-answer-1" class="faq-answer" role="region">
+                        <p class="faq-answer-text">It depends on your business size. A business website for a local shop starts at ₹15,000. A custom MVP or internal tool typically runs ₹1.5L-₹3L. Growth-stage systems — CRMs, automation, multi-platform builds — run ₹3L-₹5L. For enterprise-scale or highly custom requirements, we quote after a scoping call. See the full <a href="pricing.html">pricing breakdown</a> for exact tiers.</p>
+                    </div>
                 </div>
-                <div class="faq-item" style="border-bottom: 1px solid var(--border-light); padding: 24px 0;">
-                    <h3 style="font-size: 1.15rem; font-family: var(--font-heading); margin-bottom: 12px; color: var(--text-main);">What if I need changes after the project is delivered?</h3>
-                    <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6;">We offer an annual maintenance contract (20% of the initial project cost) covering platform updates, security patches, and minor bug fixes. For larger feature additions, we scope and quote them as separate change requests — you're never locked out of your own product.</p>
+                <div class="faq-item">
+                    <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
+                        <span>What if I need changes after the project is delivered?</span>
+                        <span class="faq-chevron" aria-hidden="true"><svg viewBox="0 0 10 6" width="10" height="6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"></path></svg></span>
+                    </button>
+                    <div id="faq-answer-2" class="faq-answer" role="region">
+                        <p class="faq-answer-text">We offer an annual maintenance contract (20% of the initial project cost) covering platform updates, security patches, and minor bug fixes. For larger feature additions, we scope and quote them as separate change requests — you're never locked out of your own product.</p>
+                    </div>
                 </div>
-                <div class="faq-item" style="border-bottom: 1px solid var(--border-light); padding: 24px 0;">
-                    <h3 style="font-size: 1.15rem; font-family: var(--font-heading); margin-bottom: 12px; color: var(--text-main);">How do I know I'll actually own my app or software?</h3>
-                    <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6;">We believe in complete transparency. We've published a <a href="choosing-a-development-partner.html">due-diligence checklist</a> covering code ownership, app store accounts, and hosting. We assign full source code and IP to you upon final payment, and give you direct access to all infrastructure.</p>
+                <div class="faq-item">
+                    <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
+                        <span>How do I know I'll actually own my app or software?</span>
+                        <span class="faq-chevron" aria-hidden="true"><svg viewBox="0 0 10 6" width="10" height="6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"></path></svg></span>
+                    </button>
+                    <div id="faq-answer-3" class="faq-answer" role="region">
+                        <p class="faq-answer-text">We believe in complete transparency. We've published a <a href="choosing-a-development-partner.html">due-diligence checklist</a> covering code ownership, app store accounts, and hosting. We assign full source code and IP to you upon final payment, and give you direct access to all infrastructure.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -934,8 +954,8 @@
         </div>
             </footer>
 
-    <script src="js/app.js?v=1783671174096"></script>
-    <script src="js/nav.js?v=1783671174096"></script>
+    <script src="js/app.js?v=1783686028089"></script>
+    <script src="js/nav.js?v=1783686028089"></script>
 
 <a class="fab-logo" href="https://wa.me/917905495478?text=Hi%20Trai!%20I'm%20interested%20in%20learning%20more%20about%20your%20services.%20Can%20we%20chat%3F" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
         <svg viewBox="0 0 32 32" width="32" height="32" fill="white">
