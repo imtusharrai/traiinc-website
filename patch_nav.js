@@ -36,12 +36,12 @@ const replacement = `    const navData = {
     },
 
     services: {
-        label: "Services",
+        label: "Solutions",
         featured: {
             title: "Full-Stack Excellence",
             desc: "End-to-end engineering from MVP to enterprise scale.",
             stat: "10x faster execution",
-            ctaLabel: "View All Services →",
+            ctaLabel: "View All Solutions →",
             ctaHref: "solutions.html"
         },
         cols: [
@@ -52,6 +52,15 @@ const replacement = `    const navData = {
                     { icon: icon3d("📱","#43e97b","#38f9d7"), label: "Mobile App Development", href: "mobile-apps.html", desc: "iOS, Android, cross-platform" },
                     { icon: icon3d("🤖","#f093fb","#f5576c"), label: "AI & Automation", href: "ai-automation.html", desc: "Chatbots, agents, workflows" },
                     { icon: icon3d("☁️","#667eea","#764ba2"), label: "Cloud & DevOps", href: "cloud-devops.html", desc: "AWS, Cloudflare, CI/CD" }
+                ]
+            },
+            {
+                heading: "Business Communication",
+                items: [
+                    { icon: icon3d("📞","#f6d365","#fda085"), label: "IVR Service", href: "ivr-service.html", desc: "Interactive voice response" },
+                    { icon: icon3d("🆓","#4facfe","#00f2fe"), label: "Toll Free Number Service", href: "toll-free.html", desc: "1800 numbers for business" },
+                    { icon: icon3d("💬","#fbc7d4","#9796f0"), label: "SMS Gateway", href: "sms-gateway.html", desc: "Bulk & transactional SMS" },
+                    { icon: icon3d("📱","#43e97b","#38f9d7"), label: "WhatsApp Business Platform", href: "whatsapp-business.html", desc: "Official API integration" }
                 ]
             },
             {
