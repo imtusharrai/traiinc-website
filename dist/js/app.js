@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     <h4 class="mini-title">Why Trai Inc for ${data.name}?</h4>
                     <h2>Engineering that drives results.</h2>
                 </div>
-                <div style="font-size: 1.1rem; line-height: 1.8; color: var(--text-muted); max-width: 800px; margin: 0 auto; text-align: center;">
+                <div class="tech-why-text">
                     <p>${data.why_us}</p>
                 </div>
             </section>
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     ${data.use_cases.map((useCase, idx) => `
                         <div class="bento-card ${idx % 3 === 0 ? 'wide' : ''} fade-in">
                             <div class="bento-icon" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">🎯</div>
-                            <h3>${useCase}</h3>
+                            <h3 class="bento-title">${useCase}</h3>
                         </div>
                     `).join('')}
                 </div>
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             <section class="container fade-in" style="padding: 80px 24px; text-align: center;">
                 <div class="hero-card">
                     <h2>Ready to build with ${data.name}?</h2>
-                    <p style="color:var(--text-muted);margin:16px 0 32px;">Talk directly to senior engineers — no sales reps, no fluff.</p>
+                    <p class="tech-cta-desc">Talk directly to senior engineers — no sales reps, no fluff.</p>
                     <a href="contact.html" class="btn-primary large" style="margin: 0 auto;">Start Your Project</a>
                 </div>
             </section>
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     <h4 class="mini-title">Why Trai Inc for ${data.name}?</h4>
                     <h2>Engineering that drives results.</h2>
                 </div>
-                <div style="font-size: 1.1rem; line-height: 1.8; color: var(--text-muted); max-width: 800px; margin: 0 auto; text-align: center;">
+                <div class="tech-why-text">
                     <p>${data.why_us}</p>
                 </div>
             </section>
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     ${data.use_cases.map((useCase, idx) => `
                         <div class="bento-card ${idx % 3 === 0 ? 'wide' : ''} fade-in">
                             <div class="bento-icon" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">📱</div>
-                            <h3>${useCase}</h3>
+                            <h3 class="bento-title">${useCase}</h3>
                         </div>
                     `).join('')}
                 </div>
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             <section class="container fade-in" style="padding: 80px 24px; text-align: center;">
                 <div class="hero-card">
                     <h2>Ready to build your ${data.name}?</h2>
-                    <p style="color:var(--text-muted);margin:16px 0 32px;">Talk directly to senior engineers — no sales reps, no fluff.</p>
+                    <p class="tech-cta-desc">Talk directly to senior engineers — no sales reps, no fluff.</p>
                     <a href="contact.html" class="btn-primary large" style="margin: 0 auto;">Start Your Project</a>
                 </div>
             </section>
@@ -304,165 +304,133 @@ document.addEventListener('click', (e) => {
 
 function renderHome(data) {
     const hero = data.hero;
-    const sr = data.solutions_routing;
+    const un = data.un_agency;
+    const cap = data.capabilities;
+    const sb = data.services_banner;
+    const proof = data.proof;
+    const conv = data.conversion;
 
     return `
-    <!-- ════════ HERO ════════ -->
-    <section class="msme-hero home-hero">
-        <div class="msme-hero-inner">
-            <div>
-                <div class="msme-badge">${hero.badge}</div>
-                <h1>${hero.heading_line1}<br>${hero.heading_line2} <span class="gradient-word">${hero.heading_highlight}</span></h1>
-                <p class="msme-hero-sub">${hero.subtitle}</p>
-                <div class="hero-cta-row">
-                    <a href="${hero.cta_primary.href}" target="_blank" class="btn-primary large">${hero.cta_primary.icon} ${hero.cta_primary.text}</a>
-                    <a href="${hero.cta_secondary.href}" class="btn-secondary large">${hero.cta_secondary.icon} ${hero.cta_secondary.text}</a>
+    <!-- ════════ HERO (T-MOBILE BUSINESS STYLE) ════════ -->
+    <section class="titan-hero home-hero">
+        <!-- Split Hero Card — tagline lives inside the right panel -->
+        <div class="hero-split-card">
+            <div class="hero-split-left">
+                <img src="/img/hero-engineer.jpg" alt="Senior software engineer at Trai Inc" class="hero-split-img" loading="eager" fetchpriority="high" />
+                <div class="hero-split-overlay">
+                    <div class="hero-split-brand">
+                        <span class="hero-brand-logo">TRAI</span>
+                        <span class="hero-brand-divider">|</span>
+                        <span class="hero-brand-tagline">ENGINEERING</span>
+                    </div>
+                    <div class="hero-split-text">
+                        <p class="hero-split-intro">Introducing</p>
+                        <h2 class="hero-split-headline">Enterprise<br><span class="hero-split-accent">Reliability.</span></h2>
+                    </div>
                 </div>
-                <div class="hero-trust">
+            </div>
+            <div class="hero-split-right">
+                <p class="hero-split-eyebrow">It's better when engineers lead.</p>
+                <h1 class="hero-split-title">Zero-failure software<br>& apps, on time.</h1>
+                <p class="hero-split-desc">Best-in-class engineering according to <strong>138+ enterprises</strong>. Scalable architecture, fixed-price guarantees. No surprises.</p>
+                <a href="${hero.cta_primary.href}" target="_blank" class="btn-primary large hero-split-cta">${hero.cta_primary.text}</a>
+                <div class="hero-trust" style="margin-top: 32px;">
                     <div class="hero-trust-avatars">
                         ${hero.trust_avatars.map((a, i) => `<span class="trust-avatar trust-avatar-${i + 1}">${a}</span>`).join('')}
                     </div>
-                    <span>Trusted by <strong class="trust-count">${hero.trust_line}</strong> ${hero.trust_suffix}</span>
+                    <span>Trusted by <strong class="trust-count">${hero.trust_line}</strong></span>
                 </div>
-            </div>
-            <div class="hero-mockup">
-                <div class="mockup-main">
-                    <div class="mockup-bar"><span></span><span></span><span></span></div>
-                    <div class="mockup-metrics">
-                        ${hero.mockup_metrics.map(m => `
-                        <div class="mockup-metric">
-                            <div class="mockup-metric-label">${m.icon} ${m.label}</div>
-                            <div class="mockup-metric-value ${m.color}">${m.value}</div>
-                        </div>`).join('')}
-                    </div>
-                    <div class="mockup-chart"></div>
-                </div>
-                ${hero.float_cards.map((fc, i) => `
-                <div class="float-card float-card-${i + 1}">
-                    <div class="fc-icon">${fc.icon}</div>
-                    <div class="fc-label">${fc.label}</div>
-                    <div class="fc-value ${fc.active ? 'fc-value-active' : ''}">${fc.value}</div>
-                </div>`).join('')}
             </div>
         </div>
     </section>
 
-    <!-- ════════ SOLUTIONS ROUTING (moved up — audience self-select right after hero) ════════ -->
-    <section id="solutions" class="bento-section home-section-tight">
+
+    <!-- ════════ THE UN-AGENCY MANIFESTO (T-MOBILE STYLE) ════════ -->
+    <section class="titan-manifesto fade-in home-section-shaded home-section-bordered-bottom">
         <div class="container">
-            <div class="section-header center fade-in">
-                <h4 class="mini-title">${sr.subtitle}</h4>
-                <h2>${sr.title}</h2>
+            <div class="section-header" style="max-width: 800px;">
+                <h4 class="mini-title neon-accent">${un.subtitle}</h4>
+                <h2 class="massive-title" style="text-align: left;">${un.title}</h2>
             </div>
-            <div class="home-bento-grid">
-                ${sr.cards.map(c => `
-                <div class="home-bento-card fade-in">
-                    <div class="home-bento-icon">${c.icon}</div>
-                    <div class="home-bento-title">${c.title}</div>
-                    <div class="home-bento-desc">${c.desc}</div>
-                    <a href="${c.link}" class="home-bento-link">${c.link_text}</a>
-                </div>`).join('')}
+            <div class="tmo-grid">
+                ${un.cards ? un.cards.map(card => `
+                <div class="tmo-card fade-in">
+                    ${card.img ? `<img src="${card.img}" alt="${card.title}" class="tmo-card-img" />` : ''}
+                    <h3 class="tmo-card-title">${card.title}</h3>
+                    <p class="tmo-card-desc">${card.desc}</p>
+                </div>`).join('') : ''}
             </div>
         </div>
     </section>
 
-    <!-- ════════ OUR WORK (merged case studies + portfolio, text-only, no broken images) ════════ -->
+    <!-- ════════ CAPABILITIES (VERIZON STYLE — BANNER + GRID) ════════ -->
+    <section id="capabilities" class="cap-section fade-in">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="mini-title" style="color: var(--accent-color);">${cap.subtitle}</span>
+                <h2 style="font-size: 3rem; margin-top: 10px;">${cap.title}</h2>
+            </div>
+            <div class="svc-banner-wrap">
+                <img src="${sb.image}" alt="${sb.card_title}" class="svc-banner-img" loading="lazy" />
+                <div class="svc-banner-card">
+                    <h3 class="svc-banner-card-title">${sb.card_title}</h3>
+                    <p class="svc-banner-card-desc">${sb.card_desc}</p>
+                    <a href="${sb.card_href}" target="_blank" class="svc-banner-card-cta">${sb.card_cta}</a>
+                </div>
+            </div>
+            <div class="cap-grid">
+                ${cap.cards.map(c => `
+                <a href="${c.href}" class="cap-cell fade-in">
+                    <h3 class="cap-cell-title">${c.title}</h3>
+                    <span class="cap-cell-arrow">›</span>
+                </a>`).join('')}
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════ THE PROOF (VERIZON STYLE METRICS) ════════ -->
     <section class="content-section fade-in home-section-shaded home-section-bordered-top">
         <div class="container">
             <div class="section-header center">
-                <h4 class="mini-title">${data.case_studies.subtitle}</h4>
-                <h2>${data.case_studies.title}</h2>
+                <h4 class="mini-title">${proof.subtitle}</h4>
+                <h2>${proof.title}</h2>
             </div>
             <div class="grid-3 home-grid-spaced">
-                ${data.case_studies.studies.map(s => `
-                <div class="spec-card fade-in home-accent-card" style="--card-accent: ${s.color};">
-                    <p class="home-accent-eyebrow">${s.client}</p>
-                    <h3 class="home-card-title">${s.title}</h3>
+                ${proof.studies.map(s => `
+                <div class="spec-card fade-in home-accent-card proof-card" style="--card-accent: ${s.color};">
+                    <div class="proof-metric-wrap">
+                        <div class="proof-metric-huge">${s.metric}</div>
+                        <p class="proof-metric-label">${s.metric_label}</p>
+                    </div>
+                    <h3 class="home-card-title">${s.client}</h3>
                     <p class="home-card-body">${s.impact}</p>
-                    <div class="home-tag-row">
-                        ${s.tags.map(t => `<span class="home-tag">${t}</span>`).join('')}
-                    </div>
                 </div>`).join('')}
             </div>
         </div>
     </section>
 
-    <!-- ════════ CORE EXPERTISE ════════ -->
-    <section class="bento-section fade-in">
-        <div class="container">
-            <div class="section-header center">
-                <h4 class="mini-title">${data.expertise.subtitle}</h4>
-                <h2>${data.expertise.title}</h2>
-            </div>
-            <div class="bento-grid">
-                ${data.expertise.cards.map(c => `
-                <div class="bento-card ${c.wide ? 'wide' : ''} fade-in home-accent-top" style="--card-accent: ${c.color};">
-                    <div class="bento-icon home-accent-icon" style="--card-accent: ${c.color};">${c.icon}</div>
-                    <h3 class="bento-title">${c.title}</h3>
-                    <p class="bento-desc">${c.desc}</p>
-                    <div class="feature-pills home-pills-tight">
-                        ${c.tags.map(t => `<div class="feature-pill">${t}</div>`).join('')}
-                    </div>
-                </div>`).join('')}
-            </div>
-        </div>
-    </section>
-
-    <!-- ════════ ANTI-AGENCY MANIFESTO ════════ -->
-    <section class="bento-section fade-in home-section-shaded home-section-bordered-bottom">
-        <div class="container">
-            <div class="section-header center">
-                <h4 class="mini-title">${data.anti_agency.subtitle}</h4>
-                <h2>${data.anti_agency.title}</h2>
-            </div>
-            <div class="grid-3 home-grid-tight">
-                ${data.anti_agency.cards.map(c => `
-                <div class="spec-card fade-in home-compare-card">
-                    <div class="home-compare-icon">${c.icon}</div>
-                    <h3 class="home-compare-title">${c.title}</h3>
-                    <div class="home-compare-row">
-                        <strong class="home-compare-label home-compare-us">✅ Trai Inc</strong>
-                        <p class="home-compare-text">${c.us}</p>
-                    </div>
-                    <div>
-                        <strong class="home-compare-label home-compare-them">❌ Traditional Agencies</strong>
-                        <p class="home-compare-text home-compare-text-muted">${c.them}</p>
-                    </div>
-                </div>`).join('')}
-            </div>
-        </div>
-    </section>
-
-    <!-- ════════ DELIVERY PROCESS ════════ -->
+    <!-- ════════ CONVERSION BLOCK (SPLIT COLUMN) ════════ -->
     <section class="compare-section fade-in">
-        <div class="container">
-            <div class="section-header center">
-                <h4 class="mini-title">${data.process.subtitle}</h4>
-                <h2>${data.process.title}</h2>
+        <div class="container conversion-split">
+            <div class="conversion-left">
+                <h4 class="mini-title">${conv.subtitle}</h4>
+                <h2>${conv.title}</h2>
+                <p>${conv.description}</p>
+                <a href="${conv.button_href}" target="_blank" class="btn-primary large">${conv.button_text}</a>
             </div>
-            <div class="grid-3 home-grid-spaced">
-                ${data.process.steps.map(s => `
-                <div class="spec-card fade-in home-process-card">
-                    <div class="home-process-number" style="--card-accent: ${s.color};">${s.number}</div>
-                    <h3 class="home-card-title">${s.title}</h3>
-                    <p class="home-card-body home-card-body-muted">${s.desc}</p>
-                </div>`).join('')}
+            <div class="conversion-right">
+                <div class="stepper">
+                    ${conv.steps.map(s => `
+                    <div class="stepper-step">
+                        <h3 class="stepper-title">${s.title}</h3>
+                        <p class="stepper-desc">${s.desc}</p>
+                    </div>`).join('')}
+                </div>
             </div>
         </div>
     </section>
 
     ${renderFaq(data.faq)}
-
-    <!-- ════════ GRAND CTA ════════ -->
-    <section class="grand-cta fade-in">
-        <div class="container">
-            <div class="grand-cta-inner">
-                <h2>${data.cta.title}</h2>
-                <p>${data.cta.description}</p>
-                <a href="${data.cta.button_href}" target="_blank" class="btn-primary large">${data.cta.button_text}</a>
-            </div>
-        </div>
-    </section>
     `;
 }
 
@@ -595,10 +563,10 @@ function renderIncubation(data) {
     <header class="incub-hero fade-in">
         <div class="container" style="max-width: 900px; margin: 0 auto; text-align: center; padding: 180px 24px 80px;">
             <h4 class="mini-title">${data.hero.subtitle}</h4>
-            <h1 class="main-heading" style="font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 25px;">${data.hero.title}</h1>
-            <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.7; max-width: 700px; margin: 0 auto 40px;">${data.hero.description}</p>
+            <h1 class="main-heading">${data.hero.title}</h1>
+            <p class="incub-hero-desc">${data.hero.description}</p>
             <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large">${data.cta.button_text}</a>
-            <p style="color: var(--text-muted); margin-top: 20px; font-size: 0.9rem; font-style: italic; opacity: 0.8;">${data.scarcity || ''}</p>
+            <p class="incub-scarcity">${data.scarcity || ''}</p>
         </div>
     </header>
 
@@ -607,8 +575,8 @@ function renderIncubation(data) {
             <div style="display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; text-align: center;">
                 ${data.stats.map(s => `
                 <div class="fade-in">
-                    <h3 style="font-size: 2.5rem; font-family: var(--font-heading); background: var(--brand-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">${s.value}</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 5px;">${s.label}</p>
+                    <h3 class="incub-stat-value">${s.value}</h3>
+                    <p class="incub-stat-label">${s.label}</p>
                 </div>`).join('')}
             </div>
         </div>
@@ -623,12 +591,12 @@ function renderIncubation(data) {
             <div class="grid-2" style="margin-top: 50px; gap: 40px;">
                 ${data.programs.map(p => `
                 <div class="spec-card fade-in" style="padding: 50px; border-top: 4px solid var(--accent-color); display: flex; flex-direction: column; height: 100%;">
-                    <div style="font-size: 3rem; margin-bottom: 15px;">${p.icon}</div>
-                    <h3 style="font-size: 1.6rem; margin-bottom: 10px; font-family: var(--font-heading);">${p.title}</h3>
-                    <span style="display: inline-block; padding: 5px 14px; background: var(--bg-light); border-radius: 50px; font-size: 0.8rem; font-weight: 700; color: var(--accent-color); margin-bottom: 20px; width: fit-content;">⏱ ${p.duration}</span>
-                    <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: 25px; flex-grow: 1;">${p.desc}</p>
+                    <div class="incub-program-icon">${p.icon}</div>
+                    <h3 class="incub-program-title">${p.title}</h3>
+                    <span class="incub-program-duration">⏱ ${p.duration}</span>
+                    <p class="incub-program-desc">${p.desc}</p>
                     <ul style="list-style: none; padding: 0;">
-                        ${p.includes.map(i => `<li style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 0.9rem; color: var(--text-muted);"><span style="color: var(--accent-color); font-weight: 700; flex-shrink: 0;">✔</span> ${i}</li>`).join('')}
+                        ${p.includes.map(i => `<li class="incub-check-item"><span class="incub-check-icon">✔</span> ${i}</li>`).join('')}
                     </ul>
                 </div>`).join('')}
             </div>
@@ -644,9 +612,9 @@ function renderIncubation(data) {
             <div class="grid-3" style="margin-top: 50px;">
                 ${data.what_you_get.map(item => `
                 <div class="spec-card fade-in" style="padding: 40px; text-align: center;">
-                    <div style="font-size: 2.5rem; margin-bottom: 20px;">${item.icon}</div>
-                    <h3 style="font-size: 1.2rem; font-family: var(--font-heading); margin-bottom: 12px;">${item.title}</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">${item.desc}</p>
+                    <div class="incub-feature-icon">${item.icon}</div>
+                    <h3 class="incub-feature-title">${item.title}</h3>
+                    <p class="incub-feature-desc">${item.desc}</p>
                 </div>`).join('')}
             </div>
         </div>
@@ -661,9 +629,9 @@ function renderIncubation(data) {
             <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-top: 50px;" class="incub-process-grid">
                 ${data.process.map(step => `
                 <div class="fade-in" style="text-align: center; padding: 30px;">
-                    <div style="font-size: 3rem; font-family: var(--font-heading); font-weight: 800; background: var(--brand-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px;">${step.step}</div>
-                    <h3 style="font-size: 1.2rem; font-family: var(--font-heading); margin-bottom: 10px;">${step.title}</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">${step.desc}</p>
+                    <div class="incub-process-step">${step.step}</div>
+                    <h3 class="incub-process-title">${step.title}</h3>
+                    <p class="incub-process-desc">${step.desc}</p>
                 </div>`).join('')}
             </div>
         </div>
@@ -678,9 +646,9 @@ function renderIncubation(data) {
             <div class="spec-card fade-in" style="padding: 50px; margin-top: 40px;">
                 <ul style="list-style: none; padding: 0;">
                     ${data.ideal_founder.traits.map(t => `
-                    <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; font-size: 1rem; line-height: 1.6;">
-                        <span style="color: var(--accent-color); font-size: 1.3rem; flex-shrink: 0;">→</span>
-                        <span style="color: var(--text-muted);">${t}</span>
+                    <li class="incub-trait-item">
+                        <span class="incub-trait-arrow">→</span>
+                        <span class="incub-trait-text">${t}</span>
                     </li>`).join('')}
                 </ul>
             </div>
@@ -692,15 +660,15 @@ function renderIncubation(data) {
             <div class="spec-card fade-in" style="padding: 80px 60px; text-align: center; border-radius: 30px; position: relative; overflow: hidden; margin-bottom: 40px;">
                 <div style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: var(--brand-gradient); filter: blur(150px); opacity: 0.15; border-radius: 50%;"></div>
                 <div style="position: absolute; bottom: -80px; left: -80px; width: 250px; height: 250px; background: var(--accent-glow); filter: blur(120px); opacity: 0.2; border-radius: 50%;"></div>
-                <h2 style="font-family: var(--font-heading); font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; position: relative;">${data.cta.title}</h2>
-                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 40px; font-size: 1.1rem; line-height: 1.7; position: relative;">${data.cta.description}</p>
+                <h2 class="incub-cta-title">${data.cta.title}</h2>
+                <p class="incub-cta-desc">${data.cta.description}</p>
                 <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large" style="position: relative;">${data.cta.button_text}</a>
             </div>
             
             ${data.external_cta ? `
             <div class="spec-card fade-in" style="padding: 60px 40px; text-align: center; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); background: rgba(0,0,0,0.2);">
-                <h3 style="font-family: var(--font-heading); font-size: 2rem; margin-bottom: 15px;">${data.external_cta.title}</h3>
-                <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 30px; font-size: 1rem; line-height: 1.6;">${data.external_cta.description}</p>
+                <h3 class="incub-ext-title">${data.external_cta.title}</h3>
+                <p class="incub-ext-desc">${data.external_cta.description}</p>
                 <a href="${data.external_cta.button_href}" target="_blank" rel="noopener" class="btn-secondary">${data.external_cta.button_text}</a>
             </div>
             ` : ''}
@@ -1124,19 +1092,19 @@ function renderIndustries(data) {
     return `
     <header class="page-header container fade-in" style="padding: 150px 24px 80px; text-align: center; max-width: 900px; margin: 0 auto;">
         <h4 class="mini-title">${data.hero.subtitle}</h4>
-        <h1 style="font-size: 4rem; margin-bottom: 25px;">${data.hero.title}</h1>
-        <p style="color: var(--text-muted); font-size: 1.2rem; line-height: 1.6;">${data.hero.desc}</p>
+        <h1 class="ind-hero-title">${data.hero.title}</h1>
+        <p class="ind-hero-desc">${data.hero.desc}</p>
     </header>
 
     <section class="container" style="padding: 60px 24px;">
         <div class="grid-2" style="gap: 40px;">
             ${data.industries.map(ind => `
             <div id="${ind.id}" class="spec-card fade-in" style="padding: 50px; position: relative; border: 1px solid var(--border-light); background: var(--bg-card); scroll-margin-top: 100px;">
-                <div style="font-size: 3rem; margin-bottom: 20px;">${ind.icon}</div>
-                <h3 style="font-size: 1.8rem; margin-bottom: 15px;">${ind.name}</h3>
-                <p style="margin-bottom: 25px; color: var(--text-muted); font-size: 1rem; line-height: 1.7;">${ind.desc}</p>
+                <div class="ind-card-icon">${ind.icon}</div>
+                <h3 class="ind-card-title">${ind.name}</h3>
+                <p class="ind-card-desc">${ind.desc}</p>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                    ${ind.features.map(f => `<div style="display: flex; align-items: center; gap: 10px; font-size: 0.85rem; font-weight: 500;"><span style="color: var(--accent-color);">✔</span> ${f}</div>`).join('')}
+                    ${ind.features.map(f => `<div class="ind-feature-item"><span class="ind-feature-check">✔</span> ${f}</div>`).join('')}
                 </div>
             </div>`).join('')}
         </div>
@@ -1145,8 +1113,8 @@ function renderIndustries(data) {
     <section class="services-cta fade-in" style="padding: 100px 24px; text-align: center;">
         <div class="container" style="background: var(--bg-darker); border-radius: 40px; padding: 100px 60px; border: 1px solid var(--bg-light); position: relative; overflow: hidden;">
             <div style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: var(--brand-gradient); filter: blur(150px); opacity: 0.2; border-radius: 50%;"></div>
-            <h2 style="font-family: var(--font-heading); font-size: 3rem; margin-bottom: 20px;">${data.cta.title}</h2>
-            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 40px; font-size: 1.1rem;">${data.cta.desc}</p>
+            <h2 class="ind-cta-title">${data.cta.title}</h2>
+            <p class="ind-cta-desc">${data.cta.desc}</p>
             <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large">${data.cta.button_text}</a>
         </div>
     </section>

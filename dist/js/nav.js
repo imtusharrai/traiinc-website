@@ -60,7 +60,7 @@
         },
 
         services: {
-            label: "Services",
+            label: "Solutions",
             type: "layered",
             categories: [
                 {
@@ -187,6 +187,42 @@
                         desc: "High-quality audio, video, text, and graphics at scale.",
                         ctaLabel: "Explore Content Creation →",
                         ctaHref: "content-creation.html"
+                    }
+                },
+                {
+                    id: "business-communication",
+                    label: "Business Communication",
+                    hasChildren: true,
+                    href: "business-communication.html",
+                    subitems: [
+                        { label: "IVR Service", href: "business-communication.html#ivr", desc: "Interactive voice response systems" },
+                        { label: "Toll Free Number Service", href: "business-communication.html#toll-free", desc: "1800 numbers for your business" },
+                        { label: "SMS Gateway", href: "business-communication.html#sms", desc: "Bulk & transactional SMS API" },
+                        { label: "WhatsApp Business Platform", href: "business-communication.html#whatsapp", desc: "Official WhatsApp API integrations" }
+                    ],
+                    miniFeature: {
+                        title: "Seamless <span class='highlight'>Communication</span>",
+                        desc: "Engage your customers across voice, text, and WhatsApp.",
+                        ctaLabel: "Explore Communication →",
+                        ctaHref: "business-communication.html"
+                    }
+                },
+                {
+                    id: "network-connectivity",
+                    label: "Network & Connectivity",
+                    hasChildren: true,
+                    href: "network-connectivity.html",
+                    subitems: [
+                        { label: "Enterprise Wi-Fi", href: "network-connectivity.html#wifi", desc: "Secure, high-density wireless networks" },
+                        { label: "SD-WAN Solutions", href: "network-connectivity.html#sdwan", desc: "Software-defined wide area networking" },
+                        { label: "Cloud Networking", href: "network-connectivity.html#cloud", desc: "Seamless multi-cloud connectivity" },
+                        { label: "Network Security (SASE)", href: "network-connectivity.html#security", desc: "Zero-trust edge security" }
+                    ],
+                    miniFeature: {
+                        title: "Unbreakable <span class='highlight'>Connections</span>",
+                        desc: "Enterprise-grade networking built for scale and security.",
+                        ctaLabel: "Explore Networking →",
+                        ctaHref: "network-connectivity.html"
                     }
                 }
             ]
