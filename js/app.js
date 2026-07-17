@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         return `
             <!-- CASE STUDY HERO -->
-            <header class="hero case-study-hero" style="padding-top: 160px; padding-bottom: 60px;">
+            <header class="hero case-study-hero" style="padding-top: 120px; padding-bottom: 60px;">
                 <div class="container hero-content center">
                     <span class="mini-title" style="color: var(--accent-color); margin-bottom: 16px; display: inline-block;">CASE STUDIES</span>
                     <h1 class="hero-title" style="font-size: 3.5rem; margin-bottom: 16px;">Engineering that solves real business problems.</h1>
@@ -391,7 +391,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
 
         } catch (error) {
-            dynamicContainer.innerHTML = `<div class="container" style="padding: 150px 0; text-align: center;"><h2>Error loading content. Please run this via a local server (e.g. VSCode Live Server).</h2><p style="color:var(--text-muted);margin-top:10px;">${error.message}</p></div>`;
+            dynamicContainer.innerHTML = `<div class="container" style="padding: 80px 0; text-align: center;"><h2>Error loading content. Please run this via a local server (e.g. VSCode Live Server).</h2><p style="color:var(--text-muted);margin-top:10px;">${error.message}</p></div>`;
             console.error("Error fetching data:", error);
         }
     } else {
@@ -794,7 +794,7 @@ function renderAbout(data) {
 function renderIncubation(data) {
     return `
     <header class="incub-hero fade-in">
-        <div class="container" style="max-width: 900px; margin: 0 auto; text-align: center; padding: 180px 24px 80px;">
+        <div class="container" style="max-width: 900px; margin: 0 auto; text-align: center; padding: 120px 24px 60px;">
             <h4 class="mini-title">${data.hero.subtitle}</h4>
             <h1 class="main-heading">${data.hero.title}</h1>
             <p class="incub-hero-desc">${data.hero.description}</p>
@@ -888,7 +888,7 @@ function renderIncubation(data) {
         </div>
     </section>
 
-    <section style="padding: 120px 0;">
+    <section style="padding: 80px 0;">
         <div class="container">
             <div class="spec-card fade-in" style="padding: 80px 60px; text-align: center; border-radius: 30px; position: relative; overflow: hidden; margin-bottom: 40px;">
                 <div style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: var(--brand-gradient); filter: blur(150px); opacity: 0.15; border-radius: 50%;"></div>
@@ -1347,7 +1347,7 @@ function renderSolutions(data) {
 
 function renderIndustries(data) {
     return `
-    <header class="page-header container fade-in" style="padding: 150px 24px 80px; text-align: center; max-width: 900px; margin: 0 auto;">
+    <header class="page-header container fade-in" style="padding: 110px 24px 56px; text-align: center; max-width: 900px; margin: 0 auto;">
         <h4 class="mini-title">${data.hero.subtitle}</h4>
         <h1 class="ind-hero-title">${data.hero.title}</h1>
         <p class="ind-hero-desc">${data.hero.desc}</p>
