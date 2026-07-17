@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <div class="bento-grid">
                     ${data.use_cases.map((useCase, idx) => `
                         <div class="bento-card ${idx % 3 === 0 ? 'wide' : ''} fade-in">
-                            <div class="bento-icon" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">🎯</div>
+                            <div class="bento-icon" style="background: var(--brand-gradient);">🎯</div>
                             <h3 class="bento-title">${useCase}</h3>
                         </div>
                     `).join('')}
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <div class="bento-grid">
                     ${data.use_cases.map((useCase, idx) => `
                         <div class="bento-card ${idx % 3 === 0 ? 'wide' : ''} fade-in">
-                            <div class="bento-icon" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">📱</div>
+                            <div class="bento-icon" style="background: var(--brand-gradient);">📱</div>
                             <h3 class="bento-title">${useCase}</h3>
                         </div>
                     `).join('')}
@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             </section>
 
             <!-- CLOSING CTA -->
-            <section class="content-section center" style="padding: 100px 24px; border-top: 1px solid rgba(255,255,255,0.05);">
+            <section class="content-section center" style="padding: 100px 24px; border-top: 1px solid var(--border-light);">
                 <div class="container">
                     <h2 style="margin-bottom: 32px;">Have a project in mind?</h2>
                     <a href="contact.html" class="btn btn-primary">Book a Free Consultation &rarr;</a>
@@ -372,17 +372,17 @@ document.addEventListener("DOMContentLoaded", async () => {
                         });
                         if (response.ok) {
                             result.style.display = 'block';
-                            result.style.color = '#28a745';
+                            result.style.color = 'var(--neon-green)';
                             result.innerHTML = '\u2705 Message sent successfully! We\'ll get back within 24 hours.';
                             contactFormEl.reset();
                         } else {
                             result.style.display = 'block';
-                            result.style.color = '#dc3545';
+                            result.style.color = 'var(--accent-color)';
                             result.textContent = 'Something went wrong. Please try again.';
                         }
                     } catch (err) {
                         result.style.display = 'block';
-                        result.style.color = '#dc3545';
+                        result.style.color = 'var(--accent-color)';
                         result.textContent = 'Network error. Please try again.';
                     }
                     btn.disabled = false;
@@ -618,7 +618,7 @@ function renderHome(data) {
             <div class="directory-card fade-in">
                 <div class="featured-case-study-card__content">
                     <h3 class="featured-case-study-card__title" style="margin-bottom: 16px;">${proof.directoryCard.title}</h3>
-                    <p class="featured-case-study-card__desc" style="color: #F8FAFC; font-size: 1.15rem; line-height: 1.6; margin-bottom: 24px; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">${proof.directoryCard.description}</p>
+                    <p class="featured-case-study-card__desc" style="font-size: 1.15rem; line-height: 1.6; margin-bottom: 24px;">${proof.directoryCard.description}</p>
                     
                     <div class="client-pills-row">
                         ${proof.directoryCard.clientPills.map(p => `
@@ -899,7 +899,7 @@ function renderIncubation(data) {
             </div>
             
             ${data.external_cta ? `
-            <div class="spec-card fade-in" style="padding: 60px 40px; text-align: center; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); background: rgba(0,0,0,0.2);">
+            <div class="spec-card fade-in" style="padding: 60px 40px; text-align: center; border-radius: 20px; border: 1px solid var(--border-light); background: var(--bg-card);">
                 <h3 class="incub-ext-title">${data.external_cta.title}</h3>
                 <p class="incub-ext-desc">${data.external_cta.description}</p>
                 <a href="${data.external_cta.button_href}" target="_blank" rel="noopener" class="btn-secondary">${data.external_cta.button_text}</a>
@@ -1088,9 +1088,9 @@ function renderContact(data) {
             <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <pattern id="grid" width="120" height="120" patternUnits="userSpaceOnUse">
-                        <circle cx="60" cy="60" r="2" fill="rgba(79, 172, 254, 0.4)" />
-                        <path d="M 120 0 L 0 0 0 120" fill="none" stroke="rgba(79, 172, 254, 0.05)" stroke-width="1" stroke-dasharray="4 4"/>
-                        <path d="M 0 120 L 120 0" fill="none" stroke="rgba(79, 172, 254, 0.05)" stroke-width="1" stroke-dasharray="4 4"/>
+                        <circle cx="60" cy="60" r="2" fill="color-mix(in srgb, var(--card-accent) 40%, transparent)" />
+                        <path d="M 120 0 L 0 0 0 120" fill="none" stroke="color-mix(in srgb, var(--card-accent) 15%, transparent)" stroke-width="1" stroke-dasharray="4 4"/>
+                        <path d="M 0 120 L 120 0" fill="none" stroke="color-mix(in srgb, var(--card-accent) 15%, transparent)" stroke-width="1" stroke-dasharray="4 4"/>
                     </pattern>
                 </defs>
                 <rect width="100%" height="100%" fill="url(#grid)" />
@@ -1231,12 +1231,12 @@ function renderContact(data) {
                                 <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                                     <defs>
                                         <pattern id="mapgrid" width="40" height="40" patternUnits="userSpaceOnUse">
-                                            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,26,26,0.15)" stroke-width="0.5"/>
+                                            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="var(--accent-glow)" stroke-width="0.5"/>
                                         </pattern>
                                     </defs>
                                     <rect width="100%" height="100%" fill="url(#mapgrid)" />
-                                    <circle cx="50%" cy="50%" r="60" fill="rgba(255,26,26,0.08)" />
-                                    <circle cx="50%" cy="50%" r="30" fill="rgba(255,26,26,0.15)" />
+                                    <circle cx="50%" cy="50%" r="60" fill="var(--accent-glow)" />
+                                    <circle cx="50%" cy="50%" r="30" fill="color-mix(in srgb, var(--accent-color) 15%, transparent)" />
                                 </svg>
                             </div>
                             <div class="contact-map-pin-icon">📍</div>
@@ -2096,7 +2096,7 @@ function renderServicePage(data, slug) {
         <div class="bento-grid service-features-grid">
             ${service.features.map(f => `
                 <div class="bento-card service-feature-card" ${f.id ? `id="${f.id}"` : ''} style="--card-accent: ${f.color};">
-                    <div class="bento-icon service-feature-icon" style="background: linear-gradient(135deg, ${f.color}22, ${f.color}44); border: 1px solid ${f.color}55;">${f.icon}</div>
+                    <div class="bento-icon service-feature-icon">${f.icon}</div>
                     <h3 class="bento-title">${f.title}</h3>
                     <p class="bento-desc">${f.desc}</p>
                 </div>
@@ -2341,9 +2341,9 @@ function renderPricing(data) {
             <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <pattern id="grid" width="120" height="120" patternUnits="userSpaceOnUse">
-                        <circle cx="60" cy="60" r="2" fill="rgba(79, 172, 254, 0.4)" />
-                        <path d="M 120 0 L 0 0 0 120" fill="none" stroke="rgba(79, 172, 254, 0.05)" stroke-width="1" stroke-dasharray="4 4"/>
-                        <path d="M 0 120 L 120 0" fill="none" stroke="rgba(79, 172, 254, 0.05)" stroke-width="1" stroke-dasharray="4 4"/>
+                        <circle cx="60" cy="60" r="2" fill="color-mix(in srgb, var(--card-accent) 40%, transparent)" />
+                        <path d="M 120 0 L 0 0 0 120" fill="none" stroke="color-mix(in srgb, var(--card-accent) 15%, transparent)" stroke-width="1" stroke-dasharray="4 4"/>
+                        <path d="M 0 120 L 120 0" fill="none" stroke="color-mix(in srgb, var(--card-accent) 15%, transparent)" stroke-width="1" stroke-dasharray="4 4"/>
                     </pattern>
                 </defs>
                 <rect width="100%" height="100%" fill="url(#grid)" />

@@ -22,6 +22,27 @@ body.light-mode {
     --accent-glow: rgba(217, 20, 20, 0.15);
     --brand-gradient: linear-gradient(135deg, #c400b0 0%, #D91414 50%, #e6a100 100%);
 
+    /* ── Auto-Contrast for Custom JSON Colors ── */
+    /* Dynamically darken custom card accents (from JSON) for better readability on white backgrounds */
+    .home-accent-eyebrow,
+    .partner-tier-ideal,
+    .partner-step-number-bg,
+    .home-process-number,
+    .partner-tier-check,
+    .service-feature-icon {
+        color: color-mix(in srgb, var(--card-accent) 70%, black) !important;
+    }
+    
+    .home-accent-icon {
+        color: color-mix(in srgb, var(--card-accent) 70%, black) !important;
+        background: linear-gradient(135deg, color-mix(in srgb, var(--card-accent) 8%, transparent), transparent) !important;
+    }
+
+    .service-feature-icon {
+        background: linear-gradient(135deg, color-mix(in srgb, var(--card-accent) 8%, transparent), color-mix(in srgb, var(--card-accent) 16%, transparent)) !important;
+        border: 1px solid color-mix(in srgb, var(--card-accent) 25%, transparent) !important;
+    }
+
     /* ── Borders ── */
     --border-light: rgba(0, 0, 0, 0.08);
     --border-subtle: rgba(0, 0, 0, 0.05);
@@ -3996,7 +4017,17 @@ body.light-mode .nav-l3-link:hover {
 .service-mini-title { color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 10px; }
 .service-section-h2 { font-family: var(--font-heading); font-size: 2.5rem; font-weight: 800; }
 .service-feature-card { scroll-margin-top: 100px; border-top: 4px solid var(--card-accent); }
-.service-feature-icon { color: var(--card-accent); font-size: 2rem; margin-bottom: 20px; }
+.service-feature-icon { 
+    color: var(--card-accent); 
+    font-size: 2rem; 
+    margin-bottom: 20px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--card-accent) 13%, transparent), color-mix(in srgb, var(--card-accent) 26%, transparent));
+    border: 1px solid color-mix(in srgb, var(--card-accent) 33%, transparent);
+}
+
 
 .service-tech-section { padding: 50px 0; }
 .service-tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
