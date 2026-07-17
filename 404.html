@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Not Found | Trai Inc</title>
+    <!-- Dark mode FOUC prevention — must be before CSS -->
+    <script>
+        (function() {
+            var t = localStorage.getItem('trai-theme');
+            if (t === 'light') {
+                document.body ? document.body.classList.add('light-mode')
+                              : document.addEventListener('DOMContentLoaded', function() {
+                                    document.body.classList.add('light-mode');
+                                });
+            }
+        })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
@@ -17,6 +29,34 @@
     "https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,"script","dataLayer","GTM-THH39FFH");</script>
     <!-- End Google Tag Manager -->
+    <style>
+        .error-quick-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 32px;
+        }
+        .error-quick-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 20px;
+            border: 1px solid var(--border-light);
+            border-radius: 50px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-decoration: none;
+            background: var(--bg-card);
+            transition: all 0.2s ease;
+        }
+        .error-quick-link:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            background: var(--bg-darker);
+        }
+    </style>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -27,8 +67,17 @@
     <main style="min-height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 24px;">
         <div>
             <h1 style="font-family: var(--font-heading); font-size: clamp(4rem, 10vw, 8rem); font-weight: 800; background: var(--brand-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">404</h1>
-            <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 32px;">This page does not exist or has been moved.</p>
-            <a href="index.html" class="btn-primary">Back to Home</a>
+            <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 8px;">This page doesn't exist — or it moved while we were shipping code.</p>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 32px;">Here's where you might want to go instead:</p>
+            <a href="index.html" class="btn-primary">← Back to Home</a>
+            <div class="error-quick-links">
+                <a href="solutions.html" class="error-quick-link">🛠️ Our Services</a>
+                <a href="clients.html" class="error-quick-link">🏆 Case Studies</a>
+                <a href="pricing.html" class="error-quick-link">💰 Pricing</a>
+                <a href="contact.html" class="error-quick-link">📞 Contact Us</a>
+                <a href="blog.html" class="error-quick-link">📝 Blog</a>
+                <a href="careers.html" class="error-quick-link">💼 Careers</a>
+            </div>
         </div>
     </main>
     <footer id="footer"></footer>

@@ -29,7 +29,7 @@
       "heading": "Service Providers We Share Data With",
       "body": ["We do not sell your personal data. We share it only with trusted providers who help us operate, and only to the extent needed:"],
       "list": [
-        "<strong>Google (Analytics / Tag Manager):</strong> anonymised usage analytics.",
+        "<strong>Google (Tag Manager):</strong> used to manage and deploy tracking scripts and marketing tags. Analytics data may be collected via GTM-configured tags.",
         "<strong>Cloudflare:</strong> website hosting and security.",
         "<strong>FormSubmit:</strong> delivery of contact-form submissions to our inbox.",
         "<strong>Resend:</strong> delivery of newsletter and transactional email.",

@@ -188,7 +188,28 @@ server.listen(PORT, async () => {
                 'solutions.html', 'custom-crm-development.html', 'ecommerce-development.html',
                 'wordpress-cms-development.html'
             ].includes(file)) {
-                let serviceName = file.replace('.html', '').split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+                const serviceNameMap = {
+                    'ai-automation': 'AI & Automation',
+                    'cloud-devops': 'Cloud & DevOps',
+                    'content-creation': 'AI Content Creation',
+                    'custom-software': 'Custom Software Development',
+                    'cybersecurity': 'Cybersecurity Solutions',
+                    'data-analytics': 'Data & Analytics',
+                    'digital-marketing': 'Digital Marketing',
+                    'enterprise-platforms': 'Enterprise Platforms',
+                    'lead-gen-scraping': 'Lead Gen & Scraping',
+                    'mobile-apps': 'Application Development',
+                    'motion-video': 'Motion & Video',
+                    'ui-ux-design': 'UI/UX Design',
+                    'web-development': 'Web Development',
+                    'solutions': 'Solutions',
+                    'custom-crm-development': 'Custom CRM Development',
+                    'ecommerce-development': 'E-Commerce Development',
+                    'wordpress-cms-development': 'WordPress & CMS Development',
+                    'workflow-automation': 'Workflow Automation'
+                };
+                const fileSlug = file.replace('.html', '');
+                let serviceName = serviceNameMap[fileSlug] || fileSlug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
                 schemaJson = {
                     "@context": "https://schema.org",
                     "@type": "Service",

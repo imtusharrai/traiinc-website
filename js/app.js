@@ -101,6 +101,112 @@ document.addEventListener("DOMContentLoaded", async () => {
             </section>
         `;
     }
+    // --- Case Study Page Renderer ---
+    function renderCaseStudy(data, pageId) {
+        // Build tab headers
+        const tabs = [
+            { id: 'introduction', label: 'Introduction' },
+            { id: 'challenge', label: 'The Challenge' },
+            { id: 'solution', label: 'The Solution' },
+            { id: 'results', label: 'The Results' },
+            { id: 'learn-more', label: 'Learn More' }
+        ];
+
+        let tabsHtml = `<div class="case-study-tabs" role="tablist">`;
+        tabs.forEach((t, i) => {
+            tabsHtml += `<button class="case-study-tab ${i === 0 ? 'active' : ''}" role="tab" aria-selected="${i === 0}" aria-controls="tab-${t.id}" data-target="tab-${t.id}">${t.label}</button>`;
+        });
+        tabsHtml += `</div>`;
+
+        // Build tab panels
+        let panelsHtml = `<div class="case-study-panels">`;
+        
+        // Introduction
+        panelsHtml += `
+            <div id="tab-introduction" class="case-study-panel active" role="tabpanel">
+                <div class="panel-content">
+                    <p class="lead-text">${data.tabs.introduction.text}</p>
+                </div>
+            </div>`;
+            
+        // Challenge
+        panelsHtml += `
+            <div id="tab-challenge" class="case-study-panel" role="tabpanel" hidden>
+                <div class="panel-content">
+                    <p>${data.tabs.challenge.text}</p>
+                </div>
+            </div>`;
+
+        // Solution
+        panelsHtml += `
+            <div id="tab-solution" class="case-study-panel" role="tabpanel" hidden>
+                <div class="panel-content">
+                    <p>${data.tabs.solution.text}</p>
+                </div>
+            </div>`;
+
+        // Results
+        panelsHtml += `
+            <div id="tab-results" class="case-study-panel" role="tabpanel" hidden>
+                <div class="panel-content">
+                    <p>${data.tabs.results.text}</p>
+                </div>
+            </div>`;
+
+        // Learn More
+        panelsHtml += `
+            <div id="tab-learn-more" class="case-study-panel" role="tabpanel" hidden>
+                <div class="panel-content learn-more-cards">
+                    ${data.learnMore.map(item => `
+                        <a href="${item.link}" class="learn-more-card">
+                            <span class="learn-more-card__title">${item.name}</span>
+                            <span class="learn-more-card__arrow">→</span>
+                        </a>
+                    `).join('')}
+                </div>
+            </div>`;
+
+        panelsHtml += `</div>`;
+
+        return `
+            <!-- CASE STUDY HERO -->
+            <header class="hero case-study-hero" style="padding-top: 160px; padding-bottom: 60px;">
+                <div class="container hero-content center">
+                    <span class="mini-title" style="color: var(--accent-color); margin-bottom: 16px; display: inline-block;">CASE STUDIES</span>
+                    <h1 class="hero-title" style="font-size: 3.5rem; margin-bottom: 16px;">Engineering that solves real business problems.</h1>
+                    <p class="hero-subtitle">A closer look at what we've built.</p>
+                </div>
+            </header>
+
+            <section class="case-study-body fade-in">
+                <div class="container" style="max-width: 1000px;">
+                    
+                    <div class="case-study-cover" style="margin-bottom: 40px;">
+                        <img src="${data.hero.image}" alt="Mockup" style="width: 100%; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);" />
+                    </div>
+
+                    <div class="case-study-header" style="margin-bottom: 48px; text-align: left;">
+                        <span class="mini-title" style="color: var(--accent-color); margin-bottom: 12px; display: inline-block;">${data.hero.tag}</span>
+                        <h2 style="font-size: 2.5rem; line-height: 1.2;">${data.hero.title}</h2>
+                    </div>
+
+                    <div class="case-study-tabs-container">
+                        ${tabsHtml}
+                        ${panelsHtml}
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- CLOSING CTA -->
+            <section class="content-section center" style="padding: 100px 24px; border-top: 1px solid rgba(255,255,255,0.05);">
+                <div class="container">
+                    <h2 style="margin-bottom: 32px;">Have a project in mind?</h2>
+                    <a href="contact.html" class="btn btn-primary">Book a Free Consultation &rarr;</a>
+                </div>
+            </section>
+        `;
+    }
 
     // Fetch and Render Dynamic Content
     const pageId = document.body.getAttribute("data-page") || "";
@@ -117,6 +223,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Only pages with a registered renderer should fetch JSON
     const renderers = {
+        'bhu-master': renderCaseStudy,
+        workezy: renderCaseStudy,
         home: renderHome,
         pricing: renderPricing,
         about: renderAbout,
@@ -160,8 +268,12 @@ document.addEventListener("DOMContentLoaded", async () => {
             // Only fetch and re-render if the static HTML wasn't generated (i.e. if the loader is still there or it says Loading...)
             if (dynamicContainer.querySelector('.loader') || dynamicContainer.innerHTML.includes('Loading...')) {
                 let fetchUrl = '';
+                const caseStudyPages = ['bhu-master', 'workezy', 'dashak-pharma', 'om-group'];
+                
                 if (pageId.startsWith('tech-')) {
                     fetchUrl = 'data/technologies.json';
+                } else if (caseStudyPages.includes(pageId)) {
+                    fetchUrl = 'data/case-studies.json';
                 } else {
                     fetchUrl = servicePages.includes(pageId) ? `data/services.json` : `data/${pageId}.json`;
                 }
@@ -169,6 +281,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const response = await fetch(`${fetchUrl}?v=` + new Date().getTime());
                 if (!response.ok) throw new Error("Network response was not ok");
                 let data = await response.json();
+                
+                if (caseStudyPages.includes(pageId)) {
+                    data = data[pageId];
+                }
                 
                 if (pageId.startsWith('tech-')) {
                     const techId = pageId.replace('tech-', '');
@@ -196,6 +312,37 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
 
             initAnimations();
+
+            // --- Case Study Tab Logic ---
+            const caseStudyTabs = document.querySelectorAll('.case-study-tab');
+            if (caseStudyTabs.length > 0) {
+                caseStudyTabs.forEach(tab => {
+                    tab.addEventListener('click', (e) => {
+                        // Deactivate all tabs and panels
+                        document.querySelectorAll('.case-study-tab').forEach(t => {
+                            t.classList.remove('active');
+                            t.setAttribute('aria-selected', 'false');
+                        });
+                        document.querySelectorAll('.case-study-panel').forEach(p => {
+                            p.hidden = true;
+                            p.classList.remove('active');
+                        });
+                        
+                        // Activate clicked tab
+                        const targetId = tab.getAttribute('data-target');
+                        tab.classList.add('active');
+                        tab.setAttribute('aria-selected', 'true');
+                        
+                        // Activate target panel
+                        const panel = document.getElementById(targetId);
+                        if (panel) {
+                            panel.hidden = false;
+                            // small delay for css transition if needed
+                            setTimeout(() => { panel.classList.add('active'); }, 10);
+                        }
+                    });
+                });
+            }
 
             // --- FormSubmit Contact Form Handler ---
             const contactFormEl = document.getElementById('contactForm');
@@ -284,6 +431,21 @@ function renderFaq(faq) {
 
 const chevronDownSvg = `<svg viewBox="0 0 10 6" width="10" height="6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>`;
 
+const audienceIcons = {
+    device: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg>`,
+    chat: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>`,
+    chart: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="20" x2="20" y2="20"/><rect x="6" y="12" width="3" height="8"/><rect x="11" y="7" width="3" height="13"/><rect x="16" y="15" width="3" height="5"/></svg>`,
+    pin: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>`,
+    globe: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg>`,
+    spark: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></svg>`,
+    cloud: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a4.5 4.5 0 0 0 0-9 6 6 0 0 0-11.6 1.7A4 4 0 0 0 6.5 18h10.5z"/></svg>`,
+    briefcase: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>`,
+    "chart-up": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 6"/><polyline points="15 6 21 6 21 12"/></svg>`,
+    building: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18"/><line x1="8" y1="8" x2="8" y2="8.01"/><line x1="12" y1="8" x2="12" y2="8.01"/><line x1="16" y1="8" x2="16" y2="8.01"/><line x1="8" y1="12" x2="8" y2="12.01"/><line x1="12" y1="12" x2="12" y2="12.01"/><line x1="16" y1="12" x2="16" y2="12.01"/><line x1="9" y1="21" x2="9" y2="16"/><line x1="15" y1="21" x2="15" y2="16"/></svg>`,
+    database: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>`,
+    users: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`
+};
+
 document.addEventListener('click', (e) => {
     const btn = e.target.closest('.faq-question, .pricing-faq-question');
     if (!btn) return;
@@ -302,6 +464,19 @@ document.addEventListener('click', (e) => {
     wrapper.querySelectorAll('.service-tech-panel').forEach(p => p.classList.toggle('active', p.dataset.panelIndex === index));
 });
 
+document.addEventListener('click', (e) => {
+    const tab = e.target.closest('.audience-tab-btn');
+    if (!tab) return;
+    const wrapper = tab.closest('.audience-finder');
+    const id = tab.dataset.audienceTab;
+    wrapper.querySelectorAll('.audience-tab-btn').forEach(t => {
+        const active = t.dataset.audienceTab === id;
+        t.classList.toggle('active', active);
+        t.setAttribute('aria-selected', String(active));
+    });
+    wrapper.querySelectorAll('.audience-panel').forEach(p => p.classList.toggle('active', p.dataset.audiencePanel === id));
+});
+
 function renderHome(data) {
     const hero = data.hero;
     const un = data.un_agency;
@@ -309,6 +484,7 @@ function renderHome(data) {
     const sb = data.services_banner;
     const proof = data.proof;
     const conv = data.conversion;
+    const af = data.audience_finder;
 
     return `
     <!-- ════════ HERO (T-MOBILE BUSINESS STYLE) ════════ -->
@@ -319,9 +495,9 @@ function renderHome(data) {
                 <img src="/img/hero-engineer.jpg" alt="Senior software engineer at Trai Inc" class="hero-split-img" loading="eager" fetchpriority="high" />
                 <div class="hero-split-overlay">
                     <div class="hero-split-brand">
-                        <span class="hero-brand-logo">TRAI</span>
-                        <span class="hero-brand-divider">|</span>
-                        <span class="hero-brand-tagline">ENGINEERING</span>
+                        <span class="hero-brand-logo">TUSHAR RAI</span>
+                        <span class="hero-brand-divider">—</span>
+                        <span class="hero-brand-tagline">Founder & CEO, Trai Inc</span>
                     </div>
                     <div class="hero-split-text">
                         <p class="hero-split-intro">Introducing</p>
@@ -331,25 +507,64 @@ function renderHome(data) {
             </div>
             <div class="hero-split-right">
                 <p class="hero-split-eyebrow">It's better when engineers lead.</p>
-                <h1 class="hero-split-title">Zero-failure software<br>& apps, on time.</h1>
-                <p class="hero-split-desc">Best-in-class engineering according to <strong>138+ enterprises</strong>. Scalable architecture, fixed-price guarantees. No surprises.</p>
+                <h1 class="hero-split-title">Enterprise-grade engineering.<br>Delivered on time, every time.</h1>
+                <p class="hero-split-desc">Best-in-class engineering, proven across <strong>138+ businesses</strong>. Scalable architecture, fixed-price guarantees. No surprises.</p>
                 <a href="${hero.cta_primary.href}" target="_blank" class="btn-primary large hero-split-cta">${hero.cta_primary.text}</a>
                 <div class="hero-trust" style="margin-top: 32px;">
                     <div class="hero-trust-avatars">
                         ${hero.trust_avatars.map((a, i) => `<span class="trust-avatar trust-avatar-${i + 1}">${a}</span>`).join('')}
                     </div>
-                    <span>Trusted by <strong class="trust-count">${hero.trust_line}</strong></span>
+                    <span>Trusted by <strong class="trust-count">${hero.trust_line}</strong>${hero.trust_suffix ? ` ${hero.trust_suffix}` : ''}</span>
                 </div>
             </div>
         </div>
     </section>
 
 
+    <!-- ════════ AUDIENCE FINDER (VERIZON STYLE TABS) ════════ -->
+    ${af ? `
+    <section id="audience-finder" class="audience-finder fade-in">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="mini-title" style="color: var(--accent-color);">${af.subtitle}</span>
+                <h2 style="font-size: 3rem; margin-top: 10px;">${af.title}</h2>
+            </div>
+            <div class="audience-tabs-bar" role="tablist">
+                ${af.tabs.map((t, i) => `
+                <button type="button" class="audience-tab-btn${i === 0 ? ' active' : ''}" role="tab" aria-selected="${i === 0}" data-audience-tab="${t.id}">${t.label}</button>`).join('')}
+            </div>
+            ${af.tabs.map((t, i) => `
+            <div class="audience-panel${i === 0 ? ' active' : ''}" data-audience-panel="${t.id}">
+                <div class="audience-panel-intro">
+                    <span class="audience-panel-intro-badge">${t.badge}</span>
+                    <h3 class="audience-panel-title">${t.panel_title}</h3>
+                    <p class="audience-panel-subtitle">${t.panel_subtitle}</p>
+                    <a href="${t.cta_href}" class="audience-panel-cta">${t.cta_text} →</a>
+                </div>
+                <div class="audience-solution-grid">
+                    ${t.cards.map(c => `
+                    <div class="audience-solution-card">
+                        <span class="audience-solution-icon">${audienceIcons[c.icon_key] || ''}</span>
+                        ${c.tag ? `<span class="audience-solution-tag">${c.tag}</span>` : ''}
+                        <h4 class="audience-solution-title">${c.title}</h4>
+                        <p class="audience-solution-desc">${c.desc}</p>
+                    </div>`).join('')}
+                </div>
+                ${t.image ? `
+                <div class="audience-panel-media">
+                    <img src="${t.image}" alt="${t.image_alt || ''}" loading="lazy" onerror="this.parentElement.style.display='none'" />
+                    ${t.image_caption ? `<span class="audience-panel-media-caption">${t.image_caption}</span>` : ''}
+                </div>` : ''}
+            </div>`).join('')}
+        </div>
+    </section>
+    ` : ''}
+
     <!-- ════════ THE UN-AGENCY MANIFESTO (T-MOBILE STYLE) ════════ -->
     <section class="titan-manifesto fade-in home-section-shaded home-section-bordered-bottom">
         <div class="container">
             <div class="section-header" style="max-width: 800px;">
-                <h4 class="mini-title neon-accent">${un.subtitle}</h4>
+                <h4 class="mini-title" style="color: var(--accent-color);">${un.subtitle}</h4>
                 <h2 class="massive-title" style="text-align: left;">${un.title}</h2>
             </div>
             <div class="tmo-grid">
@@ -370,7 +585,17 @@ function renderHome(data) {
                 <span class="mini-title" style="color: var(--accent-color);">${cap.subtitle}</span>
                 <h2 style="font-size: 3rem; margin-top: 10px;">${cap.title}</h2>
             </div>
-            <div class="svc-banner-wrap">
+            <div class="cap-grid">
+                ${cap.cards.map(c => `
+                <a href="${c.href}" class="cap-cell fade-in">
+                    ${c.icon_key ? `<div class="cap-cell-header"><span class="cap-cell-icon">${audienceIcons[c.icon_key] || ''}</span><span class="cap-cell-arrow">›</span></div>` : ''}
+                    <div class="cap-cell-content">
+                        <h3 class="cap-cell-title">${c.title}</h3>
+                        ${c.desc ? `<p class="cap-cell-desc">${c.desc}</p>` : ''}
+                    </div>
+                </a>`).join('')}
+            </div>
+            <div class="svc-banner-wrap" style="margin-top: 60px;">
                 <img src="${sb.image}" alt="${sb.card_title}" class="svc-banner-img" loading="lazy" />
                 <div class="svc-banner-card">
                     <h3 class="svc-banner-card-title">${sb.card_title}</h3>
@@ -378,33 +603,41 @@ function renderHome(data) {
                     <a href="${sb.card_href}" target="_blank" class="svc-banner-card-cta">${sb.card_cta}</a>
                 </div>
             </div>
-            <div class="cap-grid">
-                ${cap.cards.map(c => `
-                <a href="${c.href}" class="cap-cell fade-in">
-                    <h3 class="cap-cell-title">${c.title}</h3>
-                    <span class="cap-cell-arrow">›</span>
-                </a>`).join('')}
-            </div>
         </div>
     </section>
 
     <!-- ════════ THE PROOF (VERIZON STYLE METRICS) ════════ -->
     <section class="content-section fade-in home-section-shaded home-section-bordered-top">
         <div class="container">
-            <div class="section-header center">
+            <div class="section-header center" style="margin-bottom: 40px;">
                 <h4 class="mini-title">${proof.subtitle}</h4>
                 <h2>${proof.title}</h2>
             </div>
-            <div class="grid-3 home-grid-spaced">
-                ${proof.studies.map(s => `
-                <div class="spec-card fade-in home-accent-card proof-card" style="--card-accent: ${s.color};">
-                    <div class="proof-metric-wrap">
-                        <div class="proof-metric-huge">${s.metric}</div>
-                        <p class="proof-metric-label">${s.metric_label}</p>
+            
+            <!-- Directory Card -->
+            <div class="directory-card fade-in">
+                <div class="featured-case-study-card__content">
+                    <h3 class="featured-case-study-card__title" style="margin-bottom: 16px;">${proof.directoryCard.title}</h3>
+                    <p class="featured-case-study-card__desc" style="color: #F8FAFC; font-size: 1.15rem; line-height: 1.6; margin-bottom: 24px; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">${proof.directoryCard.description}</p>
+                    
+                    <div class="client-pills-row">
+                        ${proof.directoryCard.clientPills.map(p => `
+                        <a href="${p.link}" class="client-pill" data-accent="${p.accentColor}">${p.name}</a>
+                        `).join('')}
                     </div>
-                    <h3 class="home-card-title">${s.client}</h3>
-                    <p class="home-card-body">${s.impact}</p>
-                </div>`).join('')}
+
+                    <a href="${proof.directoryCard.ctaLink}" class="featured-case-study-card__cta" style="margin-top: 16px; display: inline-block;">${proof.directoryCard.ctaText}</a>
+                </div>
+            </div>
+
+            <!-- Stat Highlights Row -->
+            <div class="stat-highlights-row fade-in">
+                ${proof.highlights.map(h => `
+                <div class="stat-highlight" data-accent="${h.accentColor}">
+                    <div class="stat-highlight__label">${h.label}</div>
+                    <a href="${h.link}" class="stat-highlight__client">${h.client}</a>
+                </div>
+                `).join('')}
             </div>
         </div>
     </section>
@@ -901,13 +1134,13 @@ function renderContact(data) {
                 </a>
             </div>
 
-            <!-- Right Column — Booking & WhatsApp -->
+            <!-- Right Column — WhatsApp first, then Booking -->
             <div class="contact-form-card contact-form-card-flex">
-                <div class="contact-book-block">
-                    <h3 class="contact-book-title">Book a Consultation</h3>
-                    <p class="contact-book-desc">Schedule a 30-minute scoping call directly on our calendar. No sales pitch, just a technical discussion.</p>
-                    <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" rel="noopener noreferrer" class="btn-primary large contact-book-btn">
-                        📅 Book on Google Calendar
+                <div class="contact-chat-block">
+                    <h3 class="contact-chat-title">💬 Chat on WhatsApp</h3>
+                    <p class="contact-chat-desc">The fastest way to reach us. Message our founders directly — typical response in under 30 minutes during business hours.</p>
+                    <a href="https://wa.me/917905495478?text=Hi%20Trai%20Inc,%20I'm%20looking%20for%20a%20digital%20solution%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="whatsapp-btn contact-chat-btn">
+                        💬 Start WhatsApp Chat Now
                     </a>
                 </div>
 
@@ -916,11 +1149,11 @@ function renderContact(data) {
                     <hr class="contact-divider-line">
                 </div>
 
-                <div class="contact-chat-block">
-                    <h3 class="contact-chat-title">Chat Immediately</h3>
-                    <p class="contact-chat-desc">Prefer texting? Reach out directly to our founders on WhatsApp for a quick response.</p>
-                    <a href="https://wa.me/917905495478?text=Hi%20Trai%20Inc,%20I'm%20looking%20for%20a%20digital%20solution%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="whatsapp-btn contact-chat-btn">
-                        💬 Start WhatsApp Chat
+                <div class="contact-book-block">
+                    <h3 class="contact-book-title">📅 Book a Free 30-Min Call</h3>
+                    <p class="contact-book-desc">Prefer a structured conversation? Schedule a scoping call on our calendar. No sales pitch — just honest technical discussion.</p>
+                    <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" rel="noopener noreferrer" class="btn-primary large contact-book-btn">
+                        📅 Book on Google Calendar
                     </a>
                 </div>
             </div>
@@ -976,19 +1209,43 @@ function renderContact(data) {
         </div>
     </section>
 
-    <!-- ═══ MAP SECTION ═══ -->
-    <section class="contact-map-section">
-        <div class="container contact-map-container">
-            <div class="contact-map-frame-wrap">
-                <iframe
-                    data-mock-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.1873668357084!2d81.00383977498238!3d26.865787576675164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be3476bea2077%3A0x38da389b84f7126b!2sTrai%20Inc!5e0!3m2!1sen!2sin!4v1783671039319!5m2!1sen!2sin"
-                    width="100%"
-                    height="100%"
-                    class="contact-map-iframe"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="strict-origin-when-cross-origin">
-                </iframe>
+    <!-- ═══ LOCATION SECTION ═══ -->
+    <section class="contact-location-section">
+        <div class="container contact-location-container">
+            <div class="contact-location-card">
+                <div class="contact-location-left">
+                    <div class="contact-location-pin">📍</div>
+                    <div class="contact-location-info">
+                        <h3 class="contact-location-title">Visit Our Studio</h3>
+                        <p class="contact-location-addr">Tower B-2, DLF MyPad,<br>Opposite Hyatt Regency, Vibhuti Khand,<br>Gomti Nagar, Lucknow, UP 226010</p>
+                        <div class="contact-location-meta">
+                            <span class="contact-location-badge">🕐 Mon–Sat, 10am–7pm IST</span>
+                            <span class="contact-location-badge">✈️ In-person meetings available</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-location-right">
+                    <a href="https://maps.google.com/?q=Trai+Inc,+DLF+MyPad,+Gomti+Nagar,+Lucknow" target="_blank" rel="noopener noreferrer" class="contact-map-static-card">
+                        <div class="contact-map-static-inner">
+                            <div class="contact-map-static-grid" aria-hidden="true">
+                                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <pattern id="mapgrid" width="40" height="40" patternUnits="userSpaceOnUse">
+                                            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,26,26,0.15)" stroke-width="0.5"/>
+                                        </pattern>
+                                    </defs>
+                                    <rect width="100%" height="100%" fill="url(#mapgrid)" />
+                                    <circle cx="50%" cy="50%" r="60" fill="rgba(255,26,26,0.08)" />
+                                    <circle cx="50%" cy="50%" r="30" fill="rgba(255,26,26,0.15)" />
+                                </svg>
+                            </div>
+                            <div class="contact-map-pin-icon">📍</div>
+                            <div class="contact-map-static-label">Trai Inc Studio</div>
+                            <div class="contact-map-static-sublabel">DLF MyPad, Gomti Nagar, Lucknow</div>
+                        </div>
+                        <div class="contact-map-open-btn">🗺️ Open in Google Maps →</div>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -1147,18 +1404,48 @@ function renderClients(data) {
 
     <section class="clients-stats-section">
         <div class="container">
-            <div class="clients-stats-row">
+            <div class="clients-stats-banner fade-in">
                 ${data.stats.map(s => `
-                <div class="fade-in">
-                    <h3 class="clients-stats-value">${s.value}</h3>
-                    <p class="clients-stats-label">${s.label}</p>
+                <div class="clients-stats-banner-col">
+                    <div class="clients-stats-value">${s.value}</div>
+                    <div class="clients-stats-label">${s.label}</div>
                 </div>`).join('')}
             </div>
         </div>
     </section>
 
-    <section class="clients-categories-section">
+    <!-- ════════ DEEP DIVE CASE STUDIES ════════ -->
+    <section class="case-studies-index">
+        ${data.case_studies.map((cs, i) => {
+            const isReversed = i % 2 !== 0;
+            return `
+            <div class="content-section fade-in ${isReversed ? 'home-section-shaded' : ''}">
+                <div class="container">
+                    <div class="case-study-alternating-row ${isReversed ? 'reversed' : ''}">
+                        <div class="conversion-left" style="${isReversed ? 'order: 2;' : ''}">
+                            <div class="case-study-logo-container">
+                                <img src="${cs.image}" alt="${cs.client} logo" />
+                            </div>
+                        </div>
+                        <div class="conversion-right" style="${isReversed ? 'order: 1;' : ''}">
+                            <div class="mini-title" style="color: var(--accent-color); margin-bottom: 12px; letter-spacing: 0.05em; font-weight: 700; text-transform: uppercase;">${cs.tag}</div>
+                            <h2 style="font-size: 2.5rem; margin-bottom: 24px;">${cs.client}</h2>
+                            <p style="font-size: 1.1rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 32px;">${cs.description}</p>
+                            <a href="${cs.link}" class="btn-primary">Read full case study &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `;
+        }).join('')}
+    </section>
+
+    <!-- ════════ LEGACY DIRECTORY ════════ -->
+    <section class="clients-categories-section content-section fade-in">
         <div class="container">
+            <div class="section-header center" style="margin-bottom: 60px;">
+                <h2>And 138+ more businesses across 12+ industries.</h2>
+            </div>
             ${data.categories.map(c => `
             <div class="fade-in clients-category">
                 <div class="clients-category-header">
@@ -1757,36 +2044,41 @@ function renderServicePage(data, slug) {
     }
 
     return `
-    <!-- ════════ HERO ════════ -->
-    <section class="msme-hero">
-        <div class="msme-hero-inner">
-            <div>
-                <div class="msme-badge">${service.badge}</div>
-                <h1>${service.title}</h1>
-                <p class="msme-hero-sub">${service.subtitle}</p>
-                <div class="hero-cta-row">
-                    <a href="${primaryHref}" ${primaryHref.startsWith('http') ? 'target="_blank"' : ''} class="btn-primary large">📅 ${primaryLabel}</a>
-                    ${service.cta && service.cta.secondary_href ? `<a href="${service.cta.secondary_href}" target="_blank" class="btn-secondary large">${service.cta.secondary_text || 'Contact Us'}</a>` : ''}
+    <!-- ════════ HERO (PREMIUM SPLIT-HERO) ════════ -->
+    <section class="titan-hero service-hero-premium">
+        <div class="hero-split-card">
+            <div class="hero-split-left service-hero-left" style="--service-accent: ${service.color || '#FF1A1A'};">
+                <div class="service-hero-icon-wrap">
+                    <span class="service-hero-big-icon">${service.icon}</span>
                 </div>
-            </div>
-            <div class="hero-mockup">
-                <div class="mockup-main">
-                    <div class="mockup-bar"><span></span><span></span><span></span></div>
-                    <div class="mockup-metrics">
-                        <div class="mockup-metric">
-                            <div class="mockup-metric-label">⚡ Deployment Speed</div>
-                            <div class="mockup-metric-value green">2x Faster</div>
-                        </div>
-                        <div class="mockup-metric">
-                            <div class="mockup-metric-label">🛡️ Reliability</div>
-                            <div class="mockup-metric-value">99.9%</div>
-                        </div>
+                <div class="hero-split-overlay service-hero-overlay">
+                    <div class="hero-split-brand">
+                        <span class="hero-brand-logo">TRAI INC</span>
+                        <span class="hero-brand-divider">—</span>
+                        <span class="hero-brand-tagline">${service.badge.replace(/[^\w\s&]/g, '').trim()}</span>
+                    </div>
+                    <div class="hero-split-text">
+                        <p class="hero-split-intro">Introducing</p>
+                        <h2 class="hero-split-headline">${service.badge.replace(/[^\w\s&]/g, '').trim()}<br><span class="hero-split-accent">Excellence.</span></h2>
                     </div>
                 </div>
-                <div class="float-card float-card-1">
-                    <div class="fc-icon">${service.icon}</div>
-                    <div class="fc-label">Tech Stack</div>
-                    <div class="fc-value fc-value-active">${firstTech}</div>
+            </div>
+            <div class="hero-split-right">
+                <p class="hero-split-eyebrow">${service.badge}</p>
+                <h1 class="hero-split-title">${service.title}</h1>
+                <p class="hero-split-desc">${service.subtitle}</p>
+                <div class="hero-cta-row">
+                    <a href="${primaryHref}" ${primaryHref.startsWith('http') ? 'target="_blank"' : ''} class="btn-primary large hero-split-cta">📅 ${primaryLabel}</a>
+                    ${service.cta && service.cta.secondary_href ? `<a href="${service.cta.secondary_href}" target="_blank" class="btn-secondary large">${service.cta.secondary_text || 'Contact Us'}</a>` : ''}
+                </div>
+                <div class="hero-trust" style="margin-top: 32px;">
+                    <div class="hero-trust-avatars">
+                        <span class="trust-avatar trust-avatar-1">T</span>
+                        <span class="trust-avatar trust-avatar-2">R</span>
+                        <span class="trust-avatar trust-avatar-3">A</span>
+                        <span class="trust-avatar trust-avatar-4">I</span>
+                    </div>
+                    <span class="hero-trust-text">Trusted by <strong>138+ businesses</strong></span>
                 </div>
             </div>
         </div>
@@ -1801,10 +2093,10 @@ function renderServicePage(data, slug) {
             <h4 class="mini-title service-mini-title">CAPABILITIES</h4>
             <h2 class="service-section-h2">Core Features</h2>
         </div>
-        <div class="bento-grid">
+        <div class="bento-grid service-features-grid">
             ${service.features.map(f => `
                 <div class="bento-card service-feature-card" ${f.id ? `id="${f.id}"` : ''} style="--card-accent: ${f.color};">
-                    <div class="bento-icon service-feature-icon" style="--card-accent: ${f.color};">${f.icon}</div>
+                    <div class="bento-icon service-feature-icon" style="background: linear-gradient(135deg, ${f.color}22, ${f.color}44); border: 1px solid ${f.color}55;">${f.icon}</div>
                     <h3 class="bento-title">${f.title}</h3>
                     <p class="bento-desc">${f.desc}</p>
                 </div>
@@ -1863,19 +2155,18 @@ function renderServicePage(data, slug) {
     <!-- APP PRICING -->
     ${appPricingHtml}
 
-    <!-- DELIVERY PROCESS -->
+    <!-- DELIVERY PROCESS (STEPPER) -->
     <section class="compare-section fade-in content-section">
         <div class="container">
             <div class="section-header center service-section-header">
                 <h4 class="mini-title service-mini-title">THE METHODOLOGY</h4>
                 <h2 class="service-section-h2">How We Deliver Quality</h2>
             </div>
-            <div class="process-grid">
+            <div class="stepper">
                 ${service.process.map(p => `
-                    <div class="process-card">
-                        <div class="process-number">${p.number}</div>
-                        <h3>${p.title}</h3>
-                        <p>${p.desc}</p>
+                    <div class="stepper-step">
+                        <h3 class="stepper-title">${p.number}. ${p.title}</h3>
+                        <p class="stepper-desc">${p.desc}</p>
                     </div>
                 `).join('')}
             </div>

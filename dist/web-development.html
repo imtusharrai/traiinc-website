@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=1784193986109">
+    <link rel="stylesheet" href="css/style.css?v=1784280252985">
 
     <!-- SEO & Tracking -->
     <meta property="og:title" content="Web Development | TRAI Inc">
@@ -19,7 +19,7 @@
     <link rel="apple-touch-icon" href="assets/logos/apple-touch-icon.png">
 
     <!-- Google Tag Manager -->
-    <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-L8PVFRHGJC&amp;cx=c&amp;gtm=4e67e0"></script><script src="https://www.googletagmanager.com/gtm.js?id=GTM-THH39FFH"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":
+    <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-L8PVFRHGJC&amp;cx=c&amp;gtm=4e67f0"></script><script src="https://www.googletagmanager.com/gtm.js?id=GTM-THH39FFH"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":
     new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     "https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);
@@ -574,42 +574,47 @@
                             </span>
                         </button>
                     </div>
-                    <a href="contact.html" class="btn-primary">Get a Quote</a>
+                    <a href="contact.html" class="btn-primary">Get a Fixed-Price Quote</a>
                     <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">☰</button>
                 </div>
             </div>
         </nav>
     <main id="content">
-    <!-- ════════ HERO ════════ -->
-    <section class="msme-hero">
-        <div class="msme-hero-inner">
-            <div>
-                <div class="msme-badge">💻 Core Engineering</div>
-                <h1>Blazing fast.<br>Highly <span class="gradient-word">scalable.</span></h1>
-                <p class="msme-hero-sub">React, Next.js, and full-stack web platforms built for speed, SEO, and flawless user experiences.</p>
-                <div class="hero-cta-row">
-                    <a href="contact.html" class="btn-primary large">📅 Book a Consultation</a>
-                    
+    <!-- ════════ HERO (PREMIUM SPLIT-HERO) ════════ -->
+    <section class="titan-hero service-hero-premium">
+        <div class="hero-split-card">
+            <div class="hero-split-left service-hero-left" style="--service-accent: #13547a;">
+                <div class="service-hero-icon-wrap">
+                    <span class="service-hero-big-icon">🌐</span>
                 </div>
-            </div>
-            <div class="hero-mockup">
-                <div class="mockup-main">
-                    <div class="mockup-bar"><span></span><span></span><span></span></div>
-                    <div class="mockup-metrics">
-                        <div class="mockup-metric">
-                            <div class="mockup-metric-label">⚡ Deployment Speed</div>
-                            <div class="mockup-metric-value green">2x Faster</div>
-                        </div>
-                        <div class="mockup-metric">
-                            <div class="mockup-metric-label">🛡️ Reliability</div>
-                            <div class="mockup-metric-value">99.9%</div>
-                        </div>
+                <div class="hero-split-overlay service-hero-overlay">
+                    <div class="hero-split-brand">
+                        <span class="hero-brand-logo">TRAI INC</span>
+                        <span class="hero-brand-divider">—</span>
+                        <span class="hero-brand-tagline">Core Engineering</span>
+                    </div>
+                    <div class="hero-split-text">
+                        <p class="hero-split-intro">Introducing</p>
+                        <h2 class="hero-split-headline">Core Engineering<br><span class="hero-split-accent">Excellence.</span></h2>
                     </div>
                 </div>
-                <div class="float-card float-card-1">
-                    <div class="fc-icon">🌐</div>
-                    <div class="fc-label">Tech Stack</div>
-                    <div class="fc-value fc-value-active">Next.js</div>
+            </div>
+            <div class="hero-split-right">
+                <p class="hero-split-eyebrow">💻 Core Engineering</p>
+                <h1 class="hero-split-title">Blazing fast.<br>Highly <span class="gradient-word">scalable.</span></h1>
+                <p class="hero-split-desc">React, Next.js, and full-stack web platforms built for speed, SEO, and flawless user experiences.</p>
+                <div class="hero-cta-row">
+                    <a href="contact.html" class="btn-primary large hero-split-cta">📅 Book a Consultation</a>
+                    
+                </div>
+                <div class="hero-trust" style="margin-top: 32px;">
+                    <div class="hero-trust-avatars">
+                        <span class="trust-avatar trust-avatar-1">T</span>
+                        <span class="trust-avatar trust-avatar-2">R</span>
+                        <span class="trust-avatar trust-avatar-3">A</span>
+                        <span class="trust-avatar trust-avatar-4">I</span>
+                    </div>
+                    <span class="hero-trust-text">Trusted by <strong>138+ businesses</strong></span>
                 </div>
             </div>
         </div>
@@ -624,28 +629,28 @@
             <h4 class="mini-title service-mini-title">CAPABILITIES</h4>
             <h2 class="service-section-h2">Core Features</h2>
         </div>
-        <div class="bento-grid">
+        <div class="bento-grid service-features-grid">
             
                 <div class="bento-card service-feature-card" style="--card-accent: #30cfd0;">
-                    <div class="bento-icon service-feature-icon" style="--card-accent: #30cfd0;">⚡</div>
+                    <div class="bento-icon service-feature-icon" style="background: linear-gradient(135deg, #30cfd022, #30cfd044); border: 1px solid #30cfd055;">⚡</div>
                     <h3 class="bento-title">Next.js &amp; React</h3>
                     <p class="bento-desc">Server-side rendered web applications that provide instantaneous load times and perfect SEO scores.</p>
                 </div>
             
                 <div class="bento-card service-feature-card" style="--card-accent: #667eea;">
-                    <div class="bento-icon service-feature-icon" style="--card-accent: #667eea;">🖥️</div>
+                    <div class="bento-icon service-feature-icon" style="background: linear-gradient(135deg, #667eea22, #667eea44); border: 1px solid #667eea55;">🖥️</div>
                     <h3 class="bento-title">Node.js &amp; Python</h3>
                     <p class="bento-desc">Robust backend APIs built with Express, Django, or FastAPI to power your frontend experiences securely.</p>
                 </div>
             
                 <div class="bento-card service-feature-card" style="--card-accent: #00f2fe;">
-                    <div class="bento-icon service-feature-icon" style="--card-accent: #00f2fe;">📱</div>
+                    <div class="bento-icon service-feature-icon" style="background: linear-gradient(135deg, #00f2fe22, #00f2fe44); border: 1px solid #00f2fe55;">📱</div>
                     <h3 class="bento-title">Responsive Design</h3>
                     <p class="bento-desc">Flawless layouts across desktop, tablet, and mobile devices using modern CSS architecture.</p>
                 </div>
             
                 <div class="bento-card service-feature-card" style="--card-accent: #80d0c7;">
-                    <div class="bento-icon service-feature-icon" style="--card-accent: #80d0c7;">⚡</div>
+                    <div class="bento-icon service-feature-icon" style="background: linear-gradient(135deg, #80d0c722, #80d0c744); border: 1px solid #80d0c755;">⚡</div>
                     <h3 class="bento-title">Core Web Vitals</h3>
                     <p class="bento-desc">Consistently 90+ Lighthouse scores with sub-second page loads and optimized asset delivery.</p>
                 </div>
@@ -716,31 +721,28 @@
     <!-- APP PRICING -->
     
 
-    <!-- DELIVERY PROCESS -->
+    <!-- DELIVERY PROCESS (STEPPER) -->
     <section class="compare-section fade-in content-section">
         <div class="container">
             <div class="section-header center service-section-header">
                 <h4 class="mini-title service-mini-title">THE METHODOLOGY</h4>
                 <h2 class="service-section-h2">How We Deliver Quality</h2>
             </div>
-            <div class="process-grid">
+            <div class="stepper">
                 
-                    <div class="process-card">
-                        <div class="process-number">01</div>
-                        <h3>Architecture Design</h3>
-                        <p>We select the optimal tech stack and database schema for your specific web application requirements.</p>
+                    <div class="stepper-step">
+                        <h3 class="stepper-title">01. Architecture Design</h3>
+                        <p class="stepper-desc">We select the optimal tech stack and database schema for your specific web application requirements.</p>
                     </div>
                 
-                    <div class="process-card">
-                        <div class="process-number">02</div>
-                        <h3>Component Development</h3>
-                        <p>We build reusable UI components and integrate them with secure backend APIs in rapid iterations.</p>
+                    <div class="stepper-step">
+                        <h3 class="stepper-title">02. Component Development</h3>
+                        <p class="stepper-desc">We build reusable UI components and integrate them with secure backend APIs in rapid iterations.</p>
                     </div>
                 
-                    <div class="process-card">
-                        <div class="process-number">03</div>
-                        <h3>Optimization &amp; Launch</h3>
-                        <p>We optimize images, minify code, configure CDN caching, and launch the site for maximum performance.</p>
+                    <div class="stepper-step">
+                        <h3 class="stepper-title">03. Optimization &amp; Launch</h3>
+                        <p class="stepper-desc">We optimize images, minify code, configure CDN caching, and launch the site for maximum performance.</p>
                     </div>
                 
             </div>
@@ -852,7 +854,7 @@
         </div>
             </footer>
 
-    <script src="js/app.js?v=1784193986109"></script>
+    <script src="js/app.js?v=1784280252985"></script>
     <script src="js/nav.js"></script>
     <script src="js/animations.js"></script>
 
