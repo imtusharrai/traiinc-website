@@ -154,7 +154,7 @@ const replacement = `    const navData = {
         }).join('');
 
         const featuredHTML = data.featured ? \`
-            <div class="mega-featured" style="background: rgba(255,255,255,0.03); border-radius: 12px; padding: 24px;">
+            <div class="mega-featured" style="background: var(--dropdown-hover); border-radius: 12px; padding: 24px;">
                 <h3 class="mega-group-heading" style="margin-top:0;">Featured</h3>
                 <div class="featured-card">
                     <h4 style="margin: 0 0 8px 0; font-size: 1.1rem; color: var(--text-primary);">\${data.featured.title}</h4>
