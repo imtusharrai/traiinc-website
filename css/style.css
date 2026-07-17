@@ -22,26 +22,7 @@ body.light-mode {
     --accent-glow: rgba(217, 20, 20, 0.15);
     --brand-gradient: linear-gradient(135deg, #c400b0 0%, #D91414 50%, #e6a100 100%);
 
-    /* ── Auto-Contrast for Custom JSON Colors ── */
-    /* Dynamically darken custom card accents (from JSON) for better readability on white backgrounds */
-    .home-accent-eyebrow,
-    .partner-tier-ideal,
-    .partner-step-number-bg,
-    .home-process-number,
-    .partner-tier-check,
-    .service-feature-icon {
-        color: color-mix(in srgb, var(--card-accent) 70%, black) !important;
-    }
-    
-    .home-accent-icon {
-        color: color-mix(in srgb, var(--card-accent) 70%, black) !important;
-        background: linear-gradient(135deg, color-mix(in srgb, var(--card-accent) 8%, transparent), transparent) !important;
-    }
 
-    .service-feature-icon {
-        background: linear-gradient(135deg, color-mix(in srgb, var(--card-accent) 8%, transparent), color-mix(in srgb, var(--card-accent) 16%, transparent)) !important;
-        border: 1px solid color-mix(in srgb, var(--card-accent) 25%, transparent) !important;
-    }
 
     /* ── Borders ── */
     --border-light: rgba(0, 0, 0, 0.08);
@@ -74,6 +55,29 @@ body.light-mode {
     --chat-border: rgba(0, 0, 0, 0.08);
     --chat-msg-bot: rgba(0, 0, 0, 0.04);
     --chat-input-bg: rgba(0, 0, 0, 0.03);
+}
+
+/* ── Auto-Contrast for Custom JSON Colors (Light Mode) ── */
+/* Dynamically darken custom card accents (from JSON) for better readability on white backgrounds */
+body.light-mode .home-accent-eyebrow,
+body.light-mode .partner-tier-ideal,
+body.light-mode .partner-step-number-bg,
+body.light-mode .home-process-number,
+body.light-mode .partner-tier-check,
+body.light-mode .service-feature-icon,
+body.light-mode .mini-title,
+body.light-mode h4.mini-title {
+    color: color-mix(in srgb, var(--card-accent, var(--accent-color)) 70%, black) !important;
+}
+
+body.light-mode .home-accent-icon {
+    color: color-mix(in srgb, var(--card-accent) 70%, black) !important;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--card-accent) 8%, transparent), transparent) !important;
+}
+
+body.light-mode .service-feature-icon {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--card-accent) 8%, transparent), color-mix(in srgb, var(--card-accent) 16%, transparent)) !important;
+    border: 1px solid color-mix(in srgb, var(--card-accent) 25%, transparent) !important;
 }
 
 :root {
