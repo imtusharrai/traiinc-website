@@ -17,6 +17,44 @@
       "label": "Retention Rate"
     }
   ],
+  "case_studies": [
+    {
+      "id": "bhu-master",
+      "tag": "UNIFIED LISTING PLATFORM",
+      "client": "Bhu Master",
+      "description": "Built the Android & iOS apps for a real estate and construction marketplace — property listings, professional network, and material sourcing in one platform.",
+      "link": "bhu-master.html",
+      "image": "/img/case-studies/bhu-master-icon.png",
+      "accent": "blue"
+    },
+    {
+      "id": "workezy",
+      "tag": "END-TO-END SERVICE PLATFORM",
+      "client": "Workezy",
+      "description": "Delivered the complete digital ecosystem for an on-demand home services platform — Android app, iOS app, website, CRM, and social media.",
+      "link": "workezy.html",
+      "image": "/img/case-studies/workezy-icon.png",
+      "accent": "teal"
+    },
+    {
+      "id": "dashak-pharma",
+      "tag": "RELIABLE HEALTHCARE TECH",
+      "client": "Dashak Pharma",
+      "description": "Delivered digital infrastructure for a pharmaceutical distribution business serving healthcare providers across India.",
+      "link": "dashak-pharma.html",
+      "image": "/img/case-studies/dashak-pharma-logo.webp",
+      "accent": "pink"
+    },
+    {
+      "id": "om-group",
+      "tag": "STREAMLINED AUTOMOTIVE CRM",
+      "client": "Om Group - Automobile",
+      "description": "Built a custom CRM for a Mahindra automobile dealership in Raebareli — managing leads, inquiries, and customer follow-ups in one system.",
+      "link": "om-group.html",
+      "image": "/img/case-studies/om-group-photo.jpg",
+      "accent": "gold"
+    }
+  ],
   "categories": [
     {
       "id": "real-estate",
@@ -49,7 +87,7 @@
         "Shriyansh Infracon",
         "Unishine Group",
         "Siddharthas Construction & Colonizer",
-        "Bhu Master",
+        "<a href='bhu-master.html' style='color: #0EA5E9; text-decoration: underline;'>Bhu Master</a>",
         "Home Stories",
         "Design N Decor",
         "sdv construction"
@@ -106,22 +144,9 @@
       "icon": "💻",
       "color": "#96fbc4",
       "color2": "#f9f586",
-      "logoClients": [
-        {
-          "name": "The Igea Digital Doctor",
-          "domain": "theigea.com"
-        },
-        {
-          "name": "North Quest Solutions",
-          "domain": "northquestsolutions.com"
-        },
-        {
-          "name": "New Fleet Solutions",
-          "domain": "newfleetsolutions.com"
-        }
-      ],
       "clients": [
-        "The Igea Digital Doctor"
+        "The Igea Digital Doctor",
+        "Dashak Pharma"
       ]
     },
     {
@@ -131,7 +156,7 @@
       "color": "#ffecd2",
       "color2": "#fcb69f",
       "clients": [
-        "Workezy",
+        "<a href='workezy.html' style='color: #EC4899; text-decoration: underline;'>Workezy</a>",
         "Maxcleano",
         "Safaiwale"
       ]

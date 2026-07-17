@@ -6,7 +6,7 @@
   },
   "pricing_tiers": {
     "title": "Project Baselines",
-    "description": "Every project is unique, but here is what you can generally expect based on scope and complexity.",
+    "description": "Every project is unique, but here is what you can generally expect based on scope and complexity. All prices are exclusive of applicable GST. See our <a href='/refund.html' style='color:var(--accent-color);text-decoration:underline;'>Refund &amp; Cancellation Policy</a> for payment terms.",
     "tiers": [
       {
         "id": "msme",
@@ -79,19 +79,19 @@
         "icon": "📦",
         "title": "Fixed Scope",
         "description": "Defined project, defined price. Best for clear, bounded requirements. We scope the work upfront and deliver against a fixed timeline.",
-        "best_for": ""
+        "best_for": "MSMEs and startups with clear, bounded requirements who want a guaranteed delivery date and price."
       },
       {
         "icon": "🤝",
         "title": "Ongoing Partner",
         "description": "Retained/dedicated ongoing work. Best for evolving requirements, continuous delivery, and long-term support for your platform.",
-        "best_for": ""
+        "best_for": "Growth-stage businesses needing continuous feature delivery, platform evolution, and long-term engineering support."
       },
       {
         "icon": "🛒",
         "title": "App Store Ready-Made",
         "description": "Pre-scoped vertical apps ready for customization. Fixed pricing tiers. Own your app outright with delivery in 5-7 business days.",
-        "best_for": ""
+        "best_for": "Businesses wanting a production-ready vertical app (e-commerce, booking, delivery) with full IP ownership in 5–7 days."
       }
     ],
     "description": "We offer clear, transparent engagement models designed to align with your project's maturity, scope, and ongoing needs."
