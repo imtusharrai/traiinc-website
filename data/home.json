@@ -169,8 +169,8 @@
     },
     "highlights": [
       { "label": "Unified Listing Platform", "client": "Bhu Master", "link": "bhu-master.html", "accentColor": "blue" },
-      { "label": "Reliable Healthcare Tech", "client": "Dashak Pharma", "link": "#", "accentColor": "pink" },
-      { "label": "Streamlined Automotive CRM", "client": "Om Group - Automobile", "link": "#", "accentColor": "gold" },
+      { "label": "Reliable Healthcare Tech", "client": "Dashak Pharma", "link": "clients.html", "accentColor": "pink" },
+      { "label": "Streamlined Automotive CRM", "client": "Om Group - Automobile", "link": "clients.html", "accentColor": "gold" },
       { "label": "4.0★ Rated on Google Play", "client": "Workezy", "link": "workezy.html", "accentColor": "teal" }
     ]
   },

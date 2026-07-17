@@ -8,17 +8,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     function renderTechPage(data, pageId) {
         return `
             <!-- HERO -->
-            <header class="hero" style="min-height: 50vh;">
+            <header class="hero hero-half">
                 <div class="container hero-content center">
                     <h1 class="hero-title">${data.name} Development</h1>
                     <p class="hero-subtitle">${data.description}</p>
-                    <div class="hero-cta" style="justify-content:center;">
+                    <div class="hero-cta justify-center">
                         <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large">Book a Discovery Call</a>
                     </div>
                 </div>
             </header>
             <!-- WHY TRAI -->
-            <section class="container fade-in" style="padding: 80px 24px;">
+            <section class="container fade-in section-pad">
                 <div class="section-header">
                     <h4 class="mini-title">Why Trai Inc for ${data.name}?</h4>
                     <h2>Engineering that drives results.</h2>
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 </div>
             </section>
             <!-- USE CASES -->
-            <section class="container fade-in" style="padding: 0 24px 80px;">
+            <section class="container fade-in section-pad-bottom">
                 <div class="section-header center">
                     <h4 class="mini-title">Common Applications</h4>
                     <h2>Where we apply ${data.name}</h2>
@@ -36,18 +36,18 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <div class="bento-grid">
                     ${data.use_cases.map((useCase, idx) => `
                         <div class="bento-card ${idx % 3 === 0 ? 'wide' : ''} fade-in">
-                            <div class="bento-icon" style="background: var(--brand-gradient);">🎯</div>
+                            <div class="bento-icon brand-gradient-bg">🎯</div>
                             <h3 class="bento-title">${useCase}</h3>
                         </div>
                     `).join('')}
                 </div>
             </section>
             <!-- BOTTOM CTA -->
-            <section class="container fade-in" style="padding: 80px 24px; text-align: center;">
+            <section class="container fade-in section-pad text-center">
                 <div class="hero-card">
                     <h2>Ready to build with ${data.name}?</h2>
                     <p class="tech-cta-desc">Talk directly to senior engineers — no sales reps, no fluff.</p>
-                    <a href="contact.html" class="btn-primary large" style="margin: 0 auto;">Start Your Project</a>
+                    <a href="contact.html" class="btn-primary large mx-auto">Start Your Project</a>
                 </div>
             </section>
         `;
@@ -57,17 +57,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     function renderMobileServicePage(data, pageId) {
         return `
             <!-- HERO -->
-            <header class="hero" style="min-height: 50vh;">
+            <header class="hero hero-half">
                 <div class="container hero-content center">
                     <h1 class="hero-title">${data.name}</h1>
                     <p class="hero-subtitle">${data.description}</p>
-                    <div class="hero-cta" style="justify-content:center;">
+                    <div class="hero-cta justify-center">
                         <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large">Book a Discovery Call</a>
                     </div>
                 </div>
             </header>
             <!-- WHY TRAI -->
-            <section class="container fade-in" style="padding: 80px 24px;">
+            <section class="container fade-in section-pad">
                 <div class="section-header">
                     <h4 class="mini-title">Why Trai Inc for ${data.name}?</h4>
                     <h2>Engineering that drives results.</h2>
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 </div>
             </section>
             <!-- USE CASES -->
-            <section class="container fade-in" style="padding: 0 24px 80px;">
+            <section class="container fade-in section-pad-bottom">
                 <div class="section-header center">
                     <h4 class="mini-title">Common Applications</h4>
                     <h2>Where we apply ${data.name}</h2>
@@ -85,18 +85,18 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <div class="bento-grid">
                     ${data.use_cases.map((useCase, idx) => `
                         <div class="bento-card ${idx % 3 === 0 ? 'wide' : ''} fade-in">
-                            <div class="bento-icon" style="background: var(--brand-gradient);">📱</div>
+                            <div class="bento-icon brand-gradient-bg">📱</div>
                             <h3 class="bento-title">${useCase}</h3>
                         </div>
                     `).join('')}
                 </div>
             </section>
             <!-- BOTTOM CTA -->
-            <section class="container fade-in" style="padding: 80px 24px; text-align: center;">
+            <section class="container fade-in section-pad text-center">
                 <div class="hero-card">
                     <h2>Ready to build your ${data.name}?</h2>
                     <p class="tech-cta-desc">Talk directly to senior engineers — no sales reps, no fluff.</p>
-                    <a href="contact.html" class="btn-primary large" style="margin: 0 auto;">Start Your Project</a>
+                    <a href="contact.html" class="btn-primary large mx-auto">Start Your Project</a>
                 </div>
             </section>
         `;
@@ -170,24 +170,24 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         return `
             <!-- CASE STUDY HERO -->
-            <header class="hero case-study-hero" style="padding-top: 120px; padding-bottom: 60px;">
+            <header class="hero case-study-hero section-pad-lg">
                 <div class="container hero-content center">
-                    <span class="mini-title" style="color: var(--accent-color); margin-bottom: 16px; display: inline-block;">CASE STUDIES</span>
-                    <h1 class="hero-title" style="font-size: 3.5rem; margin-bottom: 16px;">Engineering that solves real business problems.</h1>
+                    <span class="mini-title mb-4 inline-block">CASE STUDIES</span>
+                    <h1 class="hero-title text-6xl mb-4">Engineering that solves real business problems.</h1>
                     <p class="hero-subtitle">A closer look at what we've built.</p>
                 </div>
             </header>
 
             <section class="case-study-body fade-in">
-                <div class="container" style="max-width: 1000px;">
+                <div class="container max-w-1000">
                     
-                    <div class="case-study-cover" style="margin-bottom: 40px;">
-                        <img src="${data.hero.image}" alt="Mockup" style="width: 100%; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);" />
+                    <div class="case-study-cover mb-10">
+                        <img src="${data.hero.image}" alt="${data.hero.title} showcase" class="w-full rounded-3xl shadow-image" />
                     </div>
 
-                    <div class="case-study-header" style="margin-bottom: 48px; text-align: left;">
-                        <span class="mini-title" style="color: var(--accent-color); margin-bottom: 12px; display: inline-block;">${data.hero.tag}</span>
-                        <h2 style="font-size: 2.5rem; line-height: 1.2;">${data.hero.title}</h2>
+                    <div class="case-study-header mb-12 text-left">
+                        <span class="mini-title mb-3 inline-block">${data.hero.tag}</span>
+                        <h2 class="text-4xl leading-tight">${data.hero.title}</h2>
                     </div>
 
                     <div class="case-study-tabs-container">
@@ -199,9 +199,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             </section>
 
             <!-- CLOSING CTA -->
-            <section class="content-section center" style="padding: 100px 24px; border-top: 1px solid var(--border-light);">
+            <section class="content-section center section-pad-lg border-t-light">
                 <div class="container">
-                    <h2 style="margin-bottom: 32px;">Have a project in mind?</h2>
+                    <h2 class="mb-8">Have a project in mind?</h2>
                     <a href="contact.html" class="btn btn-primary">Book a Free Consultation &rarr;</a>
                 </div>
             </section>
@@ -391,7 +391,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
 
         } catch (error) {
-            dynamicContainer.innerHTML = `<div class="container" style="padding: 80px 0; text-align: center;"><h2>Error loading content. Please run this via a local server (e.g. VSCode Live Server).</h2><p style="color:var(--text-muted);margin-top:10px;">${error.message}</p></div>`;
+            dynamicContainer.innerHTML = `<div class="container section-pad text-center">
+                    <h2>Error loading content. Please run this via a local server (e.g. VSCode Live Server).</h2>
+                    <p class="text-muted mt-3">${error.message}</p>
+                </div>`;
             console.error("Error fetching data:", error);
         }
     } else {
@@ -510,7 +513,7 @@ function renderHome(data) {
                 <h1 class="hero-split-title">Enterprise-grade engineering.<br>Delivered on time, every time.</h1>
                 <p class="hero-split-desc">Best-in-class engineering, proven across <strong>138+ businesses</strong>. Scalable architecture, fixed-price guarantees. No surprises.</p>
                 <a href="${hero.cta_primary.href}" target="_blank" class="btn-primary large hero-split-cta">${hero.cta_primary.text}</a>
-                <div class="hero-trust" style="margin-top: 32px;">
+                <div class="hero-trust mt-8">
                     <div class="hero-trust-avatars">
                         ${hero.trust_avatars.map((a, i) => `<span class="trust-avatar trust-avatar-${i + 1}">${a}</span>`).join('')}
                     </div>
@@ -526,8 +529,8 @@ function renderHome(data) {
     <section id="audience-finder" class="audience-finder fade-in">
         <div class="container">
             <div class="section-header text-center">
-                <span class="mini-title" style="color: var(--accent-color);">${af.subtitle}</span>
-                <h2 style="font-size: 3rem; margin-top: 10px;">${af.title}</h2>
+                <span class="mini-title">${af.subtitle}</span>
+                <h2 class="text-5xl mt-3">${af.title}</h2>
             </div>
             <div class="audience-tabs-bar" role="tablist">
                 ${af.tabs.map((t, i) => `
@@ -563,9 +566,9 @@ function renderHome(data) {
     <!-- ════════ THE UN-AGENCY MANIFESTO (T-MOBILE STYLE) ════════ -->
     <section class="titan-manifesto fade-in home-section-shaded home-section-bordered-bottom">
         <div class="container">
-            <div class="section-header" style="max-width: 800px;">
-                <h4 class="mini-title" style="color: var(--accent-color);">${un.subtitle}</h4>
-                <h2 class="massive-title" style="text-align: left;">${un.title}</h2>
+            <div class="section-header max-w-800">
+                <h4 class="mini-title">${un.subtitle}</h4>
+                <h2 class="massive-title text-left">${un.title}</h2>
             </div>
             <div class="tmo-grid">
                 ${un.cards ? un.cards.map(card => `
@@ -582,8 +585,8 @@ function renderHome(data) {
     <section id="capabilities" class="cap-section fade-in">
         <div class="container">
             <div class="section-header text-center">
-                <span class="mini-title" style="color: var(--accent-color);">${cap.subtitle}</span>
-                <h2 style="font-size: 3rem; margin-top: 10px;">${cap.title}</h2>
+                <span class="mini-title">${cap.subtitle}</span>
+                <h2 class="text-5xl mt-3">${cap.title}</h2>
             </div>
             <div class="cap-grid">
                 ${cap.cards.map(c => `
@@ -595,7 +598,7 @@ function renderHome(data) {
                     </div>
                 </a>`).join('')}
             </div>
-            <div class="svc-banner-wrap" style="margin-top: 60px;">
+            <div class="svc-banner-wrap mt-15">
                 <img src="${sb.image}" alt="${sb.card_title}" class="svc-banner-img" loading="lazy" />
                 <div class="svc-banner-card">
                     <h3 class="svc-banner-card-title">${sb.card_title}</h3>
@@ -609,7 +612,7 @@ function renderHome(data) {
     <!-- ════════ THE PROOF (VERIZON STYLE METRICS) ════════ -->
     <section class="content-section fade-in home-section-shaded home-section-bordered-top">
         <div class="container">
-            <div class="section-header center" style="margin-bottom: 40px;">
+            <div class="section-header center mb-10">
                 <h4 class="mini-title">${proof.subtitle}</h4>
                 <h2>${proof.title}</h2>
             </div>
@@ -617,8 +620,8 @@ function renderHome(data) {
             <!-- Directory Card -->
             <div class="directory-card fade-in">
                 <div class="featured-case-study-card__content">
-                    <h3 class="featured-case-study-card__title" style="margin-bottom: 16px;">${proof.directoryCard.title}</h3>
-                    <p class="featured-case-study-card__desc" style="font-size: 1.15rem; line-height: 1.6; margin-bottom: 24px;">${proof.directoryCard.description}</p>
+                    <h3 class="featured-case-study-card__title mb-4">${proof.directoryCard.title}</h3>
+                    <p class="featured-case-study-card__desc text-lg mb-6 leading-tight">${proof.directoryCard.description}</p>
                     
                     <div class="client-pills-row">
                         ${proof.directoryCard.clientPills.map(p => `
@@ -626,7 +629,7 @@ function renderHome(data) {
                         `).join('')}
                     </div>
 
-                    <a href="${proof.directoryCard.ctaLink}" class="featured-case-study-card__cta" style="margin-top: 16px; display: inline-block;">${proof.directoryCard.ctaText}</a>
+                    <a href="${proof.directoryCard.ctaLink}" class="featured-case-study-card__cta mt-4 inline-block">${proof.directoryCard.ctaText}</a>
                 </div>
             </div>
 
@@ -794,7 +797,7 @@ function renderAbout(data) {
 function renderIncubation(data) {
     return `
     <header class="incub-hero fade-in">
-        <div class="container" style="max-width: 900px; margin: 0 auto; text-align: center; padding: 120px 24px 60px;">
+        <div class="container max-w-900 mx-auto text-center section-pad-xl">
             <h4 class="mini-title">${data.hero.subtitle}</h4>
             <h1 class="main-heading">${data.hero.title}</h1>
             <p class="incub-hero-desc">${data.hero.description}</p>
@@ -803,9 +806,9 @@ function renderIncubation(data) {
         </div>
     </header>
 
-    <section style="padding: 60px 0; background: var(--bg-card); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+    <section class="section-card-band">
         <div class="container">
-            <div style="display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; text-align: center;">
+            <div class="flex-center-wrap gap-15">
                 ${data.stats.map(s => `
                 <div class="fade-in">
                     <h3 class="incub-stat-value">${s.value}</h3>
@@ -815,20 +818,20 @@ function renderIncubation(data) {
         </div>
     </section>
 
-    <section style="padding: 100px 0;">
+    <section class="section-pad-lg">
         <div class="container">
             <div class="section-header center fade-in">
                 <h4 class="mini-title">INCUBATION TRACKS</h4>
                 <h2>Choose the track that matches your stage</h2>
             </div>
-            <div class="grid-2" style="margin-top: 50px; gap: 40px;">
+            <div class="grid-2 mt-12 gap-10">
                 ${data.programs.map(p => `
-                <div class="spec-card fade-in" style="padding: 50px; border-top: 4px solid var(--accent-color); display: flex; flex-direction: column; height: 100%;">
+                <div class="spec-card fade-in spec-card-tall">
                     <div class="incub-program-icon">${p.icon}</div>
                     <h3 class="incub-program-title">${p.title}</h3>
                     <span class="incub-program-duration">⏱ ${p.duration}</span>
                     <p class="incub-program-desc">${p.desc}</p>
-                    <ul style="list-style: none; padding: 0;">
+                    <ul class="list-none p-0">
                         ${p.includes.map(i => `<li class="incub-check-item"><span class="incub-check-icon">✔</span> ${i}</li>`).join('')}
                     </ul>
                 </div>`).join('')}
@@ -836,15 +839,15 @@ function renderIncubation(data) {
         </div>
     </section>
 
-    <section style="padding: 100px 0; background: var(--bg-darker);">
+    <section class="section-pad-lg bg-darker">
         <div class="container">
             <div class="section-header center fade-in">
                 <h4 class="mini-title">WHAT YOU GET</h4>
                 <h2>Everything a founder needs to ship and scale</h2>
             </div>
-            <div class="grid-3" style="margin-top: 50px;">
+            <div class="grid-3 mt-12">
                 ${data.what_you_get.map(item => `
-                <div class="spec-card fade-in" style="padding: 40px; text-align: center;">
+                <div class="spec-card fade-in p-10 text-center">
                     <div class="incub-feature-icon">${item.icon}</div>
                     <h3 class="incub-feature-title">${item.title}</h3>
                     <p class="incub-feature-desc">${item.desc}</p>
@@ -853,7 +856,7 @@ function renderIncubation(data) {
         </div>
     </section>
 
-    <section style="padding: 100px 0;">
+    <section class="section-pad-lg">
         <div class="container">
             <div class="section-header center fade-in">
                 <h4 class="mini-title">HOW IT WORKS</h4>
@@ -870,14 +873,14 @@ function renderIncubation(data) {
         </div>
     </section>
 
-    <section style="padding: 100px 0; background: var(--bg-darker);">
-        <div class="container" style="max-width: 800px;">
+    <section class="section-pad-lg bg-darker">
+        <div class="container max-w-800">
             <div class="section-header center fade-in">
                 <h4 class="mini-title">IDEAL CANDIDATE</h4>
                 <h2>${data.ideal_founder.title}</h2>
             </div>
             <div class="spec-card fade-in" style="padding: 50px; margin-top: 40px;">
-                <ul style="list-style: none; padding: 0;">
+                <ul class="list-none p-0">
                     ${data.ideal_founder.traits.map(t => `
                     <li class="incub-trait-item">
                         <span class="incub-trait-arrow">→</span>
@@ -888,7 +891,7 @@ function renderIncubation(data) {
         </div>
     </section>
 
-    <section style="padding: 80px 0;">
+    <section class="section-pad">
         <div class="container">
             <div class="spec-card fade-in" style="padding: 80px 60px; text-align: center; border-radius: 30px; position: relative; overflow: hidden; margin-bottom: 40px;">
                 <div style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: var(--brand-gradient); filter: blur(150px); opacity: 0.15; border-radius: 50%;"></div>
@@ -1428,9 +1431,9 @@ function renderClients(data) {
                             </div>
                         </div>
                         <div class="conversion-right" style="${isReversed ? 'order: 1;' : ''}">
-                            <div class="mini-title" style="color: var(--accent-color); margin-bottom: 12px; letter-spacing: 0.05em; font-weight: 700; text-transform: uppercase;">${cs.tag}</div>
-                            <h2 style="font-size: 2.5rem; margin-bottom: 24px;">${cs.client}</h2>
-                            <p style="font-size: 1.1rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 32px;">${cs.description}</p>
+                            <div class="mini-title mb-3 letter-spacing-wide font-bold uppercase">${cs.tag}</div>
+                            <h2 class="text-4xl mb-6">${cs.client}</h2>
+                            <p class="text-lg text-muted mb-8 leading-tight">${cs.description}</p>
                             <a href="${cs.link}" class="btn-primary">Read full case study &rarr;</a>
                         </div>
                     </div>
@@ -1443,7 +1446,7 @@ function renderClients(data) {
     <!-- ════════ LEGACY DIRECTORY ════════ -->
     <section class="clients-categories-section content-section fade-in">
         <div class="container">
-            <div class="section-header center" style="margin-bottom: 60px;">
+            <div class="section-header center mb-15">
                 <h2>And 138+ more businesses across 12+ industries.</h2>
             </div>
             ${data.categories.map(c => `
@@ -2071,7 +2074,7 @@ function renderServicePage(data, slug) {
                     <a href="${primaryHref}" ${primaryHref.startsWith('http') ? 'target="_blank"' : ''} class="btn-primary large hero-split-cta">📅 ${primaryLabel}</a>
                     ${service.cta && service.cta.secondary_href ? `<a href="${service.cta.secondary_href}" target="_blank" class="btn-secondary large">${service.cta.secondary_text || 'Contact Us'}</a>` : ''}
                 </div>
-                <div class="hero-trust" style="margin-top: 32px;">
+                <div class="hero-trust mt-8">
                     <div class="hero-trust-avatars">
                         <span class="trust-avatar trust-avatar-1">T</span>
                         <span class="trust-avatar trust-avatar-2">R</span>

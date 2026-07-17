@@ -64,8 +64,8 @@
     "button_href": "contact.html",
     "more_cases": [
       { "name": "Bhu Master", "href": "bhu-master.html" },
-      { "name": "Dashak Pharma", "href": "#" },
-      { "name": "Om Group", "href": "#" }
+      { "name": "Dashak Pharma", "href": "clients.html" },
+      { "name": "Om Group", "href": "clients.html" }
     ]
   }
 }
