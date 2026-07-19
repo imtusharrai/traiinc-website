@@ -5,7 +5,7 @@
     "subtitle": "Stop losing customers to competitors with better websites. We build affordable apps, WhatsApp automations, and digital tools that turn foot traffic into repeat revenue — starting from ₹15,000.",
     "cta": {
       "primary": { "text": "💬 Message Us on WhatsApp", "url": "https://wa.me/917905495478?text=Hi%20Trai%20Inc%2C%20I%27m%20interested%20in%20getting%20my%20business%20online." },
-      "secondary": { "text": "💰 See Pricing", "url": "pricing.html#msme" }
+      "secondary": { "text": "Scope Your Project", "url": "contact.html" }
     },
     "trust": {
       "avatars": ["CM", "JH", "TV", "BG", "+"],
@@ -64,48 +64,6 @@
       }
     ]
   },
-  "bundles": {
-    "subtitle": "MSME STARTER BUNDLES",
-    "title": "Fixed-Price Solutions for Local Businesses",
-    "tiers": [
-      {
-        "name": "The Starter Web",
-        "price": "₹15,000",
-        "desc": "Perfect for establishing your local online presence and getting found on Google Maps.",
-        "features": [
-          "5-Page Mobile-Optimized Website",
-          "Google Business Profile Setup",
-          "Basic Local SEO & Analytics",
-          "WhatsApp Floating Button"
-        ],
-        "popular": false
-      },
-      {
-        "name": "The WhatsApp Engine",
-        "price": "₹25,000",
-        "desc": "Automate your customer inquiries, bookings, and lead capture directly on WhatsApp.",
-        "features": [
-          "Automatic WhatsApp Replies",
-          "Automated Lead Capture",
-          "Automatic Customer Tracking",
-          "Broadcast Messaging Ready"
-        ],
-        "popular": true
-      },
-      {
-        "name": "Custom CRM Dashboard (Customer Tracking System)",
-        "price": "₹50,000",
-        "desc": "Ditch the spreadsheets. A custom admin panel to manage your daily operations.",
-        "features": [
-          "Lead & Sales Tracking",
-          "Inventory / Booking Manager",
-          "Staff Task Assignment",
-          "Automated Invoice Generation"
-        ],
-        "popular": false
-      }
-    ]
-  },
   "comparison": {
     "subtitle": "THE DIFFERENCE",
     "title": "Stop bleeding money. Start growing.",
@@ -131,64 +89,6 @@
         "One-time affordable build + optional monthly support"
       ]
     }
-  },
-  "clients": {
-    "subtitle": "Businesses that trusted us across related sectors",
-    "title": "Our Valuable Clients",
-    "categories": [
-      {
-        "icon": "🎓",
-        "title": "Education & EdTech",
-        "count": "11 clients",
-        "logos": [
-          { "initials": "CC", "name": "CMS City Montessori School", "gradient": "linear-gradient(135deg,#667eea,#764ba2)" },
-          { "initials": "SN", "name": "SKD New Standard Coaching Institute", "gradient": "linear-gradient(135deg,#f093fb,#f5576c)" },
-          { "initials": "LH", "name": "Language Hub", "gradient": "linear-gradient(135deg,#4facfe,#00f2fe)" },
-          { "initials": "G", "name": "GCRG", "gradient": "linear-gradient(135deg,#43e97b,#38f9d7)" },
-          { "initials": "BG", "name": "Balram Guruji", "gradient": "linear-gradient(135deg,#fa709a,#fee140)" },
-          { "initials": "MI", "name": "Modern Indian School", "gradient": "linear-gradient(135deg,#a18cd1,#fbc2eb)" },
-          { "initials": "K", "name": "Kiddleworld", "gradient": "linear-gradient(135deg,#30cfd0,#667eea)" },
-          { "initials": "EE", "name": "Emparta Express Learning", "gradient": "linear-gradient(135deg,#f6d365,#fda085)" },
-          { "initials": "SC", "name": "Shaktinagar City International School", "gradient": "linear-gradient(135deg,#96fbc4,#f9f586)" },
-          { "initials": "IM", "name": "IE Multiple Intelligence Preschool", "gradient": "linear-gradient(135deg,#fbc7d4,#9796f0)" },
-          { "initials": "SU", "name": "Shobhit University", "gradient": "linear-gradient(135deg,#d299c2,#fef9d7)" }
-        ]
-      },
-      {
-        "icon": "📺",
-        "title": "Media & Lifestyle",
-        "count": "10 clients",
-        "logos": [
-          { "initials": "TN", "name": "TV20 Network", "gradient": "linear-gradient(135deg,#667eea,#764ba2)" },
-          { "initials": "JH", "name": "Jawed Habib Hair & Beauty", "gradient": "linear-gradient(135deg,#f093fb,#f5576c)" },
-          { "initials": "TU", "name": "Trioz Unisex Salon", "gradient": "linear-gradient(135deg,#4facfe,#00f2fe)" },
-          { "initials": "CS", "name": "Chai Sabha", "gradient": "linear-gradient(135deg,#43e97b,#38f9d7)" },
-          { "initials": "JT", "name": "Jadoo The Choice of India", "gradient": "linear-gradient(135deg,#fa709a,#fee140)" },
-          { "initials": "S", "name": "Sapphire", "gradient": "linear-gradient(135deg,#a18cd1,#fbc2eb)" },
-          { "initials": "E", "name": "Excella", "gradient": "linear-gradient(135deg,#30cfd0,#667eea)" },
-          { "initials": "M", "name": "MagnetGold", "gradient": "linear-gradient(135deg,#f6d365,#fda085)" },
-          { "initials": "SP", "name": "Shivkashi Pipes", "gradient": "linear-gradient(135deg,#96fbc4,#f9f586)" },
-          { "initials": "SI", "name": "Shivaya Industries", "gradient": "linear-gradient(135deg,#fbc7d4,#9796f0)" }
-        ]
-      },
-      {
-        "icon": "🛍️",
-        "title": "Retail & Consumer",
-        "count": "10 clients",
-        "logos": [
-          { "initials": "WF", "name": "We For Consumers", "gradient": "linear-gradient(135deg,#667eea,#764ba2)" },
-          { "initials": "GG", "name": "GPT Group", "gradient": "linear-gradient(135deg,#f093fb,#f5576c)" },
-          { "initials": "BW", "name": "Braniac Way of Success", "gradient": "linear-gradient(135deg,#4facfe,#00f2fe)" },
-          { "initials": "CA", "name": "Central Agro Park", "gradient": "linear-gradient(135deg,#43e97b,#38f9d7)" },
-          { "initials": "IC", "name": "Innovatech Constructions", "gradient": "linear-gradient(135deg,#fa709a,#fee140)" },
-          { "initials": "AG", "name": "Aftek Group", "gradient": "linear-gradient(135deg,#a18cd1,#fbc2eb)" },
-          { "initials": "OG", "name": "ONTSM Group", "gradient": "linear-gradient(135deg,#30cfd0,#667eea)" },
-          { "initials": "AG", "name": "A1 Group", "gradient": "linear-gradient(135deg,#f6d365,#fda085)" },
-          { "initials": "VK", "name": "Vikas Kejriwal Group", "gradient": "linear-gradient(135deg,#96fbc4,#f9f586)" },
-          { "initials": "KG", "name": "KSMB Group", "gradient": "linear-gradient(135deg,#fbc7d4,#9796f0)" }
-        ]
-      }
-    ]
   },
   "estimator": {
     "subtitle": "COST CALCULATOR",
