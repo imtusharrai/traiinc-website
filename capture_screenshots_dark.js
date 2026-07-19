@@ -13,7 +13,7 @@ const pages = [
   'whatsapp_cover_generator.html', 'whatsapp_welcome_card.html', 'workezy.html'
 ];
 
-const baseUrl = 'http://localhost:8081/';
+const baseUrl = 'http://localhost:3000/';
 
 (async () => {
   if (!fs.existsSync('screenshots/dark-mode')) {

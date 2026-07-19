@@ -1,0 +1,93 @@
+{
+  "hero": {
+    "mini_title": "Trai Inc Blog",
+    "title": "Insights for the <span class=\"highlight-text\">Modern Business</span>",
+    "description": "Cloud, AI, digital marketing, and enterprise tech — practical knowledge to help your business grow faster."
+  },
+  "filters": ["All Posts", "Cloud & DevOps", "AI & Automation", "Digital Marketing", "Small Business", "Cybersecurity"],
+  "featured": {
+    "emoji": "🤖",
+    "tag": "AI & Automation",
+    "tag_color": "#f093fb",
+    "title": "How AI Agents Are Replacing Manual Business Workflows in 2026",
+    "description": "From customer support bots to automated lead generation — discover how Indian SMBs are slashing costs and doubling productivity using AI-powered workflows.",
+    "author": "Tushar Rai",
+    "date": "July 10, 2026",
+    "read_time": "8 min read",
+    "url": "#"
+  },
+  "posts": [
+    {
+      "emoji": "☁️",
+      "tag": "Cloud & DevOps",
+      "tag_color": "#667eea",
+      "title": "AWS vs Azure vs GCP — Which Cloud Is Right for Your Indian Startup?",
+      "description": "A no-fluff comparison of the top three cloud platforms for cost, compliance, and scalability in 2025.",
+      "author": "Neha Sharma",
+      "date": "Jun 28, 2026",
+      "read_time": "6 min",
+      "url": "#"
+    },
+    {
+      "emoji": "📈",
+      "tag": "Digital Marketing",
+      "tag_color": "#43e97b",
+      "title": "Local SEO in 2025: How to Rank #1 on Google Maps for Your Business",
+      "description": "Step-by-step guide to dominating local search in India — from GMB optimization to review management.",
+      "author": "Harsh Pandey",
+      "date": "Jun 15, 2026",
+      "read_time": "7 min",
+      "url": "#"
+    },
+    {
+      "emoji": "🏪",
+      "tag": "Small Business",
+      "tag_color": "#f6a623",
+      "title": "5 Free Digital Tools Every MSME Should Be Using Right Now",
+      "description": "From invoicing to social scheduling — the best zero-cost tools that punch above their weight for small teams.",
+      "author": "Trai Inc",
+      "date": "Jun 02, 2026",
+      "read_time": "5 min",
+      "url": "#"
+    },
+    {
+      "emoji": "🔒",
+      "tag": "Cybersecurity",
+      "tag_color": "#a18cd1",
+      "title": "WhatsApp Business Security: How to Protect Your Customer Data",
+      "description": "With 500M+ WhatsApp Business users, attacks are rising. Here's how to harden your setup fast.",
+      "author": "Tushar Rai",
+      "date": "May 20, 2026",
+      "read_time": "6 min",
+      "url": "#"
+    },
+    {
+      "emoji": "🚀",
+      "tag": "Startups",
+      "tag_color": "#fa709a",
+      "title": "Building an MVP in 30 Days: The Trai Inc Playbook",
+      "description": "How we help early-stage startups go from idea to working product in under a month — without burning the runway.",
+      "author": "Harsh Pandey",
+      "date": "May 08, 2026",
+      "read_time": "9 min",
+      "url": "#"
+    },
+    {
+      "emoji": "📱",
+      "tag": "Mobile Apps",
+      "tag_color": "#30cfd0",
+      "title": "React Native vs Flutter in 2025 — What Should You Choose?",
+      "description": "A practical breakdown for businesses deciding between the two most popular cross-platform frameworks.",
+      "author": "Neha Sharma",
+      "date": "Apr 22, 2026",
+      "read_time": "7 min",
+      "url": "#"
+    }
+  ],
+  "newsletter": {
+    "title": "Never Miss an <span class=\"highlight-text\">Insight</span>",
+    "description": "Join 2,000+ founders and business owners who get our weekly digest.",
+    "placeholder": "your@email.com",
+    "button_text": "Get Weekly Insights →"
+  }
+}

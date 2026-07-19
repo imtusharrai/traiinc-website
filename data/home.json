@@ -148,8 +148,7 @@
       { "icon_key": "chart-up", "title": "Digital Marketing & SEO", "desc": "Data-driven marketing that delivers measurable ROI.", "href": "digital-marketing.html" },
       { "icon_key": "building", "title": "CRM, ERP & Billing", "desc": "Custom CRMs and dashboards tailored to your workflow.", "href": "solutions.html" },
       { "icon_key": "spark", "title": "AI Content Creation", "desc": "High-quality audio, video, text, and graphics at scale.", "href": "content-creation.html" },
-      { "icon_key": "chat", "title": "Business Communication", "desc": "Engage your customers across voice, text, and WhatsApp.", "href": "business-communication.html" },
-      { "icon_key": "globe", "title": "Network & Connectivity", "desc": "Enterprise-grade networking built for scale and security.", "href": "network-connectivity.html" }
+      { "icon_key": "globe", "title": "Network & Connectivity", "desc": "Enterprise-grade networking built for scale and security.", "href": "solutions.html" }
     ]
   },
   "proof": {
@@ -175,23 +174,23 @@
     ]
   },
   "conversion": {
-    "subtitle": "THE PIPELINE",
-    "title": "Ready to stop guessing and start building?",
-    "description": "Let's align on your architecture, timeline, and budget. No hard sales pitch, just a technical deep dive.",
-    "button_text": "Book Your Scoping Call Now",
+    "subtitle": "WHO WE ARE",
+    "title": "A team of builders, engineers, and creators.",
+    "description": "We are Trai Inc, an innovation lab dedicated to building cutting-edge software, mobile applications, and AI solutions. We bridge the gap between complex engineering and your business goals.",
+    "button_text": "Scope Your Project",
     "button_href": "https://calendar.app.google/PUsxADQBnpQsTrDbA",
     "steps": [
       {
-        "title": "1. The 30-Minute Scoping Call",
-        "desc": "We map out your core features, technical constraints, and business goals."
+        "title": "Our Mission",
+        "desc": "To deliver enterprise-grade engineering with complete transparency. No hidden costs, just high-quality code and fixed-price guarantees."
       },
       {
-        "title": "2. The 48-Hour Blueprint",
-        "desc": "You receive a comprehensive technical architecture plan, timeline, and to-the-dollar fixed price."
+        "title": "Our Expertise",
+        "desc": "We specialize in modern web platforms, native mobile apps, and integrating advanced AI agents that actually drive business value."
       },
       {
-        "title": "3. Execution & Delivery",
-        "desc": "We build. You monitor progress in real-time via Slack and staging links."
+        "title": "Our Approach",
+        "desc": "No middlemen or bloated account management. You work directly with senior engineers who treat your product as their own."
       }
     ]
   },
@@ -205,7 +204,7 @@
       },
       {
         "q": "What does a project actually cost?",
-        "a": "It depends on your business size. A business website for a local shop starts at ₹15,000. A custom MVP or internal tool typically runs ₹1.5L-₹3L. Growth-stage systems — CRMs, automation, multi-platform builds — run ₹3L-₹5L. For enterprise-scale or highly custom requirements, we quote after a scoping call. See the full <a href=\"pricing.html\">pricing breakdown</a> for exact tiers."
+        "a": "It depends on your business size. A business website for a local shop starts at ₹15,000. A custom MVP or internal tool typically runs ₹1.5L-₹3L. Growth-stage systems — CRMs, automation, multi-platform builds — run ₹3L-₹5L. For enterprise-scale or highly custom requirements, we quote after a scoping call. <a href=\"contact.html\">Get in touch</a> for a fixed-price estimate."
       },
       {
         "q": "What if I need changes after the project is delivered?",

@@ -1,10 +1,8 @@
 {
   "header": {
-    "subtitle": "WHO WE ARE",
-    "title": "138+ Clients. 12+ Industries. Six Years of Engineering Excellence."
-  },
-  "intro": {
-    "text": "Built in the AI era. Not retrofitted for it. Traditional IT agencies are bloated, slow, and expensive by design. Trai Inc is an AI-native engineering team that ships Silicon Valley-grade custom software in weeks, not months. Lean architecture, rapid execution, zero bloat. Transparent pricing, not quote-only mystery. Since 2020, we've delivered solutions for 138+ clients across 12+ industries. Our mission is to democratize access to top-tier software development and AI automation for MSMEs and scaling enterprises worldwide."
+    "eyebrow": "ABOUT TRAI INC",
+    "title": "Built by engineers.\nDriven by outcomes.",
+    "description": "Founded in 2020, Trai Inc is an AI-native engineering team that ships Silicon Valley-grade software in weeks — not months. 138+ clients. 12+ industries. Zero bloat. We exist to democratize enterprise-grade engineering for businesses worldwide."
   },
   "numbers": {
     "stats": [
@@ -26,6 +24,41 @@
       }
     ]
   },
+  "purpose": {
+    "subtitle": "WHAT DRIVES US",
+    "mission": {
+      "label": "Our Mission",
+      "icon": "🎯",
+      "text": "To democratize enterprise-grade software engineering — making Silicon Valley-quality development accessible to businesses of every size, everywhere."
+    },
+    "vision": {
+      "label": "Our Vision",
+      "icon": "🔭",
+      "text": "A world where great software is defined by the problem it solves, not the budget behind it. We're building the team and tools to make that real."
+    },
+    "values": [
+      {
+        "icon": "⚙️",
+        "title": "Ship Over Slide Decks",
+        "desc": "Working software wins. We measure progress in deployments, not presentations."
+      },
+      {
+        "icon": "🤝",
+        "title": "Radical Transparency",
+        "desc": "Fixed prices. Weekly updates. Full code ownership. No surprises, no fine print."
+      },
+      {
+        "icon": "🧪",
+        "title": "Engineer First, Always",
+        "desc": "Every decision passes through engineering rigor — from architecture to client communication."
+      },
+      {
+        "icon": "🚀",
+        "title": "AI as a Multiplier",
+        "desc": "We don't replace engineers with AI. We arm engineers with AI to ship faster and smarter."
+      }
+    ]
+  },
   "team": {
     "subtitle": "LEADERSHIP TEAM",
     "title": "The engineers and strategists behind our platform",
@@ -33,115 +66,65 @@
       {
         "name": "Tushar Rai",
         "role": "Founder & CEO",
-        "image": "assets/team/tushar_3d.png"
+        "image": "img/tushar.png",
+        "tagline": "Engineer turned founder. Obsessed with shipping."
       },
       {
         "name": "Neha Sharma",
         "role": "VP of Engineering",
-        "image": "assets/team/neha_3d.png"
+        "image": "img/neha.png",
+        "tagline": "Leads architecture across web and mobile."
       },
       {
         "name": "Harsh Pandey",
         "role": "Head of Cloud Architecture",
-        "image": "assets/team/harsh_3d.png"
+        "image": "img/harsh.png",
+        "tagline": "AWS, Cloudflare, and infrastructure at scale."
       },
       {
         "name": "Pallavi Mehta",
         "role": "Head of Product & Design",
-        "image": "assets/team/pallavi_3d.png"
+        "image": "img/pallavi.png",
+        "tagline": "Figma to production. Pixel-perfect delivery."
       },
       {
         "name": "Vineet Saxena",
         "role": "Lead Full-Stack Engineer",
-        "image": "assets/team/vineet_3d.png"
+        "image": "img/vineet.png",
+        "tagline": "React, Node, Flutter — end-to-end builder."
       },
       {
         "name": "Shipra Singh",
         "role": "Head of AI & Data Science",
-        "image": "assets/team/shipra_3d.png"
+        "image": "img/shipra.png",
+        "tagline": "LLM integration, automation, and analytics."
       }
     ]
   },
   "model": {
     "subtitle": "HOW WE WORK",
     "title": "AI-Native Delivery at Scale",
-    "description": "We combine deep engineering expertise with AI-powered development tools to deliver faster, cleaner, and more cost-effective solutions than traditional agencies. Every project gets a dedicated project manager, transparent sprint updates, and direct coordination with the senior engineers building your product.",
+    "description": "We combine deep engineering expertise with AI-powered development tools to deliver faster, cleaner, and more cost-effective solutions than traditional agencies.",
     "advantages": [
       {
         "icon": "⚡",
-        "title": "Dedicated Team",
-        "desc": "Every project is assigned a dedicated project manager who coordinates directly with our senior engineers on your behalf — one clear point of contact, not a relay of account managers."
+        "title": "Dedicated Team & Point of Contact",
+        "desc": "Every project gets a named project manager and senior engineers from day one. Weekly written updates, scheduled calls — one clear point of contact, not a rotating cast."
       },
       {
         "icon": "🧠",
         "title": "AI-Augmented Speed",
-        "desc": "Our team uses AI development tools — Claude, Gemini, and agentic coding workflows — to deliver enterprise-quality work in half the time of traditional agencies."
+        "desc": "Our team uses Claude, Gemini, and agentic coding workflows to deliver enterprise-quality work in half the time of traditional agencies."
       },
       {
         "icon": "💰",
         "title": "Fixed-Price Transparency",
-        "desc": "Every project is scoped upfront with a fixed price. No hourly billing, no surprise invoices, no scope creep negotiations."
+        "desc": "Every project is scoped upfront with a fixed price. No hourly billing, no surprise invoices, no scope creep."
       },
       {
         "icon": "🔒",
         "title": "Full IP Ownership",
         "desc": "You own 100% of the code, design assets, and infrastructure. Complete handover with documentation. Zero vendor lock-in."
-      },
-      {
-        "icon": "👤",
-        "title": "Named Point of Contact",
-        "desc": "Every project has a dedicated team lead from day one. You always know exactly who is responsible for your project's success."
-      },
-      {
-        "icon": "📅",
-        "title": "Defined Update Cadence",
-        "desc": "Fixed weekly written updates and scheduled calls so you never have to chase for a progress report."
-      }
-    ]
-  },
-  "expertise": {
-    "subtitle": "OUR CAPABILITIES",
-    "title": "Full-Spectrum Engineering & Digital Services",
-    "areas": [
-      {
-        "icon": "💻",
-        "title": "Custom Software & Web Apps",
-        "desc": "Full-stack web platforms, SaaS products, admin dashboards, and enterprise tools built with React, Next.js, Node.js, and Python."
-      },
-      {
-        "icon": "📱",
-        "title": "Mobile App Development",
-        "desc": "Native and cross-platform mobile apps for iOS and Android using Flutter and React Native."
-      },
-      {
-        "icon": "🤖",
-        "title": "AI, Automation & Chatbots",
-        "desc": "Custom AI agents, WhatsApp Business API integration, workflow automation with n8n, and intelligent chatbots powered by LLMs."
-      },
-      {
-        "icon": "☁️",
-        "title": "Cloud & DevOps",
-        "desc": "Cloud migrations, serverless architecture, CI/CD pipelines, and infrastructure on AWS, Cloudflare, Firebase, and Vercel."
-      },
-      {
-        "icon": "🎨",
-        "title": "UI/UX & Brand Design",
-        "desc": "User research, wireframing, prototyping in Figma, brand identity systems, motion graphics, and presentation design."
-      },
-      {
-        "icon": "📈",
-        "title": "Digital Marketing & SEO",
-        "desc": "Local SEO, Google and Meta Ads, social media strategy, content marketing, email automation, and lead generation funnels."
-      },
-      {
-        "icon": "⚙️",
-        "title": "Enterprise Platforms",
-        "desc": "Custom CRM, ERP, HRMS, and project management systems tailored to your business workflows with real-time analytics."
-      },
-      {
-        "icon": "🔒",
-        "title": "Cybersecurity & Compliance",
-        "desc": "Security audits, penetration testing, zero-trust architecture, and compliance frameworks for SOC 2, GDPR, and data protection."
       }
     ]
   },
@@ -167,7 +150,7 @@
       {
         "year": "2024",
         "title": "AI-Native Transformation",
-        "desc": "Adopted AI-augmented development workflows across the team. Integrated Claude, Gemini, and agentic coding tools into daily operations."
+        "desc": "Adopted AI-augmented development workflows across the team. Integrated Claude, Gemini, and agentic coding tools. Launched intern incubation program training engineers on production projects from day one."
       },
       {
         "year": "2025-26",
@@ -175,11 +158,6 @@
         "desc": "Crossed 138+ clients served. Began developing a proprietary SaaS product to scale the tools and systems that power client delivery."
       }
     ]
-  },
-  "incubation": {
-    "subtitle": "TALENT DEVELOPMENT",
-    "title": "Intern Incubator Program",
-    "text": "We run an active intern incubation program training the next generation of engineers and marketers. Interns work on real client projects from day one, learning production-grade development, AI-native workflows, and professional delivery under mentorship from our senior team."
   },
   "faq": {
     "subtitle": "QUESTIONS & ANSWERS",

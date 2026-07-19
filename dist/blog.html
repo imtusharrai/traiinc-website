@@ -6,196 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=1784283358832">
-    <style>
-        .blog-hero {
-            min-height: 46vh;
-            display: flex;
-            align-items: center;
-            padding-top: 110px;
-            padding-bottom: 60px;
-            background: radial-gradient(ellipse at 65% 35%, rgba(255,26,26,0.18) 0%, transparent 60%),
-                        radial-gradient(ellipse at 15% 75%, rgba(232,0,209,0.12) 0%, transparent 55%);
-        }
-        .blog-hero h1 {
-            font-family: var(--font-heading);
-            font-size: clamp(2.4rem, 5vw, 3.8rem);
-            font-weight: 800;
-            line-height: 1.15;
-            margin-bottom: 16px;
-        }
-        .blog-hero p { font-size: 1.05rem; color: var(--text-muted); max-width: 520px; line-height: 1.75; }
-
-        /* Filter tabs */
-        .blog-filters {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 48px;
-        }
-        .blog-filter {
-            padding: 8px 18px;
-            border-radius: 50px;
-            font-size: 0.82rem;
-            font-weight: 600;
-            border: 1px solid var(--border-light);
-            background: var(--bg-card);
-            color: var(--text-muted);
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        .blog-filter.active, .blog-filter:hover {
-            background: var(--accent-color);
-            border-color: var(--accent-color);
-            color: #fff;
-        }
-
-        /* Featured post */
-        .blog-featured {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 0;
-            background: var(--bg-card);
-            border: 1px solid var(--border-light);
-            border-radius: 20px;
-            overflow: hidden;
-            margin-bottom: 56px;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-        .blog-featured:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
-        .blog-featured-img {
-            min-height: 340px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 6rem;
-            background: linear-gradient(135deg, #667eea22, #764ba244);
-            position: relative;
-            overflow: hidden;
-        }
-        .blog-featured-img::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(102,126,234,0.3), rgba(118,75,162,0.3));
-        }
-        .blog-featured-body { padding: 40px 36px; display: flex; flex-direction: column; justify-content: center; }
-        .blog-tag {
-            display: inline-flex;
-            padding: 4px 12px;
-            border-radius: 50px;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-            width: fit-content;
-        }
-        .blog-featured-body h2 {
-            font-family: var(--font-heading);
-            font-size: 1.7rem;
-            font-weight: 800;
-            line-height: 1.25;
-            margin-bottom: 14px;
-        }
-        .blog-featured-body p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 24px; }
-        .blog-meta { display: flex; align-items: center; gap: 14px; font-size: 0.8rem; color: var(--text-muted); }
-        .blog-meta-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--text-muted); }
-        .read-more {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-weight: 700;
-            font-size: 0.88rem;
-            color: var(--accent-color);
-            text-decoration: none;
-            margin-top: 20px;
-            transition: gap 0.2s ease;
-        }
-        .read-more:hover { gap: 10px; }
-
-        /* Blog grid */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-bottom: 64px;
-        }
-        .blog-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-light);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: all 0.25s ease;
-            display: flex;
-            flex-direction: column;
-        }
-        .blog-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,0.25); border-color: transparent; }
-        .blog-card-thumb {
-            height: 170px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3.5rem;
-            position: relative;
-            overflow: hidden;
-        }
-        .blog-card-body { padding: 22px 20px 24px; flex: 1; display: flex; flex-direction: column; }
-        .blog-card-body h3 {
-            font-family: var(--font-heading);
-            font-size: 1.05rem;
-            font-weight: 700;
-            line-height: 1.35;
-            margin: 10px 0 10px;
-        }
-        .blog-card-body p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.65; flex: 1; }
-        .blog-card-footer { margin-top: 18px; display: flex; align-items: center; justify-content: space-between; }
-        .blog-card-date { font-size: 0.76rem; color: var(--text-muted); }
-
-        /* Newsletter CTA */
-        .blog-newsletter {
-            background: var(--bg-card);
-            border: 1px solid var(--border-light);
-            border-radius: 20px;
-            padding: 52px 40px;
-            text-align: center;
-            margin-bottom: 80px;
-            position: relative;
-            overflow: hidden;
-        }
-        .blog-newsletter::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at 50% 0%, rgba(255,26,26,0.1) 0%, transparent 65%);
-        }
-        .blog-newsletter h2 { font-family: var(--font-heading); font-size: 2rem; font-weight: 800; margin-bottom: 12px; position: relative; }
-        .blog-newsletter p { color: var(--text-muted); margin-bottom: 28px; position: relative; }
-        .nl-form { display: flex; gap: 10px; max-width: 440px; margin: 0 auto; position: relative; }
-        .nl-form input {
-            flex: 1; padding: 13px 18px; border-radius: 10px;
-            background: var(--bg-dark); border: 1px solid var(--border-light);
-            color: var(--text-main); font-size: 0.9rem;
-        }
-        .nl-form button {
-            padding: 13px 24px; border-radius: 10px;
-            background: var(--brand-gradient); color: #fff;
-            border: none; font-weight: 700; cursor: pointer;
-            transition: opacity 0.2s; white-space: nowrap;
-        }
-        .nl-form button:hover { opacity: 0.85; }
-
-        @media (max-width: 900px) {
-            .blog-featured { grid-template-columns: 1fr; }
-            .blog-featured-img { min-height: 200px; }
-            .blog-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 600px) {
-            .blog-grid { grid-template-columns: 1fr; }
-            .blog-newsletter { padding: 36px 20px; }
-            .nl-form { flex-direction: column; }
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css?v=1784487182787">
 
     <!-- Google Tag Manager -->
     <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-L8PVFRHGJC&amp;cx=c&amp;gtm=4e67f0"></script><script src="https://www.googletagmanager.com/gtm.js?id=GTM-THH39FFH"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":
@@ -322,23 +133,13 @@
                 <svg class="nav-l2-chevron" viewBox="0 0 6 10" width="6" height="10"><path d="M1 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"></path></svg>
             </div>
         
-            <div class="nav-l2-item " data-cat-id="crm-enterprise" data-has-children="false">
+            <div class="nav-l2-item " data-cat-id="crm-enterprise" data-has-children="true">
                 <span>CRM, ERP &amp; Billing Softwares</span>
-                
+                <svg class="nav-l2-chevron" viewBox="0 0 6 10" width="6" height="10"><path d="M1 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"></path></svg>
             </div>
         
             <div class="nav-l2-item " data-cat-id="content-creation" data-has-children="true">
-                <span>AI Content Creation</span>
-                <svg class="nav-l2-chevron" viewBox="0 0 6 10" width="6" height="10"><path d="M1 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"></path></svg>
-            </div>
-        
-            <div class="nav-l2-item " data-cat-id="business-communication" data-has-children="true">
-                <span>Business Communication</span>
-                <svg class="nav-l2-chevron" viewBox="0 0 6 10" width="6" height="10"><path d="M1 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"></path></svg>
-            </div>
-        
-            <div class="nav-l2-item " data-cat-id="network-connectivity" data-has-children="true">
-                <span>Network &amp; Connectivity</span>
+                <span>Content Creation &amp; Design</span>
                 <svg class="nav-l2-chevron" viewBox="0 0 6 10" width="6" height="10"><path d="M1 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"></path></svg>
             </div>
         </div>
@@ -418,6 +219,18 @@
                 </a><a href="ai-automation.html#mas" class="nav-l3-link">
                     <span class="nav-l3-label">Multi-Agent Systems (MAS)</span>
                     <span class="nav-l3-desc">Distributed networks solving complex logistics</span>
+                </a><a href="ai-automation.html#voice-agents" class="nav-l3-link">
+                    <span class="nav-l3-label">AI Voice Agents</span>
+                    <span class="nav-l3-desc">Human-like voice agents for support &amp; sales</span>
+                </a><a href="ai-automation.html#lead-gen" class="nav-l3-link">
+                    <span class="nav-l3-label">Lead Generation &amp; Scraping Bots</span>
+                    <span class="nav-l3-desc">Automated prospecting &amp; CRM enrichment</span>
+                </a><a href="data-analytics.html" class="nav-l3-link">
+                    <span class="nav-l3-label">Data Analytics &amp; Visualization</span>
+                    <span class="nav-l3-desc">Power BI, Tableau &amp; real-time dashboards</span>
+                </a><a href="data-analytics.html#etl" class="nav-l3-link">
+                    <span class="nav-l3-label">Data Engineering &amp; ETL</span>
+                    <span class="nav-l3-desc">Airflow, Spark, dbt pipelines</span>
                 </a></div>
                     
                 <div class="nav-mini-feature">
@@ -438,6 +251,15 @@
                 </a><a href="cloud-devops.html#serverless" class="nav-l3-link">
                     <span class="nav-l3-label">Serverless Architecture</span>
                     <span class="nav-l3-desc">Scale infinitely and reduce costs</span>
+                </a><a href="cloud-devops.html#containers" class="nav-l3-link">
+                    <span class="nav-l3-label">Container Orchestration</span>
+                    <span class="nav-l3-desc">Docker, Kubernetes &amp; Helm charts</span>
+                </a><a href="cloud-devops.html#iac" class="nav-l3-link">
+                    <span class="nav-l3-label">Infrastructure as Code</span>
+                    <span class="nav-l3-desc">Terraform, Pulumi &amp; CloudFormation</span>
+                </a><a href="cloud-devops.html#monitoring" class="nav-l3-link">
+                    <span class="nav-l3-label">Monitoring &amp; Observability</span>
+                    <span class="nav-l3-desc">Prometheus, Grafana &amp; Datadog</span>
                 </a></div>
                     
                 <div class="nav-mini-feature">
@@ -471,6 +293,29 @@
             
                 </div>
             
+                <div class="nav-l3-panel " data-panel="crm-enterprise">
+                    <div class="nav-l3-grid"><a href="enterprise-platforms.html#crm" class="nav-l3-link">
+                    <span class="nav-l3-label">CRM Development &amp; Implementation</span>
+                    <span class="nav-l3-desc">Custom CRM or Salesforce/HubSpot setup</span>
+                </a><a href="enterprise-platforms.html#erp" class="nav-l3-link">
+                    <span class="nav-l3-label">ERP Systems</span>
+                    <span class="nav-l3-desc">Inventory, billing &amp; supply chain</span>
+                </a><a href="enterprise-platforms.html#hrms" class="nav-l3-link">
+                    <span class="nav-l3-label">HR &amp; Workforce Management</span>
+                    <span class="nav-l3-desc">HRMS, payroll &amp; attendance</span>
+                </a><a href="enterprise-platforms.html#security" class="nav-l3-link">
+                    <span class="nav-l3-label">Cybersecurity &amp; Compliance</span>
+                    <span class="nav-l3-desc">SOC 2, GDPR, pen testing &amp; zero-trust</span>
+                </a></div>
+                    
+                <div class="nav-mini-feature">
+                    <h4>Replace <span class="highlight">Spreadsheets</span></h4>
+                    <p>Custom CRMs and dashboards tailored to your workflow.</p>
+                    <a href="enterprise-platforms.html" class="nav-featured-link">Explore CRM →</a>
+                </div>
+            
+                </div>
+            
                 <div class="nav-l3-panel " data-panel="content-creation">
                     <div class="nav-l3-grid"><a href="content-creation.html#text" class="nav-l3-link">
                     <span class="nav-l3-label">AI Text Generation</span>
@@ -484,74 +329,29 @@
                 </a><a href="content-creation.html#graphics" class="nav-l3-link">
                     <span class="nav-l3-label">AI Graphics &amp; Visuals</span>
                     <span class="nav-l3-desc">Rapid design iteration</span>
+                </a><a href="ui-ux-design.html" class="nav-l3-link">
+                    <span class="nav-l3-label">UI/UX Design</span>
+                    <span class="nav-l3-desc">Research, wireframes &amp; prototypes</span>
+                </a><a href="ui-ux-design.html#branding" class="nav-l3-link">
+                    <span class="nav-l3-label">Brand Identity &amp; Logo</span>
+                    <span class="nav-l3-desc">Complete brand systems</span>
+                </a><a href="content-creation.html#video" class="nav-l3-link">
+                    <span class="nav-l3-label">Motion Graphics</span>
+                    <span class="nav-l3-desc">Product demos &amp; Lottie animations</span>
+                </a><a href="content-creation.html#graphics" class="nav-l3-link">
+                    <span class="nav-l3-label">Social Media Design</span>
+                    <span class="nav-l3-desc">Templates, carousels &amp; campaigns</span>
                 </a></div>
                     
                 <div class="nav-mini-feature">
-                    <h4>AI Content <span class="highlight">Creation</span></h4>
-                    <p>High-quality audio, video, text, and graphics at scale.</p>
-                    <a href="content-creation.html" class="nav-featured-link">Explore Content Creation →</a>
-                </div>
-            
-                </div>
-            
-                <div class="nav-l3-panel " data-panel="business-communication">
-                    <div class="nav-l3-grid"><a href="business-communication.html#ivr" class="nav-l3-link">
-                    <span class="nav-l3-label">IVR Service</span>
-                    <span class="nav-l3-desc">Interactive voice response systems</span>
-                </a><a href="business-communication.html#toll-free" class="nav-l3-link">
-                    <span class="nav-l3-label">Toll Free Number Service</span>
-                    <span class="nav-l3-desc">1800 numbers for your business</span>
-                </a><a href="business-communication.html#sms" class="nav-l3-link">
-                    <span class="nav-l3-label">SMS Gateway</span>
-                    <span class="nav-l3-desc">Bulk &amp; transactional SMS API</span>
-                </a><a href="business-communication.html#whatsapp" class="nav-l3-link">
-                    <span class="nav-l3-label">WhatsApp Business Platform</span>
-                    <span class="nav-l3-desc">Official WhatsApp API integrations</span>
-                </a></div>
-                    
-                <div class="nav-mini-feature">
-                    <h4>Seamless <span class="highlight">Communication</span></h4>
-                    <p>Engage your customers across voice, text, and WhatsApp.</p>
-                    <a href="business-communication.html" class="nav-featured-link">Explore Communication →</a>
-                </div>
-            
-                </div>
-            
-                <div class="nav-l3-panel " data-panel="network-connectivity">
-                    <div class="nav-l3-grid"><a href="network-connectivity.html#wifi" class="nav-l3-link">
-                    <span class="nav-l3-label">Enterprise Wi-Fi</span>
-                    <span class="nav-l3-desc">Secure, high-density wireless networks</span>
-                </a><a href="network-connectivity.html#sdwan" class="nav-l3-link">
-                    <span class="nav-l3-label">SD-WAN Solutions</span>
-                    <span class="nav-l3-desc">Software-defined wide area networking</span>
-                </a><a href="network-connectivity.html#cloud" class="nav-l3-link">
-                    <span class="nav-l3-label">Cloud Networking</span>
-                    <span class="nav-l3-desc">Seamless multi-cloud connectivity</span>
-                </a><a href="network-connectivity.html#security" class="nav-l3-link">
-                    <span class="nav-l3-label">Network Security (SASE)</span>
-                    <span class="nav-l3-desc">Zero-trust edge security</span>
-                </a></div>
-                    
-                <div class="nav-mini-feature">
-                    <h4>Unbreakable <span class="highlight">Connections</span></h4>
-                    <p>Enterprise-grade networking built for scale and security.</p>
-                    <a href="network-connectivity.html" class="nav-featured-link">Explore Networking →</a>
+                    <h4>Content &amp; <span class="highlight">Design</span></h4>
+                    <p>AI-powered content plus full-service creative design.</p>
+                    <a href="content-creation.html" class="nav-featured-link">Explore Creative →</a>
                 </div>
             
                 </div>
             
                         
-            <div class="nav-l3-panel nav-featured-panel" data-panel="crm-enterprise">
-                <div class="nav-featured-full">
-                    <div class="nav-featured-placeholder" style="background:linear-gradient(135deg, #f093fb 0%, #f5576c 100%)">
-                        <span>⚙️</span>
-                    </div>
-                    <h4>Replace <span class="highlight">Spreadsheets</span></h4>
-                    <p>Custom CRMs and dashboards tailored to your workflow.</p>
-                    <a href="enterprise-platforms.html" class="nav-featured-link">Explore CRM →</a>
-                </div>
-            </div>
-        
                     </div>
                 </div>
             </div>
@@ -714,13 +514,6 @@
                             <span class="nav-dd-desc">What our clients say</span>
                         </div>
                     </a>
-                    <a href="pricing.html" class="nav-dd-item">
-                        <span class="nav-dd-icon">💰</span>
-                        <div class="nav-dd-text">
-                            <span class="nav-dd-label">Pricing &amp; Engagement</span>
-                            <span class="nav-dd-desc">Fixed price, advance-first</span>
-                        </div>
-                    </a>
                 </div>
             </div>
         </div>
@@ -735,6 +528,9 @@
                 </div>
             </div>
         
+                    </li>
+                    <li>
+                        <a href="blog.html" class="active">Blog</a>
                     </li>
                 </ul>
                 <div class="nav-actions">
@@ -758,33 +554,24 @@
                 </div>
             </div>
         </nav>
-
-    <!-- Hero -->
-    <section class="blog-hero">
+    <main id="content">
+    <section class="blog-hero fade-in visible">
         <div class="container">
             <p class="mini-title">Trai Inc Blog</p>
             <h1>Insights for the <span class="highlight-text">Modern Business</span></h1>
-            <p>Cloud, AI, digital marketing, and enterprise tech — practical knowledge to help your business grow faster.</p>
+            <p class="blog-hero-desc">Cloud, AI, digital marketing, and enterprise tech — practical knowledge to help your business grow faster.</p>
         </div>
     </section>
 
     <div class="container">
-
-        <!-- Filters -->
-        <div class="blog-filters">
-            <button class="blog-filter active">✦ All Posts</button>
-            <button class="blog-filter">☁️ Cloud &amp; DevOps</button>
-            <button class="blog-filter">🤖 AI &amp; Automation</button>
-            <button class="blog-filter">📈 Digital Marketing</button>
-            <button class="blog-filter">🏪 Small Business</button>
-            <button class="blog-filter">🔒 Cybersecurity</button>
+        <div class="blog-filters fade-in visible">
+            <button class="blog-filter active">All Posts</button><button class="blog-filter">Cloud &amp; DevOps</button><button class="blog-filter">AI &amp; Automation</button><button class="blog-filter">Digital Marketing</button><button class="blog-filter">Small Business</button><button class="blog-filter">Cybersecurity</button>
         </div>
 
-        <!-- Featured Post -->
-        <a href="#" class="blog-featured" style="text-decoration:none;color:inherit;">
-            <div class="blog-featured-img">🤖</div>
+        <a href="#" class="blog-featured fade-in visible" style="text-decoration:none;color:inherit;">
+            <div class="blog-featured-img" style="background:color-mix(in srgb, #f093fb 12%, transparent)">🤖</div>
             <div class="blog-featured-body">
-                <span class="blog-tag" style="background:rgba(240,147,251,0.15);color:#f093fb;">🤖 AI &amp; Automation</span>
+                <span class="blog-tag" style="background:color-mix(in srgb, #f093fb 15%, transparent);color:#f093fb;">AI &amp; Automation</span>
                 <h2>How AI Agents Are Replacing Manual Business Workflows in 2026</h2>
                 <p>From customer support bots to automated lead generation — discover how Indian SMBs are slashing costs and doubling productivity using AI-powered workflows.</p>
                 <div class="blog-meta">
@@ -798,91 +585,89 @@
             </div>
         </a>
 
-        <!-- Blog Grid -->
         <div class="blog-grid">
-
-            <a href="#" class="blog-card" style="text-decoration:none;color:inherit;">
-                <div class="blog-card-thumb" style="background:linear-gradient(135deg,#667eea22,#764ba244)">☁️</div>
-                <div class="blog-card-body">
-                    <span class="blog-tag" style="background:rgba(102,126,234,0.15);color:#667eea;font-size:0.7rem;padding:3px 10px;border-radius:50px;font-weight:700;">Cloud &amp; DevOps</span>
-                    <h3>AWS vs Azure vs GCP — Which Cloud Is Right for Your Indian Startup?</h3>
-                    <p>A no-fluff comparison of the top three cloud platforms for cost, compliance, and scalability in 2025.</p>
-                    <div class="blog-card-footer">
-                        <span class="blog-card-date">Jun 28, 2026 · Neha Sharma · 6 min</span>
-                        <span class="read-more" style="margin:0;">→</span>
-                    </div>
+            
+        <a href="#" class="blog-card fade-in visible" style="text-decoration:none;color:inherit;">
+            <div class="blog-card-thumb" style="background:color-mix(in srgb, #667eea 12%, transparent)">☁️</div>
+            <div class="blog-card-body">
+                <span class="blog-tag" style="background:color-mix(in srgb, #667eea 15%, transparent);color:#667eea;">Cloud &amp; DevOps</span>
+                <h3>AWS vs Azure vs GCP — Which Cloud Is Right for Your Indian Startup?</h3>
+                <p>A no-fluff comparison of the top three cloud platforms for cost, compliance, and scalability in 2025.</p>
+                <div class="blog-card-footer">
+                    <span class="blog-card-date">Jun 28, 2026 · Neha Sharma · 6 min</span>
+                    <span class="read-more" style="margin:0;">→</span>
                 </div>
-            </a>
-
-            <a href="#" class="blog-card" style="text-decoration:none;color:inherit;">
-                <div class="blog-card-thumb" style="background:linear-gradient(135deg,#43e97b22,#38f9d744)">📈</div>
-                <div class="blog-card-body">
-                    <span class="blog-tag" style="background:rgba(67,233,123,0.15);color:#43e97b;font-size:0.7rem;padding:3px 10px;border-radius:50px;font-weight:700;">Digital Marketing</span>
-                    <h3>Local SEO in 2025: How to Rank #1 on Google Maps for Your Business</h3>
-                    <p>Step-by-step guide to dominating local search in India — from GMB optimization to review management.</p>
-                    <div class="blog-card-footer">
-                        <span class="blog-card-date">Jun 15, 2026 · Harsh Pandey · 7 min</span>
-                        <span class="read-more" style="margin:0;">→</span>
-                    </div>
+            </div>
+        </a>
+    
+        <a href="#" class="blog-card fade-in visible" style="text-decoration:none;color:inherit;">
+            <div class="blog-card-thumb" style="background:color-mix(in srgb, #43e97b 12%, transparent)">📈</div>
+            <div class="blog-card-body">
+                <span class="blog-tag" style="background:color-mix(in srgb, #43e97b 15%, transparent);color:#43e97b;">Digital Marketing</span>
+                <h3>Local SEO in 2025: How to Rank #1 on Google Maps for Your Business</h3>
+                <p>Step-by-step guide to dominating local search in India — from GMB optimization to review management.</p>
+                <div class="blog-card-footer">
+                    <span class="blog-card-date">Jun 15, 2026 · Harsh Pandey · 7 min</span>
+                    <span class="read-more" style="margin:0;">→</span>
                 </div>
-            </a>
-
-            <a href="#" class="blog-card" style="text-decoration:none;color:inherit;">
-                <div class="blog-card-thumb" style="background:linear-gradient(135deg,#f6d36522,#fda08544)">🏪</div>
-                <div class="blog-card-body">
-                    <span class="blog-tag" style="background:rgba(246,211,101,0.15);color:#f6a623;font-size:0.7rem;padding:3px 10px;border-radius:50px;font-weight:700;">Small Business</span>
-                    <h3>5 Free Digital Tools Every MSME Should Be Using Right Now</h3>
-                    <p>From invoicing to social scheduling — the best zero-cost tools that punch above their weight for small teams.</p>
-                    <div class="blog-card-footer">
-                        <span class="blog-card-date">Jun 02, 2026 · Trai Inc · 5 min</span>
-                        <span class="read-more" style="margin:0;">→</span>
-                    </div>
+            </div>
+        </a>
+    
+        <a href="#" class="blog-card fade-in visible" style="text-decoration:none;color:inherit;">
+            <div class="blog-card-thumb" style="background:color-mix(in srgb, #f6a623 12%, transparent)">🏪</div>
+            <div class="blog-card-body">
+                <span class="blog-tag" style="background:color-mix(in srgb, #f6a623 15%, transparent);color:#f6a623;">Small Business</span>
+                <h3>5 Free Digital Tools Every MSME Should Be Using Right Now</h3>
+                <p>From invoicing to social scheduling — the best zero-cost tools that punch above their weight for small teams.</p>
+                <div class="blog-card-footer">
+                    <span class="blog-card-date">Jun 02, 2026 · Trai Inc · 5 min</span>
+                    <span class="read-more" style="margin:0;">→</span>
                 </div>
-            </a>
-
-            <a href="#" class="blog-card" style="text-decoration:none;color:inherit;">
-                <div class="blog-card-thumb" style="background:linear-gradient(135deg,#a18cd122,#fbc2eb44)">🔒</div>
-                <div class="blog-card-body">
-                    <span class="blog-tag" style="background:rgba(161,140,209,0.15);color:#a18cd1;font-size:0.7rem;padding:3px 10px;border-radius:50px;font-weight:700;">Cybersecurity</span>
-                    <h3>WhatsApp Business Security: How to Protect Your Customer Data</h3>
-                    <p>With 500M+ WhatsApp Business users, attacks are rising. Here's how to harden your setup fast.</p>
-                    <div class="blog-card-footer">
-                        <span class="blog-card-date">May 20, 2026 · Tushar Rai · 6 min</span>
-                        <span class="read-more" style="margin:0;">→</span>
-                    </div>
+            </div>
+        </a>
+    
+        <a href="#" class="blog-card fade-in visible" style="text-decoration:none;color:inherit;">
+            <div class="blog-card-thumb" style="background:color-mix(in srgb, #a18cd1 12%, transparent)">🔒</div>
+            <div class="blog-card-body">
+                <span class="blog-tag" style="background:color-mix(in srgb, #a18cd1 15%, transparent);color:#a18cd1;">Cybersecurity</span>
+                <h3>WhatsApp Business Security: How to Protect Your Customer Data</h3>
+                <p>With 500M+ WhatsApp Business users, attacks are rising. Here's how to harden your setup fast.</p>
+                <div class="blog-card-footer">
+                    <span class="blog-card-date">May 20, 2026 · Tushar Rai · 6 min</span>
+                    <span class="read-more" style="margin:0;">→</span>
                 </div>
-            </a>
-
-            <a href="#" class="blog-card" style="text-decoration:none;color:inherit;">
-                <div class="blog-card-thumb" style="background:linear-gradient(135deg,#fa709a22,#fee14044)">🚀</div>
-                <div class="blog-card-body">
-                    <span class="blog-tag" style="background:rgba(250,112,154,0.15);color:#fa709a;font-size:0.7rem;padding:3px 10px;border-radius:50px;font-weight:700;">Startups</span>
-                    <h3>Building an MVP in 30 Days: The Trai Inc Playbook</h3>
-                    <p>How we help early-stage startups go from idea to working product in under a month — without burning the runway.</p>
-                    <div class="blog-card-footer">
-                        <span class="blog-card-date">May 08, 2026 · Harsh Pandey · 9 min</span>
-                        <span class="read-more" style="margin:0;">→</span>
-                    </div>
+            </div>
+        </a>
+    
+        <a href="#" class="blog-card fade-in visible" style="text-decoration:none;color:inherit;">
+            <div class="blog-card-thumb" style="background:color-mix(in srgb, #fa709a 12%, transparent)">🚀</div>
+            <div class="blog-card-body">
+                <span class="blog-tag" style="background:color-mix(in srgb, #fa709a 15%, transparent);color:#fa709a;">Startups</span>
+                <h3>Building an MVP in 30 Days: The Trai Inc Playbook</h3>
+                <p>How we help early-stage startups go from idea to working product in under a month — without burning the runway.</p>
+                <div class="blog-card-footer">
+                    <span class="blog-card-date">May 08, 2026 · Harsh Pandey · 9 min</span>
+                    <span class="read-more" style="margin:0;">→</span>
                 </div>
-            </a>
-
-            <a href="#" class="blog-card" style="text-decoration:none;color:inherit;">
-                <div class="blog-card-thumb" style="background:linear-gradient(135deg,#30cfd022,#667eea44)">📱</div>
-                <div class="blog-card-body">
-                    <span class="blog-tag" style="background:rgba(48,207,208,0.15);color:#30cfd0;font-size:0.7rem;padding:3px 10px;border-radius:50px;font-weight:700;">Mobile Apps</span>
-                    <h3>React Native vs Flutter in 2025 — What Should You Choose?</h3>
-                    <p>A practical breakdown for businesses deciding between the two most popular cross-platform frameworks.</p>
-                    <div class="blog-card-footer">
-                        <span class="blog-card-date">Apr 22, 2026 · Neha Sharma · 7 min</span>
-                        <span class="read-more" style="margin:0;">→</span>
-                    </div>
+            </div>
+        </a>
+    
+        <a href="#" class="blog-card fade-in visible" style="text-decoration:none;color:inherit;">
+            <div class="blog-card-thumb" style="background:color-mix(in srgb, #30cfd0 12%, transparent)">📱</div>
+            <div class="blog-card-body">
+                <span class="blog-tag" style="background:color-mix(in srgb, #30cfd0 15%, transparent);color:#30cfd0;">Mobile Apps</span>
+                <h3>React Native vs Flutter in 2025 — What Should You Choose?</h3>
+                <p>A practical breakdown for businesses deciding between the two most popular cross-platform frameworks.</p>
+                <div class="blog-card-footer">
+                    <span class="blog-card-date">Apr 22, 2026 · Neha Sharma · 7 min</span>
+                    <span class="read-more" style="margin:0;">→</span>
                 </div>
-            </a>
-
+            </div>
+        </a>
+    
         </div>
 
-        <!-- Newsletter -->
-        <div class="blog-newsletter">
+        <div class="blog-newsletter fade-in visible">
             <h2>Never Miss an <span class="highlight-text">Insight</span></h2>
             <p>Join 2,000+ founders and business owners who get our weekly digest.</p>
             <div class="nl-form">
@@ -890,9 +675,8 @@
                 <button>Get Weekly Insights →</button>
             </div>
         </div>
-
     </div>
-
+    </main>
     <footer id="footer">
         <div class="container footer-top">
             <div class="footer-brand">
@@ -982,17 +766,8 @@
             </div>
         </div>
             </footer>
-    <script src="js/app.js?v=1784283358832"></script>
-    <script src="js/nav.js?v=1784283358832"></script>
-    <script>
-        // Filter tabs interaction
-        document.querySelectorAll('.blog-filter').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.blog-filter').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-            });
-        });
-    </script>
+    <script src="js/app.js?v=1784487182787"></script>
+    <script src="js/nav.js?v=1784487182787"></script>
 
 
 <a class="fab-logo" href="https://wa.me/917905495478?text=Hi%20Trai%20Inc%2C%20I'm%20looking%20for%20a%20digital%20solution%20for%20my%20business." target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp"><svg viewBox="0 0 32 32" width="32" height="32" fill="white"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.13 6.744 3.048 9.38L1.054 31.2l6.044-1.94a15.9 15.9 0 008.906 2.704C24.826 31.964 32 24.788 32 16.004S24.826 0 16.004 0zm9.35 22.616c-.396 1.116-1.958 2.042-3.212 2.312-.86.182-1.98.328-5.754-1.236-4.83-2.004-7.938-6.902-8.18-7.222-.232-.32-1.948-2.596-1.948-4.952s1.232-3.508 1.67-3.988c.438-.48.956-.6 1.276-.6.32 0 .636.004.914.016.294.014.688-.112 1.076.82.396.952 1.348 3.288 1.466 3.528.118.24.198.518.04.836-.16.32-.24.518-.478.8-.24.28-.504.626-.72.84-.24.24-.488.498-.21.976.28.48 1.244 2.054 2.672 3.328 1.836 1.636 3.384 2.144 3.864 2.384.48.24.76.2 1.04-.12.278-.32 1.196-1.392 1.514-1.872.318-.48.636-.396 1.076-.24.438.16 2.784 1.312 3.262 1.552.48.24.798.356.916.556.118.198.118 1.156-.278 2.272z"></path></svg><div class="chat-badge">1</div></a><script type="text/javascript" id="" charset="">(function(a,e,b,f,g,c,d){a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)};c=e.createElement(f);c.async=1;c.src="https://www.clarity.ms/tag/"+g;d=e.getElementsByTagName(f)[0];d.parentNode.insertBefore(c,d)})(window,document,"clarity","script","xbii3msema");</script></body></html>

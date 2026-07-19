@@ -1,3 +1,11 @@
+# Pricing page removed — redirect to contact
+/pricing.html /contact.html 301
+/pricing /contact.html 301
+
+# Business communication page removed — redirect to solutions
+/business-communication.html /solutions.html 301
+/business-communication /solutions.html 301
+
 # Redirect old Wix URLs to homepage
 /properties/* /index.html 301
 /search-results /index.html 301

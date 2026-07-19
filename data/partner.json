@@ -1,122 +1,174 @@
 {
   "header": {
-    "subtitle": "GROW WITH US",
-    "title": "Earn More by Partnering with Trai Inc.",
-    "description": "You know businesses that need software, apps, or digital marketing — but building it yourself isn't your game. Send them to us, and we'll handle the engineering while you earn on every deal."
+    "eyebrow": "PARTNER WITH US",
+    "title": "Your Network.\nOur Engineering.\nShared Growth.",
+    "description": "You have the relationships. We have 6 years, 138+ delivered projects, and an AI-native engineering team. Together, we turn your introductions into revenue — without you writing a single line of code.",
+    "cta_text": "Explore Partnership Models",
+    "cta_href": "#models"
   },
-  "why": {
-    "subtitle": "WHY PARTNER",
-    "title": "Why 138+ Clients Trust Our Delivery",
+  "trust": {
+    "stats": [
+      { "value": "138+", "label": "Projects Delivered" },
+      { "value": "92%", "label": "Client Retention" },
+      { "value": "12+", "label": "Industries Served" },
+      { "value": "₹0", "label": "Upfront Cost for Partners" }
+    ]
+  },
+  "value": {
+    "subtitle": "WHY THIS WORKS",
+    "title": "Distribution Is the Multiplier",
+    "description": "Products are built in months. Trust takes years. You have already earned that trust with your network — we give you an engineering team to monetize it.",
     "points": [
       {
         "icon": "⚡",
-        "title": "We Deliver, You Earn",
-        "desc": "You bring the relationship. We build the software, run the marketing, or deploy the AI automation. You earn a commission on every project — zero engineering overhead on your side."
+        "title": "Zero Engineering Overhead",
+        "desc": "You bring the relationship. We handle scoping, building, deploying, and maintaining. You earn on every deal without hiring a single developer."
       },
       {
-        "icon": "🏗️",
-        "title": "6 Years, 138+ Clients, Zero Drama",
-        "desc": "We have been shipping production software since 2020 across 12+ industries. Your referrals go to a team that delivers on time, on budget, with fixed-price contracts."
-      },
-      {
-        "icon": "🤝",
+        "icon": "🔒",
         "title": "Your Brand, Our Engine",
-        "desc": "Need to white-label our work under your agency brand? We do that. Your client sees your name, we do the engineering behind the scenes."
+        "desc": "White-label our entire engineering output under your agency name. Your client sees your brand. NDA-protected. Zero leakage."
       },
       {
-        "icon": "📈",
-        "title": "Recurring Revenue",
-        "desc": "Many of our projects turn into ongoing retainers — maintenance, marketing, new features. You earn on the initial deal and on every renewal."
+        "icon": "💰",
+        "title": "Compounding Revenue",
+        "desc": "Most projects turn into retainers — maintenance, new features, marketing. You earn on the first deal and every renewal that follows."
+      },
+      {
+        "icon": "📊",
+        "title": "Fixed-Price Certainty",
+        "desc": "Every project is scoped upfront with a fixed price. No hourly billing surprises for you or your referral. Scope is locked before work begins."
       }
     ]
   },
-  "programs": {
+  "models": {
     "subtitle": "PARTNERSHIP MODELS",
-    "title": "Choose How You Want to Work With Us",
+    "title": "Choose How You Grow With Us",
     "tiers": [
       {
-        "icon": "💼",
+        "icon": "🤝",
+        "badge": "MOST POPULAR",
         "title": "Referral Partner",
-        "ideal_for": "CAs, Business Consultants, Freelancers, Other Agencies",
-        "desc": "Know a business that needs a website, app, CRM, or marketing? Introduce them to us. If the deal closes, you earn a referral commission.",
+        "ideal_for": "CAs, Consultants, Freelancers, Agencies",
+        "desc": "Know a business that needs software, apps, or marketing? Introduce them. If the deal closes, you earn.",
         "benefits": [
-          "Earn 10-15% commission on every closed project",
-          "No selling required — just warm introductions",
-          "We handle the entire sales call, scoping, and delivery",
-          "Monthly payout on completed milestones"
-        ],
-        "color": "#4facfe"
+          "10–15% commission on every closed project",
+          "No selling required — warm introductions only",
+          "We handle sales calls, scoping, and delivery",
+          "Monthly payouts on completed milestones"
+        ]
       },
       {
         "icon": "🏢",
+        "badge": "HIGH MARGIN",
         "title": "White-Label Partner",
         "ideal_for": "Digital Agencies, Marketing Firms, IT Consultancies",
-        "desc": "You sell software services but do not have an in-house dev team? We become your invisible engineering department. You own the client relationship, we build under your brand.",
+        "desc": "You sell software but lack an in-house dev team. We become your invisible engineering department.",
         "benefits": [
-          "Full white-label delivery — your branding, our code",
+          "Full white-label delivery under your branding",
           "Dedicated engineering team for your projects",
-          "Wholesale pricing with healthy margins for you",
-          "NDA-protected — your clients never know about us"
-        ],
-        "color": "#38f9d7"
+          "Wholesale pricing with healthy margins",
+          "NDA-protected — your clients never know"
+        ]
       },
       {
         "icon": "🔗",
+        "badge": "STRATEGIC",
         "title": "Technology Partner",
         "ideal_for": "SaaS Companies, Platform Providers, API Businesses",
-        "desc": "Your product plus our engineering creates a stronger offering for shared customers. Joint integrations, co-marketing, and combined go-to-market.",
+        "desc": "Your product plus our engineering creates a stronger offering. Joint integrations and shared go-to-market.",
         "benefits": [
           "Joint solution development and integration",
           "Co-branded case studies and marketing",
-          "Shared lead pipeline",
+          "Shared lead pipeline across networks",
           "Technical integration support from our team"
-        ],
-        "color": "#f6d365"
+        ]
       }
     ]
   },
-  "ideal_partners": {
-    "subtitle": "WHO SHOULD PARTNER",
+  "proof": {
+    "subtitle": "TRUST SIGNALS",
+    "title": "Why Partners Stay",
+    "items": [
+      {
+        "metric": "6+ Years",
+        "text": "Continuously shipping production software since 2020 — not a fly-by-night agency."
+      },
+      {
+        "metric": "Fixed-Price",
+        "text": "Every project scoped upfront. No hourly billing, no surprise invoices, no scope creep."
+      },
+      {
+        "metric": "Full IP Transfer",
+        "text": "Your referrals own 100% of code, design, and infrastructure. Zero vendor lock-in."
+      },
+      {
+        "metric": "AI-Native Team",
+        "text": "Claude, Gemini, and agentic workflows — enterprise quality at half the traditional timeline."
+      }
+    ]
+  },
+  "ideal": {
+    "subtitle": "IDEAL PARTNERS",
     "title": "You Are a Great Fit If You Are",
     "list": [
-      "A Chartered Accountant serving MSME clients who need digital solutions",
-      "A marketing agency that needs development support for client projects",
-      "A business consultant who advises companies on digital transformation",
-      "A freelance designer who needs a dev team to build what you design",
-      "An IT consultancy without in-house engineering capacity",
-      "A SaaS platform looking for integration and go-to-market partners"
+      { "icon": "📋", "text": "A Chartered Accountant serving MSME clients who need digital solutions" },
+      { "icon": "🎨", "text": "A freelance designer who needs a dev team to build what you design" },
+      { "icon": "📈", "text": "A marketing agency that needs development support for client projects" },
+      { "icon": "💼", "text": "A business consultant advising companies on digital transformation" },
+      { "icon": "🖥️", "text": "An IT consultancy without in-house engineering capacity" },
+      { "icon": "🔌", "text": "A SaaS platform looking for integration and go-to-market partners" }
     ]
   },
   "process": {
     "subtitle": "HOW IT WORKS",
-    "title": "Three Steps to Start Earning",
+    "title": "Three Steps to Start",
     "steps": [
       {
         "number": "01",
         "title": "Apply",
-        "desc": "Fill in the form below or message us on WhatsApp. Tell us about your business and how you typically interact with clients who need tech services.",
-        "color": "#4facfe"
+        "desc": "Fill in the form or message us on WhatsApp. Tell us about your business and how you interact with clients who need tech."
       },
       {
         "number": "02",
         "title": "Get Onboarded",
-        "desc": "We set you up with a partner agreement, commission structure, and a direct line to our team. The whole process takes less than a week.",
-        "color": "#38f9d7"
+        "desc": "Partner agreement, commission structure, and a direct line to our team — all set up within a week."
       },
       {
         "number": "03",
         "title": "Refer & Earn",
-        "desc": "Send us warm introductions whenever you spot an opportunity. We handle the rest — scoping, building, delivering. You get paid when milestones are completed.",
-        "color": "#f6d365"
+        "desc": "Send warm introductions when you spot opportunities. We handle everything from scoping to delivery. You get paid on milestones."
+      }
+    ]
+  },
+  "faq": {
+    "subtitle": "PARTNER FAQ",
+    "title": "Common Questions",
+    "items": [
+      {
+        "q": "How much can I earn as a partner?",
+        "a": "Referral partners earn 10–15% commission on every project that closes. White-label partners set their own margins on top of our wholesale pricing. There is no cap on earnings."
+      },
+      {
+        "q": "Do I need technical knowledge to refer?",
+        "a": "No. You only need to make a warm introduction. We handle the entire sales conversation, technical scoping, proposal, and delivery."
+      },
+      {
+        "q": "Will my clients know about Trai Inc in a white-label deal?",
+        "a": "Never. White-label partnerships are fully NDA-protected. All deliverables carry your branding. Your clients interact with your team only."
+      },
+      {
+        "q": "When do I get paid?",
+        "a": "Commissions are paid monthly on completed project milestones. You don't wait until the entire project finishes — you earn as milestones are delivered."
       }
     ]
   },
   "cta": {
-    "title": "Ready to Partner?",
-    "description": "Whether you want to refer one client or white-label our entire engineering team — let us talk. Book a 15-minute call or message us directly on WhatsApp.",
+    "title": "Ready to Turn Your Network Into Revenue?",
+    "description": "Whether you want to refer one client or white-label our entire engineering team — let us talk.",
     "button_text": "Book a Partner Call",
     "button_href": "https://calendar.app.google/PUsxADQBnpQsTrDbA",
-    "whatsapp_text": "Message on WhatsApp →",
-    "whatsapp_href": "https://wa.me/917905495478?text=Hi%20Trai%20Inc,%20I'm%20looking%20for%20a%20digital%20solution%20for%20my%20business."
+    "whatsapp_text": "Message on WhatsApp",
+    "whatsapp_href": "https://wa.me/917905495478?text=Hi%20Trai%20Inc,%20I'm%20interested%20in%20a%20partnership."
   }
 }

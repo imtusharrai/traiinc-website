@@ -4,158 +4,128 @@
     "title": "Full-spectrum IT services for modern businesses.",
     "description": "From idea to deployment to scale — we cover every phase of your digital product lifecycle. We don't just write code — we architect systems designed to grow with your business."
   },
-  "solutions": [
+  "categories": [
     {
-      "icon": "☁️",
-      "title": "Cloud Migration & DevOps",
-      "desc": "Seamlessly move your infrastructure to AWS, Azure, or GCP. We handle architecture redesign, containerization with Docker/Kubernetes, CI/CD pipelines, and 24/7 monitoring — delivering 99.9% uptime.",
-      "tags": ["AWS", "Azure", "Kubernetes", "Terraform", "CI/CD"]
-    },
-    {
-      "icon": "🤖",
-      "title": "AI & Intelligent Automation",
-      "desc": "From GPT-powered chatbots to predictive analytics engines, we build AI solutions that automate workflows, extract insights from unstructured data, and supercharge decision-making.",
-      "tags": ["LLMs", "Computer Vision", "NLP", "TensorFlow", "LangChain"]
-    },
-    {
-      "icon": "🏗️",
-      "title": "Custom Software Development",
-      "desc": "Full-cycle product engineering — from discovery and architecture to development, QA, and deployment. We build web platforms and internal tools that your team will love.",
-      "tags": ["React", "Node.js", "Python", "GraphQL", "SaaS"]
-    },
-    {
-      "icon": "📱",
-      "title": "Mobile App Development",
-      "desc": "Deliver exceptional mobile experiences. We build highly scalable, native and cross-platform applications for iOS and Android that drive engagement and business growth.",
-      "tags": ["iOS", "Android", "Flutter", "React Native", "Swift"]
-    },
-    {
-      "icon": "📊",
-      "title": "Data Engineering & Analytics",
-      "desc": "Design and deploy scalable data pipelines, real-time dashboards, and business intelligence platforms. Turn raw data into actionable intelligence with modern lakehouse architectures.",
-      "tags": ["Snowflake", "Apache Kafka", "dbt", "Power BI", "Spark"]
-    },
-    {
-      "icon": "🔒",
-      "title": "Cybersecurity & Compliance",
-      "desc": "Protect your digital assets with end-to-end security audits, penetration testing, zero-trust architecture, and compliance frameworks (SOC 2, GDPR, HIPAA).",
-      "tags": ["SOC 2", "GDPR", "Zero Trust", "Pen Testing", "IAM"]
-    },
-    {
-      "icon": "⚙️",
-      "title": "Enterprise Platforms (CRM / ERP / HRMS)",
-      "desc": "Custom-built business platforms that replace off-the-shelf bloat. Fully integrated CRM, ERP, and HRMS systems tailored to your workflows with real-time analytics.",
-      "tags": ["CRM", "ERP", "HRMS", "REST APIs", "Microservices"]
-    }
-  ],
-  "ai_agents": [
-    {
-      "icon": "🧠",
-      "title": "Custom AI Agent Development",
-      "desc": "Intelligent agents designed for specific workflows using LangChain, OpenAI, and LlamaIndex. From code generation to specialized research bots.",
-      "tags": ["LangChain", "OpenAI", "LlamaIndex", "Agents"]
-    },
-    {
-      "icon": "🎙️",
-      "title": "AI Voice Agents",
-      "desc": "Conversational voice agents capable of handling inbound support, outbound sales, and scheduling with human-like natural language understanding.",
-      "tags": ["Vapi", "Retell AI", "Voice Automation", "TTS"]
-    },
-    {
-      "icon": "⚡",
-      "title": "AI Workflow Automation",
-      "desc": "Complex, multi-step no-code/low-code automated workflows connecting your apps to AI. Save hours of manual work every week.",
-      "tags": ["n8n", "Zapier", "Make", "Automation"]
-    },
-    {
-      "icon": "🕷️",
-      "title": "Lead Generation & Scraping Bots",
-      "desc": "Automated agents that intelligently scrape the web, qualify leads, and populate your CRM without human intervention.",
-      "tags": ["Data Extraction", "Web Scraping", "CRM Sync"]
-    }
-  ],
-  "service_groups": [
-    {
-      "group_title": "Programming & Development",
-      "icon": "💻",
+      "id": "custom-software",
+      "icon_key": "globe",
+      "title": "Custom Software & Web",
+      "desc": "End-to-end engineering from MVP to enterprise scale — bespoke web platforms, SaaS products, and internal tools your team will love.",
+      "href": "custom-software.html",
+      "tech_stack": ["React", "Next.js", "Node.js", "Python", "TypeScript", "PostgreSQL", "MongoDB", "GraphQL", "WordPress", "Shopify"],
       "services": [
-        { "name": "Full-Stack Web Development", "desc": "React, Next.js, Node.js, Django — end-to-end web platforms." },
-        { "name": "Mobile App Development", "desc": "Native iOS/Android and cross-platform Flutter & React Native apps." },
-        { "name": "API Development & Integration", "desc": "RESTful, GraphQL, and webhook integrations with third-party platforms." },
-        { "name": "E-Commerce Development", "desc": "Shopify, WooCommerce, custom headless commerce with Stripe/Razorpay." },
-        { "name": "WordPress & CMS Development", "desc": "Custom themes, plugins, headless WordPress, and CMS migrations." },
-        { "name": "Desktop Application Development", "desc": "Electron, .NET, and native desktop apps for Windows, macOS, Linux." }
+        { "name": "Custom Website Design", "desc": "Bespoke digital experiences tailored to your brand and audience.", "href": "custom-software.html#web-design" },
+        { "name": "E-Commerce Application", "desc": "Robust online retail platforms with Shopify, WooCommerce, or headless commerce.", "href": "custom-software.html#ecommerce" },
+        { "name": "CMS Development", "desc": "Content management solutions — WordPress, headless CMS, and custom platforms.", "href": "custom-software.html#cms" },
+        { "name": "Web Applications", "desc": "Scalable front-end & back-end systems with React, Next.js, Node.js, and Django.", "href": "custom-software.html#web-apps" },
+        { "name": "SaaS Platforms", "desc": "Multi-tenant software products with billing, auth, and analytics built in.", "href": "custom-software.html#saas" },
+        { "name": "Enterprise Software", "desc": "Back-office tools to manage operations, supply chains, and customer relationships.", "href": "custom-software.html#enterprise" },
+        { "name": "System Integration", "desc": "Connecting your web presence with internal databases and external APIs.", "href": "custom-software.html#integration" },
+        { "name": "API Development", "desc": "Secure and high-performance REST, GraphQL, and webhook endpoints.", "href": "custom-software.html#api" }
       ]
     },
     {
-      "group_title": "AI & Data Services",
-      "icon": "🤖",
+      "id": "mobile-apps",
+      "icon_key": "device",
+      "title": "Application Development",
+      "desc": "High-performance native and cross-platform apps for iOS, Android, and desktop — delivered in weeks, not months.",
+      "href": "mobile-apps.html",
+      "tech_stack": ["Flutter", "React Native", "Swift", "Kotlin", "Dart", "Firebase", "Android", "Apple", "Electron", ".NET"],
       "services": [
-        { "name": "AI Chatbot Development", "desc": "GPT-powered chatbots, customer support agents, and conversational AI." },
-        { "name": "Machine Learning Models", "desc": "Custom ML models for prediction, classification, and recommendation." },
-        { "name": "Generative AI Integration", "desc": "LLM-powered content generation, code assistants, and image synthesis." },
-        { "name": "AI-Native Development Workflows", "desc": "Agentic IDE integration, Claude Code, Gemini Pro, and Antigravity automation." },
-        { "name": "Data Analytics & Visualization", "desc": "Power BI, Tableau, Metabase dashboards with real-time insights." },
-        { "name": "Data Engineering & ETL", "desc": "Scalable data pipelines with Airflow, Spark, dbt, and Snowflake." },
-        { "name": "Computer Vision & NLP", "desc": "Image recognition, OCR, sentiment analysis, and text extraction." }
+        { "name": "iOS & Android Native", "desc": "High-performance native apps built with Swift and Kotlin.", "href": "mobile-apps.html#native" },
+        { "name": "Cross-Platform (Flutter)", "desc": "One codebase for all platforms — Flutter & React Native.", "href": "mobile-apps.html#flutter" },
+        { "name": "Desktop Applications", "desc": "Robust apps for Windows & macOS with Electron and .NET.", "href": "mobile-apps.html#desktop" },
+        { "name": "App Store Compliances", "desc": "Ensure your apps meet strict Apple and Google guidelines.", "href": "mobile-apps.html#compliances" },
+        { "name": "App Store Publishing", "desc": "Seamless submission, optimization, and launch services.", "href": "mobile-apps.html#publishing" }
       ]
     },
     {
-      "group_title": "Cloud & DevOps",
-      "icon": "☁️",
+      "id": "ai-automation",
+      "icon_key": "spark",
+      "title": "AI, Data & Automation",
+      "desc": "Intelligent agents and automation workflows that eliminate manual work, scale operations, and deliver real ROI.",
+      "href": "ai-automation.html",
+      "tech_stack": ["Python", "TensorFlow", "PyTorch", "FastAPI", "LangChain", "OpenAI", "Snowflake", "Apache Spark", "Power BI"],
       "services": [
-        { "name": "Cloud Migration (AWS / Azure / GCP)", "desc": "Lift-and-shift, re-architecture, and hybrid cloud strategies." },
-        { "name": "DevOps & CI/CD Pipelines", "desc": "GitHub Actions, Jenkins, GitLab CI, ArgoCD for automated deployments." },
-        { "name": "Container Orchestration", "desc": "Docker, Kubernetes, Helm charts, and service mesh with Istio." },
-        { "name": "Infrastructure as Code", "desc": "Terraform, Pulumi, CloudFormation for reproducible infrastructure." },
-        { "name": "Monitoring & Observability", "desc": "Prometheus, Grafana, Datadog, ELK stack for real-time monitoring." },
-        { "name": "Serverless Architecture", "desc": "AWS Lambda, Cloudflare Workers, Vercel Edge Functions." }
+        { "name": "Task & Process Automation Agents", "desc": "Rule-driven agents for back-office tasks like AP matching and HR screening.", "href": "ai-automation.html#workflows" },
+        { "name": "Customer Service & Collaboration Agents", "desc": "AI that handles inquiries, retrieves internal data, and escalates intelligently.", "href": "ai-automation.html#customer-service" },
+        { "name": "Enterprise & Role-Based Agents", "desc": "Secure, governed AI deployed within your enterprise ecosystem.", "href": "ai-automation.html#enterprise-agents" },
+        { "name": "Multi-Agent Systems (MAS)", "desc": "Distributed agent networks solving complex logistics and orchestration.", "href": "ai-automation.html#mas" },
+        { "name": "AI Voice Agents", "desc": "Human-like voice agents for inbound support, outbound sales, and scheduling.", "href": "ai-automation.html#voice-agents" },
+        { "name": "Lead Generation & Scraping Bots", "desc": "Automated prospecting, web scraping, and CRM enrichment agents.", "href": "ai-automation.html#lead-gen" },
+        { "name": "Data Analytics & Visualization", "desc": "Power BI, Tableau, and Metabase dashboards with real-time insights.", "href": "data-analytics.html" },
+        { "name": "Data Engineering & ETL", "desc": "Scalable data pipelines with Airflow, Spark, dbt, and Snowflake.", "href": "data-analytics.html#etl" }
       ]
     },
     {
-      "group_title": "Design & Creative",
-      "icon": "🎨",
+      "id": "cloud-devops",
+      "icon_key": "cloud",
+      "title": "Cloud & DevOps",
+      "desc": "Modern infrastructure that scales infinitely and costs pennies when idle — from migration to monitoring.",
+      "href": "cloud-devops.html",
+      "tech_stack": ["AWS", "Google Cloud", "Azure", "Docker", "Kubernetes", "Terraform", "GitHub Actions", "Jenkins", "Prometheus", "Grafana"],
       "services": [
-        { "name": "UI/UX Design", "desc": "User research, wireframes, high-fidelity prototypes in Figma." },
-        { "name": "Brand Identity & Logo Design", "desc": "Complete brand systems — logo, typography, color palette, guidelines." },
-        { "name": "Motion Graphics & Animation", "desc": "Product demos, explainer videos, Lottie animations for web/mobile." },
-        { "name": "Presentation Design", "desc": "Investor decks, pitch presentations, and corporate slide design." },
-        { "name": "Social Media Design", "desc": "Post templates, carousels, story designs, and campaign visuals." },
-        { "name": "3D Modeling & Rendering", "desc": "Product visualization, architectural renders, and 3D assets." }
+        { "name": "Cloud Migration", "desc": "Seamless transition to AWS, Azure, or GCP — lift-and-shift or re-architecture.", "href": "cloud-devops.html#migration" },
+        { "name": "CI/CD Pipelines", "desc": "Automated testing and rapid deployments with GitHub Actions, Jenkins, and ArgoCD.", "href": "cloud-devops.html#cicd" },
+        { "name": "Serverless Architecture", "desc": "Scale infinitely and reduce costs with Lambda, Cloudflare Workers, and Vercel Edge.", "href": "cloud-devops.html#serverless" },
+        { "name": "Container Orchestration", "desc": "Docker, Kubernetes, Helm charts, and service mesh with Istio.", "href": "cloud-devops.html#containers" },
+        { "name": "Infrastructure as Code", "desc": "Terraform, Pulumi, and CloudFormation for reproducible infrastructure.", "href": "cloud-devops.html#iac" },
+        { "name": "Monitoring & Observability", "desc": "Prometheus, Grafana, Datadog, and ELK stack for real-time monitoring.", "href": "cloud-devops.html#monitoring" }
       ]
     },
     {
-      "group_title": "Digital Marketing",
-      "icon": "📈",
+      "id": "digital-marketing",
+      "icon_key": "chart-up",
+      "title": "Digital Marketing & SEO",
+      "desc": "Data-driven marketing that delivers measurable ROI — from organic visibility to paid acquisition.",
+      "href": "digital-marketing.html",
+      "tech_stack": ["Google Ads", "Meta Ads", "HubSpot", "Mailchimp", "Google Analytics", "Ahrefs", "Semrush"],
       "services": [
-        { "name": "SEO & Generative Engine Optimization", "desc": "Technical SEO, content strategy, GEO for AI-powered search visibility." },
-        { "name": "Paid Advertising (Google / Meta)", "desc": "PPC campaigns, retargeting, conversion optimization, ROAS tracking." },
-        { "name": "Social Media Marketing", "desc": "Content calendars, community management, influencer partnerships." },
-        { "name": "Email & WhatsApp Marketing", "desc": "Drip campaigns, segmentation, automation with Mailchimp / SendGrid." },
-        { "name": "Content Marketing & Copywriting", "desc": "Blog strategy, SEO content, technical writing, and thought leadership." },
-        { "name": "Marketing Automation", "desc": "HubSpot, Marketo, and custom marketing funnel automation." }
+        { "name": "Organic Visibility & Content", "desc": "SEO, content strategy, GEO for AI-powered search visibility.", "href": "digital-marketing.html#organic" },
+        { "name": "Paid Advertising", "desc": "SEM, display ads, retargeting, and ROAS tracking on Google & Meta.", "href": "digital-marketing.html#paid" },
+        { "name": "Direct Nurturing & Retention", "desc": "Email, SMS, and WhatsApp marketing — drip campaigns and segmentation.", "href": "digital-marketing.html#nurturing" },
+        { "name": "Strategy, Tech & Analytics", "desc": "Analytics, CRO, marketing automation with HubSpot and Marketo.", "href": "digital-marketing.html#strategy" }
       ]
     },
     {
-      "group_title": "Business & Enterprise",
-      "icon": "🏢",
+      "id": "crm-enterprise",
+      "icon_key": "briefcase",
+      "title": "CRM, ERP & Billing Softwares",
+      "desc": "Custom-built business platforms that replace off-the-shelf bloat — tailored to your workflows with real-time analytics.",
+      "href": "enterprise-platforms.html",
+      "tech_stack": ["Oracle NetSuite", "Microsoft Dynamics 365", "Salesforce", "Zoho CRM", "SAP", "Odoo"],
       "services": [
-        { "name": "CRM Development & Implementation", "desc": "Custom CRM platforms or Salesforce/HubSpot configuration and customization." },
-        { "name": "ERP Systems", "desc": "Inventory, billing, procurement, and supply chain management systems." },
-        { "name": "HR & Workforce Management", "desc": "HRMS, payroll, attendance, leave management, and performance tracking." },
-        { "name": "Project Management Tools", "desc": "Custom Kanban boards, sprint trackers, and resource allocation systems." },
-        { "name": "Cybersecurity & Compliance", "desc": "Penetration testing, SOC 2, GDPR, HIPAA compliance, and zero-trust." },
-        { "name": "IT Consulting & Strategy", "desc": "Tech stack audits, architecture reviews, and digital transformation roadmaps." }
+        { "name": "CRM Development & Implementation", "desc": "Custom CRM platforms or Salesforce/HubSpot configuration and customization.", "href": "enterprise-platforms.html#crm" },
+        { "name": "ERP Systems", "desc": "Inventory, billing, procurement, and supply chain management systems.", "href": "enterprise-platforms.html#erp" },
+        { "name": "HR & Workforce Management", "desc": "HRMS, payroll, attendance, leave management, and performance tracking.", "href": "enterprise-platforms.html#hrms" },
+        { "name": "Cybersecurity & Compliance", "desc": "SOC 2, GDPR, HIPAA compliance, penetration testing, and zero-trust architecture.", "href": "enterprise-platforms.html#security" }
+      ]
+    },
+    {
+      "id": "content-creation",
+      "icon_key": "palette",
+      "title": "Content Creation & Design",
+      "desc": "AI-powered content generation plus full-service creative design — from brand identity to motion graphics and UI/UX.",
+      "href": "content-creation.html",
+      "tech_stack": ["Figma", "Aftereffects", "Illustrator", "Photoshop", "Blender", "Canva", "Midjourney", "Lottie"],
+      "services": [
+        { "name": "AI Text Generation", "desc": "Automated blogs, product descriptions, and business communication.", "href": "content-creation.html#text" },
+        { "name": "AI Audio Generation", "desc": "Synthetic voiceovers, podcasts, and audio content at scale.", "href": "content-creation.html#audio" },
+        { "name": "AI Video Generation", "desc": "Text-to-video clips, product demos, and explainers.", "href": "content-creation.html#video" },
+        { "name": "AI Graphics & Visuals", "desc": "Rapid design iteration — social media, ads, and brand assets.", "href": "content-creation.html#graphics" },
+        { "name": "UI/UX Design", "desc": "User research, wireframes, high-fidelity prototypes in Figma.", "href": "ui-ux-design.html" },
+        { "name": "Brand Identity & Logo", "desc": "Complete brand systems — logo, typography, color palette, guidelines.", "href": "ui-ux-design.html#branding" },
+        { "name": "Motion Graphics & Animation", "desc": "Product demos, explainer videos, and Lottie animations.", "href": "content-creation.html#video" },
+        { "name": "Social Media Design", "desc": "Post templates, carousels, story designs, and campaign visuals.", "href": "content-creation.html#graphics" }
       ]
     }
   ],
   "guarantee": {
     "title": "Our Commitment to You",
     "items": [
-      { "icon": "🛡️", "title": "Quality Guarantee", "desc": "Every project comes with rigorous QA, code reviews, and post-launch support to ensure production-grade quality." },
-      { "icon": "⚡", "title": "On-Time Delivery", "desc": "We commit to deadlines and deliver milestones on schedule with transparent sprint-based progress updates." },
-      { "icon": "🔒", "title": "Data Security", "desc": "Enterprise-grade security practices including encryption, access controls, and compliance with SOC 2 and GDPR." },
-      { "icon": "🤝", "title": "Dedicated Support", "desc": "A dedicated project manager and engineering lead assigned to your account from day one through post-launch." }
+      { "icon_key": "shield", "title": "Quality Guarantee", "desc": "Every project comes with rigorous QA, code reviews, and post-launch support to ensure production-grade quality." },
+      { "icon_key": "bolt", "title": "On-Time Delivery", "desc": "We commit to deadlines and deliver milestones on schedule with transparent sprint-based progress updates." },
+      { "icon_key": "lock", "title": "Data Security", "desc": "Enterprise-grade security practices including encryption, access controls, and compliance with SOC 2 and GDPR." },
+      { "icon_key": "users", "title": "Dedicated Support", "desc": "A dedicated project manager and engineering lead assigned to your account from day one through post-launch." }
     ]
   },
   "cta": {

@@ -24,7 +24,7 @@
       "client": "Bhu Master",
       "description": "Built the Android & iOS apps for a real estate and construction marketplace — property listings, professional network, and material sourcing in one platform.",
       "link": "bhu-master.html",
-      "image": "/img/case-studies/bhu-master-icon.png",
+      "image": "/img/clients/bhu-master-logo.png",
       "accent": "blue"
     },
     {
@@ -87,7 +87,7 @@
         "Shriyansh Infracon",
         "Unishine Group",
         "Siddharthas Construction & Colonizer",
-        "<a href='bhu-master.html' style='color: #0EA5E9; text-decoration: underline;'>Bhu Master</a>",
+        "<a href='bhu-master.html' class='inline-link'>Bhu Master</a>",
         "Home Stories",
         "Design N Decor",
         "sdv construction"
@@ -156,7 +156,7 @@
       "color": "#ffecd2",
       "color2": "#fcb69f",
       "clients": [
-        "<a href='workezy.html' style='color: #EC4899; text-decoration: underline;'>Workezy</a>",
+        "<a href='workezy.html' class='inline-link'>Workezy</a>",
         "Maxcleano",
         "Safaiwale"
       ]

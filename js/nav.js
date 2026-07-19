@@ -113,7 +113,11 @@
                         { label: "Task & Process Automation Agents", href: "ai-automation.html#workflows", desc: "Rule-driven agents for back-office tasks" },
                         { label: "Customer Service & Collaboration Agents", href: "ai-automation.html#customer-service", desc: "Handle inquiries and retrieve internal data" },
                         { label: "Enterprise & Role-Based Agents", href: "ai-automation.html#enterprise-agents", desc: "Secure, governed AI in your ecosystem" },
-                        { label: "Multi-Agent Systems (MAS)", href: "ai-automation.html#mas", desc: "Distributed networks solving complex logistics" }
+                        { label: "Multi-Agent Systems (MAS)", href: "ai-automation.html#mas", desc: "Distributed networks solving complex logistics" },
+                        { label: "AI Voice Agents", href: "ai-automation.html#voice-agents", desc: "Human-like voice agents for support & sales" },
+                        { label: "Lead Generation & Scraping Bots", href: "ai-automation.html#lead-gen", desc: "Automated prospecting & CRM enrichment" },
+                        { label: "Data Analytics & Visualization", href: "data-analytics.html", desc: "Power BI, Tableau & real-time dashboards" },
+                        { label: "Data Engineering & ETL", href: "data-analytics.html#etl", desc: "Airflow, Spark, dbt pipelines" }
                     ],
                     miniFeature: {
                         title: "AI-First for <span class='highlight'>Business</span>",
@@ -130,7 +134,10 @@
                     subitems: [
                         { label: "Cloud Migration", href: "cloud-devops.html#migration", desc: "Seamless transition to AWS or GCP" },
                         { label: "CI/CD Pipelines", href: "cloud-devops.html#cicd", desc: "Automated testing and rapid deployments" },
-                        { label: "Serverless Architecture", href: "cloud-devops.html#serverless", desc: "Scale infinitely and reduce costs" }
+                        { label: "Serverless Architecture", href: "cloud-devops.html#serverless", desc: "Scale infinitely and reduce costs" },
+                        { label: "Container Orchestration", href: "cloud-devops.html#containers", desc: "Docker, Kubernetes & Helm charts" },
+                        { label: "Infrastructure as Code", href: "cloud-devops.html#iac", desc: "Terraform, Pulumi & CloudFormation" },
+                        { label: "Monitoring & Observability", href: "cloud-devops.html#monitoring", desc: "Prometheus, Grafana & Datadog" }
                     ],
                     miniFeature: {
                         title: "Scale Without the <span class='highlight'>Bill</span>",
@@ -160,11 +167,15 @@
                 {
                     id: "crm-enterprise",
                     label: "CRM, ERP & Billing Softwares",
-                    hasChildren: false,
+                    hasChildren: true,
                     href: "enterprise-platforms.html",
-                    featured: {
-                        emoji: "⚙️",
-                        gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+                    subitems: [
+                        { label: "CRM Development & Implementation", href: "enterprise-platforms.html#crm", desc: "Custom CRM or Salesforce/HubSpot setup" },
+                        { label: "ERP Systems", href: "enterprise-platforms.html#erp", desc: "Inventory, billing & supply chain" },
+                        { label: "HR & Workforce Management", href: "enterprise-platforms.html#hrms", desc: "HRMS, payroll & attendance" },
+                        { label: "Cybersecurity & Compliance", href: "enterprise-platforms.html#security", desc: "SOC 2, GDPR, pen testing & zero-trust" }
+                    ],
+                    miniFeature: {
                         title: "Replace <span class='highlight'>Spreadsheets</span>",
                         desc: "Custom CRMs and dashboards tailored to your workflow.",
                         ctaLabel: "Explore CRM →",
@@ -173,58 +184,26 @@
                 },
                 {
                     id: "content-creation",
-                    label: "AI Content Creation",
+                    label: "Content Creation & Design",
                     hasChildren: true,
                     href: "content-creation.html",
                     subitems: [
                         { label: "AI Text Generation", href: "content-creation.html#text", desc: "Automated communication" },
                         { label: "AI Audio Generation", href: "content-creation.html#audio", desc: "Synthetic voiceovers" },
                         { label: "AI Video Generation", href: "content-creation.html#video", desc: "Text-to-video clips" },
-                        { label: "AI Graphics & Visuals", href: "content-creation.html#graphics", desc: "Rapid design iteration" }
+                        { label: "AI Graphics & Visuals", href: "content-creation.html#graphics", desc: "Rapid design iteration" },
+                        { label: "UI/UX Design", href: "ui-ux-design.html", desc: "Research, wireframes & prototypes" },
+                        { label: "Brand Identity & Logo", href: "ui-ux-design.html#branding", desc: "Complete brand systems" },
+                        { label: "Motion Graphics", href: "content-creation.html#video", desc: "Product demos & Lottie animations" },
+                        { label: "Social Media Design", href: "content-creation.html#graphics", desc: "Templates, carousels & campaigns" }
                     ],
                     miniFeature: {
-                        title: "AI Content <span class='highlight'>Creation</span>",
-                        desc: "High-quality audio, video, text, and graphics at scale.",
-                        ctaLabel: "Explore Content Creation →",
+                        title: "Content & <span class='highlight'>Design</span>",
+                        desc: "AI-powered content plus full-service creative design.",
+                        ctaLabel: "Explore Creative →",
                         ctaHref: "content-creation.html"
                     }
                 },
-                {
-                    id: "business-communication",
-                    label: "Business Communication",
-                    hasChildren: true,
-                    href: "business-communication.html",
-                    subitems: [
-                        { label: "IVR Service", href: "business-communication.html#ivr", desc: "Interactive voice response systems" },
-                        { label: "Toll Free Number Service", href: "business-communication.html#toll-free", desc: "1800 numbers for your business" },
-                        { label: "SMS Gateway", href: "business-communication.html#sms", desc: "Bulk & transactional SMS API" },
-                        { label: "WhatsApp Business Platform", href: "business-communication.html#whatsapp", desc: "Official WhatsApp API integrations" }
-                    ],
-                    miniFeature: {
-                        title: "Seamless <span class='highlight'>Communication</span>",
-                        desc: "Engage your customers across voice, text, and WhatsApp.",
-                        ctaLabel: "Explore Communication →",
-                        ctaHref: "business-communication.html"
-                    }
-                },
-                {
-                    id: "network-connectivity",
-                    label: "Network & Connectivity",
-                    hasChildren: true,
-                    href: "network-connectivity.html",
-                    subitems: [
-                        { label: "Enterprise Wi-Fi", href: "network-connectivity.html#wifi", desc: "Secure, high-density wireless networks" },
-                        { label: "SD-WAN Solutions", href: "network-connectivity.html#sdwan", desc: "Software-defined wide area networking" },
-                        { label: "Cloud Networking", href: "network-connectivity.html#cloud", desc: "Seamless multi-cloud connectivity" },
-                        { label: "Network Security (SASE)", href: "network-connectivity.html#security", desc: "Zero-trust edge security" }
-                    ],
-                    miniFeature: {
-                        title: "Unbreakable <span class='highlight'>Connections</span>",
-                        desc: "Enterprise-grade networking built for scale and security.",
-                        ctaLabel: "Explore Networking →",
-                        ctaHref: "network-connectivity.html"
-                    }
-                }
             ]
         },
 
@@ -236,8 +215,7 @@
                     heading: "Proof",
                     items: [
                         { icon: "📊", label: "Case Studies", href: "clients.html", desc: "Real results for real businesses" },
-                        { icon: "⭐", label: "Client Reviews", href: "clients.html", desc: "What our clients say" },
-                        { icon: "💰", label: "Pricing & Engagement", href: "pricing.html", desc: "Fixed price, advance-first" }
+                        { icon: "⭐", label: "Client Reviews", href: "clients.html", desc: "What our clients say" }
                     ]
                 }
             ],
@@ -427,8 +405,11 @@
                         ${buildDropdown('whoWeHelp', navData.whoWeHelp)}
                     </li>
                     <li class="has-dropdown">
-                        <a href="clients.html" class="${['clients','client-reviews','pricing'].includes(page)?'active':''}">${navData.work.label} ${chevronDown}</a>
+                        <a href="clients.html" class="${['clients','client-reviews'].includes(page)?'active':''}">${navData.work.label} ${chevronDown}</a>
                         ${buildDropdown('work', navData.work)}
+                    </li>
+                    <li>
+                        <a href="blog.html" class="${page==='blog'?'active':''}">Blog</a>
                     </li>
                 </ul>
                 <div class="nav-actions">
@@ -662,7 +643,7 @@
         fabLogo.setAttribute('aria-label', 'Chat with us on WhatsApp');
         fabLogo.innerHTML = '<svg viewBox="0 0 32 32" width="32" height="32" fill="white"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.13 6.744 3.048 9.38L1.054 31.2l6.044-1.94a15.9 15.9 0 008.906 2.704C24.826 31.964 32 24.788 32 16.004S24.826 0 16.004 0zm9.35 22.616c-.396 1.116-1.958 2.042-3.212 2.312-.86.182-1.98.328-5.754-1.236-4.83-2.004-7.938-6.902-8.18-7.222-.232-.32-1.948-2.596-1.948-4.952s1.232-3.508 1.67-3.988c.438-.48.956-.6 1.276-.6.32 0 .636.004.914.016.294.014.688-.112 1.076.82.396.952 1.348 3.288 1.466 3.528.118.24.198.518.04.836-.16.32-.24.518-.478.8-.24.28-.504.626-.72.84-.24.24-.488.498-.21.976.28.48 1.244 2.054 2.672 3.328 1.836 1.636 3.384 2.144 3.864 2.384.48.24.76.2 1.04-.12.278-.32 1.196-1.392 1.514-1.872.318-.48.636-.396 1.076-.24.438.16 2.784 1.312 3.262 1.552.48.24.798.356.916.556.118.198.118 1.156-.278 2.272z"/></svg><div class="chat-badge">1</div>';
         document.body.appendChild(fabLogo);
-
+        
         // ── Newsletter form (real submit → /api/subscribe) ──
         var newsletterForm = document.querySelector('.newsletter-form');
         if (newsletterForm) {

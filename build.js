@@ -125,6 +125,10 @@ server.listen(PORT, async () => {
         }`;
             head.appendChild(script);
 
+            dom.window.document.querySelectorAll('.fade-in').forEach(el => {
+                el.classList.add('visible');
+            });
+
             const newVersion = Date.now();
             dom.window.document.querySelectorAll('script[src]').forEach(s => {
                 if (s.src && s.src.includes('?v=')) s.src = s.src.replace(/v=\d+/, `v=${newVersion}`);

@@ -5,7 +5,7 @@
     "subtitle": "Stop losing customers to competitors with better websites. We build affordable apps, WhatsApp automations, and digital tools that turn foot traffic into repeat revenue — starting from ₹15,000.",
     "cta": {
       "primary": { "text": "💬 Message Us on WhatsApp", "url": "https://wa.me/917905495478?text=Hi%20Trai%20Inc%2C%20I%27m%20interested%20in%20getting%20my%20business%20online." },
-      "secondary": { "text": "💰 See Pricing", "url": "pricing.html#msme" }
+      "secondary": { "text": "Scope Your Project", "url": "contact.html" }
     },
     "trust": {
       "avatars": ["CM", "JH", "TV", "BG", "+"],
@@ -61,48 +61,6 @@
         "icon_gradient": "linear-gradient(135deg,#f6d365,#fda085)",
         "title": "Local SEO & Google Business Profile",
         "desc": "Get found when customers search \"near me.\" We optimize your Google Maps listing, build local citations, and make sure your business shows up before your competitors — organically, no ads needed."
-      }
-    ]
-  },
-  "bundles": {
-    "subtitle": "MSME STARTER BUNDLES",
-    "title": "Fixed-Price Solutions for Local Businesses",
-    "tiers": [
-      {
-        "name": "The Starter Web",
-        "price": "₹15,000",
-        "desc": "Perfect for establishing your local online presence and getting found on Google Maps.",
-        "features": [
-          "5-Page Mobile-Optimized Website",
-          "Google Business Profile Setup",
-          "Basic Local SEO & Analytics",
-          "WhatsApp Floating Button"
-        ],
-        "popular": false
-      },
-      {
-        "name": "The WhatsApp Engine",
-        "price": "₹25,000",
-        "desc": "Automate your customer inquiries, bookings, and lead capture directly on WhatsApp.",
-        "features": [
-          "Automatic WhatsApp Replies",
-          "Automated Lead Capture",
-          "Automatic Customer Tracking",
-          "Broadcast Messaging Ready"
-        ],
-        "popular": true
-      },
-      {
-        "name": "Custom CRM Dashboard (Customer Tracking System)",
-        "price": "₹50,000",
-        "desc": "Ditch the spreadsheets. A custom admin panel to manage your daily operations.",
-        "features": [
-          "Lead & Sales Tracking",
-          "Inventory / Booking Manager",
-          "Staff Task Assignment",
-          "Automated Invoice Generation"
-        ],
-        "popular": false
       }
     ]
   },
