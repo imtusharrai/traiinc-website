@@ -130,7 +130,7 @@ export async function onRequestPost(context) {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                from: "Trai Inc Website <hello@traiinc.com>",
+                from: "Trai Inc <hello@traiinc.com>",
                 to: "hello@traiinc.com",
                 reply_to: email || undefined,
                 subject: isEstimator
@@ -155,8 +155,11 @@ export async function onRequestPost(context) {
                 <p style="font-size:15px;color:#333;line-height:1.6;margin:0 0 16px;">We've received your enquiry and our team will get back to you within <strong>24 hours</strong> with a detailed scope and estimate.</p>
                 ${serviceLabels ? `<p style="font-size:15px;color:#333;line-height:1.6;margin:0 0 16px;">You expressed interest in: <strong>${escapeHtml(serviceLabels)}</strong></p>` : ''}
                 ${budgetLabel && budget ? `<p style="font-size:15px;color:#333;line-height:1.6;margin:0 0 16px;">Budget range: <strong>${escapeHtml(budgetLabel)}</strong></p>` : ''}
-                <p style="font-size:15px;color:#333;line-height:1.6;margin:0 0 20px;">Need a faster response? Message us directly:</p>
-                <a href="https://wa.me/917905495478" style="display:inline-block;padding:12px 28px;background:#25D366;color:#fff;text-decoration:none;border-radius:6px;font-weight:600;font-size:15px;">Chat on WhatsApp</a>
+                <p style="font-size:15px;color:#333;line-height:1.6;margin:0 0 20px;">Want to skip the back-and-forth? Book a free 30-minute scoping call:</p>
+                <div style="margin:0 0 16px;">
+                    <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" style="display:inline-block;padding:12px 28px;background:${ACCENT};color:#fff;text-decoration:none;border-radius:6px;font-weight:600;font-size:15px;">Book a Free Call</a>
+                    <a href="https://wa.me/917905495478" style="display:inline-block;padding:12px 28px;background:#25D366;color:#fff;text-decoration:none;border-radius:6px;font-weight:600;font-size:15px;margin-left:10px;">Chat on WhatsApp</a>
+                </div>
                 <p style="font-size:15px;color:#333;line-height:1.6;margin:20px 0 0;">Best,<br><strong>The Trai Inc Team</strong></p>
                 ${emailFooter()}
             `;
@@ -170,7 +173,9 @@ export async function onRequestPost(context) {
                 body: JSON.stringify({
                     from: "Trai Inc <hello@traiinc.com>",
                     to: email,
-                    subject: "We received your message — Trai Inc",
+                    subject: serviceLabels
+                        ? `Your enquiry for ${serviceLabels.split(',')[0].trim()} — Trai Inc`
+                        : "We received your message — Trai Inc",
                     html: replyHtml
                 })
             });
