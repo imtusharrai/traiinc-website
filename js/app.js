@@ -1317,7 +1317,8 @@ function renderContact(data) {
                     <textarea id="${data.form.message.id}" name="${data.form.message.name}" placeholder="${data.form.message.placeholder}" required class="contact-field-input contact-field-textarea"></textarea>
                 </div>
 
-                <button type="submit" class="btn-primary large contact-submit-btn">${data.form.button}</button>
+                <button type="submit" id="contactSubmitBtn" class="btn-primary large contact-submit-btn">${data.form.button}</button>
+                <div id="formResult" style="display:none;margin-top:1rem;font-weight:500;"></div>
             </form>
         </div>
     </section>
