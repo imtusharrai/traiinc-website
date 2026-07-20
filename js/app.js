@@ -1312,6 +1312,25 @@ function renderContact(data) {
                     </select>
                 </div>
 
+                ${data.form.services ? `
+                <div class="contact-field">
+                    <label class="contact-field-label">${data.form.services.label}</label>
+                    <div class="contact-services-grid">
+                        ${data.form.services.groups.map(group => `
+                            <div class="contact-services-group">
+                                <span class="contact-services-group-label">${group.label}</span>
+                                ${group.options.map(opt => `
+                                    <label class="contact-service-chip">
+                                        <input type="checkbox" name="services" value="${opt.value}">
+                                        <span class="contact-chip-text">${opt.label}</span>
+                                    </label>
+                                `).join('')}
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+                ` : ''}
+
                 <div class="contact-field">
                     <label for="${data.form.message.id}" class="contact-field-label">${data.form.message.label} <span class="contact-required">*</span></label>
                     <textarea id="${data.form.message.id}" name="${data.form.message.name}" placeholder="${data.form.message.placeholder}" required class="contact-field-input contact-field-textarea"></textarea>

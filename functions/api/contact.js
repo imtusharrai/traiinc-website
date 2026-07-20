@@ -11,6 +11,7 @@ export async function onRequestPost(context) {
         const message = formData.get('message') || '';
         const serviceType = formData.get('service_type') || '';
         const needsLogin = formData.get('needs_login') || '';
+        const services = formData.getAll('services').filter(Boolean);
 
         if (!name || (!email && !phone)) {
             return new Response(JSON.stringify({ error: "Name and either email or phone are required" }), {
@@ -49,6 +50,7 @@ export async function onRequestPost(context) {
                         ${budget ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Budget</td><td style="padding:8px;border-bottom:1px solid #eee;">${escapeHtml(budget)}</td></tr>` : ''}
                         ${serviceType ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Service</td><td style="padding:8px;border-bottom:1px solid #eee;">${escapeHtml(serviceType)}</td></tr>` : ''}
                         ${needsLogin ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Needs Login</td><td style="padding:8px;border-bottom:1px solid #eee;">${escapeHtml(needsLogin)}</td></tr>` : ''}
+                        ${services.length ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;vertical-align:top;">Interested In</td><td style="padding:8px;border-bottom:1px solid #eee;">${services.map(s => escapeHtml(s.replace(/-/g, ' '))).join(', ')}</td></tr>` : ''}
                         ${message ? `<tr><td style="padding:8px;font-weight:bold;vertical-align:top;">Message</td><td style="padding:8px;white-space:pre-wrap;">${escapeHtml(message)}</td></tr>` : ''}
                     </table>
                 `
