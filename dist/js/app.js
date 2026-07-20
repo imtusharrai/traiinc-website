@@ -1566,29 +1566,7 @@ function renderClients(data) {
         }).join('')}
     </section>
 
-    <!-- ════════ LEGACY DIRECTORY ════════ -->
-    <section class="clients-categories-section content-section fade-in">
-        <div class="container">
-            <div class="section-header center mb-15">
-                <h2>And 138+ more businesses across 12+ industries.</h2>
-            </div>
-            ${data.categories.map(c => `
-            <div class="fade-in clients-category">
-                <div class="clients-category-header">
-                    <div class="clients-category-icon" style="--icon-bg: linear-gradient(135deg, ${c.color}, ${c.color2});">${c.icon}</div>
-                    <h2 class="clients-category-label">${c.label}</h2>
-                </div>
-                <div class="clients-logo-row">
-                    ${c.logoClients ? c.logoClients.map(lc => `
-                        <div class="clients-logo-chip clients-logo-chip-named">${lc.name}</div>
-                    `).join('') : ''}
-                    ${c.clients ? c.clients.map(client => `
-                        <div class="clients-logo-chip">${client}</div>
-                    `).join('') : ''}
-                </div>
-            </div>`).join('')}
-        </div>
-    </section>
+
     `;
 }
 
@@ -1882,38 +1860,6 @@ function renderMSME(data) {
             </div>
         </section>
 
-        <!-- CLIENTS -->
-        <section class="container fade-in msme-section-wide">
-            <div class="clients-heading">
-                <h2>
-                    <span class="slash-deco"><span></span><span></span><span></span></span>
-                    ${data.clients.title}
-                    <span class="slash-deco"><span></span><span></span><span></span></span>
-                </h2>
-                <p>${data.clients.subtitle}</p>
-            </div>
-
-            ${data.clients.categories.map(cat => `
-                <div class="cat-section fade-in">
-                    <div class="section-divider">
-                        <span class="cat-icon">${cat.icon}</span>
-                        <h3>${cat.title}</h3>
-                        <div class="section-divider-line"></div>
-                        <span class="client-count">${cat.count}</span>
-                    </div>
-                    <div class="logo-grid">
-                        ${cat.logos.map(l => `
-                            <div class="logo-card">
-                                <div class="logo-avatar msme-icon-dynamic" style="--icon-bg: ${l.gradient};">${l.initials}</div>
-                                <div class="logo-name">${l.name}</div>
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-            `).join('')}
-
-            <div class="msme-spacer-bottom"></div>
-        </section>
 
 
         <!-- INLINE COST ESTIMATOR -->

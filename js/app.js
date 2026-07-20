@@ -1566,29 +1566,7 @@ function renderClients(data) {
         }).join('')}
     </section>
 
-    <!-- ════════ LEGACY DIRECTORY ════════ -->
-    <section class="clients-categories-section content-section fade-in">
-        <div class="container">
-            <div class="section-header center mb-15">
-                <h2>And 138+ more businesses across 12+ industries.</h2>
-            </div>
-            ${data.categories.map(c => `
-            <div class="fade-in clients-category">
-                <div class="clients-category-header">
-                    <div class="clients-category-icon" style="--icon-bg: linear-gradient(135deg, ${c.color}, ${c.color2});">${c.icon}</div>
-                    <h2 class="clients-category-label">${c.label}</h2>
-                </div>
-                <div class="clients-logo-row">
-                    ${c.logoClients ? c.logoClients.map(lc => `
-                        <div class="clients-logo-chip clients-logo-chip-named">${lc.name}</div>
-                    `).join('') : ''}
-                    ${c.clients ? c.clients.map(client => `
-                        <div class="clients-logo-chip">${client}</div>
-                    `).join('') : ''}
-                </div>
-            </div>`).join('')}
-        </div>
-    </section>
+
     `;
 }
 
