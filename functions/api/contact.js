@@ -28,7 +28,7 @@ const SERVICE_LABELS = {
     'motion-video': 'Motion & Video'
 };
 
-const ACCENT = '#E800D1';
+const ACCENT = '#D91414';
 const LOGO_URL = 'https://traiinc.com/assets/logos/logo.png';
 
 function emailHeader(title) {
