@@ -5730,7 +5730,7 @@ body.light-mode .audience-panel[data-audience-panel="enterprise"] { --panel-ink-
 
 .audience-panel {
     display: none;
-    grid-template-columns: 0.8fr 1.2fr;
+    grid-template-columns: 1.15fr 0.85fr;
     gap: 40px;
     align-items: stretch;
     background: var(--bg-card);
@@ -5895,16 +5895,16 @@ body.light-mode .audience-panel::before { opacity: 0.05; }
     right: 16px;
     background: rgba(10, 10, 10, 0.65);
     backdrop-filter: blur(6px);
-    color: var(--text-main);
-    font-size: 0.78rem;
+    color: #ffffff;
+    font-size: 0.85rem;
     font-weight: 600;
     padding: 10px 14px;
     border-radius: var(--radius-sm);
 }
 
 @media (max-width: 1100px) {
-    .audience-panel { grid-template-columns: 1fr 1fr; }
-    .audience-panel-media { display: none; }
+    .audience-panel { grid-template-columns: 1fr; }
+    .audience-panel-right { display: none; }
 }
 @media (max-width: 900px) {
     .audience-panel.active { grid-template-columns: 1fr; padding: 32px 24px; }

@@ -552,23 +552,28 @@ function renderHome(data) {
                         <span class="audience-panel-intro-badge">${t.badge}</span>
                         <h3 class="audience-panel-title">${t.panel_title}</h3>
                         <p class="audience-panel-subtitle">${t.panel_subtitle}</p>
+                    </div>
+                    <div class="audience-solution-grid">
+                        ${t.cards.map(c => `
+                        <div class="audience-solution-card">
+                            <span class="audience-solution-icon">${audienceIcons[c.icon_key] || ''}</span>
+                            ${c.tag ? `<span class="audience-solution-tag">${c.tag}</span>` : ''}
+                            <h4 class="audience-solution-title">${c.title}</h4>
+                            <p class="audience-solution-desc">${c.desc}</p>
+                        </div>`).join('')}
+                    </div>
+                    <div style="margin-top: 40px;">
                         <a href="${t.cta_href}" class="audience-panel-cta">${t.cta_text} →</a>
                     </div>
-                    ${t.image ? `
-                    <div class="audience-panel-media" style="margin-top: 40px;">
+                </div>
+                ${t.image ? `
+                <div class="audience-panel-right">
+                    <div class="audience-panel-media">
                         <img src="${t.image}" alt="${t.image_alt || ''}" loading="lazy" onerror="this.parentElement.style.display='none'" />
                         ${t.image_caption ? `<span class="audience-panel-media-caption">${t.image_caption}</span>` : ''}
-                    </div>` : ''}
-                </div>
-                <div class="audience-solution-grid">
-                    ${t.cards.map(c => `
-                    <div class="audience-solution-card">
-                        <span class="audience-solution-icon">${audienceIcons[c.icon_key] || ''}</span>
-                        ${c.tag ? `<span class="audience-solution-tag">${c.tag}</span>` : ''}
-                        <h4 class="audience-solution-title">${c.title}</h4>
-                        <p class="audience-solution-desc">${c.desc}</p>
-                    </div>`).join('')}
-                </div>
+                    </div>
+                </div>` : ''}
+
             </div>`).join('')}
         </div>
     </section>
