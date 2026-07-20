@@ -31,8 +31,13 @@ const SERVICE_LABELS = {
 const ACCENT = '#D91414';
 const LOGO_URL = 'https://traiinc.com/assets/logos/logo.png';
 
-function emailHeader(title) {
+function preheader(text) {
+    return `<div style="display:none;font-size:1px;color:#ffffff;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">${text}${'&#847; '.repeat(30)}</div>`;
+}
+
+function emailHeader(title, preheaderText) {
     return `
+    ${preheaderText ? preheader(preheaderText) : ''}
     <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:600px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #eee;">
         <div style="background:#0a0a0a;padding:24px 32px;text-align:center;">
             <img src="${LOGO_URL}" alt="Trai Inc" style="height:36px;display:inline-block;" />
@@ -112,7 +117,10 @@ export async function onRequestPost(context) {
         rows.push(tableRow('Submitted', timestamp, true));
 
         const internalHtml = `
-            ${emailHeader(isEstimator ? '📊 MSME Cost Estimate Request' : '📩 New Enquiry')}
+            ${emailHeader(
+                isEstimator ? '📊 MSME Cost Estimate Request' : '📩 New Enquiry',
+                `${name}${company ? ` from ${company}` : ''} — ${serviceLabels || 'General enquiry'}${budgetLabel ? ` · Budget: ${budgetLabel}` : ''}`
+            )}
             <table style="border-collapse:collapse;width:100%;background:#fafafa;border-radius:8px;overflow:hidden;">
                 ${rows.join('')}
             </table>
@@ -150,7 +158,10 @@ export async function onRequestPost(context) {
 
         if (email) {
             const replyHtml = `
-                ${emailHeader('Thanks for reaching out!')}
+                ${emailHeader(
+                    'Thanks for reaching out!',
+                    `Hi ${name}, we've received your enquiry${serviceLabels ? ` for ${serviceLabels}` : ''}. We'll respond within 24 hours.`
+                )}
                 <p style="font-size:15px;color:#333;line-height:1.6;margin:0 0 16px;">Hi ${escapeHtml(name)},</p>
                 <p style="font-size:15px;color:#333;line-height:1.6;margin:0 0 16px;">We've received your enquiry and our team will get back to you within <strong>24 hours</strong> with a detailed scope and estimate.</p>
                 ${serviceLabels ? `<p style="font-size:15px;color:#333;line-height:1.6;margin:0 0 16px;">You expressed interest in: <strong>${escapeHtml(serviceLabels)}</strong></p>` : ''}
