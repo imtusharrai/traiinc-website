@@ -12,7 +12,7 @@ if (!fs.existsSync(distDir)) fs.mkdirSync(distDir);
 
 const skipEntries = new Set([
     '.git', '.github', '.agents', '.claude', '.gitignore', '.DS_Store',
-    'node_modules', 'dist',
+    'node_modules', 'dist', 'functions',
     'build.js', 'package.json', 'package-lock.json',
     'screenshots', 'docs', 'CLAUDE.md', 'llms.txt'
 ]);
