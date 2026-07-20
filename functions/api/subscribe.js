@@ -26,7 +26,7 @@ export async function onRequestPost(context) {
                 html: `
                     <p>Hi there,</p>
                     <p>Here is the PDF you requested. Start with Point #3 (Database Indexing)—it's where 80% of startups lose their server money.</p>
-                    <p><a href="https://www.traiinc.com/assets/Lead_Magnet_Audit.pdf" style="display:inline-block;padding:10px 20px;background:#E800D1;color:white;text-decoration:none;border-radius:5px;font-weight:bold;">Download the 10-Point Checklist</a></p>
+                    <p><a href="https://www.traiinc.com/assets/lead-magnets/Lead_Magnet_Audit.pdf" style="display:inline-block;padding:10px 20px;background:#E800D1;color:white;text-decoration:none;border-radius:5px;font-weight:bold;">Download the 10-Point Checklist</a></p>
                     <p>Reply to this email if you have questions about your specific stack.</p>
                     <p>Best,<br>The Trai Inc Team</p>
                 `
