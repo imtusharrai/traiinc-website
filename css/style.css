@@ -4214,6 +4214,15 @@ body.light-mode .nav-l3-link:hover {
 .contact-field-input::placeholder { color: var(--text-tertiary); }
 .contact-field-select { appearance: none; cursor: pointer; }
 .contact-field-textarea { min-height: 140px; resize: vertical; line-height: 1.6; }
+.contact-services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.contact-services-group { display: flex; flex-wrap: wrap; gap: 8px; }
+.contact-services-group-label { width: 100%; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 2px; }
+.contact-service-chip { cursor: pointer; }
+.contact-service-chip input { display: none; }
+.contact-chip-text { display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; border: 1px solid var(--border-light); color: var(--text-muted); transition: all 0.2s ease; }
+.contact-chip-text:hover { border-color: var(--accent-color); color: var(--text-main); }
+.contact-service-chip input:checked + .contact-chip-text { background: var(--accent-color); color: #fff; border-color: var(--accent-color); }
+@media (max-width: 600px) { .contact-services-grid { grid-template-columns: 1fr; } }
 .contact-submit-btn { width: 100%; justify-content: center; margin-top: 10px; }
 
 .contact-map-section { margin: 0 24px 100px; }

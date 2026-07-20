@@ -37,6 +37,51 @@
         { "value": "10l-plus", "label": "₹10L+" }
       ]
     },
+    "services": {
+      "id": "contact-services",
+      "name": "services",
+      "label": "Services You're Interested In",
+      "groups": [
+        {
+          "label": "Software Development",
+          "options": [
+            { "value": "custom-software", "label": "Custom Software Development" },
+            { "value": "web-development", "label": "Web Development" },
+            { "value": "mobile-apps", "label": "Mobile App Development" },
+            { "value": "flutter-app-development", "label": "Flutter App Development" },
+            { "value": "ecommerce-development", "label": "E-Commerce Development" },
+            { "value": "custom-crm-development", "label": "Custom CRM Development" },
+            { "value": "wordpress-cms-development", "label": "WordPress & CMS" }
+          ]
+        },
+        {
+          "label": "AI & Data",
+          "options": [
+            { "value": "ai-automation", "label": "AI & Automation" },
+            { "value": "data-analytics", "label": "Data & Analytics" },
+            { "value": "content-creation", "label": "AI Content Creation" },
+            { "value": "workflow-automation", "label": "Workflow Automation" }
+          ]
+        },
+        {
+          "label": "Infrastructure & Security",
+          "options": [
+            { "value": "cloud-devops", "label": "Cloud & DevOps" },
+            { "value": "cybersecurity", "label": "Cybersecurity" },
+            { "value": "enterprise-platforms", "label": "Enterprise Platforms" }
+          ]
+        },
+        {
+          "label": "Marketing & Design",
+          "options": [
+            { "value": "digital-marketing", "label": "Digital Marketing" },
+            { "value": "ui-ux-design", "label": "UI/UX Design" },
+            { "value": "lead-gen-scraping", "label": "Lead Gen & Scraping" },
+            { "value": "motion-video", "label": "Motion & Video" }
+          ]
+        }
+      ]
+    },
     "message": {
       "id": "contact-message",
       "name": "message",
