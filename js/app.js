@@ -355,16 +355,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             const contactFormEl = document.getElementById('contactForm');
             if (contactFormEl) {
                 contactFormEl.addEventListener('submit', async function(e) {
-                    const budgetSelect = document.getElementById('contact-budget');
-                    if (budgetSelect && budgetSelect.value === 'under-50k') {
-                        e.preventDefault();
-                        const name = document.getElementById('contact-name').value || '';
-                        const msg = document.getElementById('contact-message').value || '';
-                        const text = encodeURIComponent(`Hi Trai Inc, my name is ${name}. I'm looking for a digital solution under ₹50K. \n\nDetails: ${msg}`);
-                        window.open(`https://wa.me/917905495478?text=${text}`, '_blank');
-                        return;
-                    }
-
                     e.preventDefault();
                     const btn = document.getElementById('contactSubmitBtn');
                     const result = document.getElementById('formResult');
