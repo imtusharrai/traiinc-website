@@ -10,11 +10,20 @@ const distDir = path.join(rootDir, 'dist');
 
 if (!fs.existsSync(distDir)) fs.mkdirSync(distDir);
 
+const skipEntries = new Set([
+    '.git', '.github', '.agents', '.claude', '.gitignore', '.DS_Store',
+    'node_modules', 'dist',
+    'build.js', 'package.json', 'package-lock.json',
+    'screenshots', 'docs', 'CLAUDE.md', 'llms.txt'
+]);
+const skipExtensions = new Set(['.py', '.patch', '.pdf', '.md', '.sh']);
+
 function copyDirectory(src, dest) {
     if (!fs.existsSync(dest)) fs.mkdirSync(dest);
     const entries = fs.readdirSync(src, { withFileTypes: true });
     for (let entry of entries) {
-        if (['.git', 'node_modules', 'dist', 'build.js', 'package.json', 'package-lock.json'].includes(entry.name)) continue;
+        if (skipEntries.has(entry.name)) continue;
+        if (!entry.isDirectory() && skipExtensions.has(path.extname(entry.name).toLowerCase())) continue;
         const srcPath = path.join(src, entry.name);
         const destPath = path.join(dest, entry.name);
         if (entry.isDirectory()) copyDirectory(srcPath, destPath);
