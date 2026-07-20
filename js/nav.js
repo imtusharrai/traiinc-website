@@ -207,27 +207,6 @@
             ]
         },
 
-        work: {
-            label: "Case Studies",
-            type: "flat",
-            cols: [
-                {
-                    heading: "Proof",
-                    items: [
-                        { icon: "📊", label: "Case Studies", href: "clients.html", desc: "Real results for real businesses" },
-                        { icon: "⭐", label: "Client Reviews", href: "clients.html", desc: "What our clients say" }
-                    ]
-                }
-            ],
-            featured: {
-                title: "Proven Results",
-                desc: "See how we have helped 138+ businesses transform their operations.",
-                stat: "138+ Projects Delivered",
-                ctaLabel: "Book a Free Consultation →",
-                ctaHref: "https://calendar.app.google/PUsxADQBnpQsTrDbA"
-            }
-        },
-
         whoWeAre: {
             label: "Company",
             type: "flat",
@@ -237,6 +216,7 @@
                     items: [
                         { icon: "ℹ️", label: "About Us", href: "about.html", desc: "Our story & mission" },
                         { icon: "👥", label: "Our Team", href: "about.html#team", desc: "Meet the leadership" },
+                        { icon: "📊", label: "Case Studies", href: "clients.html", desc: "Real results for real businesses" },
                         { icon: "💼", label: "Careers", href: "careers.html", desc: "Join the team" }
                     ]
                 },
@@ -403,10 +383,6 @@
                     <li class="has-dropdown">
                         <a href="industries.html" class="${['industries','msmes','startups','smb','enterprise'].includes(page)?'active':''}">${navData.whoWeHelp.label} ${chevronDown}</a>
                         ${buildDropdown('whoWeHelp', navData.whoWeHelp)}
-                    </li>
-                    <li class="has-dropdown">
-                        <a href="clients.html" class="${['clients','client-reviews'].includes(page)?'active':''}">${navData.work.label} ${chevronDown}</a>
-                        ${buildDropdown('work', navData.work)}
                     </li>
                     <li>
                         <a href="blog.html" class="${page==='blog'?'active':''}">Blog</a>
