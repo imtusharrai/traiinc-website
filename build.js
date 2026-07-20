@@ -18,15 +18,15 @@ const skipEntries = new Set([
 ]);
 const skipExtensions = new Set(['.py', '.patch', '.pdf', '.md', '.sh']);
 
-function copyDirectory(src, dest) {
+function copyDirectory(src, dest, isRoot) {
     if (!fs.existsSync(dest)) fs.mkdirSync(dest);
     const entries = fs.readdirSync(src, { withFileTypes: true });
     for (let entry of entries) {
         if (skipEntries.has(entry.name)) continue;
-        if (!entry.isDirectory() && skipExtensions.has(path.extname(entry.name).toLowerCase())) continue;
+        if (isRoot && !entry.isDirectory() && skipExtensions.has(path.extname(entry.name).toLowerCase())) continue;
         const srcPath = path.join(src, entry.name);
         const destPath = path.join(dest, entry.name);
-        if (entry.isDirectory()) copyDirectory(srcPath, destPath);
+        if (entry.isDirectory()) copyDirectory(srcPath, destPath, false);
         else if (!entry.name.endsWith('.html') || entry.name === '404.html') {
             fs.copyFileSync(srcPath, destPath);
         }
@@ -34,7 +34,7 @@ function copyDirectory(src, dest) {
 }
 
 console.log("Copying static assets to dist...");
-copyDirectory(rootDir, distDir);
+copyDirectory(rootDir, distDir, true);
 
 ['robots.txt', '_redirects'].forEach(file => {
     if (fs.existsSync(path.join(rootDir, file))) {

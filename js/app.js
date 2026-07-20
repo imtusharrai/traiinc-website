@@ -374,18 +374,18 @@ document.addEventListener("DOMContentLoaded", async () => {
                     try {
                         const response = await fetch(contactFormEl.action, {
                             method: 'POST',
-                            body: new FormData(contactFormEl),
-                            headers: { 'Accept': 'application/json' }
+                            body: new FormData(contactFormEl)
                         });
                         if (response.ok) {
                             result.style.display = 'block';
                             result.style.color = 'var(--neon-green)';
-                            result.innerHTML = '\u2705 Message sent successfully! We\'ll get back within 24 hours.';
+                            result.innerHTML = '\u2705 Message sent! We\'ll get back within 24 hours. Check your inbox for a confirmation.';
                             contactFormEl.reset();
                         } else {
+                            const data = await response.json().catch(() => ({}));
                             result.style.display = 'block';
                             result.style.color = 'var(--accent-color)';
-                            result.textContent = 'Something went wrong. Please try again.';
+                            result.textContent = data.error || 'Something went wrong. Please try again.';
                         }
                     } catch (err) {
                         result.style.display = 'block';
@@ -1294,9 +1294,7 @@ function renderContact(data) {
                 <h3 class="contact-form-title">${data.form.title}</h3>
                 <p class="contact-form-note">${data.form.note}</p>
             </div>
-            <form id="contactForm" action="https://formsubmit.co/hello@traiinc.com" method="POST" class="contact-form">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="https://traiinc.com/contact.html?success=true">
+            <form id="contactForm" action="/api/contact" method="POST" class="contact-form">
 
                 <div class="contact-form-row">
                     ${data.form.fields.slice(0, 2).map(f => `
@@ -1884,12 +1882,7 @@ function renderMSME(data) {
                         </div>
                     </div>
                     <div>
-                        <form id="estimatorForm" class="estimator-form" action="https://formsubmit.co/hello@traiinc.com" method="POST">
-                            <input type="hidden" name="_subject" value="New MSME Cost Estimate from TraiInc.com">
-                            <input type="hidden" name="_captcha" value="false">
-                            <input type="hidden" name="_template" value="table">
-                            <input type="hidden" name="_next" value="https://traiinc.com/msmes.html#estimator">
-                            <input type="text" name="_honey" class="msme-honeypot">
+                        <form id="estimatorForm" class="estimator-form" action="/api/contact" method="POST">
 
                             <label>What do you need built?</label>
                             <select id="calcType" name="service_type" required>
