@@ -577,7 +577,7 @@
                     <li><a href="our-development-process.html">How We Work</a></li>
                 </ul>
                 <h4 style="margin-top: 24px;">Location</h4>
-                <p>Tower B-2, DLF MyPad,<br>Opposite Hyatt Regency, Vibhuti Khand,<br>Gomti Nagar, Lucknow, UP 226010</p>
+                <p>B-2, 11th Floor, DLF MyPad,<br>Opposite Hyatt Regency, Vibhuti Khand,<br>Gomti Nagar, Lucknow, UP 226010</p>
                 <h4 class="footer-hours-heading">Hours</h4>
                 <p>Mon–Sat: 10am – 7pm IST<br>Sun: By appointment</p>
             </div>

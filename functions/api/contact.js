@@ -75,7 +75,7 @@ function emailFooter() {
     return `
         </div>
         <div style="background:#f9f9f9;padding:20px 32px;border-top:1px solid #eee;text-align:center;font-size:13px;color:#888;">
-            <p style="margin:0 0 8px;">Trai Inc &middot; Tower B-2, DLF MyPad, Gomti Nagar, Lucknow 226010</p>
+            <p style="margin:0 0 8px;">Trai Inc &middot; B-2, 11th Floor, DLF MyPad, Gomti Nagar, Lucknow 226010</p>
             <p style="margin:0;">
                 <a href="https://traiinc.com" style="color:${ACCENT};text-decoration:none;">Website</a> &middot;
                 <a href="https://www.linkedin.com/company/trai-inc" style="color:${ACCENT};text-decoration:none;">LinkedIn</a> &middot;
