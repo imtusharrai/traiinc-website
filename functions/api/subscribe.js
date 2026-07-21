@@ -1,5 +1,5 @@
 const ACCENT = '#D91414';
-const LOGO_URL = 'https://traiinc.com/assets/logos/logo.png';
+const LOGO_URL = 'https://traiinc.com/assets/logos/logo_white.png';
 
 function preheader(text) {
     return `<div style="display:none;font-size:1px;color:#ffffff;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">${text}${'&#847; '.repeat(30)}</div>`;
@@ -23,7 +23,7 @@ export async function onRequestPost(context) {
             ${preheader('Your 10-Point Tech Audit Checklist is ready. Start with Point #3 — it saves 80% of startups their server costs.')}
             <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:600px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #eee;">
                 <div style="background:#D91414;background-image:linear-gradient(135deg,#c400b0 0%,#D91414 50%,#e6a100 100%);padding:24px 32px;text-align:center;">
-                    <img src="${LOGO_URL}" alt="Trai Inc" style="height:36px;display:inline-block;" />
+                    <img src="${LOGO_URL}" alt="Trai Inc" style="height:40px;width:40px;display:inline-block;" />
                 </div>
                 <div style="padding:32px;">
                     <h2 style="margin:0 0 20px;font-size:20px;color:#111;">Your checklist is ready!</h2>
