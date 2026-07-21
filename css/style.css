@@ -1726,6 +1726,7 @@ body.light-mode .tech-featured { border-color: var(--border-subtle); }
         transform: rotate(180deg);
     }
     .nav-actions .btn-primary { display: none; }
+    .full-menu-btn { display: flex; }
     .mobile-menu-btn {
         display: flex !important;
         align-items: center;
@@ -3420,7 +3421,7 @@ body.light-mode .full-menu-btn:hover { background: var(--border-light); }
     background: transparent;
     border: none;
     color: var(--text-main);
-    display: flex;
+    display: none;
     align-items: center;
     gap: 6px;
     font-weight: 600;
@@ -4512,17 +4513,15 @@ body.light-mode .nav-l3-link:hover {
     animation: contactMeshDrift 14s ease-in-out infinite alternate;
 }
 .solutions-header-title {
-    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-size: clamp(3rem, 6vw, 5.2rem);
     margin-bottom: 24px;
     line-height: 1.1;
     font-family: var(--font-heading);
     font-weight: 900;
     letter-spacing: -0.03em;
-    background: var(--brand-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--text-main);
 }
+
 .solutions-header-desc { color: var(--text-muted); font-size: 1.3rem; max-width: 700px; margin: 0 auto; line-height: 1.6; }
 .solutions-cat-link { margin-top: 20px; display: inline-flex; }
 /* ── Tech Stack Pills ── */
@@ -4960,6 +4959,7 @@ body.light-mode .blog-tag {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-shadow: none;
     filter: drop-shadow(0 0 30px var(--accent-glow));
 }
 

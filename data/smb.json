@@ -1,7 +1,7 @@
 {
   "hero": {
     "page_label": "📈 Systems That Scale With You",
-    "title": "You've outgrown spreadsheets.<br>Now <span class='gradient-word'>what?</span>",
+    "title": "You've outgrown spreadsheets<br>Now <em class=\"hero-cosmos-ai\">what?</em>",
     "subtitle": "Custom CRMs, workflow automation, and business dashboards that replace the patchwork of tools holding your operations together — built to integrate with what you already use. Typically ₹3L-₹5L, fixed price, quoted upfront.",
     "accent_colors": {
       "primary": "#a1c4fd",

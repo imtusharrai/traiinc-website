@@ -389,7 +389,7 @@
                     </li>
                 </ul>
                 <div class="nav-actions">
-                    <button class="full-menu-btn hide-on-mobile" id="full-menu-btn" aria-label="Open Full Menu">
+                    <button class="full-menu-btn" id="full-menu-btn" aria-label="Open Full Menu">
                         <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"/></svg>
                         <span class="full-menu-label">Menu</span>
                     </button>

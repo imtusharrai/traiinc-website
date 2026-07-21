@@ -1,7 +1,7 @@
 {
   "hero": {
     "mini_title": "INDUSTRY EXPERTISE",
-    "title": "Industries We <span class=\"highlight-text\">Transform</span>",
+    "title": "Industries We <em class=\"hero-cosmos-ai\">Transform</em>",
     "description": "We don't just build software; we build industry-specific competitive advantages. From highly regulated healthcare systems to high-frequency fintech platforms."
   },
   "stats": [

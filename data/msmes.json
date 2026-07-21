@@ -1,7 +1,7 @@
 {
   "hero": {
     "badge": "🏪 Built for Local Businesses",
-    "title": "Your Customers Are Online.<br>Is Your <span class=\"gradient-word\">Business?</span>",
+    "title": "Your Customers Are Online<br>Is Your <em class=\"hero-cosmos-ai\">Business?</em>",
     "subtitle": "Stop losing customers to competitors with better websites. We build affordable apps, WhatsApp automations, and digital tools that turn foot traffic into repeat revenue — starting from ₹15,000.",
     "cta": {
       "primary": { "text": "💬 Message Us on WhatsApp", "url": "https://wa.me/917905495478?text=Hi%20Trai%20Inc%2C%20I%27m%20interested%20in%20getting%20my%20business%20online." },

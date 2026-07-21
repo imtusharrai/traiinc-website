@@ -1,7 +1,7 @@
 {
   "hero": {
     "badge": "Let's Build Together",
-    "title": "Have a project<br>in mind?<br>Let's <span class=\"gradient-text-warm\">talk</span>.",
+    "title": "Have a project<br>in mind?<br>Let's <em class=\"hero-cosmos-ai\">talk</em>",
     "description": "Whether you need an MVP, a custom CRM, or a full digital transformation — we are ready to discuss your requirements and provide a fixed-price quote within 48 hours."
   },
   "info": {
