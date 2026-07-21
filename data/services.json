@@ -2254,8 +2254,8 @@
     "cta": {
       "title": "Ready to build your distribution engine?",
       "description": "Stop chasing transactional metrics. Let's engineer a mobile app that builds long-term trust and retains your customers.",
-      "button_text": "Book a Free Consultation",
-      "primary_href": "https://calendar.app.google/PUsxADQBnpQsTrDbA",
+      "button_text": "Get in Touch",
+      "primary_href": "contact.html",
       "secondary_text": "💬 Message on WhatsApp",
       "secondary_href": "https://wa.me/917905495478?text=Hi%20Trai%20Inc%2C%20I%20want%20to%20build%20a%20mobile%20app."
     }
