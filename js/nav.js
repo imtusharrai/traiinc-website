@@ -367,7 +367,7 @@
 
         const navHTML = `
             <div class="nav-container">
-                <a href="index.html" class="logo">TRAI</a>
+                <a href="index.html" class="logo"><img src="assets/logos/logo_gradient.png" alt="Trai Inc" class="nav-logo-img"></a>
                 <ul class="nav-links" id="nav-links">
                     <li class="has-dropdown">
                         <a href="about.html" class="${['about','careers','partner','incubation','contact'].includes(page)?'active':''}">${navData.whoWeAre.label} ${chevronDown}</a>
