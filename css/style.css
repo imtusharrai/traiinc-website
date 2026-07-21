@@ -51,6 +51,8 @@ body.light-mode {
     --neon-cyan: #0099BB;
     --color-whatsapp: #25D366;
     --color-error: #E53E3E;
+    --color-success: #059669;
+    --color-danger: #DC2626;
 
     /* ── Chat ── */
     --chat-bg: rgba(255, 255, 255, 0.92);
@@ -315,8 +317,12 @@ section {
 .nav-logo-img {
     height: 32px;
     width: auto;
-    display: block;
 }
+
+.nav-logo-dark { display: block; }
+.nav-logo-light { display: none; }
+body.light-mode .nav-logo-dark { display: none; }
+body.light-mode .nav-logo-light { display: block; }
 
 .logo:hover {
     transform: translateY(-2px);
@@ -2582,6 +2588,10 @@ body.light-mode .tech-featured { border-color: var(--border-subtle); }
             border-radius: 16px;
             text-align: center;
         }
+        body.light-mode .estimator-result {
+            background: linear-gradient(135deg, rgba(217, 20, 20, 0.06), rgba(230, 161, 0, 0.06));
+            border-color: var(--border-light);
+        }
         .estimator-result h3 {
             font-family: var(--font-heading);
             font-size: 2rem;
@@ -4707,6 +4717,9 @@ body.light-mode .tech-logo-si {
     margin-bottom: 16px;
     width: fit-content;
 }
+body.light-mode .blog-tag {
+    filter: saturate(0.8) brightness(0.7);
+}
 .blog-featured-body h2 {
     font-family: var(--font-heading);
     font-size: 1.7rem;
@@ -5646,8 +5659,8 @@ body.light-mode .svc-banner-card-desc {
     justify-content: center;
     border-top: 4px solid var(--card-accent) !important;
     padding: 40px;
-    background: #0f1218 !important;
-    border: 1px solid #1f2229;
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-light);
     border-radius: 20px;
     box-shadow: var(--shadow-lg);
 }
@@ -5655,7 +5668,7 @@ body.light-mode .svc-banner-card-desc {
     color: var(--text-main) !important;
 }
 .proof-card .home-card-body {
-    color: #a0a8b5 !important;
+    color: var(--text-muted) !important;
 }
 .proof-metric-wrap { margin-bottom: 24px; }
 .proof-metric-huge { 
