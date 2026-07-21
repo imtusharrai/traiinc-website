@@ -1371,7 +1371,7 @@ function renderContact(data) {
                     <div class="contact-location-pin">${audienceIcons.pin}</div>
                     <div class="contact-location-info">
                         <h3 class="contact-location-title">Office</h3>
-                        <p class="contact-location-addr">Tower B-2, DLF MyPad,<br>Opposite Hyatt Regency, Vibhuti Khand,<br>Gomti Nagar, Lucknow, UP 226010</p>
+                        <p class="contact-location-addr">B-2, 11th Floor, DLF MyPad,<br>Opposite Hyatt Regency, Vibhuti Khand,<br>Gomti Nagar, Lucknow, UP 226010</p>
                         <div class="contact-location-meta">
                             <span class="contact-location-badge"><span class="contact-badge-icon">${audienceIcons.clock}</span> Mon–Sat, 10am–7pm IST</span>
                             <span class="contact-location-badge"><span class="contact-badge-icon">${audienceIcons.map}</span> In-person meetings available</span>
