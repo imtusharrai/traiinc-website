@@ -43,41 +43,80 @@
       "label": "Services You're Interested In",
       "groups": [
         {
-          "label": "Software Development",
+          "label": "Custom Software & Web",
           "options": [
-            { "value": "custom-software", "label": "Custom Software Development" },
-            { "value": "web-development", "label": "Web Development" },
-            { "value": "mobile-apps", "label": "Mobile App Development" },
-            { "value": "flutter-app-development", "label": "Flutter App Development" },
-            { "value": "ecommerce-development", "label": "E-Commerce Development" },
-            { "value": "custom-crm-development", "label": "Custom CRM Development" },
-            { "value": "wordpress-cms-development", "label": "WordPress & CMS" }
+            { "value": "custom-website-design", "label": "Custom Website Design" },
+            { "value": "ecommerce-development", "label": "E-Commerce Application" },
+            { "value": "wordpress-cms-development", "label": "CMS Development" },
+            { "value": "web-applications", "label": "Web Applications" },
+            { "value": "saas-platforms", "label": "SaaS Platforms" },
+            { "value": "enterprise-software", "label": "Enterprise Software" },
+            { "value": "system-integration", "label": "System Integration" },
+            { "value": "api-development", "label": "API Development" }
           ]
         },
         {
-          "label": "AI & Data",
+          "label": "Application Development",
           "options": [
-            { "value": "ai-automation", "label": "AI & Automation" },
-            { "value": "data-analytics", "label": "Data & Analytics" },
-            { "value": "content-creation", "label": "AI Content Creation" },
-            { "value": "workflow-automation", "label": "Workflow Automation" }
+            { "value": "ios-android-native", "label": "iOS & Android Native" },
+            { "value": "flutter-app-development", "label": "Cross-Platform (Flutter)" },
+            { "value": "desktop-applications", "label": "Desktop Applications" },
+            { "value": "app-store-publishing", "label": "App Store Publishing" }
           ]
         },
         {
-          "label": "Infrastructure & Security",
+          "label": "AI, Data & Automation",
           "options": [
-            { "value": "cloud-devops", "label": "Cloud & DevOps" },
-            { "value": "cybersecurity", "label": "Cybersecurity" },
-            { "value": "enterprise-platforms", "label": "Enterprise Platforms" }
+            { "value": "task-automation-agents", "label": "Task & Process Automation" },
+            { "value": "customer-service-agents", "label": "Customer Service Agents" },
+            { "value": "enterprise-agents", "label": "Enterprise AI Agents" },
+            { "value": "multi-agent-systems", "label": "Multi-Agent Systems" },
+            { "value": "ai-voice-agents", "label": "AI Voice Agents" },
+            { "value": "lead-gen-scraping", "label": "Lead Gen & Scraping Bots" },
+            { "value": "data-analytics", "label": "Data Analytics & Visualization" },
+            { "value": "data-engineering", "label": "Data Engineering & ETL" }
           ]
         },
         {
-          "label": "Marketing & Design",
+          "label": "Cloud & DevOps",
           "options": [
-            { "value": "digital-marketing", "label": "Digital Marketing" },
+            { "value": "cloud-migration", "label": "Cloud Migration" },
+            { "value": "cicd-pipelines", "label": "CI/CD Pipelines" },
+            { "value": "serverless-architecture", "label": "Serverless Architecture" },
+            { "value": "container-orchestration", "label": "Container Orchestration" },
+            { "value": "infrastructure-as-code", "label": "Infrastructure as Code" },
+            { "value": "monitoring-observability", "label": "Monitoring & Observability" }
+          ]
+        },
+        {
+          "label": "Digital Marketing & SEO",
+          "options": [
+            { "value": "organic-seo-content", "label": "Organic Visibility & Content" },
+            { "value": "paid-advertising", "label": "Paid Advertising" },
+            { "value": "nurturing-retention", "label": "Nurturing & Retention" },
+            { "value": "marketing-analytics", "label": "Strategy, Tech & Analytics" }
+          ]
+        },
+        {
+          "label": "CRM, ERP & Billing",
+          "options": [
+            { "value": "custom-crm-development", "label": "CRM Development" },
+            { "value": "erp-systems", "label": "ERP Systems" },
+            { "value": "hr-workforce-management", "label": "HR & Workforce Management" },
+            { "value": "cybersecurity-compliance", "label": "Cybersecurity & Compliance" }
+          ]
+        },
+        {
+          "label": "Content Creation & Design",
+          "options": [
+            { "value": "ai-text-generation", "label": "AI Text Generation" },
+            { "value": "ai-audio-generation", "label": "AI Audio Generation" },
+            { "value": "ai-video-generation", "label": "AI Video Generation" },
+            { "value": "ai-graphics-visuals", "label": "AI Graphics & Visuals" },
             { "value": "ui-ux-design", "label": "UI/UX Design" },
-            { "value": "lead-gen-scraping", "label": "Lead Gen & Scraping" },
-            { "value": "motion-video", "label": "Motion & Video" }
+            { "value": "brand-identity", "label": "Brand Identity & Logo" },
+            { "value": "motion-graphics", "label": "Motion Graphics & Animation" },
+            { "value": "social-media-design", "label": "Social Media Design" }
           ]
         }
       ]
