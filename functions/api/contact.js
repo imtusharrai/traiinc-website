@@ -39,7 +39,7 @@ function emailHeader(title, preheaderText) {
     return `
     ${preheaderText ? preheader(preheaderText) : ''}
     <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:600px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #eee;">
-        <div style="background:#0a0a0a;padding:24px 32px;text-align:center;">
+        <div style="background:#D91414;background-image:linear-gradient(135deg,#c400b0 0%,#D91414 50%,#e6a100 100%);padding:24px 32px;text-align:center;">
             <img src="${LOGO_URL}" alt="Trai Inc" style="height:36px;display:inline-block;" />
         </div>
         <div style="padding:32px;">
