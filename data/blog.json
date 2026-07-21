@@ -1,7 +1,7 @@
 {
   "hero": {
     "mini_title": "Trai Inc Blog",
-    "title": "Insights for the <span class=\"highlight-text\">Modern Business</span>",
+    "title": "Insights for the <em class=\"hero-cosmos-ai\">Modern Business</em>",
     "description": "Cloud, AI, digital marketing, and enterprise tech — practical knowledge to help your business grow faster."
   },
   "filters": ["All Posts", "Cloud & DevOps", "AI & Automation", "Digital Marketing", "Small Business", "Cybersecurity"],

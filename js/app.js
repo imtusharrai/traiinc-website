@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             <header class="hero case-study-hero section-pad-lg">
                 <div class="container hero-content center">
                     <span class="mini-title mb-4 inline-block">CASE STUDIES</span>
-                    <h1 class="hero-title text-6xl mb-4">Engineering that solves real business problems.</h1>
+                    <h1 class="hero-title text-6xl mb-4">Engineering that solves real <em class="hero-cosmos-ai">business problems</em></h1>
                     <p class="hero-subtitle">A closer look at what we've built.</p>
                 </div>
             </header>
@@ -1408,7 +1408,7 @@ function renderSolutions(data) {
         <div class="solutions-hero-mesh" aria-hidden="true"></div>
         <div class="cf-hero-content fade-in">
             <h4 class="mini-title">${data.header.subtitle}</h4>
-            <h1 class="solutions-header-title">${data.header.title}</h1>
+            <h1 class="solutions-header-title">${data.header.title.replace('modern businesses', '<em class="hero-cosmos-ai">modern businesses</em>')}</h1>
             <p class="solutions-header-desc">${data.header.description}</p>
         </div>
     </section>
@@ -1558,7 +1558,7 @@ function renderClients(data) {
     return `
     <header class="page-header clients-header">
         <h4 class="mini-title fade-in">OUR CLIENTS</h4>
-        <h1 class="main-heading fade-in clients-header-title">Trusted by 138+ Businesses</h1>
+        <h1 class="main-heading fade-in clients-header-title">Trusted by 138+ <em class="hero-cosmos-ai">Businesses</em></h1>
         <p class="fade-in clients-header-desc">From local MSMEs to enterprise operations, we've delivered scalable solutions across 12+ industries.</p>
     </header>
 
