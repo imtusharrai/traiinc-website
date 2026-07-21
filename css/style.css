@@ -4181,7 +4181,7 @@ body.light-mode .nav-l3-link:hover {
     100% { transform: scale(1.05) translate(-2%, 3%); }
 }
 .contact-hero-badge { margin-bottom: 20px; }
-.contact-hero-title { color: var(--text-main); font-size: clamp(3rem, 6vw, 5rem); line-height: 1.1; margin-bottom: 25px; }
+.contact-hero-title { color: var(--text-main); font-size: clamp(3rem, 6vw, 5rem); line-height: 1.1; margin-bottom: 25px; font-family: var(--font-heading); font-weight: 900; letter-spacing: -0.03em; }
 .contact-hero-desc { font-size: 1.2rem; color: var(--text-muted); max-width: 650px; margin: 0 auto; }
 
 .contact-split-section { padding: 80px 24px 40px; }
@@ -4511,12 +4511,13 @@ body.light-mode .nav-l3-link:hover {
         radial-gradient(ellipse 55% 55% at 25% 65%, color-mix(in srgb, var(--accent-color) 8%, transparent), transparent);
     animation: contactMeshDrift 14s ease-in-out infinite alternate;
 }
-.solutions-header-title { 
-    font-size: clamp(3rem, 6vw, 4.5rem); 
-    margin-bottom: 24px; 
+.solutions-header-title {
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    margin-bottom: 24px;
     line-height: 1.1;
     font-family: var(--font-heading);
-    font-weight: 800;
+    font-weight: 900;
+    letter-spacing: -0.03em;
     background: var(--brand-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
