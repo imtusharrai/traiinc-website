@@ -351,6 +351,29 @@ document.addEventListener("DOMContentLoaded", async () => {
                 });
             }
 
+            function showFormModal(type, title, message) {
+                const existing = document.getElementById('formModal');
+                if (existing) existing.remove();
+                const icon = type === 'success'
+                    ? '<svg width="56" height="56" viewBox="0 0 56 56" fill="none"><circle cx="28" cy="28" r="28" fill="#10B981" opacity="0.12"/><circle cx="28" cy="28" r="20" fill="#10B981" opacity="0.2"/><path d="M20 28.5L25.5 34L36 22" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+                    : '<svg width="56" height="56" viewBox="0 0 56 56" fill="none"><circle cx="28" cy="28" r="28" fill="#EF4444" opacity="0.12"/><circle cx="28" cy="28" r="20" fill="#EF4444" opacity="0.2"/><path d="M22 22L34 34M34 22L22 34" stroke="#EF4444" stroke-width="3" stroke-linecap="round"/></svg>';
+                const overlay = document.createElement('div');
+                overlay.id = 'formModal';
+                overlay.innerHTML = `
+                    <div class="form-modal-overlay">
+                        <div class="form-modal-card">
+                            <div class="form-modal-icon">${icon}</div>
+                            <h3 class="form-modal-title">${title}</h3>
+                            <p class="form-modal-msg">${message}</p>
+                            <button class="btn-primary form-modal-btn" onclick="document.getElementById('formModal').remove()">OK</button>
+                        </div>
+                    </div>`;
+                document.body.appendChild(overlay);
+                overlay.querySelector('.form-modal-overlay').addEventListener('click', function(e) {
+                    if (e.target === this) overlay.remove();
+                });
+            }
+
             // --- FormSubmit Contact Form Handler ---
             const contactFormEl = document.getElementById('contactForm');
             if (contactFormEl) {
@@ -367,23 +390,21 @@ document.addEventListener("DOMContentLoaded", async () => {
                             body: new FormData(contactFormEl)
                         });
                         if (response.ok) {
-                            result.style.display = 'block';
-                            result.style.color = 'var(--neon-green)';
-                            result.innerHTML = '\u2705 Message sent! We\'ll get back within 24 hours. Check your inbox for a confirmation.';
                             contactFormEl.reset();
+                            document.querySelectorAll('.contact-service-chip input:checked').forEach(cb => {
+                                cb.checked = false;
+                                cb.closest('.contact-service-chip').classList.remove('selected');
+                            });
+                            showFormModal('success', 'Message Sent!', 'We\'ll get back to you within 24 hours. Check your inbox for a confirmation email.');
                         } else {
                             const data = await response.json().catch(() => ({}));
-                            result.style.display = 'block';
-                            result.style.color = 'var(--accent-color)';
-                            result.textContent = data.error || 'Something went wrong. Please try again.';
+                            showFormModal('error', 'Something went wrong', data.error || 'Please try again or reach out via WhatsApp.');
                         }
                     } catch (err) {
-                        result.style.display = 'block';
-                        result.style.color = 'var(--accent-color)';
-                        result.textContent = 'Network error. Please try again.';
+                        showFormModal('error', 'Network Error', 'Please check your connection and try again.');
                     }
                     btn.disabled = false;
-                    btn.textContent = 'Send Message';
+                    btn.textContent = 'Send Inquiry';
                 });
             }
 
