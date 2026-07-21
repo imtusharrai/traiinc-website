@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     <h1 class="hero-title">${data.name} Development</h1>
                     <p class="hero-subtitle">${data.description}</p>
                     <div class="hero-cta justify-center">
-                        <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large">Book a Discovery Call</a>
+                        <a href="contact.html" class="btn-primary large">Get in Touch</a>
                     </div>
                 </div>
             </header>
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     <h1 class="hero-title">${data.name}</h1>
                     <p class="hero-subtitle">${data.description}</p>
                     <div class="hero-cta justify-center">
-                        <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large">Book a Discovery Call</a>
+                        <a href="contact.html" class="btn-primary large">Get in Touch</a>
                     </div>
                 </div>
             </header>
@@ -202,7 +202,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             <section class="content-section center section-pad-lg border-t-light">
                 <div class="container">
                     <h2 class="mb-8">Have a project in mind?</h2>
-                    <a href="contact.html" class="btn btn-primary">Book a Free Consultation &rarr;</a>
+                    <a href="contact.html" class="btn btn-primary">Get in Touch &rarr;</a>
                 </div>
             </section>
         `;
@@ -829,7 +829,7 @@ function renderAbout(data) {
                 <div class="about-cta-glow"></div>
                 <h2 class="about-cta-title">${data.cta.title}</h2>
                 <p class="about-cta-desc">${data.cta.description}</p>
-                <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large about-cta-btn">${data.cta.button_text}</a>
+                <a href="contact.html" class="btn-primary large about-cta-btn">${data.cta.button_text}</a>
             </div>
         </div>
     </section>
@@ -843,7 +843,7 @@ function renderIncubation(data) {
             <h4 class="mini-title">${data.hero.subtitle}</h4>
             <h1 class="main-heading">${data.hero.title}</h1>
             <p class="incub-hero-desc">${data.hero.description}</p>
-            <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large">${data.cta.button_text}</a>
+            <a href="contact.html" class="btn-primary large">${data.cta.button_text}</a>
             <p class="incub-scarcity">${data.scarcity || ''}</p>
         </div>
     </header>
@@ -940,7 +940,7 @@ function renderIncubation(data) {
                 <div style="position: absolute; bottom: -80px; left: -80px; width: 250px; height: 250px; background: var(--accent-glow); filter: blur(120px); opacity: 0.2; border-radius: 50%;"></div>
                 <h2 class="incub-cta-title">${data.cta.title}</h2>
                 <p class="incub-cta-desc">${data.cta.description}</p>
-                <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large" style="position: relative;">${data.cta.button_text}</a>
+                <a href="contact.html" class="btn-primary large" style="position: relative;">${data.cta.button_text}</a>
             </div>
             
             ${data.external_cta ? `
@@ -1287,9 +1287,9 @@ function renderContact(data) {
 
                 <div class="contact-action-block">
                     <div class="contact-action-icon">${audienceIcons.calendar}</div>
-                    <h3 class="contact-action-title">Book a Free 30-Min Call</h3>
+                    <h3 class="contact-action-title">Prefer a Quick Chat?</h3>
                     <p class="contact-action-desc">Prefer a structured conversation? Schedule a scoping call. No sales pitch — just honest technical discussion.</p>
-                    <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" rel="noopener noreferrer" class="btn-primary large contact-action-btn">
+                    <a href="contact.html" rel="noopener noreferrer" class="btn-primary large contact-action-btn">
                         Book on Google Calendar
                     </a>
                 </div>
@@ -1370,7 +1370,7 @@ function renderContact(data) {
                 <div class="contact-location-left">
                     <div class="contact-location-pin">${audienceIcons.pin}</div>
                     <div class="contact-location-info">
-                        <h3 class="contact-location-title">Visit Our Studio</h3>
+                        <h3 class="contact-location-title">Office</h3>
                         <p class="contact-location-addr">Tower B-2, DLF MyPad,<br>Opposite Hyatt Regency, Vibhuti Khand,<br>Gomti Nagar, Lucknow, UP 226010</p>
                         <div class="contact-location-meta">
                             <span class="contact-location-badge"><span class="contact-badge-icon">${audienceIcons.clock}</span> Mon–Sat, 10am–7pm IST</span>
@@ -1463,7 +1463,7 @@ function renderSolutions(data) {
             <div class="solutions-cta-glow"></div>
             <h2 class="solutions-cta-title">${data.cta.title}</h2>
             <p class="solutions-cta-desc">${data.cta.description}</p>
-            <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large">${data.cta.button_text}</a>
+            <a href="contact.html" class="btn-primary large">${data.cta.button_text}</a>
         </div>
     </section>
     `;
@@ -1532,7 +1532,7 @@ function renderIndustries(data) {
             <div style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: var(--brand-gradient); filter: blur(150px); opacity: 0.2; border-radius: 50%;"></div>
             <h2 class="ind-cta-title">${data.cta.title}</h2>
             <p class="ind-cta-desc">${data.cta.description}</p>
-            <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large">${data.cta.button_text}</a>
+            <a href="contact.html" class="btn-primary large">${data.cta.button_text}</a>
         </div>
     </section>
     `;
@@ -1718,7 +1718,7 @@ function renderAudiencePage(data) {
                     <h1>${hero.title}</h1>
                     <p class="msme-hero-sub">${hero.subtitle}</p>
                     <div class="hero-cta-row">
-                        <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large">📅 Book a Free Consultation</a>
+                        <a href="contact.html" class="btn-primary large">Get in Touch</a>
                     </div>
                     <div class="hero-trust">
                         <div class="hero-trust-avatars">
@@ -1794,7 +1794,7 @@ function renderAudiencePage(data) {
                 <h2>${cta.title}</h2>
                 <p>${cta.description}</p>
                 <div class="hero-cta-row">
-                    <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary large">${cta.button_text}</a>
+                    <a href="contact.html" class="btn-primary large">${cta.button_text}</a>
                     <a href="contact.html" class="btn-secondary large">✉️ Send a Message</a>
                 </div>
             </div>
@@ -2218,7 +2218,7 @@ function renderServicePage(data, slug) {
                 <h1>${service.title}</h1>
                 <p class="msme-hero-sub">${service.subtitle}</p>
                 <div class="hero-cta-row">
-                    <a href="${primaryHref}" ${primaryHref.startsWith('http') ? 'target="_blank"' : ''} class="btn-primary large">📅 ${primaryLabel}</a>
+                    <a href="${primaryHref}" ${primaryHref.startsWith('http') ? 'target="_blank"' : ''} class="btn-primary large">${primaryLabel}</a>
                     ${service.cta && service.cta.pricing_url ? `<a href="${service.cta.pricing_url}" class="btn-secondary large">💰 See Pricing</a>` : ''}
                 </div>
                 <div class="hero-trust">
@@ -2412,7 +2412,7 @@ function renderAppStore(data) {
                     </div>`).join('')}
                 </div>
                 <div class="appstore-app-cta">
-                     <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" target="_blank" class="btn-primary">Discuss Requirements</a>
+                     <a href="contact.html" class="btn-primary">Discuss Requirements</a>
                 </div>
             </div>
             `).join('')}

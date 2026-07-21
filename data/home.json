@@ -8,7 +8,7 @@
     "cta_primary": {
       "icon": "",
       "text": "Scope Your Project →",
-      "href": "https://calendar.app.google/PUsxADQBnpQsTrDbA"
+      "href": "contact.html"
     },
     "cta_secondary": {
       "icon": "",
@@ -178,7 +178,7 @@
     "title": "A team of builders, engineers, and creators.",
     "description": "We are Trai Inc, an innovation lab dedicated to building cutting-edge software, mobile applications, and AI solutions. We bridge the gap between complex engineering and your business goals.",
     "button_text": "Scope Your Project",
-    "button_href": "https://calendar.app.google/PUsxADQBnpQsTrDbA",
+    "button_href": "contact.html",
     "steps": [
       {
         "title": "Our Mission",
