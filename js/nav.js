@@ -377,9 +377,6 @@
                         <a href="solutions.html" class="${['ai-automation','mobile-apps','web-development','custom-software','cloud-devops','digital-marketing','enterprise-platforms','hire-dedicated-developers','content-creation'].includes(page)?'active':''}">${navData.services.label} ${chevronDown}</a>
                         ${buildDropdown('services', navData.services)}
                     </li>
-                    <li>
-                        <a href="solutions.html" class="${page==='solutions'?'active':''}">Technologies</a>
-                    </li>
                     <li class="has-dropdown">
                         <a href="industries.html" class="${['industries','msmes','startups','smb','enterprise'].includes(page)?'active':''}">${navData.whoWeHelp.label} ${chevronDown}</a>
                         ${buildDropdown('whoWeHelp', navData.whoWeHelp)}

@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "title": "WhatsApp Business Security: How to Protect Your Customer Data",
+    "description": "With 500M+ WhatsApp Business users, attacks are rising. Here's how to harden your setup fast.",
+    "author": "Tushar Rai",
+    "date": "May 20, 2026",
+    "read_time": "6 min read",
+    "tag": "Cybersecurity",
+    "tag_color": "#a18cd1",
+    "image": "/img/blog/whatsapp-security.webp"
+  },
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "WhatsApp Business has become the default customer communication channel for Indian businesses. From a kirana store confirming orders to a SaaS company sending onboarding messages — WhatsApp handles it all. But with over 500 million Business users globally, it's also become a prime target for attacks."
+    },
+    {
+      "type": "paragraph",
+      "text": "Account takeovers, phishing links sent from compromised business numbers, and customer data leaks are rising sharply. If you use WhatsApp Business, here's how to lock it down."
+    },
+    {
+      "type": "heading",
+      "text": "Enable Two-Step Verification (Right Now)"
+    },
+    {
+      "type": "paragraph",
+      "text": "This is the single most important thing you can do. Go to Settings → Account → Two-step verification → Enable. Set a 6-digit PIN. This prevents anyone who clones your SIM or intercepts your OTP from taking over your account. Without this, your WhatsApp Business number can be hijacked in under 5 minutes."
+    },
+    {
+      "type": "paragraph",
+      "text": "Add a recovery email address too — if you forget the PIN, this is your only way back in. Use a business email, not a personal one."
+    },
+    {
+      "type": "heading",
+      "text": "Stop Sharing OTPs With 'WhatsApp Support'"
+    },
+    {
+      "type": "paragraph",
+      "text": "The most common attack vector isn't technical — it's social engineering. Someone calls or messages claiming to be 'WhatsApp Support' and asks for your verification code. WhatsApp will never ask for your OTP. Ever. Train every team member who has access to your business number: if anyone asks for a code, it's a scam."
+    },
+    {
+      "type": "heading",
+      "text": "Use WhatsApp Business API Instead of the App"
+    },
+    {
+      "type": "paragraph",
+      "text": "If you're handling more than 50 customer conversations daily, switch from the WhatsApp Business app to the WhatsApp Business API (via providers like Twilio, Gupshup, or Wati). The API offers: message encryption in transit and at rest, role-based access control (not everyone needs to see every conversation), audit logs for compliance, and automated message templates that prevent accidental data sharing."
+    },
+    {
+      "type": "paragraph",
+      "text": "The app stores all messages on the phone. If that phone is lost, stolen, or compromised, every customer conversation goes with it."
+    },
+    {
+      "type": "heading",
+      "text": "Don't Share Customer Data in Group Chats"
+    },
+    {
+      "type": "paragraph",
+      "text": "It's common for Indian teams to share customer details — phone numbers, addresses, order details — in internal WhatsApp groups. This is a data protection disaster. If any member's phone is compromised, all that data is exposed. Use a CRM for customer data. Use WhatsApp for communication, not storage."
+    },
+    {
+      "type": "heading",
+      "text": "Secure Your Linked Devices"
+    },
+    {
+      "type": "paragraph",
+      "text": "WhatsApp lets you link up to 4 additional devices. Check Settings → Linked Devices regularly. If you see a device you don't recognize, remove it immediately. Each linked device has full access to your messages. An attacker who briefly accessed your phone could have linked their laptop and now reads every message in real time."
+    },
+    {
+      "type": "heading",
+      "text": "Backup Encryption"
+    },
+    {
+      "type": "paragraph",
+      "text": "WhatsApp offers end-to-end encrypted backups — but it's off by default. Enable it: Settings → Chats → Chat backup → End-to-end encrypted backup. Without this, your Google Drive or iCloud backup is a plaintext copy of all your customer conversations. Anyone who accesses your cloud account gets everything."
+    },
+    {
+      "type": "heading",
+      "text": "The 15-Minute Security Checklist"
+    },
+    {
+      "type": "paragraph",
+      "text": "Do these today: 1) Enable two-step verification with a business email. 2) Check and remove unknown linked devices. 3) Turn on encrypted backups. 4) Brief your team on OTP scams. 5) Move customer data from WhatsApp groups to a CRM. These five steps take 15 minutes and prevent 90% of WhatsApp Business security incidents."
+    }
+  ],
+  "relatedPosts": [
+    { "title": "5 Free Digital Tools Every MSME Should Be Using Right Now", "url": "/blog-5-free-digital-tools-msme.html" },
+    { "title": "How AI Agents Are Replacing Manual Business Workflows in 2026", "url": "/blog-ai-agents-replacing-manual-workflows.html" }
+  ]
+}
