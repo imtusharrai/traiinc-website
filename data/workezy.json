@@ -7,65 +7,25 @@
     "title": "Every home service, one platform — from booking to backend",
     "subtitle": "Workezy needed a complete digital ecosystem to connect customers with verified service professionals — maids, electricians, drivers, gardeners, and more — across Lucknow.",
     "meta_tags": ["Android & iOS", "Website", "CRM", "Social Media"],
-    "image": "/img/workezy-hero-mockup.png"
+    "image": "/img/case-studies/workezy-icon.png"
   },
-  "challenge": {
-    "eyebrow": "THE CHALLENGE",
-    "title": "Finding reliable home-service help, without a trusted place to look.",
-    "body": "People needing help with everyday household work — maids, cooks, drivers, electricians, carpenters — had no single, secure platform to find and book verified professionals. At the same time, skilled workers had no organized way to reach steady customers. Workezy set out to solve both sides of that gap."
+  "tabs": {
+    "introduction": {
+      "text": "Workezy set out to solve a fundamental gap in India's home services market — people needing help with everyday household work had no single, secure platform to find and book verified professionals. At the same time, skilled workers like maids, cooks, drivers, and electricians had no organized way to reach steady customers. We built the complete two-sided ecosystem from scratch."
+    },
+    "challenge": {
+      "text": "Finding reliable home-service help meant relying on word of mouth, unverified classifieds, or scattered WhatsApp groups. Customers couldn't compare providers, check reviews, or book with confidence. On the supply side, skilled professionals had no digital presence and no steady pipeline of work. Workezy needed to solve both sides simultaneously — a customer-facing booking platform and a provider-facing management system, backed by a CRM for operations."
+    },
+    "solution": {
+      "text": "We delivered a complete two-sided platform: a Customer App for browsing, booking, and managing home services in a few taps; a dedicated Service Provider App (Workezy Service Partners) for professionals to receive, manage, and fulfill bookings; a public-facing Website for discovery, service listings, and provider onboarding; and a CRM backend to manage bookings, providers, and customer relationships in one place. We also set up and managed their social media presence to drive awareness and customer acquisition."
+    },
+    "results": {
+      "text": "Workezy is live on the Google Play Store and App Store, connecting customers with verified service professionals across Lucknow. The platform covers maids, drivers, electricians, carpenters, gardeners, and more. Rated 4.0★ on Google Play. The complete ecosystem — customer app, provider app, website, and CRM — runs as a unified operation with a single backend."
+    }
   },
-  "solution": {
-    "eyebrow": "THE SOLUTION",
-    "title": "A complete two-sided platform, built end-to-end.",
-    "features": [
-      {
-        "icon": "📱",
-        "title": "Customer App",
-        "desc": "Browse, book, and manage home services — maids, electricians, drivers, and more — in a few taps."
-      },
-      {
-        "icon": "🛠️",
-        "title": "Service Provider App",
-        "desc": "A dedicated app — Workezy Service Partners — for professionals to receive, manage, and fulfill bookings."
-      },
-      {
-        "icon": "🌐",
-        "title": "Website",
-        "desc": "A public-facing site for discovery, service listings, and provider onboarding."
-      },
-      {
-        "icon": "📊",
-        "title": "CRM",
-        "desc": "Backend system to manage bookings, providers, and customer relationships in one place."
-      }
-    ],
-    "image": "/img/workezy-solution-mockup.png"
-  },
-  "delivered": {
-    "eyebrow": "WHAT WE DELIVERED",
-    "items": [
-      "Native Android app (customer-facing)",
-      "Native iOS app (customer-facing)",
-      "Service Provider app (Android & iOS)",
-      "Public website",
-      "CRM for bookings & provider management",
-      "Social media setup & management"
-    ]
-  },
-  "result": {
-    "eyebrow": "THE RESULT",
-    "title": "Live on Android & iOS, connecting customers and service professionals across Lucknow.",
-    "body": "Workezy is live on the Google Play Store and App Store, giving customers a trusted way to book home services and giving service professionals — maids, drivers, electricians, and more — steady access to work. Rated 4.0★ on Google Play.",
-    "quote": ""
-  },
-  "cta": {
-    "title": "Building something similar?",
-    "button_text": "Get in Touch",
-    "button_href": "contact.html",
-    "more_cases": [
-      { "name": "Bhu Master", "href": "bhu-master.html" },
-      { "name": "Dashak Pharma", "href": "clients.html" },
-      { "name": "Om Group", "href": "clients.html" }
-    ]
-  }
+  "learnMore": [
+    { "name": "Bhu Master", "link": "bhu-master.html" },
+    { "name": "Dashak Pharma", "link": "dashak-pharma.html" },
+    { "name": "Om Group", "link": "om-group.html" }
+  ]
 }

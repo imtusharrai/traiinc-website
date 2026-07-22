@@ -2,8 +2,8 @@
   "bhu-master": {
     "hero": {
       "tag": "REAL ESTATE & CONSTRUCTION",
-      "title": "One app for every step of buying, building, and selling property.",
-      "image": "/img/case-studies/bhumaster-app-mockup.webp"
+      "title": "One app for every step of buying, building, and selling property",
+      "image": "/img/case-studies/bhu-master-icon.png"
     },
     "tabs": {
       "introduction": {
@@ -27,8 +27,8 @@
   "workezy": {
     "hero": {
       "tag": "ON-DEMAND HOME SERVICES",
-      "title": "Every home service, one platform — from booking to backend.",
-      "image": "/img/case-studies/workezy-app-mockup.webp"
+      "title": "Every home service, one platform — from booking to backend",
+      "image": "/img/case-studies/workezy-icon.png"
     },
     "tabs": {
       "introduction": {
@@ -52,8 +52,8 @@
   "dashak-pharma": {
     "hero": {
       "tag": "HEALTHCARE & PHARMACEUTICAL DISTRIBUTION",
-      "title": "A digital front door and backend system for pharmaceutical distribution.",
-      "image": "/img/case-studies/dashak-mockup.webp"
+      "title": "A digital front door and backend system for pharmaceutical distribution",
+      "image": "/img/case-studies/dashak-pharma-logo.webp"
     },
     "tabs": {
       "introduction": {
@@ -77,8 +77,8 @@
   "om-group": {
     "hero": {
       "tag": "AUTOMOTIVE DEALERSHIP",
-      "title": "A digital presence and CRM built for a Mahindra dealership.",
-      "image": "/img/case-studies/om-group-mockup.webp"
+      "title": "A digital presence and CRM built for a Mahindra dealership",
+      "image": "/img/case-studies/om-group-photo.jpg"
     },
     "tabs": {
       "introduction": {

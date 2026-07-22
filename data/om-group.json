@@ -1,0 +1,31 @@
+{
+  "name": "Om Group",
+  "meta_title": "Case Study: Om Group | Mahindra Automobile Dealership CRM",
+  "meta_desc": "How Trai Inc built a custom CRM for a Mahindra automobile dealership — managing leads, inquiries, and customer follow-ups in one system.",
+  "hero": {
+    "tag": "AUTOMOTIVE & CRM",
+    "title": "A custom CRM for one of Raebareli's largest Mahindra dealerships",
+    "subtitle": "Om Group needed a unified system to manage leads, inquiries, test drives, and customer follow-ups across their Mahindra automobile dealership operations.",
+    "meta_tags": ["Custom CRM", "Web App", "Automotive"],
+    "image": "/img/case-studies/om-group-photo.jpg"
+  },
+  "tabs": {
+    "introduction": {
+      "text": "Om Group operates a Mahindra automobile dealership in Raebareli, handling vehicle sales, service bookings, and customer relationships across a growing operation. They approached Trai Inc to replace their fragmented lead management — scattered across notebooks, WhatsApp, and memory — with a single digital system purpose-built for dealership workflows."
+    },
+    "challenge": {
+      "text": "Automobile dealerships generate leads from multiple channels — walk-ins, phone calls, online inquiries, and referrals. Om Group was tracking these across spreadsheets and personal notebooks, with follow-ups relying on individual memory. Leads fell through the cracks, test drive scheduling was manual, and there was no visibility into the sales pipeline. Management had no way to measure team performance or forecast accurately."
+    },
+    "solution": {
+      "text": "We built a custom CRM tailored to automobile dealership operations: centralized lead capture from all channels into a single pipeline, automated follow-up reminders so no inquiry goes cold, test drive scheduling and tracking, sales pipeline with stage-based visibility for management, and customer history tracking for service and repeat sales. The system was designed specifically for how dealerships work — not a generic CRM retrofitted to automotive."
+    },
+    "results": {
+      "text": "Om Group now manages their entire sales pipeline digitally — from first inquiry to delivery and beyond. Lead follow-up is systematic instead of memory-dependent, test drives are scheduled and tracked, and management has real-time visibility into dealership performance. The CRM has streamlined operations and reduced lost leads across the dealership."
+    }
+  },
+  "learnMore": [
+    { "name": "Bhu Master", "link": "bhu-master.html" },
+    { "name": "Workezy", "link": "workezy.html" },
+    { "name": "Dashak Pharma", "link": "dashak-pharma.html" }
+  ]
+}
