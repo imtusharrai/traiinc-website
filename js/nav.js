@@ -394,7 +394,7 @@
                         <span class="full-menu-label">Menu</span>
                     </button>
                     <div class="theme-toggle-wrap" id="theme-toggle-wrap">
-                        <span class="theme-tooltip" id="theme-tooltip">Switch to Light Mode</span>
+                        <span class="theme-tooltip" id="theme-tooltip">Switch to Dark Mode</span>
                         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
                             <span class="theme-toggle-track">
                                 <span class="theme-toggle-thumb">
@@ -488,7 +488,7 @@
         }
 
         const savedTheme = localStorage.getItem('trai-theme');
-        applyTheme(savedTheme === 'light');
+        applyTheme(savedTheme !== 'dark');
 
         const themeBtn = document.getElementById('theme-toggle');
         if (themeBtn) {

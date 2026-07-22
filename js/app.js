@@ -103,106 +103,49 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     // --- Case Study Page Renderer ---
     function renderCaseStudy(data, pageId) {
-        // Build tab headers
-        const tabs = [
-            { id: 'introduction', label: 'Introduction' },
-            { id: 'challenge', label: 'The Challenge' },
-            { id: 'solution', label: 'The Solution' },
-            { id: 'results', label: 'The Results' },
-            { id: 'learn-more', label: 'Learn More' }
+        const sections = [
+            { key: 'introduction', icon: '📋', title: 'Overview' },
+            { key: 'challenge', icon: '⚡', title: 'The Challenge' },
+            { key: 'solution', icon: '🛠️', title: 'The Solution' },
+            { key: 'results', icon: '📈', title: 'The Results' }
         ];
 
-        let tabsHtml = `<div class="case-study-tabs" role="tablist">`;
-        tabs.forEach((t, i) => {
-            tabsHtml += `<button class="case-study-tab ${i === 0 ? 'active' : ''}" role="tab" aria-selected="${i === 0}" aria-controls="tab-${t.id}" data-target="tab-${t.id}">${t.label}</button>`;
-        });
-        tabsHtml += `</div>`;
-
-        // Build tab panels
-        let panelsHtml = `<div class="case-study-panels">`;
-        
-        // Introduction
-        panelsHtml += `
-            <div id="tab-introduction" class="case-study-panel active" role="tabpanel">
-                <div class="panel-content">
-                    <p class="lead-text">${data.tabs.introduction.text}</p>
-                </div>
-            </div>`;
-            
-        // Challenge
-        panelsHtml += `
-            <div id="tab-challenge" class="case-study-panel" role="tabpanel" hidden>
-                <div class="panel-content">
-                    <p>${data.tabs.challenge.text}</p>
-                </div>
-            </div>`;
-
-        // Solution
-        panelsHtml += `
-            <div id="tab-solution" class="case-study-panel" role="tabpanel" hidden>
-                <div class="panel-content">
-                    <p>${data.tabs.solution.text}</p>
-                </div>
-            </div>`;
-
-        // Results
-        panelsHtml += `
-            <div id="tab-results" class="case-study-panel" role="tabpanel" hidden>
-                <div class="panel-content">
-                    <p>${data.tabs.results.text}</p>
-                </div>
-            </div>`;
-
-        // Learn More
-        panelsHtml += `
-            <div id="tab-learn-more" class="case-study-panel" role="tabpanel" hidden>
-                <div class="panel-content learn-more-cards">
-                    ${data.learnMore.map(item => `
-                        <a href="${item.link}" class="learn-more-card">
-                            <span class="learn-more-card__title">${item.name}</span>
-                            <span class="learn-more-card__arrow">→</span>
-                        </a>
-                    `).join('')}
-                </div>
-            </div>`;
-
-        panelsHtml += `</div>`;
-
         return `
-            <!-- CASE STUDY HERO -->
-            <header class="hero case-study-hero section-pad-lg">
-                <div class="container hero-content center">
-                    <span class="mini-title mb-4 inline-block">CASE STUDIES</span>
-                    <h1 class="hero-title text-6xl mb-4">Engineering that solves real <em class="hero-cosmos-ai">business problems</em></h1>
-                    <p class="hero-subtitle">A closer look at what we've built.</p>
+            <header class="cf-hero-wrapper" style="min-height:50vh;padding-top:140px;padding-bottom:60px;">
+                <div class="cf-hero-content fade-in">
+                    <h4 class="mini-title">${data.hero.tag}</h4>
+                    <h1 class="solutions-header-title">${data.hero.title}</h1>
                 </div>
             </header>
 
-            <section class="case-study-body fade-in">
-                <div class="container max-w-1000">
-                    
-                    <div class="case-study-cover mb-10">
-                        <img src="${data.hero.image}" alt="${data.hero.title} showcase" class="w-full rounded-3xl shadow-image" />
+            <section class="container fade-in" style="padding:60px 0;">
+                <div style="max-width:800px;margin:0 auto;">
+                    ${sections.map(s => data.tabs[s.key] ? `
+                    <div class="spec-card fade-in" style="margin-bottom:24px;padding:32px;">
+                        <h3 style="display:flex;align-items:center;gap:10px;margin-bottom:16px;font-size:1.2rem;font-weight:700;color:var(--text-main);">
+                            <span style="font-size:1.4rem;">${s.icon}</span> ${s.title}
+                        </h3>
+                        <p style="font-size:1rem;line-height:1.75;color:var(--text-muted);">${data.tabs[s.key].text}</p>
                     </div>
+                    ` : '').join('')}
 
-                    <div class="case-study-header mb-12 text-left">
-                        <span class="mini-title mb-3 inline-block">${data.hero.tag}</span>
-                        <h2 class="text-4xl leading-tight">${data.hero.title}</h2>
+                    ${data.learnMore && data.learnMore.length ? `
+                    <div style="margin-top:40px;">
+                        <h3 style="font-size:1.1rem;font-weight:700;color:var(--text-main);margin-bottom:16px;">More Case Studies</h3>
+                        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                            ${data.learnMore.map(item => `
+                                <a href="${item.link}" class="btn-primary" style="font-size:0.9rem;padding:10px 20px;">${item.name} →</a>
+                            `).join('')}
+                        </div>
                     </div>
-
-                    <div class="case-study-tabs-container">
-                        ${tabsHtml}
-                        ${panelsHtml}
-                    </div>
-
+                    ` : ''}
                 </div>
             </section>
 
-            <!-- CLOSING CTA -->
             <section class="content-section center section-pad-lg border-t-light">
                 <div class="container">
-                    <h2 class="mb-8">Have a project in mind?</h2>
-                    <a href="contact.html" class="btn btn-primary">Get in Touch &rarr;</a>
+                    <h2 class="mb-8">Have a similar project?</h2>
+                    <a href="contact.html" class="btn btn-primary">Get in Touch →</a>
                 </div>
             </section>
         `;
@@ -225,6 +168,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const renderers = {
         'bhu-master': renderCaseStudy,
         workezy: renderCaseStudy,
+        'dashak-pharma': renderCaseStudy,
+        'om-group': renderCaseStudy,
         home: renderHome,
         about: renderAbout,
         'why-trai': renderAbout,
@@ -320,36 +265,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 }, 100);
             }
 
-            // --- Case Study Tab Logic ---
-            const caseStudyTabs = document.querySelectorAll('.case-study-tab');
-            if (caseStudyTabs.length > 0) {
-                caseStudyTabs.forEach(tab => {
-                    tab.addEventListener('click', (e) => {
-                        // Deactivate all tabs and panels
-                        document.querySelectorAll('.case-study-tab').forEach(t => {
-                            t.classList.remove('active');
-                            t.setAttribute('aria-selected', 'false');
-                        });
-                        document.querySelectorAll('.case-study-panel').forEach(p => {
-                            p.hidden = true;
-                            p.classList.remove('active');
-                        });
-                        
-                        // Activate clicked tab
-                        const targetId = tab.getAttribute('data-target');
-                        tab.classList.add('active');
-                        tab.setAttribute('aria-selected', 'true');
-                        
-                        // Activate target panel
-                        const panel = document.getElementById(targetId);
-                        if (panel) {
-                            panel.hidden = false;
-                            // small delay for css transition if needed
-                            setTimeout(() => { panel.classList.add('active'); }, 10);
-                        }
-                    });
-                });
-            }
 
             function showFormModal(type, title, message) {
                 const existing = document.getElementById('formModal');
@@ -381,9 +296,14 @@ document.addEventListener("DOMContentLoaded", async () => {
                     e.preventDefault();
                     const btn = document.getElementById('contactSubmitBtn');
                     const result = document.getElementById('formResult');
+                    const turnstileResponse = contactFormEl.querySelector('[name="cf-turnstile-response"]');
+                    if (!turnstileResponse || !turnstileResponse.value) {
+                        showFormModal('error', 'Verification Required', 'Please complete the security check before submitting.');
+                        return;
+                    }
                     btn.disabled = true;
                     btn.textContent = 'Sending...';
-                    
+
                     try {
                         const response = await fetch(contactFormEl.action, {
                             method: 'POST',
@@ -1356,6 +1276,8 @@ function renderContact(data) {
                     <label for="${data.form.message.id}" class="contact-field-label">${data.form.message.label} <span class="contact-required">*</span></label>
                     <textarea id="${data.form.message.id}" name="${data.form.message.name}" placeholder="${data.form.message.placeholder}" required class="contact-field-input contact-field-textarea"></textarea>
                 </div>
+
+                <div class="cf-turnstile" data-sitekey="0x4AAAAAAD7YVL8RufcAP9oL" data-action="turnstile-spin-v1" data-theme="auto"></div>
 
                 <button type="submit" id="contactSubmitBtn" class="btn-primary large contact-submit-btn">${data.form.button}</button>
                 <div id="formResult" style="display:none;margin-top:1rem;font-weight:500;"></div>
