@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "title": "Building an MVP in 30 Days: The Trai Inc Playbook",
+    "description": "How we help early-stage startups go from idea to working product in under a month — without burning the runway.",
+    "author": "Harsh Pandey",
+    "date": "May 08, 2026",
+    "read_time": "9 min read",
+    "tag": "Startups",
+    "tag_color": "#fa709a",
+    "image": "/img/blog/mvp-playbook.webp"
+  },
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "Most startups don't fail because of bad ideas. They fail because they spend 6 months building a product nobody asked for. An MVP — Minimum Viable Product — isn't a lesser version of your product. It's the fastest path to learning whether your idea solves a real problem for real people."
+    },
+    {
+      "type": "paragraph",
+      "text": "At Trai Inc, we've built MVPs for 30+ startups across India. Here's the exact playbook we follow to go from concept to deployed product in 30 days."
+    },
+    {
+      "type": "heading",
+      "text": "Week 1: Scope Ruthlessly (Days 1-7)"
+    },
+    {
+      "type": "paragraph",
+      "text": "The biggest risk in an MVP sprint isn't bad code — it's scope creep. Every founder believes their product needs 15 features. An MVP needs 3. Our first week is entirely dedicated to cutting scope."
+    },
+    {
+      "type": "paragraph",
+      "text": "We ask three questions: 1) What is the one problem this product solves? 2) What is the minimum a user needs to experience that solution? 3) What can we fake, borrow, or postpone? If your app needs payments, use Razorpay's pre-built checkout — don't build a custom payment flow. If you need authentication, use Google Sign-In — don't build email verification from scratch."
+    },
+    {
+      "type": "paragraph",
+      "text": "By day 7, we have a one-page spec: 3-5 core screens, the primary user flow, and a clear definition of 'done.' Everything else goes on a 'V2' list."
+    },
+    {
+      "type": "heading",
+      "text": "Week 2: Build the Core (Days 8-14)"
+    },
+    {
+      "type": "paragraph",
+      "text": "We start coding on day 8. The tech stack is chosen for speed, not ideology. For most MVPs, we use: Flutter for cross-platform mobile apps (one codebase, two platforms). Next.js or plain HTML/JS for web apps. Firebase or Supabase for backend (auth, database, hosting — all managed). Cloudflare Pages for static sites."
+    },
+    {
+      "type": "paragraph",
+      "text": "No custom backends. No microservices. No Kubernetes. An MVP that needs infrastructure engineering isn't an MVP — it's a premature architecture. We build the primary user flow end-to-end. By day 14, you can tap through the core experience on a real device."
+    },
+    {
+      "type": "heading",
+      "text": "Week 3: Polish the Experience (Days 15-21)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Week 3 is about making it feel real. We add loading states, error handling, empty states, and basic animations. We connect real data. We test on 5+ devices. We fix the 'paper cuts' — those tiny UX issues that make the difference between a prototype and a product."
+    },
+    {
+      "type": "paragraph",
+      "text": "This is also when we add analytics. At minimum: screen views, button taps on the primary CTA, and signup/drop-off rates. You can't improve what you don't measure, and you need data from day one."
+    },
+    {
+      "type": "heading",
+      "text": "Week 4: Launch and Learn (Days 22-30)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Day 22: Deploy to production. Day 23-25: Onboard 10-20 beta users (not friends and family — real potential customers). Day 26-28: Collect feedback through calls, not forms. People are honest in conversation and vague in writing. Day 29-30: Prioritize V2 based on what you learned."
+    },
+    {
+      "type": "paragraph",
+      "text": "The goal of launch week isn't downloads or revenue. It's learning. Did users complete the primary flow? Where did they get stuck? What did they ask for that you didn't build? These answers are worth more than any market research."
+    },
+    {
+      "type": "heading",
+      "text": "What This Costs"
+    },
+    {
+      "type": "paragraph",
+      "text": "A 30-day MVP sprint at Trai Inc typically costs ₹2-5L depending on complexity. That includes design, development, testing, deployment, and the first round of feedback analysis. Compare that to the ₹15-30L most startups spend building a full product that may never find market fit."
+    },
+    {
+      "type": "paragraph",
+      "text": "The math is simple: spend ₹3L to learn whether your idea works, or spend ₹20L to discover it doesn't. The MVP isn't the cheap option — it's the smart one."
+    },
+    {
+      "type": "heading",
+      "text": "Common MVP Mistakes We See"
+    },
+    {
+      "type": "paragraph",
+      "text": "Building for scale before finding fit. Choosing a complex tech stack because it's 'future-proof.' Adding admin panels, dashboards, and reporting before you have 10 users. Spending 3 weeks on the logo and brand guidelines. Waiting for the product to be 'perfect' before showing it to anyone."
+    },
+    {
+      "type": "paragraph",
+      "text": "Perfect is the enemy of shipped. Ship ugly, learn fast, iterate with data."
+    }
+  ],
+  "relatedPosts": [
+    { "title": "React Native vs Flutter in 2025 — What Should You Choose?", "url": "/blog-react-native-vs-flutter.html" },
+    { "title": "AWS vs Azure vs GCP — Which Cloud Is Right for Your Indian Startup?", "url": "/blog-aws-vs-azure-vs-gcp.html" }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "title": "AWS vs Azure vs GCP — Which Cloud Is Right for Your Indian Startup?",
+    "description": "A no-fluff comparison of the top three cloud platforms for cost, compliance, and scalability in 2025.",
+    "author": "Neha Sharma",
+    "date": "Jun 28, 2026",
+    "read_time": "6 min read",
+    "tag": "Cloud & DevOps",
+    "tag_color": "#667eea",
+    "image": "/img/blog/cloud-comparison.webp"
+  },
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "Choosing a cloud provider is one of the most consequential early decisions a startup makes. Get it right, and you have a scalable foundation that grows with you. Get it wrong, and you're stuck with migration headaches, surprise bills, and vendor lock-in."
+    },
+    {
+      "type": "paragraph",
+      "text": "We've deployed production workloads on all three major clouds — AWS, Azure, and GCP — for Indian startups and enterprises. Here's what we've learned."
+    },
+    {
+      "type": "heading",
+      "text": "AWS: The Default Choice"
+    },
+    {
+      "type": "paragraph",
+      "text": "Amazon Web Services has the largest market share globally and in India. It has data centers in Mumbai and Hyderabad, the broadest service catalog (200+ services), and the most mature ecosystem. If you're building a standard web application, e-commerce platform, or SaaS product, AWS is the safe bet."
+    },
+    {
+      "type": "paragraph",
+      "text": "Strengths: Widest service range, strongest community, most third-party integrations, reliable India region performance. Weaknesses: Complex pricing, steep learning curve for beginners, console UX can be overwhelming."
+    },
+    {
+      "type": "paragraph",
+      "text": "Best for: Startups that need maximum flexibility and plan to scale aggressively. If you're building something that doesn't fit a neat category — AWS probably has a service for it."
+    },
+    {
+      "type": "heading",
+      "text": "Azure: The Enterprise Bridge"
+    },
+    {
+      "type": "paragraph",
+      "text": "Microsoft Azure is the natural choice if your customers are enterprises that already use Microsoft 365, Active Directory, or Dynamics. Azure's India regions (Mumbai, Pune, Chennai) offer strong latency, and its hybrid cloud capabilities are unmatched."
+    },
+    {
+      "type": "paragraph",
+      "text": "Strengths: Deep Microsoft integration, strong hybrid cloud, excellent compliance certifications for Indian regulations (RBI, SEBI data localization). Weaknesses: Documentation can be inconsistent, some services feel like enterprise-first afterthoughts for startups."
+    },
+    {
+      "type": "paragraph",
+      "text": "Best for: B2B startups selling to Indian enterprises, fintech companies needing RBI compliance, and teams already invested in the Microsoft ecosystem."
+    },
+    {
+      "type": "heading",
+      "text": "GCP: The Data & AI Play"
+    },
+    {
+      "type": "paragraph",
+      "text": "Google Cloud Platform has the smallest market share of the three but punches above its weight in data analytics, machine learning, and Kubernetes. Its Mumbai region launched in 2021, and its Delhi region is now live. GCP's BigQuery alone has convinced many data-heavy startups to choose it."
+    },
+    {
+      "type": "paragraph",
+      "text": "Strengths: Best-in-class data tools (BigQuery, Dataflow, Vertex AI), cleanest developer UX, generous free tier and startup credits ($100K via Google for Startups). Weaknesses: Smaller service catalog, fewer managed services compared to AWS, less enterprise sales support in India."
+    },
+    {
+      "type": "paragraph",
+      "text": "Best for: Startups building data-intensive or AI/ML products, companies that prioritize developer experience, and teams comfortable with a Google-centric stack."
+    },
+    {
+      "type": "heading",
+      "text": "Cost Comparison for a Typical Indian Startup"
+    },
+    {
+      "type": "paragraph",
+      "text": "For a standard workload — 2 app servers, managed database, CDN, object storage, and monitoring — monthly costs in the Mumbai region typically run: AWS ₹18,000-25,000, Azure ₹17,000-24,000, GCP ₹15,000-22,000. GCP edges ahead on sustained-use discounts, but AWS and Azure offer better reserved-instance pricing for predictable workloads."
+    },
+    {
+      "type": "heading",
+      "text": "Our Recommendation"
+    },
+    {
+      "type": "paragraph",
+      "text": "Don't overthink it. If you have no strong preference: start with AWS — it has the widest hiring pool in India, the most tutorials, and the easiest migration path if you ever need to switch. If you're building for enterprise customers on Microsoft stacks: Azure. If you're building an AI or data product: GCP."
+    },
+    {
+      "type": "paragraph",
+      "text": "The cloud you can operate confidently is better than the one that looks best on paper. Pick one, ship your product, and optimize later."
+    }
+  ],
+  "relatedPosts": [
+    { "title": "Building an MVP in 30 Days: The Trai Inc Playbook", "url": "/blog-building-mvp-30-days.html" },
+    { "title": "React Native vs Flutter in 2025 — What Should You Choose?", "url": "/blog-react-native-vs-flutter.html" }
+  ]
+}

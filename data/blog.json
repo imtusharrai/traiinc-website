@@ -14,7 +14,8 @@
     "author": "Tushar Rai",
     "date": "July 10, 2026",
     "read_time": "8 min read",
-    "url": "#"
+    "image": "/img/blog/ai-agents-workflows.webp",
+    "url": "blog-ai-agents-replacing-manual-workflows.html"
   },
   "posts": [
     {
@@ -26,7 +27,8 @@
       "author": "Neha Sharma",
       "date": "Jun 28, 2026",
       "read_time": "6 min",
-      "url": "#"
+      "image": "/img/blog/cloud-comparison.webp",
+      "url": "blog-aws-vs-azure-vs-gcp.html"
     },
     {
       "emoji": "📈",
@@ -37,7 +39,8 @@
       "author": "Harsh Pandey",
       "date": "Jun 15, 2026",
       "read_time": "7 min",
-      "url": "#"
+      "image": "/img/blog/local-seo.webp",
+      "url": "blog-local-seo-rank-google-maps.html"
     },
     {
       "emoji": "🏪",
@@ -48,7 +51,8 @@
       "author": "Trai Inc",
       "date": "Jun 02, 2026",
       "read_time": "5 min",
-      "url": "#"
+      "image": "/img/blog/free-tools-msme.webp",
+      "url": "blog-5-free-digital-tools-msme.html"
     },
     {
       "emoji": "🔒",
@@ -59,7 +63,8 @@
       "author": "Tushar Rai",
       "date": "May 20, 2026",
       "read_time": "6 min",
-      "url": "#"
+      "image": "/img/blog/whatsapp-security.webp",
+      "url": "blog-whatsapp-business-security.html"
     },
     {
       "emoji": "🚀",
@@ -70,7 +75,8 @@
       "author": "Harsh Pandey",
       "date": "May 08, 2026",
       "read_time": "9 min",
-      "url": "#"
+      "image": "/img/blog/mvp-playbook.webp",
+      "url": "blog-building-mvp-30-days.html"
     },
     {
       "emoji": "📱",
@@ -81,7 +87,8 @@
       "author": "Neha Sharma",
       "date": "Apr 22, 2026",
       "read_time": "7 min",
-      "url": "#"
+      "image": "/img/blog/react-native-vs-flutter.webp",
+      "url": "blog-react-native-vs-flutter.html"
     }
   ],
   "newsletter": {

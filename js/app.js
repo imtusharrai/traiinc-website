@@ -111,10 +111,17 @@ document.addEventListener("DOMContentLoaded", async () => {
         ];
 
         return `
-            <header class="cf-hero-wrapper" style="min-height:50vh;padding-top:140px;padding-bottom:60px;">
-                <div class="cf-hero-content fade-in">
-                    <h4 class="mini-title">${data.hero.tag}</h4>
-                    <h1 class="solutions-header-title">${data.hero.title}</h1>
+            <header class="cf-hero-wrapper case-study-hero-split">
+                <div class="container case-study-hero-grid fade-in">
+                    <div class="case-study-hero-text">
+                        <h4 class="mini-title">${data.hero.tag}</h4>
+                        <h1 class="solutions-header-title">${data.hero.title}</h1>
+                    </div>
+                    ${data.hero.image ? `
+                    <div class="case-study-hero-image">
+                        <img src="${data.hero.image}" alt="${data.hero.title}" />
+                    </div>
+                    ` : ''}
                 </div>
             </header>
 
@@ -194,6 +201,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         'app-store': renderAppStore,
         'choosing-a-development-partner': renderTrustPage,
         blog: renderBlog,
+        'blog-ai-agents-replacing-manual-workflows': renderBlogPost,
+        'blog-aws-vs-azure-vs-gcp': renderBlogPost,
+        'blog-local-seo-rank-google-maps': renderBlogPost,
+        'blog-5-free-digital-tools-msme': renderBlogPost,
+        'blog-whatsapp-business-security': renderBlogPost,
+        'blog-building-mvp-30-days': renderBlogPost,
+        'blog-react-native-vs-flutter': renderBlogPost,
         privacy: renderLegal,
         terms: renderLegal,
         refund: renderLegal
@@ -2413,7 +2427,10 @@ function renderTrustPage(data) {
 function renderBlog(data) {
     const postsHtml = data.posts.map(post => `
         <a href="${post.url}" class="blog-card fade-in" style="text-decoration:none;color:inherit;">
-            <div class="blog-card-thumb" style="background:color-mix(in srgb, ${post.tag_color} 12%, transparent)">${post.emoji}</div>
+            <div class="blog-card-thumb">${post.image
+                ? `<img src="${post.image}" alt="${post.title}" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;" />`
+                : `<span style="font-size:2.5rem;">${post.emoji}</span>`
+            }</div>
             <div class="blog-card-body">
                 <span class="blog-tag" style="background:color-mix(in srgb, ${post.tag_color} 15%, transparent);color:${post.tag_color};">${post.tag}</span>
                 <h3>${post.title}</h3>
@@ -2441,7 +2458,10 @@ function renderBlog(data) {
         </div>
 
         <a href="${data.featured.url}" class="blog-featured fade-in" style="text-decoration:none;color:inherit;">
-            <div class="blog-featured-img" style="background:color-mix(in srgb, ${data.featured.tag_color} 12%, transparent)">${data.featured.emoji}</div>
+            <div class="blog-featured-img">${data.featured.image
+                ? `<img src="${data.featured.image}" alt="${data.featured.title}" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;" />`
+                : `<span style="font-size:3rem;">${data.featured.emoji}</span>`
+            }</div>
             <div class="blog-featured-body">
                 <span class="blog-tag" style="background:color-mix(in srgb, ${data.featured.tag_color} 15%, transparent);color:${data.featured.tag_color};">${data.featured.tag}</span>
                 <h2>${data.featured.title}</h2>
@@ -2470,5 +2490,60 @@ function renderBlog(data) {
             </div>
         </div>
     </div>
+    `;
+}
+
+function renderBlogPost(data) {
+    const contentHtml = data.content.map(block => {
+        if (block.type === 'heading') return `<h2 style="font-size:1.5rem;font-weight:700;color:var(--text-main);margin:40px 0 16px;">${block.text}</h2>`;
+        if (block.type === 'subheading') return `<h3 style="font-size:1.2rem;font-weight:600;color:var(--text-main);margin:32px 0 12px;">${block.text}</h3>`;
+        return `<p style="font-size:1.05rem;line-height:1.8;color:var(--text-muted);margin:0 0 16px;">${block.text}</p>`;
+    }).join('');
+
+    const relatedHtml = data.relatedPosts && data.relatedPosts.length ? `
+        <div style="margin-top:48px;padding-top:32px;border-top:1px solid var(--border-light);">
+            <h3 style="font-size:1.1rem;font-weight:700;color:var(--text-main);margin-bottom:16px;">Related Articles</h3>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                ${data.relatedPosts.map(p => `<a href="${p.url}" class="btn-primary" style="font-size:0.9rem;padding:10px 20px;">${p.title} →</a>`).join('')}
+            </div>
+        </div>
+    ` : '';
+
+    return `
+    <header class="cf-hero-wrapper" style="min-height:auto;padding-top:140px;padding-bottom:40px;">
+        <div class="container fade-in" style="max-width:800px;">
+            <span class="blog-tag" style="background:color-mix(in srgb, ${data.meta.tag_color} 15%, transparent);color:${data.meta.tag_color};display:inline-block;margin-bottom:16px;">${data.meta.tag}</span>
+            <h1 class="solutions-header-title" style="font-size:clamp(2rem, 4vw, 3rem);">${data.meta.title}</h1>
+            <div style="display:flex;align-items:center;gap:16px;margin-top:20px;flex-wrap:wrap;color:var(--text-muted);font-size:0.95rem;">
+                <span>${data.meta.author}</span>
+                <span style="opacity:0.4;">·</span>
+                <span>${data.meta.date}</span>
+                <span style="opacity:0.4;">·</span>
+                <span>${data.meta.read_time}</span>
+            </div>
+        </div>
+    </header>
+
+    ${data.meta.image ? `
+    <section class="container fade-in" style="padding:0 0 40px;">
+        <div style="max-width:800px;margin:0 auto;">
+            <img src="${data.meta.image}" alt="${data.meta.title}" style="width:100%;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.12);" />
+        </div>
+    </section>
+    ` : ''}
+
+    <article class="container fade-in" style="padding:0 0 60px;">
+        <div style="max-width:700px;margin:0 auto;">
+            ${contentHtml}
+            ${relatedHtml}
+        </div>
+    </article>
+
+    <section class="content-section center section-pad-lg border-t-light">
+        <div class="container">
+            <h2 class="mb-8">Want to discuss this topic?</h2>
+            <a href="contact.html" class="btn btn-primary">Get in Touch →</a>
+        </div>
+    </section>
     `;
 }

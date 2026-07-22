@@ -6139,6 +6139,48 @@ body.light-mode .audience-panel::before { opacity: 0.05; }
 }
 
 
+/* ===== Case Study Split Hero ===== */
+.case-study-hero-split {
+  min-height: 70vh;
+  padding-top: 140px;
+  padding-bottom: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.case-study-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.case-study-hero-text {
+  text-align: left;
+}
+
+.case-study-hero-image img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 768px) {
+  .case-study-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+  .case-study-hero-text {
+    text-align: center;
+  }
+  .case-study-hero-split {
+    min-height: auto;
+    padding-top: 120px;
+    padding-bottom: 40px;
+  }
+}
+
 .client-pills-row {
   display: flex;
   flex-wrap: wrap;
