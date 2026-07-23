@@ -1240,6 +1240,8 @@ function renderContact(data) {
                 <p class="contact-form-note">${data.form.note}</p>
             </div>
             <form id="contactForm" action="/api/contact" method="POST" class="contact-form">
+                <!-- Honeypot field (hidden from legitimate users, filled by bots) -->
+                <input type="text" name="website_url" style="display:none" tabindex="-1" autocomplete="off">
 
                 <div class="contact-form-row">
                     ${data.form.fields.slice(0, 2).map(f => `
@@ -1850,7 +1852,8 @@ function renderMSME(data) {
                     </div>
                     <div>
                         <form id="estimatorForm" class="estimator-form" action="/api/contact" method="POST">
-
+                            <!-- Honeypot field (hidden from legitimate users, filled by bots) -->
+                            <input type="text" name="website_url" style="display:none" tabindex="-1" autocomplete="off">
                             <label>What do you need built?</label>
                             <select id="calcType" name="service_type" required>
                                 ${data.estimator.options.map(opt => `<option value="${opt.value}">${opt.label}</option>`).join('')}

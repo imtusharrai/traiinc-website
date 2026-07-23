@@ -381,9 +381,6 @@
                         <a href="industries.html" class="${['industries','msmes','startups','smb','enterprise'].includes(page)?'active':''}">${navData.whoWeHelp.label} ${chevronDown}</a>
                         ${buildDropdown('whoWeHelp', navData.whoWeHelp)}
                     </li>
-                    <li>
-                        <a href="blog.html" class="${page==='blog'?'active':''}">Blog</a>
-                    </li>
                 </ul>
                 <div class="nav-actions">
                     <button class="full-menu-btn" id="full-menu-btn" aria-label="Open Full Menu">
@@ -542,6 +539,7 @@
                     <li><a href="ai-automation.html">AI & Automation</a></li>
                     <li><a href="cloud-devops.html">Cloud & DevOps</a></li>
                     <li><a href="digital-marketing.html">Digital Marketing</a></li>
+                    <li><a href="enterprise-platforms.html">CRM, ERP & Billing</a></li>
                     <li><a href="content-creation.html">Content Creation</a></li>
                     <li><a href="ui-ux-design.html">UI/UX Design</a></li>
                     <li><a href="data-analytics.html">Data & Analytics</a></li>
@@ -560,7 +558,6 @@
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="careers.html">Careers</a></li>
                     <li><a href="partner.html">Partners</a></li>
-                    <li><a href="blog.html">Blog</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>

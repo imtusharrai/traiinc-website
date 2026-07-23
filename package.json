@@ -3,6 +3,9 @@
     "build": "node build.js"
   },
   "dependencies": {
-    "jsdom": "^29.1.1"
+    "finalhandler": "^2.1.1",
+    "jsdom": "^29.1.1",
+    "puppeteer": "^25.3.0",
+    "serve-static": "^2.2.1"
   }
 }

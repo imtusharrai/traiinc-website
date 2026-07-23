@@ -117,6 +117,15 @@ export async function onRequestPost(context) {
         const serviceType = formData.get('service_type') || '';
         const needsLogin = formData.get('needs_login') || '';
         const services = formData.getAll('services').filter(Boolean);
+        const websiteUrl = formData.get('website_url') || '';
+
+        // Honeypot check: if filled, silently exit to trick bots
+        if (websiteUrl) {
+            return new Response(JSON.stringify({ success: true }), {
+                status: 200,
+                headers: { 'Content-Type': 'application/json' }
+            });
+        }
 
         if (!name || (!email && !phone)) {
             return new Response(JSON.stringify({ error: "Name and either email or phone are required" }), {
@@ -133,23 +142,28 @@ export async function onRequestPost(context) {
             });
         }
 
-        if (env.TURNSTILE_SECRET_KEY) {
-            const tsRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams({
-                    secret: env.TURNSTILE_SECRET_KEY,
-                    response: turnstileToken,
-                    remoteip: request.headers.get('CF-Connecting-IP') || ''
-                })
+        if (!env.TURNSTILE_SECRET_KEY) {
+            return new Response(JSON.stringify({ error: "Server configuration error: Turnstile key missing" }), {
+                status: 500,
+                headers: { 'Content-Type': 'application/json' }
             });
-            const tsData = await tsRes.json();
-            if (!tsData.success) {
-                return new Response(JSON.stringify({ error: "Security verification failed. Please try again." }), {
-                    status: 403,
-                    headers: { 'Content-Type': 'application/json' }
-                });
-            }
+        }
+
+        const tsRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams({
+                secret: env.TURNSTILE_SECRET_KEY,
+                response: turnstileToken,
+                remoteip: request.headers.get('CF-Connecting-IP') || ''
+            })
+        });
+        const tsData = await tsRes.json();
+        if (!tsData.success) {
+            return new Response(JSON.stringify({ error: "Security verification failed. Please try again." }), {
+                status: 403,
+                headers: { 'Content-Type': 'application/json' }
+            });
         }
 
         if (!env.RESEND_API_KEY) {
