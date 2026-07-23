@@ -41,7 +41,7 @@
     {
       "id": "ai-automation",
       "icon_key": "spark",
-      "title": "AI, Data & Automation",
+      "title": "AI & Automation",
       "desc": "Intelligent agents and automation workflows that eliminate manual work, scale operations, and deliver real ROI.",
       "href": "ai-automation.html",
       "tech_stack": ["Python", "TensorFlow", "PyTorch", "FastAPI", "LangChain", "OpenAI", "Snowflake", "Apache Spark", "Power BI"],

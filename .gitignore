@@ -22,3 +22,14 @@ temp-search/
 # OS files
 Thumbs.db
 .DS_Store
+
+# Debugging and Audit Scripts
+audit.js
+audit2.js
+parse_audit.js
+screenshot.js
+crop_margin.py
+make_white_logo.py
+*.md
+*.jpg
+*.png
