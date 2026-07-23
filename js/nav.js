@@ -381,6 +381,9 @@
                         <a href="industries.html" class="${['industries','msmes','startups','smb','enterprise'].includes(page)?'active':''}">${navData.whoWeHelp.label} ${chevronDown}</a>
                         ${buildDropdown('whoWeHelp', navData.whoWeHelp)}
                     </li>
+                    <li>
+                        <a href="blog.html" class="${page === 'blog' || page.startsWith('blog-') ? 'active' : ''}">Blog</a>
+                    </li>
                 </ul>
                 <div class="nav-actions">
                     <button class="full-menu-btn" id="full-menu-btn" aria-label="Open Full Menu">
