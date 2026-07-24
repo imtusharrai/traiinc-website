@@ -71,7 +71,7 @@ const server = http.createServer((req, res) => {
 
 server.listen(PORT, async () => {
     console.log(`Local server started on port ${PORT}`);
-    const htmlFiles = fs.readdirSync(rootDir).filter(f => f.endsWith('.html') && f !== '404.html');
+    const htmlFiles = fs.readdirSync(rootDir).filter(f => f.endsWith('.html') && f !== '404.html' && f !== 'client-reviews.html');
     
     const virtualConsole = new jsdom.VirtualConsole();
     
@@ -147,6 +147,7 @@ server.listen(PORT, async () => {
             });
             
             // Schema Injection
+            let schemas = [];
             let schemaJson = null;
             let breadcrumbSchema = null;
             if (file !== 'index.html' && file !== '404.html') {
@@ -167,8 +168,8 @@ server.listen(PORT, async () => {
                     }]
                 };
             }
-            if (file === 'index.html' || file === 'contact.html') {
-                schemaJson = {
+            if (file !== '404.html') {
+                schemas.push({
                     "@context": "https://schema.org",
                     "@type": ["Organization", "LocalBusiness"],
                     "name": "Trai Inc",
@@ -192,7 +193,7 @@ server.listen(PORT, async () => {
                         "https://www.instagram.com/trai.inc",
                         "https://www.youtube.com/@trai-inc"
                     ]
-                };
+                });
             } else if ([
                 'ai-automation.html', 'cloud-devops.html', 'content-creation.html', 'custom-software.html',
                 'cybersecurity.html', 'data-analytics.html', 'digital-marketing.html',
@@ -247,14 +248,30 @@ server.listen(PORT, async () => {
                         }
                     }
                 };
+            } else if (file.startsWith('blog-') && file !== 'blog.html') {
+                schemaJson = {
+                    "@context": "https://schema.org",
+                    "@type": "BlogPosting",
+                    "headline": dom.window.document.title.split('|')[0].trim(),
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Trai Inc",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://traiinc.com/assets/logos/logo.png"
+                        }
+                    }
+                };
             }
             
-            if (schemaJson) {
+            if (schemaJson) schemas.push(schemaJson);
+
+            schemas.forEach(schema => {
                 const schemaScript = dom.window.document.createElement('script');
                 schemaScript.type = 'application/ld+json';
-                schemaScript.textContent = JSON.stringify(schemaJson);
+                schemaScript.textContent = JSON.stringify(schema);
                 head.appendChild(schemaScript);
-            }
+            });
             if (breadcrumbSchema) {
                 const breadcrumbScript = dom.window.document.createElement('script');
                 breadcrumbScript.type = 'application/ld+json';
@@ -351,7 +368,7 @@ server.listen(PORT, async () => {
             } catch(e) {}
             
             // Collect sitemap URLs
-            const loc = file === 'index.html' ? 'https://traiinc.com/' : `https://traiinc.com/${file}`;
+            const loc = file === 'index.html' ? 'https://traiinc.com/' : `https://traiinc.com/${file.replace('.html', '')}`;
             const priority = file === 'index.html' ? '1.0' : '0.8';
             const lastmod = new Date().toISOString().split('T')[0];
             sitemapUrls.push(`  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>${priority}</priority>\n  </url>`);

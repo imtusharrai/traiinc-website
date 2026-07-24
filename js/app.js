@@ -158,6 +158,46 @@ document.addEventListener("DOMContentLoaded", async () => {
         `;
     }
 
+    // --- Development Process Page Renderer ---
+    function renderProcess(data) {
+        return `
+            <header class="hero hero-half">
+                <div class="container hero-content center">
+                    <h4 class="mini-title">${data.header.subtitle || 'OUR PROCESS'}</h4>
+                    <h1 class="hero-title">${data.header.title}</h1>
+                    ${data.intro ? `<p class="hero-subtitle">${data.intro.text}</p>` : ''}
+                </div>
+            </header>
+
+            ${data.model && data.model.advantages && data.model.advantages.length ? `
+            <section class="container fade-in section-pad">
+                <div class="section-header center">
+                    <h4 class="mini-title">${data.model.subtitle || ''}</h4>
+                    <h2>${data.model.title || ''}</h2>
+                    ${data.model.description ? `<p class="section-desc">${data.model.description}</p>` : ''}
+                </div>
+                <div class="bento-grid">
+                    ${data.model.advantages.map((adv, idx) => `
+                        <div class="bento-card ${idx % 3 === 0 ? 'wide' : ''} fade-in">
+                            <div class="bento-icon brand-gradient-bg">${adv.icon || '⚡'}</div>
+                            <h3 class="bento-title">${adv.title}</h3>
+                            <p class="bento-desc">${adv.desc}</p>
+                        </div>
+                    `).join('')}
+                </div>
+            </section>
+            ` : ''}
+
+            <section class="container fade-in section-pad text-center">
+                <div class="hero-card">
+                    <h2>${data.cta.title}</h2>
+                    <p class="tech-cta-desc">${data.cta.description}</p>
+                    <a href="contact.html" class="btn-primary large mx-auto">${data.cta.button_text || 'Get in Touch'}</a>
+                </div>
+            </section>
+        `;
+    }
+
     // Fetch and Render Dynamic Content
     const pageId = document.body.getAttribute("data-page") || "";
     const dynamicContainer = document.getElementById("content") || document.getElementById("dynamic-content");
@@ -184,7 +224,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         'hire-dedicated-developers': renderAbout,
         team: renderAbout,
         'client-reviews': renderAbout,
-        'our-development-process': renderAbout,
+        'our-development-process': renderProcess,
         'engagement-models': renderAbout,
         'project-communication-strategy': renderAbout,
         solutions: renderSolutions,
@@ -1656,7 +1696,7 @@ function renderAudiencePage(data) {
                     <h1>${hero.title}</h1>
                     <p class="msme-hero-sub">${hero.subtitle}</p>
                     <div class="hero-cta-row">
-                        <a href="contact.html" class="btn-primary large">Get in Touch</a>
+                        <a href="contact.html" class="btn-primary large">${hero.cta_text || 'Get in Touch'}</a>
                     </div>
                     <div class="hero-trust">
                         <div class="hero-trust-avatars">

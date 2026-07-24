@@ -40,6 +40,7 @@
 # No real testimonial content exists site-wide (confirmed zero quotes in data/*.json) -
 # redirect to the real proof page instead of shipping an "Error loading content" page
 /client-reviews.html /clients.html 301
+/client-reviews /clients 301
 
 # Redirections for orphaned company/trust pages → about
 /engagement-models.html /about.html 301
