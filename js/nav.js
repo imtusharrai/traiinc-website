@@ -618,20 +618,23 @@
         document.body.appendChild(fabLogo);
         
         // ── Newsletter form (real submit → /api/subscribe) ──
-        var newsletterForm = document.querySelector('.newsletter-form');
-        if (newsletterForm) {
+        var newsletterForms = document.querySelectorAll('.newsletter-form, .nl-form');
+        newsletterForms.forEach(function(newsletterForm) {
             newsletterForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 var btn = newsletterForm.querySelector('button');
-                var input = newsletterForm.querySelector('input[name="email"]');
+                var input = newsletterForm.querySelector('input[name="email"]') || newsletterForm.querySelector('input[type="email"]');
                 var original = btn.innerHTML;
                 btn.disabled = true;
                 btn.innerHTML = 'Sending…';
                 try {
-                    var res = await fetch('/api/subscribe', { method: 'POST', body: new FormData(newsletterForm) });
+                    var formData = new FormData();
+                    formData.append('email', input.value);
+                    var res = await fetch('/api/subscribe', { method: 'POST', body: formData });
                     if (!res.ok) throw new Error('subscribe failed');
                     btn.innerHTML = 'Subscribed! ✅';
-                    newsletterForm.reset();
+                    if (typeof newsletterForm.reset === 'function') newsletterForm.reset();
+                    else input.value = '';
                 } catch (err) {
                     btn.innerHTML = 'Try again';
                 } finally {
@@ -641,7 +644,7 @@
                     }, 3000);
                 }
             });
-        }
+        });
     }
 
     if (document.readyState === 'loading') {

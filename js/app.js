@@ -2600,10 +2600,10 @@ function renderBlog(data) {
         <div class="blog-newsletter fade-in">
             <h2>${data.newsletter.title}</h2>
             <p>${data.newsletter.description}</p>
-            <div class="nl-form">
-                <input type="email" placeholder="${data.newsletter.placeholder}">
-                <button>${data.newsletter.button_text}</button>
-            </div>
+            <form class="nl-form">
+                <input type="email" name="email" placeholder="${data.newsletter.placeholder}" required>
+                <button type="submit">${data.newsletter.button_text}</button>
+            </form>
         </div>
     </div>
     `;
