@@ -24,10 +24,10 @@ export async function onRequestPost(context) {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Trai Inc — Resource Delivery Email</title>
+<title>Trai Inc — Thanks for Subscribing!</title>
 </head>
 <body style="margin:0; padding:0; background-color:#eeeeef; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-${preheader('Your 10-Point Tech Audit Checklist is ready. Start with Point #3 — it saves 80% of startups their server costs.')}
+${preheader('Thanks for subscribing to Trai Inc Weekly Insights.')}
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#eeeeef; padding: 40px 0;">
 <tr>
 <td align="center">
@@ -46,38 +46,23 @@ ${preheader('Your 10-Point Tech Audit Checklist is ready. Start with Point #3 �
   <!-- Intro -->
   <tr>
     <td style="padding: 20px 40px 4px 40px;">
-      <h1 style="margin:0 0 10px 0; font-size:24px; line-height:1.3; color:#0a0a0a; letter-spacing:-0.4px;">Your resource is ready</h1>
+      <h1 style="margin:0 0 10px 0; font-size:24px; line-height:1.3; color:#0a0a0a; letter-spacing:-0.4px;">Thanks for subscribing!</h1>
       <p style="margin:0; font-size:15px; line-height:1.65; color:#555555;">
         Hi there,<br><br>
-        Thanks for your interest in Trai Inc — we help businesses across India build custom software, mobile apps, and automation that actually fits how they work. Below is the resource you requested.
+        Thanks for subscribing to Trai Inc. We'll send you our weekly insights on custom software, AI automations, and how businesses across India are scaling with tech.<br><br>
+        While you wait for the next update, check out some of our recent deep dives below.
       </p>
-    </td>
-  </tr>
-
-  <!-- Primary card: their matched segment -->
-  <tr>
-    <td style="padding: 28px 40px 0 40px;">
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background: linear-gradient(135deg, #fdf2f6, #fff6f0); border-radius:12px; border:1px solid #f5dbe4;">
-        <tr>
-          <td style="padding:26px 28px;">
-            <p style="margin:0 0 6px 0; font-size:11px; font-weight:700; color:#D91414; letter-spacing:0.6px; text-transform:uppercase;">TECH AUDIT</p>
-            <h2 style="margin:0 0 8px 0; font-size:19px; color:#0a0a0a; line-height:1.35;">10-Point Tech Audit Checklist</h2>
-            <p style="margin:0 0 18px 0; font-size:14px; color:#555555; line-height:1.55;">Start with Point #3 (Database Indexing) — it's where 80% of startups lose their server money.</p>
-            <a href="https://www.traiinc.com/assets/lead-magnets/Lead_Magnet_Audit.pdf" style="display:inline-block; background-color:#D91414; color:#ffffff; text-decoration:none; font-size:14px; font-weight:600; padding:12px 22px; border-radius:8px;">Download the Checklist →</a>
-          </td>
-        </tr>
-      </table>
     </td>
   </tr>
 
   <!-- Divider -->
   <tr>
     <td style="padding: 32px 40px 12px 40px;">
-      <p style="margin:0; font-size:12px; font-weight:700; color:#999999; letter-spacing:0.4px; text-transform:uppercase;">More resources</p>
+      <p style="margin:0; font-size:12px; font-weight:700; color:#999999; letter-spacing:0.4px; text-transform:uppercase;">Recent Insights</p>
     </td>
   </tr>
 
-  <!-- Compact list: other 3 segments -->
+  <!-- Compact list: real blog posts -->
   <tr>
     <td style="padding: 0 40px;">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
@@ -89,8 +74,8 @@ ${preheader('Your 10-Point Tech Audit Checklist is ready. Start with Point #3 �
         </tr>
         <tr>
           <td style="padding:12px 0; border-bottom:1px solid #f0f0f0;">
-            <a href="https://traiinc.com/blog-ai-agents-replacing-manual-workflows.html" style="text-decoration:none; color:#0a0a0a; font-size:14px; font-weight:600;">AI Agents Are Replacing Manual Workflows</a>
-            <span style="display:block; font-size:12px; color:#999999; margin-top:2px;">SMALL & MEDIUM BUSINESS (10-50 EMPLOYEES)</span>
+            <a href="https://traiinc.com/blog-ai-agents-replacing-manual-workflows.html" style="text-decoration:none; color:#0a0a0a; font-size:14px; font-weight:600;">How AI Agents Are Replacing Manual Business Workflows</a>
+            <span style="display:block; font-size:12px; color:#999999; margin-top:2px;">AI & AUTOMATION</span>
           </td>
         </tr>
         <tr>
@@ -150,7 +135,7 @@ ${preheader('Your 10-Point Tech Audit Checklist is ready. Start with Point #3 �
             body: JSON.stringify({
                 from: "Trai Inc <hello@traiinc.com>",
                 to: email,
-                subject: "Your Resource is Ready | Trai Inc",
+                subject: "Welcome to Trai Inc Weekly Insights",
                 html: html
             })
         });
