@@ -350,8 +350,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                     e.preventDefault();
                     const btn = document.getElementById('contactSubmitBtn');
                     const result = document.getElementById('formResult');
-                    const turnstileResponse = contactFormEl.querySelector('[name="cf-turnstile-response"]');
-                    if (!turnstileResponse || !turnstileResponse.value) {
+                    const formData = new FormData(contactFormEl);
+                    const turnstileToken = formData.get('cf-turnstile-response');
+                    if (!turnstileToken) {
                         showFormModal('error', 'Verification Required', 'Please complete the security check before submitting.');
                         return;
                     }
@@ -361,7 +362,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     try {
                         const response = await fetch(contactFormEl.action, {
                             method: 'POST',
-                            body: new FormData(contactFormEl)
+                            body: formData
                         });
                         if (response.ok) {
                             contactFormEl.reset();
