@@ -43,13 +43,13 @@ export async function onRequestPost(context) {
                     <p style="font-size:15px;color:#333;line-height:1.6;margin:20px 0 0;">Best,<br><strong>The Trai Inc Team</strong></p>
                 </div>
                 <div style="background:#f9f9f9;padding:20px 32px;border-top:1px solid #eee;text-align:center;font-size:13px;color:#888;">
-                    <p style="margin:0 0 8px;">Trai Inc &middot; B-2, 11th Floor, DLF MyPad, Gomti Nagar, Lucknow 226010</p>
-                    <p style="margin:0;">
+                    <p style="margin:0 0 12px;">
                         <a href="https://traiinc.com" style="color:${ACCENT};text-decoration:none;">Website</a> &middot;
                         <a href="https://www.linkedin.com/company/trai-inc" style="color:${ACCENT};text-decoration:none;">LinkedIn</a> &middot;
                         <a href="https://www.instagram.com/trai.inc" style="color:${ACCENT};text-decoration:none;">Instagram</a> &middot;
                         <a href="https://wa.me/917905495478" style="color:${ACCENT};text-decoration:none;">WhatsApp</a>
                     </p>
+                    <p style="margin:0;font-size:11px;color:#aaa;">Trai Inc &middot; B-2, 11th Floor, DLF MyPad, Gomti Nagar, Lucknow 226010</p>
                 </div>
             </div>
         `;
