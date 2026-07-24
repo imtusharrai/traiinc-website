@@ -1,5 +1,5 @@
 const ACCENT = '#D91414';
-const LOGO_URL = 'https://traiinc.com/assets/logos/logo_white.png';
+const LOGO_URL = 'https://traiinc.com/assets/logos/logo_gradient.png';
 
 function preheader(text) {
     return `<div style="display:none;font-size:1px;color:#ffffff;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">${text}${'&#847; '.repeat(30)}</div>`;
@@ -19,15 +19,17 @@ export async function onRequestPost(context) {
             return new Response(JSON.stringify({ error: "Server configuration error" }), { status: 500 });
         }
 
+        const unsubscribe_link = `https://traiinc.com/api/unsubscribe?email=${encodeURIComponent(email)}`;
+
         const html = `
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Trai Inc — Thanks for Subscribing!</title>
+<title>Trai Inc — Resource Delivery Email</title>
 </head>
 <body style="margin:0; padding:0; background-color:#eeeeef; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-${preheader('Thanks for subscribing to Trai Inc Weekly Insights.')}
+${preheader('Here are the resources matched to your business stage.')}
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#eeeeef; padding: 40px 0;">
 <tr>
 <td align="center">
@@ -37,50 +39,57 @@ ${preheader('Thanks for subscribing to Trai Inc Weekly Insights.')}
   <!-- Header -->
   <tr>
     <td style="padding: 36px 40px 0 40px;">
-      <span style="display:inline-block; font-weight:800; font-size:20px; letter-spacing:-0.3px;">
-        <span style="color:#D91414;">T</span><span style="color:#111111;">rai </span><span style="color:#D91414;">I</span><span style="color:#111111;">nc</span>
-      </span>
+      <img src="${LOGO_URL}" alt="Trai Inc" style="height:32px;width:auto;display:block;" />
     </td>
   </tr>
 
   <!-- Intro -->
   <tr>
     <td style="padding: 20px 40px 4px 40px;">
-      <h1 style="margin:0 0 10px 0; font-size:24px; line-height:1.3; color:#0a0a0a; letter-spacing:-0.4px;">Thanks for subscribing!</h1>
+      <h1 style="margin:0 0 10px 0; font-size:24px; line-height:1.3; color:#0a0a0a; letter-spacing:-0.4px;">Your resources are ready</h1>
       <p style="margin:0; font-size:15px; line-height:1.65; color:#555555;">
         Hi there,<br><br>
-        Thanks for subscribing to Trai Inc. We'll send you our weekly insights on custom software, AI automations, and how businesses across India are scaling with tech.<br><br>
-        While you wait for the next update, check out some of our recent deep dives below.
+        Thanks for your interest in Trai Inc — we help businesses across India build custom software, mobile apps, and automation that actually fits how they work. Below are the resources matched to where your business is right now.
       </p>
+    </td>
+  </tr>
+
+  <!-- Primary card: their matched segment -->
+  <tr>
+    <td style="padding: 28px 40px 0 40px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background: linear-gradient(135deg, #fdf2f6, #fff6f0); border-radius:12px; border:1px solid #f5dbe4;">
+        <tr>
+          <td style="padding:26px 28px;">
+            <p style="margin:0 0 6px 0; font-size:11px; font-weight:700; color:#e91e63; letter-spacing:0.6px; text-transform:uppercase;">STARTUPS</p>
+            <h2 style="margin:0 0 8px 0; font-size:19px; color:#0a0a0a; line-height:1.35;">Building an MVP in 30 Days: A Startup's Guide</h2>
+            <p style="margin:0 0 18px 0; font-size:14px; color:#555555; line-height:1.55;">Most startups don't fail because of bad ideas. They fail because they spend 6 months building a product nobody asked for. Here is our 30-day playbook.</p>
+            <a href="https://traiinc.com/blog-building-mvp-30-days.html" style="display:inline-block; background-color:#e91e63; color:#ffffff; text-decoration:none; font-size:14px; font-weight:600; padding:12px 22px; border-radius:8px;">Read the Guide →</a>
+          </td>
+        </tr>
+      </table>
     </td>
   </tr>
 
   <!-- Divider -->
   <tr>
     <td style="padding: 32px 40px 12px 40px;">
-      <p style="margin:0; font-size:12px; font-weight:700; color:#999999; letter-spacing:0.4px; text-transform:uppercase;">Recent Insights</p>
+      <p style="margin:0; font-size:12px; font-weight:700; color:#999999; letter-spacing:0.4px; text-transform:uppercase;">More resources</p>
     </td>
   </tr>
 
-  <!-- Compact list: real blog posts -->
+  <!-- Compact list: other segments -->
   <tr>
     <td style="padding: 0 40px;">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
         <tr>
           <td style="padding:12px 0; border-bottom:1px solid #f0f0f0;">
-            <a href="https://traiinc.com/blog-building-mvp-30-days.html" style="text-decoration:none; color:#0a0a0a; font-size:14px; font-weight:600;">Building an MVP in 30 Days: A Startup's Guide</a>
-            <span style="display:block; font-size:12px; color:#999999; margin-top:2px;">STARTUPS</span>
-          </td>
-        </tr>
-        <tr>
-          <td style="padding:12px 0; border-bottom:1px solid #f0f0f0;">
-            <a href="https://traiinc.com/blog-ai-agents-replacing-manual-workflows.html" style="text-decoration:none; color:#0a0a0a; font-size:14px; font-weight:600;">How AI Agents Are Replacing Manual Business Workflows</a>
-            <span style="display:block; font-size:12px; color:#999999; margin-top:2px;">AI & AUTOMATION</span>
+            <a href="https://traiinc.com/blog-ai-agents-replacing-manual-workflows.html" style="text-decoration:none; color:#0a0a0a; font-size:14px; font-weight:600;">AI Agents Are Replacing Manual Workflows</a>
+            <span style="display:block; font-size:12px; color:#999999; margin-top:2px;">SMALL & MEDIUM BUSINESS</span>
           </td>
         </tr>
         <tr>
           <td style="padding:12px 0;">
-            <a href="https://traiinc.com/blog-5-free-digital-tools-msme.html" style="text-decoration:none; color:#0a0a0a; font-size:14px; font-weight:600;">5 Free Digital Tools Every Micro & Local Business Should Be Using</a>
+            <a href="https://traiinc.com/blog-5-free-digital-tools-msme.html" style="text-decoration:none; color:#0a0a0a; font-size:14px; font-weight:600;">5 Free Digital Tools Every MSME Should Be Using Right Now</a>
             <span style="display:block; font-size:12px; color:#999999; margin-top:2px;">MICRO & LOCAL BUSINESS</span>
           </td>
         </tr>
@@ -105,14 +114,14 @@ ${preheader('Thanks for subscribing to Trai Inc Weekly Insights.')}
 
   <!-- Footer -->
   <tr>
-    <td style="padding: 18px 40px; background-color:#fafafa; border-top:1px solid #f0f0f0; text-align:center;">
-        <p style="margin:0 0 12px; font-size: 12px;">
-            <a href="https://traiinc.com" style="color:#aaaaaa; text-decoration:none;">Website</a> &middot;
-            <a href="https://www.linkedin.com/company/trai-inc" style="color:#aaaaaa; text-decoration:none;">LinkedIn</a> &middot;
-            <a href="https://www.instagram.com/trai.inc" style="color:#aaaaaa; text-decoration:none;">Instagram</a> &middot;
-            <a href="https://wa.me/917905495478" style="color:#aaaaaa; text-decoration:none;">WhatsApp</a>
-        </p>
-        <p style="margin:0; font-size:11px; color:#aaa;">Trai Inc &middot; B-2, 11th Floor, DLF MyPad, Gomti Nagar, Lucknow 226010</p>
+    <td style="padding: 18px 40px; background-color:#fafafa; border-top:1px solid #f0f0f0;">
+      <p style="margin:0 0 6px 0; font-size:12px; color:#aaaaaa;">
+        <a href="https://traiinc.com" style="color:#aaaaaa; text-decoration:none;">traiinc.com</a> ·
+        <a href="${unsubscribe_link}" style="color:#aaaaaa; text-decoration:none;">Unsubscribe</a>
+      </p>
+      <p style="margin:0; font-size:11px; color:#c4c4c4; line-height:1.5;">
+        Trai Inc &middot; Lucknow, India
+      </p>
     </td>
   </tr>
 
@@ -135,7 +144,7 @@ ${preheader('Thanks for subscribing to Trai Inc Weekly Insights.')}
             body: JSON.stringify({
                 from: "Trai Inc <hello@traiinc.com>",
                 to: email,
-                subject: "Welcome to Trai Inc Weekly Insights",
+                subject: "Your Resource is Ready | Trai Inc",
                 html: html
             })
         });
