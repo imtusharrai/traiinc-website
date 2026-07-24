@@ -343,6 +343,38 @@ document.addEventListener("DOMContentLoaded", async () => {
                 });
             }
 
+            // --- Explicitly render Turnstile widget for SPA-injected content ---
+            function renderTurnstileWidget() {
+                const container = document.querySelector('.cf-turnstile');
+                if (!container) return;
+                // Clear any stale children from failed auto-render attempts
+                container.innerHTML = '';
+                turnstile.render(container, {
+                    sitekey: container.getAttribute('data-sitekey'),
+                    action: container.getAttribute('data-action') || '',
+                    theme: container.getAttribute('data-theme') || 'auto'
+                });
+            }
+            const turnstileContainer = document.querySelector('.cf-turnstile');
+            if (turnstileContainer) {
+                if (typeof turnstile !== 'undefined') {
+                    renderTurnstileWidget();
+                } else {
+                    // Turnstile api.js hasn't loaded yet (async/defer), wait for it
+                    let attempts = 0;
+                    const waitForTurnstile = setInterval(() => {
+                        attempts++;
+                        if (typeof turnstile !== 'undefined') {
+                            clearInterval(waitForTurnstile);
+                            renderTurnstileWidget();
+                        } else if (attempts > 50) { // Give up after ~5 seconds
+                            clearInterval(waitForTurnstile);
+                            console.warn('Turnstile API failed to load');
+                        }
+                    }, 100);
+                }
+            }
+
             // --- FormSubmit Contact Form Handler ---
             const contactFormEl = document.getElementById('contactForm');
             if (contactFormEl) {
@@ -351,12 +383,25 @@ document.addEventListener("DOMContentLoaded", async () => {
                     const btn = document.getElementById('contactSubmitBtn');
                     const result = document.getElementById('formResult');
                     const formData = new FormData(contactFormEl);
-                    const tokens = formData.getAll('cf-turnstile-response');
-                    const turnstileToken = tokens.find(t => t && t.trim() !== '');
+
+                    // Use the official Turnstile JS API to get the token
+                    let turnstileToken = '';
+                    if (typeof turnstile !== 'undefined') {
+                        turnstileToken = turnstile.getResponse() || '';
+                    }
+                    if (!turnstileToken) {
+                        // Fallback: try FormData extraction
+                        const tokens = formData.getAll('cf-turnstile-response');
+                        turnstileToken = (tokens.find(t => t && t.trim() !== '')) || '';
+                    }
                     if (!turnstileToken) {
                         showFormModal('error', 'Verification Required', 'Please complete the security check before submitting.');
                         return;
                     }
+
+                    // Ensure the token is in the FormData for the backend
+                    formData.set('cf-turnstile-response', turnstileToken);
+
                     btn.disabled = true;
                     btn.textContent = 'Sending...';
 

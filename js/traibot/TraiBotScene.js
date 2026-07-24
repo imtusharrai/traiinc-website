@@ -425,8 +425,9 @@
 .mac-hinge{width:80px;height:4px;background:rgba(255,255,255,.08);border-radius:0 0 4px 4px;margin:0 auto}
 
 /* ── Responsive ── */
-@media(max-width:1200px){.mac-wrap{right:2%}.mac-frame{width:520px}.mac-base{width:560px}.saas-card{flex:0 0 140px}}
-@media(max-width:900px){.mac-wrap{display:none}.cosmos-orb{left:50%;width:320px;height:320px;margin:-160px 0 0 -160px}}
+@media(max-width:1350px){.mac-wrap{right:1%}.mac-frame{width:520px}.mac-base{width:560px}.saas-card{flex:0 0 140px; height: 180px; padding: 12px;}}
+@media(max-width:1150px){.mac-wrap{right:-1%}.mac-frame{width:460px}.mac-base{width:500px}.saas-card{flex:0 0 120px; height: 150px; padding: 10px;}}
+@media(max-width:1024px){.mac-wrap{display:none}.cosmos-orb{left:50%;width:400px;height:400px;margin:-200px 0 0 -200px}}
         `;
         document.head.appendChild(s);
     }
