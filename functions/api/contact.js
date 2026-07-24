@@ -149,18 +149,24 @@ export async function onRequestPost(context) {
             });
         }
 
+        const tsBody = {
+            secret: env.TURNSTILE_SECRET_KEY,
+            response: turnstileToken
+        };
+        const ip = request.headers.get('CF-Connecting-IP');
+        if (ip) tsBody.remoteip = ip;
+
         const tsRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams({
-                secret: env.TURNSTILE_SECRET_KEY,
-                response: turnstileToken,
-                remoteip: request.headers.get('CF-Connecting-IP') || ''
-            })
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(tsBody)
         });
         const tsData = await tsRes.json();
         if (!tsData.success) {
-            return new Response(JSON.stringify({ error: "Security verification failed. Please try again." }), {
+            return new Response(JSON.stringify({ 
+                error: "Security verification failed. Please try again.",
+                details: tsData['error-codes']
+            }), {
                 status: 403,
                 headers: { 'Content-Type': 'application/json' }
             });

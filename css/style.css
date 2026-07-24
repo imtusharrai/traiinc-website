@@ -5009,6 +5009,9 @@ body.light-mode .blog-tag {
     to   { opacity: 1; transform: translateY(0); }
 }
 /* ── Cosmos Hero Responsive ── */
+@media (min-width: 1025px) and (max-width: 1350px) {
+    .hero-cosmos-content { max-width: 50vw; padding-left: 5%; }
+}
 @media (max-width: 1024px) {
     .hero-cosmos-content { padding: 90px 36px 50px; max-width: 520px; }
     .hero-cosmos-title { font-size: clamp(2.4rem, 5vw, 4rem); }
