@@ -351,7 +351,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                     const btn = document.getElementById('contactSubmitBtn');
                     const result = document.getElementById('formResult');
                     const formData = new FormData(contactFormEl);
-                    const turnstileToken = formData.get('cf-turnstile-response');
+                    const tokens = formData.getAll('cf-turnstile-response');
+                    const turnstileToken = tokens.find(t => t && t.trim() !== '');
                     if (!turnstileToken) {
                         showFormModal('error', 'Verification Required', 'Please complete the security check before submitting.');
                         return;

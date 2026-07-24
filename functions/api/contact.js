@@ -134,7 +134,8 @@ export async function onRequestPost(context) {
             });
         }
 
-        const turnstileToken = formData.get('cf-turnstile-response') || '';
+        const tokens = formData.getAll('cf-turnstile-response');
+        const turnstileToken = tokens.find(t => t && t.trim() !== '') || '';
         if (!turnstileToken) {
             return new Response(JSON.stringify({ error: "Security verification required" }), {
                 status: 400,
