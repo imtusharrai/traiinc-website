@@ -53,46 +53,69 @@ const SERVICE_LABELS = {
 };
 
 const ACCENT = '#D91414';
-const LOGO_URL = 'https://traiinc.com/assets/logos/logo_white.png';
+const LOGO_URL = 'https://traiinc.com/assets/logos/logo_gradient.png';
 
 function preheader(text) {
     return `<div style="display:none;font-size:1px;color:#ffffff;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">${text}${'&#847; '.repeat(30)}</div>`;
 }
 
-function emailHeader(title, preheaderText) {
+function emailWrapper(preheaderText, bodyContent) {
     return `
-    ${preheaderText ? preheader(preheaderText) : ''}
-    <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:600px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #eee;">
-        <div style="background:#D91414;background-image:linear-gradient(135deg,#c400b0 0%,#D91414 50%,#e6a100 100%);padding:20px 32px;">
-            <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;">
-                <tr>
-                    <td style="vertical-align:middle;">
-                        <img src="${LOGO_URL}" alt="Trai Inc" style="height:32px;width:auto;display:block;" />
-                    </td>
-                    <td style="vertical-align:middle;text-align:right;">
-                        <span style="color:#ffffff;font-size:14px;font-weight:600;letter-spacing:0.5px;">TRAI INC</span>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <div style="padding:32px;">
-            <h2 style="margin:0 0 20px;font-size:20px;color:#111;">${title}</h2>
-    `;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Trai Inc</title>
+</head>
+<body style="margin:0; padding:0; background-color:#eeeeef; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+${preheaderText ? preheader(preheaderText) : ''}
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#eeeeef; padding: 40px 0;">
+<tr>
+<td align="center">
 
-function emailFooter() {
-    return `
-        </div>
-        <div style="background:#f9f9f9;padding:20px 32px;border-top:1px solid #eee;text-align:center;font-size:13px;color:#888;">
-            <p style="margin:0 0 12px;">
-                <a href="https://traiinc.com" style="color:${ACCENT};text-decoration:none;">Website</a> &middot;
-                <a href="https://www.linkedin.com/company/trai-inc" style="color:${ACCENT};text-decoration:none;">LinkedIn</a> &middot;
-                <a href="https://www.instagram.com/trai.inc" style="color:${ACCENT};text-decoration:none;">Instagram</a> &middot;
-                <a href="https://wa.me/917905495478" style="color:${ACCENT};text-decoration:none;">WhatsApp</a>
-            </p>
-            <p style="margin:0;font-size:11px;color:#aaa;">Trai Inc &middot; B-2, 11th Floor, DLF MyPad, Gomti Nagar, Lucknow 226010</p>
-        </div>
-    </div>`;
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="background-color:#ffffff; border-radius:16px; overflow:hidden; max-width:600px; width:100%; box-shadow: 0 1px 3px rgba(0,0,0,0.06);">
+
+  <!-- Header -->
+  <tr>
+    <td style="padding: 36px 40px 0 40px;">
+      <img src="${LOGO_URL}" alt="Trai Inc" style="height:32px;width:auto;display:block;" />
+    </td>
+  </tr>
+
+  <!-- Body -->
+  <tr>
+    <td style="padding: 20px 40px 0 40px;">
+      ${bodyContent}
+    </td>
+  </tr>
+
+  <!-- Footer -->
+  <tr>
+    <td style="padding: 18px 40px; background-color:#fafafa; border-top:1px solid #f0f0f0;">
+      <p style="margin:0 0 16px 0;">
+        <a href="https://www.facebook.com/traiinc" style="display:inline-block; margin-right:16px; color:#aaaaaa;"><img src="https://traiinc.com/assets/icons/facebook_grey.png" alt="Facebook" style="display:block; width:20px; height:20px; border:0;" /></a>
+        <a href="https://www.instagram.com/traiinc" style="display:inline-block; margin-right:16px; color:#aaaaaa;"><img src="https://traiinc.com/assets/icons/instagram_grey.png" alt="Instagram" style="display:block; width:20px; height:20px; border:0;" /></a>
+        <a href="https://x.com/inctrai" style="display:inline-block; margin-right:16px; color:#aaaaaa;"><img src="https://traiinc.com/assets/icons/x_grey.png" alt="X" style="display:block; width:20px; height:20px; border:0;" /></a>
+        <a href="https://www.youtube.com/@traiinc" style="display:inline-block; color:#aaaaaa;"><img src="https://traiinc.com/assets/icons/youtube_grey.png" alt="YouTube" style="display:block; width:20px; height:20px; border:0;" /></a>
+      </p>
+      <p style="margin:0 0 6px 0; font-size:12px; color:#aaaaaa;">
+        <a href="https://traiinc.com" style="color:#aaaaaa; text-decoration:none;">traiinc.com</a>
+      </p>
+      <p style="margin:0; font-size:11px; color:#c4c4c4; line-height:1.5;">
+        Trai Inc &middot; Lucknow, India
+      </p>
+    </td>
+  </tr>
+
+</table>
+
+</td>
+</tr>
+</table>
+
+</body>
+</html>
+    `;
 }
 
 function tableRow(label, value, isLast) {
@@ -196,20 +219,20 @@ export async function onRequestPost(context) {
         if (message) rows.push(tableRow('Message', `<div style="white-space:pre-wrap;">${escapeHtml(message)}</div>`, true));
         rows.push(tableRow('Submitted', timestamp, true));
 
-        const internalHtml = `
-            ${emailHeader(
-                isEstimator ? '📊 MSME Cost Estimate Request' : '📩 New Enquiry',
-                `${name}${company ? ` from ${company}` : ''} — ${serviceLabels || 'General enquiry'}${budgetLabel ? ` · Budget: ${budgetLabel}` : ''}`
-            )}
+        const internalBody = `
+            <h1 style="margin:0 0 20px 0; font-size:24px; line-height:1.3; color:#0a0a0a; letter-spacing:-0.4px;">${isEstimator ? '📊 MSME Cost Estimate Request' : '📩 New Enquiry'}</h1>
             <table style="border-collapse:collapse;width:100%;background:#fafafa;border-radius:8px;overflow:hidden;">
                 ${rows.join('')}
             </table>
-            <div style="margin-top:20px;">
-                ${email ? `<a href="mailto:${escapeHtml(email)}" style="display:inline-block;padding:10px 24px;background:${ACCENT};color:#fff;text-decoration:none;border-radius:6px;font-weight:600;font-size:14px;">Reply to ${escapeHtml(name)}</a>` : ''}
-                ${phone ? `<a href="https://wa.me/${phone.replace(/[^0-9]/g, '')}" style="display:inline-block;padding:10px 24px;background:#25D366;color:#fff;text-decoration:none;border-radius:6px;font-weight:600;font-size:14px;margin-left:8px;">WhatsApp</a>` : ''}
+            <div style="margin-top:20px; padding-bottom:28px;">
+                ${email ? `<a href="mailto:${escapeHtml(email)}" style="display:inline-block;padding:12px 24px;background:${ACCENT};color:#fff;text-decoration:none;border-radius:8px;font-weight:600;font-size:14px;">Reply to ${escapeHtml(name)}</a>` : ''}
+                ${phone ? `<a href="https://wa.me/${phone.replace(/[^0-9]/g, '')}" style="display:inline-block;padding:12px 24px;background:#25D366;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;font-size:14px;margin-left:8px;">WhatsApp</a>` : ''}
             </div>
-            ${emailFooter()}
         `;
+        const internalHtml = emailWrapper(
+            `${name}${company ? ` from ${company}` : ''} — ${serviceLabels || 'General enquiry'}${budgetLabel ? ` · Budget: ${budgetLabel}` : ''}`,
+            internalBody
+        );
 
         const emailRes = await fetch("https://api.resend.com/emails", {
             method: "POST",
@@ -237,23 +260,33 @@ export async function onRequestPost(context) {
         }
 
         if (email) {
-            const replyHtml = `
-                ${emailHeader(
-                    'Thanks for reaching out!',
-                    `Hi ${name}, we've received your enquiry${serviceLabels ? ` for ${serviceLabels}` : ''}. We'll respond within 24 hours.`
-                )}
-                <p style="font-size:15px;color:#333;line-height:1.6;margin:0 0 16px;">Hi ${escapeHtml(name)},</p>
-                <p style="font-size:15px;color:#333;line-height:1.6;margin:0 0 16px;">We've received your enquiry and our team will get back to you within <strong>24 hours</strong> with a detailed scope and estimate.</p>
-                ${serviceLabels ? `<p style="font-size:15px;color:#333;line-height:1.6;margin:0 0 16px;">You expressed interest in: <strong>${escapeHtml(serviceLabels)}</strong></p>` : ''}
-                ${budgetLabel && budget ? `<p style="font-size:15px;color:#333;line-height:1.6;margin:0 0 16px;">Budget range: <strong>${escapeHtml(budgetLabel)}</strong></p>` : ''}
-                <p style="font-size:15px;color:#333;line-height:1.6;margin:0 0 20px;">Want to skip the back-and-forth? Book a free 30-minute scoping call:</p>
+            const replyBody = `
+                <h1 style="margin:0 0 10px 0; font-size:24px; line-height:1.3; color:#0a0a0a; letter-spacing:-0.4px;">Thanks for reaching out!</h1>
+                <p style="font-size:15px;color:#555555;line-height:1.65;margin:0 0 16px;">Hi ${escapeHtml(name)},</p>
+                <p style="font-size:15px;color:#555555;line-height:1.65;margin:0 0 16px;">We've received your enquiry and our team will get back to you within <strong>24 hours</strong> with a detailed scope and estimate.</p>
+                ${serviceLabels ? `<p style="font-size:15px;color:#555555;line-height:1.65;margin:0 0 16px;">You expressed interest in: <strong>${escapeHtml(serviceLabels)}</strong></p>` : ''}
+                ${budgetLabel && budget ? `<p style="font-size:15px;color:#555555;line-height:1.65;margin:0 0 16px;">Budget range: <strong>${escapeHtml(budgetLabel)}</strong></p>` : ''}
+                <p style="font-size:15px;color:#555555;line-height:1.65;margin:0 0 20px;">Want to skip the back-and-forth? Book a free 30-minute scoping call:</p>
                 <div style="margin:0 0 16px;">
-                    <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" style="display:inline-block;padding:12px 28px;background:${ACCENT};color:#fff;text-decoration:none;border-radius:6px;font-weight:600;font-size:15px;">Book a Free Call</a>
-                    <a href="https://wa.me/917905495478" style="display:inline-block;padding:12px 28px;background:#25D366;color:#fff;text-decoration:none;border-radius:6px;font-weight:600;font-size:15px;margin-left:10px;">Chat on WhatsApp</a>
+                    <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" style="display:inline-block;padding:12px 28px;background:${ACCENT};color:#fff;text-decoration:none;border-radius:8px;font-weight:600;font-size:14px;">Book a Free Call</a>
                 </div>
-                <p style="font-size:15px;color:#333;line-height:1.6;margin:20px 0 0;">Best,<br><strong>The Trai Inc Team</strong></p>
-                ${emailFooter()}
+                <p style="font-size:14px;color:#555555;line-height:1.65;margin:0 0 4px;">Or message us directly — no pitch, just a conversation.</p>
             `;
+            const whatsappBlock = `
+                <a href="https://wa.me/917905495478" style="display:inline-block; background-color:#25D366; color:#ffffff; text-decoration:none; font-size:14px; font-weight:600; padding:12px 22px; border-radius:8px;">
+                    <span style="display:inline-block; vertical-align:middle; margin-right:8px;">
+                        <img src="https://traiinc.com/assets/icons/whatsapp_white.png" alt="WhatsApp" style="display:block; width:18px; height:18px; border:0;" />
+                    </span>
+                    <span style="display:inline-block; vertical-align:middle;">Message on WhatsApp</span>
+                </a>
+            `;
+            const closingBlock = `
+                <p style="font-size:15px;color:#555555;line-height:1.65;margin:20px 0 28px;">Best,<br><strong>The Trai Inc Team</strong></p>
+            `;
+            const replyHtml = emailWrapper(
+                `Hi ${name}, we've received your enquiry${serviceLabels ? ` for ${serviceLabels}` : ''}. We'll respond within 24 hours.`,
+                replyBody + whatsappBlock + closingBlock
+            );
 
             await fetch("https://api.resend.com/emails", {
                 method: "POST",
