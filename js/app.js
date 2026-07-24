@@ -312,6 +312,30 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             initAnimations();
 
+            // --- Blog filter click handler ---
+            if (pageId === 'blog') {
+                document.querySelectorAll('.blog-filter').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        document.querySelectorAll('.blog-filter').forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+                        const filter = this.getAttribute('data-filter');
+                        const cards = document.querySelectorAll('.blog-card');
+                        const featured = document.querySelector('.blog-featured');
+                        if (filter === 'All Posts') {
+                            cards.forEach(c => { c.style.display = ''; });
+                            if (featured) featured.style.display = '';
+                        } else {
+                            cards.forEach(c => {
+                                c.style.display = c.getAttribute('data-tag') === filter ? '' : 'none';
+                            });
+                            if (featured) {
+                                featured.style.display = featured.getAttribute('data-tag') === filter ? '' : 'none';
+                            }
+                        }
+                    });
+                });
+            }
+
             // Initialize 3D TRAI Bot on home page
             if (pageId === 'home' && window.TraiBot) {
                 setTimeout(() => {
@@ -2518,7 +2542,7 @@ function renderTrustPage(data) {
 
 function renderBlog(data) {
     const postsHtml = data.posts.map(post => `
-        <a href="${post.url}" class="blog-card fade-in" style="text-decoration:none;color:inherit;">
+        <a href="${post.url}" class="blog-card fade-in" data-tag="${post.tag}" style="text-decoration:none;color:inherit;">
             <div class="blog-card-thumb">${post.image
                 ? `<img src="${post.image}" alt="${post.title}" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;" />`
                 : `<span style="font-size:2.5rem;">${post.emoji}</span>`
@@ -2546,10 +2570,10 @@ function renderBlog(data) {
 
     <div class="container">
         <div class="blog-filters fade-in">
-            ${data.filters.map((f, i) => `<button class="blog-filter${i === 0 ? ' active' : ''}">${f}</button>`).join('')}
+            ${data.filters.map((f, i) => `<button class="blog-filter${i === 0 ? ' active' : ''}" data-filter="${f}">${f}</button>`).join('')}
         </div>
 
-        <a href="${data.featured.url}" class="blog-featured fade-in" style="text-decoration:none;color:inherit;">
+        <a href="${data.featured.url}" class="blog-featured fade-in" data-tag="${data.featured.tag}" style="text-decoration:none;color:inherit;">
             <div class="blog-featured-img">${data.featured.image
                 ? `<img src="${data.featured.image}" alt="${data.featured.title}" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;" />`
                 : `<span style="font-size:3rem;">${data.featured.emoji}</span>`

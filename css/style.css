@@ -4667,22 +4667,28 @@ body.light-mode .tech-logo-si {
     margin-bottom: 16px;
 }
 .blog-hero-desc { font-size: 1.05rem; color: var(--text-muted); max-width: 520px; line-height: 1.75; }
-.blog-filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 48px; }
+.blog-filters { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 48px; padding-top: 8px; }
 .blog-filter {
-    padding: 8px 18px;
+    padding: 10px 22px;
     border-radius: 50px;
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     font-weight: 600;
-    border: 1px solid var(--border-light);
+    border: 1.5px solid var(--border-light);
     background: var(--bg-card);
     color: var(--text-muted);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.25s ease;
+    white-space: nowrap;
 }
-.blog-filter.active, .blog-filter:hover {
+.blog-filter:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    background: color-mix(in srgb, var(--accent-color) 8%, transparent);
+}
+.blog-filter.active {
     background: var(--accent-color);
     border-color: var(--accent-color);
-    color: var(--bg-dark);
+    color: #fff;
 }
 .blog-featured {
     display: grid;
