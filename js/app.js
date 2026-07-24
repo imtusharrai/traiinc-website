@@ -372,7 +372,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                             showFormModal('success', 'Message Sent!', 'We\'ll get back to you within 24 hours. Check your inbox for a confirmation email.');
                         } else {
                             const data = await response.json().catch(() => ({}));
-                            showFormModal('error', 'Something went wrong', data.error || 'Please try again or reach out via WhatsApp.');
+                            const errorMsg = data.error || 'Please try again or reach out via WhatsApp.';
+                            const details = data.details ? ` (${data.details.join(', ')})` : '';
+                            showFormModal('error', 'Something went wrong', errorMsg + details);
                         }
                     } catch (err) {
                         showFormModal('error', 'Network Error', 'Please check your connection and try again.');
