@@ -1382,7 +1382,7 @@ function renderContact(data) {
                     <textarea id="${data.form.message.id}" name="${data.form.message.name}" placeholder="${data.form.message.placeholder}" required class="contact-field-input contact-field-textarea"></textarea>
                 </div>
 
-                <div class="cf-turnstile" data-sitekey="0x4AAAAAAD7YVL8RufcAP9oL" data-action="turnstile-spin-v1" data-theme="auto"></div>
+                <div class="cf-turnstile" data-sitekey="0x4AAAAAAD8x-QU2EEmiGyft" data-action="turnstile-spin-v2" data-theme="auto"></div>
 
                 <button type="submit" id="contactSubmitBtn" class="btn-primary large contact-submit-btn">${data.form.button}</button>
                 <div id="formResult" style="display:none;margin-top:1rem;font-weight:500;"></div>

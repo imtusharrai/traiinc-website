@@ -143,24 +143,23 @@ export async function onRequestPost(context) {
             });
         }
 
-        if (!env.TURNSTILE_SECRET_KEY) {
+        if (!env.TURNSTILE_SECRET) {
             return new Response(JSON.stringify({ error: "Server configuration error: Turnstile key missing" }), {
                 status: 500,
                 headers: { 'Content-Type': 'application/json' }
             });
         }
 
-        const tsBody = {
-            secret: env.TURNSTILE_SECRET_KEY,
-            response: turnstileToken
-        };
+        // Canonical siteverify — POST application/x-www-form-urlencoded
         const ip = request.headers.get('CF-Connecting-IP');
-        if (ip) tsBody.remoteip = ip;
-
         const tsRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(tsBody)
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams({
+                secret: env.TURNSTILE_SECRET,
+                response: turnstileToken,
+                ...(ip ? { remoteip: ip } : {})
+            })
         });
         const tsData = await tsRes.json();
         if (!tsData.success) {
