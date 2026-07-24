@@ -178,7 +178,7 @@ server.listen(PORT, async () => {
                     "image": "https://traiinc.com/assets/logos/logo.png",
                     "address": {
                         "@type": "PostalAddress",
-                        "streetAddress": "Tower B2, DLF Mypad, Vibhuti Khand, Gomti Nagar",
+                        "streetAddress": "B-2, 11th Floor, DLF MyPad, Opposite Hyatt Regency, Vibhuti Khand, Gomti Nagar",
                         "addressLocality": "Lucknow",
                         "postalCode": "226010",
                         "addressCountry": "IN"
