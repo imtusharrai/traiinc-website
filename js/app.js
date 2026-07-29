@@ -647,7 +647,7 @@ function renderHome(data) {
             <div class="tmo-grid">
                 ${un.cards ? un.cards.map(card => `
                 <div class="tmo-card fade-in">
-                    ${card.img ? `<div class="tmo-card-media"><img src="${card.img}" alt="${card.title}" class="tmo-card-img" /></div>` : ''}
+                    ${card.img ? `<div class="tmo-card-media"><img src="${card.img}" alt="${card.title}" class="tmo-card-img" loading="lazy" /></div>` : ''}
                     <div class="tmo-card-body">
                         <h3 class="tmo-card-title">${card.title}</h3>
                         <p class="tmo-card-desc">${card.desc}</p>
@@ -1692,7 +1692,7 @@ function renderClients(data) {
                     <div class="case-study-alternating-row ${isReversed ? 'reversed' : ''}">
                         <div class="conversion-left" style="${isReversed ? 'order: 2;' : ''}">
                             <div class="case-study-logo-container">
-                                <img src="${cs.image}" alt="${cs.client} logo" />
+                                <img src="${cs.image}" alt="${cs.client} logo" loading="lazy" />
                             </div>
                         </div>
                         <div class="conversion-right" style="${isReversed ? 'order: 1;' : ''}">
@@ -2601,7 +2601,7 @@ function renderBlog(data) {
     const postsHtml = data.posts.map(post => `
         <a href="${post.url}" class="blog-card fade-in" data-tag="${post.tag}" style="text-decoration:none;color:inherit;">
             <div class="blog-card-thumb">${post.image
-                ? `<img src="${post.image}" alt="${post.title}" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;" />`
+                ? `<img src="${post.image}" alt="${post.title}" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;" loading="lazy" />`
                 : `<span style="font-size:2.5rem;">${post.emoji}</span>`
             }</div>
             <div class="blog-card-body">
