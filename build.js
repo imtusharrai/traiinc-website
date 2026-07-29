@@ -127,26 +127,6 @@ server.listen(PORT, async () => {
             });
             
             const head = dom.window.document.head;
-            
-            // Meta Pixel Injection
-            const metaPixelScript = dom.window.document.createElement('script');
-            metaPixelScript.textContent = `
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '879414293268218');
-fbq('track', 'PageView');
-`;
-            head.appendChild(metaPixelScript);
-            const metaNoscript = dom.window.document.createElement('noscript');
-            metaNoscript.innerHTML = `<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=879414293268218&ev=PageView&noscript=1"/>`;
-            head.appendChild(metaNoscript);
-
             const script = dom.window.document.createElement('script');
             script.textContent = `
         if (/bot|googlebot|crawler|spider|robot|crawling|inspectiontool|lighthouse/i.test(navigator.userAgent)) {
