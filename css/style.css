@@ -4115,6 +4115,10 @@ body.light-mode .nav-l3-link:hover {
 .about-team-name { font-family: var(--font-heading); font-size: 1.15rem; margin-bottom: 4px; }
 .about-team-role { color: var(--accent-color); font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; }
 .about-team-tagline { color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; }
+.about-team-avatar-fallback { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: 700; color: #fff; background: var(--bg-card); border-radius: 50%; border: 3px solid var(--border-light); }
+.about-team-region { color: var(--text-tertiary); font-size: 0.85rem; margin-bottom: 8px; }
+.about-team-email { display: inline-block; font-size: 0.85rem; color: var(--text-muted); text-decoration: none; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border-light); margin-top: 10px; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+.about-team-email:hover { background: rgba(217, 20, 20, 0.05); color: var(--accent-color); border-color: rgba(217, 20, 20, 0.3); }
 
 /* ── How We Work (Bento) ── */
 .about-work { padding: 90px 0; }

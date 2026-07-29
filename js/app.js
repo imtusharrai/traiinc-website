@@ -817,11 +817,13 @@ function renderAbout(data) {
                 ${data.team.members.map(m => `
                 <div class="about-team-card fade-in">
                     <div class="about-team-avatar">
-                        <img src="${m.image}" alt="${m.name}" class="about-team-avatar-img" loading="lazy">
+                        ${m.image ? `<img src="${m.image}" alt="${m.name}" class="about-team-avatar-img" loading="lazy">` : `<div class="about-team-avatar-fallback">${m.name.split(' ').map(n=>n[0]).join('').substring(0,2)}</div>`}
                     </div>
                     <h3 class="about-team-name">${m.name}</h3>
                     <p class="about-team-role">${m.role}</p>
+                    ${m.region ? `<p class="about-team-region"><span style="font-size: 0.9em; margin-right: 4px;">🌍</span> ${m.region}</p>` : ''}
                     ${m.tagline ? `<p class="about-team-tagline">${m.tagline}</p>` : ''}
+                    ${m.email ? `<a href="mailto:${m.email}" class="about-team-email">${m.email}</a>` : ''}
                 </div>`).join('')}
             </div>
         </div>
