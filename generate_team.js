@@ -30,7 +30,7 @@ const rawMembers = `
 25	Lavanya Reddy	UI/UX Designer	Global Delivery	lavanya.reddy@traiinc.com
 26	Nikhil Dubey	Project Manager	Global Delivery	nikhil.dubey@traiinc.com
 27	Aditi Sabnis	Technical Writer & Proposals Lead	Global	aditi.sabnis@traiinc.com
-28	Shreya Contractor	Partnerships & Alliances Manager	Global	shreya.contractor@traiinc.com
+28	Shreya Mehta	Partnerships & Alliances Manager	Global	shreya.mehta@traiinc.com
 `;
 
 const existingImages = {

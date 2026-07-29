@@ -526,15 +526,15 @@
                     <a href="mailto:support@traiinc.com" class="contact-link">✉️ support@traiinc.com</a>
                 </div>
                 <div class="footer-social">
-                    <a href="https://www.linkedin.com/company/trai-inc" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">${socialIcons.linkedin}</a>
-                    <a href="https://x.com/inctrai" target="_blank" rel="noopener" class="social-icon" aria-label="Twitter / X">${socialIcons.twitter}</a>
-                    <a href="https://www.instagram.com/traiinc" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">${socialIcons.instagram}</a>
-                    <a href="https://www.youtube.com/@traiinc" target="_blank" rel="noopener" class="social-icon" aria-label="YouTube">${socialIcons.youtube}</a>
+                    <a href="https://www.linkedin.com/company/trai-inc" target="_blank" rel="noopener" class="social-icon social-linkedin" aria-label="LinkedIn">${socialIcons.linkedin}</a>
+                    <a href="https://x.com/inctrai" target="_blank" rel="noopener" class="social-icon social-x" aria-label="Twitter / X">${socialIcons.twitter}</a>
+                    <a href="https://www.instagram.com/traiinc" target="_blank" rel="noopener" class="social-icon social-insta" aria-label="Instagram">${socialIcons.instagram}</a>
+                    <a href="https://www.youtube.com/@traiinc" target="_blank" rel="noopener" class="social-icon social-yt" aria-label="YouTube">${socialIcons.youtube}</a>
                     <a href="https://wa.me/917905495478?text=Hi%20Trai%20Inc,%20I'm%20looking%20for%20a%20digital%20solution%20for%20my%20business." target="_blank" rel="noopener" class="social-icon social-wa" aria-label="WhatsApp">${socialIcons.whatsapp}</a>
                 </div>
             </div>
             <div class="link-group">
-                <h4>Services</h4>
+                <h4>Solutions</h4>
                 <ul>
                     <li><a href="custom-software.html">Custom Software</a></li>
                     <li><a href="web-development.html">Web Development</a></li>
@@ -549,14 +549,14 @@
                 </ul>
             </div>
             <div class="link-group">
-                <h4>Solutions</h4>
+                <h4>Industries</h4>
                 <ul>
                     <li><a href="startups.html">Startups</a></li>
                     <li><a href="msmes.html">MSMEs</a></li>
                     <li><a href="smb.html">SMB</a></li>
                     <li><a href="enterprise.html">Enterprise</a></li>
                 </ul>
-                <h4 style="margin-top: 24px;">Who We Are</h4>
+                <h4 style="margin-top: 28px;">Who We Are</h4>
                 <ul>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="careers.html">Careers</a></li>
@@ -570,13 +570,17 @@
                     <li><a href="clients.html">Case Studies</a></li>
                     <li><a href="app-store.html">App Store</a></li>
                     <li><a href="choosing-a-development-partner.html">Trust & Due Diligence</a></li>
-                    <li><a href="industries.html">Industries</a></li>
+                    <li><a href="industries.html">All Industries</a></li>
                     <li><a href="our-development-process.html">How We Work</a></li>
                 </ul>
-                <h4 style="margin-top: 24px;">Location</h4>
-                <p>B-2, 11th Floor, DLF MyPad,<br>Opposite Hyatt Regency, Vibhuti Khand,<br>Gomti Nagar, Lucknow, UP 226010</p>
-                <h4 class="footer-hours-heading">Hours</h4>
-                <p>Mon–Sat: 10am – 7pm IST<br>Sun: By appointment</p>
+                <div class="footer-location-block">
+                    <h4>Location</h4>
+                    <p>B-2, 11th Floor, DLF MyPad,<br>Opposite Hyatt Regency, Vibhuti Khand,<br>Gomti Nagar, Lucknow, UP 226010</p>
+                </div>
+                <div class="footer-hours-block">
+                    <h4>Hours</h4>
+                    <p>Mon–Sat: 10am – 7pm IST<br>Sun: By appointment</p>
+                </div>
             </div>
             <div class="footer-newsletter">
                 <h4>Stay in the loop</h4>

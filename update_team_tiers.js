@@ -30,7 +30,7 @@ const tiers = {
   "Lavanya Reddy": { tier: "specialist", department: "Design" },
   "Nikhil Dubey": { tier: "specialist", department: "Delivery" },
   "Aditi Sabnis": { tier: "specialist", department: "Operations" },
-  "Shreya Contractor": { tier: "specialist", department: "Operations" },
+  "Shreya Mehta": { tier: "specialist", department: "Operations" },
 };
 
 about.team.members = about.team.members.map(m => {

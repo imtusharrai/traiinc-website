@@ -713,6 +713,7 @@ footer {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+    margin-top: 18px;
 }
 .social-icon {
     display: inline-flex;
@@ -724,19 +725,80 @@ footer {
     background: var(--bg-light);
     border: 1px solid var(--border-light);
     color: var(--text-muted);
-    transition: all 0.25s ease;
+    transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.social-icon svg {
+    transition: transform 0.28s ease, fill 0.28s ease;
 }
 .social-icon:hover {
-    background: var(--accent-color);
-    border-color: var(--accent-color);
-    color: var(--bg-dark);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 18px var(--accent-glow);
+    transform: translateY(-4px);
+    color: #ffffff !important;
+}
+.social-icon:hover svg {
+    transform: scale(1.1);
+    fill: #ffffff !important;
+}
+
+/* Individual Brand Hover Colors */
+.social-icon.social-linkedin:hover {
+    background: #0A66C2 !important;
+    border-color: #0A66C2 !important;
+    box-shadow: 0 8px 20px rgba(10, 102, 194, 0.4);
+}
+.social-icon.social-x:hover {
+    background: #14171A !important;
+    border-color: #14171A !important;
+    box-shadow: 0 8px 20px rgba(20, 23, 26, 0.35);
+}
+.social-icon.social-insta:hover {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) !important;
+    border-color: transparent !important;
+    box-shadow: 0 8px 20px rgba(220, 39, 67, 0.4);
+}
+.social-icon.social-yt:hover {
+    background: #FF0000 !important;
+    border-color: #FF0000 !important;
+    box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
 }
 .social-icon.social-wa:hover {
-    background: var(--color-whatsapp);
-    border-color: var(--color-whatsapp);
-    box-shadow: 0 6px 18px color-mix(in srgb, var(--color-whatsapp) 40%, transparent);
+    background: #25D366 !important;
+    border-color: #25D366 !important;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+}
+
+/* ── Location & Hours Expanded Spacing ── */
+.footer-location-block {
+    margin-top: 36px;
+    padding-top: 12px;
+}
+.footer-location-block h4 {
+    margin-bottom: 12px !important;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+.footer-location-block p {
+    line-height: 1.65;
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    margin: 0;
+}
+
+.footer-hours-block {
+    margin-top: 28px;
+    padding-top: 10px;
+}
+.footer-hours-block h4 {
+    margin-bottom: 10px !important;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+.footer-hours-block p {
+    line-height: 1.65;
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    margin: 0;
 }
 
 /* ── Footer Badges ── */
