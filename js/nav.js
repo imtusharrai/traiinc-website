@@ -401,7 +401,7 @@
                             </span>
                         </button>
                     </div>
-                    <a href="contact.html" class="btn-primary">Get a Fixed-Price Quote</a>
+                    <a href="contact.html" class="btn-primary">Get a quote</a>
                     <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">&#9776;</button>
                 </div>
             </div>
