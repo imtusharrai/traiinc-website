@@ -28,10 +28,10 @@
                 {
                     heading: "By Business Size",
                     items: [
-                        { icon: "🏪", label: "MSMEs & Local Business", href: "msmes.html", desc: "Websites, WhatsApp from ₹15K" },
+                        { icon: "🏪", label: "Micro & Local Business", href: "msmes.html", desc: "Local shops & small teams" },
                         { icon: "🚀", label: "Startups", href: "startups.html", desc: "MVPs, cloud, go-to-market" },
-                        { icon: "🏢", label: "Small & Medium Business", href: "smb.html", desc: "CRMs, automation, scaling" },
-                        { icon: "🏗️", label: "Enterprise", href: "enterprise.html", desc: "Cloud migration, AI, security" }
+                        { icon: "🏢", label: "Small & Medium Business", href: "smb.html", desc: "10-50 employees: CRMs, scaling" },
+                        { icon: "🏗️", label: "Large Enterprises", href: "enterprise.html", desc: "Cloud migration, AI, security" }
                     ]
                 },
                 {
@@ -523,7 +523,7 @@
                 <p class="footer-tagline">AI-native software engineering — delivering custom software, mobile apps, and automation systems for businesses across India.</p>
                 <div class="footer-contact">
                     <a href="tel:+917905495478" class="contact-link">📞 +91 79054 95478</a><br>
-                    <a href="mailto:hello@traiinc.com" class="contact-link">✉️ hello@traiinc.com</a>
+                    <a href="mailto:support@traiinc.com" class="contact-link">✉️ support@traiinc.com</a>
                 </div>
                 <div class="footer-social">
                     <a href="https://www.linkedin.com/company/trai-inc" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">${socialIcons.linkedin}</a>

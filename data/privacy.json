@@ -46,7 +46,7 @@
     },
     {
       "heading": "Your Rights",
-      "body": ["Depending on where you live, you may have the right to access, correct, or delete your personal data, withdraw consent, or object to certain processing. To exercise any of these, email us at hello@traiinc.com and we will respond within a reasonable time."]
+      "body": ["Depending on where you live, you may have the right to access, correct, or delete your personal data, withdraw consent, or object to certain processing. To exercise any of these, email us at support@traiinc.com and we will respond within a reasonable time."]
     },
     {
       "heading": "Data Security",
@@ -61,5 +61,5 @@
       "body": ["We may update this policy from time to time. The \"Last updated\" date above reflects the latest version. Material changes will be posted on this page."]
     }
   ],
-  "contact": "Questions about this policy or your data? Contact us at <a href=\"mailto:hello@traiinc.com\">hello@traiinc.com</a>."
+  "contact": "Questions about this policy or your data? Contact us at <a href=\"mailto:support@traiinc.com\">support@traiinc.com</a>."
 }

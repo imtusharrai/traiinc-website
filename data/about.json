@@ -60,204 +60,260 @@
     ]
   },
   "team": {
-    "subtitle": "LEADERSHIP TEAM",
-    "title": "The engineers and strategists behind our platform",
+    "subtitle": "OUR TEAM",
+    "title": "28 professionals across 6 regions, one mission",
     "members": [
       {
         "name": "Tushar Rai",
         "role": "Founder & CEO",
         "region": "Global",
         "email": "tushar.rai@traiinc.com",
-        "image": "img/tushar.png"
+        "image": "img/tushar.png",
+        "tier": "founder",
+        "department": "Leadership"
       },
       {
         "name": "Manna Rai",
         "role": "Director – Head of People & Operations",
         "region": "Global",
         "email": "manna.rai@traiinc.com",
-        "image": "img/manna.png"
+        "image": "img/manna.png",
+        "tier": "founder",
+        "department": "Leadership"
       },
       {
         "name": "Anjana Rai",
         "role": "Director – PR & Corporate Communications",
         "region": "Global",
         "email": "anjana.rai@traiinc.com",
-        "image": "img/anjana.png"
+        "image": "img/anjana.png",
+        "tier": "founder",
+        "department": "Leadership"
       },
       {
         "name": "Prafulla Chandra Rai",
         "role": "Director – Government & Public Sector Business",
         "region": "Global",
         "email": "prafulla.rai@traiinc.com",
-        "image": "img/prafulla.png"
+        "image": "img/prafulla.png",
+        "tier": "founder",
+        "department": "Leadership"
       },
       {
         "name": "Harsh Pandey",
         "role": "VP – Engineering",
         "region": "Global Delivery",
         "email": "harsh.pandey@traiinc.com",
-        "image": ""
+        "image": "",
+        "tier": "leadership",
+        "department": "Engineering"
       },
       {
         "name": "Neha Sharma",
         "role": "Head of Design & UX",
         "region": "Global Delivery",
         "email": "neha.sharma@traiinc.com",
-        "image": ""
+        "image": "",
+        "tier": "leadership",
+        "department": "Design"
       },
       {
         "name": "Pallavi Mehta",
         "role": "Head of Marketing & Growth",
         "region": "Global",
         "email": "pallavi.mehta@traiinc.com",
-        "image": ""
+        "image": "",
+        "tier": "leadership",
+        "department": "Marketing"
       },
       {
         "name": "Vineet Saxena",
         "role": "VP – Cloud, AI & Infrastructure",
         "region": "Global Delivery",
         "email": "vineet.saxena@traiinc.com",
-        "image": ""
+        "image": "",
+        "tier": "leadership",
+        "department": "Engineering"
       },
       {
         "name": "Shipra Singh",
         "role": "VP – Delivery & Quality",
         "region": "Global Delivery",
         "email": "shipra.singh@traiinc.com",
-        "image": ""
+        "image": "",
+        "tier": "leadership",
+        "department": "Delivery"
       },
       {
         "name": "Aditya Khanna",
         "role": "Business Development Manager",
         "region": "North America",
         "email": "aditya.khanna@traiinc.com",
-        "image": ""
+        "image": "",
+        "tier": "regional",
+        "department": "Business Development"
       },
       {
         "name": "Ritika Bhasin",
         "role": "Account Manager",
         "region": "North America",
         "email": "ritika.bhasin@traiinc.com",
-        "image": ""
+        "image": "",
+        "tier": "regional",
+        "department": "Business Development"
       },
       {
         "name": "Sriram Krishnamurthy",
         "role": "Solutions Architect",
         "region": "North America",
         "email": "sriram.krishnamurthy@traiinc.com",
-        "image": ""
+        "image": "",
+        "tier": "regional",
+        "department": "Solutions"
       },
       {
         "name": "Karan Malhotra",
         "role": "Business Development Manager",
         "region": "UK & Europe",
         "email": "karan.malhotra@traiinc.com",
-        "image": ""
+        "image": "",
+        "tier": "regional",
+        "department": "Business Development"
       },
       {
         "name": "Ananya Chatterjee",
         "role": "Account Manager",
         "region": "UK & Europe",
         "email": "ananya.chatterjee@traiinc.com",
-        "image": ""
+        "image": "",
+        "tier": "regional",
+        "department": "Business Development"
       },
       {
         "name": "Faisal Merchant",
         "role": "Business Development Manager",
         "region": "Middle East",
         "email": "faisal.merchant@traiinc.com",
-        "image": ""
+        "image": "",
+        "tier": "regional",
+        "department": "Business Development"
       },
       {
         "name": "Nandini Iyer",
         "role": "Account Manager",
         "region": "GCC Region",
         "email": "nandini.iyer@traiinc.com",
-        "image": ""
+        "image": "",
+        "tier": "regional",
+        "department": "Business Development"
       },
       {
         "name": "Arvind Menon",
         "role": "Business Development Manager",
         "region": "APAC",
         "email": "arvind.menon@traiinc.com",
-        "image": ""
+        "image": "",
+        "tier": "regional",
+        "department": "Business Development"
       },
       {
         "name": "Rohan Kulkarni",
         "role": "Business Development Manager",
         "region": "India",
         "email": "rohan.kulkarni@traiinc.com",
-        "image": ""
+        "image": "",
+        "tier": "regional",
+        "department": "Business Development"
       },
       {
         "name": "Karthik Narayanan",
         "role": "Senior Mobile App Developer",
         "region": "Global Delivery",
         "email": "karthik.narayanan@traiinc.com",
-        "image": ""
+        "image": "",
+        "tier": "specialist",
+        "department": "Engineering"
       },
       {
         "name": "Sneha Deshpande",
         "role": "Senior AI & Automation Engineer",
         "region": "Global Delivery",
         "email": "sneha.deshpande@traiinc.com",
-        "image": ""
+        "image": "",
+        "tier": "specialist",
+        "department": "Engineering"
       },
       {
         "name": "Pranav Patel",
         "role": "Senior Cloud & DevOps Engineer",
         "region": "Global Delivery",
         "email": "pranav.patel@traiinc.com",
-        "image": ""
+        "image": "",
+        "tier": "specialist",
+        "department": "Engineering"
       },
       {
         "name": "Ishita Ghosh",
         "role": "Digital Marketing Strategist",
         "region": "Global",
         "email": "ishita.ghosh@traiinc.com",
-        "image": ""
+        "image": "",
+        "tier": "specialist",
+        "department": "Marketing"
       },
       {
         "name": "Dhruv Trivedi",
         "role": "CRM & ERP Consultant",
         "region": "Global Delivery",
         "email": "dhruv.trivedi@traiinc.com",
-        "image": ""
+        "image": "",
+        "tier": "specialist",
+        "department": "Solutions"
       },
       {
         "name": "Aparna Nair",
         "role": "WhatsApp Business API Specialist",
         "region": "Global Delivery",
         "email": "aparna.nair@traiinc.com",
-        "image": ""
+        "image": "",
+        "tier": "specialist",
+        "department": "Solutions"
       },
       {
         "name": "Lavanya Reddy",
         "role": "UI/UX Designer",
         "region": "Global Delivery",
         "email": "lavanya.reddy@traiinc.com",
-        "image": ""
+        "image": "",
+        "tier": "specialist",
+        "department": "Design"
       },
       {
         "name": "Nikhil Dubey",
         "role": "Project Manager",
         "region": "Global Delivery",
         "email": "nikhil.dubey@traiinc.com",
-        "image": ""
+        "image": "",
+        "tier": "specialist",
+        "department": "Delivery"
       },
       {
         "name": "Aditi Sabnis",
         "role": "Technical Writer & Proposals Lead",
         "region": "Global",
         "email": "aditi.sabnis@traiinc.com",
-        "image": ""
+        "image": "",
+        "tier": "specialist",
+        "department": "Operations"
       },
       {
         "name": "Shreya Contractor",
         "role": "Partnerships & Alliances Manager",
         "region": "Global",
         "email": "shreya.contractor@traiinc.com",
-        "image": ""
+        "image": "",
+        "tier": "specialist",
+        "department": "Operations"
       }
     ]
   },

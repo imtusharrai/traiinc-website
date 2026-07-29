@@ -813,19 +813,74 @@ function renderAbout(data) {
                 <h4 class="mini-title">${data.team.subtitle}</h4>
                 <h2>${data.team.title}</h2>
             </div>
-            <div class="about-team-grid">
-                ${data.team.members.map(m => `
-                <div class="about-team-card fade-in">
-                    <div class="about-team-avatar">
-                        ${m.image ? `<img src="${m.image}" alt="${m.name}" class="about-team-avatar-img" loading="lazy">` : `<div class="about-team-avatar-fallback">${m.name.split(' ').map(n=>n[0]).join('').substring(0,2)}</div>`}
+
+            <!-- ── Founders & Directors (with photos) ── -->
+            <div class="team-founders-grid">
+                ${data.team.members.filter(m => m.tier === 'founder').map(m => `
+                <div class="team-founder-card fade-in">
+                    <div class="team-founder-photo">
+                        <img src="${m.image}" alt="${m.name}" loading="lazy">
                     </div>
-                    <h3 class="about-team-name">${m.name}</h3>
-                    <p class="about-team-role">${m.role}</p>
-                    ${m.region ? `<p class="about-team-region"><span style="font-size: 0.9em; margin-right: 4px;">🌍</span> ${m.region}</p>` : ''}
-                    ${m.tagline ? `<p class="about-team-tagline">${m.tagline}</p>` : ''}
-                    ${m.email ? `<a href="mailto:${m.email}" class="about-team-email">${m.email}</a>` : ''}
+                    <div class="team-founder-info">
+                        <h3 class="team-founder-name">${m.name}</h3>
+                        <p class="team-founder-role">${m.role}</p>
+                        <span class="team-founder-region">${m.region}</span>
+                        ${m.email ? `<a href="mailto:${m.email}" class="team-email-link" title="${m.email}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>` : ''}
+                    </div>
                 </div>`).join('')}
             </div>
+
+            <!-- ── Senior Leadership (no photos) ── -->
+            <div class="team-tier-block fade-in">
+                <h3 class="team-tier-label">Senior Leadership</h3>
+                <div class="team-leaders-grid">
+                    ${data.team.members.filter(m => m.tier === 'leadership').map(m => `
+                    <div class="team-leader-card">
+                        <div class="team-leader-accent"></div>
+                        <div class="team-leader-body">
+                            <h4 class="team-leader-name">${m.name}</h4>
+                            <p class="team-leader-role">${m.role}</p>
+                            <div class="team-leader-meta">
+                                <span class="team-leader-region">${m.region}</span>
+                                ${m.email ? `<a href="mailto:${m.email}" class="team-email-link" title="${m.email}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>` : ''}
+                            </div>
+                        </div>
+                    </div>`).join('')}
+                </div>
+            </div>
+
+            <!-- ── Regional & Business Development ── -->
+            <div class="team-tier-block fade-in">
+                <h3 class="team-tier-label">Regional & Business Development</h3>
+                <div class="team-roster">
+                    ${data.team.members.filter(m => m.tier === 'regional').map(m => `
+                    <div class="team-roster-row">
+                        <div class="team-roster-name">${m.name}</div>
+                        <div class="team-roster-role">${m.role}</div>
+                        <div class="team-roster-region"><span class="team-region-badge">${m.region}</span></div>
+                        <div class="team-roster-action">
+                            ${m.email ? `<a href="mailto:${m.email}" class="team-email-link" title="${m.email}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>` : ''}
+                        </div>
+                    </div>`).join('')}
+                </div>
+            </div>
+
+            <!-- ── Engineering, Design & Specialists ── -->
+            <div class="team-tier-block fade-in">
+                <h3 class="team-tier-label">Engineering, Design & Specialists</h3>
+                <div class="team-roster">
+                    ${data.team.members.filter(m => m.tier === 'specialist').map(m => `
+                    <div class="team-roster-row">
+                        <div class="team-roster-name">${m.name}</div>
+                        <div class="team-roster-role">${m.role}</div>
+                        <div class="team-roster-region"><span class="team-region-badge">${m.region}</span></div>
+                        <div class="team-roster-action">
+                            ${m.email ? `<a href="mailto:${m.email}" class="team-email-link" title="${m.email}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>` : ''}
+                        </div>
+                    </div>`).join('')}
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -1121,7 +1176,7 @@ function renderCareers(data) {
             <div style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: var(--brand-gradient); filter: blur(150px); opacity: 0.2; border-radius: 50%;"></div>
             <h2 style="font-family: var(--font-heading); font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; margin-bottom: 16px;">Ready to build with us?</h2>
             <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 32px;">Join a network of elite freelancers shipping production code for India's fastest-growing companies.</p>
-            <a href="mailto:hello@traiinc.com" class="btn-primary large">Send Your Portfolio →</a>
+            <a href="mailto:support@traiinc.com" class="btn-primary large">Send Your Portfolio →</a>
         </div>
     </section>
     `;

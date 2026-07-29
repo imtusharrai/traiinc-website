@@ -61,8 +61,8 @@
       {
         "category": "For Experts: Freelance Network",
         "subtitle": "Are you an experienced professional? We do not hire full-time employees. Instead, we partner with elite freelancers for project-based contracts. Send your CV/Portfolio to join our network.",
-        "apply_link": "mailto:hello@traiinc.com",
-        "apply_text": "Email Portfolio to hello@traiinc.com →",
+        "apply_link": "mailto:support@traiinc.com",
+        "apply_text": "Email Portfolio to support@traiinc.com →",
         "jobs": [
           { "title": "AI Solutions Architect", "location": "Remote", "type": "Freelance / Contract", "desc": "Partner with us on a project basis to design end-to-end AI solutions, generative AI integrations, and custom ML models." },
           { "title": "AI Agent Orchestrator", "location": "Remote", "type": "Freelance / Contract", "desc": "Take on specialized freelance contracts building multi-agent AI systems, voice agents, and lead scraping bots." },

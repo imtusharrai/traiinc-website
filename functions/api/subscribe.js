@@ -153,7 +153,7 @@ ${preheader('Here are the resources matched to your business stage.')}
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                from: "Trai Inc <hello@traiinc.com>",
+                from: "Trai Inc <support@traiinc.com>",
                 to: email,
                 subject: "Your Resource is Ready | Trai Inc",
                 html: html

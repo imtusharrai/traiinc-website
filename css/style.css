@@ -4107,18 +4107,53 @@ body.light-mode .nav-l3-link:hover {
 
 /* ── Team ── */
 .about-team { padding: 90px 0; background: var(--bg-darker); scroll-margin-top: 80px; }
-.about-team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; max-width: 1000px; margin-left: auto; margin-right: auto; }
-.about-team-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 20px; padding: 36px 24px; text-align: center; transition: transform 0.25s, box-shadow 0.25s; }
-.about-team-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-.about-team-avatar { width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 20px; overflow: hidden; background: var(--brand-gradient); padding: 3px; }
-.about-team-avatar-img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
-.about-team-name { font-family: var(--font-heading); font-size: 1.15rem; margin-bottom: 4px; }
-.about-team-role { color: var(--accent-color); font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; }
-.about-team-tagline { color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; }
-.about-team-avatar-fallback { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: 700; color: #fff; background: var(--bg-card); border-radius: 50%; border: 3px solid var(--border-light); }
-.about-team-region { color: var(--text-tertiary); font-size: 0.85rem; margin-bottom: 8px; }
-.about-team-email { display: inline-block; font-size: 0.85rem; color: var(--text-muted); text-decoration: none; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border-light); margin-top: 10px; transition: background 0.2s, color 0.2s, border-color 0.2s; }
-.about-team-email:hover { background: rgba(217, 20, 20, 0.05); color: var(--accent-color); border-color: rgba(217, 20, 20, 0.3); }
+
+/* ── Founders Grid (2x2 photo cards) ── */
+.team-founders-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 50px; max-width: 1100px; margin-left: auto; margin-right: auto; }
+.team-founder-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 20px; overflow: hidden; text-align: center; transition: transform 0.3s, box-shadow 0.3s; }
+.team-founder-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.12); }
+.team-founder-photo { width: 100%; aspect-ratio: 1; overflow: hidden; background: linear-gradient(135deg, rgba(217,20,20,0.06), rgba(217,20,20,0.02)); }
+.team-founder-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.team-founder-card:hover .team-founder-photo img { transform: scale(1.05); }
+.team-founder-info { padding: 24px 20px 28px; }
+.team-founder-name { font-family: var(--font-heading); font-size: 1.15rem; margin-bottom: 4px; }
+.team-founder-role { color: var(--accent-color); font-size: 0.85rem; font-weight: 600; margin-bottom: 10px; line-height: 1.4; }
+.team-founder-region { display: inline-block; font-size: 0.75rem; color: var(--text-tertiary); background: var(--bg-darker); padding: 3px 10px; border-radius: 20px; margin-right: 8px; }
+
+/* ── Shared email icon link ── */
+.team-email-link { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--border-light); color: var(--text-muted); transition: all 0.2s; vertical-align: middle; }
+.team-email-link:hover { background: var(--accent-color); border-color: var(--accent-color); color: #fff; }
+.team-email-link svg { display: block; }
+
+/* ── Tier Block (section header for non-founder groups) ── */
+.team-tier-block { margin-top: 48px; max-width: 1100px; margin-left: auto; margin-right: auto; }
+.team-tier-label { font-family: var(--font-heading); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-color); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid rgba(217,20,20,0.15); }
+
+/* ── Senior Leadership Cards ── */
+.team-leaders-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.team-leader-card { display: flex; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; }
+.team-leader-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+.team-leader-accent { width: 4px; background: var(--brand-gradient); flex-shrink: 0; }
+.team-leader-body { padding: 20px 20px; flex: 1; }
+.team-leader-name { font-family: var(--font-heading); font-size: 1rem; margin-bottom: 2px; }
+.team-leader-role { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 10px; line-height: 1.4; }
+.team-leader-meta { display: flex; align-items: center; gap: 10px; }
+.team-leader-region { font-size: 0.75rem; color: var(--text-tertiary); background: var(--bg-darker); padding: 2px 10px; border-radius: 20px; }
+
+/* ── Roster Table (regional + specialists) ── */
+.team-roster { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; overflow: hidden; }
+.team-roster-row { display: grid; grid-template-columns: 1.2fr 1.5fr 0.8fr 50px; align-items: center; padding: 14px 24px; border-bottom: 1px solid var(--border-light); transition: background 0.15s; }
+.team-roster-row:last-child { border-bottom: none; }
+.team-roster-row:hover { background: rgba(217,20,20,0.02); }
+.team-roster-name { font-family: var(--font-heading); font-size: 0.95rem; font-weight: 600; }
+.team-roster-role { color: var(--text-muted); font-size: 0.85rem; }
+.team-roster-region { text-align: center; }
+.team-region-badge { display: inline-block; font-size: 0.72rem; color: var(--text-tertiary); background: var(--bg-darker); padding: 2px 10px; border-radius: 20px; white-space: nowrap; border: 1px solid var(--border-light); }
+.team-roster-action { text-align: center; }
+
+/* ── Old classes (keep for compat) ── */
+.about-team-grid { display: none; }
+.about-team-card, .about-team-avatar, .about-team-avatar-img, .about-team-name, .about-team-role, .about-team-tagline, .about-team-avatar-fallback, .about-team-region, .about-team-email { /* deprecated */ }
 
 /* ── How We Work (Bento) ── */
 .about-work { padding: 90px 0; }
@@ -4157,7 +4192,10 @@ body.light-mode .nav-l3-link:hover {
     .about-hero { padding: 110px 20px 40px; }
     .about-purpose-cards { grid-template-columns: 1fr; }
     .about-values-grid { grid-template-columns: 1fr 1fr; }
-    .about-team-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+    .team-founders-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+    .team-leaders-grid { grid-template-columns: 1fr; }
+    .team-roster-row { grid-template-columns: 1fr 1fr 50px; padding: 12px 16px; }
+    .team-roster-region { display: none; }
     .about-work-grid { grid-template-columns: 1fr; }
     .about-stats-row { gap: 30px; }
     .about-timeline-track { padding-left: 40px; }
@@ -4166,7 +4204,9 @@ body.light-mode .nav-l3-link:hover {
     .about-cta-card { padding: 50px 24px; }
 }
 @media (max-width: 480px) {
-    .about-team-grid { grid-template-columns: 1fr; }
+    .team-founders-grid { grid-template-columns: 1fr 1fr; }
+    .team-roster-row { grid-template-columns: 1fr 50px; }
+    .team-roster-role { display: none; }
     .about-values-grid { grid-template-columns: 1fr; }
     .about-hero-right { min-height: 160px; }
 }
