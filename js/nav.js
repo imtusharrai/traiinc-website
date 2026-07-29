@@ -573,14 +573,6 @@
                     <li><a href="industries.html">All Industries</a></li>
                     <li><a href="our-development-process.html">How We Work</a></li>
                 </ul>
-                <div class="footer-location-block">
-                    <h4>Location</h4>
-                    <p>B-2, 11th Floor, DLF MyPad,<br>Opposite Hyatt Regency, Vibhuti Khand,<br>Gomti Nagar, Lucknow, UP 226010</p>
-                </div>
-                <div class="footer-hours-block">
-                    <h4>Hours</h4>
-                    <p>Mon–Sat: 10am – 7pm IST<br>Sun: By appointment</p>
-                </div>
             </div>
             <div class="footer-newsletter">
                 <h4>Stay in the loop</h4>
@@ -593,6 +585,10 @@
                     <span class="footer-badge">🇮🇳 Made in India</span>
                     <span class="footer-badge">🔒 Fixed-Price Contracts</span>
                     <span class="footer-badge">⚡ AI-Augmented Delivery</span>
+                </div>
+                <div class="footer-location-block">
+                    <h4>Location</h4>
+                    <p>B-2, 11th Floor, DLF MyPad,<br>Opposite Hyatt Regency, Vibhuti Khand,<br>Gomti Nagar, Lucknow, UP 226010</p>
                 </div>
             </div>
         </div>
