@@ -241,8 +241,8 @@ export async function onRequestPost(context) {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                from: "Trai Inc <support@traiinc.com>",
-                to: "support@traiinc.com",
+                from: "Trai Inc <hello@traiinc.com>",
+                to: "hello@traiinc.com",
                 reply_to: email || undefined,
                 subject: isEstimator
                     ? `MSME Estimate Request from ${name}`
@@ -295,7 +295,7 @@ export async function onRequestPost(context) {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    from: "Trai Inc <support@traiinc.com>",
+                    from: "Trai Inc <hello@traiinc.com>",
                     to: email,
                     subject: serviceLabels
                         ? `Your enquiry for ${serviceLabels.split(',')[0].trim()} — Trai Inc`
