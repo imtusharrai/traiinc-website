@@ -260,6 +260,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     let renderFn = renderers[pageId];
     if (pageId.startsWith('tech-')) {
         renderFn = renderTechPage;
+    } else if (pageId.startsWith('blog-') && pageId !== 'blog') {
+        renderFn = renderBlogPost;
     }
 
     if (renderFn && dynamicContainer) {

@@ -19,6 +19,30 @@
   },
   "posts": [
     {
+      "emoji": "🏗️",
+      "tag": "AI & Automation",
+      "tag_color": "#f093fb",
+      "title": "Build vs. Buy: The Hidden Costs of 'Off-the-Shelf' AI Agents",
+      "description": "Why generic SaaS AI bots fail at complex enterprise workflows, and how custom AI architecture saves money.",
+      "author": "Tushar Rai",
+      "date": "July 30, 2026",
+      "read_time": "7 min",
+      "image": "/img/blog/ai-agents-workflows.webp",
+      "url": "blog-build-vs-buy-ai-agents.html"
+    },
+    {
+      "emoji": "🛡️",
+      "tag": "Cybersecurity",
+      "tag_color": "#a18cd1",
+      "title": "How to Secure AI Agents for Enterprise Data in 2026",
+      "description": "Stop worrying about LLM hallucinations and data leaks. Here is the technical architecture required to run secure AI agents.",
+      "author": "Harsh Pandey",
+      "date": "July 30, 2026",
+      "read_time": "8 min",
+      "image": "/img/blog/whatsapp-security.webp",
+      "url": "blog-securing-enterprise-ai-agents.html"
+    },
+    {
       "emoji": "☁️",
       "tag": "Cloud & DevOps",
       "tag_color": "#667eea",
