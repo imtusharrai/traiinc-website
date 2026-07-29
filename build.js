@@ -139,12 +139,12 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '700883852205841');
+fbq('init', '879414293268218');
 fbq('track', 'PageView');
 `;
             head.appendChild(metaPixelScript);
             const metaNoscript = dom.window.document.createElement('noscript');
-            metaNoscript.innerHTML = `<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=700883852205841&ev=PageView&noscript=1"/>`;
+            metaNoscript.innerHTML = `<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=879414293268218&ev=PageView&noscript=1"/>`;
             head.appendChild(metaNoscript);
 
             const script = dom.window.document.createElement('script');
