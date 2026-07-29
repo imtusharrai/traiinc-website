@@ -59,5 +59,40 @@
 /mobile-cross-platform-app-development.html /mobile-apps.html 301
 /mobile-native-mobile-app-development.html /mobile-apps.html 301
 
+# --- New 301 Redirects for GSC 404s ---
+# Handle the old /pages/ sub-directory (common from old CMS setups)
+/pages/contact* /contact.html 301
+/pages/about* /about.html 301
+/pages/web-development* /web-development.html 301
+/pages/solutions* /solutions.html 301
+/pages/blog* /blog.html 301
+/pages/case-studies* /clients.html 301
+/pages/digital-marketing* /digital-marketing.html 301
+/pages/billing-invoicing* /enterprise-platforms.html 301
+
+# Industry-specific old pages -> Industries pillar page
+/pages/finance* /industries.html 301
+/pages/fintech* /industries.html#fintech 301
+/pages/retail* /industries.html#ecommerce 301
+/pages/hotels* /industries.html 301
+/pages/legal-firms* /industries.html 301
+/pages/salons* /industries.html 301
+/pages/healthtech* /industries.html#healthcare 301
+/pages/education* /industries.html#edtech 301
+
+# Catch remaining /pages/ URLs
+/pages/* /index.html 301
+/pages /index.html 301
+
+# Orphaned / old tech pages
+/tech-headless-cms.html /custom-software.html 301
+/tech-swift.html /mobile-apps.html 301
+/micro-business /msmes.html 301
+/micro-business.html /msmes.html 301
+
+# Miscellaneous
+/search* /index.html 301
+/coming-soon /index.html 301
+
 # Catch any other old paths that don't match a real file
 /* /index.html 404
