@@ -523,8 +523,8 @@
                 <p class="footer-tagline">AI-native software engineering — delivering custom software, mobile apps, and automation systems for businesses across India.</p>
                 <div class="footer-contact">
                     <a href="tel:+917905495478" class="contact-link">📞 +91 79054 95478</a><br>
-                    <a href="mailto:support@traiinc.com" class="contact-link">✉️ support@traiinc.com</a> &nbsp;&nbsp;|&nbsp;&nbsp; 
-                    <a href="mailto:hello@traiinc.com" class="contact-link">✉️ hello@traiinc.com</a>
+                    <span class="contact-label">Enquiry:</span> <a href="mailto:hello@traiinc.com" class="contact-link">✉️ hello@traiinc.com</a><br>
+                    <span class="contact-label">Support:</span> <a href="mailto:support@traiinc.com" class="contact-link">✉️ support@traiinc.com</a>
                 </div>
                 <div class="footer-social">
                     <a href="https://www.linkedin.com/company/trai-inc" target="_blank" rel="noopener" class="social-icon social-linkedin" aria-label="LinkedIn">${socialIcons.linkedin}</a>
