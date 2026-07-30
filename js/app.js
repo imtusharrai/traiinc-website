@@ -851,37 +851,6 @@ function renderAbout(data) {
                 </div>
             </div>
 
-            <!-- ── Regional & Business Development ── -->
-            <div class="team-tier-block fade-in">
-                <h3 class="team-tier-label">Regional & Business Development</h3>
-                <div class="team-roster">
-                    ${data.team.members.filter(m => m.tier === 'regional').map(m => `
-                    <div class="team-roster-row">
-                        <div class="team-roster-name">${m.name}</div>
-                        <div class="team-roster-role">${m.role}</div>
-                        <div class="team-roster-region"><span class="team-region-badge">${m.region}</span></div>
-                        <div class="team-roster-action">
-                            ${m.email ? `<a href="mailto:${m.email}" class="team-email-link" title="${m.email}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>` : ''}
-                        </div>
-                    </div>`).join('')}
-                </div>
-            </div>
-
-            <!-- ── Engineering, Design & Specialists ── -->
-            <div class="team-tier-block fade-in">
-                <h3 class="team-tier-label">Engineering, Design & Specialists</h3>
-                <div class="team-roster">
-                    ${data.team.members.filter(m => m.tier === 'specialist').map(m => `
-                    <div class="team-roster-row">
-                        <div class="team-roster-name">${m.name}</div>
-                        <div class="team-roster-role">${m.role}</div>
-                        <div class="team-roster-region"><span class="team-region-badge">${m.region}</span></div>
-                        <div class="team-roster-action">
-                            ${m.email ? `<a href="mailto:${m.email}" class="team-email-link" title="${m.email}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>` : ''}
-                        </div>
-                    </div>`).join('')}
-                </div>
-            </div>
 
         </div>
     </section>
