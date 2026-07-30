@@ -61,7 +61,7 @@
   },
   "team": {
     "subtitle": "OUR TEAM",
-    "title": "28 professionals across 6 regions, one mission",
+    "title": "10 professionals across 2 regions, one mission",
     "members": [
       {
         "name": "Tushar Rai",
@@ -143,6 +143,15 @@
         "image": "",
         "tier": "leadership",
         "department": "Delivery"
+      },
+      {
+        "name": "Gaurav Singh",
+        "role": "Head of Dev Ops & AI",
+        "region": "Global Delivery",
+        "email": "gaurav.singh@traiinc.com",
+        "image": "",
+        "tier": "leadership",
+        "department": "Engineering"
       }
     ]
   },
