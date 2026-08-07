@@ -1110,15 +1110,15 @@ function renderCareers(data) {
             <h4 class="mini-title">${data.openings.title}</h4>
         </div>
         ${data.openings.baseline_curriculum ? `
-        <div class="baseline-curriculum-banner fade-in">
-            <h3 style="color: white; font-family: var(--font-heading); margin-bottom: 8px;">Phase 1: Baseline AI Certifications</h3>
-            <p style="color: var(--text-muted); font-size: 0.95rem;">Required for all intern tracks. Learn core AI concepts from industry leaders.</p>
+        <div class="baseline-curriculum-banner bento-card fade-in">
+            <h3 class="careers-job-title" style="margin-bottom: 8px;">Core Requirement: Baseline AI Certifications</h3>
+            <p class="careers-job-desc">All interns must complete these baseline certifications before starting their specialized track. Learn core AI concepts from industry leaders.</p>
             <div class="baseline-courses">
                 ${data.openings.baseline_curriculum.map(c => `
-                <div class="course-card" style="background: rgba(255,255,255,0.03);">
+                <div class="course-card">
                     <img src="${c.logo}" class="course-logo" alt="${c.provider}" />
                     <div class="course-info">
-                        <p class="course-name" style="font-size: 0.85rem;">${c.name}</p>
+                        <p class="course-name">${c.name}</p>
                         <p class="course-provider">${c.provider}</p>
                     </div>
                 </div>`).join('')}

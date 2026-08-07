@@ -4561,7 +4561,7 @@ body.light-mode .nav-l3-link:hover {
 .careers-opening-header { text-align: center; margin-bottom: 40px; }
 .careers-opening-category { font-size: 2.2rem; margin-bottom: 10px; }
 .careers-opening-subtitle { color: var(--text-muted); font-size: 1.05rem; }
-.careers-jobs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
+.careers-jobs-grid { display: flex; flex-direction: column; gap: 25px; max-width: 800px; margin: 0 auto; }
 .careers-job-card { padding: var(--space-md) var(--space-sm); display: flex; flex-direction: column; justify-content: space-between; }
 .careers-job-title { font-size: 1.25rem; margin-bottom: 10px; }
 .careers-job-tags { display: flex; gap: 12px; margin-bottom: 15px; }
@@ -6824,8 +6824,8 @@ body.light-mode .service-hero-screenshot-wrap {
     align-items: center;
     gap: 12px;
     padding: 12px;
-    background: rgba(0,0,0,0.2);
-    border: 1px solid rgba(255,255,255,0.05);
+    background: var(--bg-light);
+    border: 1px solid var(--border-color);
     border-radius: 12px;
 }
 
@@ -6870,23 +6870,21 @@ body.light-mode .service-hero-screenshot-wrap {
     align-items: center;
     gap: 8px;
     font-size: 0.8rem;
-    color: #e2e8f0;
-    background: linear-gradient(90deg, rgba(234,179,8,0.1), rgba(234,179,8,0.05));
-    border: 1px solid rgba(234,179,8,0.2);
+    font-weight: 600;
+    color: #854d0e;
+    background: linear-gradient(90deg, rgba(234,179,8,0.2), rgba(234,179,8,0.1));
+    border: 1px solid rgba(234,179,8,0.3);
     padding: 6px 12px;
     border-radius: 6px;
 }
 
 .badge-icon {
     font-size: 1rem;
-    color: #eab308;
+    color: #ca8a04;
 }
 
 /* Baseline curriculum banner above jobs */
 .baseline-curriculum-banner {
-    background: linear-gradient(135deg, rgba(20,20,30,0.8), rgba(10,10,15,0.9));
-    border: 1px solid var(--border-color);
-    border-radius: 24px;
     padding: 32px;
     margin-bottom: 40px;
 }
