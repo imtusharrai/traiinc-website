@@ -115,33 +115,73 @@
         "apply_text": "Apply Now \u2014 Hear Back in 3 Days",
         "jobs": [
           {
-            "title": "AI Agent & Prompt Engineer Intern",
+            "title": "AI Agent & Workflow Automation Intern",
             "location": "Remote",
             "type": "3 Months | Performance-Based Pay",
             "button_text": "Apply for Internship",
             "button_href": "mailto:careers@traiinc.com?subject=Internship Application",
-            "desc": "Master Agentic AI and enterprise automation. Build custom RAG pipelines, design complex system prompts, and orchestrate autonomous AI agents using cutting-edge frameworks.",
-            "core_tools": [
-              "Prompt Engineering",
-              "ChatGPT",
-              "Claude",
-              "Gemini"
-            ],
+            "desc": "Free 2-week AI training, then performance-based pay. Master Agentic AI and enterprise automation. Build custom RAG pipelines, design complex system prompts, and orchestrate autonomous AI agents using cutting-edge frameworks. Requirements: interest in AI/LLMs, logical thinking, 20+ hrs/week.",
             "curriculum": [
+              {
+                "name": "AI Fundamentals",
+                "provider": "IBM SkillsBuild",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://ibm.com&size=128"
+              },
+              {
+                "name": "Gemini for Workspace",
+                "provider": "Google Skillshop",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=128"
+              },
+              {
+                "name": "Claude Fundamentals",
+                "provider": "Anthropic Academy",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://anthropic.com&size=128"
+              },
               {
                 "name": "AI Agent Building",
                 "provider": "n8n",
-                "logo": "https://n8n.io/favicon.ico"
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://n8n.io&size=128"
               },
               {
                 "name": "Agentic AI",
                 "provider": "Hugging Face",
-                "logo": "https://huggingface.co/front/assets/huggingface_logo-noborder.svg"
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://huggingface.co&size=128"
               }
             ],
             "earned_badges": [
               "Anthropic Prompt Engineer",
-              "Hugging Face Agent Badge"
+              "Hugging Face Agent Badge",
+              "n8n Workflow Automation Badge",
+              "Hugging Face Agent Course Badge"
+            ],
+            "tools": [
+              {
+                "name": "ChatGPT",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://openai.com&size=128"
+              },
+              {
+                "name": "Claude",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://anthropic.com&size=128"
+              },
+              {
+                "name": "Gemini",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=128"
+              },
+              {
+                "name": "n8n",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://n8n.io&size=128"
+              },
+              {
+                "name": "Hugging Face",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://huggingface.co&size=128"
+              }
+            ],
+            "skills": [
+              "Prompt Engineering",
+              "Agentic Workflows",
+              "RAG Implementation",
+              "API Integrations",
+              "Logic Structures"
             ]
           },
           {
@@ -151,27 +191,65 @@
             "button_text": "Apply for Internship",
             "button_href": "mailto:careers@traiinc.com?subject=Internship Application",
             "desc": "Free 2-week AI training, then performance-based pay. Learn to build software using AI-assisted coding \u2014 then work on live projects, paid per task. Requirements: JS/HTML/CSS or Flutter/Dart basics, Git familiarity, 20+ hrs/week.",
-            "core_tools": [
-              "Prompt Engineering",
-              "ChatGPT",
-              "Claude",
-              "Gemini"
-            ],
             "curriculum": [
+              {
+                "name": "AI Fundamentals",
+                "provider": "IBM SkillsBuild",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://ibm.com&size=128"
+              },
+              {
+                "name": "Gemini for Workspace",
+                "provider": "Google Skillshop",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=128"
+              },
+              {
+                "name": "Claude Fundamentals",
+                "provider": "Anthropic Academy",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://anthropic.com&size=128"
+              },
               {
                 "name": "GitHub Skills",
                 "provider": "GitHub",
-                "logo": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://github.com&size=128"
               },
               {
                 "name": "JS/HTML/CSS Certification",
                 "provider": "freeCodeCamp",
-                "logo": "https://design-style-guide.freecodecamp.org/downloads/fcc_primary_large.png"
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://freecodecamp.org&size=128"
               }
             ],
             "earned_badges": [
               "freeCodeCamp Web Dev Certification",
               "GitHub Foundations Badge"
+            ],
+            "tools": [
+              {
+                "name": "ChatGPT",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://openai.com&size=128"
+              },
+              {
+                "name": "Claude",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://anthropic.com&size=128"
+              },
+              {
+                "name": "Gemini",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=128"
+              },
+              {
+                "name": "GitHub",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://github.com&size=128"
+              },
+              {
+                "name": "Cursor",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://cursor.sh&size=128"
+              }
+            ],
+            "skills": [
+              "Prompt Engineering",
+              "Git Version Control",
+              "UI/UX Implementation",
+              "HTML/CSS/JS",
+              "AI-Assisted Coding"
             ]
           },
           {
@@ -181,27 +259,65 @@
             "button_text": "Apply for Internship",
             "button_href": "mailto:careers@traiinc.com?subject=Internship Application",
             "desc": "Free 2-week AI training, then performance-based pay. Learn Flutter development and app publishing using AI-assisted workflows, then build on live projects. Requirements: Flutter/Dart basics or fast learner, Git, 20+ hrs/week.",
-            "core_tools": [
-              "Prompt Engineering",
-              "ChatGPT",
-              "Claude",
-              "Gemini"
-            ],
             "curriculum": [
+              {
+                "name": "AI Fundamentals",
+                "provider": "IBM SkillsBuild",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://ibm.com&size=128"
+              },
+              {
+                "name": "Gemini for Workspace",
+                "provider": "Google Skillshop",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=128"
+              },
+              {
+                "name": "Claude Fundamentals",
+                "provider": "Anthropic Academy",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://anthropic.com&size=128"
+              },
               {
                 "name": "Flutter Codelabs",
                 "provider": "Google",
-                "logo": "https://storage.googleapis.com/cms-storage-bucket/4fd5520fe28ebf839174.svg"
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=128"
               },
               {
                 "name": "Flutter Cloud Skills",
                 "provider": "Google Cloud",
-                "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Google_Cloud_logo.svg/1024px-Google_Cloud_logo.svg.png"
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://cloud.google.com&size=128"
               }
             ],
             "earned_badges": [
               "Google Flutter Developer Badge",
               "Google Cloud Skills Boost"
+            ],
+            "tools": [
+              {
+                "name": "ChatGPT",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://openai.com&size=128"
+              },
+              {
+                "name": "Claude",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://anthropic.com&size=128"
+              },
+              {
+                "name": "Gemini",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=128"
+              },
+              {
+                "name": "Flutter",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://flutter.dev&size=128"
+              },
+              {
+                "name": "Google Cloud",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://cloud.google.com&size=128"
+              }
+            ],
+            "skills": [
+              "Prompt Engineering",
+              "Flutter/Dart",
+              "Mobile UI Design",
+              "App Publishing",
+              "Git Version Control"
             ]
           },
           {
@@ -211,21 +327,59 @@
             "button_text": "Apply for Internship",
             "button_href": "mailto:careers@traiinc.com?subject=Internship Application",
             "desc": "Free 2-week AI training, then performance-based pay. Learn AI-driven lead research and prospecting, then work real campaigns, paid per result. Requirements: spreadsheets, willingness to learn AI research tools, 20+ hrs/week.",
-            "core_tools": [
-              "Prompt Engineering",
-              "ChatGPT",
-              "Claude",
-              "Gemini"
-            ],
             "curriculum": [
+              {
+                "name": "AI Fundamentals",
+                "provider": "IBM SkillsBuild",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://ibm.com&size=128"
+              },
+              {
+                "name": "Gemini for Workspace",
+                "provider": "Google Skillshop",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=128"
+              },
+              {
+                "name": "Claude Fundamentals",
+                "provider": "Anthropic Academy",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://anthropic.com&size=128"
+              },
               {
                 "name": "Inbound Sales & CRM",
                 "provider": "HubSpot Academy",
-                "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/HubSpot_Logo.svg/1024px-HubSpot_Logo.svg.png"
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://hubspot.com&size=128"
               }
             ],
             "earned_badges": [
               "HubSpot Inbound Sales Certification"
+            ],
+            "tools": [
+              {
+                "name": "ChatGPT",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://openai.com&size=128"
+              },
+              {
+                "name": "Claude",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://anthropic.com&size=128"
+              },
+              {
+                "name": "Gemini",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=128"
+              },
+              {
+                "name": "HubSpot",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://hubspot.com&size=128"
+              },
+              {
+                "name": "LinkedIn",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://linkedin.com&size=128"
+              }
+            ],
+            "skills": [
+              "Prompt Engineering",
+              "B2B Lead Generation",
+              "CRM Management",
+              "Prospecting",
+              "Data Research"
             ]
           },
           {
@@ -235,22 +389,60 @@
             "button_text": "Apply for Internship",
             "button_href": "mailto:careers@traiinc.com?subject=Internship Application",
             "desc": "Free 2-week AI training, then performance-based pay. Learn AI-assisted sales workflows, then support live client accounts, paid per task. Requirements: strong communication, comfortable on calls, 20+ hrs/week.",
-            "core_tools": [
-              "Prompt Engineering",
-              "ChatGPT",
-              "Claude",
-              "Gemini"
-            ],
             "curriculum": [
+              {
+                "name": "AI Fundamentals",
+                "provider": "IBM SkillsBuild",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://ibm.com&size=128"
+              },
+              {
+                "name": "Gemini for Workspace",
+                "provider": "Google Skillshop",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=128"
+              },
+              {
+                "name": "Claude Fundamentals",
+                "provider": "Anthropic Academy",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://anthropic.com&size=128"
+              },
               {
                 "name": "Sales & Client Success",
                 "provider": "HubSpot Academy",
-                "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/HubSpot_Logo.svg/1024px-HubSpot_Logo.svg.png"
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://hubspot.com&size=128"
               }
             ],
             "earned_badges": [
               "HubSpot Sales Certification",
               "Inbound Sales Certificate"
+            ],
+            "tools": [
+              {
+                "name": "ChatGPT",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://openai.com&size=128"
+              },
+              {
+                "name": "Claude",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://anthropic.com&size=128"
+              },
+              {
+                "name": "Gemini",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=128"
+              },
+              {
+                "name": "HubSpot",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://hubspot.com&size=128"
+              },
+              {
+                "name": "Gmail",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://gmail.com&size=128"
+              }
+            ],
+            "skills": [
+              "Prompt Engineering",
+              "Client Communication",
+              "Inbound Sales",
+              "Objection Handling",
+              "CRM Tracking"
             ]
           },
           {
@@ -260,27 +452,65 @@
             "button_text": "Apply for Internship",
             "button_href": "mailto:careers@traiinc.com?subject=Internship Application",
             "desc": "Free 2-week AI training, then performance-based pay. Learn AI-assisted design workflows, then design for live projects, paid per deliverable. Requirements: Figma familiarity, willing to learn AI design tools, 20+ hrs/week.",
-            "core_tools": [
-              "Prompt Engineering",
-              "ChatGPT",
-              "Claude",
-              "Gemini"
-            ],
             "curriculum": [
+              {
+                "name": "AI Fundamentals",
+                "provider": "IBM SkillsBuild",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://ibm.com&size=128"
+              },
+              {
+                "name": "Gemini for Workspace",
+                "provider": "Google Skillshop",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=128"
+              },
+              {
+                "name": "Claude Fundamentals",
+                "provider": "Anthropic Academy",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://anthropic.com&size=128"
+              },
               {
                 "name": "Design School Basics",
                 "provider": "Canva",
-                "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Canva_icon_2021.svg/1024px-Canva_icon_2021.svg.png"
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://canva.com&size=128"
               },
               {
                 "name": "Figma Learn Design",
                 "provider": "Figma",
-                "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/1024px-Figma-logo.svg.png"
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://figma.com&size=128"
               }
             ],
             "earned_badges": [
               "Canva Design Expert",
               "Figma UI/UX Foundation"
+            ],
+            "tools": [
+              {
+                "name": "ChatGPT",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://openai.com&size=128"
+              },
+              {
+                "name": "Claude",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://anthropic.com&size=128"
+              },
+              {
+                "name": "Gemini",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=128"
+              },
+              {
+                "name": "Figma",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://figma.com&size=128"
+              },
+              {
+                "name": "Canva",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://canva.com&size=128"
+              }
+            ],
+            "skills": [
+              "Prompt Engineering",
+              "Wireframing",
+              "High-Fidelity Prototyping",
+              "Design Systems",
+              "Visual Literacy"
             ]
           },
           {
@@ -290,27 +520,65 @@
             "button_text": "Apply for Internship",
             "button_href": "mailto:careers@traiinc.com?subject=Internship Application",
             "desc": "Free 2-week AI training, then performance-based pay. Learn AI-driven content and growth marketing, then run live campaigns, paid per output. Requirements: strong written English, 20+ hrs/week.",
-            "core_tools": [
-              "Prompt Engineering",
-              "ChatGPT",
-              "Claude",
-              "Gemini"
-            ],
             "curriculum": [
+              {
+                "name": "AI Fundamentals",
+                "provider": "IBM SkillsBuild",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://ibm.com&size=128"
+              },
+              {
+                "name": "Gemini for Workspace",
+                "provider": "Google Skillshop",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=128"
+              },
+              {
+                "name": "Claude Fundamentals",
+                "provider": "Anthropic Academy",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://anthropic.com&size=128"
+              },
               {
                 "name": "Meta Ads & Blueprint",
                 "provider": "Meta",
-                "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/1024px-Meta_Platforms_Inc._logo.svg.png"
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://meta.com&size=128"
               },
               {
                 "name": "Social Media Marketing",
                 "provider": "HubSpot Academy",
-                "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/HubSpot_Logo.svg/1024px-HubSpot_Logo.svg.png"
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://hubspot.com&size=128"
               }
             ],
             "earned_badges": [
               "Meta Blueprint Certification",
               "HubSpot Digital Marketing Certification"
+            ],
+            "tools": [
+              {
+                "name": "ChatGPT",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://openai.com&size=128"
+              },
+              {
+                "name": "Claude",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://anthropic.com&size=128"
+              },
+              {
+                "name": "Gemini",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=128"
+              },
+              {
+                "name": "Meta Ads",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://meta.com&size=128"
+              },
+              {
+                "name": "HubSpot",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://hubspot.com&size=128"
+              }
+            ],
+            "skills": [
+              "Prompt Engineering",
+              "Paid Social Advertising",
+              "Campaign Optimization",
+              "Conversion Tracking",
+              "Ad Copywriting"
             ]
           },
           {
@@ -320,27 +588,65 @@
             "button_text": "Apply for Internship",
             "button_href": "mailto:careers@traiinc.com?subject=Internship Application",
             "desc": "Free 2-week AI training, then performance-based pay. Learn AI-assisted content production (scripting, editing, repurposing), then create for live projects, paid per deliverable. Requirements: interest in content/video, willingness to learn AI content tools, 20+ hrs/week.",
-            "core_tools": [
-              "Prompt Engineering",
-              "ChatGPT",
-              "Claude",
-              "Gemini"
-            ],
             "curriculum": [
+              {
+                "name": "AI Fundamentals",
+                "provider": "IBM SkillsBuild",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://ibm.com&size=128"
+              },
+              {
+                "name": "Gemini for Workspace",
+                "provider": "Google Skillshop",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=128"
+              },
+              {
+                "name": "Claude Fundamentals",
+                "provider": "Anthropic Academy",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://anthropic.com&size=128"
+              },
               {
                 "name": "GA4 Certification",
                 "provider": "Google Skillshop",
-                "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1024px-Google_%22G%22_logo.svg.png"
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=128"
               },
               {
                 "name": "Content Marketing",
                 "provider": "HubSpot Academy",
-                "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/HubSpot_Logo.svg/1024px-HubSpot_Logo.svg.png"
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://hubspot.com&size=128"
               }
             ],
             "earned_badges": [
               "Google GA4 Certification",
               "HubSpot Content Marketing Certificate"
+            ],
+            "tools": [
+              {
+                "name": "ChatGPT",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://openai.com&size=128"
+              },
+              {
+                "name": "Claude",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://anthropic.com&size=128"
+              },
+              {
+                "name": "Gemini",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=128"
+              },
+              {
+                "name": "Google Analytics",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=128"
+              },
+              {
+                "name": "HubSpot",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://hubspot.com&size=128"
+              }
+            ],
+            "skills": [
+              "Prompt Engineering",
+              "Data Analytics (GA4)",
+              "SEO Fundamentals",
+              "Content Strategy",
+              "Performance Tracking"
             ]
           },
           {
@@ -350,57 +656,65 @@
             "button_text": "Apply for Internship",
             "button_href": "mailto:careers@traiinc.com?subject=Internship Application",
             "desc": "Free 2-week AI training, then performance-based pay. Learn how an AI-native team runs \u2014 process, documentation, coordination \u2014 then own real tasks, paid per output. Requirements: organized, comfortable with docs/spreadsheets, 20+ hrs/week.",
-            "core_tools": [
-              "Prompt Engineering",
-              "ChatGPT",
-              "Claude",
-              "Gemini"
-            ],
             "curriculum": [
+              {
+                "name": "AI Fundamentals",
+                "provider": "IBM SkillsBuild",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://ibm.com&size=128"
+              },
+              {
+                "name": "Gemini for Workspace",
+                "provider": "Google Skillshop",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=128"
+              },
+              {
+                "name": "Claude Fundamentals",
+                "provider": "Anthropic Academy",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://anthropic.com&size=128"
+              },
               {
                 "name": "Customer Service Training",
                 "provider": "HubSpot Academy",
-                "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/HubSpot_Logo.svg/1024px-HubSpot_Logo.svg.png"
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://hubspot.com&size=128"
               },
               {
                 "name": "Process Workflows",
                 "provider": "GitHub Skills",
-                "logo": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+                "logo": "assets/ui-mockups/hero_code_editor.png"
               }
             ],
             "earned_badges": [
               "HubSpot Customer Service Certificate",
               "GitHub Workflows Badge"
-            ]
-          },
-          {
-            "title": "AI Agents & Workflow Automation Intern",
-            "location": "Remote",
-            "type": "3 Months | Performance-Based Pay",
-            "button_text": "Apply for Internship",
-            "button_href": "mailto:careers@traiinc.com?subject=Internship Application",
-            "desc": "Free 2-week AI training, then performance-based pay. Learn to build AI agents and automated workflows, then contribute to live projects, paid per component. Requirements: interest in AI/LLMs, logical thinking, 20+ hrs/week.",
-            "core_tools": [
-              "Prompt Engineering",
-              "ChatGPT",
-              "Claude",
-              "Gemini"
             ],
-            "curriculum": [
+            "tools": [
               {
-                "name": "Workflow Automations",
-                "provider": "n8n",
-                "logo": "https://n8n.io/favicon.ico"
+                "name": "ChatGPT",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://openai.com&size=128"
               },
               {
-                "name": "AI Agents",
-                "provider": "Hugging Face",
-                "logo": "https://huggingface.co/front/assets/huggingface_logo-noborder.svg"
+                "name": "Claude",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://anthropic.com&size=128"
+              },
+              {
+                "name": "Gemini",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=128"
+              },
+              {
+                "name": "GitHub",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://github.com&size=128"
+              },
+              {
+                "name": "HubSpot",
+                "logo": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://hubspot.com&size=128"
               }
             ],
-            "earned_badges": [
-              "n8n Workflow Automation Badge",
-              "Hugging Face Agent Course Badge"
+            "skills": [
+              "Prompt Engineering",
+              "Process Automation",
+              "Customer Support",
+              "Documentation",
+              "Operational Efficiency"
             ]
           }
         ]
@@ -490,23 +804,6 @@
             "desc": "Manage end-to-end publishing, ASO, and strict compliance for iOS, Android, and Windows apps across all business categories (Fintech, Health, E-commerce)."
           }
         ]
-      }
-    ],
-    "baseline_curriculum": [
-      {
-        "name": "Claude Fundamentals",
-        "provider": "Anthropic Academy",
-        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Anthropic_logo.svg/1200px-Anthropic_logo.svg.png"
-      },
-      {
-        "name": "Gemini for Workspace",
-        "provider": "Google Skillshop",
-        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1024px-Google_%22G%22_logo.svg.png"
-      },
-      {
-        "name": "AI Fundamentals",
-        "provider": "IBM SkillsBuild",
-        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/1024px-IBM_logo.svg.png"
       }
     ]
   },

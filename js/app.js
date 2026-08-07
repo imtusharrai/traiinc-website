@@ -1109,21 +1109,6 @@ function renderCareers(data) {
         <div class="section-header center">
             <h4 class="mini-title">${data.openings.title}</h4>
         </div>
-        ${data.openings.baseline_curriculum ? `
-        <div class="baseline-curriculum-banner bento-card fade-in">
-            <h3 class="careers-job-title" style="margin-bottom: 8px;">Core Requirement: Baseline AI Certifications</h3>
-            <p class="careers-job-desc">All interns must complete these baseline certifications before starting their specialized track. Learn core AI concepts from industry leaders.</p>
-            <div class="baseline-courses">
-                ${data.openings.baseline_curriculum.map(c => `
-                <div class="course-card">
-                    <img src="${c.logo}" class="course-logo" alt="${c.provider}" />
-                    <div class="course-info">
-                        <p class="course-name">${c.name}</p>
-                        <p class="course-provider">${c.provider}</p>
-                    </div>
-                </div>`).join('')}
-            </div>
-        </div>` : ''}
 
         ${data.openings.sections.map(section => `
         <div class="careers-opening-block">
@@ -1132,7 +1117,7 @@ function renderCareers(data) {
                 <p class="careers-opening-subtitle">${section.subtitle}</p>
             </div>
 
-            <div class="careers-jobs-grid">
+            <div class="careers-jobs-grid ${section.category.includes('Experts') ? 'experts-grid' : 'intern-grid'}">
                 ${section.jobs.map(job => `
                 <div class="bento-card fade-in careers-job-card">
                     <div>
@@ -1143,17 +1128,29 @@ function renderCareers(data) {
                         </div>
                         <p class="careers-job-desc">${job.desc}</p>
                         
-                        ${job.core_tools ? `
+                        ${job.tools ? `
                         <div class="curriculum-section">
                             <h4 class="curriculum-title">Core AI Tools</h4>
+                            <div class="tools-grid">
+                                ${job.tools.map(tool => `
+                                <div class="tool-item">
+                                    <img src="${tool.logo}" class="tool-logo" alt="${tool.name}" />
+                                    <span class="tool-name">${tool.name}</span>
+                                </div>`).join('')}
+                            </div>
+                        </div>` : ''}
+
+                        ${job.skills ? `
+                        <div class="curriculum-section" style="border-top: none; padding-top: 0; margin-top: 0;">
+                            <h4 class="curriculum-title">Skills you will Gain</h4>
                             <div class="core-tools-list">
-                                ${job.core_tools.map(tool => `<span class="tool-chip">${tool}</span>`).join('')}
+                                ${job.skills.map(skill => `<span class="tool-chip">${skill}</span>`).join('')}
                             </div>
                         </div>` : ''}
 
                         ${job.curriculum ? `
                         <div class="curriculum-section" style="border-top: none; padding-top: 0; margin-top: 0;">
-                            <h4 class="curriculum-title">Track Certifications</h4>
+                            <h4 class="curriculum-title">Certifications you will Earn</h4>
                             <div class="curriculum-grid">
                                 ${job.curriculum.map(c => `
                                 <div class="course-card">
