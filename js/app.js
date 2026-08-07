@@ -1109,6 +1109,21 @@ function renderCareers(data) {
         <div class="section-header center">
             <h4 class="mini-title">${data.openings.title}</h4>
         </div>
+        ${data.openings.baseline_curriculum ? `
+        <div class="baseline-curriculum-banner fade-in">
+            <h3 style="color: white; font-family: var(--font-heading); margin-bottom: 8px;">Phase 1: Baseline AI Certifications</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Required for all intern tracks. Learn core AI concepts from industry leaders.</p>
+            <div class="baseline-courses">
+                ${data.openings.baseline_curriculum.map(c => `
+                <div class="course-card" style="background: rgba(255,255,255,0.03);">
+                    <img src="${c.logo}" class="course-logo" alt="${c.provider}" />
+                    <div class="course-info">
+                        <p class="course-name" style="font-size: 0.85rem;">${c.name}</p>
+                        <p class="course-provider">${c.provider}</p>
+                    </div>
+                </div>`).join('')}
+            </div>
+        </div>` : ''}
 
         ${data.openings.sections.map(section => `
         <div class="careers-opening-block">
@@ -1127,6 +1142,41 @@ function renderCareers(data) {
                             <span class="careers-job-tag">${job.type}</span>
                         </div>
                         <p class="careers-job-desc">${job.desc}</p>
+                        
+                        ${job.core_tools ? `
+                        <div class="curriculum-section">
+                            <h4 class="curriculum-title">Core AI Tools</h4>
+                            <div class="core-tools-list">
+                                ${job.core_tools.map(tool => `<span class="tool-chip">${tool}</span>`).join('')}
+                            </div>
+                        </div>` : ''}
+
+                        ${job.curriculum ? `
+                        <div class="curriculum-section" style="border-top: none; padding-top: 0; margin-top: 0;">
+                            <h4 class="curriculum-title">Track Certifications</h4>
+                            <div class="curriculum-grid">
+                                ${job.curriculum.map(c => `
+                                <div class="course-card">
+                                    <img src="${c.logo}" class="course-logo" alt="${c.provider}" />
+                                    <div class="course-info">
+                                        <p class="course-name">${c.name}</p>
+                                        <p class="course-provider">${c.provider}</p>
+                                    </div>
+                                </div>`).join('')}
+                            </div>
+                        </div>` : ''}
+                        
+                        ${job.earned_badges ? `
+                        <div class="badges-section">
+                            <h4 class="curriculum-title">Badges Earned</h4>
+                            <div class="badges-list">
+                                ${job.earned_badges.map(b => `
+                                <div class="badge-earned">
+                                    <span class="badge-icon">⭐</span>
+                                    <span>${b}</span>
+                                </div>`).join('')}
+                            </div>
+                        </div>` : ''}
                     </div>
                     <div style="margin-top: 24px;">
                         <a href="${job.button_href || 'mailto:careers@traiinc.com?subject=Job Application'}" class="btn-secondary" style="width: 100%; text-align: center;">${job.button_text || 'Apply Now'}</a>

@@ -6777,3 +6777,123 @@ body.light-mode .service-hero-screenshot-wrap {
 @media (max-width: 768px) {
     .service-hero-clean { padding-top: 100px !important; }
 }
+
+/* ════════ CURRICULUM & BADGES (INTERNSHIPS) ════════ */
+.curriculum-section {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-color);
+}
+
+.curriculum-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.core-tools-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.tool-chip {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    color: var(--text-secondary);
+    display: inline-flex;
+    align-items: center;
+}
+
+.curriculum-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.course-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 12px;
+}
+
+.course-logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    object-fit: contain;
+    background: white;
+    padding: 4px;
+}
+
+.course-info {
+    flex: 1;
+}
+
+.course-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 2px 0;
+}
+
+.course-provider {
+    font-size: 0.75rem;
+    color: var(--brand-color);
+    margin: 0;
+}
+
+.badges-section {
+    margin-top: 16px;
+}
+
+.badges-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.badge-earned {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: #e2e8f0;
+    background: linear-gradient(90deg, rgba(234,179,8,0.1), rgba(234,179,8,0.05));
+    border: 1px solid rgba(234,179,8,0.2);
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+.badge-icon {
+    font-size: 1rem;
+    color: #eab308;
+}
+
+/* Baseline curriculum banner above jobs */
+.baseline-curriculum-banner {
+    background: linear-gradient(135deg, rgba(20,20,30,0.8), rgba(10,10,15,0.9));
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 32px;
+    margin-bottom: 40px;
+}
+
+.baseline-courses {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+}

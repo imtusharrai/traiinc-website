@@ -2,41 +2,107 @@
   "header": {
     "subtitle": "CAREERS AT TRAI INC",
     "title": "Build what matters <em class=\"hero-cosmos-ai\">Ship what scales</em>",
-    "description": "We're a team of engineers, designers, and product thinkers who believe great software changes everything. If you're passionate about clean code, scalable systems, and solving hard problems — we want to hear from you."
+    "description": "We're a team of engineers, designers, and product thinkers who believe great software changes everything. If you're passionate about clean code, scalable systems, and solving hard problems \u2014 we want to hear from you."
   },
   "hero_image": "assets/images/services/careers_hero.png",
   "hero_image_alt": "Trai Inc engineering team collaboration",
   "hero_cards": [
-    { "icon": "🌍", "label": "Work Model", "value": "100% Remote", "active": true },
-    { "icon": "⚡", "label": "Avg. Response", "value": "3 Days", "active": false }
+    {
+      "icon": "\ud83c\udf0d",
+      "label": "Work Model",
+      "value": "100% Remote",
+      "active": true
+    },
+    {
+      "icon": "\u26a1",
+      "label": "Avg. Response",
+      "value": "3 Days",
+      "active": false
+    }
   ],
   "stats": [
-    { "value": "100%", "label": "Remote-First" },
-    { "value": "138+", "label": "Projects Shipped" },
-    { "value": "12+", "label": "Active Freelancers" },
-    { "value": "4.9/5", "label": "Team Satisfaction" }
+    {
+      "value": "100%",
+      "label": "Remote-First"
+    },
+    {
+      "value": "138+",
+      "label": "Projects Shipped"
+    },
+    {
+      "value": "12+",
+      "label": "Active Freelancers"
+    },
+    {
+      "value": "4.9/5",
+      "label": "Team Satisfaction"
+    }
   ],
   "values": {
     "subtitle": "ENGINEERING CULTURE",
     "title": "How We Work",
     "items": [
-      { "icon": "🚀", "title": "Ship Fast, Ship Right", "desc": "We move quickly without cutting corners. CI/CD, code reviews, and automated testing are non-negotiable." },
-      { "icon": "🎯", "title": "Own the Outcome", "desc": "Every engineer owns their feature end-to-end — from architecture to deployment to monitoring." },
-      { "icon": "🧠", "title": "Stay Curious", "desc": "We invest in R&D time, conference talks, and open-source contributions. Learning never stops." },
-      { "icon": "🏗️", "title": "Build for Scale", "desc": "We design systems to handle 10x growth from day one. Performance and reliability are first-class citizens." }
+      {
+        "icon": "\ud83d\ude80",
+        "title": "Ship Fast, Ship Right",
+        "desc": "We move quickly without cutting corners. CI/CD, code reviews, and automated testing are non-negotiable."
+      },
+      {
+        "icon": "\ud83c\udfaf",
+        "title": "Own the Outcome",
+        "desc": "Every engineer owns their feature end-to-end \u2014 from architecture to deployment to monitoring."
+      },
+      {
+        "icon": "\ud83e\udde0",
+        "title": "Stay Curious",
+        "desc": "We invest in R&D time, conference talks, and open-source contributions. Learning never stops."
+      },
+      {
+        "icon": "\ud83c\udfd7\ufe0f",
+        "title": "Build for Scale",
+        "desc": "We design systems to handle 10x growth from day one. Performance and reliability are first-class citizens."
+      }
     ]
   },
   "benefits": {
     "subtitle": "WHY JOIN TRAI",
     "title": "Perks & Benefits",
     "items": [
-      { "icon": "💻", "title": "Top-tier Equipment", "desc": "MacBook Pro, 4K monitors, and all the tools you need" },
-      { "icon": "📚", "title": "Learning Budget", "desc": "Annual stipend for courses, conferences, and certifications" },
-      { "icon": "🌍", "title": "Remote-first", "desc": "Work from anywhere — we're distributed by default" },
-      { "icon": "⏳", "title": "Flexible Hours", "desc": "Async-friendly culture. Results over hours." },
-      { "icon": "💰", "title": "Competitive Rates", "desc": "Project-based pay benchmarked to senior-level freelance rates, paid on milestones" },
-      { "icon": "📈", "title": "Career Growth", "desc": "Clear IC and management tracks with mentorship" },
-      { "icon": "🔁", "title": "Steady Project Pipeline", "desc": "Consistent freelance opportunities across a growing client base, not one-off gigs" }
+      {
+        "icon": "\ud83d\udcbb",
+        "title": "Top-tier Equipment",
+        "desc": "MacBook Pro, 4K monitors, and all the tools you need"
+      },
+      {
+        "icon": "\ud83d\udcda",
+        "title": "Learning Budget",
+        "desc": "Annual stipend for courses, conferences, and certifications"
+      },
+      {
+        "icon": "\ud83c\udf0d",
+        "title": "Remote-first",
+        "desc": "Work from anywhere \u2014 we're distributed by default"
+      },
+      {
+        "icon": "\u23f3",
+        "title": "Flexible Hours",
+        "desc": "Async-friendly culture. Results over hours."
+      },
+      {
+        "icon": "\ud83d\udcb0",
+        "title": "Competitive Rates",
+        "desc": "Project-based pay benchmarked to senior-level freelance rates, paid on milestones"
+      },
+      {
+        "icon": "\ud83d\udcc8",
+        "title": "Career Growth",
+        "desc": "Clear IC and management tracks with mentorship"
+      },
+      {
+        "icon": "\ud83d\udd01",
+        "title": "Steady Project Pipeline",
+        "desc": "Consistent freelance opportunities across a growing client base, not one-off gigs"
+      }
     ]
   },
   "openings": {
@@ -46,15 +112,296 @@
         "category": "For Students: Internship Program",
         "subtitle": "Are you a student or recent grad? Apply below to kickstart your career by building real AI products under senior mentorship.",
         "apply_link": "https://docs.google.com/forms/d/e/1FAIpQLSe1p9f_UHAErIYO5a351uyoI910qbJADyTEMBtpgDJO8JEapA/viewform?usp=sharing&ouid=109114048086511742245",
-        "apply_text": "Apply Now — Hear Back in 3 Days",
+        "apply_text": "Apply Now \u2014 Hear Back in 3 Days",
         "jobs": [
           {
             "title": "AI Agent & Prompt Engineer Intern",
             "location": "Remote",
-            "type": "Internship",
+            "type": "3 Months | Performance-Based Pay",
             "button_text": "Apply for Internship",
             "button_href": "mailto:careers@traiinc.com?subject=Internship Application",
-            "desc": "Master Agentic AI and enterprise automation. Build custom RAG pipelines, design complex system prompts, and orchestrate autonomous AI agents using cutting-edge frameworks."
+            "desc": "Master Agentic AI and enterprise automation. Build custom RAG pipelines, design complex system prompts, and orchestrate autonomous AI agents using cutting-edge frameworks.",
+            "core_tools": [
+              "Prompt Engineering",
+              "ChatGPT",
+              "Claude",
+              "Gemini"
+            ],
+            "curriculum": [
+              {
+                "name": "AI Agent Building",
+                "provider": "n8n",
+                "logo": "https://n8n.io/favicon.ico"
+              },
+              {
+                "name": "Agentic AI",
+                "provider": "Hugging Face",
+                "logo": "https://huggingface.co/front/assets/huggingface_logo-noborder.svg"
+              }
+            ],
+            "earned_badges": [
+              "Anthropic Prompt Engineer",
+              "Hugging Face Agent Badge"
+            ]
+          },
+          {
+            "title": "AI Software Development Intern",
+            "location": "Remote",
+            "type": "3 Months | Performance-Based Pay",
+            "button_text": "Apply for Internship",
+            "button_href": "mailto:careers@traiinc.com?subject=Internship Application",
+            "desc": "Free 2-week AI training, then performance-based pay. Learn to build software using AI-assisted coding \u2014 then work on live projects, paid per task. Requirements: JS/HTML/CSS or Flutter/Dart basics, Git familiarity, 20+ hrs/week.",
+            "core_tools": [
+              "Prompt Engineering",
+              "ChatGPT",
+              "Claude",
+              "Gemini"
+            ],
+            "curriculum": [
+              {
+                "name": "GitHub Skills",
+                "provider": "GitHub",
+                "logo": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+              },
+              {
+                "name": "JS/HTML/CSS Certification",
+                "provider": "freeCodeCamp",
+                "logo": "https://design-style-guide.freecodecamp.org/downloads/fcc_primary_large.png"
+              }
+            ],
+            "earned_badges": [
+              "freeCodeCamp Web Dev Certification",
+              "GitHub Foundations Badge"
+            ]
+          },
+          {
+            "title": "AI Mobile App Development Intern",
+            "location": "Remote",
+            "type": "3 Months | Performance-Based Pay",
+            "button_text": "Apply for Internship",
+            "button_href": "mailto:careers@traiinc.com?subject=Internship Application",
+            "desc": "Free 2-week AI training, then performance-based pay. Learn Flutter development and app publishing using AI-assisted workflows, then build on live projects. Requirements: Flutter/Dart basics or fast learner, Git, 20+ hrs/week.",
+            "core_tools": [
+              "Prompt Engineering",
+              "ChatGPT",
+              "Claude",
+              "Gemini"
+            ],
+            "curriculum": [
+              {
+                "name": "Flutter Codelabs",
+                "provider": "Google",
+                "logo": "https://storage.googleapis.com/cms-storage-bucket/4fd5520fe28ebf839174.svg"
+              },
+              {
+                "name": "Flutter Cloud Skills",
+                "provider": "Google Cloud",
+                "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Google_Cloud_logo.svg/1024px-Google_Cloud_logo.svg.png"
+              }
+            ],
+            "earned_badges": [
+              "Google Flutter Developer Badge",
+              "Google Cloud Skills Boost"
+            ]
+          },
+          {
+            "title": "AI Business Development Intern (Lead Research)",
+            "location": "Remote",
+            "type": "3 Months | Performance-Based Pay",
+            "button_text": "Apply for Internship",
+            "button_href": "mailto:careers@traiinc.com?subject=Internship Application",
+            "desc": "Free 2-week AI training, then performance-based pay. Learn AI-driven lead research and prospecting, then work real campaigns, paid per result. Requirements: spreadsheets, willingness to learn AI research tools, 20+ hrs/week.",
+            "core_tools": [
+              "Prompt Engineering",
+              "ChatGPT",
+              "Claude",
+              "Gemini"
+            ],
+            "curriculum": [
+              {
+                "name": "Inbound Sales & CRM",
+                "provider": "HubSpot Academy",
+                "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/HubSpot_Logo.svg/1024px-HubSpot_Logo.svg.png"
+              }
+            ],
+            "earned_badges": [
+              "HubSpot Inbound Sales Certification"
+            ]
+          },
+          {
+            "title": "AI Sales & Client Success Intern",
+            "location": "Remote",
+            "type": "3 Months | Performance-Based Pay",
+            "button_text": "Apply for Internship",
+            "button_href": "mailto:careers@traiinc.com?subject=Internship Application",
+            "desc": "Free 2-week AI training, then performance-based pay. Learn AI-assisted sales workflows, then support live client accounts, paid per task. Requirements: strong communication, comfortable on calls, 20+ hrs/week.",
+            "core_tools": [
+              "Prompt Engineering",
+              "ChatGPT",
+              "Claude",
+              "Gemini"
+            ],
+            "curriculum": [
+              {
+                "name": "Sales & Client Success",
+                "provider": "HubSpot Academy",
+                "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/HubSpot_Logo.svg/1024px-HubSpot_Logo.svg.png"
+              }
+            ],
+            "earned_badges": [
+              "HubSpot Sales Certification",
+              "Inbound Sales Certificate"
+            ]
+          },
+          {
+            "title": "AI UI/UX Design Intern",
+            "location": "Remote",
+            "type": "3 Months | Performance-Based Pay",
+            "button_text": "Apply for Internship",
+            "button_href": "mailto:careers@traiinc.com?subject=Internship Application",
+            "desc": "Free 2-week AI training, then performance-based pay. Learn AI-assisted design workflows, then design for live projects, paid per deliverable. Requirements: Figma familiarity, willing to learn AI design tools, 20+ hrs/week.",
+            "core_tools": [
+              "Prompt Engineering",
+              "ChatGPT",
+              "Claude",
+              "Gemini"
+            ],
+            "curriculum": [
+              {
+                "name": "Design School Basics",
+                "provider": "Canva",
+                "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Canva_icon_2021.svg/1024px-Canva_icon_2021.svg.png"
+              },
+              {
+                "name": "Figma Learn Design",
+                "provider": "Figma",
+                "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/1024px-Figma-logo.svg.png"
+              }
+            ],
+            "earned_badges": [
+              "Canva Design Expert",
+              "Figma UI/UX Foundation"
+            ]
+          },
+          {
+            "title": "AI Digital Marketing Intern",
+            "location": "Remote",
+            "type": "3 Months | Performance-Based Pay",
+            "button_text": "Apply for Internship",
+            "button_href": "mailto:careers@traiinc.com?subject=Internship Application",
+            "desc": "Free 2-week AI training, then performance-based pay. Learn AI-driven content and growth marketing, then run live campaigns, paid per output. Requirements: strong written English, 20+ hrs/week.",
+            "core_tools": [
+              "Prompt Engineering",
+              "ChatGPT",
+              "Claude",
+              "Gemini"
+            ],
+            "curriculum": [
+              {
+                "name": "Meta Ads & Blueprint",
+                "provider": "Meta",
+                "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/1024px-Meta_Platforms_Inc._logo.svg.png"
+              },
+              {
+                "name": "Social Media Marketing",
+                "provider": "HubSpot Academy",
+                "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/HubSpot_Logo.svg/1024px-HubSpot_Logo.svg.png"
+              }
+            ],
+            "earned_badges": [
+              "Meta Blueprint Certification",
+              "HubSpot Digital Marketing Certification"
+            ]
+          },
+          {
+            "title": "AI Content Creation Intern",
+            "location": "Remote",
+            "type": "3 Months | Performance-Based Pay",
+            "button_text": "Apply for Internship",
+            "button_href": "mailto:careers@traiinc.com?subject=Internship Application",
+            "desc": "Free 2-week AI training, then performance-based pay. Learn AI-assisted content production (scripting, editing, repurposing), then create for live projects, paid per deliverable. Requirements: interest in content/video, willingness to learn AI content tools, 20+ hrs/week.",
+            "core_tools": [
+              "Prompt Engineering",
+              "ChatGPT",
+              "Claude",
+              "Gemini"
+            ],
+            "curriculum": [
+              {
+                "name": "GA4 Certification",
+                "provider": "Google Skillshop",
+                "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1024px-Google_%22G%22_logo.svg.png"
+              },
+              {
+                "name": "Content Marketing",
+                "provider": "HubSpot Academy",
+                "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/HubSpot_Logo.svg/1024px-HubSpot_Logo.svg.png"
+              }
+            ],
+            "earned_badges": [
+              "Google GA4 Certification",
+              "HubSpot Content Marketing Certificate"
+            ]
+          },
+          {
+            "title": "AI Business Operations Intern",
+            "location": "Remote",
+            "type": "3 Months | Performance-Based Pay",
+            "button_text": "Apply for Internship",
+            "button_href": "mailto:careers@traiinc.com?subject=Internship Application",
+            "desc": "Free 2-week AI training, then performance-based pay. Learn how an AI-native team runs \u2014 process, documentation, coordination \u2014 then own real tasks, paid per output. Requirements: organized, comfortable with docs/spreadsheets, 20+ hrs/week.",
+            "core_tools": [
+              "Prompt Engineering",
+              "ChatGPT",
+              "Claude",
+              "Gemini"
+            ],
+            "curriculum": [
+              {
+                "name": "Customer Service Training",
+                "provider": "HubSpot Academy",
+                "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/HubSpot_Logo.svg/1024px-HubSpot_Logo.svg.png"
+              },
+              {
+                "name": "Process Workflows",
+                "provider": "GitHub Skills",
+                "logo": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+              }
+            ],
+            "earned_badges": [
+              "HubSpot Customer Service Certificate",
+              "GitHub Workflows Badge"
+            ]
+          },
+          {
+            "title": "AI Agents & Workflow Automation Intern",
+            "location": "Remote",
+            "type": "3 Months | Performance-Based Pay",
+            "button_text": "Apply for Internship",
+            "button_href": "mailto:careers@traiinc.com?subject=Internship Application",
+            "desc": "Free 2-week AI training, then performance-based pay. Learn to build AI agents and automated workflows, then contribute to live projects, paid per component. Requirements: interest in AI/LLMs, logical thinking, 20+ hrs/week.",
+            "core_tools": [
+              "Prompt Engineering",
+              "ChatGPT",
+              "Claude",
+              "Gemini"
+            ],
+            "curriculum": [
+              {
+                "name": "Workflow Automations",
+                "provider": "n8n",
+                "logo": "https://n8n.io/favicon.ico"
+              },
+              {
+                "name": "AI Agents",
+                "provider": "Hugging Face",
+                "logo": "https://huggingface.co/front/assets/huggingface_logo-noborder.svg"
+              }
+            ],
+            "earned_badges": [
+              "n8n Workflow Automation Badge",
+              "Hugging Face Agent Course Badge"
+            ]
           }
         ]
       },
@@ -62,22 +409,104 @@
         "category": "For Experts: Freelance Network",
         "subtitle": "Are you an experienced professional? We do not hire full-time employees. Instead, we partner with elite freelancers for project-based contracts. Send your CV/Portfolio to join our network.",
         "apply_link": "mailto:support@traiinc.com",
-        "apply_text": "Email Portfolio to support@traiinc.com →",
+        "apply_text": "Email Portfolio to support@traiinc.com \u2192",
         "jobs": [
-          { "title": "AI Solutions Architect", "location": "Remote", "type": "Freelance / Contract", "desc": "Partner with us on a project basis to design end-to-end AI solutions, generative AI integrations, and custom ML models." },
-          { "title": "AI Agent Orchestrator", "location": "Remote", "type": "Freelance / Contract", "desc": "Take on specialized freelance contracts building multi-agent AI systems, voice agents, and lead scraping bots." },
-          { "title": "Senior Full-Stack Engineer", "location": "Remote", "type": "Freelance / Contract", "desc": "Join our network for high-impact web development projects across React, Node.js, and headless CMS platforms." },
-          { "title": "Mobile App Developer (Flutter/Native)", "location": "Remote", "type": "Freelance / Contract", "desc": "Freelance opportunities to build scalable iOS and Android applications for our enterprise clients." },
-          { "title": "Cloud & DevOps Engineer", "location": "Remote", "type": "Freelance / Contract", "desc": "Architect and manage AWS/GCP infrastructure, Kubernetes clusters, and automated CI/CD pipelines." },
-          { "title": "Data Engineer / Analyst", "location": "Remote", "type": "Freelance / Contract", "desc": "Design scalable data pipelines, ETL workflows, and real-time Power BI/Tableau dashboards." },
-          { "title": "UI/UX & Brand Designer", "location": "Remote", "type": "Freelance / Contract", "desc": "Craft premium user interfaces in Figma, conduct user research, and build comprehensive brand identity systems." },
-          { "title": "Motion Graphics & 3D Artist", "location": "Remote", "type": "Freelance / Contract", "desc": "Create stunning product demos, Lottie animations, and 3D architectural renders for modern web platforms." },
-          { "title": "SEO & Growth Strategist", "location": "Remote", "type": "Freelance / Contract", "desc": "Drive digital growth through Technical SEO, Generative Engine Optimization, and paid ad campaigns." },
-          { "title": "Technical Content Copywriter", "location": "Remote", "type": "Freelance / Contract", "desc": "Write high-converting SaaS copy, SEO blog strategies, and thought leadership articles for tech brands." },
-          { "title": "Enterprise CRM/ERP Specialist", "location": "Remote", "type": "Freelance / Contract", "desc": "Consult and implement custom CRM systems, Salesforce/HubSpot migrations, and supply chain ERPs." },
-          { "title": "Cybersecurity & Compliance Consultant", "location": "Remote", "type": "Freelance / Contract", "desc": "Conduct penetration testing and guide clients through SOC 2, HIPAA, and GDPR compliance audits." },
-          { "title": "App Store Publishing & Compliance Expert", "location": "Remote", "type": "Freelance / Contract", "desc": "Manage end-to-end publishing, ASO, and strict compliance for iOS, Android, and Windows apps across all business categories (Fintech, Health, E-commerce)." }
+          {
+            "title": "AI Solutions Architect",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Partner with us on a project basis to design end-to-end AI solutions, generative AI integrations, and custom ML models."
+          },
+          {
+            "title": "AI Agent Orchestrator",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Take on specialized freelance contracts building multi-agent AI systems, voice agents, and lead scraping bots."
+          },
+          {
+            "title": "Senior Full-Stack Engineer",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Join our network for high-impact web development projects across React, Node.js, and headless CMS platforms."
+          },
+          {
+            "title": "Mobile App Developer (Flutter/Native)",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Freelance opportunities to build scalable iOS and Android applications for our enterprise clients."
+          },
+          {
+            "title": "Cloud & DevOps Engineer",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Architect and manage AWS/GCP infrastructure, Kubernetes clusters, and automated CI/CD pipelines."
+          },
+          {
+            "title": "Data Engineer / Analyst",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Design scalable data pipelines, ETL workflows, and real-time Power BI/Tableau dashboards."
+          },
+          {
+            "title": "UI/UX & Brand Designer",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Craft premium user interfaces in Figma, conduct user research, and build comprehensive brand identity systems."
+          },
+          {
+            "title": "Motion Graphics & 3D Artist",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Create stunning product demos, Lottie animations, and 3D architectural renders for modern web platforms."
+          },
+          {
+            "title": "SEO & Growth Strategist",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Drive digital growth through Technical SEO, Generative Engine Optimization, and paid ad campaigns."
+          },
+          {
+            "title": "Technical Content Copywriter",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Write high-converting SaaS copy, SEO blog strategies, and thought leadership articles for tech brands."
+          },
+          {
+            "title": "Enterprise CRM/ERP Specialist",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Consult and implement custom CRM systems, Salesforce/HubSpot migrations, and supply chain ERPs."
+          },
+          {
+            "title": "Cybersecurity & Compliance Consultant",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Conduct penetration testing and guide clients through SOC 2, HIPAA, and GDPR compliance audits."
+          },
+          {
+            "title": "App Store Publishing & Compliance Expert",
+            "location": "Remote",
+            "type": "Freelance / Contract",
+            "desc": "Manage end-to-end publishing, ASO, and strict compliance for iOS, Android, and Windows apps across all business categories (Fintech, Health, E-commerce)."
+          }
         ]
+      }
+    ],
+    "baseline_curriculum": [
+      {
+        "name": "Claude Fundamentals",
+        "provider": "Anthropic Academy",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Anthropic_logo.svg/1200px-Anthropic_logo.svg.png"
+      },
+      {
+        "name": "Gemini for Workspace",
+        "provider": "Google Skillshop",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1024px-Google_%22G%22_logo.svg.png"
+      },
+      {
+        "name": "AI Fundamentals",
+        "provider": "IBM SkillsBuild",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/1024px-IBM_logo.svg.png"
       }
     ]
   },
@@ -85,9 +514,18 @@
     "subtitle": "QUESTIONS & ANSWERS",
     "title": "Frequently Asked Questions",
     "items": [
-      { "q": "Do you hire full-time employees?", "a": "No. Trai Inc operates as a freelance-first agency. We partner with elite independent professionals on project-based contracts with competitive milestone-based pay." },
-      { "q": "How quickly will I hear back after applying?", "a": "We respond to all applications within 3 business days. Shortlisted candidates receive a brief technical assessment followed by a 30-minute culture call." },
-      { "q": "What does the internship program look like?", "a": "Interns work on real client projects under senior mentorship for 2-3 months. You'll ship production code, learn enterprise AI workflows, and receive a certificate plus a recommendation letter upon completion." }
+      {
+        "q": "Do you hire full-time employees?",
+        "a": "No. Trai Inc operates as a freelance-first agency. We partner with elite independent professionals on project-based contracts with competitive milestone-based pay."
+      },
+      {
+        "q": "How quickly will I hear back after applying?",
+        "a": "We respond to all applications within 3 business days. Shortlisted candidates receive a brief technical assessment followed by a 30-minute culture call."
+      },
+      {
+        "q": "What does the internship program look like?",
+        "a": "Interns work on real client projects under senior mentorship for 2-3 months. You'll ship production code, learn enterprise AI workflows, and receive a certificate plus a recommendation letter upon completion."
+      }
     ]
   }
 }
