@@ -1,124 +1,144 @@
 {
-  "hero": {
-    "mini_title": "Trai Inc Blog",
-    "title": "Insights for the <em class=\"hero-cosmos-ai\">Modern Business</em>",
-    "description": "Cloud, AI, digital marketing, and enterprise tech — practical knowledge to help your business grow faster."
-  },
-  "filters": ["All Posts", "Cloud & DevOps", "AI & Automation", "Digital Marketing", "Small Business", "Cybersecurity"],
-  "featured": {
-    "emoji": "🤖",
-    "tag": "AI & Automation",
-    "tag_color": "#f093fb",
-    "title": "How AI Agents Are Replacing Manual Business Workflows in 2026",
-    "description": "From customer support bots to automated lead generation — discover how Indian SMBs are slashing costs and doubling productivity using AI-powered workflows.",
-    "author": "Tushar Rai",
-    "date": "July 10, 2026",
-    "read_time": "8 min read",
-    "image": "/img/blog/ai-agents-workflows.webp",
-    "url": "blog-ai-agents-replacing-manual-workflows.html"
-  },
-  "posts": [
-    {
-      "emoji": "🏗️",
-      "tag": "AI & Automation",
-      "tag_color": "#f093fb",
-      "title": "Build vs. Buy: The Hidden Costs of 'Off-the-Shelf' AI Agents",
-      "description": "Why generic SaaS AI bots fail at complex enterprise workflows, and how custom AI architecture saves money.",
-      "author": "Tushar Rai",
-      "date": "July 30, 2026",
-      "read_time": "7 min",
-      "image": "/img/blog/build-vs-buy-ai.jpg",
-      "url": "blog-build-vs-buy-ai-agents.html"
+    "hero": {
+        "mini_title": "Trai Inc Blog",
+        "title": "Insights for the <em class=\"hero-cosmos-ai\">Modern Business</em>",
+        "description": "Cloud, AI, digital marketing, and enterprise tech \u2014 practical knowledge to help your business grow faster."
     },
-    {
-      "emoji": "🛡️",
-      "tag": "Cybersecurity",
-      "tag_color": "#a18cd1",
-      "title": "How to Secure AI Agents for Enterprise Data in 2026",
-      "description": "Stop worrying about LLM hallucinations and data leaks. Here is the technical architecture required to run secure AI agents.",
-      "author": "Harsh Pandey",
-      "date": "July 30, 2026",
-      "read_time": "8 min",
-      "image": "/img/blog/securing-enterprise-ai.jpg",
-      "url": "blog-securing-enterprise-ai-agents.html"
+    "filters": [
+        "All Posts",
+        "Cloud & DevOps",
+        "AI & Automation",
+        "Digital Marketing",
+        "Small Business",
+        "Cybersecurity"
+    ],
+    "featured": {
+        "emoji": "\ud83e\udd16",
+        "tag": "AI & Automation",
+        "tag_color": "#f093fb",
+        "title": "How AI Agents Are Replacing Manual Business Workflows in 2026",
+        "description": "From customer support bots to automated lead generation \u2014 discover how Indian SMBs are slashing costs and doubling productivity using AI-powered workflows.",
+        "author": "Tushar Rai",
+        "date": "July 10, 2026",
+        "read_time": "8 min read",
+        "image": "/img/blog/ai-agents-workflows.webp",
+        "url": "blog-ai-agents-replacing-manual-workflows.html"
     },
-    {
-      "emoji": "☁️",
-      "tag": "Cloud & DevOps",
-      "tag_color": "#667eea",
-      "title": "AWS vs Azure vs GCP — Which Cloud Is Right for Your Indian Startup?",
-      "description": "A no-fluff comparison of the top three cloud platforms for cost, compliance, and scalability in 2025.",
-      "author": "Neha Sharma",
-      "date": "Jun 28, 2026",
-      "read_time": "6 min",
-      "image": "/img/blog/cloud-comparison.webp",
-      "url": "blog-aws-vs-azure-vs-gcp.html"
-    },
-    {
-      "emoji": "📈",
-      "tag": "Digital Marketing",
-      "tag_color": "#43e97b",
-      "title": "Local SEO in 2025: How to Rank #1 on Google Maps for Your Business",
-      "description": "Step-by-step guide to dominating local search in India — from GMB optimization to review management.",
-      "author": "Harsh Pandey",
-      "date": "Jun 15, 2026",
-      "read_time": "7 min",
-      "image": "/img/blog/local-seo.webp",
-      "url": "blog-local-seo-rank-google-maps.html"
-    },
-    {
-      "emoji": "🏪",
-      "tag": "Small Business",
-      "tag_color": "#f6a623",
-      "title": "5 Free Digital Tools Every MSME Should Be Using Right Now",
-      "description": "From invoicing to social scheduling — the best zero-cost tools that punch above their weight for small teams.",
-      "author": "Trai Inc",
-      "date": "Jun 02, 2026",
-      "read_time": "5 min",
-      "image": "/img/blog/free-tools-msme.webp",
-      "url": "blog-5-free-digital-tools-msme.html"
-    },
-    {
-      "emoji": "🔒",
-      "tag": "Cybersecurity",
-      "tag_color": "#a18cd1",
-      "title": "WhatsApp Business Security: How to Protect Your Customer Data",
-      "description": "With 500M+ WhatsApp Business users, attacks are rising. Here's how to harden your setup fast.",
-      "author": "Tushar Rai",
-      "date": "May 20, 2026",
-      "read_time": "6 min",
-      "image": "/img/blog/whatsapp-security.webp",
-      "url": "blog-whatsapp-business-security.html"
-    },
-    {
-      "emoji": "🚀",
-      "tag": "Startups",
-      "tag_color": "#fa709a",
-      "title": "Building an MVP in 30 Days: The Trai Inc Playbook",
-      "description": "How we help early-stage startups go from idea to working product in under a month — without burning the runway.",
-      "author": "Harsh Pandey",
-      "date": "May 08, 2026",
-      "read_time": "9 min",
-      "image": "/img/blog/mvp-playbook.webp",
-      "url": "blog-building-mvp-30-days.html"
-    },
-    {
-      "emoji": "📱",
-      "tag": "Mobile Apps",
-      "tag_color": "#30cfd0",
-      "title": "React Native vs Flutter in 2025 — What Should You Choose?",
-      "description": "A practical breakdown for businesses deciding between the two most popular cross-platform frameworks.",
-      "author": "Neha Sharma",
-      "date": "Apr 22, 2026",
-      "read_time": "7 min",
-      "image": "/img/blog/react-native-vs-flutter.webp",
-      "url": "blog-react-native-vs-flutter.html"
+    "posts": [
+        {
+            "id": "blog-best-software-company-lucknow",
+            "url": "/blog-best-software-company-lucknow",
+            "title": "Top 10 Software Development Companies in Lucknow (2026 Verified Rankings)",
+            "description": "A complete, data-driven guide to vetting IT agencies in Lucknow. We expose red flags, evaluate real case studies, and rank the top 10 software companies based on verifiable delivery, not just listicles.",
+            "tag": "Insights",
+            "tag_color": "#ff007f",
+            "date": "Aug 2026",
+            "author": "Trai Inc",
+            "read_time": "7 min read",
+            "image": "img/blog/mvp-playbook.webp",
+            "emoji": "\ud83c\udfc6"
+        },
+        {
+            "emoji": "\ud83c\udfd7\ufe0f",
+            "tag": "AI & Automation",
+            "tag_color": "#f093fb",
+            "title": "Build vs. Buy: The Hidden Costs of 'Off-the-Shelf' AI Agents",
+            "description": "Why generic SaaS AI bots fail at complex enterprise workflows, and how custom AI architecture saves money.",
+            "author": "Tushar Rai",
+            "date": "July 30, 2026",
+            "read_time": "7 min",
+            "image": "/img/blog/build-vs-buy-ai.jpg",
+            "url": "blog-build-vs-buy-ai-agents.html"
+        },
+        {
+            "emoji": "\ud83d\udee1\ufe0f",
+            "tag": "Cybersecurity",
+            "tag_color": "#a18cd1",
+            "title": "How to Secure AI Agents for Enterprise Data in 2026",
+            "description": "Stop worrying about LLM hallucinations and data leaks. Here is the technical architecture required to run secure AI agents.",
+            "author": "Harsh Pandey",
+            "date": "July 30, 2026",
+            "read_time": "8 min",
+            "image": "/img/blog/securing-enterprise-ai.jpg",
+            "url": "blog-securing-enterprise-ai-agents.html"
+        },
+        {
+            "emoji": "\u2601\ufe0f",
+            "tag": "Cloud & DevOps",
+            "tag_color": "#667eea",
+            "title": "AWS vs Azure vs GCP \u2014 Which Cloud Is Right for Your Indian Startup?",
+            "description": "A no-fluff comparison of the top three cloud platforms for cost, compliance, and scalability in 2025.",
+            "author": "Neha Sharma",
+            "date": "Jun 28, 2026",
+            "read_time": "6 min",
+            "image": "/img/blog/cloud-comparison.webp",
+            "url": "blog-aws-vs-azure-vs-gcp.html"
+        },
+        {
+            "emoji": "\ud83d\udcc8",
+            "tag": "Digital Marketing",
+            "tag_color": "#43e97b",
+            "title": "Local SEO in 2025: How to Rank #1 on Google Maps for Your Business",
+            "description": "Step-by-step guide to dominating local search in India \u2014 from GMB optimization to review management.",
+            "author": "Harsh Pandey",
+            "date": "Jun 15, 2026",
+            "read_time": "7 min",
+            "image": "/img/blog/local-seo.webp",
+            "url": "blog-local-seo-rank-google-maps.html"
+        },
+        {
+            "emoji": "\ud83c\udfea",
+            "tag": "Small Business",
+            "tag_color": "#f6a623",
+            "title": "5 Free Digital Tools Every MSME Should Be Using Right Now",
+            "description": "From invoicing to social scheduling \u2014 the best zero-cost tools that punch above their weight for small teams.",
+            "author": "Trai Inc",
+            "date": "Jun 02, 2026",
+            "read_time": "5 min",
+            "image": "/img/blog/free-tools-msme.webp",
+            "url": "blog-5-free-digital-tools-msme.html"
+        },
+        {
+            "emoji": "\ud83d\udd12",
+            "tag": "Cybersecurity",
+            "tag_color": "#a18cd1",
+            "title": "WhatsApp Business Security: How to Protect Your Customer Data",
+            "description": "With 500M+ WhatsApp Business users, attacks are rising. Here's how to harden your setup fast.",
+            "author": "Tushar Rai",
+            "date": "May 20, 2026",
+            "read_time": "6 min",
+            "image": "/img/blog/whatsapp-security.webp",
+            "url": "blog-whatsapp-business-security.html"
+        },
+        {
+            "emoji": "\ud83d\ude80",
+            "tag": "Startups",
+            "tag_color": "#fa709a",
+            "title": "Building an MVP in 30 Days: The Trai Inc Playbook",
+            "description": "How we help early-stage startups go from idea to working product in under a month \u2014 without burning the runway.",
+            "author": "Harsh Pandey",
+            "date": "May 08, 2026",
+            "read_time": "9 min",
+            "image": "/img/blog/mvp-playbook.webp",
+            "url": "blog-building-mvp-30-days.html"
+        },
+        {
+            "emoji": "\ud83d\udcf1",
+            "tag": "Mobile Apps",
+            "tag_color": "#30cfd0",
+            "title": "React Native vs Flutter in 2025 \u2014 What Should You Choose?",
+            "description": "A practical breakdown for businesses deciding between the two most popular cross-platform frameworks.",
+            "author": "Neha Sharma",
+            "date": "Apr 22, 2026",
+            "read_time": "7 min",
+            "image": "/img/blog/react-native-vs-flutter.webp",
+            "url": "blog-react-native-vs-flutter.html"
+        }
+    ],
+    "newsletter": {
+        "title": "Never Miss an <span class=\"highlight-text\">Insight</span>",
+        "description": "Join 2,000+ founders and business owners who get our weekly digest.",
+        "placeholder": "your@email.com",
+        "button_text": "Get Weekly Insights \u2192"
     }
-  ],
-  "newsletter": {
-    "title": "Never Miss an <span class=\"highlight-text\">Insight</span>",
-    "description": "Join 2,000+ founders and business owners who get our weekly digest.",
-    "placeholder": "your@email.com",
-    "button_text": "Get Weekly Insights →"
-  }
 }
