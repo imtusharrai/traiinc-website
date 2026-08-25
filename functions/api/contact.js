@@ -259,51 +259,6 @@ export async function onRequestPost(context) {
             });
         }
 
-        if (email) {
-            const replyBody = `
-                <h1 style="margin:0 0 10px 0; font-size:24px; line-height:1.3; color:#0a0a0a; letter-spacing:-0.4px;">Thanks for reaching out!</h1>
-                <p style="font-size:15px;color:#555555;line-height:1.65;margin:0 0 16px;">Hi ${escapeHtml(name)},</p>
-                <p style="font-size:15px;color:#555555;line-height:1.65;margin:0 0 16px;">We've received your enquiry and our team will get back to you within <strong>24 hours</strong> with a detailed scope and estimate.</p>
-                ${serviceLabels ? `<p style="font-size:15px;color:#555555;line-height:1.65;margin:0 0 16px;">You expressed interest in: <strong>${escapeHtml(serviceLabels)}</strong></p>` : ''}
-                ${budgetLabel && budget ? `<p style="font-size:15px;color:#555555;line-height:1.65;margin:0 0 16px;">Budget range: <strong>${escapeHtml(budgetLabel)}</strong></p>` : ''}
-                <p style="font-size:15px;color:#555555;line-height:1.65;margin:0 0 20px;">Want to skip the back-and-forth? Book a free 30-minute scoping call:</p>
-                <div style="margin:0 0 16px;">
-                    <a href="https://calendar.app.google/PUsxADQBnpQsTrDbA" style="display:inline-block;padding:12px 28px;background:${ACCENT};color:#fff;text-decoration:none;border-radius:8px;font-weight:600;font-size:14px;">Book a Free Call</a>
-                </div>
-                <p style="font-size:14px;color:#555555;line-height:1.65;margin:0 0 4px;">Or message us directly — no pitch, just a conversation.</p>
-            `;
-            const whatsappBlock = `
-                <a href="https://wa.me/917905495478" style="display:inline-block; background-color:#25D366; color:#ffffff; text-decoration:none; font-size:14px; font-weight:600; padding:12px 22px; border-radius:8px;">
-                    <span style="display:inline-block; vertical-align:middle; margin-right:8px;">
-                        <img src="https://traiinc.com/assets/icons/whatsapp_white.png" alt="WhatsApp" style="display:block; width:18px; height:18px; border:0;" />
-                    </span>
-                    <span style="display:inline-block; vertical-align:middle;">Message on WhatsApp</span>
-                </a>
-            `;
-            const closingBlock = `
-                <p style="font-size:15px;color:#555555;line-height:1.65;margin:20px 0 28px;">Best,<br><strong>The Trai Inc Team</strong></p>
-            `;
-            const replyHtml = emailWrapper(
-                `Hi ${name}, we've received your enquiry${serviceLabels ? ` for ${serviceLabels}` : ''}. We'll respond within 24 hours.`,
-                replyBody + whatsappBlock + closingBlock
-            );
-
-            await fetch("https://api.resend.com/emails", {
-                method: "POST",
-                headers: {
-                    "Authorization": `Bearer ${env.RESEND_API_KEY}`,
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    from: "Trai Inc <hello@traiinc.com>",
-                    to: email,
-                    subject: serviceLabels
-                        ? `Your enquiry for ${serviceLabels.split(',')[0].trim()} — Trai Inc`
-                        : "We received your message — Trai Inc",
-                    html: replyHtml
-                })
-            });
-        }
 
         return new Response(JSON.stringify({ success: true }), {
             status: 200,
