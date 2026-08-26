@@ -621,7 +621,13 @@ function renderHome(data) {
             </div>
         `).join('');
         return `
-        <section class="client-marquee-section" aria-label="Trusted by ambitious brands across India">
+        <section class="client-marquee-section" aria-label="Brands We Have Worked With">
+            <div class="container">
+                <div class="section-header text-center client-marquee-header">
+                    <span class="mini-title">${data.clients_section?.subtitle || 'PROVEN IMPACT ACROSS INDIA'}</span>
+                    <h2 class="text-3xl md:text-5xl font-bold mt-2">${data.clients_section?.title || 'Brands We Have Worked With'}</h2>
+                </div>
+            </div>
             <div class="marquee-container">
                 <div class="marquee-row">
                     <div class="marquee-track">

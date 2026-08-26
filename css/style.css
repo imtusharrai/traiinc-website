@@ -7066,12 +7066,16 @@ body.light-mode .service-hero-screenshot-wrap {
    CLIENT LOGO MARQUEE (DUAL-TRACK SEAMLESS 60FPS)
    ═══════════════════════════════════════════════════════════ */
 .client-marquee-section {
-    padding: 36px 0;
+    padding: 56px 0 48px 0;
     overflow: hidden;
     border-top: 1px solid var(--border-light);
     border-bottom: 1px solid var(--border-light);
     background: var(--bg-dark);
     position: relative;
+}
+
+.client-marquee-header {
+    margin-bottom: 36px;
 }
 
 .marquee-container {
