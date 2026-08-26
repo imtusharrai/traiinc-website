@@ -7066,9 +7066,9 @@ body.light-mode .service-hero-screenshot-wrap {
 .client-marquee-section {
     padding: 30px 0;
     overflow: hidden;
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-    background: var(--bg-color);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+    background: var(--bg-dark);
 }
 
 .marquee-container {
@@ -7091,12 +7091,12 @@ body.light-mode .service-hero-screenshot-wrap {
 
 .marquee-container::before {
     left: 0;
-    background: linear-gradient(to right, var(--bg-color), transparent);
+    background: linear-gradient(to right, var(--bg-dark), transparent);
 }
 
 .marquee-container::after {
     right: 0;
-    background: linear-gradient(to left, var(--bg-color), transparent);
+    background: linear-gradient(to left, var(--bg-dark), transparent);
 }
 
 .marquee-content {
@@ -7111,17 +7111,31 @@ body.light-mode .service-hero-screenshot-wrap {
     animation-play-state: paused;
 }
 
+/* Light Mode (Default in this block but explicitly scoped just in case) */
 .client-logo-img {
     height: 40px;
     width: auto;
     max-width: 140px;
     object-fit: contain;
-    filter: grayscale(100%) opacity(0.4);
-    mix-blend-mode: multiply;
+    filter: grayscale(100%) opacity(0.5);
+    mix-blend-mode: screen; /* Overridden below for light mode */
     transition: filter 0.3s ease;
 }
 
-.client-logo-img:hover {
+body.light-mode .client-logo-img {
+    mix-blend-mode: multiply;
+}
+
+/* Dark Mode Handling (Default body is dark) */
+body:not(.light-mode) .client-logo-img {
+    filter: grayscale(100%) invert(1) brightness(1.5) opacity(0.6);
+}
+
+body:not(.light-mode) .client-logo-img:hover {
+    filter: grayscale(100%) invert(1) brightness(2) opacity(1);
+}
+
+body.light-mode .client-logo-img:hover {
     filter: grayscale(0%) opacity(0.9);
 }
 
