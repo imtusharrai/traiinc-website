@@ -7150,17 +7150,17 @@ body.light-mode .service-hero-screenshot-wrap {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 60px;
-    min-width: 120px;
-    max-width: 190px;
-    padding: 0 6px;
+    height: 80px;
+    min-width: 140px;
+    max-width: 230px;
+    padding: 0 8px;
     flex-shrink: 0;
 }
 
 .client-logo-img {
     height: auto;
     width: auto;
-    max-height: 52px;
+    max-height: 72px;
     max-width: 100%;
     object-fit: contain;
     filter: grayscale(100%) contrast(1.3) opacity(0.92);
