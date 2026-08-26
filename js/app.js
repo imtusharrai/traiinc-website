@@ -640,7 +640,7 @@ function renderHome(data) {
                     </div>
                 </div>
                 <div class="marquee-row">
-                    <div class="marquee-track marquee-track-reverse">
+                    <div class="marquee-track marquee-track-row2">
                         <div class="marquee-group">
                             ${renderGroup(row2)}
                         </div>
