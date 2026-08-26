@@ -616,6 +616,8 @@ function renderHome(data) {
             <div class="marquee-content">
                 ${data.clients_logos.map(logo => `<img src="assets/clients/${logo}" alt="Client Logo" class="client-logo-img" loading="lazy">`).join('')}
                 ${data.clients_logos.map(logo => `<img src="assets/clients/${logo}" alt="Client Logo" class="client-logo-img" loading="lazy">`).join('')}
+                ${data.clients_logos.map(logo => `<img src="assets/clients/${logo}" alt="Client Logo" class="client-logo-img" loading="lazy">`).join('')}
+                ${data.clients_logos.map(logo => `<img src="assets/clients/${logo}" alt="Client Logo" class="client-logo-img" loading="lazy">`).join('')}
             </div>
         </div>
     </section>

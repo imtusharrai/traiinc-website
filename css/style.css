@@ -7100,11 +7100,14 @@ body.light-mode .service-hero-screenshot-wrap {
 }
 
 .marquee-content {
-    display: flex;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-auto-flow: column;
+    gap: 60px 120px;
     align-items: center;
-    gap: 50px;
-    animation: marquee-scroll 45s linear infinite;
-    white-space: nowrap;
+    justify-items: center;
+    animation: marquee-scroll 90s linear infinite;
+    padding: 20px 0;
 }
 
 .marquee-content:hover {
@@ -7113,13 +7116,13 @@ body.light-mode .service-hero-screenshot-wrap {
 
 /* Light Mode (Default in this block but explicitly scoped just in case) */
 .client-logo-img {
-    height: 60px;
+    height: 80px;
     width: auto;
-    max-width: 180px;
+    max-width: 250px;
     object-fit: contain;
     filter: grayscale(100%) opacity(0.5);
     mix-blend-mode: screen; /* Overridden below for light mode */
-    transition: filter 0.3s ease;
+    transition: filter 0.3s ease, transform 0.3s ease;
 }
 
 body.light-mode .client-logo-img {
@@ -7133,13 +7136,15 @@ body:not(.light-mode) .client-logo-img {
 
 body:not(.light-mode) .client-logo-img:hover {
     filter: grayscale(100%) invert(1) brightness(2) opacity(1);
+    transform: scale(1.05);
 }
 
 body.light-mode .client-logo-img:hover {
     filter: grayscale(0%) opacity(0.9);
+    transform: scale(1.05);
 }
 
 @keyframes marquee-scroll {
     0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-50% - 25px)); }
+    100% { transform: translateX(calc(-50% - 60px)); }
 }
