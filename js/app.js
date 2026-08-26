@@ -610,18 +610,43 @@ function renderHome(data) {
     </section>
 
     <!-- ════════ CLIENT LOGOS MARQUEE ════════ -->
-    ${data.clients_logos && data.clients_logos.length > 0 ? `
-    <section class="client-marquee-section">
-        <div class="marquee-container">
-            <div class="marquee-content">
-                ${data.clients_logos.map(logo => `<img src="assets/clients/${logo}" alt="Client Logo" class="client-logo-img" loading="lazy">`).join('')}
-                ${data.clients_logos.map(logo => `<img src="assets/clients/${logo}" alt="Client Logo" class="client-logo-img" loading="lazy">`).join('')}
-                ${data.clients_logos.map(logo => `<img src="assets/clients/${logo}" alt="Client Logo" class="client-logo-img" loading="lazy">`).join('')}
-                ${data.clients_logos.map(logo => `<img src="assets/clients/${logo}" alt="Client Logo" class="client-logo-img" loading="lazy">`).join('')}
+    ${(() => {
+        if (!data.clients_logos || data.clients_logos.length === 0) return '';
+        const half = Math.ceil(data.clients_logos.length / 2);
+        const row1 = data.clients_logos.slice(0, half);
+        const row2 = data.clients_logos.slice(half);
+        const renderGroup = (logos) => logos.map(logo => `
+            <div class="client-logo-item">
+                <img src="assets/clients/${logo}" alt="Client Partner Logo" class="client-logo-img">
             </div>
-        </div>
-    </section>
-    ` : ''}
+        `).join('');
+        return `
+        <section class="client-marquee-section" aria-label="Trusted by ambitious brands across India">
+            <div class="marquee-container">
+                <div class="marquee-row">
+                    <div class="marquee-track">
+                        <div class="marquee-group">
+                            ${renderGroup(row1)}
+                        </div>
+                        <div class="marquee-group" aria-hidden="true">
+                            ${renderGroup(row1)}
+                        </div>
+                    </div>
+                </div>
+                <div class="marquee-row">
+                    <div class="marquee-track marquee-track-reverse">
+                        <div class="marquee-group">
+                            ${renderGroup(row2)}
+                        </div>
+                        <div class="marquee-group" aria-hidden="true">
+                            ${renderGroup(row2)}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        `;
+    })()}
 
     <!-- ════════ AUDIENCE FINDER (VERIZON STYLE TABS) ════════ -->
     ${af ? `

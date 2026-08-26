@@ -7062,13 +7062,16 @@ body.light-mode .service-hero-screenshot-wrap {
     margin-top: 16px;
 }
 
-/* Client Logo Marquee */
+/* ═══════════════════════════════════════════════════════════
+   CLIENT LOGO MARQUEE (DUAL-TRACK SEAMLESS 60FPS)
+   ═══════════════════════════════════════════════════════════ */
 .client-marquee-section {
-    padding: 30px 0;
+    padding: 36px 0;
     overflow: hidden;
     border-top: 1px solid var(--border-light);
     border-bottom: 1px solid var(--border-light);
     background: var(--bg-dark);
+    position: relative;
 }
 
 .marquee-container {
@@ -7076,6 +7079,8 @@ body.light-mode .service-hero-screenshot-wrap {
     overflow: hidden;
     position: relative;
     display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
 .marquee-container::before,
@@ -7084,7 +7089,7 @@ body.light-mode .service-hero-screenshot-wrap {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 100px;
+    width: 120px;
     z-index: 2;
     pointer-events: none;
 }
@@ -7099,52 +7104,125 @@ body.light-mode .service-hero-screenshot-wrap {
     background: linear-gradient(to left, var(--bg-dark), transparent);
 }
 
-.marquee-content {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-auto-flow: column;
-    gap: 60px 120px;
-    align-items: center;
-    justify-items: center;
-    animation: marquee-scroll 90s linear infinite;
-    padding: 20px 0;
+.marquee-row {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
 }
 
-.marquee-content:hover {
+:root {
+    --marquee-gap: 60px;
+    --marquee-duration: 48s;
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    gap: var(--marquee-gap);
+    user-select: none;
+}
+
+.marquee-group {
+    display: flex;
+    align-items: center;
+    gap: var(--marquee-gap);
+    flex-shrink: 0;
+    animation: marquee-scroll-left var(--marquee-duration) linear infinite;
+    will-change: transform;
+}
+
+.marquee-track-reverse .marquee-group {
+    animation-name: marquee-scroll-right;
+}
+
+.marquee-row:hover .marquee-group {
     animation-play-state: paused;
 }
 
-/* Light Mode (Default in this block but explicitly scoped just in case) */
-.client-logo-img {
-    height: 80px;
-    width: auto;
-    max-width: 250px;
-    object-fit: contain;
-    filter: grayscale(100%) opacity(0.5);
-    mix-blend-mode: screen; /* Overridden below for light mode */
-    transition: filter 0.3s ease, transform 0.3s ease;
+.client-logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90px;
+    min-width: 130px;
+    max-width: 260px;
+    padding: 0 10px;
+    flex-shrink: 0;
 }
 
+.client-logo-img {
+    height: auto;
+    width: auto;
+    max-height: 85px;
+    max-width: 100%;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.85) contrast(1.1);
+    mix-blend-mode: multiply;
+    transition: filter 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Light Mode (Explicit) */
 body.light-mode .client-logo-img {
     mix-blend-mode: multiply;
+    filter: grayscale(100%) opacity(0.85) contrast(1.1);
 }
 
-/* Dark Mode Handling (Default body is dark) */
+body.light-mode .client-logo-item:hover .client-logo-img {
+    filter: grayscale(0%) opacity(1) contrast(1);
+    transform: scale(1.08);
+}
+
+/* Dark Mode Handling */
 body:not(.light-mode) .client-logo-img {
-    filter: grayscale(100%) invert(1) brightness(1.5) opacity(0.6);
+    filter: grayscale(100%) invert(1) brightness(1.8) opacity(0.85);
+    mix-blend-mode: screen;
 }
 
-body:not(.light-mode) .client-logo-img:hover {
-    filter: grayscale(100%) invert(1) brightness(2) opacity(1);
-    transform: scale(1.05);
+body:not(.light-mode) .client-logo-item:hover .client-logo-img {
+    filter: grayscale(100%) invert(1) brightness(2.3) opacity(1);
+    transform: scale(1.08);
 }
 
-body.light-mode .client-logo-img:hover {
-    filter: grayscale(0%) opacity(0.9);
-    transform: scale(1.05);
+@keyframes marquee-scroll-left {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(calc(-100% - var(--marquee-gap)), 0, 0);
+    }
 }
 
-@keyframes marquee-scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-50% - 60px)); }
+@keyframes marquee-scroll-right {
+    0% {
+        transform: translate3d(calc(-100% - var(--marquee-gap)), 0, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --marquee-gap: 36px;
+        --marquee-duration: 32s;
+    }
+    .client-marquee-section {
+        padding: 24px 0;
+    }
+    .marquee-container {
+        gap: 16px;
+    }
+    .marquee-container::before,
+    .marquee-container::after {
+        width: 48px;
+    }
+    .client-logo-item {
+        height: 60px;
+        min-width: 90px;
+        max-width: 180px;
+        padding: 0 6px;
+    }
+    .client-logo-img {
+        max-height: 55px;
+    }
 }
