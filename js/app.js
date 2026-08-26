@@ -257,6 +257,23 @@ document.addEventListener("DOMContentLoaded", async () => {
         renderers[slug] = renderServicePage;
     });
 
+    const industryPages = [
+        'healthcare-software-development-lucknow',
+        'real-estate-crm-solutions-lucknow',
+        'retail-pos-ecommerce-apps-lucknow',
+        'pharma-distribution-software-lucknow',
+        'fintech-banking-software-lucknow',
+        'logistics-supply-chain-software-lucknow',
+        'education-school-erp-software-lucknow',
+        'manufacturing-erp-software-lucknow',
+        'restaurant-pos-billing-software-lucknow',
+        'travel-hospitality-software-lucknow'
+    ];
+
+    industryPages.forEach(slug => {
+        renderers[slug] = renderIndustryLandingPage;
+    });
+
     let renderFn = renderers[pageId];
     if (pageId.startsWith('tech-')) {
         renderFn = renderTechPage;
@@ -592,6 +609,17 @@ function renderHome(data) {
 
     </section>
 
+    <!-- ════════ CLIENT LOGOS MARQUEE ════════ -->
+    ${data.clients_logos && data.clients_logos.length > 0 ? `
+    <section class="client-marquee-section home-section-shaded">
+        <div class="marquee-container">
+            <div class="marquee-content">
+                ${data.clients_logos.map(logo => `<img src="assets/clients/${logo}" alt="Client Logo" class="client-logo-img" loading="lazy">`).join('')}
+                ${data.clients_logos.map(logo => `<img src="assets/clients/${logo}" alt="Client Logo" class="client-logo-img" loading="lazy">`).join('')}
+            </div>
+        </div>
+    </section>
+    ` : ''}
 
     <!-- ════════ AUDIENCE FINDER (VERIZON STYLE TABS) ════════ -->
     ${af ? `
@@ -1645,6 +1673,12 @@ function renderIndustries(data) {
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px;">
                     ${ind.features.map(f => `<div class="ind-feature-item"><span class="ind-feature-check">✔</span> ${f}</div>`).join('')}
                 </div>
+                ${ind.link ? `
+                <div style="margin-top: 24px;">
+                    <a href="${ind.link}" class="btn-primary" style="padding: 9px 20px; font-size: 0.88rem; display: inline-block;">
+                        Explore Lucknow Solutions &rarr;
+                    </a>
+                </div>` : ''}
             </div>`).join('')}
         </div>
     </section>
@@ -2686,26 +2720,26 @@ function renderBlog(data) {
 
 function renderBlogPost(data) {
     const contentHtml = data.content.map(block => {
-        if (block.type === 'heading') return `<h2 style="font-size:1.5rem;font-weight:700;color:var(--text-main);margin:40px 0 16px;">${block.text}</h2>`;
-        if (block.type === 'subheading') return `<h3 style="font-size:1.2rem;font-weight:600;color:var(--text-main);margin:32px 0 12px;">${block.text}</h3>`;
-        return `<p style="font-size:1.05rem;line-height:1.8;color:var(--text-muted);margin:0 0 16px;">${block.text}</p>`;
+        if (block.type === 'heading') return `<h2>${block.text}</h2>`;
+        if (block.type === 'subheading') return `<h3>${block.text}</h3>`;
+        return `<p>${block.text}</p>`;
     }).join('');
 
     const relatedHtml = data.relatedPosts && data.relatedPosts.length ? `
-        <div style="margin-top:48px;padding-top:32px;border-top:1px solid var(--border-light);">
-            <h3 style="font-size:1.1rem;font-weight:700;color:var(--text-main);margin-bottom:16px;">Related Articles</h3>
-            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <div class="blog-post-related">
+            <h3>Related Articles</h3>
+            <div class="blog-post-related-links">
                 ${data.relatedPosts.map(p => `<a href="${p.url}" class="btn-primary" style="font-size:0.9rem;padding:10px 20px;">${p.title} →</a>`).join('')}
             </div>
         </div>
     ` : '';
 
     return `
-    <header class="cf-hero-wrapper" style="min-height:auto;padding-top:140px;padding-bottom:40px;">
-        <div class="container fade-in" style="max-width:800px;">
-            <span class="blog-tag" style="background:color-mix(in srgb, ${data.meta.tag_color} 15%, transparent);color:${data.meta.tag_color};display:inline-block;margin-bottom:16px;">${data.meta.tag}</span>
-            <h1 class="solutions-header-title" style="font-size:clamp(2rem, 4vw, 3rem);">${data.meta.title}</h1>
-            <div style="display:flex;align-items:center;gap:16px;margin-top:20px;flex-wrap:wrap;color:var(--text-muted);font-size:0.95rem;">
+    <header class="cf-hero-wrapper blog-post-hero">
+        <div class="container blog-post-header fade-in">
+            <span class="blog-tag" style="background:color-mix(in srgb, ${data.meta.tag_color} 15%, transparent);color:${data.meta.tag_color};">${data.meta.tag}</span>
+            <h1 class="blog-post-title">${data.meta.title}</h1>
+            <div class="blog-post-meta">
                 <span>${data.meta.author}</span>
                 <span style="opacity:0.4;">·</span>
                 <span>${data.meta.date}</span>
@@ -2716,24 +2750,132 @@ function renderBlogPost(data) {
     </header>
 
     ${data.meta.image ? `
-    <section class="container fade-in" style="padding:0 0 40px;">
-        <div style="max-width:800px;margin:0 auto;">
-            <img src="${data.meta.image}" alt="${data.meta.title}" style="width:100%;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.12);" />
-        </div>
+    <section class="container blog-post-banner fade-in">
+        <img src="${data.meta.image}" alt="${data.meta.title}" />
     </section>
     ` : ''}
 
-    <article class="container fade-in" style="padding:0 0 60px;">
-        <div style="max-width:700px;margin:0 auto;">
-            ${contentHtml}
-            ${relatedHtml}
-        </div>
+    <article class="container blog-post-body fade-in">
+        ${contentHtml}
+        ${relatedHtml}
     </article>
 
     <section class="content-section center section-pad-lg border-t-light">
         <div class="container">
             <h2 class="mb-8">Want to discuss this topic?</h2>
             <a href="contact.html" class="btn btn-primary">Get in Touch →</a>
+        </div>
+    </section>
+    `;
+}
+
+function renderIndustryLandingPage(data) {
+    const statsHtml = data.stats && data.stats.length ? `
+    <section class="service-stats-section fade-in">
+        <div class="container service-stats-row">
+            ${data.stats.map(s => `<div>
+                <h3 class="service-stats-value">${s.value}</h3>
+                <p class="service-stats-label">${s.label}</p>
+            </div>`).join('')}
+        </div>
+    </section>` : '';
+
+    const modulesHtml = data.modules && data.modules.length ? `
+    <section class="container fade-in content-section" style="padding: 70px 24px;">
+        <div class="section-header center">
+            <h4 class="mini-title">MODULAR ARCHITECTURE</h4>
+            <h2>Engineered for ${data.industry}</h2>
+            <p class="section-subtitle" style="max-width:640px;margin:12px auto 0;color:var(--text-muted);">
+                Production-ready modules built with modern frameworks, bank-grade encryption, and seamless API integrations.
+            </p>
+        </div>
+        <div class="bento-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+            ${data.modules.map(m => `
+                <div class="bento-card fade-in" style="padding: 28px;">
+                    <div class="bento-icon" style="font-size: 2rem; margin-bottom: 16px;">${m.icon}</div>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; color: var(--text-main);">${m.title}</h3>
+                    <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-muted);">${m.desc}</p>
+                </div>
+            `).join('')}
+        </div>
+    </section>` : '';
+
+    const caseStudyHtml = data.case_study ? `
+    <section class="container fade-in" style="padding: 40px 24px 70px;">
+        <div class="spec-card fade-in" style="padding: 40px; border-radius: 20px; background: var(--bg-card); border: 1px solid var(--border-light);">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+                <div style="max-width: 650px;">
+                    <div class="mini-title font-bold uppercase" style="color: var(--primary); margin-bottom: 8px;">VERIFIED CASE STUDY</div>
+                    <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 12px; color: var(--text-main);">${data.case_study.title}</h3>
+                    <p style="font-size: 1rem; line-height: 1.7; color: var(--text-muted);">${data.case_study.desc}</p>
+                </div>
+                <div>
+                    <a href="${data.case_study.link}" class="btn-primary" style="padding: 12px 24px; white-space: nowrap;">View Case Study &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>` : '';
+
+    const faqHtml = data.faqs && data.faqs.length ? `
+    <section class="container fade-in content-section" style="padding: 40px 24px 80px; max-width: 860px; margin: 0 auto;">
+        <div class="section-header center">
+            <h4 class="mini-title">QUESTIONS & ANSWERS</h4>
+            <h2>Frequently Asked Questions</h2>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 36px;">
+            ${data.faqs.map(faq => `
+                <div class="spec-card fade-in" style="padding: 24px 28px; border-radius: 14px;">
+                    <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-main); margin-bottom: 10px;">${faq.q}</h3>
+                    <p style="font-size: 0.95rem; line-height: 1.75; color: var(--text-muted); margin: 0;">${faq.a}</p>
+                </div>
+            `).join('')}
+        </div>
+    </section>` : '';
+
+    const whatsappUrl = `https://wa.me/917905495478?text=${encodeURIComponent(`Hi Trai Inc, I am inquiring about ${data.industry} software solutions for my business in Lucknow.`)}`;
+
+    return `
+    <!-- ════════ HERO ════════ -->
+    <header class="cf-hero-wrapper" style="min-height: auto; padding-top: 140px; padding-bottom: 50px;">
+        <div class="container fade-in" style="max-width: 900px; text-align: center; margin: 0 auto;">
+            <span class="blog-tag" style="background: color-mix(in srgb, var(--primary) 15%, transparent); color: var(--primary); display: inline-block; margin-bottom: 16px; font-weight: 700;">
+                📍 ${data.tag || 'LUCKNOW & UP REGIONAL EXPERTISE'}
+            </span>
+            <h1 class="solutions-header-title" style="font-size: clamp(2.2rem, 4.2vw, 3.4rem); line-height: 1.18; margin-bottom: 20px;">
+                ${data.title}
+            </h1>
+            <p class="solutions-header-desc" style="font-size: 1.1rem; line-height: 1.75; max-width: 760px; margin: 0 auto 32px; color: var(--text-muted);">
+                ${data.hero_desc}
+            </p>
+            <div style="display: flex; justify-content: center; align-items: center; gap: 16px; flex-wrap: wrap;">
+                <a href="contact.html" class="btn-primary large" style="padding: 14px 28px; font-weight: 700;">
+                    Schedule Free Technical Consultation &rarr;
+                </a>
+                <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" class="whatsapp-btn large" style="display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; border-radius: 50px; background: #25D366; color: #fff; text-decoration: none; font-weight: 700;">
+                    💬 Chat on WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+
+    ${statsHtml}
+    ${modulesHtml}
+    ${caseStudyHtml}
+    ${faqHtml}
+
+    <!-- ════════ BOTTOM CTA ════════ -->
+    <section class="content-section center section-pad-lg border-t-light">
+        <div class="container" style="max-width: 700px;">
+            <h2 class="mb-8" style="font-size: 2rem; font-weight: 800;">Ready to Modernize Your ${data.industry} Operations?</h2>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 28px;">
+                Speak directly with our engineering leadership in Gomti Nagar, Lucknow. Get a detailed architectural roadmap and fixed-price timeline within 24 hours.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+                <a href="contact.html" class="btn btn-primary" style="padding: 12px 28px;">Book a Discovery Call &rarr;</a>
+                <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" style="display: inline-flex; align-items: center; gap: 6px; padding: 12px 24px; border-radius: 50px; background: #25D366; color: #fff; text-decoration: none; font-weight: 700;">
+                    Direct WhatsApp
+                </a>
+            </div>
         </div>
     </section>
     `;

@@ -17,7 +17,13 @@
     },
     "trust_line": "138+ Businesses",
     "trust_suffix": "across India",
-    "trust_avatars": ["CM", "BM", "DP", "JH", "+"],
+    "trust_avatars": [
+      "CM",
+      "BM",
+      "DP",
+      "JH",
+      "+"
+    ],
     "mockup_metrics": [],
     "float_cards": []
   },
@@ -60,10 +66,30 @@
         "image_alt": "Local shop owner managing their business on a phone",
         "image_caption": "Built for local businesses like yours",
         "cards": [
-          { "icon_key": "device", "tag": "WEBSITE + APP", "title": "Smart Websites & Mobile Apps", "desc": "Fast, mobile-first sites that actually take orders." },
-          { "icon_key": "chat", "tag": "AUTOMATION", "title": "WhatsApp AI Assistant", "desc": "Auto-reply to inquiries and capture leads 24/7." },
-          { "icon_key": "users", "tag": "CRM", "title": "Customer Tracking System", "desc": "Replace spreadsheets with one real system." },
-          { "icon_key": "pin", "tag": "SEO", "title": "Local SEO & Google Business Profile", "desc": "Show up first when customers search \"near me.\"" }
+          {
+            "icon_key": "device",
+            "tag": "WEBSITE + APP",
+            "title": "Smart Websites & Mobile Apps",
+            "desc": "Fast, mobile-first sites that actually take orders."
+          },
+          {
+            "icon_key": "chat",
+            "tag": "AUTOMATION",
+            "title": "WhatsApp AI Assistant",
+            "desc": "Auto-reply to inquiries and capture leads 24/7."
+          },
+          {
+            "icon_key": "users",
+            "tag": "CRM",
+            "title": "Customer Tracking System",
+            "desc": "Replace spreadsheets with one real system."
+          },
+          {
+            "icon_key": "pin",
+            "tag": "SEO",
+            "title": "Local SEO & Google Business Profile",
+            "desc": "Show up first when customers search \"near me.\""
+          }
         ]
       },
       {
@@ -80,10 +106,30 @@
         "image_alt": "Early-stage founder working at a laptop",
         "image_caption": "Built for early-stage founders",
         "cards": [
-          { "icon_key": "device", "tag": "MOBILE", "title": "Cross-Platform Mobile Apps", "desc": "iOS + Android from one Flutter codebase in 4–8 weeks." },
-          { "icon_key": "globe", "tag": "WEB", "title": "Web Applications & SaaS", "desc": "Production-grade platforms built with Next.js and React." },
-          { "icon_key": "spark", "tag": "AI", "title": "AI as a Product Feature", "desc": "LLMs, WhatsApp bots, and automation built into your product." },
-          { "icon_key": "cloud", "tag": "CLOUD", "title": "Zero-to-Production Infrastructure", "desc": "Serverless architecture that scales without re-architecture." }
+          {
+            "icon_key": "device",
+            "tag": "MOBILE",
+            "title": "Cross-Platform Mobile Apps",
+            "desc": "iOS + Android from one Flutter codebase in 4–8 weeks."
+          },
+          {
+            "icon_key": "globe",
+            "tag": "WEB",
+            "title": "Web Applications & SaaS",
+            "desc": "Production-grade platforms built with Next.js and React."
+          },
+          {
+            "icon_key": "spark",
+            "tag": "AI",
+            "title": "AI as a Product Feature",
+            "desc": "LLMs, WhatsApp bots, and automation built into your product."
+          },
+          {
+            "icon_key": "cloud",
+            "tag": "CLOUD",
+            "title": "Zero-to-Production Infrastructure",
+            "desc": "Serverless architecture that scales without re-architecture."
+          }
         ]
       },
       {
@@ -100,10 +146,30 @@
         "image_alt": "Operations manager reviewing a dashboard on a tablet",
         "image_caption": "Built for growing operations teams",
         "cards": [
-          { "icon_key": "briefcase", "tag": "CRM", "title": "Custom CRM Systems", "desc": "Built around how your team actually sells." },
-          { "icon_key": "chart-up", "tag": "MARKETING", "title": "Marketing & Lead Automation", "desc": "Capture, qualify, and route leads 24/7." },
-          { "icon_key": "chart", "tag": "ANALYTICS", "title": "Business Intelligence Dashboards", "desc": "Live KPIs, no more end-of-month Excel scramble." },
-          { "icon_key": "chat", "tag": "INTEGRATION", "title": "WhatsApp & Tool Integration", "desc": "Connect the systems you already run — no rip-and-replace." }
+          {
+            "icon_key": "briefcase",
+            "tag": "CRM",
+            "title": "Custom CRM Systems",
+            "desc": "Built around how your team actually sells."
+          },
+          {
+            "icon_key": "chart-up",
+            "tag": "MARKETING",
+            "title": "Marketing & Lead Automation",
+            "desc": "Capture, qualify, and route leads 24/7."
+          },
+          {
+            "icon_key": "chart",
+            "tag": "ANALYTICS",
+            "title": "Business Intelligence Dashboards",
+            "desc": "Live KPIs, no more end-of-month Excel scramble."
+          },
+          {
+            "icon_key": "chat",
+            "tag": "INTEGRATION",
+            "title": "WhatsApp & Tool Integration",
+            "desc": "Connect the systems you already run — no rip-and-replace."
+          }
         ]
       },
       {
@@ -120,10 +186,30 @@
         "image_alt": "Modern enterprise office and server infrastructure",
         "image_caption": "Built for enterprise IT leaders",
         "cards": [
-          { "icon_key": "building", "tag": "PLATFORM", "title": "Custom Enterprise Platforms", "desc": "ERP, billing, and dashboards mapped to your workflows." },
-          { "icon_key": "cloud", "tag": "CLOUD", "title": "Cloud Infrastructure & Migration", "desc": "Multi-region failover on AWS, GCP, or Azure." },
-          { "icon_key": "spark", "tag": "AI", "title": "AI Agents & Process Automation", "desc": "Secure RAG and LangChain agents inside your perimeter." },
-          { "icon_key": "database", "tag": "DATA", "title": "Data Engineering & BI", "desc": "Turn fragmented data silos into one source of truth." }
+          {
+            "icon_key": "building",
+            "tag": "PLATFORM",
+            "title": "Custom Enterprise Platforms",
+            "desc": "ERP, billing, and dashboards mapped to your workflows."
+          },
+          {
+            "icon_key": "cloud",
+            "tag": "CLOUD",
+            "title": "Cloud Infrastructure & Migration",
+            "desc": "Multi-region failover on AWS, GCP, or Azure."
+          },
+          {
+            "icon_key": "spark",
+            "tag": "AI",
+            "title": "AI Agents & Process Automation",
+            "desc": "Secure RAG and LangChain agents inside your perimeter."
+          },
+          {
+            "icon_key": "database",
+            "tag": "DATA",
+            "title": "Data Engineering & BI",
+            "desc": "Turn fragmented data silos into one source of truth."
+          }
         ]
       }
     ]
@@ -141,14 +227,54 @@
     "subtitle": "CAPABILITIES & SOLUTIONS",
     "title": "Engineered for Business Outcomes",
     "cards": [
-      { "icon_key": "globe", "title": "Custom Software & Web", "desc": "End-to-end engineering from MVP to enterprise scale.", "href": "custom-software.html" },
-      { "icon_key": "device", "title": "Application Development", "desc": "One codebase. Both platforms. Delivered in weeks.", "href": "mobile-apps.html" },
-      { "icon_key": "spark", "title": "AI & Automation", "desc": "Intelligent solutions that automate and scale.", "href": "ai-automation.html" },
-      { "icon_key": "cloud", "title": "Cloud & DevOps", "desc": "Modern infrastructure that costs pennies when idle.", "href": "cloud-devops.html" },
-      { "icon_key": "chart-up", "title": "Digital Marketing & SEO", "desc": "Data-driven marketing that delivers measurable ROI.", "href": "digital-marketing.html" },
-      { "icon_key": "building", "title": "CRM, ERP & Billing", "desc": "Custom CRMs and dashboards tailored to your workflow.", "href": "solutions.html" },
-      { "icon_key": "spark", "title": "AI Content Creation", "desc": "High-quality audio, video, text, and graphics at scale.", "href": "content-creation.html" },
-      { "icon_key": "globe", "title": "Network & Connectivity", "desc": "Enterprise-grade networking built for scale and security.", "href": "solutions.html" }
+      {
+        "icon_key": "globe",
+        "title": "Custom Software & Web",
+        "desc": "End-to-end engineering from MVP to enterprise scale.",
+        "href": "custom-software.html"
+      },
+      {
+        "icon_key": "device",
+        "title": "Application Development",
+        "desc": "One codebase. Both platforms. Delivered in weeks.",
+        "href": "mobile-apps.html"
+      },
+      {
+        "icon_key": "spark",
+        "title": "AI & Automation",
+        "desc": "Intelligent solutions that automate and scale.",
+        "href": "ai-automation.html"
+      },
+      {
+        "icon_key": "cloud",
+        "title": "Cloud & DevOps",
+        "desc": "Modern infrastructure that costs pennies when idle.",
+        "href": "cloud-devops.html"
+      },
+      {
+        "icon_key": "chart-up",
+        "title": "Digital Marketing & SEO",
+        "desc": "Data-driven marketing that delivers measurable ROI.",
+        "href": "digital-marketing.html"
+      },
+      {
+        "icon_key": "building",
+        "title": "CRM, ERP & Billing",
+        "desc": "Custom CRMs and dashboards tailored to your workflow.",
+        "href": "solutions.html"
+      },
+      {
+        "icon_key": "spark",
+        "title": "AI Content Creation",
+        "desc": "High-quality audio, video, text, and graphics at scale.",
+        "href": "content-creation.html"
+      },
+      {
+        "icon_key": "globe",
+        "title": "Network & Connectivity",
+        "desc": "Enterprise-grade networking built for scale and security.",
+        "href": "solutions.html"
+      }
     ]
   },
   "proof": {
@@ -158,19 +284,55 @@
       "title": "See what we've built.",
       "description": "From real estate marketplaces to healthcare platforms — explore how we've helped businesses across India go digital.",
       "clientPills": [
-        { "name": "Bhu Master", "link": "/bhu-master.html", "accentColor": "blue" },
-        { "name": "Workezy", "link": "/workezy.html", "accentColor": "teal" },
-        { "name": "Dashak Pharma", "link": "/dashak-pharma.html", "accentColor": "pink" },
-        { "name": "Om Group", "link": "/om-group.html", "accentColor": "gold" }
+        {
+          "name": "Bhu Master",
+          "link": "/bhu-master.html",
+          "accentColor": "blue"
+        },
+        {
+          "name": "Workezy",
+          "link": "/workezy.html",
+          "accentColor": "teal"
+        },
+        {
+          "name": "Dashak Pharma",
+          "link": "/dashak-pharma.html",
+          "accentColor": "pink"
+        },
+        {
+          "name": "Om Group",
+          "link": "/om-group.html",
+          "accentColor": "gold"
+        }
       ],
       "ctaText": "Explore All Case Studies →",
       "ctaLink": "/clients.html"
     },
     "highlights": [
-      { "label": "Unified Listing Platform", "client": "Bhu Master", "link": "bhu-master.html", "accentColor": "blue" },
-      { "label": "Reliable Healthcare Tech", "client": "Dashak Pharma", "link": "clients.html", "accentColor": "pink" },
-      { "label": "Streamlined Automotive CRM", "client": "Om Group - Mahindra Automobile", "link": "clients.html", "accentColor": "gold" },
-      { "label": "4.0★ Rated on Google Play", "client": "Workezy", "link": "workezy.html", "accentColor": "teal" }
+      {
+        "label": "Unified Listing Platform",
+        "client": "Bhu Master",
+        "link": "bhu-master.html",
+        "accentColor": "blue"
+      },
+      {
+        "label": "Reliable Healthcare Tech",
+        "client": "Dashak Pharma",
+        "link": "clients.html",
+        "accentColor": "pink"
+      },
+      {
+        "label": "Streamlined Automotive CRM",
+        "client": "Om Group - Mahindra Automobile",
+        "link": "clients.html",
+        "accentColor": "gold"
+      },
+      {
+        "label": "4.0★ Rated on Google Play",
+        "client": "Workezy",
+        "link": "workezy.html",
+        "accentColor": "teal"
+      }
     ]
   },
   "conversion": {
@@ -215,5 +377,85 @@
         "a": "We believe in complete transparency. We've published a <a href=\"choosing-a-development-partner.html\">due-diligence checklist</a> covering code ownership, app store accounts, and hosting. We assign full source code and IP to you upon final payment, and give you direct access to all infrastructure."
       }
     ]
-  }
+  },
+  "clients_logos": [
+    "1-2-150x150.png",
+    "1-e1776768699414.png",
+    "1.png",
+    "10-150x150.png",
+    "10-e1776764585498.png",
+    "11-150x150.png",
+    "12-1-e1776766876371.png",
+    "12.png",
+    "13.png",
+    "14-150x150.png",
+    "15-150x150.png",
+    "16.png",
+    "2-1-150x150.png",
+    "2-150x150.png",
+    "2.png",
+    "23-e1776768103830.png",
+    "24.png",
+    "25.png",
+    "27.png",
+    "3-5-150x150.png",
+    "3.png",
+    "4-2-150x150.png",
+    "4.png",
+    "5-1-150x150.png",
+    "5.png",
+    "6-1-150x150.png",
+    "6.png",
+    "7-150x150.png",
+    "8-150x150.png",
+    "AmoreColor-150x150.png",
+    "BMISLogo-150x150.png",
+    "BMULogo-150x150.png",
+    "Bajaj-150x150.png",
+    "Blossom-150x150.png",
+    "DTPPLColor-150x150.png",
+    "GPTW-Corporate-logo.png",
+    "GreenOvenGreen-150x150.png",
+    "H-S-150x150.png",
+    "JM-Fianance-logo-png-01-150x150.png",
+    "KF.png",
+    "Logo-01_1-1-150x150.png",
+    "Logo-Ideas-04-e1588578827409.png",
+    "NakkashiBlack-150x150.png",
+    "Piramyd-group-150x150.png",
+    "SANGINI-LOGO_V17_-Vertical-With-Tagline-NO-BACKGROUND-150x150.png",
+    "SuranaColor-150x150.png",
+    "TW.png",
+    "Untitled-150-×-150-px-1-150x150.png",
+    "Untitled-150-×-150-px-150x150.png",
+    "Untitled-150-×-150-px-2-150x150.png",
+    "Untitled-150-×-150-px-3-150x150.png",
+    "Untitled-150-×-150-px.png",
+    "Untitled-500-×-500-px-150x150.png",
+    "Untitled-design-1-150x150.png",
+    "Untitled-design-1.png",
+    "Untitled-design-2.png",
+    "Untitled-design-29.png",
+    "Untitled-design-3-150x150.png",
+    "Untitled-design-3-e1776764732225-150x113.png",
+    "Untitled-design.png",
+    "Varanga-150x150.png",
+    "babutex-150x150.webp",
+    "color1_logo_transparent_background-150x150.png",
+    "idea-150x150.png",
+    "ikoverk-1-150x150.png",
+    "jmb-150x150.png",
+    "khushalbhai-150x150.png",
+    "mamta-jewellary-150x150.png",
+    "mehta-150x150.png",
+    "mg-group-150x150.png",
+    "narayana-150x150.png",
+    "new-logo.png",
+    "park-inn-150x150.png",
+    "sakhiya-150x150.png",
+    "sumerru-150x150.png",
+    "yashvi-150x150.png",
+    "yfh-150x150.png",
+    "zota-150x150.png"
+  ]
 }
