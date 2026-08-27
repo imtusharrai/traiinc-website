@@ -7,7 +7,7 @@
     "subtitle": "We architect scalable, zero-failure custom software and AI infrastructure for ambitious brands. Fixed-price guarantees. Senior engineers only.",
     "cta_primary": {
       "icon": "",
-      "text": "Scope Your Project →",
+      "text": "Scope Your Project \u2192",
       "href": "contact.html"
     },
     "cta_secondary": {
@@ -99,7 +99,7 @@
         "tab_text": "#08120D",
         "badge": "Startups",
         "panel_title": "Stop refining the pitch deck. Start shipping product.",
-        "panel_subtitle": "MVPs, mobile apps, and cloud platforms — fixed price, no equity. Typically ₹1.5L–₹5L.",
+        "panel_subtitle": "MVPs, mobile apps, and cloud platforms \u2014 fixed price, no equity. Typically \u20b91.5L\u2013\u20b95L.",
         "cta_text": "Explore Startup Solutions",
         "cta_href": "startups.html",
         "image": "/img/audience-startups.jpg",
@@ -110,7 +110,7 @@
             "icon_key": "device",
             "tag": "MOBILE",
             "title": "Cross-Platform Mobile Apps",
-            "desc": "iOS + Android from one Flutter codebase in 4–8 weeks."
+            "desc": "iOS + Android from one Flutter codebase in 4\u20138 weeks."
           },
           {
             "icon_key": "globe",
@@ -139,7 +139,7 @@
         "tab_text": "#0A1420",
         "badge": "Small & Medium Business (10-50 employees)",
         "panel_title": "You've outgrown spreadsheets. Now what?",
-        "panel_subtitle": "Custom CRMs, automation, and dashboards that replace the patchwork. Typically ₹1L–₹5L.",
+        "panel_subtitle": "Custom CRMs, automation, and dashboards that replace the patchwork. Typically \u20b91L\u2013\u20b95L.",
         "cta_text": "Explore SMB Solutions",
         "cta_href": "smb.html",
         "image": "/img/audience-smb.jpg",
@@ -168,7 +168,7 @@
             "icon_key": "chat",
             "tag": "INTEGRATION",
             "title": "WhatsApp & Tool Integration",
-            "desc": "Connect the systems you already run — no rip-and-replace."
+            "desc": "Connect the systems you already run \u2014 no rip-and-replace."
           }
         ]
       },
@@ -218,7 +218,7 @@
     "subtitle": "BUILT FOR FOUNDERS",
     "heading": "Enterprise architecture at startup velocity.",
     "card_title": "Custom Solutions",
-    "card_desc": "Get a dedicated engineering team aligned to your business goals. We architect, build, and scale — you focus on growth.",
+    "card_desc": "Get a dedicated engineering team aligned to your business goals. We architect, build, and scale \u2014 you focus on growth.",
     "card_cta": "Explore Custom Solutions",
     "card_href": "solutions.html",
     "image": "/img/authentic-office-banner.jpg"
@@ -282,7 +282,7 @@
     "title": "Proven engineering for real businesses.",
     "directoryCard": {
       "title": "See what we've built.",
-      "description": "From real estate marketplaces to healthcare platforms — explore how we've helped businesses across India go digital.",
+      "description": "From real estate marketplaces to healthcare platforms \u2014 explore how we've helped businesses across India go digital.",
       "clientPills": [
         {
           "name": "Bhu Master",
@@ -305,7 +305,7 @@
           "accentColor": "gold"
         }
       ],
-      "ctaText": "Explore All Case Studies →",
+      "ctaText": "Explore All Case Studies \u2192",
       "ctaLink": "/clients.html"
     },
     "highlights": [
@@ -328,7 +328,7 @@
         "accentColor": "gold"
       },
       {
-        "label": "4.0★ Rated on Google Play",
+        "label": "4.0\u2605 Rated on Google Play",
         "client": "Workezy",
         "link": "workezy.html",
         "accentColor": "teal"
@@ -362,15 +362,15 @@
     "items": [
       {
         "q": "How long does a project take to build?",
-        "a": "Our senior engineers work in rapid sprints, and most projects ship in 4 to 8 weeks depending on complexity — simpler builds like a business website can be live even faster."
+        "a": "Our senior engineers work in rapid sprints, and most projects ship in 4 to 8 weeks depending on complexity \u2014 simpler builds like a business website can be live even faster."
       },
       {
         "q": "What does a project actually cost?",
-        "a": "It depends on your business size. A business website for a local shop starts at ₹15,000. A custom MVP or internal tool typically runs ₹1.5L-₹3L. Growth-stage systems — CRMs, automation, multi-platform builds — run ₹3L-₹5L. For enterprise-scale or highly custom requirements, we quote after a scoping call. <a href=\"contact.html\">Get in touch</a> for a fixed-price estimate."
+        "a": "It depends on your business size. A business website for a local shop starts at \u20b915,000. A custom MVP or internal tool typically runs \u20b91.5L-\u20b93L. Growth-stage systems \u2014 CRMs, automation, multi-platform builds \u2014 run \u20b93L-\u20b95L. For enterprise-scale or highly custom requirements, we quote after a scoping call. <a href=\"contact.html\">Get in touch</a> for a fixed-price estimate."
       },
       {
         "q": "What if I need changes after the project is delivered?",
-        "a": "We offer an annual maintenance contract (20% of the initial project cost) covering platform updates, security patches, and minor bug fixes. For larger feature additions, we scope and quote them as separate change requests — you're never locked out of your own product."
+        "a": "We offer an annual maintenance contract (20% of the initial project cost) covering platform updates, security patches, and minor bug fixes. For larger feature additions, we scope and quote them as separate change requests \u2014 you're never locked out of your own product."
       },
       {
         "q": "How do I know I'll actually own my app or software?",
@@ -402,8 +402,7 @@
     "14-150x150.png",
     "15-150x150.png",
     "16.png",
-    "2-1-150x150.png",
-    "2-150x150.png",
+    "palak-diam.png",
     "2.png",
     "23-e1776768103830.png",
     "24.png",
@@ -436,13 +435,11 @@
     "SuranaColor-150x150.png",
     "TW.png",
     "Untitled-150-x-150-px-1-150x150.png",
-    "Untitled-150-x-150-px-150x150.png",
     "Untitled-150-x-150-px-2-150x150.png",
     "saraaha.png",
     "Untitled-150-x-150-px.png",
     "Untitled-500-x-500-px-150x150.png",
     "Untitled-design-1-150x150.png",
-    "Untitled-design-2.png",
     "Untitled-design-29.png",
     "Untitled-design-3-150x150.png",
     "Untitled-design-3-e1776764732225-150x113.png",
