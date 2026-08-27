@@ -86,10 +86,10 @@
         "desc": "Connect your physical store billing counter directly with your online store. Stock automatically updates in real time when items sell in-store or online \u2014 zero overselling, zero spreadsheet headaches."
       },
       {
-        "icon": "\ud83d\ude9a",
+        "icon": "🚚",
         "icon_gradient": "linear-gradient(135deg,#fa709a,#fee140)",
-        "title": "Automated Shipping & RTO Shield",
-        "desc": "Integrated multi-courier logistics (Delhivery, Shiprocket, Bluedart), automated doorstep pickups, live WhatsApp tracking updates, and automated COD OTP confirmation to slash return rates."
+        "title": "Delivery Partner & Payment Gateway",
+        "desc": "Integrated multi-courier logistics (Delhivery, Shiprocket, Bluedart), automated doorstep pickups, instant 1-click UPI payments, and automated COD OTP confirmation."
       },
       {
         "icon": "\ud83d\udcac",

@@ -156,9 +156,9 @@
           },
           {
             "icon_key": "truck",
-            "tag": "LOGISTICS & RTO",
-            "title": "Automated Shipping & RTO Shield",
-            "desc": "Shiprocket/Delhivery auto-dispatch + COD OTP verification."
+            "tag": "DELIVERY & PAYMENTS",
+            "title": "Delivery Partner & Payment Gateway",
+            "desc": "Shiprocket/Delhivery multi-courier + 1-click UPI & instant settlements."
           },
           {
             "icon_key": "chat",
