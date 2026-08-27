@@ -89,26 +89,22 @@
     "title": "Everything your offline business needs to conquer D2C",
     "items": [
       {
-        "icon": "\ud83d\uded2",
-        "icon_gradient": "linear-gradient(135deg,#ff416c,#ff4b2b)",
+        "icon": "🛒",
         "title": "Conversion-First D2C Storefront",
         "desc": "Ultra-fast headless Next.js or customized Shopify stores designed for high mobile conversion. Includes instant 1-click UPI checkout, customer reviews, video reels, and SEO optimization."
       },
       {
-        "icon": "\ud83d\udd04",
-        "icon_gradient": "linear-gradient(135deg,#4facfe,#00f2fe)",
+        "icon": "🔄",
         "title": "Unified POS & Counter Inventory Sync",
         "desc": "Connect your physical store billing counter directly with your online store. Stock automatically updates in real time when items sell in-store or online \u2014 zero overselling, zero spreadsheet headaches."
       },
       {
         "icon": "🚚",
-        "icon_gradient": "linear-gradient(135deg,#fa709a,#fee140)",
         "title": "Delivery Partner & Payment Gateway",
         "desc": "Integrated multi-courier logistics (Delhivery, Shiprocket, Bluedart), automated doorstep pickups, instant 1-click UPI payments, and automated COD OTP confirmation."
       },
       {
-        "icon": "\ud83d\udcac",
-        "icon_gradient": "linear-gradient(135deg,#f6d365,#fda085)",
+        "icon": "💬",
         "title": "WhatsApp Conversational Commerce",
         "desc": "Turn WhatsApp into your highest-converting sales channel. Customers browse catalogs, place orders, receive instant support, and get abandoned cart reminders 24/7 with automated AI agents."
       }

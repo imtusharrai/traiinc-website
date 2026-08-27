@@ -2245,7 +2245,7 @@ function renderD2C(data) {
             <div class="bento-grid">
                 ${data.services.items.map((item, idx) => `
                     <div class="bento-card ${idx === 0 || idx === 3 ? 'wide' : ''} fade-in">
-                        <div class="bento-icon msme-icon-dynamic" style="--icon-bg: ${item.icon_gradient};">${item.icon}</div>
+                        <div class="bento-icon">${item.icon}</div>
                         <h3>${item.title}</h3>
                         <p>${item.desc}</p>
                     </div>
