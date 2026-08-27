@@ -733,7 +733,20 @@ function renderHome(data) {
                     </div>
                 </div>
                 <div class="audience-panel-right">
-                    ${t.showcase_images && t.showcase_images.length > 0 ? `
+                    ${t.showcase_tiles && t.showcase_tiles.length > 0 ? `
+                    <div class="audience-multi-image-grid">
+                        ${t.showcase_tiles.map(tile => `
+                        <div class="audience-tile">
+                            <img src="${tile.src}" alt="${tile.title}" loading="lazy" />
+                            ${tile.tag ? `<span class="audience-tile-tag">${tile.tag}</span>` : ''}
+                            <div class="audience-tile-overlay">
+                                <strong>${tile.title}</strong>
+                                <span>${tile.desc}</span>
+                            </div>
+                        </div>
+                        `).join('')}
+                    </div>
+                    ` : (t.showcase_images && t.showcase_images.length > 0 ? `
                     <div class="audience-gallery-card" data-gallery-id="${t.id}">
                         <div class="audience-gallery-main">
                             ${t.showcase_images.map((img, idx) => `
@@ -760,9 +773,9 @@ function renderHome(data) {
                         <img src="${t.image}" alt="${t.image_alt || ''}" loading="lazy" onerror="this.parentElement.style.display='none'" />
                         ${t.image_caption ? `<span class="audience-panel-media-caption">${t.image_caption}</span>` : ''}
                     </div>
-                    ` : '')}
+                    ` : ''))}
 
-                    ${t.metrics_strip && t.metrics_strip.length > 0 ? `
+                    ${t.metrics_strip && !t.showcase_tiles && t.metrics_strip.length > 0 ? `
                     <div class="audience-metrics-strip">
                         ${t.metrics_strip.map(m => `
                         <div class="audience-metric-item">

@@ -65,6 +65,32 @@
         "image": "assets/d2c/d2c-store-migration.png",
         "image_alt": "Modern e-commerce storefront and mobile store built for D2C scaling",
         "image_caption": "Custom D2C e-commerce platforms engineered by Trai Inc",
+        "showcase_tiles": [
+          {
+            "src": "assets/d2c/d2c-fashion-showcase.jpg",
+            "tag": "👗 FASHION & APPAREL",
+            "title": "Fashion & Lifestyle Store",
+            "desc": "Lookbooks, Size Charts & Reels"
+          },
+          {
+            "src": "assets/d2c/d2c-electronics-showcase.jpg",
+            "tag": "📱 TECH & GADGETS",
+            "title": "Consumer Electronics",
+            "desc": "Specs & Fast Express Dispatch"
+          },
+          {
+            "src": "assets/d2c/d2c-home-decor-showcase.jpg",
+            "tag": "🏡 HOME & DECOR",
+            "title": "Home Decor & Living",
+            "desc": "Bulky Freight & 28,000+ Pin Codes"
+          },
+          {
+            "src": "assets/d2c/d2c-conversation-dashboard.png",
+            "tag": "💬 WHATSAPP AI",
+            "title": "WhatsApp AI Commerce",
+            "desc": "24/7 Orders & 34% Cart Recovery"
+          }
+        ],
         "showcase_images": [
           {
             "src": "assets/d2c/d2c-store-migration.png",
