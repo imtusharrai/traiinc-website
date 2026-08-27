@@ -2068,7 +2068,7 @@ function renderMSME(data) {
             </div>
         </section>
 
-        <!-- PLATFORM SHOWCASE (AMAZON SMARTBIZ & D2C TOOLS) -->
+        <!-- PLATFORM SHOWCASE (D2C & ONDC COMMERCE ENGINE) -->
         ${data.showcase ? `
         <section class="container fade-in msme-section-loose-top">
             <div class="section-header center">

@@ -2382,7 +2382,7 @@ body.light-mode .tech-featured { border-color: var(--border-subtle); }
             margin-bottom: 80px;
         }
         
-        /* ─── D2C Platform Showcase (Amazon SmartBiz & Tool Stack) ─── */
+        /* ─── D2C Platform Showcase (D2C & ONDC Tool Stack) ─── */
         .d2c-showcase-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
