@@ -2356,6 +2356,233 @@ body.light-mode .tech-featured { border-color: var(--border-subtle); }
             50% { transform: translateY(-12px); }
         }
 
+        /* ─── D2C Hero Highlights & Hub Card ─── */
+        .d2c-hero-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin-bottom: 28px;
+            max-width: 540px;
+        }
+        .d2c-hero-highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: color-mix(in srgb, var(--accent-color) 4%, transparent);
+            border: 1px solid color-mix(in srgb, var(--accent-color) 16%, transparent);
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-size: 0.84rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+        .d2c-highlight-icon {
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .d2c-hub-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            padding: 22px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+        .d2c-hub-card .mockup-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-light);
+        }
+        .mockup-dots {
+            display: flex;
+            gap: 6px;
+        }
+        .mockup-dots span {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .mockup-dots span:first-child { background: #ff5f57; }
+        .mockup-dots span:nth-child(2) { background: #febc2e; }
+        .mockup-dots span:nth-child(3) { background: #28c840; }
+        .mockup-url-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-light);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            border: 1px solid var(--border-light);
+        }
+        .badge-live-pulse {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
+            padding: 2px 8px;
+            border-radius: 20px;
+            margin-left: 6px;
+        }
+        .d2c-mockup-storefront {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg-light);
+            padding: 14px 16px;
+            border-radius: 14px;
+            border: 1px solid var(--border-light);
+            margin-bottom: 14px;
+        }
+        .d2c-mockup-store-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .d2c-mockup-avatar {
+            width: 36px;
+            height: 36px;
+            background: color-mix(in srgb, var(--accent-color) 12%, transparent);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        .d2c-mockup-store-title {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+        .d2c-mockup-store-meta {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+        .d2c-mockup-badge-fast {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #3b82f6;
+            background: rgba(59, 130, 246, 0.1);
+            padding: 4px 10px;
+            border-radius: 30px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            white-space: nowrap;
+        }
+        .d2c-stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        .d2c-stat-box {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 12px 14px;
+            border: 1px solid var(--border-light);
+        }
+        .d2c-stat-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+        .d2c-stat-val {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 800;
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+        }
+        .d2c-stat-val.green { color: var(--neon-green); }
+        .d2c-stat-val.gold { color: var(--neon-amber); }
+        .d2c-stat-up {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #10b981;
+        }
+        .d2c-stat-sub {
+            font-size: 0.68rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+        .d2c-live-feed {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 12px 14px;
+            border: 1px solid var(--border-light);
+        }
+        .d2c-feed-title {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+        .d2c-pulse-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #10b981;
+            box-shadow: 0 0 8px #10b981;
+            display: inline-block;
+        }
+        .d2c-feed-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.74rem;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        .d2c-feed-item:last-child {
+            margin-bottom: 0;
+        }
+        .d2c-feed-tag {
+            font-size: 0.62rem;
+            font-weight: 800;
+            padding: 2px 6px;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+            flex-shrink: 0;
+        }
+        .d2c-feed-tag.ondc {
+            background: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        .d2c-feed-tag.ship {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        .d2c-feed-tag.wa {
+            background: rgba(245, 158, 11, 0.15);
+            color: #fbbf24;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+        .d2c-feed-msg {
+            color: var(--text-muted);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
         /* ─── Feature Pills ─── */
         .feature-pills {
             display: flex;

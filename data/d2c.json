@@ -1,8 +1,26 @@
 {
   "hero": {
-    "badge": "\u26a1 BHARAT D2C ACCELERATOR 2026",
-    "title": "Turn Your Local Retail Store Into a Pan-India D2C Brand",
-    "desc": "We engineer high-converting digital storefronts, automated multi-courier shipping across 28,000+ pin codes, real-time POS inventory sync, and 24/7 WhatsApp AI sales assistants \u2014 scaling offline merchants into high-growth e-commerce powerhouses.",
+    "badge": "⚡ ONDC CONNECTED • BHARAT D2C ACCELERATOR 2026",
+    "title": "Turn Your Local Retail Business Into a Pan-India D2C Powerhouse",
+    "desc": "Launch your custom branded online store, sell across the nation-wide ONDC buyer network (10Cr+ buyers on Paytm, PhonePe & Magicpin), integrate 28,000+ pin-code logistics, and automate WhatsApp AI sales — with 0% marketplace commission.",
+    "highlights": [
+      {
+        "icon": "🛍️",
+        "text": "0% Commission (Keep 100% Margin)"
+      },
+      {
+        "icon": "🌐",
+        "text": "ONDC Network (Paytm & PhonePe)"
+      },
+      {
+        "icon": "🚚",
+        "text": "28,000+ Pin Codes Multi-Courier"
+      },
+      {
+        "icon": "💬",
+        "text": "WhatsApp AI Automated Sales"
+      }
+    ],
     "cta": {
       "primary": {
         "text": "Launch Your D2C Store &rarr;",
@@ -15,45 +33,12 @@
     },
     "trust": {
       "avatars": [
-        "\ud83c\udfea",
-        "\ud83d\ude80",
-        "\ud83d\udce6",
-        "\ud83d\udcac"
+        "🏪",
+        "🚀",
+        "📦",
+        "💬"
       ],
       "count": "138+ Retailers & D2C Brands"
-    },
-    "mockup": {
-      "metrics": [
-        {
-          "label": "Pan-India Reach",
-          "value": "28,000+ Pins",
-          "color": "green"
-        },
-        {
-          "label": "RTO Reduction",
-          "value": "42% Less Returns",
-          "color": "green"
-        },
-        {
-          "label": "WhatsApp Cart Recovery",
-          "value": "34% Recovered",
-          "color": "gold"
-        }
-      ],
-      "cards": [
-        {
-          "icon": "\ud83d\udce6",
-          "label": "Automated Shipping",
-          "value": "Delhivery & Shiprocket",
-          "active": true
-        },
-        {
-          "icon": "\ud83d\udcac",
-          "label": "Conversational Orders",
-          "value": "WhatsApp AI Active",
-          "active": true
-        }
-      ]
     }
   },
   "metrics_ribbon": [

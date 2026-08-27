@@ -2004,9 +2004,21 @@ function renderD2C(data) {
         <section class="msme-hero">
             <div class="msme-hero-inner">
                 <div class="fade-in">
-                    <div class="msme-badge">${data.hero.badge || '⚡ BHARAT D2C ACCELERATOR'}</div>
+                    <div class="msme-badge">${data.hero.badge || '⚡ ONDC CONNECTED • BHARAT D2C ACCELERATOR'}</div>
                     <h1>${data.hero.title}</h1>
                     <p class="msme-hero-sub">${data.hero.desc || data.hero.subtitle || ''}</p>
+                    
+                    ${data.hero.highlights ? `
+                    <div class="d2c-hero-highlights">
+                        ${data.hero.highlights.map(h => `
+                            <div class="d2c-hero-highlight-item">
+                                <span class="d2c-highlight-icon">${h.icon}</span>
+                                <span class="d2c-highlight-text">${h.text}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                    ` : ''}
+
                     <div class="hero-cta-row">
                         <a href="${data.hero.cta.primary.url}" ${data.hero.cta.primary.url.startsWith('http') ? 'target="_blank"' : ''} class="btn-primary large">${data.hero.cta.primary.text}</a>
                         <a href="${data.hero.cta.secondary.url}" ${data.hero.cta.secondary.url.startsWith('http') ? 'target="_blank"' : ''} class="btn-secondary large">${data.hero.cta.secondary.text}</a>
@@ -2019,27 +2031,77 @@ function renderD2C(data) {
                     </div>
                 </div>
 
-                <!-- Floating Dashboard Mockup -->
+                <!-- Hero Visual — Interactive E-Commerce & ONDC Live Hub Mockup -->
                 <div class="hero-mockup fade-in">
-                    <div class="mockup-main">
-                        <div class="mockup-bar"><span></span><span></span><span></span></div>
-                        <div class="mockup-metrics">
-                            ${data.hero.mockup.metrics.map(m => `
-                                <div class="mockup-metric">
-                                    <div class="mockup-metric-label">${m.label}</div>
-                                    <div class="mockup-metric-value ${m.color || ''}">${m.value}</div>
+                    <div class="mockup-main d2c-hub-card">
+                        <div class="mockup-bar">
+                            <div class="mockup-dots"><span></span><span></span><span></span></div>
+                            <div class="mockup-url-pill"><span>🔒</span> store.yourbrand.in <span class="badge-live-pulse">🟢 LIVE & ONDC SYNCED</span></div>
+                        </div>
+                        
+                        <!-- Top Storefront Header Card -->
+                        <div class="d2c-mockup-storefront">
+                            <div class="d2c-mockup-store-info">
+                                <div class="d2c-mockup-avatar">🏪</div>
+                                <div>
+                                    <div class="d2c-mockup-store-title">Bharat D2C Storefront</div>
+                                    <div class="d2c-mockup-store-meta">Pan-India Delivery • 1-Click UPI • ONDC Node</div>
                                 </div>
-                            `).join('')}
+                            </div>
+                            <div class="d2c-mockup-badge-fast">⚡ 0.8s PWA Speed</div>
                         </div>
-                        <div class="mockup-chart"></div>
+
+                        <!-- 4-Stat Metric Grid -->
+                        <div class="d2c-stats-grid">
+                            <div class="d2c-stat-box">
+                                <div class="d2c-stat-label">Monthly GMV</div>
+                                <div class="d2c-stat-val green">₹18.4L <span class="d2c-stat-up">↑44%</span></div>
+                            </div>
+                            <div class="d2c-stat-box">
+                                <div class="d2c-stat-label">Orders Processed</div>
+                                <div class="d2c-stat-val">1,420 <span class="d2c-stat-sub">Units</span></div>
+                            </div>
+                            <div class="d2c-stat-box">
+                                <div class="d2c-stat-label">Commission Paid</div>
+                                <div class="d2c-stat-val gold">₹0 <span class="d2c-stat-sub">100% Margin</span></div>
+                            </div>
+                            <div class="d2c-stat-box">
+                                <div class="d2c-stat-label">Avg Dispatch SLA</div>
+                                <div class="d2c-stat-val green">&lt; 4 Hours</div>
+                            </div>
+                        </div>
+
+                        <!-- Real-time Live Activity Feed -->
+                        <div class="d2c-live-feed">
+                            <div class="d2c-feed-title">
+                                <span class="d2c-pulse-dot"></span> Live Channel Stream
+                            </div>
+                            <div class="d2c-feed-item">
+                                <span class="d2c-feed-tag ondc">ONDC</span>
+                                <span class="d2c-feed-msg">New Order #9842 (₹2,499) via Paytm Buyer App • Bangalore</span>
+                            </div>
+                            <div class="d2c-feed-item">
+                                <span class="d2c-feed-tag ship">LOGISTICS</span>
+                                <span class="d2c-feed-msg">Delhivery pickup auto-scheduled • Live tracking on WhatsApp</span>
+                            </div>
+                            <div class="d2c-feed-item">
+                                <span class="d2c-feed-tag wa">AI BOT</span>
+                                <span class="d2c-feed-msg">Trai WhatsApp Agent recovered ₹3,850 abandoned cart in Pune</span>
+                            </div>
+                        </div>
                     </div>
-                    ${data.hero.mockup.cards.map((c, i) => `
-                        <div class="float-card float-card-${i+1}">
-                            <div class="fc-icon">${c.icon}</div>
-                            <div class="fc-label">${c.label}</div>
-                            <div class="fc-value ${c.active ? 'fc-value-active' : ''}">${c.value}</div>
-                        </div>
-                    `).join('')}
+
+                    <!-- Floating Accent Badges -->
+                    <div class="float-card float-card-1 d2c-float-card">
+                        <div class="fc-icon">🌐</div>
+                        <div class="fc-label">Buyer Discovery</div>
+                        <div class="fc-value fc-value-active">10Cr+ on ONDC</div>
+                    </div>
+                    <div class="float-card float-card-2 d2c-float-card">
+                        <div class="fc-icon">📦</div>
+                        <div class="fc-label">Multi-Courier Reach</div>
+                        <div class="fc-value">28,000+ Pin Codes</div>
+                    </div>
                 </div>
             </div>
         </section>
