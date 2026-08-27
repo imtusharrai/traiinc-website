@@ -176,6 +176,63 @@
       }
     ]
   },
+  "category_matrix": {
+    "subtitle": "EXPLORE ALL PRODUCT CATEGORIES",
+    "title": "Categories & Verticals We Cater To",
+    "desc": "From fashion and daily groceries to auto parts and agricultural inputs — our D2C and ONDC commerce infrastructure powers every retail vertical.",
+    "categories": [
+      {
+        "name": "FASHION",
+        "icon": "assets/d2c/categories/cat-tshirts.png",
+        "items": ["T-shirts", "Shirts", "Sarees", "Casual Shoes", "Jeans"]
+      },
+      {
+        "name": "GROCERY",
+        "icon": "assets/d2c/categories/cat-pickles.png",
+        "items": ["Masala & Seasoning", "Oil & Ghee", "Tea and Coffee", "Snacks and Namkeen", "Snacks, Dry Fruits, Nuts"]
+      },
+      {
+        "name": "ELECTRONICS",
+        "icon": "assets/d2c/categories/cat-smart-watches.png",
+        "items": ["Smart Watch", "Power Bank", "Earphone", "Charger", "Speaker"]
+      },
+      {
+        "name": "APPLIANCES",
+        "icon": "assets/d2c/categories/cat-juicers.png",
+        "items": ["Air Cooler", "Induction Cooktop", "Juicer", "Electric Chimney", "Electric Air Fryer"]
+      },
+      {
+        "name": "BEAUTY & PERSONAL CARE",
+        "icon": "assets/d2c/categories/cat-fragrances.png",
+        "items": ["Fragrance", "Shampoos and Conditioners", "Trimmer", "Soap & Gel", "Hair Care"]
+      },
+      {
+        "name": "HOME & KITCHEN",
+        "icon": "assets/d2c/categories/cat-home-kitchen.png",
+        "items": ["Furniture", "Pooja Needs", "Cookware", "Home Decor", "Bathroom and Kitchen fixtures"]
+      },
+      {
+        "name": "HEALTH & WELLNESS",
+        "icon": "assets/d2c/categories/cat-health-wellness.png",
+        "items": ["Ayurveda", "Feminine care", "Diabetes control", "Health Supplements", "Pain Relief"]
+      },
+      {
+        "name": "AUTO COMPONENT",
+        "icon": "assets/d2c/categories/cat-auto-components.png",
+        "items": ["Auto Parts", "Air Filter", "Oil Filter", "Brake oil", "Window Cleaning"]
+      },
+      {
+        "name": "AGRI INPUT",
+        "icon": "assets/d2c/categories/cat-agri-inputs.png",
+        "items": ["Seeds", "Pesticides", "Fertilizers", "Cattle Feed", "Organic Crop Protection"]
+      },
+      {
+        "name": "VEHICLE & AUTOMOTIVE",
+        "icon": "assets/d2c/categories/cat-vehicles-ev.png",
+        "items": ["Electric Scooter", "Cycle", "EV Accessories & Parts"]
+      }
+    ]
+  },
   "image_showcase": {
     "subtitle": "SELLER PLATFORM IN ACTION",
     "title": "See How Local Businesses Scale With Our D2C & ONDC Platform",

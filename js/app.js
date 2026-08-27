@@ -2282,6 +2282,34 @@ function renderD2C(data) {
         </section>
         ` : ''}
 
+        <!-- ALL CATEGORIES MATRIX DIRECTORY -->
+        ${data.category_matrix ? `
+        <section class="container fade-in msme-section-loose-top">
+            <div class="section-header center">
+                <h4 class="mini-title" style="color: var(--accent-color);">${data.category_matrix.subtitle}</h4>
+                <h2 class="text-4xl mt-2">${data.category_matrix.title}</h2>
+                <p style="max-width: 680px; margin: 12px auto 0; color: var(--text-muted);">${data.category_matrix.desc}</p>
+            </div>
+            <div class="d2c-category-matrix-grid">
+                ${data.category_matrix.categories.map(cat => `
+                    <div class="d2c-matrix-card">
+                        <div class="d2c-matrix-header">
+                            <div class="d2c-matrix-icon">
+                                <img src="${cat.icon}" alt="${cat.name}" loading="lazy" />
+                            </div>
+                            <div class="d2c-matrix-title">${cat.name}</div>
+                        </div>
+                        <ul class="d2c-matrix-list">
+                            ${cat.items.map(sub => `
+                                <li class="d2c-matrix-item">${sub}</li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+        ` : ''}
+
         <!-- IMAGE SHOWCASE (SELLER PLATFORM IN ACTION) -->
         ${data.image_showcase ? `
         <section class="container fade-in msme-section-loose-top">
