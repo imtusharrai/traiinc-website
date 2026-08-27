@@ -2898,8 +2898,14 @@ body.light-mode .tech-featured { border-color: var(--border-subtle); }
                 gap: 20px;
             }
             .d2c-heritage-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+        @media (max-width: 640px) {
+            .d2c-heritage-grid {
                 grid-template-columns: 1fr;
-                max-width: 600px;
+                max-width: 480px;
                 margin-left: auto;
                 margin-right: auto;
             }

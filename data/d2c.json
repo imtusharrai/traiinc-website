@@ -300,6 +300,27 @@
         "desc": "Shop Gond Paintings, Weaves and Woodwork",
         "image": "assets/d2c/d2c-heritage-mp.png",
         "cta": "Shop Now"
+      },
+      {
+        "state": "DELHI",
+        "title": "The Cultural Heartbeat of India",
+        "desc": "Discover Delhi's Timeless Crafts, Flavors, and Vibe",
+        "image": "assets/d2c/d2c-heritage-delhi.png",
+        "cta": "Shop Now"
+      },
+      {
+        "state": "RAJASTHAN",
+        "title": "Rajasthan's Living Palace of Art",
+        "desc": "Royal Crafts and Desert Artistry for Your Home",
+        "image": "assets/d2c/d2c-heritage-rajasthan.png",
+        "cta": "Shop Now"
+      },
+      {
+        "state": "KERALA",
+        "title": "Timeless Treasures of Kerala",
+        "desc": "Shop Aromas & Crafts of God's own country",
+        "image": "assets/d2c/d2c-heritage-kerala.png",
+        "cta": "Shop Now"
       }
     ]
   },
