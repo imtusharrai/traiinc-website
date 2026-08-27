@@ -1,111 +1,110 @@
 {
   "hero": {
-    "badge": "🏪 Built for Micro & Local Businesses",
-    "title": "Your Customers Are Online<br>Is Your <em class=\"hero-cosmos-ai\">Business?</em>",
-    "subtitle": "Stop losing customers to competitors with better websites. We build affordable apps, WhatsApp automations, and digital tools that turn foot traffic into repeat revenue — starting from ₹15,000.",
+    "badge": "🏪 Local Retail to Pan-India D2C",
+    "title": "Turn Your Physical Store Into A<br><em class=\"hero-cosmos-ai\">Pan-India D2C Brand</em>",
+    "subtitle": "Stop limiting your revenue to local foot traffic. We build high-converting e-commerce stores, sync your offline POS inventory in real-time, automate nationwide multi-courier dispatch, and deploy 24/7 WhatsApp AI sales engines.",
     "cta": {
-      "primary": { "text": "💬 Message Us on WhatsApp", "url": "https://wa.me/917905495478?text=Hi%20Trai%20Inc%2C%20I%27m%20interested%20in%20getting%20my%20business%20online." },
-      "secondary": { "text": "Scope Your Project", "url": "contact.html" }
+      "primary": { "text": "💬 Message Us on WhatsApp", "url": "https://wa.me/917905495478?text=Hi%20Trai%20Inc%2C%20I%20want%20to%20scale%20my%20retail%20store%20into%20a%20pan-India%20D2C%20brand." },
+      "secondary": { "text": "Scope Your D2C Launch", "url": "contact.html" }
     },
     "trust": {
-      "avatars": ["CM", "JH", "TV", "BG", "+"],
-      "count": "local businesses"
+      "avatars": ["SG", "RC", "CC", "VG", "+"],
+      "count": "growing retail & D2C brands"
     },
     "mockup": {
       "metrics": [
-        { "label": "📈 Sales Today", "value": "₹45,200", "color": "green" },
-        { "label": "👥 New Leads", "value": "18", "color": "gold" },
-        { "label": "🔄 Orders Pending", "value": "7", "color": "" },
-        { "label": "⭐ Reviews", "value": "4.8", "color": "green" }
+        { "label": "📦 Pan-India Orders", "value": "1,420/mo", "color": "green" },
+        { "label": "📍 Pin Codes Served", "value": "28,000+", "color": "gold" },
+        { "label": "🛡️ RTO Reduction", "value": "-42%", "color": "green" },
+        { "label": "⭐ Customer Rating", "value": "4.9", "color": "green" }
       ],
       "cards": [
-        { "icon": "💬", "label": "WhatsApp Auto-Reply", "value": "Active ✓", "active": true },
-        { "icon": "🔔", "label": "New Booking", "value": "₹8,500", "active": false }
+        { "icon": "💬", "label": "WhatsApp Cart Recovery", "value": "34% Recovered ✓", "active": true },
+        { "icon": "🚚", "label": "Auto-Dispatch Sync", "value": "Delhivery / Bluedart", "active": false }
       ]
     }
   },
   "feature_pills": [
-    "✓ Affordable Websites",
-    "✓ WhatsApp AI Chatbot",
-    "✓ Show Up on Google Maps",
-    "✓ Social Media Setup",
-    "✓ GST & Invoicing Tools",
-    "✓ Branding & Logo",
-    "✓ Customer Tracking System",
-    "✓ Accept Payments Online"
+    "✓ Custom & Shopify D2C Stores",
+    "✓ 1-Click UPI & Instant Checkout",
+    "✓ Offline POS & Real-Time Stock Sync",
+    "✓ Shiprocket & Delhivery Auto-Dispatch",
+    "✓ WhatsApp AI Catalog & Orders",
+    "✓ RTO Shield & COD OTP Verification",
+    "✓ Meta & Google Shopping Ads Setup",
+    "✓ GST & Automated E-Invoicing"
   ],
   "services": {
-    "subtitle": "HOW WE HELP",
-    "title": "Practical tools that make you money",
+    "subtitle": "THE D2C SCALE STACK",
+    "title": "Everything your store needs to sell across India",
     "items": [
       {
-        "icon": "📱",
+        "icon": "🛒",
         "icon_gradient": "linear-gradient(135deg,#667eea,#764ba2)",
-        "title": "Smart Websites & Mobile Apps",
-        "desc": "Beautiful, fast websites and apps that your customers actually find on Google. Mobile-first design, WhatsApp-integrated, and ready to take orders — not just look pretty."
+        "title": "High-Converting D2C E-Store",
+        "desc": "Lightning-fast storefronts built on Next.js, Shopify, or WooCommerce with mobile-first UX, 1-click UPI checkout, and Google Shopping SEO that turns visitors into repeat buyers."
       },
       {
-        "icon": "🤖",
+        "icon": "🔄",
         "icon_gradient": "linear-gradient(135deg,#43e97b,#38f9d7)",
-        "title": "WhatsApp AI Assistant",
-        "desc": "Auto-reply to inquiries, send booking confirmations, and capture leads while you sleep. Your business runs 24/7."
+        "title": "Unified POS & Stock Sync",
+        "desc": "Connect your physical store billing counter with your online store. Never oversell or run out of stock — real-time automated inventory sync across all sales channels."
       },
       {
-        "icon": "📊",
+        "icon": "🚚",
         "icon_gradient": "linear-gradient(135deg,#fa709a,#fee140)",
-        "title": "Customer Tracking System",
-        "desc": "Replace spreadsheets with a real system. Track leads, sales, inventory, and staff — all in one place."
+        "title": "Automated Logistics & RTO Shield",
+        "desc": "Seamless multi-courier shipping (Shiprocket, Delhivery, Bluedart), automated label printing, live WhatsApp delivery tracking, and COD OTP verification to slash returns (RTO)."
       },
       {
-        "icon": "📍",
+        "icon": "💬",
         "icon_gradient": "linear-gradient(135deg,#f6d365,#fda085)",
-        "title": "Local SEO & Google Business Profile",
-        "desc": "Get found when customers search \"near me.\" We optimize your Google Maps listing, build local citations, and make sure your business shows up before your competitors — organically, no ads needed."
+        "title": "WhatsApp Conversational Commerce",
+        "desc": "Full product catalog inside WhatsApp, automated abandoned cart recovery, re-order reminders, and 24/7 AI sales assistant that answers product queries and closes deals."
       }
     ]
   },
   "comparison": {
-    "subtitle": "THE DIFFERENCE",
-    "title": "Stop bleeding money. Start growing.",
+    "subtitle": "THE TRANSFORMATION",
+    "title": "Offline Limitations vs Pan-India D2C Scale",
     "old_way": {
-      "title": "😤 The Old Way",
+      "title": "🏪 Traditional Offline Store",
       "items": [
-        "Customer calls go unanswered after hours",
-        "Leads written on paper, lost in a week",
-        "No online presence — invisible on Google",
-        "Bills & invoices created manually in Excel",
-        "Staff operations tracked via WhatsApp groups",
-        "Paying ₹50K/month for a \"digital marketing agency\" with no results"
+        "Restricted to local 5km foot traffic and walk-ins",
+        "Shop closes at 9 PM — zero sales while you sleep",
+        "Manual handwritten bills or disconnected local POS",
+        "High customer acquisition cost with zero repeat retention",
+        "Manual parcel packaging and counter courier queues",
+        "No digital customer database or remarketing capability"
       ]
     },
     "new_way": {
-      "title": "🚀 The Trai Inc Way",
+      "title": "🚀 Trai Inc D2C Engine",
       "items": [
-        "WhatsApp AI bot replies instantly, captures every lead",
-        "Customer tracking system remembers every lead, never loses a deal",
-        "Website that shows up on Google page 1",
-        "Automated GST invoicing in one click",
-        "Staff dashboard with attendance & task tracking",
-        "One-time affordable build + optional monthly support"
+        "Reach 28,000+ pin codes and millions of buyers nationwide",
+        "24/7 online orders + automated WhatsApp AI sales assistant",
+        "Live inventory sync between offline counter & e-store",
+        "Automated abandoned cart recovery recovering 25%+ sales",
+        "1-click automated shipping label generation & doorstep pickup",
+        "Meta & Google Ads tracking for high-ROAS profitable customer acquisition"
       ]
     }
   },
   "estimator": {
-    "subtitle": "COST CALCULATOR",
-    "title": "What Will It Cost?",
-    "desc": "Get a transparent, instant estimate. No hidden fees, no surprise invoices. We price honestly so you can budget confidently.",
+    "subtitle": "TRANSPARENT PACKAGES",
+    "title": "Estimate Your D2C Launch Cost",
+    "desc": "Get a transparent, upfront estimate. Fixed-price contracts, dedicated engineering, and complete handover with zero revenue share or hidden fees.",
     "bullets": [
-      "No lock-in contracts",
-      "Fixed-price contracts with advance payment",
-      "Free 30-day post-launch support"
+      "100% Code & Store Ownership (No revenue commission)",
+      "Fixed-price quote with upfront milestone roadmap",
+      "Free 30-day post-launch hyper-care & support"
     ],
     "options": [
-      { "value": "15000", "label": "Business Website (Starts ₹15K)" },
-      { "value": "30000", "label": "E-commerce Store (Starts ₹30K)" },
-      { "value": "50000", "label": "Customer Tracking System (Starts ₹50K)" },
-      { "value": "25000", "label": "WhatsApp AI Chatbot (Starts ₹25K)" },
-      { "value": "100000", "label": "Mobile App — iOS/Android (Starts ₹1L)" },
-      { "value": "150000", "label": "Full Digital Suite (Starts ₹1.5L)" }
+      { "value": "35000", "label": "D2C Starter Storefront (Shopify/WooCommerce — ₹35K)" },
+      { "value": "65000", "label": "Full D2C Launchpad + WhatsApp Store (₹65K)" },
+      { "value": "120000", "label": "Custom Headless Next.js D2C Platform (₹1.2L)" },
+      { "value": "180000", "label": "Omnichannel POS + Multi-Storefront Engine (₹1.8L)" },
+      { "value": "250000", "label": "Enterprise D2C Suite + Mobile App (₹2.5L)" }
     ]
   },
   "success_stories": {
@@ -113,32 +112,32 @@
     "title": "Real problems. Real solutions. Real growth.",
     "items": [
       {
-        "client": "Chitravan Resort",
-        "title": "From paper bookings to a real-time CRM",
-        "problem": "Losing track of bookings on paper, missing follow-ups, and double-booking rooms during peak season.",
-        "solution": "A custom CRM and booking engine with real-time sync, automated WhatsApp guest confirmations, and a staff dashboard.",
-        "tags": ["CRM", "WhatsApp", "Hospitality"]
+        "client": "Regional Retail Brand",
+        "title": "From single-city shop to 19,000+ pin codes served",
+        "problem": "Limited by local foot traffic and struggling with manual telephone orders and high return rates.",
+        "solution": "Built a headless e-commerce store with automated Shiprocket logistics, 1-click UPI, and COD OTP verification, driving 300+ orders/week nationwide.",
+        "tags": ["D2C Storefront", "Logistics Automation", "UPI Checkout"]
       },
       {
-        "client": "Bhu Master",
-        "title": "Zero lead leakage for a real estate firm",
-        "problem": "Managing hundreds of real estate leads via scattered spreadsheets. Sales team losing hot leads daily.",
-        "solution": "A fully digital real estate lead management platform with auto-assignment, follow-up reminders, and pipeline analytics.",
-        "tags": ["Lead Management", "Real Estate", "Automation"]
+        "client": "Dashak Pharma",
+        "title": "Zero-friction WhatsApp distribution ordering",
+        "problem": "Manual order recording over phone calls, leading to order entry errors and dispatch delays.",
+        "solution": "Automated WhatsApp ordering system with real-time stock lookups, instant digital invoice generation, and automated fulfillment routing.",
+        "tags": ["WhatsApp API", "ERP Integration", "B2B / D2C"]
       },
       {
-        "client": "CMS City Montessori School",
-        "title": "Digital presence for the world's largest school",
-        "problem": "Outdated web presence that didn't reflect the school's global reputation. No structured admission inquiry system.",
-        "solution": "Modern, SEO-optimized website with integrated admission forms, WhatsApp inquiry routing, and parent portal.",
-        "tags": ["Website", "SEO", "Education"]
+        "client": "Chitravan Resort & Lifestyle",
+        "title": "Real-time booking and guest automation engine",
+        "problem": "Managing bookings on paper led to double-bookings during peak holidays and lost customer inquiries.",
+        "solution": "Custom booking portal with real-time inventory management, automated WhatsApp payment confirmations, and guest loyalty tracking.",
+        "tags": ["Custom Platform", "Real-Time Sync", "CRM"]
       }
     ]
   },
   "grand_cta": {
-    "title": "Ready to Take Your 🏪 Business Online?",
-    "description": "Join the local businesses who stopped losing customers to competitors with better digital presence. Book a free 30-minute consultation — no pitch, just honest advice.",
-    "button_text": "Get in Touch",
+    "title": "Ready to Turn Your 🏪 Local Store Into A Pan-India D2C Brand?",
+    "description": "Join the ambitious retailers and manufacturers scaling nationwide. Schedule a free 30-minute D2C roadmap session — no sales pitch, just a concrete step-by-step engineering plan.",
+    "button_text": "Schedule Your D2C Roadmap Session",
     "url": "contact.html"
   }
 }

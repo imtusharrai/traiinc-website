@@ -28,7 +28,7 @@
                 {
                     heading: "By Business Size",
                     items: [
-                        { icon: "🏪", label: "Micro & Local Business", href: "msmes.html", desc: "Local shops & small teams" },
+                        { icon: "🏪", label: "Retail to D2C Brands", href: "msmes.html", desc: "Scale offline stores to pan-India D2C" },
                         { icon: "🚀", label: "Startups", href: "startups.html", desc: "MVPs, cloud, go-to-market" },
                         { icon: "🏢", label: "Small & Medium Business", href: "smb.html", desc: "10-50 employees: CRMs, scaling" },
                         { icon: "🏗️", label: "Large Enterprises", href: "enterprise.html", desc: "Cloud migration, AI, security" }
@@ -553,7 +553,7 @@
                 <h4>Industries</h4>
                 <ul>
                     <li><a href="startups.html">Startups</a></li>
-                    <li><a href="msmes.html">MSMEs</a></li>
+                    <li><a href="msmes.html">Retail & D2C</a></li>
                     <li><a href="smb.html">SMB</a></li>
                     <li><a href="enterprise.html">Enterprise</a></li>
                 </ul>

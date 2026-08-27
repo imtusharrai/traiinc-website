@@ -54,41 +54,41 @@
     "tabs": [
       {
         "id": "msme",
-        "label": "Micro & Local",
+        "label": "Retail to D2C",
         "accent": "#FF1A1A",
         "tab_text": "#FFFFFF",
-        "badge": "Micro & Local Business",
-        "panel_title": "Get your shop online, the simple way",
-        "panel_subtitle": "Websites, WhatsApp automation, and Google Maps visibility — starting at ₹15,000.",
-        "cta_text": "Explore Micro & Local Solutions",
+        "badge": "Retail to D2C Scale",
+        "panel_title": "Turn your physical store into a pan-India D2C brand",
+        "panel_subtitle": "Modern e-commerce stores, automated shipping, offline POS sync, and WhatsApp AI sales.",
+        "cta_text": "Explore Retail to D2C Solutions",
         "cta_href": "msmes.html",
         "image": "/img/audience-msme.jpg",
-        "image_alt": "Local shop owner managing their business on a phone",
-        "image_caption": "Built for local businesses like yours",
+        "image_alt": "Retail store owner managing online D2C orders on a dashboard",
+        "image_caption": "Engineered for local stores scaling nationwide",
         "cards": [
           {
-            "icon_key": "device",
-            "tag": "WEBSITE + APP",
-            "title": "Smart Websites & Mobile Apps",
-            "desc": "Fast, mobile-first sites that actually take orders."
+            "icon_key": "cart",
+            "tag": "E-COMMERCE STORE",
+            "title": "Custom & Shopify E-Stores",
+            "desc": "Sub-second load times, mobile UX, and 1-click UPI checkout."
+          },
+          {
+            "icon_key": "database",
+            "tag": "POS & INVENTORY",
+            "title": "Unified Store & Stock Sync",
+            "desc": "Sync billing counter with online store in real-time."
+          },
+          {
+            "icon_key": "truck",
+            "tag": "LOGISTICS & RTO",
+            "title": "Automated Shipping & RTO Shield",
+            "desc": "Shiprocket/Delhivery auto-dispatch + COD OTP verification."
           },
           {
             "icon_key": "chat",
-            "tag": "AUTOMATION",
-            "title": "WhatsApp AI Assistant",
-            "desc": "Auto-reply to inquiries and capture leads 24/7."
-          },
-          {
-            "icon_key": "users",
-            "tag": "CRM",
-            "title": "Customer Tracking System",
-            "desc": "Replace spreadsheets with one real system."
-          },
-          {
-            "icon_key": "pin",
-            "tag": "SEO",
-            "title": "Local SEO & Google Business Profile",
-            "desc": "Show up first when customers search \"near me.\""
+            "tag": "WHATSAPP COMMERCE",
+            "title": "WhatsApp AI Sales & Cart Recovery",
+            "desc": "24/7 catalog browsing, automated ordering, and cart recovery."
           }
         ]
       },
