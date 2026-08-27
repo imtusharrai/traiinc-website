@@ -129,12 +129,59 @@
       }
     ]
   },
+  "trending_categories": {
+    "subtitle": "TRENDING CATEGORIES",
+    "title": "Hot Picks Across Every Category",
+    "desc": "Explore bestselling and high-velocity retail categories engineered for scale across custom D2C storefronts and ONDC network marketplaces.",
+    "items": [
+      {
+        "title": "Sports Shoes",
+        "image": "assets/d2c/categories/cat-sports-shoes.png",
+        "tag": "Footwear"
+      },
+      {
+        "title": "Earbuds",
+        "image": "assets/d2c/categories/cat-earbuds.png",
+        "tag": "Audio"
+      },
+      {
+        "title": "T-shirts",
+        "image": "assets/d2c/categories/cat-tshirts.png",
+        "tag": "Apparel"
+      },
+      {
+        "title": "Pickles & Chutney",
+        "image": "assets/d2c/categories/cat-pickles.png",
+        "tag": "Gourmet"
+      },
+      {
+        "title": "Fragrances",
+        "image": "assets/d2c/categories/cat-fragrances.png",
+        "tag": "Beauty"
+      },
+      {
+        "title": "Smart Watches",
+        "image": "assets/d2c/categories/cat-smart-watches.png",
+        "tag": "Wearables"
+      },
+      {
+        "title": "Speakers",
+        "image": "assets/d2c/categories/cat-speakers.png",
+        "tag": "Audio"
+      },
+      {
+        "title": "Juicers",
+        "image": "assets/d2c/categories/cat-juicers.png",
+        "tag": "Kitchen"
+      }
+    ]
+  },
   "image_showcase": {
     "subtitle": "SELLER PLATFORM IN ACTION",
     "title": "See How Local Businesses Scale With Our D2C & ONDC Platform",
-    "desc": "Our unified merchant dashboard manages real-time POS stock sync, ONDC buyer app cataloging, and automated multi-courier dispatch with 0% commission.",
-    "image": "assets/d2c/d2c-fashion-brand-showcase.jpg",
-    "image_alt": "D2C and ONDC seller platform dashboard showing multi-channel commerce management",
+    "desc": "Our unified merchant dashboard manages real-time POS stock sync, ONDC buyer app cataloging, AI background editing, and automated multi-courier dispatch with 0% commission.",
+    "image": "assets/d2c/d2c-ai-cataloging.png",
+    "image_alt": "D2C and ONDC seller platform dashboard showing AI cataloging and multi-channel commerce management",
     "stats": [
       {
         "val": "10Cr+",
@@ -151,6 +198,34 @@
       {
         "val": "24/7",
         "label": "WhatsApp AI Orders"
+      }
+    ]
+  },
+  "heritage_showcase": {
+    "subtitle": "DISCOVER INDIA, STATE BY STATE",
+    "title": "Explore India's Heritage Through Local Stores",
+    "desc": "Empowering regional artisans, heritage handlooms, and indigenous manufacturers across Indian states to sell nationwide on ONDC & custom D2C storefronts.",
+    "items": [
+      {
+        "state": "UTTAR PRADESH",
+        "title": "Crafted in Uttar Pradesh",
+        "desc": "Shop Chikankari & Woodcraft made to Cherish",
+        "image": "assets/d2c/d2c-heritage-up.png",
+        "cta": "Shop Now"
+      },
+      {
+        "state": "HIMACHAL PRADESH",
+        "title": "Spirit of the Himalayas",
+        "desc": "Discover Heritage Crafts Inspired by Himalayan Spirit",
+        "image": "assets/d2c/d2c-heritage-hp.png",
+        "cta": "Shop Now"
+      },
+      {
+        "state": "MADHYA PRADESH",
+        "title": "Echoes of Madhya Pradesh",
+        "desc": "Shop Gond Paintings, Weaves and Woodwork",
+        "image": "assets/d2c/d2c-heritage-mp.png",
+        "cta": "Shop Now"
       }
     ]
   },

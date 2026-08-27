@@ -2753,6 +2753,114 @@ body.light-mode .tech-featured { border-color: var(--border-subtle); }
             }
         }
 
+        /* ─── D2C Trending Categories (Hot Picks) ─── */
+        .d2c-trending-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 16px;
+            margin-top: 40px;
+            margin-bottom: 70px;
+        }
+        .d2c-trending-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .d2c-trending-item:hover {
+            transform: translateY(-6px);
+        }
+        .d2c-trending-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 2px dashed rgba(59, 130, 246, 0.35);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .d2c-trending-item:hover .d2c-trending-circle {
+            border-color: #3b82f6;
+            border-style: solid;
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.25);
+            transform: scale(1.05);
+        }
+        .d2c-trending-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        .d2c-trending-label {
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-top: 12px;
+            line-height: 1.3;
+        }
+
+        /* ─── D2C Regional & State Heritage Showcase ─── */
+        .d2c-heritage-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+            margin-bottom: 80px;
+        }
+        .d2c-heritage-card {
+            border-radius: 20px;
+            overflow: hidden;
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .d2c-heritage-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+            border-color: #ec4899;
+        }
+        .d2c-heritage-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        @media (max-width: 1100px) {
+            .d2c-trending-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+            }
+            .d2c-heritage-grid {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        @media (max-width: 600px) {
+            .d2c-trending-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            .d2c-trending-circle {
+                width: 84px;
+                height: 84px;
+            }
+        }
+
         /* ─── D2C Platform Showcase (D2C & ONDC Tool Stack) ─── */
         .d2c-showcase-grid {
             display: grid;

@@ -2261,6 +2261,27 @@ function renderD2C(data) {
         </section>
         ` : ''}
 
+        <!-- TRENDING CATEGORIES (HOT PICKS ACROSS EVERY CATEGORY) -->
+        ${data.trending_categories ? `
+        <section class="container fade-in msme-section-loose-top">
+            <div class="section-header center">
+                <h4 class="mini-title" style="color: #ec4899;">${data.trending_categories.subtitle}</h4>
+                <h2 class="text-4xl mt-2">${data.trending_categories.title}</h2>
+                <p style="max-width: 680px; margin: 12px auto 0; color: var(--text-muted);">${data.trending_categories.desc}</p>
+            </div>
+            <div class="d2c-trending-grid">
+                ${data.trending_categories.items.map(item => `
+                    <div class="d2c-trending-item">
+                        <div class="d2c-trending-circle">
+                            <img src="${item.image}" alt="${item.title}" loading="lazy" />
+                        </div>
+                        <span class="d2c-trending-label">${item.title}</span>
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+        ` : ''}
+
         <!-- IMAGE SHOWCASE (SELLER PLATFORM IN ACTION) -->
         ${data.image_showcase ? `
         <section class="container fade-in msme-section-loose-top">
@@ -2307,6 +2328,24 @@ function renderD2C(data) {
                             <h3>${item.title}</h3>
                             <p>${item.desc}</p>
                         </div>
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+        ` : ''}
+
+        <!-- REGIONAL & STATE-WISE HERITAGE SHOWCASE -->
+        ${data.heritage_showcase ? `
+        <section class="container fade-in msme-section-loose-top">
+            <div class="section-header center">
+                <h4 class="mini-title" style="color: #ec4899;">${data.heritage_showcase.subtitle}</h4>
+                <h2 class="text-4xl mt-2">${data.heritage_showcase.title}</h2>
+                <p style="max-width: 680px; margin: 12px auto 0; color: var(--text-muted);">${data.heritage_showcase.desc}</p>
+            </div>
+            <div class="d2c-heritage-grid">
+                ${data.heritage_showcase.items.map(item => `
+                    <div class="d2c-heritage-card">
+                        <img src="${item.image}" alt="${item.title}" loading="lazy" class="d2c-heritage-img" />
                     </div>
                 `).join('')}
             </div>
