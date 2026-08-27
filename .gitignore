@@ -33,7 +33,6 @@ make_white_logo.py
 *.md
 *.jpg
 *.png
-!img/*.png
-!img/*.jpg
-!img/*.jpeg
+!img/**
+!assets/**
 
