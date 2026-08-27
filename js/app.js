@@ -356,11 +356,39 @@ document.addEventListener("DOMContentLoaded", async () => {
                 });
             }
 
-            // Initialize 3D TRAI Bot on home page
-            if (pageId === 'home' && window.TraiBot) {
-                setTimeout(() => {
-                    window.TraiBot.init('#traibot-container');
-                }, 100);
+            // Initialize 3D TRAI Bot and Audience Gallery on home page
+            if (pageId === 'home') {
+                if (window.TraiBot) {
+                    setTimeout(() => {
+                        window.TraiBot.init('#traibot-container');
+                    }, 100);
+                }
+
+                // Audience Gallery Auto-Rotate
+                document.querySelectorAll('.audience-gallery-card').forEach(gallery => {
+                    const slides = gallery.querySelectorAll('.audience-gallery-slide');
+                    const pills = gallery.querySelectorAll('.audience-gallery-pill');
+                    if (slides.length <= 1) return;
+                    let currentIdx = 0;
+                    let timer = null;
+
+                    function switchSlide(idx) {
+                        currentIdx = idx;
+                        slides.forEach((s, i) => s.classList.toggle('active', i === currentIdx));
+                        pills.forEach((p, i) => p.classList.toggle('active', i === currentIdx));
+                    }
+
+                    function startTimer() {
+                        if (timer) clearInterval(timer);
+                        timer = setInterval(() => {
+                            switchSlide((currentIdx + 1) % slides.length);
+                        }, 3800);
+                    }
+
+                    gallery.addEventListener('mouseenter', () => { if (timer) clearInterval(timer); });
+                    gallery.addEventListener('mouseleave', startTimer);
+                    startTimer();
+                });
             }
 
 
@@ -566,6 +594,20 @@ document.addEventListener('click', (e) => {
 });
 
 document.addEventListener('click', (e) => {
+    const pill = e.target.closest('.audience-gallery-pill');
+    if (pill) {
+        const gallery = pill.closest('.audience-gallery-card');
+        if (!gallery) return;
+        const targetIndex = parseInt(pill.dataset.slideTo, 10);
+        gallery.querySelectorAll('.audience-gallery-slide').forEach((s, idx) => {
+            s.classList.toggle('active', idx === targetIndex);
+        });
+        gallery.querySelectorAll('.audience-gallery-pill').forEach((p, idx) => {
+            p.classList.toggle('active', idx === targetIndex);
+        });
+        return;
+    }
+
     const tab = e.target.closest('.audience-tab-btn');
     if (!tab) return;
     const wrapper = tab.closest('.audience-finder');
@@ -690,13 +732,37 @@ function renderHome(data) {
                         <a href="${t.cta_href}" class="audience-panel-cta">${t.cta_text} →</a>
                     </div>
                 </div>
-                ${t.image ? `
+                ${t.showcase_images && t.showcase_images.length > 0 ? `
+                <div class="audience-panel-right">
+                    <div class="audience-gallery-card" data-gallery-id="${t.id}">
+                        <div class="audience-gallery-main">
+                            ${t.showcase_images.map((img, idx) => `
+                            <div class="audience-gallery-slide ${idx === 0 ? 'active' : ''}" data-slide-index="${idx}">
+                                <img src="${img.src}" alt="${img.title || ''}" loading="lazy" />
+                                ${img.tag ? `<span class="audience-gallery-tag">${img.tag}</span>` : ''}
+                                <div class="audience-gallery-caption">
+                                    <strong>${img.title}</strong>
+                                    <span>${img.caption}</span>
+                                </div>
+                            </div>
+                            `).join('')}
+                        </div>
+                        <div class="audience-gallery-nav">
+                            ${t.showcase_images.map((img, idx) => `
+                            <button type="button" class="audience-gallery-pill ${idx === 0 ? 'active' : ''}" data-slide-to="${idx}">
+                                ${img.short_label || img.tag || img.title}
+                            </button>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+                ` : (t.image ? `
                 <div class="audience-panel-right">
                     <div class="audience-panel-media">
                         <img src="${t.image}" alt="${t.image_alt || ''}" loading="lazy" onerror="this.parentElement.style.display='none'" />
                         ${t.image_caption ? `<span class="audience-panel-media-caption">${t.image_caption}</span>` : ''}
                     </div>
-                </div>` : ''}
+                </div>` : '')}
 
             </div>`).join('')}
         </div>

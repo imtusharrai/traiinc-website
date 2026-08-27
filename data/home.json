@@ -65,6 +65,50 @@
         "image": "assets/d2c/d2c-store-migration.png",
         "image_alt": "Modern e-commerce storefront and mobile store built for D2C scaling",
         "image_caption": "Custom D2C e-commerce platforms engineered by Trai Inc",
+        "showcase_images": [
+          {
+            "src": "assets/d2c/d2c-store-migration.png",
+            "title": "D2C Online Store & Rapid Launch",
+            "caption": "Headless Next.js & Custom Shopify E-Commerce",
+            "tag": "D2C STOREFRONT",
+            "short_label": "🛍️ Storefront"
+          },
+          {
+            "src": "assets/d2c/d2c-fashion-showcase.jpg",
+            "title": "Fashion, Apparel & Footwear",
+            "caption": "High-Converting Lookbooks, Variants & Mobile UX",
+            "tag": "FASHION & APPAREL",
+            "short_label": "👗 Fashion"
+          },
+          {
+            "src": "assets/d2c/d2c-electronics-showcase.jpg",
+            "title": "Electronics & Tech Accessories",
+            "caption": "Specs Comparison & Instant Express Dispatch",
+            "tag": "TECH & ELECTRONICS",
+            "short_label": "📱 Electronics"
+          },
+          {
+            "src": "assets/d2c/d2c-home-decor-showcase.jpg",
+            "title": "Home Decor & Furnishing",
+            "caption": "Rich Visual Catalogs & Pan-India Freight Support",
+            "tag": "HOME & DECOR",
+            "short_label": "🏡 Home Decor"
+          },
+          {
+            "src": "assets/d2c/d2c-conversation-dashboard.png",
+            "title": "WhatsApp Conversational AI Commerce",
+            "caption": "24/7 Catalog Discovery & 34% Abandoned Cart Recovery",
+            "tag": "WHATSAPP COMMERCE",
+            "short_label": "💬 WhatsApp AI"
+          },
+          {
+            "src": "assets/d2c/d2c-grocery-showcase.jpg",
+            "title": "Hyperlocal FMCG & Grocery Engine",
+            "caption": "Quick Delivery, Batch Control & Subscriptions",
+            "tag": "FMCG & GROCERY",
+            "short_label": "🛒 Grocery"
+          }
+        ],
         "cards": [
           {
             "icon_key": "cart",
