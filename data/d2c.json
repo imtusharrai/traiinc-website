@@ -99,6 +99,61 @@
       }
     ]
   },
+  "categories_strip": {
+    "subtitle": "MULTI-CATEGORY D2C EXCELLENCE",
+    "title": "Engineered for Every Retail & Wholesale Vertical",
+    "items": [
+      {
+        "title": "Fashion, Apparel & Footwear",
+        "desc": "High-converting lookbooks, size charts, variant selectors, and video reels integration.",
+        "image": "assets/d2c/d2c-fashion-showcase.jpg",
+        "tag": "FASHION & LIFESTYLE"
+      },
+      {
+        "title": "Electronics & Mobile Accessories",
+        "desc": "Specs comparison, warranty registration, IMEI tracking, and express multi-carrier courier dispatch.",
+        "image": "assets/d2c/d2c-electronics-showcase.jpg",
+        "tag": "TECH & APPLIANCES"
+      },
+      {
+        "title": "Home Decor & Furnishing",
+        "desc": "Rich visual galleries, bulky freight logistics, and room-matching dimensions support.",
+        "image": "assets/d2c/d2c-home-decor-showcase.jpg",
+        "tag": "HOME & LIVING"
+      },
+      {
+        "title": "Groceries, FMCG & Gourmet",
+        "desc": "Hyperlocal quick delivery, batch & expiry control, and recurring WhatsApp subscriptions.",
+        "image": "assets/d2c/d2c-grocery-showcase.jpg",
+        "tag": "FMCG & ESSENTIALS"
+      }
+    ]
+  },
+  "video_showcase": {
+    "subtitle": "SELLER PLATFORM IN ACTION",
+    "title": "See How Local Businesses Scale With Our D2C & ONDC Platform",
+    "desc": "Watch how our unified merchant dashboard manages real-time POS stock sync, ONDC buyer app cataloging, and automated multi-courier dispatch with 0% commission.",
+    "video_url": "assets/d2c/mystore/d2c-seller-video.mp4",
+    "poster": "assets/d2c/d2c-decor-brand-showcase.jpg",
+    "stats": [
+      {
+        "val": "10Cr+",
+        "label": "ONDC Buyer Access"
+      },
+      {
+        "val": "28,000+",
+        "label": "Pin Codes Shipped"
+      },
+      {
+        "val": "0%",
+        "label": "Marketplace Fee"
+      },
+      {
+        "val": "24/7",
+        "label": "WhatsApp AI Orders"
+      }
+    ]
+  },
   "showcase": {
     "subtitle": "MULTI-CHANNEL D2C & ONDC COMMERCE ENGINE",
     "title": "A battle-tested digital platform built for scale",

@@ -2609,6 +2609,150 @@ body.light-mode .tech-featured { border-color: var(--border-subtle); }
             margin-bottom: 80px;
         }
         
+        /* ─── D2C Multi-Category Strip ─── */
+        .d2c-categories-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+            margin-bottom: 80px;
+        }
+        .d2c-category-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .d2c-category-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--accent-color);
+        }
+        .d2c-category-media {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background: var(--bg-dark);
+        }
+        .d2c-category-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .d2c-category-card:hover .d2c-category-media img {
+            transform: scale(1.06);
+        }
+        .d2c-category-tag {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(8px);
+            color: #fff;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            padding: 4px 10px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .d2c-category-body {
+            padding: 20px 22px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .d2c-category-body h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .d2c-category-body p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ─── D2C Video Showcase ─── */
+        .d2c-video-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 28px;
+            padding: 48px;
+            margin-bottom: 90px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        .d2c-video-inner {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .d2c-video-player-box {
+            position: relative;
+            border-radius: 18px;
+            overflow: hidden;
+            background: #000;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--border-light);
+        }
+        .d2c-video-player-box video {
+            width: 100%;
+            height: 100%;
+            max-height: 420px;
+            object-fit: cover;
+            display: block;
+        }
+        .d2c-video-stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 24px;
+        }
+        .d2c-video-stat-item {
+            background: var(--bg-light);
+            border: 1px solid var(--border-light);
+            border-radius: 14px;
+            padding: 16px;
+            text-align: center;
+        }
+        .d2c-video-stat-val {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--accent-color);
+        }
+        .d2c-video-stat-lbl {
+            font-size: 0.76rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        @media (max-width: 1024px) {
+            .d2c-categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .d2c-video-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 640px) {
+            .d2c-categories-grid {
+                grid-template-columns: 1fr;
+            }
+            .d2c-video-section {
+                padding: 24px;
+            }
+        }
+
         /* ─── D2C Platform Showcase (D2C & ONDC Tool Stack) ─── */
         .d2c-showcase-grid {
             display: grid;

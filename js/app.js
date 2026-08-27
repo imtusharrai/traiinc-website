@@ -2145,6 +2145,60 @@ function renderD2C(data) {
             </div>
         </section>
 
+        <!-- MULTI-CATEGORY D2C STRIP -->
+        ${data.categories_strip ? `
+        <section class="container fade-in msme-section-loose-top">
+            <div class="section-header center">
+                <h4 class="mini-title">${data.categories_strip.subtitle}</h4>
+                <h2 class="text-4xl mt-2">${data.categories_strip.title}</h2>
+            </div>
+            <div class="d2c-categories-grid">
+                ${data.categories_strip.items.map((cat, idx) => `
+                    <div class="d2c-category-card fade-in">
+                        <div class="d2c-category-media">
+                            <img src="${cat.image}" alt="${cat.title}" loading="lazy" />
+                            ${cat.tag ? `<span class="d2c-category-tag">${cat.tag}</span>` : ''}
+                        </div>
+                        <div class="d2c-category-body">
+                            <h3>${cat.title}</h3>
+                            <p>${cat.desc}</p>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+        ` : ''}
+
+        <!-- VIDEO SHOWCASE (LIVE SELLER PLATFORM IN ACTION) -->
+        ${data.video_showcase ? `
+        <section class="container fade-in msme-section-loose-top">
+            <div class="d2c-video-section">
+                <div class="d2c-video-inner">
+                    <div class="d2c-video-player-box">
+                        <video controls preload="metadata" poster="${data.video_showcase.poster || ''}">
+                            <source src="${data.video_showcase.video_url}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="d2c-video-content">
+                        <h4 class="mini-title">${data.video_showcase.subtitle}</h4>
+                        <h2 class="text-3xl mt-2 mb-3">${data.video_showcase.title}</h2>
+                        <p style="color: var(--text-muted); line-height: 1.7; font-size: 0.95rem;">${data.video_showcase.desc}</p>
+                        
+                        <div class="d2c-video-stats-grid">
+                            ${data.video_showcase.stats.map(s => `
+                                <div class="d2c-video-stat-item">
+                                    <div class="d2c-video-stat-val">${s.val}</div>
+                                    <div class="d2c-video-stat-lbl">${s.label}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        ` : ''}
+
         <!-- PLATFORM SHOWCASE (D2C & ONDC COMMERCE ENGINE) -->
         ${data.showcase ? `
         <section id="showcase" class="container fade-in msme-section-loose-top">
