@@ -61,14 +61,31 @@
   ],
   "feature_pills": [
     "\ud83d\ude80 1-Click Fast Store Launch",
-    "\ud83d\udd04 Real-Time Offline POS & Stock Sync",
-    "\ud83d\ude9a 28,000+ Pin Codes Multi-Courier Logistics",
-    "\ud83d\udcac Automated WhatsApp Cart Recovery",
-    "\u26a1 1-Click UPI & Razorpay Checkout",
-    "\ud83d\udee1\ufe0f COD OTP Verification (RTO Shield)",
-    "\ud83c\udf10 ONDC Network & Marketplace Connect",
-    "\ud83d\udcca Unified Multi-Channel Analytics"
+    "🚀 1-Click Fast Store Launch",
+    "🔄 Real-Time Offline POS & Stock Sync",
+    "🚚 28,000+ Pin Codes Multi-Courier Logistics",
+    "💬 Automated WhatsApp Cart Recovery",
+    "⚡ 1-Click UPI & Razorpay Checkout",
+    "🛡️ COD OTP Verification (RTO Shield)",
+    "🌐 ONDC Network & Marketplace Connect",
+    "📊 Unified Multi-Channel Analytics"
   ],
+  "brand_marquee": {
+    "subtitle": "POWERING COMMERCE FOR MODERN BRANDS & ENTERPRISES",
+    "logos": [
+      { "name": "Tata", "src": "assets/d2c/brands/brand-tata.png" },
+      { "name": "Amul", "src": "assets/d2c/brands/brand-amul.png" },
+      { "name": "Croma", "src": "assets/d2c/brands/brand-croma.png" },
+      { "name": "Epson", "src": "assets/d2c/brands/brand-epson.png" },
+      { "name": "Beardo", "src": "assets/d2c/brands/brand-beardo.png" },
+      { "name": "Ramraj", "src": "assets/d2c/brands/brand-ramraj.png" },
+      { "name": "Paragon", "src": "assets/d2c/brands/brand-paragon.png" },
+      { "name": "Sri Sri Tattva", "src": "assets/d2c/brands/brand-srisri.png" },
+      { "name": "Nutraj", "src": "assets/d2c/brands/brand-nutraj.png" },
+      { "name": "Farmley", "src": "assets/d2c/brands/brand-farmley.png" },
+      { "name": "Vega", "src": "assets/d2c/brands/brand-vega.png" }
+    ]
+  },
   "services": {
     "subtitle": "THE 4-PILLAR TRANSFORMATION STACK",
     "title": "Everything your offline business needs to conquer D2C",

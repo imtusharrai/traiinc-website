@@ -2220,6 +2220,22 @@ function renderD2C(data) {
             </div>
         </section>
 
+        <!-- BRAND MARQUEE -->
+        ${data.brand_marquee ? `
+        <section class="container fade-in msme-section-tight-top">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <span class="mini-title" style="font-size: 0.78rem; letter-spacing: 0.08em;">${data.brand_marquee.subtitle}</span>
+            </div>
+            <div class="d2c-brands-strip">
+                ${data.brand_marquee.logos.map(logo => `
+                    <div class="d2c-brand-logo-item" title="${logo.name}">
+                        <img src="${logo.src}" alt="${logo.name}" loading="lazy" />
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+        ` : ''}
+
         <!-- BENTO SERVICE GRID -->
         <section class="container fade-in msme-section-loose-top">
             <div class="section-header">
