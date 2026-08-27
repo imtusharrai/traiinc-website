@@ -6,44 +6,42 @@
 body.light-mode {
     /* ── Surfaces ── */
     --bg-dark: #FFFFFF;
-    --bg-darker: #F5F5F5;
+    --bg-darker: #F8FAFC;
     --bg-card: #FFFFFF;
-    --bg-card-hover: #F8F8F8;
-    --bg-nav: rgba(255, 255, 255, 0.92);
-    --bg-light: rgba(0, 0, 0, 0.04);
+    --bg-card-hover: #F1F5F9;
+    --bg-nav: rgba(255, 255, 255, 0.94);
+    --bg-light: rgba(0, 0, 0, 0.03);
 
-    /* ── Text ── */
-    --text-main: #111111;
-    --text-muted: #555555;
-    --text-tertiary: #999999;
+    /* ── Text (Soft Charcoal, Zero Eye Strain) ── */
+    --text-main: #1E293B;
+    --text-muted: #64748B;
+    --text-tertiary: #94A3B8;
 
     /* ── Accent System (Light Mode) ── */
     --accent-color: #D91414;
-    --accent-glow: rgba(217, 20, 20, 0.15);
+    --accent-glow: rgba(217, 20, 20, 0.12);
     --brand-gradient: linear-gradient(135deg, #c400b0 0%, #D91414 50%, #e6a100 100%);
 
-
-
     /* ── Borders ── */
-    --border-light: rgba(0, 0, 0, 0.08);
-    --border-subtle: rgba(0, 0, 0, 0.05);
-    --border-strong: rgba(0, 0, 0, 0.15);
+    --border-light: rgba(0, 0, 0, 0.07);
+    --border-subtle: rgba(0, 0, 0, 0.04);
+    --border-strong: rgba(0, 0, 0, 0.12);
 
     /* ── Shadows (Multi-layer ambient diffusion) ── */
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
     --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
     --shadow-lg: 0 12px 28px -4px rgba(0, 0, 0, 0.06), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
     --shadow-xl: 0 24px 48px -12px rgba(0, 0, 0, 0.09), 0 8px 16px -4px rgba(0, 0, 0, 0.04);
-    --shadow-glow: 0 0 30px rgba(217, 20, 20, 0.12);
+    --shadow-glow: 0 0 30px rgba(217, 20, 20, 0.10);
 
     /* ── Glass (inverted for light) ── */
-    --glass-bg: rgba(255, 255, 255, 0.75);
+    --glass-bg: rgba(255, 255, 255, 0.85);
     --glass-border: rgba(0, 0, 0, 0.06);
 
     /* ── Dropdown ── */
     --dropdown-bg: #FFFFFF;
-    --dropdown-hover: rgba(0, 0, 0, 0.04);
-    --dropdown-shadow: 0 24px 80px rgba(0, 0, 0, 0.10);
+    --dropdown-hover: rgba(0, 0, 0, 0.03);
+    --dropdown-shadow: 0 24px 80px rgba(0, 0, 0, 0.08);
 
     /* ── Neon accents (muted for readability on white) ── */
     --neon-green: #00B85E;
@@ -56,10 +54,10 @@ body.light-mode {
     --color-danger: #DC2626;
 
     /* ── Chat ── */
-    --chat-bg: rgba(255, 255, 255, 0.92);
-    --chat-border: rgba(0, 0, 0, 0.08);
-    --chat-msg-bot: rgba(0, 0, 0, 0.04);
-    --chat-input-bg: rgba(0, 0, 0, 0.03);
+    --chat-bg: rgba(255, 255, 255, 0.94);
+    --chat-border: rgba(0, 0, 0, 0.07);
+    --chat-msg-bot: rgba(0, 0, 0, 0.03);
+    --chat-input-bg: rgba(0, 0, 0, 0.025);
 }
 
 /* ── Auto-Contrast for Custom JSON Colors (Light Mode) ── */
@@ -92,13 +90,13 @@ body.light-mode .service-feature-icon {
     --bg-light: rgba(255, 255, 255, 0.035);
 
     /* ── Text System ── */
-    --text-main: #F8FAFC;
+    --text-main: #F1F5F9;
     --text-muted: #94A3B8;
     --text-tertiary: #64748B;
 
     /* ── Accent System ── */
     --accent-color: #FF2626;
-    --accent-glow: rgba(255, 38, 38, 0.20);
+    --accent-glow: rgba(255, 38, 38, 0.18);
     --brand-gradient: linear-gradient(135deg, #e800d1 0%, #ff2626 50%, #ffb300 100%);
 
     /* ── Borders ── */
@@ -141,9 +139,9 @@ body.light-mode .service-feature-icon {
     --color-success: #00FF88;
     --color-danger: #FF4444;
 
-    /* ── Typography (Tier-1 Executive Precision) ── */
-    --font-heading: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    /* ── Typography (Apple SF Pro / Inter Clean Native System) ── */
+    --font-heading: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', 'Segoe UI', Roboto, sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', 'Segoe UI', Roboto, sans-serif;
     --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
     /* ── Motion ── */
@@ -181,7 +179,8 @@ body {
     background-color: var(--bg-dark);
     color: var(--text-main);
     font-family: var(--font-body);
-    line-height: 1.68;
+    font-size: 0.95rem;
+    line-height: 1.65;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -198,54 +197,68 @@ ul {
     list-style: none;
 }
 
+p {
+    font-size: 0.92rem;
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--text-muted);
+}
+
 section {
-    padding-top: clamp(64px, 7vw, 100px) !important;
-    padding-bottom: clamp(64px, 7vw, 100px) !important;
+    padding-top: clamp(56px, 6vw, 90px) !important;
+    padding-bottom: clamp(56px, 6vw, 90px) !important;
 }
 
 @media (max-width: 768px) {
     section {
-        padding-top: 50px !important;
-        padding-bottom: 50px !important;
+        padding-top: 44px !important;
+        padding-bottom: 44px !important;
     }
 }
 
 .container {
-    max-width: 1280px;
+    max-width: 1240px;
     margin: 0 auto;
     padding: 0 24px;
 }
 
-/* ─── Typography & Display Hierarchy ─── */
+/* ─── Typography & Display Hierarchy (Weight Restraint & Clean Scale) ─── */
 h1, .hero-title, .main-heading {
     font-family: var(--font-heading);
-    font-weight: 800;
-    letter-spacing: -0.035em;
-    line-height: 1.08;
+    font-size: clamp(2.25rem, 4.2vw, 3.4rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.12;
+    color: var(--text-main);
 }
 
 h2, .section-header h2 {
     font-family: var(--font-heading);
-    font-weight: 800;
-    letter-spacing: -0.025em;
-    line-height: 1.15;
+    font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.25;
+    color: var(--text-main);
+    margin-bottom: 10px;
 }
 
 h3 {
     font-family: var(--font-heading);
-    font-weight: 700;
-    letter-spacing: -0.018em;
-    line-height: 1.25;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.35;
+    color: var(--text-main);
 }
 
 .mini-title {
     color: var(--accent-color);
-    font-family: var(--font-mono);
-    font-weight: 700;
-    letter-spacing: 0.12em;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    font-size: 0.78rem;
-    margin-bottom: 14px;
+    font-size: 0.72rem;
+    margin-bottom: 10px;
     display: inline-block;
 }
 
@@ -2847,13 +2860,14 @@ body.light-mode .tech-featured { border-color: var(--border-subtle); }
         }
         .d2c-trending-label {
             font-family: var(--font-heading);
-            font-size: 0.85rem;
-            font-weight: 700;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
             color: var(--text-main);
-            margin-top: 14px;
+            margin-top: 12px;
             line-height: 1.25;
             text-align: center;
-            min-height: 34px;
+            min-height: 32px;
             display: flex;
             align-items: flex-start;
             justify-content: center;
@@ -2971,11 +2985,10 @@ body.light-mode .tech-featured { border-color: var(--border-subtle); }
         }
         .d2c-matrix-title {
             font-family: var(--font-heading);
-            font-size: 0.86rem;
-            font-weight: 800;
-            letter-spacing: 0.04em;
+            font-size: 0.88rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
             color: var(--text-main);
-            text-transform: uppercase;
         }
         .d2c-matrix-list {
             list-style: none;
@@ -2983,10 +2996,11 @@ body.light-mode .tech-featured { border-color: var(--border-subtle); }
             margin: 0;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 7px;
         }
         .d2c-matrix-item {
-            font-size: 0.84rem;
+            font-size: 0.82rem;
+            font-weight: 400;
             color: var(--text-muted);
             transition: color 0.2s ease, transform 0.2s ease;
             display: flex;
@@ -2996,8 +3010,9 @@ body.light-mode .tech-featured { border-color: var(--border-subtle); }
         .d2c-matrix-item::before {
             content: "•";
             color: var(--accent-color);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             line-height: 1;
+            opacity: 0.7;
         }
         .d2c-matrix-item:hover {
             color: var(--text-main);
