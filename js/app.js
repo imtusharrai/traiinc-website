@@ -2425,7 +2425,7 @@ function renderD2C(data) {
             <div class="container">
                 <div class="grand-cta-inner">
                     <h2>Ready to Scale Your Offline Store to Pan-India D2C?</h2>
-                    <p>Schedule a free technical & growth consultation with our e-commerce engineering team in Lucknow.</p>
+                    <p>Schedule a free technical & growth consultation with our e-commerce engineering team.</p>
                     <a href="https://wa.me/917905495478?text=${encodeURIComponent('Hi Trai Inc, I want to transform my retail store into a pan-India D2C brand.')}" target="_blank" class="btn-primary large">Book Free D2C Consultation &rarr;</a>
                 </div>
             </div>
