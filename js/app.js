@@ -2332,7 +2332,7 @@ function renderD2C(data) {
             <div class="d2c-video-section">
                 <div class="d2c-video-inner">
                     <div class="d2c-video-player-box">
-                        <img src="${data.image_showcase.image}" alt="${data.image_showcase.image_alt || ''}" loading="lazy" style="width:100%; height:100%; object-fit:cover; border-radius: var(--radius-md);" />
+                        <img src="${data.image_showcase.image}" alt="${data.image_showcase.image_alt || ''}" loading="lazy" class="d2c-showcase-hero-img" />
                     </div>
                     <div class="d2c-video-content">
                         <h4 class="mini-title">${data.image_showcase.subtitle}</h4>

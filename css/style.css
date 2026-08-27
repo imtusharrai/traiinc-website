@@ -2712,7 +2712,7 @@ body.light-mode .tech-featured { border-color: var(--border-subtle); }
             line-height: 1.6;
         }
 
-        /* ─── D2C Video Showcase ─── */
+        /* ─── D2C Platform Image Showcase ─── */
         .d2c-video-section {
             background: var(--bg-card);
             border: 1px solid var(--border-light);
@@ -2725,46 +2725,58 @@ body.light-mode .tech-featured { border-color: var(--border-subtle); }
         }
         .d2c-video-inner {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 40px;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 48px;
             align-items: center;
         }
         .d2c-video-player-box {
             position: relative;
-            border-radius: 18px;
-            overflow: hidden;
-            background: #000;
-            box-shadow: var(--shadow-xl);
-            border: 1px solid var(--border-light);
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: visible;
         }
-        .d2c-video-player-box video {
+        .d2c-showcase-hero-img {
             width: 100%;
-            height: 100%;
-            max-height: 420px;
-            object-fit: cover;
+            max-width: 520px;
+            height: auto;
+            object-fit: contain;
             display: block;
+            border-radius: 24px;
+            filter: drop-shadow(0 16px 36px rgba(15, 23, 42, 0.14));
+            transition: transform 0.4s ease, filter 0.4s ease;
+        }
+        .d2c-showcase-hero-img:hover {
+            transform: translateY(-4px) scale(1.02);
+            filter: drop-shadow(0 22px 42px rgba(15, 23, 42, 0.2));
         }
         .d2c-video-stats-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 16px;
-            margin-top: 24px;
+            margin-top: 28px;
         }
         .d2c-video-stat-item {
             background: var(--bg-light);
             border: 1px solid var(--border-light);
-            border-radius: 14px;
-            padding: 16px;
+            border-radius: 16px;
+            padding: 18px 16px;
             text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .d2c-video-stat-item:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-color);
         }
         .d2c-video-stat-val {
             font-family: var(--font-heading);
-            font-size: 1.6rem;
+            font-size: 1.65rem;
             font-weight: 800;
             color: var(--accent-color);
         }
         .d2c-video-stat-lbl {
-            font-size: 0.76rem;
+            font-size: 0.78rem;
             color: var(--text-muted);
             font-weight: 600;
             margin-top: 4px;
