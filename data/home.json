@@ -62,9 +62,9 @@
         "panel_subtitle": "Modern e-commerce stores, automated shipping, offline POS sync, and WhatsApp AI sales.",
         "cta_text": "Explore Retail to D2C Solutions",
         "cta_href": "msmes.html",
-        "image": "/img/audience-msme.jpg",
-        "image_alt": "Retail store owner managing online D2C orders on a dashboard",
-        "image_caption": "Engineered for local stores scaling nationwide",
+        "image": "assets/smartbiz/smartbiz-hero.png",
+        "image_alt": "Amazon SmartBiz and custom D2C mobile storefront with live orders",
+        "image_caption": "Amazon SmartBiz and custom D2C stores engineered by Trai Inc",
         "cards": [
           {
             "icon_key": "cart",
@@ -388,6 +388,10 @@
     "dynapar-qps.png",
     "bhima-gold.png",
     "anuschka.png",
+    "newish.png",
+    "kazarmax.png",
+    "klipsch.png",
+    "hmt.png",
     "1-2-150x150.png",
     "1-e1776768699414.png",
     "1.png",

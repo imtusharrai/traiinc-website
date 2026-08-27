@@ -64,6 +64,37 @@
       }
     ]
   },
+  "showcase": {
+    "subtitle": "POWERED BY AMAZON SMARTBIZ & MODERN D2C TECH",
+    "title": "A battle-tested digital infrastructure for your brand",
+    "desc": "We integrate Amazon SmartBiz, custom headless Next.js storefronts, multi-courier shipping, and WhatsApp commerce to turn local shops into pan-India D2C leaders.",
+    "items": [
+      {
+        "title": "High-Converting Storefront Themes",
+        "desc": "Mobile-first, blazing-fast e-commerce designs featuring rich galleries, customer reviews, variant selectors, and 1-click UPI checkout.",
+        "image": "assets/smartbiz/smartbiz-themes.png",
+        "tag": "STOREFRONT BUILDER"
+      },
+      {
+        "title": "Buy on WhatsApp & Conversational Sales",
+        "desc": "Let customers browse your entire product catalog, ask questions, and complete orders directly inside WhatsApp with 24/7 AI assistance.",
+        "image": "assets/smartbiz/smartbiz-whatsapp.png",
+        "tag": "WHATSAPP COMMERCE"
+      },
+      {
+        "title": "Multi-Courier Shipping & Automated Tracking",
+        "desc": "Integrated nationwide logistics with automated label generation, doorstep pickups, real-time tracking alerts, and COD verification to cut returns.",
+        "image": "assets/smartbiz/smartbiz-logistics.png",
+        "tag": "LOGISTICS ENGINE"
+      },
+      {
+        "title": "Unified Operations & Multi-Channel Inventory",
+        "desc": "Single-pane dashboard to sync physical billing counter sales with online orders, automated GST invoicing, and customer database tracking.",
+        "image": "assets/smartbiz/smartbiz-opshub.png",
+        "tag": "OPERATIONS HUB"
+      }
+    ]
+  },
   "comparison": {
     "subtitle": "THE TRANSFORMATION",
     "title": "Offline Limitations vs Pan-India D2C Scale",

@@ -2068,6 +2068,31 @@ function renderMSME(data) {
             </div>
         </section>
 
+        <!-- PLATFORM SHOWCASE (AMAZON SMARTBIZ & D2C TOOLS) -->
+        ${data.showcase ? `
+        <section class="container fade-in msme-section-loose-top">
+            <div class="section-header center">
+                <h4 class="mini-title">${data.showcase.subtitle}</h4>
+                <h2 class="text-4xl mt-2">${data.showcase.title}</h2>
+                <p style="max-width: 680px; margin: 12px auto 0; color: var(--text-muted);">${data.showcase.desc}</p>
+            </div>
+            <div class="d2c-showcase-grid">
+                ${data.showcase.items.map((item, idx) => `
+                    <div class="d2c-showcase-card fade-in">
+                        <div class="d2c-showcase-media">
+                            <img src="${item.image}" alt="${item.title}" loading="lazy" />
+                            ${item.tag ? `<span class="d2c-showcase-tag">${item.tag}</span>` : ''}
+                        </div>
+                        <div class="d2c-showcase-body">
+                            <h3>${item.title}</h3>
+                            <p>${item.desc}</p>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+        ` : ''}
+
         <!-- OLD WAY vs TRAI WAY -->
         <section class="compare-section fade-in">
             <div class="container">
