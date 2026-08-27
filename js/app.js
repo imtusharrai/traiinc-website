@@ -2261,24 +2261,21 @@ function renderD2C(data) {
         </section>
         ` : ''}
 
-        <!-- VIDEO SHOWCASE (LIVE SELLER PLATFORM IN ACTION) -->
-        ${data.video_showcase ? `
+        <!-- IMAGE SHOWCASE (SELLER PLATFORM IN ACTION) -->
+        ${data.image_showcase ? `
         <section class="container fade-in msme-section-loose-top">
             <div class="d2c-video-section">
                 <div class="d2c-video-inner">
                     <div class="d2c-video-player-box">
-                        <video controls preload="metadata" poster="${data.video_showcase.poster || ''}">
-                            <source src="${data.video_showcase.video_url}" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                        <img src="${data.image_showcase.image}" alt="${data.image_showcase.image_alt || ''}" loading="lazy" style="width:100%; height:100%; object-fit:cover; border-radius: var(--radius-md);" />
                     </div>
                     <div class="d2c-video-content">
-                        <h4 class="mini-title">${data.video_showcase.subtitle}</h4>
-                        <h2 class="text-3xl mt-2 mb-3">${data.video_showcase.title}</h2>
-                        <p style="color: var(--text-muted); line-height: 1.7; font-size: 0.95rem;">${data.video_showcase.desc}</p>
+                        <h4 class="mini-title">${data.image_showcase.subtitle}</h4>
+                        <h2 class="text-3xl mt-2 mb-3">${data.image_showcase.title}</h2>
+                        <p style="color: var(--text-muted); line-height: 1.7; font-size: 0.95rem;">${data.image_showcase.desc}</p>
                         
                         <div class="d2c-video-stats-grid">
-                            ${data.video_showcase.stats.map(s => `
+                            ${data.image_showcase.stats.map(s => `
                                 <div class="d2c-video-stat-item">
                                     <div class="d2c-video-stat-val">${s.val}</div>
                                     <div class="d2c-video-stat-lbl">${s.label}</div>
