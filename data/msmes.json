@@ -1,72 +1,122 @@
 {
   "hero": {
-    "badge": "🏪 Local Retail to Pan-India D2C",
-    "title": "Turn Your Physical Store Into A<br><em class=\"hero-cosmos-ai\">Pan-India D2C Brand</em>",
-    "subtitle": "Stop limiting your revenue to local foot traffic. We build high-converting e-commerce stores, sync your offline POS inventory in real-time, automate nationwide multi-courier dispatch, and deploy 24/7 WhatsApp AI sales engines.",
+    "badge": "\u26a1 BHARAT D2C ACCELERATOR 2026",
+    "title": "Turn Your Local Retail Store Into a Pan-India D2C Brand",
+    "desc": "We engineer high-converting digital storefronts, automated multi-courier shipping across 28,000+ pin codes, real-time POS inventory sync, and 24/7 WhatsApp AI sales assistants \u2014 scaling offline merchants into high-growth e-commerce powerhouses.",
     "cta": {
-      "primary": { "text": "💬 Message Us on WhatsApp", "url": "https://wa.me/917905495478?text=Hi%20Trai%20Inc%2C%20I%20want%20to%20scale%20my%20retail%20store%20into%20a%20pan-India%20D2C%20brand." },
-      "secondary": { "text": "Scope Your D2C Launch", "url": "contact.html" }
+      "primary": {
+        "text": "Launch Your D2C Store &rarr;",
+        "url": "contact.html"
+      },
+      "secondary": {
+        "text": "Explore Live Stack",
+        "url": "#showcase"
+      }
     },
     "trust": {
-      "avatars": ["SG", "RC", "CC", "VG", "+"],
-      "count": "growing retail & D2C brands"
+      "avatars": [
+        "\ud83c\udfea",
+        "\ud83d\ude80",
+        "\ud83d\udce6",
+        "\ud83d\udcac"
+      ],
+      "count": "138+ Retailers & D2C Brands"
     },
     "mockup": {
       "metrics": [
-        { "label": "📦 Pan-India Orders", "value": "1,420/mo", "color": "green" },
-        { "label": "📍 Pin Codes Served", "value": "28,000+", "color": "gold" },
-        { "label": "🛡️ RTO Reduction", "value": "-42%", "color": "green" },
-        { "label": "⭐ Customer Rating", "value": "4.9", "color": "green" }
+        {
+          "label": "Pan-India Reach",
+          "value": "28,000+ Pins",
+          "color": "green"
+        },
+        {
+          "label": "RTO Reduction",
+          "value": "42% Less Returns",
+          "color": "green"
+        },
+        {
+          "label": "WhatsApp Cart Recovery",
+          "value": "34% Recovered",
+          "color": "gold"
+        }
       ],
       "cards": [
-        { "icon": "💬", "label": "WhatsApp Cart Recovery", "value": "34% Recovered ✓", "active": true },
-        { "icon": "🚚", "label": "Auto-Dispatch Sync", "value": "Delhivery / Bluedart", "active": false }
+        {
+          "icon": "\ud83d\udce6",
+          "label": "Automated Shipping",
+          "value": "Delhivery & Shiprocket",
+          "active": true
+        },
+        {
+          "icon": "\ud83d\udcac",
+          "label": "Conversational Orders",
+          "value": "WhatsApp AI Active",
+          "active": true
+        }
       ]
     }
   },
+  "metrics_ribbon": [
+    {
+      "val": "28,000+",
+      "label": "Pin Codes Covered Nationwide"
+    },
+    {
+      "val": "30 Days",
+      "label": "Turnkey Go-Live Timeline"
+    },
+    {
+      "val": "0.8s",
+      "label": "Mobile Storefront Page Load"
+    },
+    {
+      "val": "\u20b910L+",
+      "label": "Avg Monthly Digital Scale"
+    }
+  ],
   "feature_pills": [
-    "✓ Custom & Shopify D2C Stores",
-    "✓ 1-Click UPI & Instant Checkout",
-    "✓ Offline POS & Real-Time Stock Sync",
-    "✓ Shiprocket & Delhivery Auto-Dispatch",
-    "✓ WhatsApp AI Catalog & Orders",
-    "✓ RTO Shield & COD OTP Verification",
-    "✓ Meta & Google Shopping Ads Setup",
-    "✓ GST & Automated E-Invoicing"
+    "\ud83d\ude80 1-Click Fast Store Launch",
+    "\ud83d\udd04 Real-Time Offline POS & Stock Sync",
+    "\ud83d\ude9a 28,000+ Pin Codes Multi-Courier Logistics",
+    "\ud83d\udcac Automated WhatsApp Cart Recovery",
+    "\u26a1 1-Click UPI & Razorpay Checkout",
+    "\ud83d\udee1\ufe0f COD OTP Verification (RTO Shield)",
+    "\ud83c\udf10 ONDC Network & Marketplace Connect",
+    "\ud83d\udcca Unified Multi-Channel Analytics"
   ],
   "services": {
-    "subtitle": "THE D2C SCALE STACK",
-    "title": "Everything your store needs to sell across India",
+    "subtitle": "THE 4-PILLAR TRANSFORMATION STACK",
+    "title": "Everything your offline business needs to conquer D2C",
     "items": [
       {
-        "icon": "🛒",
-        "icon_gradient": "linear-gradient(135deg,#667eea,#764ba2)",
-        "title": "High-Converting D2C E-Store",
-        "desc": "Lightning-fast storefronts built on Next.js, Shopify, or WooCommerce with mobile-first UX, 1-click UPI checkout, and Google Shopping SEO that turns visitors into repeat buyers."
+        "icon": "\ud83d\uded2",
+        "icon_gradient": "linear-gradient(135deg,#ff416c,#ff4b2b)",
+        "title": "Conversion-First D2C Storefront",
+        "desc": "Ultra-fast headless Next.js or customized Shopify stores designed for high mobile conversion. Includes instant 1-click UPI checkout, customer reviews, video reels, and SEO optimization."
       },
       {
-        "icon": "🔄",
-        "icon_gradient": "linear-gradient(135deg,#43e97b,#38f9d7)",
-        "title": "Unified POS & Stock Sync",
-        "desc": "Connect your physical store billing counter with your online store. Never oversell or run out of stock — real-time automated inventory sync across all sales channels."
+        "icon": "\ud83d\udd04",
+        "icon_gradient": "linear-gradient(135deg,#4facfe,#00f2fe)",
+        "title": "Unified POS & Counter Inventory Sync",
+        "desc": "Connect your physical store billing counter directly with your online store. Stock automatically updates in real time when items sell in-store or online \u2014 zero overselling, zero spreadsheet headaches."
       },
       {
-        "icon": "🚚",
+        "icon": "\ud83d\ude9a",
         "icon_gradient": "linear-gradient(135deg,#fa709a,#fee140)",
-        "title": "Automated Logistics & RTO Shield",
-        "desc": "Seamless multi-courier shipping (Shiprocket, Delhivery, Bluedart), automated label printing, live WhatsApp delivery tracking, and COD OTP verification to slash returns (RTO)."
+        "title": "Automated Shipping & RTO Shield",
+        "desc": "Integrated multi-courier logistics (Delhivery, Shiprocket, Bluedart), automated doorstep pickups, live WhatsApp tracking updates, and automated COD OTP confirmation to slash return rates."
       },
       {
-        "icon": "💬",
+        "icon": "\ud83d\udcac",
         "icon_gradient": "linear-gradient(135deg,#f6d365,#fda085)",
         "title": "WhatsApp Conversational Commerce",
-        "desc": "Full product catalog inside WhatsApp, automated abandoned cart recovery, re-order reminders, and 24/7 AI sales assistant that answers product queries and closes deals."
+        "desc": "Turn WhatsApp into your highest-converting sales channel. Customers browse catalogs, place orders, receive instant support, and get abandoned cart reminders 24/7 with automated AI agents."
       }
     ]
   },
   "showcase": {
     "subtitle": "MULTI-CHANNEL D2C & ONDC COMMERCE ENGINE",
-    "title": "A battle-tested digital platform for your brand",
+    "title": "A battle-tested digital platform built for scale",
     "desc": "We engineer custom high-converting e-commerce storefronts, multi-channel ONDC network sync, automated courier logistics, and AI-powered WhatsApp commerce to scale local stores nationwide.",
     "items": [
       {
@@ -99,10 +149,10 @@
     "subtitle": "THE TRANSFORMATION",
     "title": "Offline Limitations vs Pan-India D2C Scale",
     "old_way": {
-      "title": "🏪 Traditional Offline Store",
+      "title": "\ud83c\udfea Traditional Offline Store",
       "items": [
         "Restricted to local 5km foot traffic and walk-ins",
-        "Shop closes at 9 PM — zero sales while you sleep",
+        "Shop closes at 9 PM \u2014 zero sales while you sleep",
         "Manual handwritten bills or disconnected local POS",
         "High customer acquisition cost with zero repeat retention",
         "Manual parcel packaging and counter courier queues",
@@ -110,65 +160,92 @@
       ]
     },
     "new_way": {
-      "title": "🚀 Trai Inc D2C Engine",
+      "title": "\ud83d\ude80 Trai Inc D2C Engine",
       "items": [
         "Reach 28,000+ pin codes and millions of buyers nationwide",
         "24/7 online orders + automated WhatsApp AI sales assistant",
-        "Live inventory sync between offline counter & e-store",
-        "Automated abandoned cart recovery recovering 25%+ sales",
-        "1-click automated shipping label generation & doorstep pickup",
-        "Meta & Google Ads tracking for high-ROAS profitable customer acquisition"
+        "Real-time automatic inventory sync between counter and web",
+        "Automated WhatsApp remarketing and 34% cart recovery",
+        "1-click doorstep multi-courier pickup with live tracking",
+        "Unified customer CRM with repeat purchase loyalty funnels"
       ]
     }
   },
-  "estimator": {
-    "subtitle": "TRANSPARENT PACKAGES",
-    "title": "Estimate Your D2C Launch Cost",
-    "desc": "Get a transparent, upfront estimate. Fixed-price contracts, dedicated engineering, and complete handover with zero revenue share or hidden fees.",
-    "bullets": [
-      "100% Code & Store Ownership (No revenue commission)",
-      "Fixed-price quote with upfront milestone roadmap",
-      "Free 30-day post-launch hyper-care & support"
-    ],
-    "options": [
-      { "value": "35000", "label": "D2C Starter Storefront (Shopify/WooCommerce — ₹35K)" },
-      { "value": "65000", "label": "Full D2C Launchpad + WhatsApp Store (₹65K)" },
-      { "value": "120000", "label": "Custom Headless Next.js D2C Platform (₹1.2L)" },
-      { "value": "180000", "label": "Omnichannel POS + Multi-Storefront Engine (₹1.8L)" },
-      { "value": "250000", "label": "Enterprise D2C Suite + Mobile App (₹2.5L)" }
-    ]
-  },
-  "success_stories": {
-    "subtitle": "SUCCESS STORIES",
-    "title": "Real problems. Real solutions. Real growth.",
-    "items": [
+  "pricing": {
+    "subtitle": "TRANSPARENT LAUNCH PACKAGES",
+    "title": "Fixed investment. Zero hidden costs. Rapid turnaround.",
+    "packages": [
       {
-        "client": "Regional Retail Brand",
-        "title": "From single-city shop to 19,000+ pin codes served",
-        "problem": "Limited by local foot traffic and struggling with manual telephone orders and high return rates.",
-        "solution": "Built a headless e-commerce store with automated Shiprocket logistics, 1-click UPI, and COD OTP verification, driving 300+ orders/week nationwide.",
-        "tags": ["D2C Storefront", "Logistics Automation", "UPI Checkout"]
+        "name": "D2C Starter Launchpad",
+        "price": "\u20b935,000",
+        "period": "one-time setup",
+        "desc": "Perfect for offline stores launching their first e-commerce presence with automated courier delivery.",
+        "features": [
+          "Mobile-first responsive e-commerce store",
+          "Payment gateway (UPI, Cards, NetBanking)",
+          "Shiprocket multi-courier shipping integration",
+          "Up to 100 products catalog setup",
+          "Basic WhatsApp order notification",
+          "Go-live in 7 to 10 days"
+        ],
+        "popular": false
       },
       {
-        "client": "Dashak Pharma",
-        "title": "Zero-friction WhatsApp distribution ordering",
-        "problem": "Manual order recording over phone calls, leading to order entry errors and dispatch delays.",
-        "solution": "Automated WhatsApp ordering system with real-time stock lookups, instant digital invoice generation, and automated fulfillment routing.",
-        "tags": ["WhatsApp API", "ERP Integration", "B2B / D2C"]
+        "name": "D2C Growth Engine",
+        "price": "\u20b975,000",
+        "period": "one-time setup",
+        "desc": "Full omnichannel transformation with physical store POS sync, WhatsApp AI commerce, and RTO shield.",
+        "features": [
+          "Custom high-converting storefront (Shopify / Next.js)",
+          "Real-time offline billing counter stock sync",
+          "Automated WhatsApp AI store & cart recovery",
+          "COD OTP verification & RTO reduction shield",
+          "Automated GST invoice generation",
+          "Multi-courier dispatch with live tracking SMS",
+          "Go-live in 15 to 20 days"
+        ],
+        "popular": true
       },
       {
-        "client": "Chitravan Resort & Lifestyle",
-        "title": "Real-time booking and guest automation engine",
-        "problem": "Managing bookings on paper led to double-bookings during peak holidays and lost customer inquiries.",
-        "solution": "Custom booking portal with real-time inventory management, automated WhatsApp payment confirmations, and guest loyalty tracking.",
-        "tags": ["Custom Platform", "Real-Time Sync", "CRM"]
+        "name": "Enterprise D2C Platform",
+        "price": "\u20b91,50,000+",
+        "period": "custom quote",
+        "desc": "Headless enterprise architecture, multi-warehouse ERP, and ONDC network marketplace connectivity.",
+        "features": [
+          "Headless Next.js e-commerce architecture (0.8s load)",
+          "Full ONDC Seller Network integration",
+          "Multi-warehouse & multi-location inventory ERP",
+          "Custom Android & iOS mobile shopping apps",
+          "AI recommendation & personalized upsell engine",
+          "Dedicated growth engineer & 24/7 SLA support"
+        ],
+        "popular": false
       }
     ]
   },
-  "grand_cta": {
-    "title": "Ready to Turn Your 🏪 Local Store Into A Pan-India D2C Brand?",
-    "description": "Join the ambitious retailers and manufacturers scaling nationwide. Schedule a free 30-minute D2C roadmap session — no sales pitch, just a concrete step-by-step engineering plan.",
-    "button_text": "Schedule Your D2C Roadmap Session",
-    "url": "contact.html"
+  "estimator": {
+    "subtitle": "INSTANT D2C ESTIMATOR",
+    "title": "Calculate Your Store Launch Investment",
+    "desc": "Select your business requirements and get an instant, transparent quote for your digital transformation.",
+    "bullets": [
+      "Fixed, transparent pricing with milestone payments",
+      "Full source code and store ownership transferred to you",
+      "Includes payment gateway and shipping setup",
+      "30 days free post-launch support and training"
+    ],
+    "options": [
+      {
+        "value": 35000,
+        "label": "Starter D2C Online Store (\u20b935K)"
+      },
+      {
+        "value": 75000,
+        "label": "D2C Growth Engine + POS Sync + WhatsApp (\u20b975K)"
+      },
+      {
+        "value": 150000,
+        "label": "Enterprise Headless D2C + ONDC Connect (\u20b91.5L+)"
+      }
+    ]
   }
 }

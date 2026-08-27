@@ -237,7 +237,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         startups: renderAudiencePage,
         smb: renderAudiencePage,
         enterprise: renderAudiencePage,
-        msmes: renderMSME,
+        d2c: renderD2C,
+        msmes: renderD2C,
         'app-store': renderAppStore,
         'choosing-a-development-partner': renderTrustPage,
         blog: renderBlog,
@@ -1997,15 +1998,15 @@ function renderAudiencePage(data) {
     `;
 }
 
-function renderMSME(data) {
+function renderD2C(data) {
     return `
         <!-- HERO -->
         <section class="msme-hero">
             <div class="msme-hero-inner">
                 <div class="fade-in">
-                    <div class="msme-badge">${data.hero.badge}</div>
+                    <div class="msme-badge">${data.hero.badge || '⚡ BHARAT D2C ACCELERATOR'}</div>
                     <h1>${data.hero.title}</h1>
-                    <p class="msme-hero-sub">${data.hero.subtitle}</p>
+                    <p class="msme-hero-sub">${data.hero.desc || data.hero.subtitle || ''}</p>
                     <div class="hero-cta-row">
                         <a href="${data.hero.cta.primary.url}" ${data.hero.cta.primary.url.startsWith('http') ? 'target="_blank"' : ''} class="btn-primary large">${data.hero.cta.primary.text}</a>
                         <a href="${data.hero.cta.secondary.url}" ${data.hero.cta.secondary.url.startsWith('http') ? 'target="_blank"' : ''} class="btn-secondary large">${data.hero.cta.secondary.text}</a>
@@ -2043,9 +2044,23 @@ function renderMSME(data) {
             </div>
         </section>
 
+        <!-- METRICS RIBBON -->
+        ${data.metrics_ribbon ? `
+        <section class="container fade-in" style="margin-top: -30px; margin-bottom: 50px; position: relative; z-index: 10;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; background: var(--bg-card); padding: 28px; border-radius: 20px; border: 1px solid var(--border-light); box-shadow: var(--shadow-md);">
+                ${data.metrics_ribbon.map(m => `
+                    <div style="text-align: center;">
+                        <div style="font-family: var(--font-heading); font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; color: var(--accent-color);">${m.val}</div>
+                        <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; margin-top: 4px;">${m.label}</div>
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+        ` : ''}
+
         <!-- FEATURE PILLS -->
         <section class="container fade-in msme-section-tight-top">
-            <h2 class="msme-section-heading">What We Offer for MSMEs</h2>
+            <h2 class="msme-section-heading">Everything You Need to Scale D2C</h2>
             <div class="feature-pills">
                 ${data.feature_pills.map(pill => `<div class="feature-pill">${pill}</div>`).join('')}
             </div>
@@ -2070,7 +2085,7 @@ function renderMSME(data) {
 
         <!-- PLATFORM SHOWCASE (D2C & ONDC COMMERCE ENGINE) -->
         ${data.showcase ? `
-        <section class="container fade-in msme-section-loose-top">
+        <section id="showcase" class="container fade-in msme-section-loose-top">
             <div class="section-header center">
                 <h4 class="mini-title">${data.showcase.subtitle}</h4>
                 <h2 class="text-4xl mt-2">${data.showcase.title}</h2>
@@ -2114,7 +2129,41 @@ function renderMSME(data) {
             </div>
         </section>
 
-
+        <!-- PRICING PACKAGES -->
+        ${data.pricing ? `
+        <section class="container fade-in msme-section-loose-top">
+            <div class="section-header center">
+                <h4 class="mini-title">${data.pricing.subtitle}</h4>
+                <h2 class="text-4xl mt-2">${data.pricing.title}</h2>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 48px;">
+                ${data.pricing.packages.map(pkg => `
+                    <div class="spec-card fade-in" style="padding: 36px 30px; border-radius: 20px; display: flex; flex-direction: column; justify-content: space-between; position: relative; ${pkg.popular ? 'border: 2px solid var(--accent-color); box-shadow: var(--shadow-lg);' : ''}">
+                        ${pkg.popular ? `<span style="position: absolute; top: -12px; right: 24px; background: var(--accent-color); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase;">MOST POPULAR</span>` : ''}
+                        <div>
+                            <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; color: var(--text-main);">${pkg.name}</h3>
+                            <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 16px;">
+                                <span style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: var(--accent-color);">${pkg.price}</span>
+                                <span style="font-size: 0.85rem; color: var(--text-muted);">${pkg.period}</span>
+                            </div>
+                            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 24px;">${pkg.desc}</p>
+                            <div style="border-top: 1px solid var(--border-light); padding-top: 20px; margin-bottom: 28px;">
+                                ${pkg.features.map(f => `
+                                    <div style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; color: var(--text-main); margin-bottom: 12px;">
+                                        <span style="color: var(--accent-color); font-weight: bold;">✔</span>
+                                        <span>${f}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                        <a href="https://wa.me/917905495478?text=${encodeURIComponent(`Hi Trai Inc, I am interested in the ${pkg.name} (${pkg.price}) for my retail business.`)}" target="_blank" class="${pkg.popular ? 'btn-primary' : 'btn-secondary'} large" style="text-align: center; justify-content: center; width: 100%;">
+                            Get Started with ${pkg.name.split(' ')[1] || 'Package'} &rarr;
+                        </a>
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+        ` : ''}
 
         <!-- INLINE COST ESTIMATOR -->
         <section id="estimator" class="estimator-section fade-in">
@@ -2166,39 +2215,20 @@ function renderMSME(data) {
             </div>
         </section>
 
-        <!-- CASE STUDIES -->
-        <section class="msme-section-shaded-wide">
-            <div class="container fade-in">
-                <div class="section-header center">
-                    <h4 class="mini-title">${data.success_stories.subtitle}</h4>
-                    <h2>${data.success_stories.title}</h2>
-                </div>
-                <div class="cases-grid">
-                    ${data.success_stories.items.map(cs => `
-                        <div class="case-card-v2 fade-in">
-                            <div class="case-client">${cs.client}</div>
-                            <h3>${cs.title}</h3>
-                            <p><strong>Problem:</strong> ${cs.problem}</p>
-                            <p><strong>Solution:</strong> ${cs.solution}</p>
-                            <div>${cs.tags.map(t => `<span class="case-tag">${t}</span>`).join('')}</div>
-                        </div>
-                    `).join('')}
-                </div>
-            </div>
-        </section>
-
         <!-- GRAND CTA -->
         <section class="grand-cta fade-in">
             <div class="container">
                 <div class="grand-cta-inner">
-                    <h2>${data.grand_cta.title}</h2>
-                    <p>${data.grand_cta.description}</p>
-                    <a href="${data.grand_cta.url}" target="_blank" class="btn-primary large">${data.grand_cta.button_text}</a>
+                    <h2>Ready to Scale Your Offline Store to Pan-India D2C?</h2>
+                    <p>Schedule a free technical & growth consultation with our e-commerce engineering team in Lucknow.</p>
+                    <a href="https://wa.me/917905495478?text=${encodeURIComponent('Hi Trai Inc, I want to transform my retail store into a pan-India D2C brand.')}" target="_blank" class="btn-primary large">Book Free D2C Consultation &rarr;</a>
                 </div>
             </div>
         </section>
     `;
 }
+
+const renderMSME = renderD2C;
 
 const deviconMap = {
     'flutter': 'flutter/flutter-original.svg',

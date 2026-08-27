@@ -28,7 +28,7 @@
                 {
                     heading: "By Business Size",
                     items: [
-                        { icon: "🏪", label: "Retail to D2C Brands", href: "msmes.html", desc: "Scale offline stores to pan-India D2C" },
+                        { icon: "🏪", label: "Retail to D2C Brands", href: "d2c.html", desc: "Scale offline stores to pan-India D2C" },
                         { icon: "🚀", label: "Startups", href: "startups.html", desc: "MVPs, cloud, go-to-market" },
                         { icon: "🏢", label: "Small & Medium Business", href: "smb.html", desc: "10-50 employees: CRMs, scaling" },
                         { icon: "🏗️", label: "Large Enterprises", href: "enterprise.html", desc: "Cloud migration, AI, security" }
@@ -378,7 +378,7 @@
                         ${buildDropdown('services', navData.services)}
                     </li>
                     <li class="has-dropdown">
-                        <a href="industries.html" class="${['industries','msmes','startups','smb','enterprise'].includes(page)?'active':''}">${navData.whoWeHelp.label} ${chevronDown}</a>
+                        <a href="industries.html" class="${['industries','d2c','msmes','startups','smb','enterprise'].includes(page)?'active':''}">${navData.whoWeHelp.label} ${chevronDown}</a>
                         ${buildDropdown('whoWeHelp', navData.whoWeHelp)}
                     </li>
                     <li>
@@ -553,7 +553,7 @@
                 <h4>Industries</h4>
                 <ul>
                     <li><a href="startups.html">Startups</a></li>
-                    <li><a href="msmes.html">Retail & D2C</a></li>
+                    <li><a href="d2c.html">Retail & D2C</a></li>
                     <li><a href="smb.html">SMB</a></li>
                     <li><a href="enterprise.html">Enterprise</a></li>
                 </ul>
