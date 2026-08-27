@@ -732,8 +732,8 @@ function renderHome(data) {
                         <a href="${t.cta_href}" class="audience-panel-cta">${t.cta_text} →</a>
                     </div>
                 </div>
-                ${t.showcase_images && t.showcase_images.length > 0 ? `
                 <div class="audience-panel-right">
+                    ${t.showcase_images && t.showcase_images.length > 0 ? `
                     <div class="audience-gallery-card" data-gallery-id="${t.id}">
                         <div class="audience-gallery-main">
                             ${t.showcase_images.map((img, idx) => `
@@ -755,14 +755,27 @@ function renderHome(data) {
                             `).join('')}
                         </div>
                     </div>
-                </div>
-                ` : (t.image ? `
-                <div class="audience-panel-right">
+                    ` : (t.image ? `
                     <div class="audience-panel-media">
                         <img src="${t.image}" alt="${t.image_alt || ''}" loading="lazy" onerror="this.parentElement.style.display='none'" />
                         ${t.image_caption ? `<span class="audience-panel-media-caption">${t.image_caption}</span>` : ''}
                     </div>
-                </div>` : '')}
+                    ` : '')}
+
+                    ${t.metrics_strip && t.metrics_strip.length > 0 ? `
+                    <div class="audience-metrics-strip">
+                        ${t.metrics_strip.map(m => `
+                        <div class="audience-metric-item">
+                            <span class="ami-icon">${m.icon}</span>
+                            <div>
+                                <strong>${m.title}</strong>
+                                <p>${m.desc}</p>
+                            </div>
+                        </div>
+                        `).join('')}
+                    </div>
+                    ` : ''}
+                </div>
 
             </div>`).join('')}
         </div>

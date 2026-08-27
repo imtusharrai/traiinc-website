@@ -109,6 +109,12 @@
             "short_label": "🛒 Grocery"
           }
         ],
+        "metrics_strip": [
+          { "icon": "⚡", "title": "0.8s PWA Speed", "desc": "1-Click UPI & Instant Cart" },
+          { "icon": "🚚", "title": "28,000+ Pin Codes", "desc": "Automated Multi-Courier" },
+          { "icon": "🌐", "title": "10Cr+ ONDC Buyers", "desc": "Paytm & PhonePe Networks" },
+          { "icon": "💰", "title": "0% Commission", "desc": "100% Direct Profit Margin" }
+        ],
         "cards": [
           {
             "icon_key": "cart",
