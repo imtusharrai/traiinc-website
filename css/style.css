@@ -6267,14 +6267,49 @@ body.light-mode .blog-tag {
 }
 
 .hero-cosmos-cta {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     width: fit-content;
-    box-shadow: var(--shadow-glow);
+    padding: 16px 36px !important;
+    border-radius: 9999px !important;
+    background: #EB302A !important;
+    background: linear-gradient(135deg, #F0382E 0%, #D81E16 100%) !important;
+    color: #FFFFFF !important;
+    font-family: var(--font-heading);
+    font-size: var(--text-base);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    box-shadow: 0 10px 28px -2px rgba(235, 48, 42, 0.48), 0 4px 12px -2px rgba(235, 48, 42, 0.28) !important;
     opacity: 0;
     animation: cosmosFadeUp 0.8s 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                background 0.25s ease !important;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
 }
 .hero-cosmos-cta:hover {
-    box-shadow: 0 0 40px var(--accent-glow), 0 0 80px var(--accent-glow);
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #FF453B 0%, #E0241C 100%) !important;
+    box-shadow: 0 14px 34px -2px rgba(235, 48, 42, 0.62), 0 6px 16px -2px rgba(235, 48, 42, 0.35) !important;
+    color: #FFFFFF !important;
+}
+.hero-cosmos-cta:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 18px rgba(235, 48, 42, 0.42) !important;
+}
+body.light-mode .hero-cosmos-cta {
+    background: linear-gradient(135deg, #EB302A 0%, #D41A12 100%) !important;
+    box-shadow: 0 10px 28px -2px rgba(235, 48, 42, 0.45), 0 4px 10px -2px rgba(212, 26, 18, 0.25) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+}
+body.light-mode .hero-cosmos-cta:hover {
+    background: linear-gradient(135deg, #F0382E 0%, #C4140D 100%) !important;
+    box-shadow: 0 14px 34px -2px rgba(235, 48, 42, 0.58), 0 6px 14px -2px rgba(212, 26, 18, 0.32) !important;
 }
 
 .hero-cosmos-trust {

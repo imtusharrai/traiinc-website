@@ -643,7 +643,7 @@ function renderHome(data) {
                 <span class="hero-cosmos-line hero-cosmos-line--3">with <em class="hero-cosmos-ai">AI Agents</em></span>
             </h1>
             <p class="hero-cosmos-subtitle">Hand off engineering, sales, marketing, and ops to our AI-powered engineering team. Fixed-price guarantees. Senior engineers. Direct access.</p>
-            <a href="${hero.cta_primary.href}" target="_blank" class="btn-primary large hero-cosmos-cta">${hero.cta_primary.text}</a>
+            <a href="${hero.cta_primary.href}" class="btn-primary large hero-cosmos-cta">${hero.cta_primary.text}</a>
             <div class="hero-cosmos-trust">
                 <div class="hero-trust-avatars">
                     ${hero.trust_avatars.map((a, i) => `<span class="trust-avatar trust-avatar-${i + 1}">${a}</span>`).join('')}
