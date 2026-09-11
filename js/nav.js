@@ -224,7 +224,6 @@
                     heading: "Programs & Connect",
                     items: [
                         { icon: "🤝", label: "Partner With Us", href: "partner.html", desc: "Referral & white-label" },
-                        { icon: "🚀", label: "Bharat Startup Launchpad ↗", href: "https://bharatstartuplaunchpad.com", external: true, desc: "Incubation, grants & funding" },
                         { icon: "📞", label: "Contact Us", href: "contact.html", desc: "Book a consultation" }
                     ]
                 }

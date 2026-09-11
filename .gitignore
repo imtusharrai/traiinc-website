@@ -32,7 +32,10 @@ crop_margin.py
 make_white_logo.py
 *.md
 *.jpg
-*.png
 !img/**
 !assets/**
 
+# Scraped reference assets
+mystore/
+contact_form_test.png
+scratch/

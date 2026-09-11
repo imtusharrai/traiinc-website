@@ -129,19 +129,19 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <div style="max-width:800px;margin:0 auto;">
                     ${sections.map(s => data.tabs[s.key] ? `
                     <div class="spec-card fade-in" style="margin-bottom:24px;padding:32px;">
-                        <h3 style="display:flex;align-items:center;gap:10px;margin-bottom:16px;font-size:1.2rem;font-weight:700;color:var(--text-main);">
-                            <span style="font-size:1.4rem;">${s.icon}</span> ${s.title}
+                        <h3 style="display:flex;align-items:center;gap:10px;margin-bottom:16px;font-weight:600;color:var(--text-main);">
+                            <span style="">${s.icon}</span> ${s.title}
                         </h3>
-                        <p style="font-size:1rem;line-height:1.75;color:var(--text-muted);">${data.tabs[s.key].text}</p>
+                        <p style="line-height:1.65;color:var(--text-muted);">${data.tabs[s.key].text}</p>
                     </div>
                     ` : '').join('')}
 
                     ${data.learnMore && data.learnMore.length ? `
                     <div style="margin-top:40px;">
-                        <h3 style="font-size:1.1rem;font-weight:700;color:var(--text-main);margin-bottom:16px;">More Case Studies</h3>
+                        <h3 style="font-weight:600;color:var(--text-main);margin-bottom:16px;">More Case Studies</h3>
                         <div style="display:flex;gap:12px;flex-wrap:wrap;">
                             ${data.learnMore.map(item => `
-                                <a href="${item.link}" class="btn-primary" style="font-size:0.9rem;padding:10px 20px;">${item.name} →</a>
+                                <a href="${item.link}" class="btn-primary" style="padding:10px 20px;">${item.name} →</a>
                             `).join('')}
                         </div>
                     </div>
@@ -1348,7 +1348,7 @@ function renderCareers(data) {
     <section class="services-cta fade-in" style="padding: 80px 24px; text-align: center;">
         <div class="container" style="background: var(--bg-darker); border-radius: 40px; padding: 80px 60px; border: 1px solid var(--bg-light); position: relative; overflow: hidden;">
             <div style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: var(--brand-gradient); filter: blur(150px); opacity: 0.2; border-radius: 50%;"></div>
-            <h2 style="font-family: var(--font-heading); font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; margin-bottom: 16px;">Ready to build with us?</h2>
+            <h2 style="margin-bottom: 16px;">Ready to build with us?</h2>
             <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 32px;">Join a network of elite freelancers shipping production code for India's fastest-growing companies.</p>
             <a href="mailto:support@traiinc.com" class="btn-primary large">Send Your Portfolio →</a>
         </div>
@@ -1664,8 +1664,8 @@ function renderContact(data) {
                     <a href="https://www.google.com/maps?q=Trai+Inc+Lucknow" target="_blank" rel="noopener noreferrer" class="contact-map-placeholder" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%; min-height: 320px; background: var(--bg-dark); border-radius: 0 var(--radius-lg) var(--radius-lg) 0; text-decoration: none; border-left: 1px solid var(--border-light); position: relative; overflow: hidden;">
                         <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, var(--border-strong) 1px, transparent 1px) 0 0 / 20px 20px; opacity: 0.2; pointer-events: none;"></div>
                         <div style="color: var(--accent-color); margin-bottom: 12px; z-index: 1;">${audienceIcons.pin}</div>
-                        <h4 style="color: var(--text-main); font-family: var(--font-heading); font-size: 1.1rem; margin-bottom: 6px; z-index: 1;">View on Google Maps</h4>
-                        <span style="color: var(--text-muted); font-size: 0.9rem; z-index: 1;">Get directions to our studio</span>
+                        <h4 style="color: var(--text-main); margin-bottom: 6px; z-index: 1;">View on Google Maps</h4>
+                        <span style="color: var(--text-muted); z-index: 1;">Get directions to our studio</span>
                     </a>
                 </div>
             </div>
@@ -1703,7 +1703,7 @@ function renderSolutions(data) {
                     <div class="cap-cell-icon">${audienceIcons[cat.icon_key] || ''}</div>
                     <h2 class="text-4xl" style="margin: 0; font-family: var(--font-heading); font-weight: 700;">${cat.title}</h2>
                 </div>
-                <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 650px;">${cat.desc}</p>
+                <p style="color: var(--text-muted); max-width: 650px;">${cat.desc}</p>
                 ${cat.tech_stack && cat.tech_stack.length > 0 ? `
                 <div class="solutions-tech-row">
                     ${cat.tech_stack.map(t => `<div class="solutions-tech-pill">${getTechLogo(t)}<span>${t}</span></div>`).join('')}
@@ -1716,7 +1716,7 @@ function renderSolutions(data) {
                         <h3 class="bento-title">${s.name}</h3>
                         <p class="bento-desc">${s.desc}</p>
                     </div>
-                    <div style="margin-top: 20px; font-weight: 600; color: var(--accent-color); font-size: 0.9rem;">Explore →</div>
+                    <div style="margin-top: 20px; font-weight: 600; color: var(--accent-color); ">Explore →</div>
                 </a>`).join('')}
             </div>
             <div class="solutions-cat-cta-row">
@@ -1803,7 +1803,7 @@ function renderIndustries(data) {
                 </div>
                 ${ind.link ? `
                 <div style="margin-top: 24px;">
-                    <a href="${ind.link}" class="btn-primary" style="padding: 9px 20px; font-size: 0.88rem; display: inline-block;">
+                    <a href="${ind.link}" class="btn-primary" style="padding: 9px 20px;  display: inline-block;">
                         Explore Lucknow Solutions &rarr;
                     </a>
                 </div>` : ''}
@@ -2204,8 +2204,8 @@ function renderD2C(data) {
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; background: var(--bg-card); padding: 28px; border-radius: 20px; border: 1px solid var(--border-light); box-shadow: var(--shadow-md);">
                 ${data.metrics_ribbon.map(m => `
                     <div style="text-align: center;">
-                        <div style="font-family: var(--font-heading); font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; color: var(--accent-color);">${m.val}</div>
-                        <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; margin-top: 4px;">${m.label}</div>
+                        <div style="font-family: var(--font-heading); font-size: var(--text-xl); font-weight: 800; color: var(--accent-color);">${m.val}</div>
+                        <div style="color: var(--text-muted); font-weight: 600; margin-top: 4px;">${m.label}</div>
                     </div>
                 `).join('')}
             </div>
@@ -2219,22 +2219,6 @@ function renderD2C(data) {
                 ${data.feature_pills.map(pill => `<div class="feature-pill">${pill}</div>`).join('')}
             </div>
         </section>
-
-        <!-- BRAND MARQUEE -->
-        ${data.brand_marquee ? `
-        <section class="container fade-in msme-section-tight-top">
-            <div style="text-align: center; margin-bottom: 20px;">
-                <span class="mini-title" style="font-size: 0.78rem; letter-spacing: 0.08em;">${data.brand_marquee.subtitle}</span>
-            </div>
-            <div class="d2c-brands-strip">
-                ${data.brand_marquee.logos.map(logo => `
-                    <div class="d2c-brand-logo-item" title="${logo.name}">
-                        <img src="${logo.src}" alt="${logo.name}" loading="lazy" />
-                    </div>
-                `).join('')}
-            </div>
-        </section>
-        ` : ''}
 
         <!-- BENTO SERVICE GRID -->
         <section class="container fade-in msme-section-loose-top">
@@ -2337,7 +2321,7 @@ function renderD2C(data) {
                     <div class="d2c-video-content">
                         <h4 class="mini-title">${data.image_showcase.subtitle}</h4>
                         <h2 class="text-3xl mt-2 mb-3">${data.image_showcase.title}</h2>
-                        <p style="color: var(--text-muted); line-height: 1.7; font-size: 0.95rem;">${data.image_showcase.desc}</p>
+                        <p style="color: var(--text-muted); line-height: 1.7; ">${data.image_showcase.desc}</p>
                         
                         <div class="d2c-video-stats-grid">
                             ${data.image_showcase.stats.map(s => `
@@ -2427,17 +2411,17 @@ function renderD2C(data) {
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 48px;">
                 ${data.pricing.packages.map(pkg => `
                     <div class="spec-card fade-in" style="padding: 36px 30px; border-radius: 20px; display: flex; flex-direction: column; justify-content: space-between; position: relative; ${pkg.popular ? 'border: 2px solid var(--accent-color); box-shadow: var(--shadow-lg);' : ''}">
-                        ${pkg.popular ? `<span style="position: absolute; top: -12px; right: 24px; background: var(--accent-color); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase;">MOST POPULAR</span>` : ''}
+                        ${pkg.popular ? `<span style="position: absolute; top: -12px; right: 24px; background: var(--accent-color); color: #fff;  font-weight: 800; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase;">MOST POPULAR</span>` : ''}
                         <div>
-                            <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; color: var(--text-main);">${pkg.name}</h3>
+                            <h3 style=" font-weight: 700; margin-bottom: 8px; color: var(--text-main);">${pkg.name}</h3>
                             <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 16px;">
-                                <span style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: var(--accent-color);">${pkg.price}</span>
-                                <span style="font-size: 0.85rem; color: var(--text-muted);">${pkg.period}</span>
+                                <span style="font-family: var(--font-heading); font-size: var(--text-xl); font-weight: 700; color: var(--accent-color);">${pkg.price}</span>
+                                <span style="font-size: var(--text-xs); color: var(--text-muted);">${pkg.period}</span>
                             </div>
-                            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 24px;">${pkg.desc}</p>
+                            <p style=" color: var(--text-muted); line-height: 1.6; margin-bottom: 24px;">${pkg.desc}</p>
                             <div style="border-top: 1px solid var(--border-light); padding-top: 20px; margin-bottom: 28px;">
                                 ${pkg.features.map(f => `
-                                    <div style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; color: var(--text-main); margin-bottom: 12px;">
+                                    <div style="display: flex; align-items: flex-start; gap: 10px;  color: var(--text-main); margin-bottom: 12px;">
                                         <span style="color: var(--accent-color); font-weight: bold;">✔</span>
                                         <span>${f}</span>
                                     </div>
@@ -3097,6 +3081,45 @@ function renderBlog(data) {
 }
 
 function renderBlogPost(data) {
+    const takeaways = data.takeaways || [
+        `Actionable strategic blueprint for ${data.meta.tag || 'enterprise software'} implementation in 2026.`,
+        `Production metrics & benchmarks verified by Trai Inc engineering team.`,
+        `Direct ROI guidance and enterprise technical considerations.`
+    ];
+
+    const tldrHtml = `
+        <div class="blog-post-tldr">
+            <div class="blog-post-tldr-header">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                <span>Executive Summary & Key Takeaways</span>
+            </div>
+            <ul>
+                ${takeaways.map(t => `<li>${t}</li>`).join('')}
+            </ul>
+        </div>
+    `;
+
+    const authorCardHtml = `
+        <div class="blog-author-card">
+            <div class="blog-author-avatar">TR</div>
+            <div class="blog-author-info">
+                <div class="blog-author-name-row">
+                    <span class="blog-author-name">${data.meta.author || 'Tushar Rai'}</span>
+                    <span class="blog-author-verified">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        Verified Author
+                    </span>
+                </div>
+                <div class="blog-author-role">Founder & Principal Architect at Trai Inc</div>
+                <p class="blog-author-bio">Architecting enterprise AI infrastructure, autonomous workflows, and modern high-concurrency cloud platforms for startups and scaling enterprises across India.</p>
+                <div class="blog-author-socials">
+                    <a href="https://www.linkedin.com/in/imtusharrai" target="_blank" rel="noopener noreferrer" class="blog-author-link">LinkedIn Profile →</a>
+                    <a href="about.html" class="blog-author-link">Author Profile & Credentials →</a>
+                </div>
+            </div>
+        </div>
+    `;
+
     const contentHtml = data.content.map(block => {
         if (block.type === 'heading') return `<h2>${block.text}</h2>`;
         if (block.type === 'subheading') return `<h3>${block.text}</h3>`;
@@ -3107,7 +3130,7 @@ function renderBlogPost(data) {
         <div class="blog-post-related">
             <h3>Related Articles</h3>
             <div class="blog-post-related-links">
-                ${data.relatedPosts.map(p => `<a href="${p.url}" class="btn-primary" style="font-size:0.9rem;padding:10px 20px;">${p.title} →</a>`).join('')}
+                ${data.relatedPosts.map(p => `<a href="${p.url}" class="btn-primary" style="padding:10px 20px;">${p.title} →</a>`).join('')}
             </div>
         </div>
     ` : '';
@@ -3115,14 +3138,14 @@ function renderBlogPost(data) {
     return `
     <header class="cf-hero-wrapper blog-post-hero">
         <div class="container blog-post-header fade-in">
-            <span class="blog-tag" style="background:color-mix(in srgb, ${data.meta.tag_color} 15%, transparent);color:${data.meta.tag_color};">${data.meta.tag}</span>
+            <span class="blog-tag" style="background:color-mix(in srgb, ${data.meta.tag_color || '#ff2626'} 15%, transparent);color:${data.meta.tag_color || '#ff2626'};">${data.meta.tag || 'Insights'}</span>
             <h1 class="blog-post-title">${data.meta.title}</h1>
             <div class="blog-post-meta">
-                <span>${data.meta.author}</span>
+                <span>${data.meta.author || 'Tushar Rai'}</span>
                 <span style="opacity:0.4;">·</span>
-                <span>${data.meta.date}</span>
+                <span>${data.meta.date || 'July 2026'}</span>
                 <span style="opacity:0.4;">·</span>
-                <span>${data.meta.read_time}</span>
+                <span>${data.meta.read_time || '5 min read'}</span>
             </div>
         </div>
     </header>
@@ -3134,7 +3157,9 @@ function renderBlogPost(data) {
     ` : ''}
 
     <article class="container blog-post-body fade-in">
+        ${tldrHtml}
         ${contentHtml}
+        ${authorCardHtml}
         ${relatedHtml}
     </article>
 
@@ -3170,9 +3195,9 @@ function renderIndustryLandingPage(data) {
         <div class="bento-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
             ${data.modules.map(m => `
                 <div class="bento-card fade-in" style="padding: 28px;">
-                    <div class="bento-icon" style="font-size: 2rem; margin-bottom: 16px;">${m.icon}</div>
-                    <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; color: var(--text-main);">${m.title}</h3>
-                    <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-muted);">${m.desc}</p>
+                    <div class="bento-icon" style="margin-bottom: 16px;">${m.icon}</div>
+                    <h3 style=" font-weight: 700; margin-bottom: 12px; color: var(--text-main);">${m.title}</h3>
+                    <p style=" line-height: 1.7; color: var(--text-muted);">${m.desc}</p>
                 </div>
             `).join('')}
         </div>
@@ -3184,8 +3209,8 @@ function renderIndustryLandingPage(data) {
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
                 <div style="max-width: 650px;">
                     <div class="mini-title font-bold uppercase" style="color: var(--primary); margin-bottom: 8px;">VERIFIED CASE STUDY</div>
-                    <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 12px; color: var(--text-main);">${data.case_study.title}</h3>
-                    <p style="font-size: 1rem; line-height: 1.7; color: var(--text-muted);">${data.case_study.desc}</p>
+                    <h3 style="margin-bottom: 12px; color: var(--text-main);">${data.case_study.title}</h3>
+                    <p style="color: var(--text-muted);">${data.case_study.desc}</p>
                 </div>
                 <div>
                     <a href="${data.case_study.link}" class="btn-primary" style="padding: 12px 24px; white-space: nowrap;">View Case Study &rarr;</a>
@@ -3203,8 +3228,8 @@ function renderIndustryLandingPage(data) {
         <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 36px;">
             ${data.faqs.map(faq => `
                 <div class="spec-card fade-in" style="padding: 24px 28px; border-radius: 14px;">
-                    <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-main); margin-bottom: 10px;">${faq.q}</h3>
-                    <p style="font-size: 0.95rem; line-height: 1.75; color: var(--text-muted); margin: 0;">${faq.a}</p>
+                    <h3 style=" font-weight: 700; color: var(--text-main); margin-bottom: 10px;">${faq.q}</h3>
+                    <p style=" line-height: 1.75; color: var(--text-muted); margin: 0;">${faq.a}</p>
                 </div>
             `).join('')}
         </div>
@@ -3219,10 +3244,10 @@ function renderIndustryLandingPage(data) {
             <span class="blog-tag" style="background: color-mix(in srgb, var(--primary) 15%, transparent); color: var(--primary); display: inline-block; margin-bottom: 16px; font-weight: 700;">
                 📍 ${data.tag || 'LUCKNOW & UP REGIONAL EXPERTISE'}
             </span>
-            <h1 class="solutions-header-title" style="font-size: clamp(2.2rem, 4.2vw, 3.4rem); line-height: 1.18; margin-bottom: 20px;">
+            <h1 class="solutions-header-title" style="margin-bottom: 20px;">
                 ${data.title}
             </h1>
-            <p class="solutions-header-desc" style="font-size: 1.1rem; line-height: 1.75; max-width: 760px; margin: 0 auto 32px; color: var(--text-muted);">
+            <p class="solutions-header-desc" style="line-height: 1.65; max-width: 760px; margin: 0 auto 32px; color: var(--text-muted);">
                 ${data.hero_desc}
             </p>
             <div style="display: flex; justify-content: center; align-items: center; gap: 16px; flex-wrap: wrap;">
@@ -3244,8 +3269,8 @@ function renderIndustryLandingPage(data) {
     <!-- ════════ BOTTOM CTA ════════ -->
     <section class="content-section center section-pad-lg border-t-light">
         <div class="container" style="max-width: 700px;">
-            <h2 class="mb-8" style="font-size: 2rem; font-weight: 800;">Ready to Modernize Your ${data.industry} Operations?</h2>
-            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 28px;">
+            <h2 class="mb-8" >Ready to Modernize Your ${data.industry} Operations?</h2>
+            <p style="color: var(--text-muted);  line-height: 1.7; margin-bottom: 28px;">
                 Speak directly with our engineering leadership in Gomti Nagar, Lucknow. Get a detailed architectural roadmap and fixed-price timeline within 24 hours.
             </p>
             <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">

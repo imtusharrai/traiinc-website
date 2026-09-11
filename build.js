@@ -249,10 +249,42 @@ server.listen(PORT, async () => {
                     }
                 };
             } else if (file.startsWith('blog-') && file !== 'blog.html') {
+                let blogData = {};
+                try {
+                    let blogJsonPath = path.join(rootDir, 'data', file.replace('.html', '.json'));
+                    if (fs.existsSync(blogJsonPath)) {
+                        blogData = JSON.parse(fs.readFileSync(blogJsonPath, 'utf8'));
+                    }
+                } catch(e) {}
+
                 schemaJson = {
                     "@context": "https://schema.org",
                     "@type": "BlogPosting",
                     "headline": dom.window.document.title.split('|')[0].trim(),
+                    "description": blogData.meta && blogData.meta.description ? blogData.meta.description : "Industry insights and engineering blueprints by Trai Inc.",
+                    "image": blogData.meta && blogData.meta.image ? `https://traiinc.com${blogData.meta.image}` : "https://traiinc.com/assets/logos/logo.png",
+                    "datePublished": "2026-07-10T08:00:00+05:30",
+                    "dateModified": new Date().toISOString(),
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": `https://traiinc.com/${file.replace('.html', '')}`
+                    },
+                    "author": {
+                        "@type": "Person",
+                        "name": blogData.meta && blogData.meta.author ? blogData.meta.author : "Tushar Rai",
+                        "jobTitle": "Founder & Principal Architect",
+                        "url": "https://traiinc.com/about",
+                        "sameAs": [
+                            "https://www.linkedin.com/in/imtusharrai",
+                            "https://github.com/imtusharrai"
+                        ],
+                        "knowsAbout": [
+                            "Artificial Intelligence",
+                            "AI Agents",
+                            "Cloud Infrastructure",
+                            "Full-Stack Software Engineering"
+                        ]
+                    },
                     "publisher": {
                         "@type": "Organization",
                         "name": "Trai Inc",

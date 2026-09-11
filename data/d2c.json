@@ -70,22 +70,6 @@
     "🌐 ONDC Network & Marketplace Connect",
     "📊 Unified Multi-Channel Analytics"
   ],
-  "brand_marquee": {
-    "subtitle": "POWERING COMMERCE FOR MODERN BRANDS & ENTERPRISES",
-    "logos": [
-      { "name": "Tata", "src": "assets/d2c/brands/brand-tata.png" },
-      { "name": "Amul", "src": "assets/d2c/brands/brand-amul.png" },
-      { "name": "Croma", "src": "assets/d2c/brands/brand-croma.png" },
-      { "name": "Epson", "src": "assets/d2c/brands/brand-epson.png" },
-      { "name": "Beardo", "src": "assets/d2c/brands/brand-beardo.png" },
-      { "name": "Ramraj", "src": "assets/d2c/brands/brand-ramraj.png" },
-      { "name": "Paragon", "src": "assets/d2c/brands/brand-paragon.png" },
-      { "name": "Sri Sri Tattva", "src": "assets/d2c/brands/brand-srisri.png" },
-      { "name": "Nutraj", "src": "assets/d2c/brands/brand-nutraj.png" },
-      { "name": "Farmley", "src": "assets/d2c/brands/brand-farmley.png" },
-      { "name": "Vega", "src": "assets/d2c/brands/brand-vega.png" }
-    ]
-  },
   "services": {
     "subtitle": "THE 4-PILLAR TRANSFORMATION STACK",
     "title": "Everything your offline business needs to conquer D2C",
