@@ -3,7 +3,7 @@
 Trai Inc is an AI-native software engineering company delivering custom software, AI automation, and cloud platforms.
 
 ## Core Facts
-- **Locations:** Global Headquarters in Lucknow (Tower B2, DLF Mypad, Gomti Nagar, UP 226010, India), Bengaluru (Indiranagar, Karnataka, India), Cape Town (WeWork, 80 Strand St, South Africa), and Lusaka (Green Park Estate, Lilayi, Zambia).
+- **Locations:** Global Headquarters in Lucknow (Tower B2, DLF Mypad, Gomti Nagar, UP 226010, India), Bengaluru (Indiranagar, Karnataka, India), Cape Town (WeWork, 80 Strand St, South Africa), and Lusaka (Green Park Estate, Off Kafue Road, Lilayi, Lusaka 10101, Zambia).
 - **Model:** Independent, revenue-funded, no venture capital. We offer fixed-price contracts starting at ₹15,000 and full intellectual property (IP) ownership to clients.
 - **Team:** Senior engineers only (no outsourcing, no junior devs).
 - **Projects Delivered:** 138+ projects across India with a 94% client retention rate.

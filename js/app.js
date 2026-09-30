@@ -1658,7 +1658,7 @@ function renderContact(data) {
                     { city: "Lucknow", country: "India", tag: "Headquarters", flag: "🇮🇳", address: "B-2, 11th Floor, DLF MyPad, Opposite Hyatt Regency, Vibhuti Khand, Gomti Nagar, Lucknow, UP 226010", hours: "Mon–Sat, 10am–7pm IST", map_url: "https://www.google.com/maps?q=Trai+Inc+Lucknow" },
                     { city: "Bengaluru", country: "India", tag: "Tech Hub", flag: "🇮🇳", address: "660, 2nd Floor, 100 Feet Road, Indiranagar, Bengaluru – 560038", hours: "Mon–Sat, 10am–7pm IST", map_url: "https://www.google.com/maps?q=660+100+Feet+Road+Indiranagar+Bengaluru+560038" },
                     { city: "Cape Town", country: "South Africa", tag: "Regional Office", flag: "🇿🇦", address: "WeWork, 80 Strand Street, Cape Town, WC 8001", hours: "Mon–Fri, 9am–6pm SAST", map_url: "https://www.google.com/maps?q=WeWork+80+Strand+Street+Cape+Town+8001" },
-                    { city: "Lusaka", country: "Zambia", tag: "Regional Office", flag: "🇿🇲", address: "Green Park Estate, Lilayi, Lusaka, Zambia", hours: "Mon–Fri, 8am–5pm CAT", map_url: "https://www.google.com/maps?q=Green+Park+Estate+Lilayi+Lusaka+Zambia" }
+                    { city: "Lusaka", country: "Zambia", tag: "Regional Office", flag: "🇿🇲", address: "Green Park Estate, Off Kafue Road, Lilayi, Lusaka 10101, Zambia", hours: "Mon–Fri, 8am–5pm CAT", map_url: "https://www.google.com/maps?q=Green+Park+Estate+Off+Kafue+Road+Lilayi+Lusaka+10101+Zambia" }
                 ]).map(office => `
                 <div class="contact-office-card fade-in">
                     <div class="contact-office-card-top">

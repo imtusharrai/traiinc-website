@@ -636,7 +636,7 @@
                                 <span class="footer-office-type">Regional Delivery Office</span>
                             </div>
                         </div>
-                        <p class="footer-office-address">Green Park Estate, Lilayi, Lusaka, Zambia</p>
+                        <p class="footer-office-address">Green Park Estate, Off Kafue Road, Lilayi, Lusaka 10101, Zambia</p>
                     </div>
                 </div>
             </div>
