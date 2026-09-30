@@ -1645,29 +1645,40 @@ function renderContact(data) {
         </div>
     </section>
 
-    <!-- ═══ LOCATION SECTION ═══ -->
+    <!-- ═══ GLOBAL OFFICES SECTION ═══ -->
     <section class="contact-location-section">
         <div class="container contact-location-container">
-            <div class="contact-location-card">
-                <div class="contact-location-left">
-                    <div class="contact-location-pin">${audienceIcons.pin}</div>
-                    <div class="contact-location-info">
-                        <h3 class="contact-location-title">Office</h3>
-                        <p class="contact-location-addr">B-2, 11th Floor, DLF MyPad,<br>Opposite Hyatt Regency, Vibhuti Khand,<br>Gomti Nagar, Lucknow, UP 226010</p>
-                        <div class="contact-location-meta">
-                            <span class="contact-location-badge"><span class="contact-badge-icon">${audienceIcons.clock}</span> Mon–Sat, 10am–7pm IST</span>
-                            <span class="contact-location-badge"><span class="contact-badge-icon">${audienceIcons.map}</span> In-person meetings available</span>
+            <div class="section-header center fade-in" style="margin-bottom: 44px;">
+                <h4 class="mini-title">Global Presence</h4>
+                <h2>Our Offices &amp; Studios</h2>
+                <p style="color: var(--text-muted); max-width: 640px; margin: 12px auto 0; font-size: var(--text-base);">From our engineering headquarters in India to regional delivery hubs across Africa, we are positioned to support clients globally.</p>
+            </div>
+            <div class="contact-offices-grid">
+                ${(data.offices || [
+                    { city: "Lucknow", country: "India", tag: "Headquarters", flag: "🇮🇳", address: "B-2, 11th Floor, DLF MyPad, Opposite Hyatt Regency, Vibhuti Khand, Gomti Nagar, Lucknow, UP 226010", hours: "Mon–Sat, 10am–7pm IST", map_url: "https://www.google.com/maps?q=Trai+Inc+Lucknow" },
+                    { city: "Bengaluru", country: "India", tag: "Tech Hub", flag: "🇮🇳", address: "660, 2nd Floor, 100 Feet Road, Indiranagar, Bengaluru – 560038", hours: "Mon–Sat, 10am–7pm IST", map_url: "https://www.google.com/maps?q=660+100+Feet+Road+Indiranagar+Bengaluru+560038" },
+                    { city: "Cape Town", country: "South Africa", tag: "Regional Office", flag: "🇿🇦", address: "WeWork, 80 Strand Street, Cape Town, WC 8001", hours: "Mon–Fri, 9am–6pm SAST", map_url: "https://www.google.com/maps?q=WeWork+80+Strand+Street+Cape+Town+8001" },
+                    { city: "Lusaka", country: "Zambia", tag: "Regional Office", flag: "🇿🇲", address: "Green Park Estate, Lilayi, Lusaka, Zambia", hours: "Mon–Fri, 8am–5pm CAT", map_url: "https://www.google.com/maps?q=Green+Park+Estate+Lilayi+Lusaka+Zambia" }
+                ]).map(office => `
+                <div class="contact-office-card fade-in">
+                    <div class="contact-office-card-top">
+                        <div class="contact-office-header">
+                            <span class="contact-office-flag">${office.flag || '📍'}</span>
+                            <div class="contact-office-titles">
+                                <h3 class="contact-office-city">${office.city}, <span class="contact-office-country">${office.country}</span></h3>
+                                <span class="contact-office-tag">${office.tag}</span>
+                            </div>
                         </div>
+                        <p class="contact-office-addr">${office.address}</p>
+                    </div>
+                    <div class="contact-office-card-bottom">
+                        <span class="contact-location-badge"><span class="contact-badge-icon">${audienceIcons.clock}</span> ${office.hours}</span>
+                        <a href="${office.map_url}" target="_blank" rel="noopener noreferrer" class="contact-office-map-link">
+                            Directions <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V8H8"/></svg>
+                        </a>
                     </div>
                 </div>
-                <div class="contact-location-right">
-                    <a href="https://www.google.com/maps?q=Trai+Inc+Lucknow" target="_blank" rel="noopener noreferrer" class="contact-map-placeholder" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%; min-height: 320px; background: var(--bg-dark); border-radius: 0 var(--radius-lg) var(--radius-lg) 0; text-decoration: none; border-left: 1px solid var(--border-light); position: relative; overflow: hidden;">
-                        <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, var(--border-strong) 1px, transparent 1px) 0 0 / 20px 20px; opacity: 0.2; pointer-events: none;"></div>
-                        <div style="color: var(--accent-color); margin-bottom: 12px; z-index: 1;">${audienceIcons.pin}</div>
-                        <h4 style="color: var(--text-main); margin-bottom: 6px; z-index: 1;">View on Google Maps</h4>
-                        <span style="color: var(--text-muted); z-index: 1;">Get directions to our studio</span>
-                    </a>
-                </div>
+                `).join('')}
             </div>
         </div>
     </section>

@@ -587,8 +587,25 @@
                     <span class="footer-badge">⚡ AI-Augmented Delivery</span>
                 </div>
                 <div class="footer-location-block">
-                    <h4>Location</h4>
-                    <p>B-2, 11th Floor, DLF MyPad,<br>Opposite Hyatt Regency, Vibhuti Khand,<br>Gomti Nagar, Lucknow, UP 226010</p>
+                    <h4>Global Offices</h4>
+                    <div class="footer-offices-list">
+                        <div class="footer-office-item">
+                            <span class="footer-office-name">🇮🇳 Lucknow, India (HQ)</span>
+                            <span class="footer-office-text">B-2, 11th Floor, DLF MyPad, Gomti Nagar, UP 226010</span>
+                        </div>
+                        <div class="footer-office-item">
+                            <span class="footer-office-name">🇮🇳 Bengaluru, India</span>
+                            <span class="footer-office-text">660, 2nd Floor, 100 Feet Rd, Indiranagar, KA 560038</span>
+                        </div>
+                        <div class="footer-office-item">
+                            <span class="footer-office-name">🇿🇦 Cape Town, South Africa</span>
+                            <span class="footer-office-text">WeWork, 80 Strand St, Cape Town, WC 8001</span>
+                        </div>
+                        <div class="footer-office-item">
+                            <span class="footer-office-name">🇿🇲 Lusaka, Zambia</span>
+                            <span class="footer-office-text">Green Park Estate, Lilayi, Lusaka, Zambia</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
