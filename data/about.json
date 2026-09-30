@@ -100,6 +100,15 @@
         "department": "Leadership"
       },
       {
+        "name": "Shiva Gupta",
+        "role": "Director – Legal & Corporate Compliances India",
+        "region": "India",
+        "email": "shiva.gupta@traiinc.com",
+        "image": "img/shiva.png",
+        "tier": "founder",
+        "department": "Legal & Compliance"
+      },
+      {
         "name": "Harsh Pandey",
         "role": "VP – Engineering",
         "region": "Global Delivery",
