@@ -1560,17 +1560,6 @@ function renderContact(data) {
                         Start Chat
                     </a>
                 </div>
-
-                <div class="contact-action-separator"></div>
-
-                <div class="contact-action-block">
-                    <div class="contact-action-icon">${audienceIcons.calendar}</div>
-                    <h3 class="contact-action-title">Prefer a Quick Chat?</h3>
-                    <p class="contact-action-desc">Prefer a structured conversation? Schedule a scoping call. No sales pitch — just honest technical discussion.</p>
-                    <a href="contact.html" rel="noopener noreferrer" class="btn-primary large contact-action-btn">
-                        Book on Google Calendar
-                    </a>
-                </div>
             </div>
 
         </div>
