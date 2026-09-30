@@ -878,43 +878,120 @@ footer {
     box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
 }
 
-/* ── Location & Hours Expanded Spacing ── */
-.footer-location-block {
-    margin-top: 36px;
-    padding-top: 12px;
+/* ── Footer Offices Strip (Full-width global locations) ── */
+.footer-offices-strip {
+    border-top: 1px solid var(--border-light);
+    margin-top: 50px;
+    padding-top: 40px;
+    padding-bottom: 24px;
 }
-.footer-location-block h4 {
-    margin-bottom: 12px !important;
+.footer-offices-container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+.footer-offices-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.footer-offices-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.footer-offices-kicker {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--accent-color);
+}
+.footer-offices-heading {
+    font-family: var(--font-heading);
     font-size: var(--text-base);
     font-weight: 700;
-    letter-spacing: 0.3px;
-}
-.footer-location-block p {
-    line-height: 1.65;
-    color: var(--text-muted);
-    font-size: var(--text-sm);
+    color: var(--text-main);
     margin: 0;
 }
-.footer-offices-list {
+.footer-offices-tagline {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+}
+.footer-offices-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+.footer-office-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 14px;
+    padding: 20px 18px;
     display: flex;
     flex-direction: column;
     gap: 12px;
-    margin-top: 10px;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
-.footer-office-item {
+.footer-office-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--border-strong);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+}
+.footer-office-card-head {
     display: flex;
-    flex-direction: column;
-    gap: 2px;
+    align-items: center;
+    gap: 12px;
 }
-.footer-office-name {
-    font-size: var(--text-xs);
+.footer-office-flag {
+    font-size: 22px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--bg-darker);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+.footer-office-city {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
     font-weight: 700;
     color: var(--text-main);
+    display: block;
 }
-.footer-office-text {
+.footer-office-type {
     font-size: 11px;
     color: var(--text-muted);
-    line-height: 1.45;
+    font-weight: 500;
+    display: block;
+}
+.footer-office-address {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 1024px) {
+    .footer-offices-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 640px) {
+    .footer-offices-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+    .footer-offices-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 .footer-hours-block {

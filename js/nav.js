@@ -586,25 +586,57 @@
                     <span class="footer-badge">🔒 Fixed-Price Contracts</span>
                     <span class="footer-badge">⚡ AI-Augmented Delivery</span>
                 </div>
-                <div class="footer-location-block">
-                    <h4>Global Offices</h4>
-                    <div class="footer-offices-list">
-                        <div class="footer-office-item">
-                            <span class="footer-office-name">🇮🇳 Lucknow, India (HQ)</span>
-                            <span class="footer-office-text">B-2, 11th Floor, DLF MyPad, Gomti Nagar, UP 226010</span>
+            </div>
+        </div>
+        <div class="footer-offices-strip">
+            <div class="container footer-offices-container">
+                <div class="footer-offices-header">
+                    <div class="footer-offices-title-group">
+                        <span class="footer-offices-kicker">Global Footprint</span>
+                        <h4 class="footer-offices-heading">Our Registered &amp; Regional Offices</h4>
+                    </div>
+                    <span class="footer-offices-tagline">Serving clients across India, Africa, North America &amp; Global Markets</span>
+                </div>
+                <div class="footer-offices-grid">
+                    <div class="footer-office-card">
+                        <div class="footer-office-card-head">
+                            <span class="footer-office-flag">🇮🇳</span>
+                            <div>
+                                <strong class="footer-office-city">Lucknow, India</strong>
+                                <span class="footer-office-type">Global Headquarters</span>
+                            </div>
                         </div>
-                        <div class="footer-office-item">
-                            <span class="footer-office-name">🇮🇳 Bengaluru, India</span>
-                            <span class="footer-office-text">660, 2nd Floor, 100 Feet Rd, Indiranagar, KA 560038</span>
+                        <p class="footer-office-address">B-2, 11th Floor, DLF MyPad, Opposite Hyatt Regency, Vibhuti Khand, Gomti Nagar, Lucknow, Uttar Pradesh 226010</p>
+                    </div>
+                    <div class="footer-office-card">
+                        <div class="footer-office-card-head">
+                            <span class="footer-office-flag">🇮🇳</span>
+                            <div>
+                                <strong class="footer-office-city">Bengaluru, India</strong>
+                                <span class="footer-office-type">Technology &amp; Engineering Hub</span>
+                            </div>
                         </div>
-                        <div class="footer-office-item">
-                            <span class="footer-office-name">🇿🇦 Cape Town, South Africa</span>
-                            <span class="footer-office-text">WeWork, 80 Strand St, Cape Town, WC 8001</span>
+                        <p class="footer-office-address">660, 2nd Floor, 100 Feet Road, Indiranagar, Bengaluru, Karnataka 560038</p>
+                    </div>
+                    <div class="footer-office-card">
+                        <div class="footer-office-card-head">
+                            <span class="footer-office-flag">🇿🇦</span>
+                            <div>
+                                <strong class="footer-office-city">Cape Town, South Africa</strong>
+                                <span class="footer-office-type">Africa Regional Hub</span>
+                            </div>
                         </div>
-                        <div class="footer-office-item">
-                            <span class="footer-office-name">🇿🇲 Lusaka, Zambia</span>
-                            <span class="footer-office-text">Green Park Estate, Lilayi, Lusaka, Zambia</span>
+                        <p class="footer-office-address">WeWork, 80 Strand Street, Cape Town City Centre, Cape Town, Western Cape 8001</p>
+                    </div>
+                    <div class="footer-office-card">
+                        <div class="footer-office-card-head">
+                            <span class="footer-office-flag">🇿🇲</span>
+                            <div>
+                                <strong class="footer-office-city">Lusaka, Zambia</strong>
+                                <span class="footer-office-type">Regional Delivery Office</span>
+                            </div>
                         </div>
+                        <p class="footer-office-address">Green Park Estate, Lilayi, Lusaka, Zambia</p>
                     </div>
                 </div>
             </div>
