@@ -45,6 +45,10 @@ async function adminApi(request, env, member) {
   const parts = url.pathname.split("/").filter(Boolean);
   const resource = parts[3] || "";
   const id = parts[4] || "";
+  if (request.method === "GET" && resource === "entries" && id) {
+    const row = await env.DB.prepare("SELECT * FROM cms_entries WHERE id = ?").bind(id).first();
+    return row ? json({ item: { ...row, data: JSON.parse(row.data_json), seo: row.seo_json ? JSON.parse(row.seo_json) : {} } }) : json({ error: "Not found" }, 404);
+  }
   if (request.method === "GET" && resource === "entries") {
     const status = url.searchParams.get("status");
     const query = status
@@ -52,10 +56,6 @@ async function adminApi(request, env, member) {
       : env.DB.prepare("SELECT id, content_type, slug, title, status, updated_at, published_at FROM cms_entries ORDER BY updated_at DESC");
     const { results = [] } = await query.all();
     return json({ items: results });
-  }
-  if (request.method === "GET" && resource === "entries" && id) {
-    const row = await env.DB.prepare("SELECT * FROM cms_entries WHERE id = ?").bind(id).first();
-    return row ? json({ item: { ...row, data: JSON.parse(row.data_json), seo: row.seo_json ? JSON.parse(row.seo_json) : {} } }) : json({ error: "Not found" }, 404);
   }
   if (request.method === "POST" && resource === "entries") {
     if ((ROLES[member.role] || 0) < ROLES.editor) return json({ error: "Forbidden" }, 403);
@@ -113,19 +113,27 @@ async function adminApi(request, env, member) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: { "access-control-allow-methods": "GET,POST,PATCH,OPTIONS", "access-control-allow-headers": "content-type,Cf-Access-Jwt-Assertion" } });
+    const origin = request.headers.get("Origin");
+    const cors = origin && env.ADMIN_ORIGIN && origin === env.ADMIN_ORIGIN
+      ? { "access-control-allow-origin": env.ADMIN_ORIGIN, "access-control-allow-credentials": "true", "vary": "Origin" }
+      : {};
+    if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: { ...cors, "access-control-allow-methods": "GET,POST,PATCH,OPTIONS", "access-control-allow-headers": "content-type,Cf-Access-Jwt-Assertion" } });
+    let response;
     try {
-      if (url.pathname === "/api/public/v1/content" && request.method === "GET") return await publicContent(request, env);
-      if (url.pathname.startsWith("/api/admin/v1/")) {
-        if (!["GET", "POST", "PATCH"].includes(request.method)) return json({ error: "Method not allowed" }, 405);
-        const member = await requireMember(request, env, "viewer");
-        if (!member) return json({ error: "Unauthorized" }, 401);
-        return await adminApi(request, env, member);
-      }
-      return json({ error: "Not found" }, 404);
+      if (url.pathname === "/api/public/v1/content" && request.method === "GET") response = await publicContent(request, env);
+      else if (url.pathname.startsWith("/api/admin/v1/")) {
+        if (!["GET", "POST", "PATCH"].includes(request.method)) response = json({ error: "Method not allowed" }, 405);
+        else {
+          const member = await requireMember(request, env, "viewer");
+          response = member ? await adminApi(request, env, member) : json({ error: "Unauthorized" }, 401);
+        }
+      } else response = json({ error: "Not found" }, 404);
     } catch (error) {
       console.error("CMS API error", error);
-      return json({ error: "Internal server error" }, 500);
+      response = json({ error: "Internal server error" }, 500);
     }
+    const headers = new Headers(response.headers);
+    for (const [key, value] of Object.entries(cors)) headers.set(key, value);
+    return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
   }
 };
