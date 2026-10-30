@@ -10,4 +10,5 @@ migrations_dir = "migrations"
 
 [vars]
 CF_ACCESS_TEAM_DOMAIN = "REPLACE_WITH_YOUR_TEAM.cloudflareaccess.com"
+ADMIN_ORIGIN = "https://admin.traiinc.com"
 # Set CF_ACCESS_AUD as a Worker secret; do not commit the value.
