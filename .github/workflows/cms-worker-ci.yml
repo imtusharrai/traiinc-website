@@ -1,0 +1,50 @@
+name: CMS Worker CI
+
+on:
+  push:
+    branches:
+      - "feat/traiinc-cms-worker-admin"
+    paths:
+      - "src/**"
+      - "migrations/**"
+      - "wrangler.toml"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/cms-worker-*.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "migrations/**"
+      - "wrangler.toml"
+      - "package.json"
+      - "package-lock.json"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Validate Worker JavaScript syntax
+        run: node --check src/index.js
+      - name: Validate D1 migration SQL
+        run: |
+          python - <<'PY'
+          import sqlite3
+          from pathlib import Path
+          sql = Path("migrations/0001_initial_schema.sql").read_text()
+          db = sqlite3.connect(":memory:")
+          db.executescript(sql)
+          print("D1 migration SQL parsed successfully.")
+          PY
+      - name: Build existing website
+        run: npm run build
