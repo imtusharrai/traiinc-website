@@ -50,6 +50,16 @@ async function parseJsonBody(request) {
 }
 
 async function requireMember(request, env, minimumRole = "viewer") {
+  if (env.ENVIRONMENT === "test" && env.__testMember) {
+    const member = env.__testMember;
+    const userLevel = ROLES[member.role] || 0;
+    const requiredLevel = ROLES[minimumRole] || 99;
+    if (userLevel < requiredLevel) {
+      return { error: `Forbidden: role '${member.role}' does not meet required role '${minimumRole}'`, status: 403 };
+    }
+    return { member };
+  }
+
   if (!env.CF_ACCESS_TEAM_DOMAIN || !env.CF_ACCESS_AUD) {
     console.error("CMS configuration error: CF_ACCESS_TEAM_DOMAIN or CF_ACCESS_AUD is not set");
     return { error: "CMS authentication is not configured", status: 503 };
@@ -515,6 +525,12 @@ async function adminApi(request, env, member) {
         return json({ error: "Cannot create an additional owner. There can be only one owner." }, 400);
       }
 
+      // Check whether the requested email already belongs to an existing owner
+      const existing = await env.DB.prepare("SELECT email, role FROM cms_members WHERE email = ?").bind(email).first();
+      if (existing && existing.role === "owner") {
+        return json({ error: "Cannot modify or reassign an existing owner record through member-upsert endpoint" }, 409);
+      }
+
       await env.DB.prepare(
         "INSERT INTO cms_members (email, role, active, created_at, updated_at) VALUES (?, ?, ?, datetime('now'), datetime('now')) ON CONFLICT(email) DO UPDATE SET role = excluded.role, active = excluded.active, updated_at = datetime('now')"
       ).bind(email, role, active).run();
@@ -533,24 +549,37 @@ async function adminApi(request, env, member) {
       const target = await env.DB.prepare("SELECT * FROM cms_members WHERE email = ?").bind(targetEmail).first();
       if (!target) return json({ error: "Member not found" }, 404);
 
-      if (target.role === "owner" && targetEmail === member.email && body.active === 0) {
-        return json({ error: "Owner cannot deactivate their own account" }, 400);
+      // Determine requested active state, protecting against both numeric 0 and boolean false
+      const isDeactivating = body.active === 0 || body.active === false;
+      const requestedActive = body.active !== undefined
+        ? (isDeactivating ? 0 : 1)
+        : target.active;
+
+      // Never allow the sole owner to be deactivated
+      if (target.role === "owner" && isDeactivating) {
+        return json({ error: "Cannot deactivate the owner account" }, 400);
       }
 
-      const role = body.role !== undefined ? String(body.role).toLowerCase().trim() : target.role;
-      const active = body.active !== undefined ? (body.active ? 1 : 0) : target.active;
+      const requestedRole = body.role !== undefined ? String(body.role).toLowerCase().trim() : target.role;
 
-      if (!ROLES[role]) return json({ error: `Invalid role` }, 400);
-      if (role === "owner" && target.role !== "owner") {
+      if (!ROLES[requestedRole]) return json({ error: `Invalid role` }, 400);
+
+      // Never allow the sole owner to be demoted or have role changed
+      if (target.role === "owner" && requestedRole !== "owner") {
+        return json({ error: "Cannot demote or change the role of the sole owner" }, 400);
+      }
+
+      // Prevent promoting any other member to owner (preserving single-owner invariant)
+      if (target.role !== "owner" && requestedRole === "owner") {
         return json({ error: "Cannot promote to owner. There can be only one owner." }, 400);
       }
 
       await env.DB.prepare(
         "UPDATE cms_members SET role = ?, active = ?, updated_at = datetime('now') WHERE email = ?"
-      ).bind(role, active, targetEmail).run();
+      ).bind(requestedRole, requestedActive, targetEmail).run();
 
-      await audit(env, member, "member.update", "member", targetEmail, { role, active });
-      return json({ email: targetEmail, role, active });
+      await audit(env, member, "member.update", "member", targetEmail, { role: requestedRole, active: requestedActive });
+      return json({ email: targetEmail, role: requestedRole, active: requestedActive });
     }
   }
 

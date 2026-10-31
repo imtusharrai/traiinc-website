@@ -97,6 +97,7 @@ const mockEnv = {
               self.queriesRun.push({ sql, args, type: "first" });
               if (sql.includes("FROM cms_members WHERE email = ?")) {
                 const email = args[0];
+                if (email === "owner@traiinc.com") return { email, role: "owner", active: 1 };
                 if (email === "viewer@traiinc.com") return { email, role: "viewer", active: 1 };
                 if (email === "editor@traiinc.com") return { email, role: "editor", active: 1 };
                 if (email === "admin@traiinc.com") return { email, role: "admin", active: 1 };
@@ -335,4 +336,143 @@ const mockEnv = {
   console.log("PASS Test 16: Public content API rejects unsupported methods with 405.");
 }
 
-console.log("\nALL 16 ACCESS HARDENING TESTS PASSED SUCCESSFULLY.");
+// ============================================================================
+// PART 3: Owner Invariant & Mutation Protection Tests (Hardening Verification)
+// ============================================================================
+
+const mockOwnerEnv = {
+  ...mockEnv,
+  ENVIRONMENT: "test",
+  __testMember: { email: "owner@traiinc.com", role: "owner" }
+};
+
+// Test 17: POST with existing owner's email and role admin must be rejected with 409 (zero DB writes)
+{
+  mockEnv.DB.queriesRun = [];
+  const req = new Request("https://api.traiinc.com/api/admin/v1/members", {
+    method: "POST",
+    headers: {
+      "Origin": "https://admin.traiinc.com",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ email: "owner@traiinc.com", role: "admin", active: 1 })
+  });
+
+  const res = await worker.fetch(req, mockOwnerEnv);
+  assert.strictEqual(res.status, 409, "POST targeting existing owner must return 409 Conflict");
+  const data = await res.json();
+  assert.ok(data.error.includes("Cannot modify or reassign an existing owner record"), "Error message specifies owner protection");
+  const writes = mockEnv.DB.queriesRun.filter(q => q.type === "run");
+  assert.strictEqual(writes.length, 0, "No database writes must occur when owner upsert is rejected");
+  console.log("PASS Test 17: POST with existing owner email and role admin is rejected (zero writes).");
+}
+
+// Test 18: PATCH against owner with active: false or active: 0 must be rejected with 400 (zero DB writes)
+{
+  // Test boolean false
+  {
+    mockEnv.DB.queriesRun = [];
+    const req = new Request("https://api.traiinc.com/api/admin/v1/members/owner@traiinc.com", {
+      method: "PATCH",
+      headers: {
+        "Origin": "https://admin.traiinc.com",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ active: false })
+    });
+
+    const res = await worker.fetch(req, mockOwnerEnv);
+    assert.strictEqual(res.status, 400, "PATCH deactivating owner with boolean false must return 400");
+    const data = await res.json();
+    assert.strictEqual(data.error, "Cannot deactivate the owner account");
+    const writes = mockEnv.DB.queriesRun.filter(q => q.type === "run");
+    assert.strictEqual(writes.length, 0, "No database writes must occur when deactivating owner is rejected");
+  }
+
+  // Test numeric 0
+  {
+    mockEnv.DB.queriesRun = [];
+    const req = new Request("https://api.traiinc.com/api/admin/v1/members/owner@traiinc.com", {
+      method: "PATCH",
+      headers: {
+        "Origin": "https://admin.traiinc.com",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ active: 0 })
+    });
+
+    const res = await worker.fetch(req, mockOwnerEnv);
+    assert.strictEqual(res.status, 400, "PATCH deactivating owner with numeric 0 must return 400");
+    const data = await res.json();
+    assert.strictEqual(data.error, "Cannot deactivate the owner account");
+    const writes = mockEnv.DB.queriesRun.filter(q => q.type === "run");
+    assert.strictEqual(writes.length, 0, "No database writes must occur when deactivating owner is rejected");
+  }
+  console.log("PASS Test 18: PATCH deactivating owner (false or 0) is rejected (zero writes).");
+}
+
+// Test 19: PATCH against owner with role: "editor" must be rejected with 400 (zero DB writes)
+{
+  mockEnv.DB.queriesRun = [];
+  const req = new Request("https://api.traiinc.com/api/admin/v1/members/owner@traiinc.com", {
+    method: "PATCH",
+    headers: {
+      "Origin": "https://admin.traiinc.com",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ role: "editor" })
+  });
+
+  const res = await worker.fetch(req, mockOwnerEnv);
+  assert.strictEqual(res.status, 400, "PATCH demoting owner to editor must return 400");
+  const data = await res.json();
+  assert.strictEqual(data.error, "Cannot demote or change the role of the sole owner");
+  const writes = mockEnv.DB.queriesRun.filter(q => q.type === "run");
+  assert.strictEqual(writes.length, 0, "No database writes must occur when demoting owner is rejected");
+  console.log("PASS Test 19: PATCH demoting owner to editor is rejected (zero writes).");
+}
+
+// Test 20: Existing non-owner team operations continue to work properly
+{
+  mockEnv.DB.queriesRun = [];
+  const req = new Request("https://api.traiinc.com/api/admin/v1/members/editor@traiinc.com", {
+    method: "PATCH",
+    headers: {
+      "Origin": "https://admin.traiinc.com",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ active: 0 })
+  });
+
+  const res = await worker.fetch(req, mockOwnerEnv);
+  assert.strictEqual(res.status, 200, "PATCH on non-owner member must succeed");
+  const data = await res.json();
+  assert.strictEqual(data.email, "editor@traiinc.com");
+  assert.strictEqual(data.active, 0);
+  const writes = mockEnv.DB.queriesRun.filter(q => q.type === "run");
+  assert.ok(writes.length > 0, "Database write executed for non-owner mutation");
+  console.log("PASS Test 20: Non-owner team operations execute successfully.");
+}
+
+// Test 21: Promoting any other member to owner is strictly rejected (preserving single-owner invariant)
+{
+  mockEnv.DB.queriesRun = [];
+  const req = new Request("https://api.traiinc.com/api/admin/v1/members/editor@traiinc.com", {
+    method: "PATCH",
+    headers: {
+      "Origin": "https://admin.traiinc.com",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ role: "owner" })
+  });
+
+  const res = await worker.fetch(req, mockOwnerEnv);
+  assert.strictEqual(res.status, 400, "Promoting non-owner to owner must return 400");
+  const data = await res.json();
+  assert.strictEqual(data.error, "Cannot promote to owner. There can be only one owner.");
+  const writes = mockEnv.DB.queriesRun.filter(q => q.type === "run");
+  assert.strictEqual(writes.length, 0, "No database writes when second owner promotion is attempted");
+  console.log("PASS Test 21: Promoting another member to owner is rejected (zero writes).");
+}
+
+console.log("\nALL 21 ACCESS & OWNER HARDENING TESTS PASSED SUCCESSFULLY.");
