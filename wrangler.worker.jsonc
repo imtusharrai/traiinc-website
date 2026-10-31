@@ -10,7 +10,7 @@
     {
       "binding": "DB",
       "database_name": "traiinc-cms",
-      "database_id": "REPLACE_WITH_CLOUDFLARE_D1_DATABASE_ID",
+      "database_id": "78cd743f-1b7e-49eb-a264-590268db7933",
       "migrations_dir": "migrations"
     }
   ],
