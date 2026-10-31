@@ -253,4 +253,86 @@ const mockEnv = {
   console.log("PASS Test 11: RBAC definitions and hierarchy verified.");
 }
 
-console.log("\nALL 11 ACCESS HARDENING TESTS PASSED SUCCESSFULLY.");
+// Test 12: DELETE request with unauthorized Origin is rejected with 403
+{
+  const req = new Request("https://api.traiinc.com/api/admin/v1/entries/test-id", {
+    method: "DELETE",
+    headers: {
+      "Origin": "https://malicious-origin.com"
+    }
+  });
+
+  const res = await worker.fetch(req, mockEnv);
+  assert.strictEqual(res.status, 403, "DELETE with unauthorized Origin must be 403");
+  const data = await res.json();
+  assert.strictEqual(data.error, "Forbidden: invalid or missing request origin");
+  console.log("PASS Test 12: DELETE request with unauthorized Origin is rejected with 403.");
+}
+
+// Test 13: DELETE request with missing Origin is rejected with 403
+{
+  const req = new Request("https://api.traiinc.com/api/admin/v1/entries/test-id", {
+    method: "DELETE"
+  });
+
+  const res = await worker.fetch(req, mockEnv);
+  assert.strictEqual(res.status, 403, "DELETE with missing Origin must be 403");
+  const data = await res.json();
+  assert.strictEqual(data.error, "Forbidden: invalid or missing request origin");
+  console.log("PASS Test 13: DELETE request with missing Origin is rejected with 403.");
+}
+
+// Test 14: OPTIONS preflight response includes DELETE in access-control-allow-methods
+{
+  const req = new Request("https://api.traiinc.com/api/admin/v1/entries/test-id", {
+    method: "OPTIONS",
+    headers: {
+      "Origin": "https://admin.traiinc.com",
+      "Access-Control-Request-Method": "DELETE"
+    }
+  });
+
+  const res = await worker.fetch(req, mockEnv);
+  assert.strictEqual(res.status, 204, "OPTIONS must return 204 No Content");
+  const methods = res.headers.get("access-control-allow-methods") || "";
+  assert.ok(methods.includes("DELETE"), "Allowed methods must include DELETE");
+  console.log("PASS Test 14: OPTIONS preflight response includes DELETE in allowed methods.");
+}
+
+// Test 15: All new admin endpoints reject unauthenticated requests
+{
+  const endpoints = [
+    "/api/admin/v1/me",
+    "/api/admin/v1/media",
+    "/api/admin/v1/redirects",
+    "/api/admin/v1/members",
+    "/api/admin/v1/settings",
+    "/api/admin/v1/audit"
+  ];
+
+  for (const ep of endpoints) {
+    const req = new Request(`https://api.traiinc.com${ep}`, {
+      method: "GET",
+      headers: {
+        "Origin": "https://admin.traiinc.com"
+      }
+    });
+    const res = await worker.fetch(req, mockEnv);
+    assert.strictEqual(res.status, 401, `${ep} must reject unauthenticated requests with 401`);
+  }
+  console.log("PASS Test 15: All expanded admin endpoints require authentication.");
+}
+
+// Test 16: Public content API rejects unsupported HTTP methods with 405
+{
+  const req = new Request("https://api.traiinc.com/api/public/v1/content", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ test: 1 })
+  });
+  const res = await worker.fetch(req, mockEnv);
+  assert.strictEqual(res.status, 405, "POST on public content API must return 405");
+  console.log("PASS Test 16: Public content API rejects unsupported methods with 405.");
+}
+
+console.log("\nALL 16 ACCESS HARDENING TESTS PASSED SUCCESSFULLY.");

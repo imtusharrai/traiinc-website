@@ -103,7 +103,7 @@ CHECK_OUTPUT=$(npx wrangler d1 execute "$DB_NAME" $REMOTE_FLAG --config "$CONFIG
 }
 
 # Check if an existing owner was returned in the json output
-if echo "$CHECK_OUTPUT" | grep -q '"role":"owner"'; then
+if echo "$CHECK_OUTPUT" | grep -Eq '"role"[[:space:]]*:[[:space:]]*"owner"'; then
   echo "Error: An Owner already exists in the database. Single-owner invariant prevents adding another." >&2
   echo "$CHECK_OUTPUT"
   exit 1
@@ -129,7 +129,7 @@ VERIFY_OUTPUT=$(npx wrangler d1 execute "$DB_NAME" $REMOTE_FLAG --config "$CONFI
   exit 1
 }
 
-if echo "$VERIFY_OUTPUT" | grep -q "\"email\":\"${NORMALIZED_EMAIL}\""; then
+if echo "$VERIFY_OUTPUT" | grep -Eq "\"email\"[[:space:]]*:[[:space:]]*\"${NORMALIZED_EMAIL}\""; then
   echo "==> SUCCESS: Owner '$NORMALIZED_EMAIL' successfully provisioned and verified in $DB_NAME."
 else
   echo "Error: Owner '$NORMALIZED_EMAIL' was not found during post-insertion verification." >&2

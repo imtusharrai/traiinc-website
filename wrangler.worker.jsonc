@@ -14,9 +14,15 @@
       "migrations_dir": "migrations"
     }
   ],
+  "routes": [
+    {
+      "pattern": "api.traiinc.com",
+      "custom_domain": true
+    }
+  ],
   "vars": {
     "ADMIN_ORIGIN": "https://admin.traiinc.com",
-    "CF_ACCESS_TEAM_DOMAIN": "REPLACE_WITH_YOUR_TEAM.cloudflareaccess.com"
+    "CF_ACCESS_TEAM_DOMAIN": "traiinc.cloudflareaccess.com"
   }
   // Worker Secret: CF_ACCESS_AUD (set via `wrangler secret put CF_ACCESS_AUD` or CI secret; do not commit)
 }

@@ -62,15 +62,18 @@ jobs:
             exit 1
           fi
 
-      - name: Set Cloudflare Access audience secret
-        run: printf '%s' "$CF_ACCESS_AUD" | npx wrangler secret put CF_ACCESS_AUD --config wrangler.worker.jsonc
+      - name: Deploy Worker with Secrets
+        run: |
+          SECRETS_FILE=$(mktemp)
+          chmod 600 "$SECRETS_FILE"
+          trap 'rm -f "$SECRETS_FILE"' EXIT
+          node -e '
+            const fs = require("fs");
+            const secrets = { CF_ACCESS_AUD: process.env.CF_ACCESS_AUD };
+            fs.writeFileSync(process.argv[1], JSON.stringify(secrets));
+          ' "$SECRETS_FILE"
+          npx wrangler deploy --config wrangler.worker.jsonc --secrets-file "$SECRETS_FILE"
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CF_ACCESS_AUD: ${{ secrets.CF_ACCESS_AUD }}
-
-      - name: Deploy Worker
-        run: npx wrangler deploy --config wrangler.worker.jsonc
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
