@@ -4,7 +4,8 @@
     "test:isolation": "node tests/test_build_isolation.js",
     "test:worker": "node --check src/index.js",
     "test:migrations": "python3 tests/test_migrations.py",
-    "test": "node --check src/index.js && python3 tests/test_migrations.py && node tests/test_build_isolation.js"
+    "test:access": "node tests/test_access_hardening.mjs",
+    "test": "node --check src/index.js && python3 tests/test_migrations.py && node tests/test_build_isolation.js && node tests/test_access_hardening.mjs"
   },
   "dependencies": {
     "finalhandler": "^2.1.1",

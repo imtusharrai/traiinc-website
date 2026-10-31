@@ -1,14 +1,14 @@
 # TRAI Inc CMS — Zero Trust Access & Authentication Configuration
 
-This document specifies the authentication, authorization, and network isolation architecture for the TRAI Inc Content Management System (CMS).
+This document specifies the authentication, authorization, CORS, and network isolation architecture for the TRAI Inc Content Management System (CMS).
 
 ---
 
 ## 1. Architecture Overview
 
 The CMS consists of two separate, isolated Cloudflare components:
-1. **CMS Admin Interface:** Hosted on Cloudflare Pages (`traiinc-cms-admin`), mapped to `admin.traiinc.com`.
-2. **CMS Worker API:** Hosted on Cloudflare Workers (`traiinc-cms-api`), mapped to `api.traiinc.com`.
+1. **CMS Admin Interface:** Hosted on Cloudflare Pages (`traiinc-cms-admin`), served from `admin.traiinc.com`.
+2. **CMS Worker API:** Hosted on Cloudflare Workers (`traiinc-cms-api`), served from `api.traiinc.com`.
 
 The public website (`traiinc.com`, `traiinc-website.pages.dev`) is completely decoupled and remains read-only with respect to CMS endpoints.
 
@@ -16,49 +16,72 @@ The public website (`traiinc.com`, `traiinc-website.pages.dev`) is completely de
 [ Operator Browser ]
         │
         ▼ (HTTPS)
-┌────────────────────────────────────────┐
-│  Cloudflare Zero Trust Access Gateway  │
-│  • Enforces IdP / MFA Login           │
-│  • Issues Cf-Access-Jwt-Assertion      │
-└───────────────────┬────────────────────┘
-                    │
-         ┌──────────┴──────────┐
-         ▼                     ▼
-┌──────────────────┐  ┌──────────────────────────────────┐
-│ admin.traiinc.com│  │ api.traiinc.com                  │
-│ Cloudflare Pages │  │ Cloudflare Worker (traiinc-cms)  │
-│ (Static Admin UI)│  │ • Verifies JWT against JWKS      │
-│                  │  │ • Validates CF_ACCESS_AUD        │
-│                  │  │ • Enforces RBAC & Single-Owner   │
-│                  │  │ • Queries Cloudflare D1          │
-└──────────────────┘  └──────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────────┐
+│ Cloudflare Access Application: "TRAI Inc CMS" (Single AUD Tag)          │
+│ • Eager redirect cookie: ON                                            │
+│ • Policy: Explicit Allow (e.g. imtusharrai@gmail.com, designated staff)│
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │
+         ┌──────────────────────────┴──────────────────────────┐
+         ▼                                                     ▼
+┌──────────────────────────────────────┐  ┌──────────────────────────────────────┐
+│ Domain 1: admin.traiinc.com          │  │ Domain 2: api.traiinc.com            │
+│ Path: /* (Full UI Protection)        │  │ Path: api/admin/v1/* (API Protection)│
+│ Host: Cloudflare Pages               │  │ Host: Cloudflare Worker              │
+└──────────────────────────────────────┘  └──────────────────────────────────────┘
+                                                               │
+                                          ┌────────────────────┴─────────────────┐
+                                          ▼                                      ▼
+                             ┌────────────────────────┐      ┌────────────────────────┐
+                             │ /api/admin/v1/*        │      │ /api/public/v1/content │
+                             │ [PROTECTED BY ACCESS]  │      │ [UNPROTECTED / PUBLIC] │
+                             │ • Validates Access JWT │      │ • Outside Access Path  │
+                             │ • Enforces D1 RBAC     │      │ • Open CORS (Origin: *)│
+                             │ • Enforces Origin check│      │ • Read-only cached     │
+                             └────────────────────────┘      └────────────────────────┘
 ```
 
 ---
 
 ## 2. Cloudflare Zero Trust Configuration
 
-### Step A: Access Applications
-Create two self-hosted applications (or one wildcard application) in the Cloudflare Zero Trust Dashboard:
+### Step A: Single Multi-Domain Access Application
+Create a **single self-hosted application** in the Cloudflare Zero Trust Dashboard:
 
-1. **Admin Application:**
-   - **Application Name:** `TRAI Inc CMS Admin`
-   - **Application Domain:** `admin.traiinc.com`
+1. **Application Settings:**
+   - **Application Name:** `TRAI Inc CMS`
+   - **Application Type:** Self-hosted
    - **Session Duration:** 24 Hours (or company standard)
-   - **Policies:**
-     - Rule Name: `Allow TRAI Inc Admins`
-     - Action: `Allow`
-     - Criteria: Include Emails or Emails ending in `@traiinc.com`
 
-2. **API Application (or path rule):**
-   - **Application Name:** `TRAI Inc CMS API`
-   - **Application Domain:** `api.traiinc.com`
-   - **Policies:** Same policy as Admin.
+2. **Application Domains:**
+   - **Entry 1:** Domain: `admin.traiinc.com` | Path: (leave empty for `/*`)
+   - **Entry 2:** Click **+ Add domain** → Domain: `api.traiinc.com` | Path: `api/admin/v1/*`
+
+3. **Public API Path Exemption:**
+   Because Entry 2 explicitly scopes protection to `api/admin/v1/*`, the public read-only route `https://api.traiinc.com/api/public/v1/content` remains completely outside Access enforcement.
+
+4. **Advanced Settings — Cookie Configuration:**
+   - Navigate to **Advanced settings** → **Cookie settings**.
+   - Set **Eager redirect cookie:** `ON` (Enabled).
+   - *Technical Note:* Cloudflare issues an application authorization cookie for each configured domain. With Eager redirect cookie enabled, Cloudflare automatically acquires the required cookies through redirects after initial login, eliminating cross-domain cookie failures without needing manual apex cookie configuration.
+
+5. **Access Policy Configuration:**
+   - **Rule Name:** `Authorized CMS Operators`
+   - **Action:** `Allow`
+   - **Include Criteria:** Add exact operator emails (e.g., `imtusharrai@gmail.com` and designated team members).
+   - *Security Rule:* Never select "Everyone" or broad unrestricted wildcards.
+
+6. **CORS Settings Tab:**
+   - Toggle **Enable CORS:** `ON`
+   - **Allowed Origins:** `https://admin.traiinc.com`
+   - **Allowed Methods:** `GET, POST, PATCH, OPTIONS`
+   - **Allowed Headers:** `content-type`
+   - **Allow Credentials:** `ON` (Enabled)
 
 ### Step B: Obtain the Audience Tag (AUD)
 1. Go to **Zero Trust Dashboard** → **Access** → **Applications**.
-2. Select `TRAI Inc CMS API` and click **Edit**.
-3. In the **Overview** tab, copy the **Application Audience (AUD) Tag** (a 64-character hexadecimal string).
+2. Select `TRAI Inc CMS` and click **Edit**.
+3. In the **Overview** tab, copy the **Application Audience (AUD) Tag** (a single 64-character hexadecimal string shared across both configured domains).
 4. *Security Notice:* Never commit the AUD string directly to Git repositories.
 
 ---
@@ -70,11 +93,11 @@ Create two self-hosted applications (or one wildcard application) in the Cloudfl
 - **Admin Configuration:** `wrangler.admin.jsonc`
 
 ### Setting the Team Domain
-In `wrangler.worker.jsonc`, update the team domain variable:
+In `wrangler.worker.jsonc`, update the team domain variable to your actual Cloudflare Zero Trust team domain:
 ```jsonc
 "vars": {
   "ADMIN_ORIGIN": "https://admin.traiinc.com",
-  "CF_ACCESS_TEAM_DOMAIN": "<your-team-name>.cloudflareaccess.com"
+  "CF_ACCESS_TEAM_DOMAIN": "your-team-slug.cloudflareaccess.com"
 }
 ```
 
@@ -84,53 +107,29 @@ Set the secret in Cloudflare Workers using Wrangler:
 printf '%s' "<CF_ACCESS_AUD_VALUE>" | npx wrangler secret put CF_ACCESS_AUD --config wrangler.worker.jsonc
 ```
 
-For GitHub Actions CI/CD, add the following repository secrets:
+For GitHub Actions CI/CD, add the following repository secrets under the `production` environment:
 - `CLOUDFLARE_API_TOKEN` (Worker deploy and D1 edit permissions)
-- `CLOUDFLARE_ACCOUNT_ID`
-- `CF_ACCESS_AUD`
+- `CLOUDFLARE_ACCOUNT_ID` (`3b8585072875daa47d5c3d6ec273c45a`)
+- `CF_ACCESS_AUD` (The single AUD tag from the `TRAI Inc CMS` Access application)
 
 ---
 
-## 4. Token Verification & Role-Based Access Control (RBAC)
+## 4. Security & Authorization Boundaries
 
-1. **Header Inspection:**
-   When an authenticated request reaches `api.traiinc.com`, Cloudflare Access injects the header:
-   `Cf-Access-Jwt-Assertion: <JWT_TOKEN>`
+### A. CORS vs. Authentication
+> [!WARNING]
+> CORS is a browser origin boundary, **not** an authentication control. Restricting CORS prevents compliant browsers on untrusted domains from reading API responses, but does not identify callers or prevent non-browser requests.
 
-2. **Signature & Audience Verification:**
-   The Worker uses the `jose` library to fetch public keys from:
-   `https://<team-domain>.cloudflareaccess.com/cdn-cgi/access/certs`
-   and verifies:
-   - Token signature matches Cloudflare Zero Trust public keys.
-   - `aud` claim matches `env.CF_ACCESS_AUD`.
-   - `iss` claim matches `https://<team-domain>.cloudflareaccess.com`.
-   - Token is not expired.
+The actual security architecture enforces four complementary boundaries:
+1. **Perimeter Boundary:** Cloudflare Zero Trust blocks unauthenticated requests to `admin.traiinc.com` and `api.traiinc.com/api/admin/v1/*`.
+2. **Cryptographic JWT Verification:** The Worker verifies the signature of `Cf-Access-Jwt-Assertion` against the public JWKS keys from `https://<team-domain>.cloudflareaccess.com/cdn-cgi/access/certs`, checking expiration, `iss`, and `aud`.
+3. **Database Authorization (RBAC):** The Worker maps the verified token email to `cms_members`, requiring `active == 1` and checking numeric role levels (`owner: 5, admin: 4, editor: 3, seo_manager: 2, viewer: 1`).
+4. **Origin Validation (CSRF Protection):** For browser-originated mutating requests (`POST`, `PATCH`), the Worker strictly validates that `Origin === env.ADMIN_ORIGIN`. Requests with missing or untrusted origins are rejected with `403 Forbidden` before executing any database mutations.
 
-3. **Database Authorization:**
-   Once the email address is cryptographically verified from the token payload, the Worker queries Cloudflare D1:
-   ```sql
-   SELECT email, role, active FROM cms_members WHERE email = ?;
-   ```
-   - If the member does not exist or `active != 1`, the request returns `401 Unauthorized`.
-   - If the member's role does not satisfy the endpoint's minimum required permission, the request returns `403 Forbidden`.
-
-### Role Hierarchy
-| Role | Numeric Level | Permissions |
-| :--- | :---: | :--- |
-| `owner` | 5 | All permissions, transfer ownership, manage admins, audit log inspection. |
-| `admin` | 4 | Publish/unpublish entries, manage content, media assets, redirects. |
-| `editor` | 3 | Create drafts, update entries, request publication. |
-| `seo_manager` | 2 | Edit SEO metadata, structured data, canonical tags, redirects. |
-| `viewer` | 1 | Read-only access to admin overview, draft previews, and activity logs. |
-
-### Single-Owner Invariant
-Enforced via database partial unique index:
-```sql
-CREATE UNIQUE INDEX IF NOT EXISTS idx_cms_members_single_owner
-ON cms_members(role)
-WHERE role = 'owner';
-```
-At most **one** active owner may exist in the system at any time.
+### B. Machine-to-Machine Clients (Future Service Design)
+If non-browser clients (such as automated CI/CD synchronization scripts) require write access in the future:
+- They must authenticate via dedicated Cloudflare Access Service Tokens (`CF-Access-Client-Id` and `CF-Access-Client-Secret`).
+- They should target dedicated service routes with explicit machine authorization, rather than weakening browser Origin validation.
 
 ---
 
@@ -142,8 +141,8 @@ To safely provision the initial owner without manual SQL mistakes or race condit
 # Provision locally (testing):
 ./scripts/provision-owner.sh --config wrangler.worker.jsonc "owner@traiinc.com"
 
-# Provision remotely (production after D1 creation and migrations):
-./scripts/provision-owner.sh --remote --config wrangler.worker.jsonc "owner@traiinc.com"
+# Provision remotely (production after D1 migrations):
+./scripts/provision-owner.sh --remote --config wrangler.worker.jsonc "imtusharrai@gmail.com"
 ```
 
 The script:

@@ -287,13 +287,14 @@ export default {
       ? { "access-control-allow-origin": env.ADMIN_ORIGIN, "access-control-allow-credentials": "true", "vary": "Origin" }
       : {};
 
+    // Handle preflight OPTIONS before authentication
     if (request.method === "OPTIONS" && url.pathname.startsWith("/api/admin/v1/")) {
       return new Response(null, {
         status: 204,
         headers: {
           ...adminCors,
-          "access-control-allow-methods": "GET,POST,PATCH,OPTIONS",
-          "access-control-allow-headers": "content-type,Cf-Access-Jwt-Assertion"
+          "access-control-allow-methods": "GET, POST, PATCH, OPTIONS",
+          "access-control-allow-headers": "content-type"
         }
       });
     }
@@ -303,6 +304,9 @@ export default {
       if (url.pathname.startsWith("/api/admin/v1/")) {
         if (!["GET", "POST", "PATCH"].includes(request.method)) {
           response = json({ error: "Method not allowed" }, 405);
+        } else if (["POST", "PATCH"].includes(request.method) && (!origin || !env.ADMIN_ORIGIN || origin !== env.ADMIN_ORIGIN)) {
+          // Enforce Origin check for state-mutating requests from browser clients
+          response = json({ error: "Forbidden: invalid or missing request origin" }, 403);
         } else {
           const authResult = await requireMember(request, env, "viewer");
           if (authResult.error) {
