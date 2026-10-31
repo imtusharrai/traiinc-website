@@ -8,15 +8,21 @@ const PORT = 9999;
 const rootDir = __dirname;
 const distDir = path.join(rootDir, 'dist');
 
-if (!fs.existsSync(distDir)) fs.mkdirSync(distDir);
+if (fs.existsSync(distDir)) {
+    fs.rmSync(distDir, { recursive: true, force: true });
+}
+fs.mkdirSync(distDir, { recursive: true });
 
 const skipEntries = new Set([
     '.git', '.github', '.agents', '.claude', '.gitignore', '.DS_Store',
     'node_modules', 'dist', 'functions',
     'build.js', 'package.json', 'package-lock.json',
-    'screenshots', 'docs', 'CLAUDE.md', 'llms.txt'
+    'screenshots', 'docs', 'CLAUDE.md', 'llms.txt',
+    'src', 'migrations', 'cms', 'admin', 'scripts',
+    'wrangler.toml', 'wrangler.worker.jsonc', 'wrangler.admin.jsonc',
+    'ACCESS-CONFIG.md', 'tests'
 ]);
-const skipExtensions = new Set(['.py', '.patch', '.pdf', '.md', '.sh']);
+const skipExtensions = new Set(['.py', '.patch', '.pdf', '.md', '.sh', '.sql', '.jsonc', '.toml']);
 
 function copyDirectory(src, dest, isRoot) {
     if (!fs.existsSync(dest)) fs.mkdirSync(dest);
@@ -428,6 +434,19 @@ ${sitemapUrls.join('\n')}
 </urlset>`;
     fs.writeFileSync(path.join(distDir, 'sitemap.xml'), sitemapContent);
     console.log("Successfully built sitemap.xml");
+
+    // Safety verification: Ensure no CMS backend or internal source files leaked into dist/
+    const forbiddenDistEntries = [
+        'src', 'migrations', 'cms', 'admin', 'scripts',
+        'wrangler.toml', 'wrangler.worker.jsonc', 'wrangler.admin.jsonc',
+        'ACCESS-CONFIG.md'
+    ];
+    for (const forbidden of forbiddenDistEntries) {
+        if (fs.existsSync(path.join(distDir, forbidden))) {
+            console.error(`CRITICAL SECURITY FAILURE: Forbidden entry "${forbidden}" leaked into dist/!`);
+            process.exit(1);
+        }
+    }
 
     console.log("Build complete! All files ready in ./dist/");
     server.close();

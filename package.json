@@ -1,6 +1,10 @@
 {
   "scripts": {
-    "build": "node build.js"
+    "build": "node build.js",
+    "test:isolation": "node tests/test_build_isolation.js",
+    "test:worker": "node --check src/index.js",
+    "test:migrations": "python3 tests/test_migrations.py",
+    "test": "node --check src/index.js && python3 tests/test_migrations.py && node tests/test_build_isolation.js"
   },
   "dependencies": {
     "finalhandler": "^2.1.1",
@@ -8,5 +12,8 @@
     "puppeteer": "^25.3.0",
     "serve-static": "^2.2.1",
     "jose": "^6.1.0"
+  },
+  "devDependencies": {
+    "wrangler": "4.156.0"
   }
 }

@@ -31,6 +31,7 @@ screenshot.js
 crop_margin.py
 make_white_logo.py
 *.md
+!ACCESS-CONFIG.md
 *.jpg
 !img/**
 !assets/**
