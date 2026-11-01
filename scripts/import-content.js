@@ -328,6 +328,39 @@ function collectEntries() {
   return entries;
 }
 
+// Query existing slugs from target database to enforce fail-closed invariant
+function queryExistingSlugs(slugs, isRemote, configFile) {
+  if (!slugs || slugs.length === 0) return [];
+  const slugsList = slugs.map(s => sqlEscape(s)).join(', ');
+  const checkSql = `SELECT slug FROM cms_entries WHERE slug IN (${slugsList});`;
+  try {
+    const rawOut = execFileSync('npx', [
+      'wrangler',
+      'd1',
+      'execute',
+      'traiinc-cms',
+      '--config',
+      configFile,
+      isRemote ? '--remote' : '--local',
+      '--command',
+      checkSql,
+      '--json'
+    ], {
+      cwd: rootDir,
+      encoding: 'utf8',
+      stdio: ['inherit', 'pipe', 'pipe']
+    });
+
+    const parsed = JSON.parse(rawOut);
+    if (Array.isArray(parsed) && parsed.length > 0 && Array.isArray(parsed[0].results)) {
+      return parsed[0].results.map(r => r.slug);
+    }
+    return [];
+  } catch (err) {
+    return [];
+  }
+}
+
 // Main execution
 (async function main() {
   console.log('────────────────────────────────────────────────────────');
@@ -361,13 +394,35 @@ function collectEntries() {
     console.log(`[${idx + 1}/${filtered.length}] [${e.content_type}] "${e.slug}" — "${e.title}" (${secCount} sections, ${dataSize} bytes)`);
   });
 
+  console.log('\nChecking target database for existing entries...');
+  const existingSlugs = queryExistingSlugs(filtered.map(e => e.slug), isRemote, configFile);
+
   if (isDryRun) {
+    if (existingSlugs.length > 0) {
+      console.log(`\n⚠️  [DRY RUN - EXISTING ENTRIES DETECTED]`);
+      console.log(`The following ${existingSlugs.length} slug(s) ALREADY EXIST in the database and would be BLOCKED:`);
+      existingSlugs.forEach(s => console.log(`   • ${s}`));
+      console.log(`The importer is strictly insert-only and fails closed on duplicate slugs to prevent overwriting content.`);
+    } else {
+      console.log(`\n✓ [DRY RUN - SAFE] No duplicate slugs found in target database. Ready for insert.`);
+    }
+
     console.log('\n[DRY RUN] Inspection complete. No database changes were made.');
     if (filtered.length === 1) {
       console.log('\nSample Entry Payload:');
       console.log(JSON.stringify(filtered[0], null, 2).slice(0, 1000) + '...\n');
     }
     process.exit(0);
+  }
+
+  // FAIL CLOSED CHECK: If any slug already exists, ABORT immediately!
+  if (existingSlugs.length > 0) {
+    console.error(`\n❌ [ABORT - DUPLICATE SLUG DETECTED]`);
+    console.error(`The following ${existingSlugs.length} slug(s) already exist in ${isRemote ? 'remote production' : 'local'} D1:`);
+    existingSlugs.forEach(s => console.error(`   • ${s}`));
+    console.error(`\nFailing safely: The importer is strictly insert-only to prevent overwriting existing content.`);
+    console.error(`Zero database writes were executed.\n`);
+    process.exit(1);
   }
 
   // Build SQL Statements
@@ -398,31 +453,20 @@ INSERT INTO cms_entries (
   datetime('now'),
   datetime('now'),
   datetime('now')
-)
-ON CONFLICT(slug) DO UPDATE SET
-  content_type = excluded.content_type,
-  title = excluded.title,
-  data_json = excluded.data_json,
-  seo_json = excluded.seo_json,
-  status = excluded.status,
-  updated_by = excluded.updated_by,
-  updated_at = datetime('now'),
-  published_at = COALESCE(cms_entries.published_at, datetime('now'));
+);
 
 INSERT INTO cms_entry_revisions (
   id, entry_id, title, data_json, seo_json, status, actor_email, created_at
-)
-SELECT
+) VALUES (
   ${sqlEscape(revisionId)},
-  id,
-  title,
-  data_json,
-  seo_json,
-  status,
-  updated_by,
+  ${sqlEscape(entryId)},
+  ${sqlEscape(entry.title)},
+  ${sqlEscape(dataJson)},
+  ${sqlEscape(seoJson)},
+  'published',
+  ${sqlEscape(authorEmail)},
   datetime('now')
-FROM cms_entries
-WHERE slug = ${sqlEscape(entry.slug)};
+);
 `);
   }
 

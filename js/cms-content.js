@@ -89,7 +89,8 @@
       if (!response.ok) return;
 
       var payload = await response.json();
-      if (!payload || !payload.item || payload.item.status !== 'published') return;
+      if (!payload || !payload.item) return;
+      if (payload.item.status && payload.item.status !== 'published') return;
 
       var item = payload.item;
       var data = item.data || {};

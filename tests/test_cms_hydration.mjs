@@ -2,6 +2,7 @@ import assert from 'node:assert';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { execFileSync } from 'node:child_process';
 import jsdom from 'jsdom';
 
 const { JSDOM } = jsdom;
@@ -83,13 +84,21 @@ async function executeHydration(dom) {
 }
 
 // ============================================================================
-// Scenario 2: Static page with matching published CMS entry (successful hydration)
+// Scenario 2: Static page with matching published CMS entry (production API shape without 'status')
 // ============================================================================
 {
   const consoleErrors = [];
-  const publishedItem = {
-    status: 'published',
+  // Exact production API response from src/index.js: id, content_type, slug, title, data_json, seo_json, published_at, updated_at, data, seo
+  // (NOTE: 'status' is filtered by SQL WHERE status='published' and is NOT returned in public API)
+  const productionApiItem = {
+    id: 'f47ac10b-58cc-4372-a567-0e02b2c3d479',
+    content_type: 'blog',
+    slug: 'blog-ai-agents-replacing-manual-workflows',
     title: 'Updated: AI Agents in 2026 Enterprise Workflows',
+    data_json: '{"summary":"Updated summary"}',
+    seo_json: '{"meta_title":"Updated SEO Title"}',
+    published_at: '2026-10-31 11:41:06',
+    updated_at: '2026-10-31 11:41:06',
     data: {
       meta: {
         title: 'Updated: AI Agents in 2026 Enterprise Workflows',
@@ -106,15 +115,20 @@ async function executeHydration(dom) {
         'First updated key takeaway from CMS.',
         'Second updated key takeaway from CMS.'
       ]
+    },
+    seo: {
+      meta_title: 'Updated SEO Title | Trai Inc'
     }
   };
+
+  assert.strictEqual(productionApiItem.status, undefined, 'Production API does not return status field');
 
   const mockFetch = async (url) => {
     assert.ok(url.includes('slug=blog-ai-agents-replacing-manual-workflows'), 'Fetch must request pilot slug');
     return {
       ok: true,
       status: 200,
-      json: async () => ({ item: publishedItem })
+      json: async () => ({ item: productionApiItem })
     };
   };
 
@@ -139,7 +153,38 @@ async function executeHydration(dom) {
   assert.ok(takeawaysEl.innerHTML.includes('First updated key takeaway'));
   assert.strictEqual(dom.window.document.body.getAttribute('data-cms-hydrated'), 'true');
   assert.strictEqual(consoleErrors.length, 0);
-  console.log('PASS Scenario 2: Static page with matching published CMS entry (successful hydration).');
+  console.log('PASS Scenario 2: Static page with matching published CMS entry (exact production API response structure).');
+}
+
+// ============================================================================
+// Scenario 2B: Non-published status safety check (draft / archived rejected)
+// ============================================================================
+{
+  const consoleErrors = [];
+  const draftItem = {
+    status: 'draft',
+    title: 'Draft Title Should Never Hydrate',
+    data: {
+      content: [{ type: 'paragraph', text: 'Leaked draft content.' }]
+    }
+  };
+
+  const mockFetch = async () => ({
+    ok: true,
+    status: 200,
+    json: async () => ({ item: draftItem })
+  });
+
+  const dom = createTestDom(mockFetch, consoleErrors);
+  const titleBefore = dom.window.document.querySelector('[data-cms-bind="title"]').textContent;
+
+  await executeHydration(dom);
+
+  const titleAfter = dom.window.document.querySelector('[data-cms-bind="title"]').textContent;
+  assert.strictEqual(titleAfter, titleBefore, 'Static content preserved when API item status is draft');
+  assert.strictEqual(dom.window.document.body.getAttribute('data-cms-hydrated'), null);
+  assert.strictEqual(consoleErrors.length, 0);
+  console.log('PASS Scenario 2B: Non-published status safety check (draft / archived rejected).');
 }
 
 // ============================================================================
@@ -416,4 +461,30 @@ async function executeHydration(dom) {
   console.log(`PASS Scenario 10: Performance timing (${duration.toFixed(2)}ms) and zero console errors.`);
 }
 
-console.log('\nALL 10 CMS HYDRATION SCENARIOS PASSED SUCCESSFULLY!\n');
+// ============================================================================
+// Scenario 11: Importer fails closed on duplicate slug (zero overwrite guarantee)
+// ============================================================================
+{
+  let threwError = false;
+  try {
+    execFileSync('node', [
+      path.join(rootDir, 'scripts/import-content.js'),
+      '--local',
+      '--slug',
+      'blog-ai-agents-replacing-manual-workflows'
+    ], {
+      cwd: rootDir,
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'pipe']
+    });
+  } catch (err) {
+    threwError = true;
+    assert.strictEqual(err.status, 1, 'Importer must exit with status 1 on duplicate slug');
+    assert.ok(err.stderr.includes('DUPLICATE SLUG DETECTED'), 'Must report duplicate slug detected');
+    assert.ok(err.stderr.includes('strictly insert-only'), 'Must confirm strictly insert-only policy');
+  }
+  assert.strictEqual(threwError, true, 'Importer must reject existing slug with non-zero exit code');
+  console.log('PASS Scenario 11: Importer fails closed on duplicate slug (zero overwrite guarantee).');
+}
+
+console.log('\nALL 11 CMS HYDRATION & IMPORTER SCENARIOS PASSED SUCCESSFULLY!\n');
