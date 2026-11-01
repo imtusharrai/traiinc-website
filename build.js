@@ -65,6 +65,7 @@ const server = http.createServer((req, res) => {
                 htmlStr = htmlStr.replace(/css\/style\.css\?v=\d+/g, `css/style.css?v=${vNow}`);
                 htmlStr = htmlStr.replace(/js\/app\.js\?v=\d+/g, `js/app.js?v=${vNow}`);
                 htmlStr = htmlStr.replace(/js\/nav\.js\?v=\d+/g, `js/nav.js?v=${vNow}`);
+                htmlStr = htmlStr.replace(/js\/cms-content\.js(?:\?v=\d+)?/g, `js/cms-content.js?v=${vNow}`);
                 // Prevent JSDOM from loading external maps script which crashes it
                 htmlStr = htmlStr.replace(/<script src="https:\/\/maps\.googleapis\.com/g, '<script data-mocked-src="https://maps.googleapis.com');
                 res.end(htmlStr);

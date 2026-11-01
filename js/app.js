@@ -3088,12 +3088,12 @@ function renderBlogPost(data) {
     ];
 
     const tldrHtml = `
-        <div class="blog-post-tldr">
+        <div class="blog-post-tldr" data-cms-section="tldr">
             <div class="blog-post-tldr-header">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                 <span>Executive Summary & Key Takeaways</span>
             </div>
-            <ul>
+            <ul data-cms-bind="takeaways">
                 ${takeaways.map(t => `<li>${t}</li>`).join('')}
             </ul>
         </div>
@@ -3104,7 +3104,7 @@ function renderBlogPost(data) {
             <div class="blog-author-avatar">TR</div>
             <div class="blog-author-info">
                 <div class="blog-author-name-row">
-                    <span class="blog-author-name">${data.meta.author || 'Tushar Rai'}</span>
+                    <span class="blog-author-name" data-cms-bind="author">${data.meta.author || 'Tushar Rai'}</span>
                     <span class="blog-author-verified">
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                         Verified Author
@@ -3138,27 +3138,29 @@ function renderBlogPost(data) {
     return `
     <header class="cf-hero-wrapper blog-post-hero">
         <div class="container blog-post-header fade-in">
-            <span class="blog-tag" style="background:color-mix(in srgb, ${data.meta.tag_color || '#ff2626'} 15%, transparent);color:${data.meta.tag_color || '#ff2626'};">${data.meta.tag || 'Insights'}</span>
-            <h1 class="blog-post-title">${data.meta.title}</h1>
+            <span class="blog-tag" data-cms-bind="tag" style="background:color-mix(in srgb, ${data.meta.tag_color || '#ff2626'} 15%, transparent);color:${data.meta.tag_color || '#ff2626'};">${data.meta.tag || 'Insights'}</span>
+            <h1 class="blog-post-title" data-cms-bind="title">${data.meta.title}</h1>
             <div class="blog-post-meta">
-                <span>${data.meta.author || 'Tushar Rai'}</span>
+                <span data-cms-bind="author">${data.meta.author || 'Tushar Rai'}</span>
                 <span style="opacity:0.4;">·</span>
-                <span>${data.meta.date || 'July 2026'}</span>
+                <span data-cms-bind="date">${data.meta.date || 'July 2026'}</span>
                 <span style="opacity:0.4;">·</span>
-                <span>${data.meta.read_time || '5 min read'}</span>
+                <span data-cms-bind="read_time">${data.meta.read_time || '5 min read'}</span>
             </div>
         </div>
     </header>
 
     ${data.meta.image ? `
     <section class="container blog-post-banner fade-in">
-        <img src="${data.meta.image}" alt="${data.meta.title}" />
+        <img src="${data.meta.image}" alt="${data.meta.title}" data-cms-bind="image" />
     </section>
     ` : ''}
 
     <article class="container blog-post-body fade-in">
         ${tldrHtml}
-        ${contentHtml}
+        <div data-cms-section="blog-content">
+            ${contentHtml}
+        </div>
         ${authorCardHtml}
         ${relatedHtml}
     </article>
