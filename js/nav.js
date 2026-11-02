@@ -519,10 +519,10 @@
                     <img src="assets/logos/logo.png" alt="Trai Inc Services" class="footer-logo-img">
                 </a>
                 <div class="footer-brand-name">Trai Inc Services</div>
-                <p class="footer-tagline">AI-native software engineering — delivering custom software, mobile apps, and automation systems for businesses across India.</p>
-                <div class="footer-contact">
-                    <a href="tel:+917905495478" class="contact-link">📞 +91 79054 95478</a><br>
-                    <span class="contact-label">Enquiry:</span> <a href="mailto:hello@traiinc.com" class="contact-link">✉️ hello@traiinc.com</a><br>
+                <p class="footer-tagline" data-cms-bind="brand_tagline">AI-native software engineering — delivering custom software, mobile apps, and automation systems for businesses across India.</p>
+                <div class="footer-contact" data-cms-section="footer-contact">
+                    <a href="tel:+917905495478" class="contact-link" data-cms-bind="phone">📞 +91 79054 95478</a><br>
+                    <span class="contact-label">Enquiry:</span> <a href="mailto:hello@traiinc.com" class="contact-link" data-cms-bind="email">✉️ hello@traiinc.com</a><br>
                     <span class="contact-label">Support:</span> <a href="mailto:support@traiinc.com" class="contact-link">✉️ support@traiinc.com</a>
                 </div>
                 <div class="footer-social">
@@ -597,7 +597,7 @@
                     </div>
                     <span class="footer-offices-tagline">Serving clients across India, Africa, North America &amp; Global Markets</span>
                 </div>
-                <div class="footer-offices-grid">
+                <div class="footer-offices-grid" data-cms-section="offices">
                     <div class="footer-office-card">
                         <div class="footer-office-card-head">
                             <span class="footer-office-flag">🇮🇳</span>

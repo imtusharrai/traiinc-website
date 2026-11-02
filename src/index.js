@@ -684,6 +684,7 @@ async function adminApi(request, env, ctx, member) {
       if (statements.length > 0) {
         await env.DB.batch(statements);
         await audit(env, member, "settings.update", "settings", null, { keys: Object.keys(body.settings) });
+        await invalidateCache(ctx, env, ["cms-public-content", "cms-public-settings"]);
       }
 
       return json({ updated: Object.keys(body.settings) });
@@ -728,6 +729,38 @@ export default {
         return json({ error: "Method not allowed" }, 405, { "access-control-allow-origin": "*" });
       }
       return await publicContent(request, env);
+    }
+
+    // Public settings route CORS (read-only for all origins)
+    if (url.pathname === "/api/public/v1/settings") {
+      if (request.method === "OPTIONS") {
+        return new Response(null, {
+          status: 204,
+          headers: {
+            "access-control-allow-origin": "*",
+            "access-control-allow-methods": "GET, OPTIONS",
+            "access-control-allow-headers": "content-type"
+          }
+        });
+      }
+      if (request.method !== "GET") {
+        return json({ error: "Method not allowed" }, 405, { "access-control-allow-origin": "*" });
+      }
+      const { results = [] } = await env.DB.prepare("SELECT setting_key, value_json, updated_at FROM cms_settings").all();
+      const settings = {};
+      for (const row of results) {
+        try {
+          settings[row.setting_key] = JSON.parse(row.value_json);
+        } catch {
+          settings[row.setting_key] = row.value_json;
+        }
+      }
+      const settingsCacheHeaders = {
+        "cache-control": "public, max-age=0, s-maxage=300, must-revalidate",
+        "cache-tag": "cms-public-content, cms-public-settings",
+        "access-control-allow-origin": "*"
+      };
+      return json({ settings }, 200, settingsCacheHeaders);
     }
 
     // Admin API routes (strictly whitelisted CORS for admin origin with credentials)

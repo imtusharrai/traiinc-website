@@ -14,7 +14,7 @@ if (fs.existsSync(distDir)) {
 fs.mkdirSync(distDir, { recursive: true });
 
 const skipEntries = new Set([
-    '.git', '.github', '.agents', '.claude', '.gitignore', '.DS_Store',
+    '.git', '.github', '.agents', '.claude', '.gitignore', '.DS_Store', '.wrangler',
     'node_modules', 'dist', 'functions',
     'build.js', 'package.json', 'package-lock.json',
     'screenshots', 'docs', 'CLAUDE.md', 'llms.txt',

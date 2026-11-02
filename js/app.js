@@ -114,8 +114,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             <header class="cf-hero-wrapper case-study-hero-split">
                 <div class="container case-study-hero-grid fade-in">
                     <div class="case-study-hero-text">
-                        <h4 class="mini-title">${data.hero.tag}</h4>
-                        <h1 class="solutions-header-title">${data.hero.title}</h1>
+                        <h4 class="mini-title" data-cms-bind="tag">${data.hero.tag}</h4>
+                        <h1 class="solutions-header-title" data-cms-bind="title">${data.hero.title}</h1>
                     </div>
                     ${data.hero.image ? `
                     <div class="case-study-hero-image">
@@ -274,6 +274,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     industryPages.forEach(slug => {
         renderers[slug] = renderIndustryLandingPage;
     });
+
+    window.__TRAI_RENDERERS__ = renderers;
 
     let renderFn = renderers[pageId];
     if (pageId.startsWith('tech-')) {
@@ -637,18 +639,26 @@ function renderHome(data) {
         <!-- Content Layer -->
         <div class="hero-cosmos-content">
             <p class="hero-cosmos-eyebrow">Trai Inc · AI-Native Engineering</p>
-            <h1 class="hero-cosmos-title">
+            <h1 class="hero-cosmos-title" data-cms-bind="title">
                 <span class="hero-cosmos-line hero-cosmos-line--1">Run your</span>
                 <span class="hero-cosmos-line hero-cosmos-line--2">entire business</span>
                 <span class="hero-cosmos-line hero-cosmos-line--3">with <em class="hero-cosmos-ai">AI Agents</em></span>
             </h1>
-            <p class="hero-cosmos-subtitle">Hand off engineering, sales, marketing, and ops to our AI-powered engineering team. Fixed-price guarantees. Senior engineers. Direct access.</p>
-            <a href="${hero.cta_primary.href}" class="btn-primary large hero-cosmos-cta">${hero.cta_primary.text}</a>
+            <p class="hero-cosmos-subtitle" data-cms-bind="subtitle">Hand off engineering, sales, marketing, and ops to our AI-powered engineering team. Fixed-price guarantees. Senior engineers. Direct access.</p>
+            <div class="hero-cosmos-cta-group">
+                <a href="${hero.cta_primary.href}" class="btn-primary large hero-cosmos-cta">${hero.cta_primary.text}</a>
+                <a href="clients.html" class="hero-cosmos-cta-secondary">Explore Verified Work →</a>
+            </div>
             <div class="hero-cosmos-trust">
                 <div class="hero-trust-avatars">
                     ${hero.trust_avatars.map((a, i) => `<span class="trust-avatar trust-avatar-${i + 1}">${a}</span>`).join('')}
                 </div>
                 <span>Trusted by <strong class="trust-count">${hero.trust_line}</strong>${hero.trust_suffix ? ` ${hero.trust_suffix}` : ''}</span>
+            </div>
+            <div class="hero-reassurance-strip">
+                <span class="hero-reassurance-pill">🛡️ Fixed-Price Guarantee</span>
+                <span class="hero-reassurance-pill">⚡ Senior Engineers Only</span>
+                <span class="hero-reassurance-pill">🚀 30-Day MVP Delivery</span>
             </div>
         </div>
 
@@ -2002,9 +2012,9 @@ function renderAudiencePage(data) {
         <section class="msme-hero">
             <div class="msme-hero-inner">
                 <div>
-                    <div class="msme-badge">${hero.page_label}</div>
-                    <h1>${hero.title}</h1>
-                    <p class="msme-hero-sub">${hero.subtitle}</p>
+                    <div class="msme-badge" data-cms-bind="tag">${hero.page_label}</div>
+                    <h1 data-cms-bind="title">${hero.title}</h1>
+                    <p class="msme-hero-sub" data-cms-bind="subtitle">${hero.subtitle}</p>
                     <div class="hero-cta-row">
                         <a href="contact.html" class="btn-primary large">${hero.cta_text || 'Get in Touch'}</a>
                     </div>
@@ -2615,7 +2625,7 @@ function getTechLogo(tool) {
 }
 
 function renderServicePage(data, slug) {
-    const service = data[slug];
+    const service = (data && data[slug]) ? data[slug] : data;
     if (!service) return `<div class="container" style="padding: 100px 0; text-align: center;"><h2>Service Not Found</h2></div>`;
 
     const firstTech = Array.isArray(service.tech_stack)
@@ -2737,9 +2747,9 @@ function renderServicePage(data, slug) {
     <section class="msme-hero service-hero-clean">
         <div class="msme-hero-inner">
             <div>
-                <div class="msme-badge">${service.badge}</div>
-                <h1>${service.title}</h1>
-                <p class="msme-hero-sub">${service.subtitle}</p>
+                <div class="msme-badge" data-cms-bind="tag">${service.badge || ''}</div>
+                <h1 data-cms-bind="title">${service.title}</h1>
+                <p class="msme-hero-sub" data-cms-bind="subtitle">${service.subtitle}</p>
                 <div class="hero-cta-row">
                     <a href="${primaryHref}" ${primaryHref.startsWith('http') ? 'target="_blank"' : ''} class="btn-primary large">${primaryLabel}</a>
                     ${service.cta && service.cta.pricing_url ? `<a href="${service.cta.pricing_url}" class="btn-secondary large">💰 See Pricing</a>` : ''}
@@ -2947,12 +2957,12 @@ function renderAppStore(data) {
 function renderLegal(data) {
     return `
     <header class="page-header legal-header">
-        <h4 class="mini-title fade-in">${data.subtitle}</h4>
-        <h1 class="main-heading fade-in legal-title">${data.title}</h1>
-        <p class="fade-in legal-effective">Last updated: ${data.effective_date}</p>
+        <h4 class="mini-title fade-in" data-cms-bind="subtitle">${data.subtitle || ''}</h4>
+        <h1 class="main-heading fade-in legal-title" data-cms-bind="title">${data.title}</h1>
+        <p class="fade-in legal-effective" data-cms-bind="date">Last updated: ${data.effective_date || ''}</p>
     </header>
 
-    <section class="container fade-in legal-body">
+    <section class="container fade-in legal-body" data-cms-section="legal-sections">
         ${data.intro ? `<p class="legal-intro">${data.intro}</p>` : ''}
         ${data.sections.map(s => `
             <div class="legal-section">

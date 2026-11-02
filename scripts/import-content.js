@@ -37,6 +37,7 @@ let filterSlug = null;
 let filterType = null;
 let isRemote = false;
 let confirmRemote = false;
+let skipExisting = false;
 let configFile = 'wrangler.worker.jsonc';
 let authorEmail = 'imtusharrai@gmail.com';
 
@@ -60,6 +61,8 @@ for (let i = 0; i < args.length; i++) {
     isRemote = true;
   } else if (arg === '--confirm-remote') {
     confirmRemote = true;
+  } else if (arg === '--skip-existing') {
+    skipExisting = true;
   } else if (arg === '--config') {
     configFile = args[++i];
   } else if (arg === '--author') {
@@ -74,7 +77,8 @@ Options:
   --dry-run               Preview mapping without writing to database
   --status <status>       Status for imported entries: draft (default) or published
   --slug <slug>           Import only the specified slug
-  --type <type>           Filter by content type (page, service, blog, case_study, landing_page)
+  --type <type>           Filter by content type (page, service, blog, case_study, landing_page, navigation, footer)
+  --skip-existing         Skip entries that already exist in target database instead of aborting
   --local                 Target local D1 database (default)
   --remote                Target remote production D1 database
   --confirm-remote        Safety confirmation flag required when using --remote
@@ -247,7 +251,7 @@ function collectEntries() {
   }
 
   // 4. Landing Pages
-  const landingSlugs = ['startups', 'smb', 'enterprise', 'd2c'];
+  const landingSlugs = ['startups', 'smb', 'enterprise', 'd2c', 'msmes'];
   for (const s of landingSlugs) {
     const fPath = path.join(dataDir, `${s}.json`);
     if (fs.existsSync(fPath)) {
@@ -333,6 +337,152 @@ function collectEntries() {
       });
     }
   }
+
+  // 6. Global Navigation
+  entries.push({
+    content_type: 'navigation',
+    slug: 'navigation',
+    title: 'Main Navigation & Mega-Menu',
+    summary: 'Global header navigation links, dropdowns, and featured callouts',
+    data: {
+      whoWeHelp: {
+        label: 'Industries',
+        title: 'Industries We Transform',
+        items: [
+          { label: 'Retail to D2C Brands', href: 'd2c.html', desc: 'Scale offline stores to pan-India D2C' },
+          { label: 'Startups & MVPs', href: 'startups.html', desc: 'Go from idea to production in 30 days' },
+          { label: 'Small & Medium Business', href: 'smb.html', desc: 'Modernize operations and eliminate spreadsheets' },
+          { label: 'Large Enterprises', href: 'enterprise.html', desc: 'Cloud migration, AI integration, and zero-trust security' }
+        ],
+        featured: {
+          title: '138+ Businesses Served',
+          desc: 'Real Estate, Healthcare, FinTech, and more across 12+ industries.',
+          ctaLabel: 'See Our Work →',
+          ctaHref: 'clients.html'
+        }
+      },
+      services: {
+        label: 'Services',
+        items: [
+          { label: 'AI & Automation', href: 'ai-automation.html', desc: 'Autonomous AI agents and LLM integrations' },
+          { label: 'Custom Software', href: 'custom-software.html', desc: 'Enterprise backends, APIs, and microservices' },
+          { label: 'Cloud & DevOps', href: 'cloud-devops.html', desc: 'Zero-downtime architecture and multi-cloud ops' },
+          { label: 'Mobile Apps', href: 'mobile-apps.html', desc: 'Native & cross-platform Flutter/React Native' },
+          { label: 'Web Development', href: 'web-development.html', desc: 'Ultra-fast Next.js and Cloudflare edge sites' },
+          { label: 'Data Analytics', href: 'data-analytics.html', desc: 'Dashboards, data lakes, and business intelligence' },
+          { label: 'Enterprise Platforms', href: 'enterprise-platforms.html', desc: 'Custom ERP, CRM, and billing systems' },
+          { label: 'UI/UX Design', href: 'ui-ux-design.html', desc: 'High-conversion design systems' },
+          { label: 'Digital Marketing', href: 'digital-marketing.html', desc: 'Data-driven SEO, PPC, and growth loops' },
+          { label: 'Content Creation', href: 'content-creation.html', desc: 'AI-assisted technical and multimedia content' }
+        ]
+      },
+      company: {
+        label: 'Company',
+        items: [
+          { label: 'About Us', href: 'about.html', desc: 'Our team, mission, and engineering culture' },
+          { label: 'Development Process', href: 'our-development-process.html', desc: 'Fixed-price, sprint-based delivery' },
+          { label: 'Careers', href: 'careers.html', desc: 'Join our senior engineering team' },
+          { label: 'Partner Program', href: 'partner.html', desc: 'Co-build and grow with Trai Inc' },
+          { label: 'Clients & Case Studies', href: 'clients.html', desc: 'Verified outcomes and client testimonials' },
+          { label: 'Contact', href: 'contact.html', desc: 'Direct access to senior leadership' }
+        ]
+      },
+      cta: {
+        label: 'Start Project',
+        href: 'contact.html',
+        phone: '+91 79054 95478'
+      }
+    },
+    seo: {
+      meta_title: 'Navigation | Trai Inc',
+      meta_description: 'Global navigation structure for Trai Inc'
+    }
+  });
+
+  // 7. Global Footer
+  entries.push({
+    content_type: 'footer',
+    slug: 'footer',
+    title: 'Global Website Footer & Locations',
+    summary: 'Global footer links, office addresses, contact channels, and legal links',
+    data: {
+      brand_tagline: 'AI-native software engineering — delivering custom software, mobile apps, and automation systems for businesses across India.',
+      contact: {
+        phone: '+91 79054 95478',
+        email_hello: 'hello@traiinc.com',
+        email_support: 'support@traiinc.com',
+        whatsapp: 'https://wa.me/917905495478?text=Hi%20Trai%20Inc,%20I%20am%20looking%20for%20a%20digital%20solution%20for%20my%20business.'
+      },
+      offices: [
+        {
+          city: 'Lucknow, India',
+          type: 'Global Headquarters',
+          flag: '🇮🇳',
+          address: 'B-2, 11th Floor, DLF MyPad, Opposite Hyatt Regency, Vibhuti Khand, Gomti Nagar, Lucknow, Uttar Pradesh 226010'
+        },
+        {
+          city: 'Bengaluru, India',
+          type: 'Technology & Engineering Hub',
+          flag: '🇮🇳',
+          address: '660, 2nd Floor, 100 Feet Road, Indiranagar, Bengaluru, Karnataka 560038'
+        },
+        {
+          city: 'Cape Town, South Africa',
+          type: 'Africa Regional Hub',
+          flag: '🇿🇦',
+          address: 'WeWork, 80 Strand Street, Cape Town City Centre, Cape Town, Western Cape 8001'
+        },
+        {
+          city: 'Lusaka, Zambia',
+          type: 'Regional Delivery Office',
+          flag: '🇿🇲',
+          address: 'Green Park Estate, Off Kafue Road, Lilayi, Lusaka 10101, Zambia'
+        }
+      ],
+      social: {
+        linkedin: 'https://www.linkedin.com/company/trai-inc',
+        twitter: 'https://x.com/inctrai',
+        instagram: 'https://www.instagram.com/traiinc',
+        youtube: 'https://www.youtube.com/@traiinc',
+        whatsapp: 'https://wa.me/917905495478'
+      },
+      badges: [
+        '🇮🇳 Made in India',
+        '🔒 Fixed-Price Contracts',
+        '⚡ AI-Augmented Delivery'
+      ],
+      copyright: '© 2026 Trai Inc Services. All Rights Reserved'
+    },
+    seo: {
+      meta_title: 'Footer | Trai Inc',
+      meta_description: 'Global footer configuration for Trai Inc'
+    }
+  });
+
+  // 8. Site Settings
+  entries.push({
+    content_type: 'page',
+    slug: 'site-settings',
+    title: 'Global Website Settings',
+    summary: 'Global metadata, announcement banner, contact info, and business hours',
+    data: {
+      site_title: 'Trai Inc — AI-Native Engineering & Enterprise Platforms',
+      primary_phone: '+91 79054 95478',
+      primary_email: 'support@traiinc.com',
+      whatsapp_url: 'https://wa.me/917905495478',
+      announcement_banner: {
+        active: false,
+        message: '',
+        link: ''
+      },
+      support_hours: 'Monday – Friday: 9:00 AM – 7:00 PM IST',
+      emergency_support: '24/7 SLA available for enterprise clients'
+    },
+    seo: {
+      meta_title: 'Site Settings | Trai Inc',
+      meta_description: 'Global website settings for Trai Inc'
+    }
+  });
 
   return entries;
 }
@@ -476,7 +626,7 @@ function executeD1SqlFile(sqlFilePath, isRemote, configFile, execFn = execFileSy
 }
 
 // Execute atomic batch import with preflight duplicate check
-function executeImportBatch(entries, authorEmail, isRemote, configFile, execFn = execFileSync, status = 'draft') {
+function executeImportBatch(entries, authorEmail, isRemote, configFile, execFn = execFileSync, status = 'draft', skipExisting = false) {
   if (!['draft', 'published'].includes(status)) {
     throw new Error(`Invalid status "${status}". Must be 'draft' or 'published'.`);
   }
@@ -485,7 +635,12 @@ function executeImportBatch(entries, authorEmail, isRemote, configFile, execFn =
   const slugs = entries.map(e => e.slug);
   const existingSlugs = queryExistingSlugs(slugs, isRemote, configFile, execFn);
   if (existingSlugs.length > 0) {
-    throw new Error(`Duplicate slug(s) detected: ${existingSlugs.join(', ')}. Write aborted with zero changes.`);
+    if (skipExisting) {
+      entries = entries.filter(e => !existingSlugs.includes(e.slug));
+      if (entries.length === 0) return { count: 0, stdout: 'All entries already exist in target database.' };
+    } else {
+      throw new Error(`Duplicate slug(s) detected: ${existingSlugs.join(', ')}. Write aborted with zero changes.`);
+    }
   }
 
   const sqlContent = buildImportBatchSql(entries, authorEmail, status);
@@ -516,7 +671,7 @@ async function main() {
   console.log('────────────────────────────────────────────────────────');
 
   const allEntries = collectEntries();
-  const filtered = allEntries.filter(entry => {
+  let filtered = allEntries.filter(entry => {
     if (filterSlug && entry.slug !== filterSlug) return false;
     if (filterType && entry.content_type !== filterType) return false;
     return true;
@@ -548,10 +703,21 @@ async function main() {
     process.exit(1);
   }
 
+  if (existingSlugs.length > 0 && skipExisting) {
+    console.log(`\nℹ️  [SKIP-EXISTING] Skipping ${existingSlugs.length} entry/entries already in target database:`);
+    existingSlugs.forEach(s => console.log(`   • ${s}`));
+    filtered = filtered.filter(e => !existingSlugs.includes(e.slug));
+    if (filtered.length === 0) {
+      console.log('\n✓ All target entries already exist in the database. Zero writes required.\n');
+      process.exit(0);
+    }
+    console.log(`\nProceeding with import for remaining ${filtered.length} entries...`);
+  }
+
   const sqlBatch = buildImportBatchSql(filtered, authorEmail, importStatus);
 
   if (isDryRun) {
-    if (existingSlugs.length > 0) {
+    if (existingSlugs.length > 0 && !skipExisting) {
       console.log(`\n⚠️  [DRY RUN - EXISTING ENTRIES DETECTED]`);
       console.log(`The following ${existingSlugs.length} slug(s) ALREADY EXIST in the database and would be BLOCKED:`);
       existingSlugs.forEach(s => console.log(`   • ${s}`));
@@ -568,12 +734,13 @@ async function main() {
     process.exit(0);
   }
 
-  // FAIL CLOSED CHECK: If any slug already exists, ABORT immediately!
-  if (existingSlugs.length > 0) {
+  // FAIL CLOSED CHECK: If any slug already exists (and not skipped), ABORT immediately!
+  if (existingSlugs.length > 0 && !skipExisting) {
     console.error(`\n❌ [ABORT - DUPLICATE SLUG DETECTED]`);
     console.error(`The following ${existingSlugs.length} slug(s) already exist in ${isRemote ? 'remote production' : 'local'} D1:`);
     existingSlugs.forEach(s => console.error(`   • ${s}`));
     console.error(`\nFailing safely: The importer is strictly insert-only to prevent overwriting existing content.`);
+    console.error(`Use --skip-existing if you wish to import only new entries without failing.`);
     console.error(`Zero database writes were executed.\n`);
     process.exit(1);
   }
