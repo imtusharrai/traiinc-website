@@ -329,12 +329,14 @@ function collectEntries() {
 }
 
 // Query existing slugs from target database to enforce fail-closed invariant
-function queryExistingSlugs(slugs, isRemote, configFile) {
+function queryExistingSlugs(slugs, isRemote, configFile, execFn = execFileSync) {
   if (!slugs || slugs.length === 0) return [];
   const slugsList = slugs.map(s => sqlEscape(s)).join(', ');
   const checkSql = `SELECT slug FROM cms_entries WHERE slug IN (${slugsList});`;
+
+  let rawOut;
   try {
-    const rawOut = execFileSync('npx', [
+    rawOut = execFn('npx', [
       'wrangler',
       'd1',
       'execute',
@@ -350,19 +352,32 @@ function queryExistingSlugs(slugs, isRemote, configFile) {
       encoding: 'utf8',
       stdio: ['inherit', 'pipe', 'pipe']
     });
-
-    const parsed = JSON.parse(rawOut);
-    if (Array.isArray(parsed) && parsed.length > 0 && Array.isArray(parsed[0].results)) {
-      return parsed[0].results.map(r => r.slug);
-    }
-    return [];
   } catch (err) {
-    return [];
+    const errorDetails = err.stderr ? err.stderr.toString().trim() : (err.message || String(err));
+    throw new Error(`D1 preflight command execution failed on ${isRemote ? 'remote' : 'local'} database: ${errorDetails}`);
   }
+
+  let parsed;
+  try {
+    parsed = JSON.parse(rawOut);
+  } catch (parseErr) {
+    throw new Error(`D1 preflight query returned unparseable JSON output: ${String(rawOut).slice(0, 200)}`);
+  }
+
+  if (!Array.isArray(parsed) || parsed.length === 0 || !parsed[0].success) {
+    const d1ErrMsg = (parsed && parsed[0] && (parsed[0].error || (parsed[0].errors && parsed[0].errors[0]))) || 'D1 returned failure in preflight';
+    throw new Error(`D1 preflight query was not successful: ${d1ErrMsg}`);
+  }
+
+  if (Array.isArray(parsed[0].results)) {
+    return parsed[0].results.map(r => r.slug);
+  }
+
+  throw new Error(`D1 preflight query response missing expected results array`);
 }
 
 // Main execution
-(async function main() {
+async function main() {
   console.log('────────────────────────────────────────────────────────');
   console.log('TRAI Inc CMS Content Importer');
   console.log('────────────────────────────────────────────────────────');
@@ -395,7 +410,17 @@ function queryExistingSlugs(slugs, isRemote, configFile) {
   });
 
   console.log('\nChecking target database for existing entries...');
-  const existingSlugs = queryExistingSlugs(filtered.map(e => e.slug), isRemote, configFile);
+  let existingSlugs;
+  try {
+    existingSlugs = queryExistingSlugs(filtered.map(e => e.slug), isRemote, configFile);
+  } catch (err) {
+    console.error(`\n❌ [PREFLIGHT ERROR - DATABASE QUERY FAILED]`);
+    console.error(`Failed to inspect ${isRemote ? 'remote production' : 'local'} D1 database to verify existing entries.`);
+    console.error(`Preflight check failed closed: refusing to proceed when database state is unverified.`);
+    console.error(`Error details: ${err.message}`);
+    console.error(`Zero database writes were executed.\n`);
+    process.exit(1);
+  }
 
   if (isDryRun) {
     if (existingSlugs.length > 0) {
@@ -535,4 +560,19 @@ INSERT INTO cms_entry_revisions (
   } catch (verifyErr) {
     console.warn('Notice: Verification query finished with warning:', verifyErr.message);
   }
-})();
+}
+
+if (require.main === module) {
+  main().catch(err => {
+    console.error('Fatal importer error:', err);
+    process.exit(1);
+  });
+}
+
+module.exports = {
+  queryExistingSlugs,
+  collectEntries,
+  extractBlogSections,
+  sqlEscape,
+  stripHtml
+};
