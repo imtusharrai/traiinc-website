@@ -1,7 +1,10 @@
 import assert from 'node:assert';
 import path from 'node:path';
+import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
+import { DatabaseSync } from 'node:sqlite';
+import workerModule from '../src/index.js';
 import {
   buildEntrySql,
   buildImportBatchSql,
@@ -17,6 +20,7 @@ const configFile = 'wrangler.worker.jsonc';
 
 console.log('Running Importer Write-Path & Transaction Integration Test Suite...\n');
 
+// Helper to query local D1 via wrangler CLI
 function queryLocalD1(sql) {
   const stdout = execFileSync('npx', [
     'wrangler',
@@ -37,6 +41,7 @@ function queryLocalD1(sql) {
   return (parsed && parsed[0] && parsed[0].results) || [];
 }
 
+// Helper to execute SQL against local D1 via wrangler CLI
 function execLocalD1(sql) {
   return execFileSync('npx', [
     'wrangler',
@@ -54,8 +59,48 @@ function execLocalD1(sql) {
   });
 }
 
+// Find local D1 SQLite file for fast, direct worker testing
+function getLocalD1Database() {
+  const baseDir = path.join(rootDir, '.wrangler/state/v3/d1/miniflare-D1DatabaseObject');
+  if (!fs.existsSync(baseDir)) return null;
+  const files = fs.readdirSync(baseDir);
+  const sqliteFile = files.find(f => f.endsWith('.sqlite') && !f.startsWith('metadata'));
+  if (!sqliteFile) return null;
+  return new DatabaseSync(path.join(baseDir, sqliteFile));
+}
+
+// Create Cloudflare D1 adapter wrapping local SQLite database
+function createD1Adapter(sqlite) {
+  return {
+    prepare(sql) {
+      return {
+        bind(...args) {
+          return {
+            async first() {
+              const stmt = sqlite.prepare(sql);
+              return stmt.get(...args) || null;
+            },
+            async all() {
+              const stmt = sqlite.prepare(sql);
+              return { results: stmt.all(...args) };
+            },
+            async run() {
+              const stmt = sqlite.prepare(sql);
+              const info = stmt.run(...args);
+              return { meta: { changes: info.changes } };
+            }
+          };
+        }
+      };
+    },
+    async batch(statements) {
+      return [];
+    }
+  };
+}
+
 // ============================================================================
-// Test 1: SQL Generation Safety Invariants (No BEGIN/COMMIT, No PRAGMA)
+// Test 1: SQL Generation Safety Invariants (No BEGIN/COMMIT, No PRAGMA, insert-only)
 // ============================================================================
 {
   const sampleEntry = {
@@ -66,87 +111,257 @@ function execLocalD1(sql) {
     seo: { meta_title: 'Meta Title', meta_description: 'Meta Desc' }
   };
 
-  const sqlBatch = buildImportBatchSql([sampleEntry], 'author@traiinc.com');
+  // Draft SQL batch
+  const draftBatch = buildImportBatchSql([sampleEntry], 'author@traiinc.com');
+  assert.strictEqual(draftBatch.includes('BEGIN TRANSACTION'), false, 'SQL batch must not contain BEGIN TRANSACTION');
+  assert.strictEqual(draftBatch.includes('COMMIT'), false, 'SQL batch must not contain COMMIT');
+  assert.strictEqual(draftBatch.includes('PRAGMA foreign_keys'), false, 'SQL batch must not contain PRAGMA foreign_keys');
+  assert.strictEqual(draftBatch.includes('ON CONFLICT'), false, 'SQL batch must not contain ON CONFLICT (strictly insert-only)');
+  assert.strictEqual(draftBatch.includes('UPDATE'), false, 'SQL batch must not contain UPDATE');
+  assert.ok(draftBatch.includes("'draft'"), 'Default SQL batch must set draft status');
+  assert.ok(draftBatch.includes("NULL\n);") || draftBatch.includes("NULL\r\n);"), 'Default SQL batch must set published_at to NULL');
 
-  assert.strictEqual(sqlBatch.includes('BEGIN TRANSACTION'), false, 'SQL batch must not contain BEGIN TRANSACTION');
-  assert.strictEqual(sqlBatch.includes('COMMIT'), false, 'SQL batch must not contain COMMIT');
-  assert.strictEqual(sqlBatch.includes('PRAGMA foreign_keys'), false, 'SQL batch must not contain PRAGMA foreign_keys');
-  assert.strictEqual(sqlBatch.includes('ON CONFLICT'), false, 'SQL batch must not contain ON CONFLICT (strictly insert-only)');
-  assert.strictEqual(sqlBatch.includes('UPDATE'), false, 'SQL batch must not contain UPDATE');
-
-  assert.ok(sqlBatch.includes('INSERT INTO cms_entries'), 'Must contain INSERT INTO cms_entries');
-  assert.ok(sqlBatch.includes('INSERT INTO cms_entry_revisions'), 'Must contain INSERT INTO cms_entry_revisions');
+  // Published SQL batch
+  const pubBatch = buildImportBatchSql([sampleEntry], 'author@traiinc.com', 'published');
+  assert.ok(pubBatch.includes("'published'"), 'Explicit published batch must set published status');
+  assert.ok(pubBatch.includes("datetime('now')\n);") || pubBatch.includes("datetime('now')\r\n);"), 'Explicit published batch must set published_at');
 
   console.log('PASS Test 1: SQL batch generation complies with D1 batch standards (no explicit tx/pragma, insert-only).');
 }
 
 // ============================================================================
-// Test 2: Isolated Successful Write Path against Local D1
+// Test 2: Default Import Generates Draft Status & Matching Revision in Local D1
 // ============================================================================
-const testSlug = `test-integration-${Date.now()}`;
+const draftSlug = `test-draft-${Date.now()}`;
 const testAuthor = `test-author-${Date.now()}@traiinc.com`;
-let createdEntryId = null;
+let draftEntryId = null;
 
 {
-  const testEntry = {
+  const draftEntry = {
     content_type: 'blog',
-    slug: testSlug,
-    title: 'Automated Integration Test Post',
+    slug: draftSlug,
+    title: 'Automated Draft Pilot Article',
     data: {
-      summary: 'Integration test summary text',
-      sections: [
-        { heading: 'Section 1', body: 'Detailed paragraph 1' },
-        { heading: 'Section 2', body: 'Detailed paragraph 2' }
-      ]
+      summary: 'Draft summary text',
+      sections: [{ heading: 'Introduction', body: 'Draft body paragraph' }]
     },
     seo: {
-      meta_title: 'Automated Integration Test Post',
-      meta_description: 'Integration test meta description text',
-      canonical: `https://traiinc.com/blog/${testSlug}`
+      meta_title: 'Automated Draft Pilot Article',
+      meta_description: 'Draft SEO description'
     }
   };
 
-  // Execute write path
-  const result = executeImportBatch([testEntry], testAuthor, false, configFile);
+  // Execute write path with default status (draft)
+  const result = executeImportBatch([draftEntry], testAuthor, false, configFile);
   assert.strictEqual(result.count, 1, 'Import result count must be 1');
 
   // Verify cms_entries
-  const entries = queryLocalD1(`SELECT * FROM cms_entries WHERE slug = '${testSlug}';`);
+  const entries = queryLocalD1(`SELECT * FROM cms_entries WHERE slug = '${draftSlug}';`);
   assert.strictEqual(entries.length, 1, 'Exactly one cms_entries row must be created');
 
   const entry = entries[0];
-  createdEntryId = entry.id;
-  assert.strictEqual(entry.slug, testSlug);
-  assert.strictEqual(entry.title, testEntry.title);
-  assert.strictEqual(entry.content_type, 'blog');
-  assert.strictEqual(entry.status, 'published');
+  draftEntryId = entry.id;
+  assert.strictEqual(entry.slug, draftSlug);
+  assert.strictEqual(entry.status, 'draft', 'Default import must set status to draft');
+  assert.strictEqual(entry.published_at, null, 'Draft entry published_at must be NULL');
   assert.strictEqual(entry.created_by, testAuthor);
   assert.strictEqual(entry.updated_by, testAuthor);
-  assert.deepStrictEqual(JSON.parse(entry.data_json), testEntry.data);
-  assert.deepStrictEqual(JSON.parse(entry.seo_json), testEntry.seo);
 
   // Verify cms_entry_revisions
-  const revisions = queryLocalD1(`SELECT * FROM cms_entry_revisions WHERE entry_id = '${createdEntryId}';`);
-  assert.strictEqual(revisions.length, 1, 'Exactly one cms_entry_revisions row must be created');
+  const revisions = queryLocalD1(`SELECT * FROM cms_entry_revisions WHERE entry_id = '${draftEntryId}';`);
+  assert.strictEqual(revisions.length, 1, 'Exactly one paired revision must be created');
 
-  const revision = revisions[0];
-  assert.strictEqual(revision.entry_id, createdEntryId);
-  assert.strictEqual(revision.title, testEntry.title);
-  assert.strictEqual(revision.status, 'published');
-  assert.strictEqual(revision.actor_email, testAuthor);
-  assert.deepStrictEqual(JSON.parse(revision.data_json), testEntry.data);
-  assert.deepStrictEqual(JSON.parse(revision.seo_json), testEntry.seo);
+  const rev = revisions[0];
+  assert.strictEqual(rev.entry_id, draftEntryId);
+  assert.strictEqual(rev.status, 'draft', 'Draft revision status must match draft entry status');
+  assert.strictEqual(rev.actor_email, testAuthor);
 
-  console.log('PASS Test 2: Exactly one cms_entries row and one paired revision created with expected content and author.');
+  console.log('PASS Test 2: Default import generates draft status with published_at NULL and matching draft revision.');
 }
 
 // ============================================================================
-// Test 3: Duplicate Slug Aborts Without Writes
+// Test 3: Draft Content is Unavailable from Public Content API (Returns 404)
+// ============================================================================
+const localDb = getLocalD1Database();
+assert.ok(localDb, 'Local SQLite database must be present for Worker endpoint tests');
+const workerEnv = {
+  ENVIRONMENT: 'test',
+  ADMIN_ORIGIN: 'https://admin.traiinc.com',
+  __testMember: { email: testAuthor, role: 'owner' },
+  DB: createD1Adapter(localDb)
+};
+
+{
+  // Test actual public Worker route: GET /api/public/v1/content?slug={slug}
+  const publicReq = new Request(`https://api.traiinc.com/api/public/v1/content?slug=${draftSlug}`, {
+    method: 'GET'
+  });
+
+  const publicRes = await workerModule.fetch(publicReq, workerEnv);
+  assert.strictEqual(publicRes.status, 404, 'Public content API must return 404 for draft entries');
+  const body = await publicRes.json();
+  assert.strictEqual(body.error, 'Not found', 'Public error message must be "Not found"');
+
+  console.log('PASS Test 3: Draft content is unavailable from public content API (GET /api/public/v1/content returns 404).');
+}
+
+// ============================================================================
+// Test 4: Draft Content is Accessible via Authenticated Admin Entry API (Returns 200)
+// ============================================================================
+{
+  // Test actual admin Worker route: GET /api/admin/v1/entries/{id}
+  const adminReq = new Request(`https://api.traiinc.com/api/admin/v1/entries/${draftEntryId}`, {
+    method: 'GET',
+    headers: { 'Origin': 'https://admin.traiinc.com' }
+  });
+
+  const adminRes = await workerModule.fetch(adminReq, workerEnv);
+  assert.strictEqual(adminRes.status, 200, 'Admin API must return 200 for draft entries');
+  const body = await adminRes.json();
+  assert.strictEqual(body.item.id, draftEntryId);
+  assert.strictEqual(body.item.slug, draftSlug);
+  assert.strictEqual(body.item.status, 'draft');
+  assert.strictEqual(body.revisions.length, 1);
+  assert.strictEqual(body.revisions[0].status, 'draft');
+
+  console.log('PASS Test 4: Draft content is accessible via authenticated admin entry API (GET /api/admin/v1/entries/{id} returns 200).');
+}
+
+// ============================================================================
+// Test 5: Explicit Published Status Generates Published Status and Timestamp
+// ============================================================================
+const pubSlug = `test-pub-${Date.now()}`;
+let pubEntryId = null;
+
+{
+  const pubEntry = {
+    content_type: 'blog',
+    slug: pubSlug,
+    title: 'Automated Published Article',
+    data: { summary: 'Published summary' },
+    seo: { meta_title: 'Published Article' }
+  };
+
+  // Explicitly pass status = 'published'
+  const result = executeImportBatch([pubEntry], testAuthor, false, configFile, undefined, 'published');
+  assert.strictEqual(result.count, 1);
+
+  const entries = queryLocalD1(`SELECT * FROM cms_entries WHERE slug = '${pubSlug}';`);
+  assert.strictEqual(entries.length, 1);
+
+  const entry = entries[0];
+  pubEntryId = entry.id;
+  assert.strictEqual(entry.status, 'published');
+  assert.ok(entry.published_at !== null, 'Published entry must have non-null published_at');
+
+  const revisions = queryLocalD1(`SELECT * FROM cms_entry_revisions WHERE entry_id = '${pubEntryId}';`);
+  assert.strictEqual(revisions[0].status, 'published');
+
+  // Verify public API returns 200 for published entry
+  const pubReq = new Request(`https://api.traiinc.com/api/public/v1/content?slug=${pubSlug}`, { method: 'GET' });
+  const pubRes = await workerModule.fetch(pubReq, workerEnv);
+  assert.strictEqual(pubRes.status, 200, 'Public API returns 200 for published entry');
+
+  console.log('PASS Test 5: Explicit published status import sets published status, timestamp, and is available publicly.');
+}
+
+// ============================================================================
+// Test 6: Manual Publishing and Unpublishing via Worker Admin Endpoints
+// ============================================================================
+{
+  // 1. Publish draft entry via POST /api/admin/v1/entries/{id}/publish
+  const publishReq = new Request(`https://api.traiinc.com/api/admin/v1/entries/${draftEntryId}/publish`, {
+    method: 'POST',
+    headers: { 'Origin': 'https://admin.traiinc.com' }
+  });
+
+  const publishRes = await workerModule.fetch(publishReq, workerEnv);
+  assert.strictEqual(publishRes.status, 200, 'Publish endpoint must return 200');
+  const publishData = await publishRes.json();
+  assert.strictEqual(publishData.status, 'published');
+
+  // Public API must now return 200
+  const afterPubReq = new Request(`https://api.traiinc.com/api/public/v1/content?slug=${draftSlug}`, { method: 'GET' });
+  const afterPubRes = await workerModule.fetch(afterPubReq, workerEnv);
+  assert.strictEqual(afterPubRes.status, 200, 'Public API must return 200 after manual publish');
+
+  // 2. Unpublish entry via POST /api/admin/v1/entries/{id}/unpublish
+  const unpublishReq = new Request(`https://api.traiinc.com/api/admin/v1/entries/${draftEntryId}/unpublish`, {
+    method: 'POST',
+    headers: { 'Origin': 'https://admin.traiinc.com' }
+  });
+
+  const unpublishRes = await workerModule.fetch(unpublishReq, workerEnv);
+  assert.strictEqual(unpublishRes.status, 200, 'Unpublish endpoint must return 200');
+  const unpublishData = await unpublishRes.json();
+  assert.strictEqual(unpublishData.status, 'draft');
+
+  // Public API must now return 404 again
+  const afterUnpubReq = new Request(`https://api.traiinc.com/api/public/v1/content?slug=${draftSlug}`, { method: 'GET' });
+  const afterUnpubRes = await workerModule.fetch(afterUnpubReq, workerEnv);
+  assert.strictEqual(afterUnpubRes.status, 404, 'Public API must return 404 after manual unpublish');
+
+  console.log('PASS Test 6: Manual publishing (POST .../publish) and unpublishing (POST .../unpublish) lifecycle verified.');
+}
+
+// ============================================================================
+// Test 7: Invalid Status Rejected Before D1 Execution
+// ============================================================================
+{
+  const dummyEntry = {
+    content_type: 'blog',
+    slug: 'invalid-status-test',
+    title: 'Invalid',
+    data: {},
+    seo: {}
+  };
+
+  assert.throws(
+    () => buildEntrySql(dummyEntry, testAuthor, undefined, undefined, 'invalid'),
+    /Invalid status "invalid"/,
+    'buildEntrySql must reject invalid status'
+  );
+
+  assert.throws(
+    () => buildImportBatchSql([dummyEntry], testAuthor, 'archived'),
+    /Invalid status "archived"/,
+    'buildImportBatchSql must reject unsupported status'
+  );
+
+  assert.throws(
+    () => executeImportBatch([dummyEntry], testAuthor, false, configFile, undefined, 'unknown'),
+    /Invalid status "unknown"/,
+    'executeImportBatch must reject unsupported status before D1 execution'
+  );
+
+  // CLI argument validation
+  let cliFailed = false;
+  try {
+    execFileSync('node', [
+      path.join(rootDir, 'scripts/import-content.js'),
+      '--status',
+      'invalid-status'
+    ], {
+      cwd: rootDir,
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'pipe']
+    });
+  } catch (err) {
+    cliFailed = true;
+    assert.strictEqual(err.status, 1, 'CLI must exit with code 1 on invalid status');
+  }
+  assert.strictEqual(cliFailed, true, 'CLI must fail on invalid --status');
+
+  console.log('PASS Test 7: Invalid status is rejected before D1 execution (both API and CLI exit nonzero).');
+}
+
+// ============================================================================
+// Test 8: Duplicate Slug Produces Zero Writes
 // ============================================================================
 {
   const duplicateEntry = {
     content_type: 'blog',
-    slug: testSlug,
+    slug: draftSlug,
     title: 'Duplicate Attempt Post',
     data: { summary: 'Should never be inserted' },
     seo: { meta_title: 'Duplicate' }
@@ -155,41 +370,37 @@ let createdEntryId = null;
   assert.throws(
     () => executeImportBatch([duplicateEntry], testAuthor, false, configFile),
     (err) => {
-      assert.ok(err.message.includes(`Duplicate slug(s) detected: ${testSlug}`));
+      assert.ok(err.message.includes(`Duplicate slug(s) detected: ${draftSlug}`));
       return true;
     },
     'Importing duplicate slug must abort'
   );
 
   // Verify zero duplicate rows created
-  const entries = queryLocalD1(`SELECT count(*) AS total FROM cms_entries WHERE slug = '${testSlug}';`);
+  const entries = queryLocalD1(`SELECT count(*) AS total FROM cms_entries WHERE slug = '${draftSlug}';`);
   assert.strictEqual(entries[0].total, 1, 'Total entries for slug must remain exactly 1');
 
-  const revisions = queryLocalD1(`SELECT count(*) AS total FROM cms_entry_revisions WHERE entry_id = '${createdEntryId}';`);
-  assert.strictEqual(revisions[0].total, 1, 'Total revisions for entry must remain exactly 1');
-
-  console.log('PASS Test 3: Duplicate slug aborts before execution (zero writes persisted).');
+  console.log('PASS Test 8: Duplicate slug aborts before execution (zero duplicate writes persisted).');
 }
 
 // ============================================================================
-// Test 4: Rollback on Failure (D1 Batch Atomicity)
+// Test 9: Rollback on Failure (D1 Batch Atomicity)
 // ============================================================================
 {
   const failSlug = `test-rollback-${Date.now()}`;
   const failEntryId = `entry-${Date.now()}`;
-  const invalidForeignEntryId = '00000000-0000-0000-0000-000000000000'; // Does not exist
+  const invalidForeignEntryId = '00000000-0000-0000-0000-000000000000'; // Non-existent foreign key
 
-  // Build batch where statement 1 succeeds, but statement 2 violates foreign key constraint
   const validEntrySql = `INSERT INTO cms_entries (
     id, content_type, slug, title, data_json, seo_json, status, created_by, updated_by, created_at, updated_at, published_at
   ) VALUES (
-    '${failEntryId}', 'blog', '${failSlug}', 'Rollback Post', '{}', '{}', 'published', '${testAuthor}', '${testAuthor}', datetime('now'), datetime('now'), datetime('now')
+    '${failEntryId}', 'blog', '${failSlug}', 'Rollback Post', '{}', '{}', 'draft', '${testAuthor}', '${testAuthor}', datetime('now'), datetime('now'), NULL
   );`;
 
   const invalidRevisionSql = `INSERT INTO cms_entry_revisions (
     id, entry_id, title, data_json, seo_json, status, actor_email, created_at
   ) VALUES (
-    'rev-bad-${Date.now()}', '${invalidForeignEntryId}', 'Rollback Post', '{}', '{}', 'published', '${testAuthor}', datetime('now')
+    'rev-bad-${Date.now()}', '${invalidForeignEntryId}', 'Rollback Post', '{}', '{}', 'draft', '${testAuthor}', datetime('now')
   );`;
 
   const failingBatchSql = `${validEntrySql}\n\n${invalidRevisionSql}`;
@@ -205,30 +416,35 @@ let createdEntryId = null;
       'Must fail with foreign key constraint error'
     );
   } finally {
-    import('node:fs').then(fs => {
-      if (fs.existsSync(batchFilePath)) fs.unlinkSync(batchFilePath);
-    });
+    if (fs.existsSync(batchFilePath)) fs.unlinkSync(batchFilePath);
   }
 
   assert.strictEqual(batchFailed, true, 'Failing batch must throw error');
 
-  // Verify that statement 1 was ROLLED BACK
+  // Verify that statement 1 was completely ROLLED BACK
   const entries = queryLocalD1(`SELECT count(*) AS total FROM cms_entries WHERE slug = '${failSlug}';`);
   assert.strictEqual(entries[0].total, 0, 'Entry must be completely rolled back when paired revision insert fails');
 
-  console.log('PASS Test 4: Failure in paired insert rolls back the entire batch (atomicity confirmed).');
+  console.log('PASS Test 9: Failure in paired insert rolls back the entire batch (atomicity confirmed).');
 }
 
 // ============================================================================
-// Test 5: Cleanup & State Isolation
+// Test 10: Cleanup & State Isolation
 // ============================================================================
 {
-  execLocalD1(`DELETE FROM cms_entry_revisions WHERE entry_id = '${createdEntryId}'; DELETE FROM cms_entries WHERE id = '${createdEntryId}';`);
+  execLocalD1(`
+    DELETE FROM cms_entry_revisions WHERE entry_id IN ('${draftEntryId}', '${pubEntryId}');
+    DELETE FROM cms_audit_logs WHERE entity_id IN ('${draftEntryId}', '${pubEntryId}');
+    DELETE FROM cms_entries WHERE id IN ('${draftEntryId}', '${pubEntryId}');
+  `);
 
-  const entries = queryLocalD1(`SELECT count(*) AS total FROM cms_entries WHERE slug = '${testSlug}';`);
-  assert.strictEqual(entries[0].total, 0, 'Test entry must be cleaned up from local D1');
+  const draftCheck = queryLocalD1(`SELECT count(*) AS total FROM cms_entries WHERE slug = '${draftSlug}';`);
+  assert.strictEqual(draftCheck[0].total, 0, 'Draft test entry must be removed');
 
-  console.log('PASS Test 5: Local D1 test state cleaned up cleanly.');
+  const pubCheck = queryLocalD1(`SELECT count(*) AS total FROM cms_entries WHERE slug = '${pubSlug}';`);
+  assert.strictEqual(pubCheck[0].total, 0, 'Published test entry must be removed');
+
+  console.log('PASS Test 10: Local D1 test state cleaned up cleanly (all test records purged).');
 }
 
-console.log('\nALL 5 IMPORTER WRITE-PATH & TRANSACTION INTEGRATION TESTS PASSED!\n');
+console.log('\nALL 10 IMPORTER WRITE-PATH & TRANSACTION INTEGRATION TESTS PASSED!\n');

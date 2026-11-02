@@ -10,6 +10,7 @@
  * 
  * Options:
  *   --dry-run               Preview items without modifying the database.
+ *   --status <status>       Status for imported entries: draft (default) or published.
  *   --slug <slug>           Import only a specific slug (e.g. blog-ai-agents-replacing-manual-workflows).
  *   --type <type>           Filter by content type (blog, service, page, landing_page, case_study).
  *   --local                 Execute against local D1 database (default).
@@ -31,6 +32,7 @@ const dataDir = path.join(rootDir, 'data');
 // Parse CLI Arguments
 const args = process.argv.slice(2);
 let isDryRun = false;
+let importStatus = 'draft';
 let filterSlug = null;
 let filterType = null;
 let isRemote = false;
@@ -42,6 +44,12 @@ for (let i = 0; i < args.length; i++) {
   const arg = args[i];
   if (arg === '--dry-run') {
     isDryRun = true;
+  } else if (arg === '--status') {
+    importStatus = String(args[++i] || '').trim().toLowerCase();
+    if (!['draft', 'published'].includes(importStatus)) {
+      console.error(`\n[ARGUMENT ERROR] Invalid --status "${importStatus}". Supported values are 'draft' or 'published'.\n`);
+      process.exit(1);
+    }
   } else if (arg === '--slug') {
     filterSlug = args[++i];
   } else if (arg === '--type') {
@@ -64,6 +72,7 @@ Usage: node scripts/import-content.js [OPTIONS]
 
 Options:
   --dry-run               Preview mapping without writing to database
+  --status <status>       Status for imported entries: draft (default) or published
   --slug <slug>           Import only the specified slug
   --type <type>           Filter by content type (page, service, blog, case_study, landing_page)
   --local                 Target local D1 database (default)
@@ -377,7 +386,11 @@ function queryExistingSlugs(slugs, isRemote, configFile, execFn = execFileSync) 
 }
 
 // Build SQL statements for a single entry and its corresponding revision (strictly paired)
-function buildEntrySql(entry, authorEmail, entryId = crypto.randomUUID(), revisionId = crypto.randomUUID()) {
+function buildEntrySql(entry, authorEmail, entryId = crypto.randomUUID(), revisionId = crypto.randomUUID(), status = 'draft') {
+  if (!['draft', 'published'].includes(status)) {
+    throw new Error(`Invalid status "${status}". Must be 'draft' or 'published'.`);
+  }
+  const isDraft = status === 'draft';
   const dataJson = JSON.stringify(entry.data);
   const seoJson = JSON.stringify(entry.seo);
 
@@ -390,12 +403,12 @@ function buildEntrySql(entry, authorEmail, entryId = crypto.randomUUID(), revisi
   ${sqlEscape(entry.title)},
   ${sqlEscape(dataJson)},
   ${sqlEscape(seoJson)},
-  'published',
+  ${sqlEscape(status)},
   ${sqlEscape(authorEmail)},
   ${sqlEscape(authorEmail)},
   datetime('now'),
   datetime('now'),
-  datetime('now')
+  ${isDraft ? 'NULL' : "datetime('now')"}
 );`;
 
   const revisionSql = `INSERT INTO cms_entry_revisions (
@@ -406,7 +419,7 @@ function buildEntrySql(entry, authorEmail, entryId = crypto.randomUUID(), revisi
   ${sqlEscape(entry.title)},
   ${sqlEscape(dataJson)},
   ${sqlEscape(seoJson)},
-  'published',
+  ${sqlEscape(status)},
   ${sqlEscape(authorEmail)},
   datetime('now')
 );`;
@@ -415,10 +428,13 @@ function buildEntrySql(entry, authorEmail, entryId = crypto.randomUUID(), revisi
 }
 
 // Build combined SQL batch for all entries without transaction pragma/wrapper keywords
-function buildImportBatchSql(entries, authorEmail) {
+function buildImportBatchSql(entries, authorEmail, status = 'draft') {
+  if (!['draft', 'published'].includes(status)) {
+    throw new Error(`Invalid status "${status}". Must be 'draft' or 'published'.`);
+  }
   const statements = [];
   for (const entry of entries) {
-    statements.push(...buildEntrySql(entry, authorEmail));
+    statements.push(...buildEntrySql(entry, authorEmail, undefined, undefined, status));
   }
   return statements.join('\n\n');
 }
@@ -460,7 +476,10 @@ function executeD1SqlFile(sqlFilePath, isRemote, configFile, execFn = execFileSy
 }
 
 // Execute atomic batch import with preflight duplicate check
-function executeImportBatch(entries, authorEmail, isRemote, configFile, execFn = execFileSync) {
+function executeImportBatch(entries, authorEmail, isRemote, configFile, execFn = execFileSync, status = 'draft') {
+  if (!['draft', 'published'].includes(status)) {
+    throw new Error(`Invalid status "${status}". Must be 'draft' or 'published'.`);
+  }
   if (!entries || entries.length === 0) return { count: 0, stdout: '' };
 
   const slugs = entries.map(e => e.slug);
@@ -469,7 +488,7 @@ function executeImportBatch(entries, authorEmail, isRemote, configFile, execFn =
     throw new Error(`Duplicate slug(s) detected: ${existingSlugs.join(', ')}. Write aborted with zero changes.`);
   }
 
-  const sqlContent = buildImportBatchSql(entries, authorEmail);
+  const sqlContent = buildImportBatchSql(entries, authorEmail, status);
   const sqlFilePath = writeSqlBatchFile(sqlContent);
 
   try {
@@ -488,6 +507,7 @@ async function main() {
   console.log('TRAI Inc CMS Content Importer');
   console.log('────────────────────────────────────────────────────────');
   console.log(`Target Mode    : ${isRemote ? 'REMOTE (Production D1)' : 'LOCAL (Local D1)'}`);
+  console.log(`Import Status  : ${importStatus.toUpperCase()}`);
   console.log(`Dry Run        : ${isDryRun ? 'YES (Preview only)' : 'NO (Writes enabled)'}`);
   console.log(`Config File    : ${configFile}`);
   console.log(`Author Email   : ${authorEmail}`);
@@ -528,7 +548,7 @@ async function main() {
     process.exit(1);
   }
 
-  const sqlBatch = buildImportBatchSql(filtered, authorEmail);
+  const sqlBatch = buildImportBatchSql(filtered, authorEmail, importStatus);
 
   if (isDryRun) {
     if (existingSlugs.length > 0) {
