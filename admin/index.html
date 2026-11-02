@@ -1,0 +1,2299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>TRAI Inc · Website Control CMS</title>
+<style>
+:root {
+  color-scheme: light;
+  --ink: #111827;
+  --muted: #6b7280;
+  --light-muted: #9ca3af;
+  --border: #e5e7eb;
+  --bg: #f9fafb;
+  --card: #ffffff;
+  --red: #d91414;
+  --red-hover: #b91010;
+  --red-bg: #fef2f2;
+  --green: #15803d;
+  --green-bg: #f0fdf4;
+  --green-border: #bbf7d0;
+  --amber: #b45309;
+  --amber-bg: #fffbeb;
+  --amber-border: #fde68a;
+  --gray-badge: #f3f4f6;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font: 14px/1.5 var(--font);
+  min-height: 100vh;
+}
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; }
+
+/* Shell Layout */
+.shell {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 100vh;
+}
+.side {
+  background: var(--card);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.brand {
+  padding: 24px 20px 20px;
+  border-bottom: 1px solid var(--border);
+}
+.brand-name {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+.brand-name span { color: var(--red); }
+.brand-tag {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.nav {
+  padding: 16px 12px;
+  flex: 1;
+}
+.nav-group {
+  margin-bottom: 18px;
+}
+.nav-label {
+  padding: 6px 12px;
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--light-muted);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+.nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  margin: 2px 0;
+  border-radius: var(--radius);
+  color: #4b5563;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.15s;
+  cursor: pointer;
+}
+.nav a:hover {
+  background: #f3f4f6;
+  color: var(--ink);
+}
+.nav a.active {
+  background: var(--red-bg);
+  color: var(--red);
+  font-weight: 600;
+}
+.nav-badge {
+  margin-left: auto;
+  font-size: 11px;
+  padding: 1px 7px;
+  border-radius: 10px;
+  background: #f3f4f6;
+  color: var(--muted);
+}
+
+.operator-card {
+  padding: 16px;
+  border-top: 1px solid var(--border);
+  background: #fdfdfd;
+}
+.operator-email {
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.operator-role {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: var(--gray-badge);
+  color: var(--muted);
+}
+.operator-role.owner { background: #fef3c7; color: #92400e; }
+.operator-role.admin { background: #ede9fe; color: #5b21b6; }
+.operator-role.editor { background: #e0f2fe; color: #0369a1; }
+.operator-role.seo_manager { background: #dcfce7; color: #166534; }
+
+/* Main Content Area */
+.main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.top {
+  height: 64px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.top-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 6px 10px;
+  cursor: pointer;
+}
+.top-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+.top-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.conn-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.conn-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+}
+
+.content-body {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+/* Page Header & Actions */
+.view-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+.view-title {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.7px;
+  margin-bottom: 4px;
+}
+.view-desc {
+  color: var(--muted);
+  font-size: 14px;
+}
+.view-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.btn:hover { background: #f3f4f6; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn.primary {
+  background: var(--red);
+  border-color: var(--red);
+  color: #fff;
+}
+.btn.primary:hover { background: var(--red-hover); }
+.btn.success {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+}
+.btn.danger {
+  background: #fee2e2;
+  border-color: #fca5a5;
+  color: #991b1b;
+}
+.btn.danger:hover { background: #fecaca; }
+.btn.sm {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+/* Cards & Panels */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.metric-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+}
+.metric-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.metric-value {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-top: 8px;
+  display: block;
+}
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.panel-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* Filter Toolbar */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+.search-input {
+  max-width: 300px;
+  width: 100%;
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  font-size: 13px;
+}
+.search-input:focus {
+  outline: 2px solid var(--red);
+  border-color: transparent;
+}
+.filter-select {
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  font-size: 13px;
+  color: var(--ink);
+}
+
+/* Tables */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  background: var(--card);
+}
+th {
+  padding: 12px 16px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--muted);
+  background: #f9fafb;
+  border-bottom: 1px solid var(--border);
+}
+td {
+  padding: 14px 16px;
+  font-size: 13px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: #fafafa; }
+
+/* Status Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+.badge.published {
+  background: var(--green-bg);
+  color: var(--green);
+  border: 1px solid var(--green-border);
+}
+.badge.published .badge-dot { background: var(--green); }
+.badge.draft {
+  background: var(--amber-bg);
+  color: var(--amber);
+  border: 1px solid var(--amber-border);
+}
+.badge.draft .badge-dot { background: var(--amber); }
+.badge.archived {
+  background: var(--gray-badge);
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+.badge.archived .badge-dot { background: var(--muted); }
+
+.slug-tag {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: #4b5563;
+  background: #f3f4f6;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.row-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Empty States */
+.empty-state {
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--muted);
+}
+.empty-state h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.empty-state p {
+  font-size: 13px;
+  max-width: 400px;
+  margin: 0 auto 16px;
+}
+
+/* Modals & Dialogs (Modern Web Standards) */
+dialog:modal {
+  border: none;
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  color: var(--ink);
+  padding: 0;
+  max-width: 840px;
+  width: 92vw;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  overscroll-behavior: contain;
+}
+dialog::backdrop {
+  background: rgba(17, 24, 39, 0.45);
+  backdrop-filter: blur(2px);
+  overflow: hidden;
+  overscroll-behavior: contain;
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+}
+.modal-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+}
+.modal-close:hover { color: var(--ink); background: #f3f4f6; }
+
+.modal-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  background: #f9fafb;
+}
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+.tab-btn:hover { color: var(--ink); }
+.tab-btn.active {
+  color: var(--red);
+  border-bottom-color: var(--red);
+  background: var(--card);
+}
+
+.modal-body {
+  padding: 24px;
+  max-height: 68vh;
+  overflow-y: auto;
+}
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-top: 1px solid var(--border);
+  background: #f9fafb;
+}
+.modal-footer-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Forms */
+.form-group {
+  margin-bottom: 18px;
+}
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.form-desc {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.form-input, .form-textarea, .form-select {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  color: var(--ink);
+  font-size: 13px;
+}
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  outline: 2px solid var(--red);
+  border-color: transparent;
+}
+.form-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+.form-textarea.code {
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.char-count {
+  float: right;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* Section Builder */
+.section-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 12px;
+  background: #fafafa;
+}
+.section-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.section-title-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Toasts */
+#toastContainer {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.toast {
+  padding: 12px 18px;
+  background: #1f2937;
+  color: #fff;
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: toastIn 0.2s ease-out;
+}
+.toast.success { background: #065f46; }
+.toast.error { background: #991b1b; }
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Helper Utilities */
+.hidden { display: none !important; }
+.text-muted { color: var(--muted); }
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+
+@media (max-width: 900px) {
+  .shell { grid-template-columns: 1fr; }
+  .side {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    width: 280px;
+  }
+  .side.open { display: flex; }
+  .mobile-toggle { display: block; }
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .content-body { padding: 20px; }
+  .top { padding: 0 20px; }
+}
+@media (max-width: 500px) {
+  .grid { grid-template-columns: 1fr; }
+  .view-header { flex-direction: column; align-items: stretch; }
+  .view-actions { margin-top: 10px; }
+}
+</style>
+</head>
+<body>
+<div class="shell">
+  <!-- Sidebar -->
+  <aside class="side" id="sidebar">
+    <div class="brand">
+      <div class="brand-name">TRAI<span>•</span>INC</div>
+      <div class="brand-tag">CMS CONTROL CENTER</div>
+    </div>
+    <nav class="nav">
+      <div class="nav-group">
+        <div class="nav-label">Workspace</div>
+        <a class="active" data-view="overview"><span>▦</span> Overview</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-label">Content</div>
+        <a data-view="pages"><span>▤</span> Pages <span class="nav-badge" id="badge-pages">—</span></a>
+        <a data-view="services"><span>◈</span> Services <span class="nav-badge" id="badge-services">—</span></a>
+        <a data-view="blog"><span>✎</span> Blog & Articles <span class="nav-badge" id="badge-blog">—</span></a>
+        <a data-view="case_study"><span>▧</span> Case Studies <span class="nav-badge" id="badge-case_study">—</span></a>
+        <a data-view="landing_page"><span>⌖</span> Landing Pages <span class="nav-badge" id="badge-landing_page">—</span></a>
+        <a data-view="navigation"><span>☵</span> Navigation <span class="nav-badge" id="badge-navigation">—</span></a>
+        <a data-view="footer"><span>☲</span> Footer Links <span class="nav-badge" id="badge-footer">—</span></a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-label">Growth & SEO</div>
+        <a data-view="redirects"><span>↗</span> Redirects <span class="nav-badge" id="badge-redirects">—</span></a>
+        <a data-view="media"><span>▧</span> Media Library <span class="nav-badge" id="badge-media">—</span></a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-label">Administration</div>
+        <a data-view="members"><span>♙</span> Team & Roles <span class="nav-badge" id="badge-members">—</span></a>
+        <a data-view="audit"><span>☷</span> Activity Log</a>
+        <a data-view="settings"><span>⚙</span> Settings</a>
+      </div>
+    </nav>
+    <div class="operator-card">
+      <div class="operator-email" id="userEmail">Connecting…</div>
+      <span class="operator-role" id="userRole">Viewer</span>
+    </div>
+  </aside>
+
+  <!-- Main View Area -->
+  <main class="main">
+    <header class="top">
+      <div class="top-left">
+        <button class="mobile-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+        <span class="top-title" id="topNavTitle">Dashboard</span>
+      </div>
+      <div class="top-right">
+        <div class="conn-status">
+          <span class="conn-dot" id="connDot"></span>
+          <span id="connText">Connecting…</span>
+        </div>
+        <button class="btn sm" id="globalRefreshBtn">🔄 Refresh</button>
+        <button class="btn sm primary" id="globalNewContentBtn">＋ New Content</button>
+      </div>
+    </header>
+
+    <div class="content-body">
+      <!-- 1. OVERVIEW VIEW -->
+      <section id="view-overview" class="view-panel">
+        <div class="view-header">
+          <div>
+            <h1 class="view-title">Overview</h1>
+            <div class="view-desc">Monitor website publishing status and system activity.</div>
+          </div>
+          <div class="view-actions">
+            <button class="btn primary" onclick="openEntryEditor('page')">＋ Create Page</button>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="metric-card">
+            <span class="metric-label">Total Content</span>
+            <strong class="metric-value" id="metric-total">—</strong>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Published</span>
+            <strong class="metric-value" style="color:var(--green)" id="metric-published">—</strong>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Drafts</span>
+            <strong class="metric-value" style="color:var(--amber)" id="metric-drafts">—</strong>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Active Redirects</span>
+            <strong class="metric-value" id="metric-redirects">—</strong>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Quick Actions</h2>
+          </div>
+          <div class="view-actions" style="flex-wrap:wrap">
+            <button class="btn" onclick="openEntryEditor('page')">▤ New Page</button>
+            <button class="btn" onclick="openEntryEditor('service')">◈ New Service</button>
+            <button class="btn" onclick="openEntryEditor('blog')">✎ New Article</button>
+            <button class="btn" onclick="openEntryEditor('case_study')">▧ New Case Study</button>
+            <button class="btn" onclick="openEntryEditor('landing_page')">⌖ New Landing Page</button>
+            <button class="btn" onclick="openRedirectModal()">↗ New Redirect</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Recently Updated Content</h2>
+            <button class="btn sm" onclick="switchView('pages')">View all content →</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Type</th>
+                  <th>Status</th>
+                  <th>Last Updated</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="overviewRecentTable">
+                <tr><td colspan="5" class="empty-state">Loading recent content…</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. CONTENT LISTING VIEWS (Pages, Services, Blog, Case Studies, Landing Pages, Nav, Footer) -->
+      <section id="view-content" class="view-panel hidden">
+        <div class="view-header">
+          <div>
+            <h1 class="view-title" id="contentViewTitle">Content</h1>
+            <div class="view-desc" id="contentViewDesc">Manage website entries and publications.</div>
+          </div>
+          <div class="view-actions">
+            <button class="btn primary" id="contentViewCreateBtn">＋ New Entry</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="toolbar">
+            <div class="toolbar-left">
+              <input type="search" class="search-input" id="contentSearchInput" placeholder="Search by title or slug…">
+              <select class="filter-select" id="contentStatusFilter">
+                <option value="">All Statuses</option>
+                <option value="published">Published</option>
+                <option value="draft">Draft</option>
+                <option value="archived">Archived</option>
+              </select>
+            </div>
+            <div>
+              <span class="text-muted" id="contentCountLabel">Showing 0 entries</span>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Slug</th>
+                  <th>Status</th>
+                  <th>Last Updated</th>
+                  <th style="text-align:right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="contentTableBody">
+                <tr><td colspan="5" class="empty-state">No entries found.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. REDIRECTS VIEW -->
+      <section id="view-redirects" class="view-panel hidden">
+        <div class="view-header">
+          <div>
+            <h1 class="view-title">Redirects</h1>
+            <div class="view-desc">Configure URL redirects and 301/302 routing rules.</div>
+          </div>
+          <div class="view-actions">
+            <button class="btn primary" onclick="openRedirectModal()">＋ New Redirect</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Source Path</th>
+                  <th>Destination URL</th>
+                  <th>Status Code</th>
+                  <th>Active</th>
+                  <th>Created</th>
+                  <th style="text-align:right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="redirectsTableBody">
+                <tr><td colspan="6" class="empty-state">Loading redirects…</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. MEDIA LIBRARY VIEW -->
+      <section id="view-media" class="view-panel hidden">
+        <div class="view-header">
+          <div>
+            <h1 class="view-title">Media Library</h1>
+            <div class="view-desc">Manage registered assets and image metadata.</div>
+          </div>
+          <div class="view-actions">
+            <button class="btn primary" onclick="openMediaModal()">＋ Register Asset</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Asset Key</th>
+                  <th>Type</th>
+                  <th>Size</th>
+                  <th>Alt Text</th>
+                  <th>Public URL</th>
+                  <th style="text-align:right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="mediaTableBody">
+                <tr><td colspan="6" class="empty-state">Loading media…</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. TEAM & ROLES VIEW -->
+      <section id="view-members" class="view-panel hidden">
+        <div class="view-header">
+          <div>
+            <h1 class="view-title">Team & Access Control</h1>
+            <div class="view-desc">Zero Trust operator membership and role-based permissions.</div>
+          </div>
+          <div class="view-actions">
+            <button class="btn primary" id="addMemberBtn" onclick="openMemberModal()">＋ Add Member</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Operator Email</th>
+                  <th>Role</th>
+                  <th>Status</th>
+                  <th>Created</th>
+                  <th style="text-align:right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="membersTableBody">
+                <tr><td colspan="5" class="empty-state">Loading team members…</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. ACTIVITY LOG VIEW -->
+      <section id="view-audit" class="view-panel hidden">
+        <div class="view-header">
+          <div>
+            <h1 class="view-title">Activity Log</h1>
+            <div class="view-desc">Auditable record of administrative and content actions.</div>
+          </div>
+          <div class="view-actions">
+            <button class="btn" onclick="loadAuditLogs()">🔄 Refresh Log</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Timestamp</th>
+                  <th>Actor</th>
+                  <th>Action</th>
+                  <th>Entity</th>
+                  <th>Details</th>
+                </tr>
+              </thead>
+              <tbody id="auditTableBody">
+                <tr><td colspan="5" class="empty-state">Loading activity log…</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. SETTINGS VIEW -->
+      <section id="view-settings" class="view-panel hidden">
+        <div class="view-header">
+          <div>
+            <h1 class="view-title">Site Settings</h1>
+            <div class="view-desc">Global metadata and website configuration values.</div>
+          </div>
+          <div class="view-actions">
+            <button class="btn primary" onclick="saveSiteSettings()">Save Changes</button>
+          </div>
+        </div>
+
+        <div class="panel" style="max-width:700px">
+          <form id="siteSettingsForm" onsubmit="event.preventDefault(); saveSiteSettings();">
+            <div class="form-group">
+              <label class="form-label" for="settingSiteTitle">Site Title</label>
+              <input class="form-input" id="settingSiteTitle" placeholder="TRAI Inc — Technology Research & Applied Intelligence">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="settingTagline">Default Meta Description</label>
+              <textarea class="form-textarea" id="settingTagline" rows="3" placeholder="Pioneering autonomous intelligence and production software engineering."></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="settingContactEmail">Contact Email</label>
+              <input class="form-input" type="email" id="settingContactEmail" placeholder="contact@traiinc.com">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="settingOgImage">Default OpenGraph Image URL</label>
+              <input class="form-input" id="settingOgImage" placeholder="https://traiinc.com/og-default.png">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="settingAnnouncement">Global Announcement Banner</label>
+              <input class="form-input" id="settingAnnouncement" placeholder="Announcement text (optional)">
+              <div style="margin-top:8px">
+                <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer">
+                  <input type="checkbox" id="settingAnnouncementActive"> Display banner on live website
+                </label>
+              </div>
+            </div>
+            <div class="form-group" style="margin-top:24px">
+              <button type="submit" class="btn primary">Save Changes</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<!-- ========================================================================= -->
+<!-- DIALOG: CONTENT ENTRY EDITOR                                             -->
+<!-- ========================================================================= -->
+<dialog id="entryEditorDialog" aria-labelledby="entryEditorTitle">
+  <div class="modal-header">
+    <div>
+      <h2 class="modal-title" id="entryEditorTitle">Create Content</h2>
+      <div class="form-desc" id="entryEditorSubtitle">Draft new content</div>
+    </div>
+    <button type="button" class="modal-close" onclick="closeEntryEditor()" aria-label="Close dialog">✕</button>
+  </div>
+
+  <div class="modal-tabs">
+    <button type="button" class="tab-btn active" data-tab="tab-general">General</button>
+    <button type="button" class="tab-btn" data-tab="tab-sections">Sections</button>
+    <button type="button" class="tab-btn" data-tab="tab-seo">SEO & Metadata</button>
+    <button type="button" class="tab-btn" data-tab="tab-raw">Raw JSON</button>
+    <button type="button" class="tab-btn" id="tabRevisionsBtn" data-tab="tab-revisions">History</button>
+  </div>
+
+  <form id="entryForm" onsubmit="event.preventDefault(); saveEntryDraft();">
+    <input type="hidden" id="entryEditId" value="">
+    <input type="hidden" id="entryEditStatus" value="draft">
+
+    <div class="modal-body">
+      <!-- Tab 1: General -->
+      <div id="tab-general" class="tab-content">
+        <div class="grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 0;">
+          <div class="form-group">
+            <label class="form-label" for="entryTitle">Title <span style="color:var(--red)">*</span></label>
+            <input class="form-input" id="entryTitle" required placeholder="e.g. Next-Gen Enterprise Platforms">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="entryType">Content Type <span style="color:var(--red)">*</span></label>
+            <select class="form-select" id="entryType">
+              <option value="page">Page</option>
+              <option value="service">Service</option>
+              <option value="blog">Blog Article</option>
+              <option value="case_study">Case Study</option>
+              <option value="landing_page">Landing Page</option>
+              <option value="navigation">Navigation</option>
+              <option value="footer">Footer</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="entrySlug">Slug <span style="color:var(--red)">*</span></label>
+          <input class="form-input" id="entrySlug" required placeholder="generated-from-title">
+          <div class="form-desc">URL path identifier. Lowercase letters, numbers and hyphens only.</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="entrySummary">Summary / Overview</label>
+          <textarea class="form-textarea" id="entrySummary" rows="3" placeholder="Brief summary of this entry."></textarea>
+        </div>
+      </div>
+
+      <!-- Tab 2: Sections Builder -->
+      <div id="tab-sections" class="tab-content hidden">
+        <div class="flex-between" style="margin-bottom:12px">
+          <div class="form-desc">Manage content blocks and dynamic body sections.</div>
+          <button type="button" class="btn sm" onclick="addSectionBlock()">＋ Add Section</button>
+        </div>
+        <div id="sectionsContainer"></div>
+      </div>
+
+      <!-- Tab 3: SEO -->
+      <div id="tab-seo" class="tab-content hidden">
+        <div class="form-group">
+          <div class="flex-between">
+            <label class="form-label" for="entryMetaTitle">Meta Title</label>
+            <span class="char-count" id="metaTitleCount">0 / 60</span>
+          </div>
+          <input class="form-input" id="entryMetaTitle" placeholder="Custom SEO Title (defaults to Title)">
+        </div>
+
+        <div class="form-group">
+          <div class="flex-between">
+            <label class="form-label" for="entryMetaDesc">Meta Description</label>
+            <span class="char-count" id="metaDescCount">0 / 160</span>
+          </div>
+          <textarea class="form-textarea" id="entryMetaDesc" rows="3" placeholder="Compelling summary for Google search results (150-160 chars recommended)."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="entryOgImage">Social Share Image (OG Image URL)</label>
+          <input class="form-input" id="entryOgImage" placeholder="https://traiinc.com/images/share.jpg">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="entryCanonical">Canonical URL</label>
+          <input class="form-input" id="entryCanonical" placeholder="https://traiinc.com/services/example">
+        </div>
+
+        <div class="form-group">
+          <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer">
+            <input type="checkbox" id="entryNoIndex">
+            Exclude from search engine indexes (<code style="font-family:var(--mono)">noindex, nofollow</code>)
+          </label>
+        </div>
+      </div>
+
+      <!-- Tab 4: Raw JSON -->
+      <div id="tab-raw" class="tab-content hidden">
+        <div class="form-group">
+          <div class="flex-between" style="margin-bottom:6px">
+            <label class="form-label">Data JSON</label>
+            <button type="button" class="btn sm" onclick="syncFormsToRawJson()">Format JSON</button>
+          </div>
+          <textarea class="form-textarea code" id="entryRawData" rows="12"></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">SEO JSON</label>
+          <textarea class="form-textarea code" id="entryRawSeo" rows="6"></textarea>
+        </div>
+      </div>
+
+      <!-- Tab 5: Revisions -->
+      <div id="tab-revisions" class="tab-content hidden">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Author</th>
+                <th>Status</th>
+                <th>Title at revision</th>
+              </tr>
+            </thead>
+            <tbody id="revisionsTableBody">
+              <tr><td colspan="4" class="empty-state">No revision history.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <div>
+        <button type="button" class="btn sm danger hidden" id="entryArchiveBtn" onclick="archiveCurrentEntry()">Archive</button>
+        <button type="button" class="btn sm" id="entryPreviewBtn" onclick="openPreviewModal()">Preview</button>
+      </div>
+      <div class="modal-footer-right">
+        <button type="button" class="btn" onclick="closeEntryEditor()">Cancel</button>
+        <button type="submit" class="btn" id="saveDraftBtn">Save Draft</button>
+        <button type="button" class="btn success" id="publishEntryBtn" onclick="publishCurrentEntry()">Publish Now</button>
+      </div>
+    </div>
+  </form>
+</dialog>
+
+<!-- ========================================================================= -->
+<!-- DIALOG: PREVIEW MODAL                                                    -->
+<!-- ========================================================================= -->
+<dialog id="previewDialog" aria-labelledby="previewModalTitle">
+  <div class="modal-header">
+    <div>
+      <h2 class="modal-title" id="previewModalTitle">Content Preview</h2>
+      <div class="form-desc" id="previewSubtitle">Rendering structured content</div>
+    </div>
+    <button type="button" class="modal-close" onclick="previewDialog.close()" aria-label="Close preview">✕</button>
+  </div>
+  <div class="modal-body" id="previewBody" style="background:#fff">
+    <!-- Rendered content preview -->
+  </div>
+  <div class="modal-footer">
+    <span class="text-muted" style="font-size:12px">Preview only · Not yet visible to public until published</span>
+    <button type="button" class="btn" onclick="previewDialog.close()">Close Preview</button>
+  </div>
+</dialog>
+
+<!-- ========================================================================= -->
+<!-- DIALOG: REDIRECT MODAL                                                   -->
+<!-- ========================================================================= -->
+<dialog id="redirectDialog" aria-labelledby="redirectModalTitle">
+  <div class="modal-header">
+    <h2 class="modal-title" id="redirectModalTitle">Add Redirect</h2>
+    <button type="button" class="modal-close" onclick="redirectDialog.close()" aria-label="Close dialog">✕</button>
+  </div>
+  <form id="redirectForm" onsubmit="event.preventDefault(); saveRedirect();">
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="form-label" for="redirectSource">Source Path <span style="color:var(--red)">*</span></label>
+        <input class="form-input" id="redirectSource" required placeholder="/old-path-or-slug">
+        <div class="form-desc">Must start with a leading slash (/), e.g. /old-services</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="redirectDest">Destination URL <span style="color:var(--red)">*</span></label>
+        <input class="form-input" id="redirectDest" required placeholder="/services/new-platform or https://...">
+      </div>
+      <div class="grid" style="grid-template-columns:1fr 1fr; margin-bottom:0">
+        <div class="form-group">
+          <label class="form-label" for="redirectStatus">Status Code</label>
+          <select class="form-select" id="redirectStatus">
+            <option value="301">301 (Permanent)</option>
+            <option value="302">302 (Temporary)</option>
+            <option value="307">307 (Temporary Redirect)</option>
+            <option value="308">308 (Permanent Redirect)</option>
+          </select>
+        </div>
+        <div class="form-group" style="display:flex;align-items:center;margin-top:20px">
+          <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer">
+            <input type="checkbox" id="redirectActive" checked>
+            Active
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn" onclick="redirectDialog.close()">Cancel</button>
+      <button type="submit" class="btn primary">Save Redirect</button>
+    </div>
+  </form>
+</dialog>
+
+<!-- ========================================================================= -->
+<!-- DIALOG: MEDIA MODAL                                                      -->
+<!-- ========================================================================= -->
+<dialog id="mediaDialog" aria-labelledby="mediaModalTitle">
+  <div class="modal-header">
+    <h2 class="modal-title" id="mediaModalTitle">Register Media Asset</h2>
+    <button type="button" class="modal-close" onclick="mediaDialog.close()" aria-label="Close dialog">✕</button>
+  </div>
+  <form id="mediaForm" onsubmit="event.preventDefault(); saveMediaAsset();">
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="form-label" for="mediaKey">Asset Object Key <span style="color:var(--red)">*</span></label>
+        <input class="form-input" id="mediaKey" required placeholder="images/hero/autonomous-ai.webp">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="mediaUrl">Public URL</label>
+        <input class="form-input" id="mediaUrl" placeholder="https://traiinc.com/images/hero/autonomous-ai.webp">
+      </div>
+      <div class="grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 0;">
+        <div class="form-group">
+          <label class="form-label" for="mediaMime">MIME Type</label>
+          <input class="form-input" id="mediaMime" value="image/webp" placeholder="image/webp">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="mediaSize">Size (Bytes)</label>
+          <input class="form-input" type="number" id="mediaSize" placeholder="124500">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="mediaAlt">Alt Text</label>
+        <input class="form-input" id="mediaAlt" placeholder="Descriptive text for accessibility">
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn" onclick="mediaDialog.close()">Cancel</button>
+      <button type="submit" class="btn primary">Register Asset</button>
+    </div>
+  </form>
+</dialog>
+
+<!-- ========================================================================= -->
+<!-- DIALOG: MEMBER MODAL                                                     -->
+<!-- ========================================================================= -->
+<dialog id="memberDialog" aria-labelledby="memberModalTitle">
+  <div class="modal-header">
+    <h2 class="modal-title" id="memberModalTitle">Add Operator Member</h2>
+    <button type="button" class="modal-close" onclick="memberDialog.close()" aria-label="Close dialog">✕</button>
+  </div>
+  <form id="memberForm" onsubmit="event.preventDefault(); saveMember();">
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="form-label" for="memberEmail">Operator Email <span style="color:var(--red)">*</span></label>
+        <input class="form-input" type="email" id="memberEmail" required placeholder="colleague@example.com">
+        <div class="form-desc">Must match the identity configured in Cloudflare Zero Trust Access.</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="memberRole">Role</label>
+        <select class="form-select" id="memberRole">
+          <option value="editor">Editor (Create and edit drafts, media)</option>
+          <option value="seo_manager">SEO Manager (Edit SEO, manage redirects)</option>
+          <option value="admin">Admin (Publish/archive content, view audit, manage settings)</option>
+          <option value="viewer">Viewer (Read-only)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer">
+          <input type="checkbox" id="memberActive" checked> Active
+        </label>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn" onclick="memberDialog.close()">Cancel</button>
+      <button type="submit" class="btn primary">Save Member</button>
+    </div>
+  </form>
+</dialog>
+
+<!-- Toasts container -->
+<div id="toastContainer" aria-live="polite"></div>
+
+<!-- ========================================================================= -->
+<!-- JAVASCRIPT APPLICATION LOGIC                                             -->
+<!-- ========================================================================= -->
+<script>
+const API_BASE = window.CMS_API_BASE || "https://api.traiinc.com";
+
+// Current session state
+let currentUser = { email: "", role: "viewer" };
+let currentView = "overview";
+let currentEntries = [];
+
+// DOM References
+const $ = sel => document.querySelector(sel);
+const $$ = sel => document.querySelectorAll(sel);
+
+// Light-dismiss helper for native <dialog> compliant with Modern Web Guidance
+function setupDialogLightDismiss(dialog) {
+  let pressedOutside = false;
+  const outside = (e) => {
+    const r = dialog.getBoundingClientRect();
+    return e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom;
+  };
+  dialog.addEventListener('pointerdown', (e) => { pressedOutside = outside(e); });
+  dialog.addEventListener('pointerup', (e) => {
+    if (pressedOutside && outside(e)) dialog.close();
+  });
+}
+
+// Dialog elements
+const entryEditorDialog = document.getElementById("entryEditorDialog");
+const previewDialog = document.getElementById("previewDialog");
+const redirectDialog = document.getElementById("redirectDialog");
+const mediaDialog = document.getElementById("mediaDialog");
+const memberDialog = document.getElementById("memberDialog");
+
+[entryEditorDialog, previewDialog, redirectDialog, mediaDialog, memberDialog].forEach(setupDialogLightDismiss);
+
+// Toast Notification
+function showToast(message, type = "info") {
+  const container = document.getElementById("toastContainer");
+  const toast = document.createElement("div");
+  toast.className = `toast ${type}`;
+  toast.textContent = message;
+  container.appendChild(toast);
+  setTimeout(() => {
+    toast.style.opacity = "0";
+    toast.style.transform = "translateY(10px)";
+    toast.style.transition = "all 0.3s";
+    setTimeout(() => toast.remove(), 300);
+  }, 4000);
+}
+
+// API Fetch Helper
+async function api(path, options = {}) {
+  const headers = new Headers(options.headers || {});
+  if (options.body != null && !headers.has("content-type")) {
+    headers.set("content-type", "application/json");
+  }
+
+  const response = await fetch(API_BASE + path, {
+    ...options,
+    credentials: "include",
+    headers
+  });
+
+  const body = await response.json().catch(() => ({}));
+
+  if (!response.ok) {
+    throw new Error(body.error || `Request failed (${response.status})`);
+  }
+
+  return body;
+}
+
+function escapeHtml(s) {
+  return String(s ?? "").replace(/[&<>"']/g, c => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  }[c]));
+}
+
+function slugify(text) {
+  return String(text || "")
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9-]+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "")
+    .slice(0, 160);
+}
+
+function formatDate(iso) {
+  if (!iso) return "—";
+  try {
+    const d = new Date(iso);
+    return d.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric", hour: "2-digit", minute: "2-digit" });
+  } catch {
+    return iso;
+  }
+}
+
+// View Switching
+function switchView(viewName) {
+  currentView = viewName;
+
+  $$(".nav a").forEach(a => {
+    if (a.dataset.view === viewName) a.classList.add("active");
+    else a.classList.remove("active");
+  });
+
+  $$(".view-panel").forEach(p => p.classList.add("hidden"));
+
+  // Check if content view or specialized view
+  const contentTypes = ["pages", "services", "blog", "case_study", "landing_page", "navigation", "footer"];
+  if (contentTypes.includes(viewName)) {
+    $("#view-content").classList.remove("hidden");
+    const labels = {
+      pages: ["Pages", "Core website pages and marketing layouts."],
+      services: ["Services", "Service offerings, technical solutions and capabilities."],
+      blog: ["Blog & Articles", "Articles, research publications and engineering writeups."],
+      case_study: ["Case Studies", "Client delivery stories, metrics and architectural wins."],
+      landing_page: ["Landing Pages", "Targeted conversion pages and campaign destinations."],
+      navigation: ["Navigation Menus", "Site header navigation structures."],
+      footer: ["Footer Links", "Site footer column groupings and copyright."]
+    };
+    const [title, desc] = labels[viewName] || [viewName, ""];
+    $("#contentViewTitle").textContent = title;
+    $("#contentViewDesc").textContent = desc;
+    $("#topNavTitle").textContent = title;
+    loadContentListing();
+  } else if (viewName === "overview") {
+    $("#view-overview").classList.remove("hidden");
+    $("#topNavTitle").textContent = "Overview";
+    loadOverview();
+  } else if (viewName === "redirects") {
+    $("#view-redirects").classList.remove("hidden");
+    $("#topNavTitle").textContent = "Redirects";
+    loadRedirects();
+  } else if (viewName === "media") {
+    $("#view-media").classList.remove("hidden");
+    $("#topNavTitle").textContent = "Media Library";
+    loadMedia();
+  } else if (viewName === "members") {
+    $("#view-members").classList.remove("hidden");
+    $("#topNavTitle").textContent = "Team & Roles";
+    loadMembers();
+  } else if (viewName === "audit") {
+    $("#view-audit").classList.remove("hidden");
+    $("#topNavTitle").textContent = "Activity Log";
+    loadAuditLogs();
+  } else if (viewName === "settings") {
+    $("#view-settings").classList.remove("hidden");
+    $("#topNavTitle").textContent = "Site Settings";
+    loadSiteSettings();
+  }
+
+  // Close mobile sidebar if open
+  $("#sidebar").classList.remove("open");
+}
+
+// ---------------------------------------------------------------------------
+// 1. Session & Auth Loading
+// ---------------------------------------------------------------------------
+async function initSession() {
+  try {
+    const data = await api("/api/admin/v1/me");
+    currentUser = data.member || { email: "Operator", role: "viewer" };
+    $("#userEmail").textContent = currentUser.email;
+    $("#userRole").textContent = currentUser.role;
+    $("#userRole").className = `operator-role ${currentUser.role}`;
+
+    $("#connDot").style.background = "#10b981";
+    $("#connText").textContent = "Protected · " + currentUser.role;
+
+    // RBAC UI adjustments
+    const isOwnerOrAdmin = ["owner", "admin"].includes(currentUser.role);
+    if (!isOwnerOrAdmin) {
+      if ($("#addMemberBtn")) $("#addMemberBtn").classList.add("hidden");
+    }
+  } catch (err) {
+    $("#connDot").style.background = "#ef4444";
+    $("#connText").textContent = "Disconnected";
+    $("#userEmail").textContent = "Authentication required";
+    console.error("Auth session check failed:", err);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 2. Overview View
+// ---------------------------------------------------------------------------
+async function loadOverview() {
+  try {
+    const [overview, entriesRes] = await Promise.all([
+      api("/api/admin/v1/overview"),
+      api("/api/admin/v1/entries?limit=8")
+    ]);
+
+    const m = overview.metrics || {};
+    $("#metric-total").textContent = m.total ?? 0;
+    $("#metric-published").textContent = m.published ?? 0;
+    $("#metric-drafts").textContent = m.drafts ?? 0;
+    $("#metric-redirects").textContent = m.redirects ?? 0;
+
+    const items = entriesRes.items || [];
+    const tbody = $("#overviewRecentTable");
+    if (!items.length) {
+      tbody.innerHTML = '<tr><td colspan="5" class="empty-state"><h3>No content created yet</h3><p>Create your first website page or article.</p></td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = items.map(entry => `
+      <tr>
+        <td><strong><a href="javascript:void(0)" onclick="openEntryEditor('${entry.content_type}', '${entry.id}')">${escapeHtml(entry.title)}</a></strong></td>
+        <td><span class="slug-tag">${escapeHtml(entry.content_type)}</span></td>
+        <td><span class="badge ${entry.status}"><span class="badge-dot"></span>${entry.status}</span></td>
+        <td>${formatDate(entry.updated_at)}</td>
+        <td>
+          <div class="row-actions">
+            <button class="btn sm" onclick="openEntryEditor('${entry.content_type}', '${entry.id}')">Edit</button>
+            ${entry.status === 'published'
+              ? `<button class="btn sm" onclick="unpublishEntry('${entry.id}')">Unpublish</button>`
+              : `<button class="btn sm success" onclick="publishEntry('${entry.id}')">Publish</button>`}
+          </div>
+        </td>
+      </tr>
+    `).join("");
+  } catch (err) {
+    showToast(err.message, "error");
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 3. Content Listing View
+// ---------------------------------------------------------------------------
+async function loadContentListing() {
+  const typeMap = {
+    pages: "page",
+    services: "service",
+    blog: "blog",
+    case_study: "case_study",
+    landing_page: "landing_page",
+    navigation: "navigation",
+    footer: "footer"
+  };
+  const activeType = typeMap[currentView] || "page";
+  const statusFilter = $("#contentStatusFilter").value;
+  const searchQuery = $("#contentSearchInput").value.trim();
+
+  let query = `/api/admin/v1/entries?type=${activeType}`;
+  if (statusFilter) query += `&status=${statusFilter}`;
+  if (searchQuery) query += `&q=${encodeURIComponent(searchQuery)}`;
+
+  $("#contentViewCreateBtn").onclick = () => openEntryEditor(activeType);
+
+  try {
+    const data = await api(query);
+    currentEntries = data.items || [];
+    $("#contentCountLabel").textContent = `Showing ${currentEntries.length} ${currentEntries.length === 1 ? 'entry' : 'entries'}`;
+
+    // Update nav badge
+    const badgeEl = $(`#badge-${currentView}`);
+    if (badgeEl) badgeEl.textContent = data.total ?? currentEntries.length;
+
+    const tbody = $("#contentTableBody");
+    if (!currentEntries.length) {
+      tbody.innerHTML = `<tr><td colspan="5" class="empty-state"><h3>No ${activeType.replace('_', ' ')} entries found</h3><p>Create a new entry to get started.</p><button class="btn sm primary" onclick="openEntryEditor('${activeType}')">＋ Create ${activeType.replace('_', ' ')}</button></td></tr>`;
+      return;
+    }
+
+    tbody.innerHTML = currentEntries.map(entry => `
+      <tr>
+        <td>
+          <strong><a href="javascript:void(0)" onclick="openEntryEditor('${entry.content_type}', '${entry.id}')">${escapeHtml(entry.title)}</a></strong>
+        </td>
+        <td><span class="slug-tag">/${escapeHtml(entry.slug)}</span></td>
+        <td><span class="badge ${entry.status}"><span class="badge-dot"></span>${entry.status}</span></td>
+        <td>${formatDate(entry.updated_at)}</td>
+        <td style="text-align:right">
+          <div class="row-actions" style="justify-content:flex-end">
+            <button class="btn sm" onclick="openEntryEditor('${entry.content_type}', '${entry.id}')">Edit</button>
+            ${entry.status === 'published'
+              ? `<button class="btn sm" onclick="unpublishEntry('${entry.id}')">Unpublish</button>`
+              : `<button class="btn sm success" onclick="publishEntry('${entry.id}')">Publish</button>`}
+          </div>
+        </td>
+      </tr>
+    `).join("");
+  } catch (err) {
+    showToast(err.message, "error");
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 4. Content Entry Editor (Create & Edit)
+// ---------------------------------------------------------------------------
+let currentSectionBlocks = [];
+
+function addSectionBlock(sectionData = {}) {
+  const container = $("#sectionsContainer");
+  const blockIndex = currentSectionBlocks.length;
+  currentSectionBlocks.push(sectionData);
+
+  const blockEl = document.createElement("div");
+  blockEl.className = "section-item";
+  blockEl.id = `section-block-${blockIndex}`;
+  blockEl.innerHTML = `
+    <div class="section-item-header">
+      <span class="section-title-label">Section Block #${blockIndex + 1}</span>
+      <button type="button" class="btn sm danger" onclick="removeSectionBlock(${blockIndex})">Remove</button>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Heading</label>
+      <input class="form-input section-heading" value="${escapeHtml(sectionData.heading || "")}" placeholder="e.g. Core Architecture">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Body Content</label>
+      <textarea class="form-textarea section-body" rows="4" placeholder="Section paragraph content or description...">${escapeHtml(sectionData.body || "")}</textarea>
+    </div>
+    <div class="grid" style="grid-template-columns:1fr 1fr; margin-bottom:0">
+      <div class="form-group">
+        <label class="form-label">Call to Action Text</label>
+        <input class="form-input section-cta-text" value="${escapeHtml(sectionData.cta_text || "")}" placeholder="Learn More">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Call to Action Link</label>
+        <input class="form-input section-cta-link" value="${escapeHtml(sectionData.cta_link || "")}" placeholder="/contact">
+      </div>
+    </div>
+  `;
+  container.appendChild(blockEl);
+}
+
+function removeSectionBlock(index) {
+  const el = $(`#section-block-${index}`);
+  if (el) el.remove();
+}
+
+function gatherSectionBlocks() {
+  const blocks = [];
+  $$(".section-item").forEach(item => {
+    const heading = item.querySelector(".section-heading")?.value.trim() || "";
+    const body = item.querySelector(".section-body")?.value.trim() || "";
+    const cta_text = item.querySelector(".section-cta-text")?.value.trim() || "";
+    const cta_link = item.querySelector(".section-cta-link")?.value.trim() || "";
+    if (heading || body || cta_text || cta_link) {
+      blocks.push({ heading, body, cta_text, cta_link });
+    }
+  });
+  return blocks;
+}
+
+async function openEntryEditor(type = "page", id = null) {
+  $("#entryForm").reset();
+  $("#sectionsContainer").innerHTML = "";
+  currentSectionBlocks = [];
+  $("#entryEditId").value = id || "";
+
+  // Reset tabs to general
+  $$("#entryEditorDialog .tab-btn").forEach(b => b.classList.remove("active"));
+  $$("#entryEditorDialog .tab-content").forEach(c => c.classList.add("hidden"));
+  $('[data-tab="tab-general"]').classList.add("active");
+  $("#tab-general").classList.remove("hidden");
+
+  if (!id) {
+    // New entry
+    $("#entryEditorTitle").textContent = "Create Content";
+    $("#entryEditorSubtitle").textContent = `New ${type.replace('_', ' ')} draft`;
+    $("#entryType").value = type;
+    $("#entryEditStatus").value = "draft";
+    $("#entryArchiveBtn").classList.add("hidden");
+    $("#publishEntryBtn").classList.add("hidden");
+    $("#tabRevisionsBtn").classList.add("hidden");
+
+    // Add 1 initial empty section
+    addSectionBlock();
+    syncFormsToRawJson();
+    entryEditorDialog.showModal();
+    $("#entryTitle").focus();
+  } else {
+    // Edit existing entry
+    try {
+      const data = await api(`/api/admin/v1/entries/${id}`);
+      const item = data.item;
+      $("#entryEditorTitle").textContent = "Edit Content";
+      $("#entryEditorSubtitle").textContent = `${item.title} (${item.status})`;
+      $("#entryTitle").value = item.title || "";
+      $("#entryType").value = item.content_type || type;
+      $("#entrySlug").value = item.slug || "";
+      $("#entryEditStatus").value = item.status || "draft";
+
+      // Populate Data & Sections
+      const contentData = item.data || {};
+      $("#entrySummary").value = contentData.summary || "";
+      if (Array.isArray(contentData.sections) && contentData.sections.length > 0) {
+        contentData.sections.forEach(s => addSectionBlock(s));
+      } else {
+        addSectionBlock();
+      }
+
+      // Populate SEO
+      const seo = item.seo || {};
+      $("#entryMetaTitle").value = seo.meta_title || "";
+      $("#entryMetaDesc").value = seo.meta_description || "";
+      $("#entryOgImage").value = seo.og_image || "";
+      $("#entryCanonical").value = seo.canonical_url || "";
+      $("#entryNoIndex").checked = !!seo.noindex;
+      updateCharCounters();
+
+      // Show action buttons
+      $("#entryArchiveBtn").classList.remove("hidden");
+      $("#tabRevisionsBtn").classList.remove("hidden");
+
+      if (["owner", "admin"].includes(currentUser.role)) {
+        $("#publishEntryBtn").classList.remove("hidden");
+        $("#publishEntryBtn").textContent = item.status === "published" ? "Save & Re-publish" : "Publish Now";
+      } else {
+        $("#publishEntryBtn").classList.add("hidden");
+      }
+
+      // Populate revisions
+      const revisions = data.revisions || [];
+      const revTbody = $("#revisionsTableBody");
+      if (revisions.length) {
+        revTbody.innerHTML = revisions.map(r => `
+          <tr>
+            <td>${formatDate(r.created_at)}</td>
+            <td>${escapeHtml(r.actor_email)}</td>
+            <td><span class="badge ${r.status}"><span class="badge-dot"></span>${r.status}</span></td>
+            <td>${escapeHtml(r.title)}</td>
+          </tr>
+        `).join("");
+      } else {
+        revTbody.innerHTML = '<tr><td colspan="4" class="empty-state">No recorded revisions yet.</td></tr>';
+      }
+
+      syncFormsToRawJson();
+      entryEditorDialog.showModal();
+    } catch (err) {
+      showToast(err.message, "error");
+    }
+  }
+}
+
+function closeEntryEditor() {
+  entryEditorDialog.close();
+}
+
+function syncFormsToRawJson() {
+  const sections = gatherSectionBlocks();
+  const data = {
+    summary: $("#entrySummary").value.trim(),
+    sections
+  };
+  const seo = {
+    meta_title: $("#entryMetaTitle").value.trim() || undefined,
+    meta_description: $("#entryMetaDesc").value.trim() || undefined,
+    og_image: $("#entryOgImage").value.trim() || undefined,
+    canonical_url: $("#entryCanonical").value.trim() || undefined,
+    noindex: $("#entryNoIndex").checked || undefined
+  };
+  $("#entryRawData").value = JSON.stringify(data, null, 2);
+  $("#entryRawSeo").value = JSON.stringify(seo, null, 2);
+}
+
+// Auto-generate slug from title for new entries
+$("#entryTitle").addEventListener("input", () => {
+  if (!$("#entryEditId").value) {
+    $("#entrySlug").value = slugify($("#entryTitle").value);
+  }
+});
+
+// Character counters for SEO
+function updateCharCounters() {
+  const titleLen = $("#entryMetaTitle").value.length;
+  const descLen = $("#entryMetaDesc").value.length;
+  $("#metaTitleCount").textContent = `${titleLen} / 60`;
+  $("#metaDescCount").textContent = `${descLen} / 160`;
+}
+$("#entryMetaTitle").addEventListener("input", updateCharCounters);
+$("#entryMetaDesc").addEventListener("input", updateCharCounters);
+
+// Tab switching inside editor dialog
+$$("#entryEditorDialog .tab-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    $$("#entryEditorDialog .tab-btn").forEach(b => b.classList.remove("active"));
+    $$("#entryEditorDialog .tab-content").forEach(c => c.classList.add("hidden"));
+    btn.classList.add("active");
+    const target = $(`#${btn.dataset.tab}`);
+    if (target) target.classList.remove("hidden");
+
+    if (btn.dataset.tab === "tab-raw") {
+      syncFormsToRawJson();
+    }
+  });
+});
+
+async function saveEntryDraft() {
+  const id = $("#entryEditId").value;
+  const title = $("#entryTitle").value.trim();
+  const contentType = $("#entryType").value;
+  const slug = $("#entrySlug").value.trim() || slugify(title);
+
+  if (!title) {
+    showToast("Title is required", "error");
+    return;
+  }
+
+  // Parse structured data (or fallback to raw JSON if on that tab)
+  let dataPayload, seoPayload;
+  try {
+    const rawActive = !$("#tab-raw").classList.contains("hidden");
+    if (rawActive) {
+      dataPayload = JSON.parse($("#entryRawData").value);
+      seoPayload = JSON.parse($("#entryRawSeo").value || "{}");
+    } else {
+      dataPayload = {
+        summary: $("#entrySummary").value.trim(),
+        sections: gatherSectionBlocks()
+      };
+      seoPayload = {
+        meta_title: $("#entryMetaTitle").value.trim() || undefined,
+        meta_description: $("#entryMetaDesc").value.trim() || undefined,
+        og_image: $("#entryOgImage").value.trim() || undefined,
+        canonical_url: $("#entryCanonical").value.trim() || undefined,
+        noindex: $("#entryNoIndex").checked || undefined
+      };
+    }
+  } catch (err) {
+    showToast("Invalid JSON syntax: " + err.message, "error");
+    return;
+  }
+
+  const payload = {
+    title,
+    content_type: contentType,
+    slug,
+    data: dataPayload,
+    seo: seoPayload
+  };
+
+  try {
+    $("#saveDraftBtn").disabled = true;
+    if (id) {
+      await api(`/api/admin/v1/entries/${id}`, { method: "PATCH", body: JSON.stringify(payload) });
+      showToast("Draft updated successfully", "success");
+    } else {
+      const res = await api("/api/admin/v1/entries", { method: "POST", body: JSON.stringify(payload) });
+      $("#entryEditId").value = res.id;
+      showToast("Draft created successfully", "success");
+    }
+    closeEntryEditor();
+    if (currentView === "overview") loadOverview();
+    else loadContentListing();
+  } catch (err) {
+    showToast(err.message, "error");
+  } finally {
+    $("#saveDraftBtn").disabled = false;
+  }
+}
+
+async function publishCurrentEntry() {
+  const id = $("#entryEditId").value;
+  if (!id) {
+    await saveEntryDraft();
+    const newId = $("#entryEditId").value;
+    if (newId) publishEntry(newId);
+  } else {
+    await saveEntryDraft();
+    publishEntry(id);
+  }
+}
+
+async function publishEntry(id) {
+  try {
+    await api(`/api/admin/v1/entries/${id}/publish`, { method: "POST" });
+    showToast("Entry published live!", "success");
+    closeEntryEditor();
+    if (currentView === "overview") loadOverview();
+    else loadContentListing();
+  } catch (err) {
+    showToast(err.message, "error");
+  }
+}
+
+async function unpublishEntry(id) {
+  try {
+    await api(`/api/admin/v1/entries/${id}/unpublish`, { method: "POST" });
+    showToast("Entry reverted to draft.", "info");
+    if (currentView === "overview") loadOverview();
+    else loadContentListing();
+  } catch (err) {
+    showToast(err.message, "error");
+  }
+}
+
+async function archiveCurrentEntry() {
+  const id = $("#entryEditId").value;
+  if (!id) return;
+  if (!confirm("Are you sure you want to archive this entry?")) return;
+  try {
+    await api(`/api/admin/v1/entries/${id}/archive`, { method: "POST" });
+    showToast("Entry archived.", "info");
+    closeEntryEditor();
+    if (currentView === "overview") loadOverview();
+    else loadContentListing();
+  } catch (err) {
+    showToast(err.message, "error");
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 5. Preview Modal
+// ---------------------------------------------------------------------------
+function openPreviewModal() {
+  const title = $("#entryTitle").value || "Untitled Content";
+  const slug = $("#entrySlug").value || "slug";
+  const summary = $("#entrySummary").value || "";
+  const sections = gatherSectionBlocks();
+  const metaTitle = $("#entryMetaTitle").value || title;
+  const metaDesc = $("#entryMetaDesc").value || summary;
+
+  $("#previewSubtitle").textContent = `Preview for /${slug}`;
+  $("#previewBody").innerHTML = `
+    <article style="max-width:700px;margin:auto;font-family:var(--font)">
+      <div style="border-bottom:1px solid var(--border);padding-bottom:16px;margin-bottom:24px">
+        <span class="slug-tag">/${escapeHtml(slug)}</span>
+        <h1 style="font-size:32px;font-weight:800;letter-spacing:-1px;margin:12px 0 8px">${escapeHtml(title)}</h1>
+        ${summary ? `<p style="font-size:16px;color:var(--muted);line-height:1.6">${escapeHtml(summary)}</p>` : ""}
+      </div>
+
+      ${sections.map(s => `
+        <section style="margin-bottom:32px">
+          ${s.heading ? `<h2 style="font-size:20px;font-weight:700;margin-bottom:10px">${escapeHtml(s.heading)}</h2>` : ""}
+          ${s.body ? `<p style="font-size:15px;line-height:1.7;color:#374151;white-space:pre-line">${escapeHtml(s.body)}</p>` : ""}
+          ${s.cta_text && s.cta_link ? `<div style="margin-top:12px"><a href="${escapeHtml(s.cta_link)}" class="btn primary sm" target="_blank">${escapeHtml(s.cta_text)} →</a></div>` : ""}
+        </section>
+      `).join("")}
+
+      <div style="margin-top:40px;padding:16px;background:#f9fafb;border-radius:var(--radius);border:1px solid var(--border)">
+        <h4 style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:8px">Google Search Result Preview</h4>
+        <div style="font-size:18px;color:#1a0dab;font-weight:500;margin-bottom:2px">${escapeHtml(metaTitle)}</div>
+        <div style="font-size:12px;color:#006621;margin-bottom:4px">https://traiinc.com/${escapeHtml(slug)}</div>
+        <div style="font-size:13px;color:#545454">${escapeHtml(metaDesc || "No description provided.")}</div>
+      </div>
+    </article>
+  `;
+
+  previewDialog.showModal();
+}
+
+// ---------------------------------------------------------------------------
+// 6. Redirects View & Modal
+// ---------------------------------------------------------------------------
+async function loadRedirects() {
+  try {
+    const data = await api("/api/admin/v1/redirects");
+    const items = data.items || [];
+    $("#badge-redirects").textContent = items.length;
+    const tbody = $("#redirectsTableBody");
+
+    if (!items.length) {
+      tbody.innerHTML = '<tr><td colspan="6" class="empty-state"><h3>No redirects found</h3><p>Create routing rules to forward deprecated links.</p><button class="btn sm primary" onclick="openRedirectModal()">＋ New Redirect</button></td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = items.map(r => `
+      <tr>
+        <td><span class="slug-tag">${escapeHtml(r.source_path)}</span></td>
+        <td><a href="${escapeHtml(r.destination_url)}" target="_blank" style="color:var(--red)">${escapeHtml(r.destination_url)}</a></td>
+        <td><strong>${r.status_code}</strong></td>
+        <td>${r.active ? '<span class="badge published"><span class="badge-dot"></span>Active</span>' : '<span class="badge archived">Inactive</span>'}</td>
+        <td>${formatDate(r.created_at)}</td>
+        <td style="text-align:right">
+          <div class="row-actions" style="justify-content:flex-end">
+            <button class="btn sm" onclick="toggleRedirectActive('${r.id}', ${r.active ? 0 : 1})">${r.active ? 'Deactivate' : 'Activate'}</button>
+            <button class="btn sm danger" onclick="deleteRedirect('${r.id}')">Delete</button>
+          </div>
+        </td>
+      </tr>
+    `).join("");
+  } catch (err) {
+    showToast(err.message, "error");
+  }
+}
+
+function openRedirectModal() {
+  $("#redirectForm").reset();
+  $("#redirectActive").checked = true;
+  redirectDialog.showModal();
+}
+
+async function saveRedirect() {
+  const source_path = $("#redirectSource").value.trim();
+  const destination_url = $("#redirectDest").value.trim();
+  const status_code = parseInt($("#redirectStatus").value, 10);
+  const active = $("#redirectActive").checked ? 1 : 0;
+
+  try {
+    await api("/api/admin/v1/redirects", {
+      method: "POST",
+      body: JSON.stringify({ source_path, destination_url, status_code, active })
+    });
+    showToast("Redirect created successfully", "success");
+    redirectDialog.close();
+    loadRedirects();
+  } catch (err) {
+    showToast(err.message, "error");
+  }
+}
+
+async function toggleRedirectActive(id, newActive) {
+  try {
+    await api(`/api/admin/v1/redirects/${id}`, {
+      method: "PATCH",
+      body: JSON.stringify({ active: newActive })
+    });
+    showToast("Redirect updated", "success");
+    loadRedirects();
+  } catch (err) {
+    showToast(err.message, "error");
+  }
+}
+
+async function deleteRedirect(id) {
+  if (!confirm("Delete this redirect rule?")) return;
+  try {
+    await api(`/api/admin/v1/redirects/${id}`, { method: "DELETE" });
+    showToast("Redirect deleted", "info");
+    loadRedirects();
+  } catch (err) {
+    showToast(err.message, "error");
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 7. Media Library View & Modal
+// ---------------------------------------------------------------------------
+async function loadMedia() {
+  try {
+    const data = await api("/api/admin/v1/media");
+    const items = data.items || [];
+    $("#badge-media").textContent = items.length;
+    const tbody = $("#mediaTableBody");
+
+    if (!items.length) {
+      tbody.innerHTML = '<tr><td colspan="6" class="empty-state"><h3>Media library empty</h3><p>Register media assets and public object URLs.</p><button class="btn sm primary" onclick="openMediaModal()">＋ Register Asset</button></td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = items.map(m => `
+      <tr>
+        <td><strong>${escapeHtml(m.object_key)}</strong></td>
+        <td><span class="slug-tag">${escapeHtml(m.mime_type)}</span></td>
+        <td>${Math.round(m.size_bytes / 1024)} KB</td>
+        <td>${escapeHtml(m.alt_text || "—")}</td>
+        <td>
+          ${m.public_url ? `<a href="${escapeHtml(m.public_url)}" target="_blank" style="color:var(--red);font-size:12px">View Asset ↗</a>` : "—"}
+        </td>
+        <td style="text-align:right">
+          <div class="row-actions" style="justify-content:flex-end">
+            ${m.public_url ? `<button class="btn sm" onclick="navigator.clipboard.writeText('${escapeHtml(m.public_url)}'); showToast('URL copied to clipboard!', 'info')">Copy URL</button>` : ""}
+            <button class="btn sm danger" onclick="deleteMedia('${m.id}')">Delete</button>
+          </div>
+        </td>
+      </tr>
+    `).join("");
+  } catch (err) {
+    showToast(err.message, "error");
+  }
+}
+
+function openMediaModal() {
+  $("#mediaForm").reset();
+  mediaDialog.showModal();
+}
+
+async function saveMediaAsset() {
+  const object_key = $("#mediaKey").value.trim();
+  const public_url = $("#mediaUrl").value.trim() || undefined;
+  const mime_type = $("#mediaMime").value.trim() || "image/webp";
+  const size_bytes = parseInt($("#mediaSize").value || 0, 10);
+  const alt_text = $("#mediaAlt").value.trim();
+
+  try {
+    await api("/api/admin/v1/media", {
+      method: "POST",
+      body: JSON.stringify({ object_key, public_url, mime_type, size_bytes, alt_text })
+    });
+    showToast("Media asset registered", "success");
+    mediaDialog.close();
+    loadMedia();
+  } catch (err) {
+    showToast(err.message, "error");
+  }
+}
+
+async function deleteMedia(id) {
+  if (!confirm("Remove this asset from media registry?")) return;
+  try {
+    await api(`/api/admin/v1/media/${id}`, { method: "DELETE" });
+    showToast("Asset removed", "info");
+    loadMedia();
+  } catch (err) {
+    showToast(err.message, "error");
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 8. Team & Roles View & Modal
+// ---------------------------------------------------------------------------
+async function loadMembers() {
+  try {
+    const data = await api("/api/admin/v1/members");
+    const items = data.items || [];
+    $("#badge-members").textContent = items.length;
+    const tbody = $("#membersTableBody");
+
+    if (!items.length) {
+      tbody.innerHTML = '<tr><td colspan="5" class="empty-state">No members found.</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = items.map(m => `
+      <tr>
+        <td><strong>${escapeHtml(m.email)}</strong></td>
+        <td><span class="operator-role ${m.role}">${m.role}</span></td>
+        <td>${m.active ? '<span class="badge published"><span class="badge-dot"></span>Active</span>' : '<span class="badge archived">Inactive</span>'}</td>
+        <td>${formatDate(m.created_at)}</td>
+        <td style="text-align:right">
+          ${currentUser.role === 'owner' && m.role !== 'owner' ? `
+            <div class="row-actions" style="justify-content:flex-end">
+              <button class="btn sm" onclick="toggleMemberActive('${encodeURIComponent(m.email)}', ${m.active ? 0 : 1})">${m.active ? 'Deactivate' : 'Activate'}</button>
+            </div>
+          ` : ""}
+        </td>
+      </tr>
+    `).join("");
+  } catch (err) {
+    showToast(err.message, "error");
+  }
+}
+
+function openMemberModal() {
+  $("#memberForm").reset();
+  $("#memberActive").checked = true;
+  memberDialog.showModal();
+}
+
+async function saveMember() {
+  const email = $("#memberEmail").value.trim().toLowerCase();
+  const role = $("#memberRole").value;
+  const active = $("#memberActive").checked ? 1 : 0;
+
+  try {
+    await api("/api/admin/v1/members", {
+      method: "POST",
+      body: JSON.stringify({ email, role, active })
+    });
+    showToast("Team member updated", "success");
+    memberDialog.close();
+    loadMembers();
+  } catch (err) {
+    showToast(err.message, "error");
+  }
+}
+
+async function toggleMemberActive(encodedEmail, newActive) {
+  try {
+    await api(`/api/admin/v1/members/${encodedEmail}`, {
+      method: "PATCH",
+      body: JSON.stringify({ active: newActive })
+    });
+    showToast("Member status updated", "success");
+    loadMembers();
+  } catch (err) {
+    showToast(err.message, "error");
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 9. Activity Log View
+// ---------------------------------------------------------------------------
+async function loadAuditLogs() {
+  try {
+    const data = await api("/api/admin/v1/audit");
+    const items = data.items || [];
+    const tbody = $("#auditTableBody");
+
+    if (!items.length) {
+      tbody.innerHTML = '<tr><td colspan="5" class="empty-state">No recent activity logs.</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = items.map(l => `
+      <tr>
+        <td style="white-space:nowrap">${formatDate(l.created_at)}</td>
+        <td><strong>${escapeHtml(l.actor_email)}</strong></td>
+        <td><span class="slug-tag">${escapeHtml(l.action)}</span></td>
+        <td>${escapeHtml(l.entity_type)}${l.entity_id ? ` : <span style="font-size:11px;color:var(--muted)">${escapeHtml(l.entity_id.slice(0, 16))}…</span>` : ""}</td>
+        <td style="font-size:12px;color:var(--muted);max-width:300px;overflow:hidden;text-overflow:ellipsis">
+          ${escapeHtml(JSON.stringify(l.detail || {}))}
+        </td>
+      </tr>
+    `).join("");
+  } catch (err) {
+    showToast(err.message, "error");
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 10. Site Settings View
+// ---------------------------------------------------------------------------
+async function loadSiteSettings() {
+  try {
+    const data = await api("/api/admin/v1/settings");
+    const s = data.settings || {};
+    $("#settingSiteTitle").value = s.site_title || "";
+    $("#settingTagline").value = s.default_description || "";
+    $("#settingContactEmail").value = s.contact_email || "";
+    $("#settingOgImage").value = s.og_image || "";
+    $("#settingAnnouncement").value = s.announcement_text || "";
+    $("#settingAnnouncementActive").checked = !!s.announcement_active;
+  } catch (err) {
+    showToast(err.message, "error");
+  }
+}
+
+async function saveSiteSettings() {
+  const payload = {
+    settings: {
+      site_title: $("#settingSiteTitle").value.trim(),
+      default_description: $("#settingTagline").value.trim(),
+      contact_email: $("#settingContactEmail").value.trim(),
+      og_image: $("#settingOgImage").value.trim(),
+      announcement_text: $("#settingAnnouncement").value.trim(),
+      announcement_active: $("#settingAnnouncementActive").checked
+    }
+  };
+
+  try {
+    await api("/api/admin/v1/settings", { method: "PATCH", body: JSON.stringify(payload) });
+    showToast("Site settings saved successfully", "success");
+  } catch (err) {
+    showToast(err.message, "error");
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Event Listeners & Bootstrapping
+// ---------------------------------------------------------------------------
+$$(".nav a").forEach(a => {
+  a.addEventListener("click", () => switchView(a.dataset.view));
+});
+
+$("#contentStatusFilter").addEventListener("change", loadContentListing);
+$("#contentSearchInput").addEventListener("input", () => {
+  clearTimeout(window._searchTimer);
+  window._searchTimer = setTimeout(loadContentListing, 300);
+});
+
+$("#globalRefreshBtn").addEventListener("click", () => {
+  if (currentView === "overview") loadOverview();
+  else if (currentView === "redirects") loadRedirects();
+  else if (currentView === "media") loadMedia();
+  else if (currentView === "members") loadMembers();
+  else if (currentView === "audit") loadAuditLogs();
+  else if (currentView === "settings") loadSiteSettings();
+  else loadContentListing();
+  showToast("Refreshed", "info");
+});
+
+$("#globalNewContentBtn").addEventListener("click", () => {
+  const typeMap = {
+    pages: "page", services: "service", blog: "blog", case_study: "case_study",
+    landing_page: "landing_page", navigation: "navigation", footer: "footer"
+  };
+  openEntryEditor(typeMap[currentView] || "page");
+});
+
+$("#menuToggle").addEventListener("click", () => {
+  $("#sidebar").classList.toggle("open");
+});
+
+// Initialize on page load
+initSession().then(() => {
+  loadOverview();
+});
+</script>
+</body>
+</html>

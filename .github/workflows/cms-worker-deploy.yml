@@ -1,0 +1,79 @@
+name: Deploy TRAI CMS Worker
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "wrangler.worker.jsonc"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/cms-worker-deploy.yml"
+  workflow_dispatch:
+    inputs:
+      skip_migrations:
+        description: "Skip running database migrations during worker deploy (default: true)"
+        required: true
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: traiinc-cms-worker-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate Worker syntax
+        run: node --check src/index.js
+
+      - name: Check Cloudflare configuration
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CF_ACCESS_AUD: ${{ secrets.CF_ACCESS_AUD }}
+        run: |
+          test -n "$CLOUDFLARE_API_TOKEN" || (echo "::error::Missing CLOUDFLARE_API_TOKEN GitHub secret"; exit 1)
+          test -n "$CLOUDFLARE_ACCOUNT_ID" || (echo "::error::Missing CLOUDFLARE_ACCOUNT_ID GitHub secret"; exit 1)
+          test -n "$CF_ACCESS_AUD" || (echo "::error::Missing CF_ACCESS_AUD GitHub secret"; exit 1)
+          if grep -q 'REPLACE_WITH_CLOUDFLARE_D1_DATABASE_ID' wrangler.worker.jsonc; then
+            echo "::error::Set the real D1 database_id in wrangler.worker.jsonc before deployment"
+            exit 1
+          fi
+          if grep -q 'REPLACE_WITH_YOUR_TEAM' wrangler.worker.jsonc; then
+            echo "::error::Set CF_ACCESS_TEAM_DOMAIN in wrangler.worker.jsonc before deployment"
+            exit 1
+          fi
+
+      - name: Deploy Worker with Secrets
+        run: |
+          SECRETS_FILE=$(mktemp)
+          chmod 600 "$SECRETS_FILE"
+          trap 'rm -f "$SECRETS_FILE"' EXIT
+          node -e '
+            const fs = require("fs");
+            const secrets = { CF_ACCESS_AUD: process.env.CF_ACCESS_AUD };
+            fs.writeFileSync(process.argv[1], JSON.stringify(secrets));
+          ' "$SECRETS_FILE"
+          npx wrangler deploy --config wrangler.worker.jsonc --secrets-file "$SECRETS_FILE"
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CF_ACCESS_AUD: ${{ secrets.CF_ACCESS_AUD }}

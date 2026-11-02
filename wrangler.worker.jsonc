@@ -1,0 +1,31 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "traiinc-cms-api",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-31",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "cache": {
+    "enabled": true
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "traiinc-cms",
+      "database_id": "78cd743f-1b7e-49eb-a264-590268db7933",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "routes": [
+    {
+      "pattern": "api.traiinc.com",
+      "custom_domain": true
+    }
+  ],
+  "vars": {
+    "ADMIN_ORIGIN": "https://admin.traiinc.com",
+    "CF_ACCESS_TEAM_DOMAIN": "traiinc.cloudflareaccess.com"
+  }
+  // Worker Secret: CF_ACCESS_AUD (set via `wrangler secret put CF_ACCESS_AUD` or CI secret; do not commit)
+}

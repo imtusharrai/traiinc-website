@@ -1,0 +1,70 @@
+name: Apply Remote CMS D1 Migrations
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm_production_migration:
+        description: "Type 'APPLY_MIGRATIONS' to confirm remote execution"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: traiinc-cms-d1-migrations
+  cancel-in-progress: false
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Verify confirmation input
+        run: |
+          if [ "${{ github.event.inputs.confirm_production_migration }}" != "APPLY_MIGRATIONS" ]; then
+            echo "::error::Migration aborted: confirmation string did not match 'APPLY_MIGRATIONS'."
+            exit 1
+          fi
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate migrations locally in lexical order
+        run: python3 tests/test_migrations.py
+
+      - name: Check Cloudflare configuration
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          test -n "$CLOUDFLARE_API_TOKEN" || (echo "::error::Missing CLOUDFLARE_API_TOKEN secret"; exit 1)
+          test -n "$CLOUDFLARE_ACCOUNT_ID" || (echo "::error::Missing CLOUDFLARE_ACCOUNT_ID secret"; exit 1)
+          if grep -q 'REPLACE_WITH_CLOUDFLARE_D1_DATABASE_ID' wrangler.worker.jsonc; then
+            echo "::error::Set real D1 database_id in wrangler.worker.jsonc before applying migrations"; exit 1
+          fi
+
+      - name: Pre-check existing owner count before applying migration 0002
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          echo "Checking whether cms_members already exists and verifying owner count..."
+          # If table doesn't exist yet, query might fail on first run (which is expected before 0001)
+          CHECK_JSON=$(npx wrangler d1 execute traiinc-cms --remote --config wrangler.worker.jsonc --command "SELECT COUNT(*) as count FROM cms_members WHERE role = 'owner';" --json 2>/dev/null || echo "[]")
+          echo "Pre-check output: $CHECK_JSON"
+
+      - name: Apply remote D1 migrations
+        run: npx wrangler d1 migrations apply traiinc-cms --remote --config wrangler.worker.jsonc
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

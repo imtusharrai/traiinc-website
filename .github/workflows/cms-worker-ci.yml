@@ -1,0 +1,61 @@
+name: CMS Worker CI
+
+on:
+  push:
+    branches:
+      - "feat/traiinc-cms-worker-admin"
+    paths:
+      - "src/**"
+      - "migrations/**"
+      - "tests/**"
+      - "scripts/**"
+      - "wrangler.worker.jsonc"
+      - "wrangler.admin.jsonc"
+      - "package.json"
+      - "package-lock.json"
+      - "build.js"
+      - ".github/workflows/cms-*.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "migrations/**"
+      - "tests/**"
+      - "scripts/**"
+      - "wrangler.worker.jsonc"
+      - "wrangler.admin.jsonc"
+      - "package.json"
+      - "package-lock.json"
+      - "build.js"
+      - ".github/workflows/cms-*.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Strict clean dependency install
+        run: npm ci
+
+      - name: Validate Worker JavaScript syntax
+        run: node --check src/index.js
+
+      - name: Validate all D1 migrations in lexical order
+        run: python3 tests/test_migrations.py
+
+      - name: Build existing public website
+        run: npm run build
+
+      - name: Verify build isolation (no CMS source in dist/)
+        run: node tests/test_build_isolation.js
