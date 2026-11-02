@@ -106,28 +106,59 @@ async function audit(env, actor, action, entityType, entityId, detail = {}) {
   ).bind(actor.email, action, entityType, entityId || null, JSON.stringify(detail)).run();
 }
 
+async function invalidateCache(ctx, env, tags = []) {
+  if (!tags || !tags.length) return;
+  const uniqueTags = Array.from(new Set(tags.filter(Boolean)));
+  if (!uniqueTags.length) return;
+
+  if (env && Array.isArray(env.__testPurgeTags)) {
+    env.__testPurgeTags.push(...uniqueTags);
+  }
+
+  try {
+    if (ctx && ctx.cache && typeof ctx.cache.purge === "function") {
+      await ctx.cache.purge({ tags: uniqueTags });
+    }
+  } catch (err) {
+    console.warn("Workers cache purge warning:", err.message);
+  }
+}
+
 async function publicContent(request, env) {
   const url = new URL(request.url);
   const type = url.searchParams.get("type");
   const slugValue = url.searchParams.get("slug");
 
-  const publicCacheHeaders = {
-    "cache-control": "public, max-age=60, s-maxage=300",
+  const noStoreHeaders = {
+    "cache-control": "no-store",
     "access-control-allow-origin": "*"
   };
 
   if (slugValue) {
+    const cleanSlug = slug(slugValue);
     const row = await env.DB.prepare(
       "SELECT id, content_type, slug, title, data_json, seo_json, published_at, updated_at FROM cms_entries WHERE slug = ? AND status = 'published' LIMIT 1"
-    ).bind(slug(slugValue)).first();
+    ).bind(cleanSlug).first();
 
-    return row
-      ? json({ item: { ...row, data: JSON.parse(row.data_json), seo: row.seo_json ? JSON.parse(row.seo_json) : {} } }, 200, publicCacheHeaders)
-      : json({ error: "Not found" }, 404, publicCacheHeaders);
+    if (!row) {
+      return json({ error: "Not found" }, 404, noStoreHeaders);
+    }
+
+    const publicCacheHeaders = {
+      "cache-control": "public, max-age=0, s-maxage=300, must-revalidate",
+      "cache-tag": `cms-public-content, cms-entry:${cleanSlug}`,
+      "access-control-allow-origin": "*"
+    };
+
+    return json(
+      { item: { ...row, data: JSON.parse(row.data_json), seo: row.seo_json ? JSON.parse(row.seo_json) : {} } },
+      200,
+      publicCacheHeaders
+    );
   }
 
   if (type && !VALID_CONTENT_TYPES.has(type)) {
-    return json({ error: "Invalid content_type filter" }, 400, publicCacheHeaders);
+    return json({ error: "Invalid content_type filter" }, 400, noStoreHeaders);
   }
 
   const stmt = type
@@ -135,14 +166,20 @@ async function publicContent(request, env) {
     : env.DB.prepare("SELECT id, content_type, slug, title, data_json, seo_json, published_at, updated_at FROM cms_entries WHERE status = 'published' ORDER BY content_type, published_at DESC");
 
   const { results = [] } = await stmt.all();
+  const listCacheHeaders = {
+    "cache-control": "public, max-age=0, s-maxage=300, must-revalidate",
+    "cache-tag": "cms-public-content",
+    "access-control-allow-origin": "*"
+  };
+
   return json(
     { items: results.map(row => ({ ...row, data: JSON.parse(row.data_json), seo: row.seo_json ? JSON.parse(row.seo_json) : {} })) },
     200,
-    publicCacheHeaders
+    listCacheHeaders
   );
 }
 
-async function adminApi(request, env, member) {
+async function adminApi(request, env, ctx, member) {
   const url = new URL(request.url);
   const parts = url.pathname.split("/").filter(Boolean);
   const resource = parts[3] || "";
@@ -347,39 +384,65 @@ async function adminApi(request, env, member) {
       ]);
 
       await audit(env, member, "entry.update", contentType, id, { title, slug: entrySlug });
+
+      if (current.status === "published") {
+        await invalidateCache(ctx, env, [
+          "cms-public-content",
+          `cms-entry:${current.slug}`,
+          `cms-entry:${entrySlug}`
+        ]);
+      }
+
       return json({ id, status: current.status });
     }
 
     // Publish entry
     if (request.method === "POST" && id && subAction === "publish") {
       if (userLevel < ROLES.admin) return json({ error: "Forbidden: admin role required" }, 403);
+      const current = await env.DB.prepare("SELECT slug, status FROM cms_entries WHERE id = ?").bind(id).first();
+      if (!current) return json({ error: "Not found" }, 404);
+
       const result = await env.DB.prepare(
         "UPDATE cms_entries SET status = 'published', published_at = COALESCE(published_at, datetime('now')), updated_by = ?, updated_at = datetime('now') WHERE id = ?"
       ).bind(member.email, id).run();
       if (!result.meta.changes) return json({ error: "Not found" }, 404);
+
       await audit(env, member, "entry.publish", "content", id);
+      await invalidateCache(ctx, env, ["cms-public-content", `cms-entry:${current.slug}`]);
       return json({ id, status: "published" });
     }
 
     // Unpublish entry
     if (request.method === "POST" && id && subAction === "unpublish") {
       if (userLevel < ROLES.admin) return json({ error: "Forbidden: admin role required" }, 403);
+      const current = await env.DB.prepare("SELECT slug, status FROM cms_entries WHERE id = ?").bind(id).first();
+      if (!current) return json({ error: "Not found" }, 404);
+
       const result = await env.DB.prepare(
         "UPDATE cms_entries SET status = 'draft', updated_by = ?, updated_at = datetime('now') WHERE id = ?"
       ).bind(member.email, id).run();
       if (!result.meta.changes) return json({ error: "Not found" }, 404);
+
       await audit(env, member, "entry.unpublish", "content", id);
+      await invalidateCache(ctx, env, ["cms-public-content", `cms-entry:${current.slug}`]);
       return json({ id, status: "draft" });
     }
 
     // Archive entry (POST /entries/:id/archive or DELETE /entries/:id)
     if ((request.method === "POST" && id && subAction === "archive") || (request.method === "DELETE" && id)) {
       if (userLevel < ROLES.admin) return json({ error: "Forbidden: admin role required" }, 403);
+      const current = await env.DB.prepare("SELECT slug, status FROM cms_entries WHERE id = ?").bind(id).first();
+      if (!current) return json({ error: "Not found" }, 404);
+
       const result = await env.DB.prepare(
         "UPDATE cms_entries SET status = 'archived', updated_by = ?, updated_at = datetime('now') WHERE id = ?"
       ).bind(member.email, id).run();
       if (!result.meta.changes) return json({ error: "Not found" }, 404);
+
       await audit(env, member, "entry.archive", "content", id);
+      if (current.status === "published") {
+        await invalidateCache(ctx, env, ["cms-public-content", `cms-entry:${current.slug}`]);
+      }
       return json({ id, status: "archived" });
     }
   }
@@ -645,7 +708,7 @@ async function adminApi(request, env, member) {
 }
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const url = new URL(request.url);
     const origin = request.headers.get("Origin");
 
@@ -697,7 +760,7 @@ export default {
           if (authResult.error) {
             response = json({ error: authResult.error }, authResult.status || 401);
           } else {
-            response = await adminApi(request, env, authResult.member);
+            response = await adminApi(request, env, ctx, authResult.member);
           }
         }
       } else {

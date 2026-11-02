@@ -487,4 +487,153 @@ async function executeHydration(dom) {
   console.log('PASS Scenario 11: Importer fails closed on duplicate slug (zero overwrite guarantee).');
 }
 
-console.log('\nALL 11 CMS HYDRATION & IMPORTER SCENARIOS PASSED SUCCESSFULLY!\n');
+// ============================================================================
+// Scenario 12: Dynamic SEO Metadata Hydration (Phase 10A)
+// ============================================================================
+{
+  const consoleErrors = [];
+  const seoPayload = {
+    status: 'published',
+    title: 'Dynamic SEO Article',
+    seo: {
+      meta_title: 'Custom Dynamic SEO Title | Trai Inc Blog',
+      meta_description: 'Custom dynamic meta description loaded from Cloudflare CMS.',
+      og_image: 'https://traiinc.com/img/blog/custom-seo-hero.webp',
+      canonical_url: 'https://traiinc.com/blog/custom-seo-article'
+    },
+    data: {
+      content: [{ type: 'paragraph', text: 'Hydrated content.' }]
+    }
+  };
+
+  const mockFetch = async () => ({
+    ok: true,
+    status: 200,
+    json: async () => ({ item: seoPayload })
+  });
+
+  const dom = createTestDom(mockFetch, consoleErrors);
+  await executeHydration(dom);
+
+  const docTitle = dom.window.document.title;
+  const metaDesc = dom.window.document.querySelector('meta[name="description"]')?.getAttribute('content');
+  const ogTitle = dom.window.document.querySelector('meta[property="og:title"]')?.getAttribute('content');
+  const ogDesc = dom.window.document.querySelector('meta[property="og:description"]')?.getAttribute('content');
+  const ogImage = dom.window.document.querySelector('meta[property="og:image"]')?.getAttribute('content');
+  const canonical = dom.window.document.querySelector('link[rel="canonical"]')?.getAttribute('href');
+  const twCard = dom.window.document.querySelector('meta[name="twitter:card"]')?.getAttribute('content');
+  const twTitle = dom.window.document.querySelector('meta[name="twitter:title"]')?.getAttribute('content');
+  const twDesc = dom.window.document.querySelector('meta[name="twitter:description"]')?.getAttribute('content');
+  const twImage = dom.window.document.querySelector('meta[name="twitter:image"]')?.getAttribute('content');
+
+  assert.strictEqual(docTitle, 'Custom Dynamic SEO Title | Trai Inc Blog', 'Document title must match seo.meta_title');
+  assert.strictEqual(metaDesc, 'Custom dynamic meta description loaded from Cloudflare CMS.', 'Meta description must match seo.meta_description');
+  assert.strictEqual(ogTitle, 'Custom Dynamic SEO Title | Trai Inc Blog', 'og:title must match seo.meta_title');
+  assert.strictEqual(ogDesc, 'Custom dynamic meta description loaded from Cloudflare CMS.', 'og:description must match seo.meta_description');
+  assert.strictEqual(ogImage, 'https://traiinc.com/img/blog/custom-seo-hero.webp', 'og:image must match seo.og_image');
+  assert.strictEqual(canonical, 'https://traiinc.com/blog/custom-seo-article', 'canonical link must match seo.canonical_url');
+  assert.strictEqual(twCard, 'summary_large_image', 'twitter:card must be summary_large_image');
+  assert.strictEqual(twTitle, 'Custom Dynamic SEO Title | Trai Inc Blog', 'twitter:title must match seo.meta_title');
+  assert.strictEqual(twDesc, 'Custom dynamic meta description loaded from Cloudflare CMS.', 'twitter:description must match seo.meta_description');
+  assert.strictEqual(twImage, 'https://traiinc.com/img/blog/custom-seo-hero.webp', 'twitter:image must match seo.og_image');
+
+  assert.strictEqual(consoleErrors.length, 0);
+  console.log('PASS Scenario 12: Dynamic SEO Metadata Hydration (head title, meta desc, OG, and Twitter hydrated).');
+}
+
+// ============================================================================
+// Scenario 13: SEO URL Safety Validation & XSS Prevention (Phase 10A)
+// ============================================================================
+{
+  const consoleErrors = [];
+  const maliciousSeoPayload = {
+    status: 'published',
+    title: 'Malicious SEO Attempt',
+    seo: {
+      meta_title: 'Clean Title with\n\nNewlines and \tTabs',
+      meta_description: 'Clean Description with\r\nnewlines',
+      og_image: 'javascript:alert("xss")',
+      canonical_url: 'https://attacker.com/evil-phish'
+    },
+    data: {
+      content: [{ type: 'paragraph', text: 'Content text.' }]
+    }
+  };
+
+  const mockFetch = async () => ({
+    ok: true,
+    status: 200,
+    json: async () => ({ item: maliciousSeoPayload })
+  });
+
+  const dom = createTestDom(mockFetch, consoleErrors);
+  const staticOgImageBefore = dom.window.document.querySelector('meta[property="og:image"]')?.getAttribute('content');
+  const staticCanonicalBefore = dom.window.document.querySelector('link[rel="canonical"]')?.getAttribute('href');
+
+  await executeHydration(dom);
+
+  const docTitle = dom.window.document.title;
+  const metaDesc = dom.window.document.querySelector('meta[name="description"]')?.getAttribute('content');
+  const ogImageAfter = dom.window.document.querySelector('meta[property="og:image"]')?.getAttribute('content');
+  const canonicalAfter = dom.window.document.querySelector('link[rel="canonical"]')?.getAttribute('href');
+
+  // Verify sanitization of text
+  assert.strictEqual(docTitle, 'Clean Title with Newlines and Tabs', 'Title should be sanitized of newlines/tabs');
+  assert.strictEqual(metaDesc, 'Clean Description with newlines', 'Description should be sanitized of newlines');
+
+  // Verify unsafe URLs are rejected and static attributes preserved
+  assert.strictEqual(ogImageAfter, staticOgImageBefore, 'Unsafe javascript: image URL rejected; static image preserved');
+  assert.strictEqual(canonicalAfter, staticCanonicalBefore, 'External untrusted domain canonical rejected; static canonical preserved');
+
+  assert.strictEqual(consoleErrors.length, 0);
+  console.log('PASS Scenario 13: SEO URL Safety Validation & XSS Prevention (unsafe URLs rejected, static head preserved).');
+}
+
+// ============================================================================
+// Scenario 14: Sensible Fallbacks for Partial SEO Metadata (Phase 10A)
+// ============================================================================
+{
+  const consoleErrors = [];
+  const partialSeoPayload = {
+    status: 'published',
+    title: 'Fallback Article Title',
+    seo: {
+      // meta_title omitted -> should fall back to item.title
+      // meta_description omitted -> should fall back to data.meta.description
+      canonical_url: 'https://traiinc.com/blog/fallback-slug'
+    },
+    data: {
+      meta: {
+        description: 'Fallback description from data.meta',
+        image: 'https://traiinc.com/img/fallback-image.webp'
+      },
+      content: [{ type: 'paragraph', text: 'Body.' }]
+    }
+  };
+
+  const mockFetch = async () => ({
+    ok: true,
+    status: 200,
+    json: async () => ({ item: partialSeoPayload })
+  });
+
+  const dom = createTestDom(mockFetch, consoleErrors);
+  await executeHydration(dom);
+
+  const docTitle = dom.window.document.title;
+  const metaDesc = dom.window.document.querySelector('meta[name="description"]')?.getAttribute('content');
+  const ogTitle = dom.window.document.querySelector('meta[property="og:title"]')?.getAttribute('content');
+  const ogImage = dom.window.document.querySelector('meta[property="og:image"]')?.getAttribute('content');
+  const canonical = dom.window.document.querySelector('link[rel="canonical"]')?.getAttribute('href');
+
+  assert.strictEqual(docTitle, 'Fallback Article Title', 'Title should fall back to item.title');
+  assert.strictEqual(ogTitle, 'Fallback Article Title', 'OG title should fall back to item.title');
+  assert.strictEqual(metaDesc, 'Fallback description from data.meta', 'Description should fall back to data.meta.description');
+  assert.strictEqual(ogImage, 'https://traiinc.com/img/fallback-image.webp', 'Image should fall back to data.meta.image');
+  assert.strictEqual(canonical, 'https://traiinc.com/blog/fallback-slug', 'Canonical should use seo.canonical_url');
+
+  assert.strictEqual(consoleErrors.length, 0);
+  console.log('PASS Scenario 14: Sensible Fallbacks for Partial SEO Metadata (item.title & data.meta fallback).');
+}
+
+console.log('\nALL 14 CMS HYDRATION & IMPORTER SCENARIOS PASSED SUCCESSFULLY!\n');

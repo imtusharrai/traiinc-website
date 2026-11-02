@@ -63,6 +63,117 @@
     }).join('');
   }
 
+  function sanitizeText(str) {
+    if (str == null) return '';
+    return String(str)
+      .replace(/[\r\n\t]+/g, ' ')
+      .trim();
+  }
+
+  function isSafeUrl(urlStr) {
+    if (!urlStr || typeof urlStr !== 'string') return false;
+    var trimmed = urlStr.trim();
+    if (/[\r\n\t<>"'`\\]/.test(trimmed)) return false;
+    if (/^(javascript|data|vbscript|file|about|blob):/i.test(trimmed)) return false;
+    if (trimmed.startsWith('//')) return false;
+    if (trimmed.startsWith('/')) return true;
+    try {
+      var parsed = new URL(trimmed);
+      if (parsed.protocol !== 'https:') return false;
+      var host = parsed.hostname.toLowerCase();
+      if (host === 'traiinc.com' || host.endsWith('.traiinc.com')) {
+        return true;
+      }
+      return false;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function setOrUpdateMeta(attrName, attrValue, content) {
+    if (!content) return;
+    var el = document.querySelector('meta[' + attrName + '="' + attrValue + '"]');
+    if (el) {
+      if (el.getAttribute('content') !== content) {
+        el.setAttribute('content', content);
+      }
+    } else {
+      var newMeta = document.createElement('meta');
+      newMeta.setAttribute(attrName, attrValue);
+      newMeta.setAttribute('content', content);
+      document.head.appendChild(newMeta);
+    }
+  }
+
+  function setOrUpdateLink(rel, href) {
+    if (!href) return;
+    var el = document.querySelector('link[rel="' + rel + '"]');
+    if (el) {
+      if (el.getAttribute('href') !== href) {
+        el.setAttribute('href', href);
+      }
+    } else {
+      var newLink = document.createElement('link');
+      newLink.setAttribute('rel', rel);
+      newLink.setAttribute('href', href);
+      document.head.appendChild(newLink);
+    }
+  }
+
+  function hydrateSeoMetadata(item) {
+    if (!item) return;
+    var seo = item.seo;
+    if (!seo || typeof seo !== 'object') return;
+
+    var data = item.data || {};
+    var meta = data.meta || {};
+
+    // 1. Document title: primary seo.meta_title -> fallback item.title -> fallback meta.title
+    var rawTitle = seo.meta_title || item.title || meta.title;
+    var titleVal = sanitizeText(rawTitle);
+    if (titleVal && document.title !== titleVal) {
+      document.title = titleVal;
+    }
+
+    // 2. Meta description: primary seo.meta_description -> fallback meta.description -> fallback data.description
+    var rawDesc = seo.meta_description || meta.description || data.description;
+    var descVal = sanitizeText(rawDesc);
+    if (descVal) {
+      setOrUpdateMeta('name', 'description', descVal);
+    }
+
+    // 3. OpenGraph Title & Description
+    if (titleVal) {
+      setOrUpdateMeta('property', 'og:title', titleVal);
+    }
+    if (descVal) {
+      setOrUpdateMeta('property', 'og:description', descVal);
+    }
+
+    // 4. OpenGraph Image & Twitter Image
+    var rawImg = seo.og_image || meta.image || data.image;
+    if (rawImg && isSafeUrl(rawImg)) {
+      var safeImg = rawImg.trim();
+      setOrUpdateMeta('property', 'og:image', safeImg);
+      setOrUpdateMeta('name', 'twitter:image', safeImg);
+      setOrUpdateMeta('name', 'twitter:card', 'summary_large_image');
+    }
+
+    // 5. Canonical Link
+    var rawCanonical = seo.canonical_url;
+    if (rawCanonical && isSafeUrl(rawCanonical)) {
+      setOrUpdateLink('canonical', rawCanonical.trim());
+    }
+
+    // 6. Twitter Metadata
+    if (titleVal) {
+      setOrUpdateMeta('name', 'twitter:title', titleVal);
+    }
+    if (descVal) {
+      setOrUpdateMeta('name', 'twitter:description', descVal);
+    }
+  }
+
   runWhenIdle(async function hydrateCms() {
     try {
       var slug = document.body ? document.body.getAttribute('data-page') : null;
@@ -96,7 +207,10 @@
       var data = item.data || {};
       var meta = data.meta || {};
 
-      // 1. Hydrate text and attribute bindings [data-cms-bind]
+      // 1. Hydrate dynamic SEO metadata in document head
+      hydrateSeoMetadata(item);
+
+      // 2. Hydrate text and attribute bindings [data-cms-bind]
       var bindElements = document.querySelectorAll('[data-cms-bind]');
       for (var b = 0; b < bindElements.length; b++) {
         var el = bindElements[b];
