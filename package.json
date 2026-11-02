@@ -6,8 +6,8 @@
     "test:migrations": "python3 tests/test_migrations.py",
     "test:access": "node tests/test_access_hardening.mjs",
     "test:hydration": "node tests/test_cms_hydration.mjs",
-    "test:importer": "node tests/test_importer_preflight.mjs",
-    "test": "node --check src/index.js && python3 tests/test_migrations.py && node tests/test_build_isolation.js && node tests/test_access_hardening.mjs && node tests/test_cms_hydration.mjs && node tests/test_importer_preflight.mjs"
+    "test:importer": "node tests/test_importer_preflight.mjs && node tests/test_importer_write_path.mjs",
+    "test": "node --check src/index.js && python3 tests/test_migrations.py && node tests/test_build_isolation.js && node tests/test_access_hardening.mjs && node tests/test_cms_hydration.mjs && node tests/test_importer_preflight.mjs && node tests/test_importer_write_path.mjs"
   },
   "dependencies": {
     "finalhandler": "^2.1.1",

@@ -376,6 +376,112 @@ function queryExistingSlugs(slugs, isRemote, configFile, execFn = execFileSync) 
   throw new Error(`D1 preflight query response missing expected results array`);
 }
 
+// Build SQL statements for a single entry and its corresponding revision (strictly paired)
+function buildEntrySql(entry, authorEmail, entryId = crypto.randomUUID(), revisionId = crypto.randomUUID()) {
+  const dataJson = JSON.stringify(entry.data);
+  const seoJson = JSON.stringify(entry.seo);
+
+  const entrySql = `INSERT INTO cms_entries (
+  id, content_type, slug, title, data_json, seo_json, status, created_by, updated_by, created_at, updated_at, published_at
+) VALUES (
+  ${sqlEscape(entryId)},
+  ${sqlEscape(entry.content_type)},
+  ${sqlEscape(entry.slug)},
+  ${sqlEscape(entry.title)},
+  ${sqlEscape(dataJson)},
+  ${sqlEscape(seoJson)},
+  'published',
+  ${sqlEscape(authorEmail)},
+  ${sqlEscape(authorEmail)},
+  datetime('now'),
+  datetime('now'),
+  datetime('now')
+);`;
+
+  const revisionSql = `INSERT INTO cms_entry_revisions (
+  id, entry_id, title, data_json, seo_json, status, actor_email, created_at
+) VALUES (
+  ${sqlEscape(revisionId)},
+  ${sqlEscape(entryId)},
+  ${sqlEscape(entry.title)},
+  ${sqlEscape(dataJson)},
+  ${sqlEscape(seoJson)},
+  'published',
+  ${sqlEscape(authorEmail)},
+  datetime('now')
+);`;
+
+  return [entrySql, revisionSql];
+}
+
+// Build combined SQL batch for all entries without transaction pragma/wrapper keywords
+function buildImportBatchSql(entries, authorEmail) {
+  const statements = [];
+  for (const entry of entries) {
+    statements.push(...buildEntrySql(entry, authorEmail));
+  }
+  return statements.join('\n\n');
+}
+
+// Write temporary SQL batch file for D1 execution
+function writeSqlBatchFile(sqlContent) {
+  const tmpDir = path.join(rootDir, '.wrangler', 'tmp');
+  if (!fs.existsSync(tmpDir)) fs.mkdirSync(tmpDir, { recursive: true });
+  const sqlFilePath = path.join(tmpDir, `import-${Date.now()}-${crypto.randomBytes(4).toString('hex')}.sql`);
+  fs.writeFileSync(sqlFilePath, sqlContent, 'utf8');
+  return sqlFilePath;
+}
+
+// Execute SQL file against D1 (Cloudflare D1 treats files as atomic implicit transactions)
+function executeD1SqlFile(sqlFilePath, isRemote, configFile, execFn = execFileSync) {
+  const d1Args = [
+    'wrangler',
+    'd1',
+    'execute',
+    'traiinc-cms',
+    '--config',
+    configFile,
+    isRemote ? '--remote' : '--local',
+    '--file',
+    sqlFilePath,
+    '-y'
+  ];
+
+  try {
+    return execFn('npx', d1Args, {
+      cwd: rootDir,
+      encoding: 'utf8',
+      stdio: ['inherit', 'pipe', 'pipe']
+    });
+  } catch (err) {
+    const errorDetails = err.stderr ? err.stderr.toString().trim() : (err.message || String(err));
+    throw new Error(`D1 execution failed on ${isRemote ? 'remote' : 'local'} database: ${errorDetails}`);
+  }
+}
+
+// Execute atomic batch import with preflight duplicate check
+function executeImportBatch(entries, authorEmail, isRemote, configFile, execFn = execFileSync) {
+  if (!entries || entries.length === 0) return { count: 0, stdout: '' };
+
+  const slugs = entries.map(e => e.slug);
+  const existingSlugs = queryExistingSlugs(slugs, isRemote, configFile, execFn);
+  if (existingSlugs.length > 0) {
+    throw new Error(`Duplicate slug(s) detected: ${existingSlugs.join(', ')}. Write aborted with zero changes.`);
+  }
+
+  const sqlContent = buildImportBatchSql(entries, authorEmail);
+  const sqlFilePath = writeSqlBatchFile(sqlContent);
+
+  try {
+    const stdout = executeD1SqlFile(sqlFilePath, isRemote, configFile, execFn);
+    return { count: entries.length, stdout };
+  } finally {
+    if (fs.existsSync(sqlFilePath)) {
+      try { fs.unlinkSync(sqlFilePath); } catch (_) {}
+    }
+  }
+}
+
 // Main execution
 async function main() {
   console.log('────────────────────────────────────────────────────────');
@@ -422,6 +528,8 @@ async function main() {
     process.exit(1);
   }
 
+  const sqlBatch = buildImportBatchSql(filtered, authorEmail);
+
   if (isDryRun) {
     if (existingSlugs.length > 0) {
       console.log(`\n⚠️  [DRY RUN - EXISTING ENTRIES DETECTED]`);
@@ -432,11 +540,11 @@ async function main() {
       console.log(`\n✓ [DRY RUN - SAFE] No duplicate slugs found in target database. Ready for insert.`);
     }
 
-    console.log('\n[DRY RUN] Inspection complete. No database changes were made.');
-    if (filtered.length === 1) {
-      console.log('\nSample Entry Payload:');
-      console.log(JSON.stringify(filtered[0], null, 2).slice(0, 1000) + '...\n');
-    }
+    console.log(`\n[DRY RUN] Generated SQL Batch Preview (${filtered.length} entries, ${Buffer.byteLength(sqlBatch)} bytes):`);
+    console.log('────────────────────────────────────────────────────────');
+    console.log(sqlBatch);
+    console.log('────────────────────────────────────────────────────────');
+    console.log('\n[DRY RUN] Inspection complete. Zero database writes were executed.\n');
     process.exit(0);
   }
 
@@ -450,91 +558,21 @@ async function main() {
     process.exit(1);
   }
 
-  // Build SQL Statements
-  const sqlStatements = [
-    'PRAGMA foreign_keys = ON;',
-    'BEGIN TRANSACTION;'
-  ];
-
-  for (const entry of filtered) {
-    const entryId = crypto.randomUUID();
-    const revisionId = crypto.randomUUID();
-    const dataJson = JSON.stringify(entry.data);
-    const seoJson = JSON.stringify(entry.seo);
-
-    sqlStatements.push(`
-INSERT INTO cms_entries (
-  id, content_type, slug, title, data_json, seo_json, status, created_by, updated_by, created_at, updated_at, published_at
-) VALUES (
-  ${sqlEscape(entryId)},
-  ${sqlEscape(entry.content_type)},
-  ${sqlEscape(entry.slug)},
-  ${sqlEscape(entry.title)},
-  ${sqlEscape(dataJson)},
-  ${sqlEscape(seoJson)},
-  'published',
-  ${sqlEscape(authorEmail)},
-  ${sqlEscape(authorEmail)},
-  datetime('now'),
-  datetime('now'),
-  datetime('now')
-);
-
-INSERT INTO cms_entry_revisions (
-  id, entry_id, title, data_json, seo_json, status, actor_email, created_at
-) VALUES (
-  ${sqlEscape(revisionId)},
-  ${sqlEscape(entryId)},
-  ${sqlEscape(entry.title)},
-  ${sqlEscape(dataJson)},
-  ${sqlEscape(seoJson)},
-  'published',
-  ${sqlEscape(authorEmail)},
-  datetime('now')
-);
-`);
-  }
-
-  sqlStatements.push('COMMIT;');
-
-  // Write temporary SQL file
-  const tmpDir = path.join(rootDir, '.wrangler', 'tmp');
-  if (!fs.existsSync(tmpDir)) fs.mkdirSync(tmpDir, { recursive: true });
-  const sqlFilePath = path.join(tmpDir, `import-${Date.now()}.sql`);
-  fs.writeFileSync(sqlFilePath, sqlStatements.join('\n'), 'utf8');
-
-  console.log(`\nGenerated SQL batch file: ${sqlFilePath} (${fs.statSync(sqlFilePath).size} bytes)`);
-  console.log('Executing SQL transaction against D1...');
-
-  const d1Args = [
-    'wrangler',
-    'd1',
-    'execute',
-    'traiinc-cms',
-    '--config',
-    configFile,
-    isRemote ? '--remote' : '--local',
-    '--file',
-    sqlFilePath,
-    '-y'
-  ];
+  console.log(`\nExecuting atomic SQL batch import (${filtered.length} entries)...`);
+  const sqlFilePath = writeSqlBatchFile(sqlBatch);
+  console.log(`Generated SQL batch file: ${sqlFilePath} (${fs.statSync(sqlFilePath).size} bytes)`);
 
   try {
-    const stdout = execFileSync('npx', d1Args, {
-      cwd: rootDir,
-      encoding: 'utf8',
-      stdio: ['inherit', 'pipe', 'pipe']
-    });
-    console.log(stdout);
+    const stdout = executeD1SqlFile(sqlFilePath, isRemote, configFile);
+    if (stdout) console.log(stdout);
     console.log('✓ Successfully executed content import!');
   } catch (err) {
     console.error('\n✗ D1 Execution Failed:');
-    if (err.stdout) console.error(err.stdout);
-    if (err.stderr) console.error(err.stderr);
+    console.error(err.message);
     process.exit(1);
   } finally {
     if (fs.existsSync(sqlFilePath)) {
-      fs.unlinkSync(sqlFilePath);
+      try { fs.unlinkSync(sqlFilePath); } catch (_) {}
     }
   }
 
@@ -574,5 +612,10 @@ module.exports = {
   collectEntries,
   extractBlogSections,
   sqlEscape,
-  stripHtml
+  stripHtml,
+  buildEntrySql,
+  buildImportBatchSql,
+  writeSqlBatchFile,
+  executeD1SqlFile,
+  executeImportBatch
 };
