@@ -800,8 +800,13 @@ function renderHome(data) {
             <div class="stat-highlights-row fade-in">
                 ${proof.highlights ? proof.highlights.map(h => `
                 <div class="stat-highlight" data-accent="${h.accentColor}">
+                    ${h.badge || h.metric ? `
+                    <div class="stat-highlight__meta">
+                        ${h.badge ? `<span class="stat-highlight__badge">${h.badge}</span>` : ''}
+                        ${h.metric ? `<span class="stat-highlight__metric">${h.metric}</span>` : ''}
+                    </div>` : ''}
                     <div class="stat-highlight__label">${h.label}</div>
-                    <a href="${h.link}" class="stat-highlight__client">${h.client}</a>
+                    <a href="${h.link}" class="stat-highlight__client">${h.client} →</a>
                 </div>
                 `).join('') : ''}
             </div>

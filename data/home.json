@@ -304,52 +304,34 @@
     "title": "Engineered for Business Outcomes",
     "cards": [
       {
+        "icon_key": "spark",
+        "title": "AI & Agentic Automation",
+        "desc": "Autonomous workflow agents, enterprise RAG knowledge bases, and multi-agent system swarms.",
+        "href": "ai-automation.html"
+      },
+      {
         "icon_key": "globe",
         "title": "Custom Software & Web",
-        "desc": "End-to-end engineering from MVP to enterprise scale.",
+        "desc": "High-throughput React & Next.js platforms, multi-tenant SaaS, and zero-latency API backends.",
         "href": "custom-software.html"
       },
       {
+        "icon_key": "cloud",
+        "title": "Enterprise Platforms & Cloud",
+        "desc": "Custom ERP & supply chain, multi-dealer CRM, AWS/GCP cloud migrations, and zero-trust security.",
+        "href": "enterprise-platforms.html"
+      },
+      {
         "icon_key": "device",
-        "title": "Application Development",
-        "desc": "One codebase. Both platforms. Delivered in weeks.",
+        "title": "Mobile Application Engineering",
+        "desc": "Native iOS/Android and 60fps Flutter cross-platform apps with offline-first architecture.",
         "href": "mobile-apps.html"
       },
       {
         "icon_key": "spark",
-        "title": "AI & Automation",
-        "desc": "Intelligent solutions that automate and scale.",
-        "href": "ai-automation.html"
-      },
-      {
-        "icon_key": "cloud",
-        "title": "Cloud & DevOps",
-        "desc": "Modern infrastructure that costs pennies when idle.",
-        "href": "cloud-devops.html"
-      },
-      {
-        "icon_key": "chart-up",
-        "title": "Digital Marketing & SEO",
-        "desc": "Data-driven marketing that delivers measurable ROI.",
-        "href": "digital-marketing.html"
-      },
-      {
-        "icon_key": "building",
-        "title": "CRM, ERP & Billing",
-        "desc": "Custom CRMs and dashboards tailored to your workflow.",
-        "href": "solutions.html"
-      },
-      {
-        "icon_key": "spark",
-        "title": "AI Content Creation",
-        "desc": "High-quality audio, video, text, and graphics at scale.",
-        "href": "content-creation.html"
-      },
-      {
-        "icon_key": "globe",
-        "title": "Network & Connectivity",
-        "desc": "Enterprise-grade networking built for scale and security.",
-        "href": "solutions.html"
+        "title": "Product Strategy & UI/UX Design",
+        "desc": "User behavioral research, living design systems, clickable Figma prototypes, and conversion design.",
+        "href": "ui-ux-design.html"
       }
     ]
   },
@@ -358,7 +340,7 @@
     "title": "Proven engineering for real businesses.",
     "directoryCard": {
       "title": "See what we've built.",
-      "description": "From real estate marketplaces to healthcare platforms \u2014 explore how we've helped businesses across India go digital.",
+      "description": "From real estate marketplaces to healthcare platforms — explore how we've helped businesses across India go digital.",
       "clientPills": [
         {
           "name": "Bhu Master",
@@ -381,30 +363,38 @@
           "accentColor": "gold"
         }
       ],
-      "ctaText": "Explore All Case Studies \u2192",
+      "ctaText": "Explore All Case Studies →",
       "ctaLink": "/clients.html"
     },
     "highlights": [
       {
-        "label": "Unified Listing Platform",
+        "badge": "Flutter · iOS & Android",
+        "metric": "10,000+ Listings",
+        "label": "Unified Real Estate Marketplace",
         "client": "Bhu Master",
         "link": "bhu-master.html",
         "accentColor": "blue"
       },
       {
-        "label": "Reliable Healthcare Tech",
+        "badge": "ERP & Supply Chain",
+        "metric": "99.9% Order Accuracy",
+        "label": "Healthcare Logistics & Distribution",
         "client": "Dashak Pharma",
         "link": "clients.html",
         "accentColor": "pink"
       },
       {
-        "label": "Streamlined Automotive CRM",
+        "badge": "Multi-Brand Dealer CRM",
+        "metric": "12+ Dealership Outlets",
+        "label": "Automated Dealership Network Engine",
         "client": "Om Group - Mahindra Automobile",
         "link": "clients.html",
         "accentColor": "gold"
       },
       {
-        "label": "4.0\u2605 Rated on Google Play",
+        "badge": "4.0★ Google Play",
+        "metric": "10k+ Downloads",
+        "label": "On-Demand Workforce Booking App",
         "client": "Workezy",
         "link": "workezy.html",
         "accentColor": "teal"
