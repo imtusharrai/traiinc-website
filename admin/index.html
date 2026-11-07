@@ -977,32 +977,82 @@ dialog::backdrop {
 
         <div class="panel" style="max-width:700px">
           <form id="siteSettingsForm" onsubmit="event.preventDefault(); saveSiteSettings();">
+            <h3 style="font-size:16px;font-weight:700;margin-bottom:12px;color:var(--text)">Brand Identity & Global SEO</h3>
             <div class="form-group">
               <label class="form-label" for="settingSiteTitle">Site Title</label>
-              <input class="form-input" id="settingSiteTitle" placeholder="TRAI Inc — Technology Research & Applied Intelligence">
+              <input class="form-input" id="settingSiteTitle" placeholder="Trai Inc — AI-Native Engineering & Enterprise Platforms">
             </div>
             <div class="form-group">
               <label class="form-label" for="settingTagline">Default Meta Description</label>
-              <textarea class="form-textarea" id="settingTagline" rows="3" placeholder="Pioneering autonomous intelligence and production software engineering."></textarea>
+              <textarea class="form-textarea" id="settingTagline" rows="2" placeholder="AI-native software engineering — delivering custom software, mobile apps, and automation systems."></textarea>
             </div>
-            <div class="form-group">
-              <label class="form-label" for="settingContactEmail">Contact Email</label>
-              <input class="form-input" type="email" id="settingContactEmail" placeholder="contact@traiinc.com">
+            <div class="grid" style="grid-template-columns: 1fr 1fr; margin-bottom:0">
+              <div class="form-group">
+                <label class="form-label" for="settingContactEmail">Contact Email</label>
+                <input class="form-input" type="email" id="settingContactEmail" placeholder="support@traiinc.com">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="settingPrimaryPhone">Primary Phone</label>
+                <input class="form-input" id="settingPrimaryPhone" placeholder="+91 79054 95478">
+              </div>
             </div>
             <div class="form-group">
               <label class="form-label" for="settingOgImage">Default OpenGraph Image URL</label>
               <input class="form-input" id="settingOgImage" placeholder="https://traiinc.com/og-default.png">
             </div>
+
+            <hr style="border:0;border-top:1px solid var(--border);margin:24px 0">
+            <h3 style="font-size:16px;font-weight:700;margin-bottom:12px;color:var(--text)">Digital Marketing & Analytics</h3>
+            <div class="grid" style="grid-template-columns: 1fr 1fr; margin-bottom:0">
+              <div class="form-group">
+                <label class="form-label" for="settingGa4Id">GA4 Measurement ID</label>
+                <input class="form-input" id="settingGa4Id" placeholder="e.g. G-XXXXXXXXXX">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="settingGtmId">Google Tag Manager ID</label>
+                <input class="form-input" id="settingGtmId" placeholder="e.g. GTM-XXXXXXX">
+              </div>
+            </div>
             <div class="form-group">
-              <label class="form-label" for="settingAnnouncement">Global Announcement Banner</label>
-              <input class="form-input" id="settingAnnouncement" placeholder="Announcement text (optional)">
+              <label class="form-label" for="settingMetaPixelId">Meta / Facebook Pixel ID</label>
+              <input class="form-input" id="settingMetaPixelId" placeholder="e.g. 123456789012345">
+            </div>
+
+            <hr style="border:0;border-top:1px solid var(--border);margin:24px 0">
+            <h3 style="font-size:16px;font-weight:700;margin-bottom:12px;color:var(--text)">Conversion & Lead Generation</h3>
+            <div class="grid" style="grid-template-columns: 1fr 2fr; margin-bottom:0">
+              <div class="form-group">
+                <label class="form-label" for="settingWhatsAppNumber">WhatsApp Number</label>
+                <input class="form-input" id="settingWhatsAppNumber" placeholder="+91 79054 95478">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="settingWhatsAppMessage">Default WhatsApp Pre-fill Message</label>
+                <input class="form-input" id="settingWhatsAppMessage" placeholder="Hi Trai Inc, I want to consult on an AI/software project.">
+              </div>
+            </div>
+            <div class="form-group" style="margin-top:-8px">
+              <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer">
+                <input type="checkbox" id="settingWhatsAppActive"> Display floating WhatsApp Chat button on live website
+              </label>
+            </div>
+
+            <hr style="border:0;border-top:1px solid var(--border);margin:24px 0">
+            <h3 style="font-size:16px;font-weight:700;margin-bottom:12px;color:var(--text)">Promotional Campaign Banner</h3>
+            <div class="form-group">
+              <label class="form-label" for="settingAnnouncement">Announcement Banner Text</label>
+              <input class="form-input" id="settingAnnouncement" placeholder="e.g. ⚡ Accelerate your MVP launch — Schedule a 30-minute scoping sprint">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="settingAnnouncementLink">Banner Click-Through Link</label>
+              <input class="form-input" id="settingAnnouncementLink" placeholder="e.g. /contact.html">
               <div style="margin-top:8px">
                 <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer">
-                  <input type="checkbox" id="settingAnnouncementActive"> Display banner on live website
+                  <input type="checkbox" id="settingAnnouncementActive"> Display campaign banner across all live pages
                 </label>
               </div>
             </div>
-            <div class="form-group" style="margin-top:24px">
+
+            <div class="form-group" style="margin-top:28px">
               <button type="submit" class="btn primary">Save Changes</button>
             </div>
           </form>
@@ -1318,6 +1368,8 @@ const API_BASE = window.CMS_API_BASE || ((window.location.hostname === 'localhos
 let currentUser = { email: "", role: "viewer" };
 let currentView = "overview";
 let currentEntries = [];
+let currentEntryData = {};
+let currentEntrySeo = {};
 
 // DOM References
 const $ = sel => document.querySelector(sel);
@@ -1672,6 +1724,8 @@ async function openEntryEditor(type = "page", id = null) {
 
   if (!id) {
     // New entry
+    currentEntryData = {};
+    currentEntrySeo = {};
     $("#entryEditorTitle").textContent = "Create Content";
     $("#entryEditorSubtitle").textContent = `New ${type.replace('_', ' ')} draft`;
     $("#entryType").value = type;
@@ -1699,6 +1753,8 @@ async function openEntryEditor(type = "page", id = null) {
 
       // Populate Data & Sections
       const contentData = item.data || {};
+      currentEntryData = contentData;
+      currentEntrySeo = item.seo || {};
       $("#entrySummary").value = contentData.summary || "";
       if (Array.isArray(contentData.sections) && contentData.sections.length > 0) {
         contentData.sections.forEach(s => addSectionBlock(s));
@@ -1757,10 +1813,12 @@ function closeEntryEditor() {
 function syncFormsToRawJson() {
   const sections = gatherSectionBlocks();
   const data = {
+    ...currentEntryData,
     summary: $("#entrySummary").value.trim(),
     sections
   };
   const seo = {
+    ...currentEntrySeo,
     meta_title: $("#entryMetaTitle").value.trim() || undefined,
     meta_description: $("#entryMetaDesc").value.trim() || undefined,
     og_image: $("#entryOgImage").value.trim() || undefined,
@@ -1823,10 +1881,12 @@ async function saveEntryDraft() {
       seoPayload = JSON.parse($("#entryRawSeo").value || "{}");
     } else {
       dataPayload = {
+        ...currentEntryData,
         summary: $("#entrySummary").value.trim(),
         sections: gatherSectionBlocks()
       };
       seoPayload = {
+        ...currentEntrySeo,
         meta_title: $("#entryMetaTitle").value.trim() || undefined,
         meta_description: $("#entryMetaDesc").value.trim() || undefined,
         og_image: $("#entryOgImage").value.trim() || undefined,
@@ -2226,8 +2286,16 @@ async function loadSiteSettings() {
     $("#settingSiteTitle").value = s.site_title || "";
     $("#settingTagline").value = s.default_description || "";
     $("#settingContactEmail").value = s.contact_email || "";
+    $("#settingPrimaryPhone").value = s.primary_phone || "";
     $("#settingOgImage").value = s.og_image || "";
+    $("#settingGa4Id").value = s.ga4_id || "";
+    $("#settingGtmId").value = s.gtm_id || "";
+    $("#settingMetaPixelId").value = s.meta_pixel_id || "";
+    $("#settingWhatsAppNumber").value = s.whatsapp_number || "";
+    $("#settingWhatsAppMessage").value = s.whatsapp_message || "";
+    $("#settingWhatsAppActive").checked = !!s.whatsapp_active;
     $("#settingAnnouncement").value = s.announcement_text || "";
+    $("#settingAnnouncementLink").value = s.announcement_link || "";
     $("#settingAnnouncementActive").checked = !!s.announcement_active;
   } catch (err) {
     showToast(err.message, "error");
@@ -2240,8 +2308,16 @@ async function saveSiteSettings() {
       site_title: $("#settingSiteTitle").value.trim(),
       default_description: $("#settingTagline").value.trim(),
       contact_email: $("#settingContactEmail").value.trim(),
+      primary_phone: $("#settingPrimaryPhone").value.trim(),
       og_image: $("#settingOgImage").value.trim(),
+      ga4_id: $("#settingGa4Id").value.trim(),
+      gtm_id: $("#settingGtmId").value.trim(),
+      meta_pixel_id: $("#settingMetaPixelId").value.trim(),
+      whatsapp_number: $("#settingWhatsAppNumber").value.trim(),
+      whatsapp_message: $("#settingWhatsAppMessage").value.trim(),
+      whatsapp_active: $("#settingWhatsAppActive").checked,
       announcement_text: $("#settingAnnouncement").value.trim(),
+      announcement_link: $("#settingAnnouncementLink").value.trim(),
       announcement_active: $("#settingAnnouncementActive").checked
     }
   };

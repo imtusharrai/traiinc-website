@@ -172,6 +172,161 @@
     if (descVal) {
       setOrUpdateMeta('name', 'twitter:description', descVal);
     }
+
+    // 7. Robots Search Engine Indexing (noindex, nofollow control)
+    if (typeof seo.noindex === 'boolean') {
+      setOrUpdateMeta('name', 'robots', seo.noindex ? 'noindex, nofollow' : 'index, follow');
+    }
+
+    // 8. Keywords
+    var rawKeywords = seo.keywords || (data.meta && data.meta.keywords);
+    if (rawKeywords) {
+      setOrUpdateMeta('name', 'keywords', sanitizeText(rawKeywords));
+    }
+  }
+
+  function hydrateStructuredData(item) {
+    if (!item || !document.head) return;
+    var data = item.data || {};
+    var seo = item.seo || {};
+    var type = item.content_type;
+    var schemas = [];
+
+    var orgRef = {
+      "@type": "Organization",
+      "name": "Trai Inc",
+      "url": "https://traiinc.com",
+      "logo": "https://traiinc.com/img/brand-logo.png"
+    };
+
+    if (type === 'blog') {
+      var blogSchema = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": sanitizeText(item.title),
+        "description": sanitizeText(seo.meta_description || item.summary || (data.meta && data.meta.description)),
+        "author": {
+          "@type": "Person",
+          "name": sanitizeText((data.meta && data.meta.author) || data.author || "Trai Inc Engineering")
+        },
+        "publisher": orgRef,
+        "datePublished": (data.meta && data.meta.date) || item.published_at || item.created_at,
+        "dateModified": item.updated_at || item.published_at
+      };
+      if (seo.og_image && isSafeUrl(seo.og_image)) {
+        blogSchema.image = [seo.og_image];
+      }
+      schemas.push(blogSchema);
+    } else if (type === 'service') {
+      var serviceSchema = {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": sanitizeText(item.title),
+        "description": sanitizeText(seo.meta_description || item.summary),
+        "provider": orgRef
+      };
+      schemas.push(serviceSchema);
+    }
+
+    // AEO: FAQ Schema Extraction (for Google AI Overviews and Answer Engines)
+    var faqItems = [];
+    if (data.faq && Array.isArray(data.faq.items)) {
+      faqItems = data.faq.items;
+    } else if (Array.isArray(data.faqs)) {
+      faqItems = data.faqs;
+    }
+
+    if (faqItems.length > 0) {
+      var faqSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqItems.map(function(f) {
+          return {
+            "@type": "Question",
+            "name": sanitizeText(f.q || f.question),
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": sanitizeText(f.a || f.answer)
+            }
+          };
+        }).filter(function(q) { return q.name && q.acceptedAnswer.text; })
+      };
+      if (faqSchema.mainEntity.length > 0) {
+        schemas.push(faqSchema);
+      }
+    }
+
+    if (schemas.length > 0) {
+      var existingLd = document.getElementById('cms-structured-data');
+      if (!existingLd) {
+        existingLd = document.createElement('script');
+        existingLd.id = 'cms-structured-data';
+        existingLd.type = 'application/ld+json';
+        document.head.appendChild(existingLd);
+      }
+      existingLd.textContent = JSON.stringify(schemas.length === 1 ? schemas[0] : { "@context": "https://schema.org", "@graph": schemas });
+    }
+  }
+
+  function hydrateGlobalSettings(settings) {
+    if (!settings || typeof settings !== 'object') return;
+
+    // 1. Promotional / Announcement Campaign Banner
+    var bannerText = settings.announcement_text;
+    var bannerActive = settings.announcement_active;
+    var bannerLink = settings.announcement_link;
+
+    if (bannerActive && bannerText) {
+      var existingBanner = document.getElementById('cmsAnnouncementBanner');
+      if (!existingBanner) {
+        var bannerEl = document.createElement('div');
+        bannerEl.id = 'cmsAnnouncementBanner';
+        bannerEl.className = 'cms-announcement-banner';
+        bannerEl.setAttribute('style', 'background:var(--brand-gradient);color:#ffffff;text-align:center;padding:10px 16px;font-size:13px;font-weight:600;position:relative;z-index:99999;box-shadow:0 2px 8px rgba(0,0,0,0.1);');
+        var msg = escapeHtml(bannerText);
+        if (bannerLink && isSafeUrl(bannerLink)) {
+          bannerEl.innerHTML = '<a href="' + escapeHtml(bannerLink) + '" style="color:#ffffff;text-decoration:underline;display:inline-flex;align-items:center;gap:6px;">' + msg + ' →</a>';
+        } else {
+          bannerEl.textContent = bannerText;
+        }
+        document.body.insertBefore(bannerEl, document.body.firstChild);
+      }
+    }
+
+    // 2. WhatsApp Floating Marketing Widget
+    if (settings.whatsapp_active && settings.whatsapp_number) {
+      var cleanPhone = String(settings.whatsapp_number).replace(/[^\d]/g, '');
+      if (cleanPhone && !document.getElementById('cmsWhatsAppWidget')) {
+        var waWidget = document.createElement('a');
+        waWidget.id = 'cmsWhatsAppWidget';
+        var waText = encodeURIComponent(settings.whatsapp_message || 'Hi Trai Inc, I would like to consult on a project.');
+        waWidget.href = 'https://wa.me/' + cleanPhone + '?text=' + waText;
+        waWidget.target = '_blank';
+        waWidget.rel = 'noopener noreferrer';
+        waWidget.setAttribute('aria-label', 'Chat on WhatsApp');
+        waWidget.setAttribute('style', 'position:fixed;bottom:24px;right:24px;z-index:9999;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.2);transition:transform 0.2s ease;');
+        waWidget.innerHTML = '<svg width="32" height="32" viewBox="0 0 24 24" fill="#ffffff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/></svg>';
+        document.body.appendChild(waWidget);
+      }
+    }
+
+    // 3. Digital Marketing Analytics Integration (GA4)
+    if (settings.ga4_id && !window.__TRAI_GA4_LOADED__) {
+      window.__TRAI_GA4_LOADED__ = true;
+      var gaScript = document.createElement('script');
+      gaScript.async = true;
+      gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(settings.ga4_id);
+      document.head.appendChild(gaScript);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', settings.ga4_id);
+    }
+
+    // 4. Fallback Default SEO Branding
+    if (settings.site_title && !document.title) {
+      document.title = sanitizeText(settings.site_title);
+    }
   }
 
   runWhenIdle(async function hydrateCms() {
@@ -190,16 +345,31 @@
       }
 
       var fetchUrl = apiBase.replace(/\/+$/, '') + '/api/public/v1/content?slug=' + encodeURIComponent(slug);
-      var response = await fetch(fetchUrl, {
+      var settingsUrl = apiBase.replace(/\/+$/, '') + '/api/public/v1/settings';
+
+      var contentReq = fetch(fetchUrl, {
         method: 'GET',
         headers: { 'Accept': 'application/json' },
         signal: controller ? controller.signal : undefined
-      });
+      }).then(function(res) { return res.ok ? res.json() : null; }).catch(function() { return null; });
+
+      var settingsReq = fetch(settingsUrl, {
+        method: 'GET',
+        headers: { 'Accept': 'application/json' },
+        signal: controller ? controller.signal : undefined
+      }).then(function(res) { return res.ok ? res.json() : null; }).catch(function() { return null; });
+
+      var results = await Promise.all([contentReq, settingsReq]);
+      var payload = results[0];
+      var settingsPayload = results[1];
 
       if (timeoutId) clearTimeout(timeoutId);
-      if (!response.ok) return;
 
-      var payload = await response.json();
+      // Hydrate Global Settings (announcement campaign banner, WhatsApp widget, analytics, brand defaults)
+      if (settingsPayload && settingsPayload.settings) {
+        hydrateGlobalSettings(settingsPayload.settings);
+      }
+
       if (!payload || !payload.item) return;
       if (payload.item.status && payload.item.status !== 'published') return;
 
@@ -209,6 +379,9 @@
 
       // 1. Hydrate dynamic SEO metadata in document head
       hydrateSeoMetadata(item);
+
+      // 2. Hydrate dynamic Schema.org JSON-LD Structured Data for AEO
+      hydrateStructuredData(item);
 
     // 2. Hydrate text and attribute bindings [data-cms-bind]
     var bindElements = document.querySelectorAll('[data-cms-bind]');
