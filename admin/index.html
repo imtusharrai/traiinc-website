@@ -1312,7 +1312,7 @@ dialog::backdrop {
 <!-- JAVASCRIPT APPLICATION LOGIC                                             -->
 <!-- ========================================================================= -->
 <script>
-const API_BASE = window.CMS_API_BASE || "https://api.traiinc.com";
+const API_BASE = window.CMS_API_BASE || ((window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') ? 'http://localhost:8787' : 'https://api.traiinc.com');
 
 // Current session state
 let currentUser = { email: "", role: "viewer" };

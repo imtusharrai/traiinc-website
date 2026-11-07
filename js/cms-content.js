@@ -181,7 +181,7 @@
 
       var apiBase = window.__CMS_API_BASE__ ||
         (document.querySelector('meta[name="cms-api-base"]') ? document.querySelector('meta[name="cms-api-base"]').getAttribute('content') : '') ||
-        'https://api.traiinc.com';
+        ((typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) ? 'http://localhost:8787' : 'https://api.traiinc.com');
 
       var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
       var timeoutId = null;
