@@ -622,85 +622,137 @@ document.addEventListener('click', (e) => {
     wrapper.querySelectorAll('.audience-panel').forEach(p => p.classList.toggle('active', p.dataset.audiencePanel === id));
 });
 
+const clientBrandNames = {
+    'bhima-gold.png': 'Bhima Gold',
+    'dynapar-qps.png': 'Dynapar QPS',
+    'anuschka.png': 'Anuschka',
+    'klipsch.png': 'Klipsch Audio',
+    'Bajaj-150x150.png': 'Bajaj',
+    'hmt.png': 'HMT',
+    'clever-cubes.png': 'Clever Cubes',
+    'shallwe.png': 'Shall We Dance',
+    'newish.png': 'Newish',
+    'park-inn-150x150.png': 'Park Inn by Radisson'
+};
+
+function renderTrustAvatars(avatars) {
+    if (!Array.isArray(avatars) || avatars.length === 0) return '';
+    return avatars.map((a, i) => {
+        if (typeof a === 'object' && a !== null) {
+            const isBadge = a.isBadge;
+            const cls = isBadge ? 'trust-avatar trust-avatar-5 trust-avatar-badge' : `trust-avatar trust-avatar-${(i % 4) + 1}`;
+            return `<span class="${cls}" title="${a.name || a.initials}" aria-label="${a.name || a.initials}">${a.initials}</span>`;
+        }
+        return `<span class="trust-avatar trust-avatar-${(i % 5) + 1}" title="Verified Enterprise Client">${a}</span>`;
+    }).join('');
+}
+
+document.addEventListener('click', (e) => {
+    const opt = e.target.closest('.estimator-opt');
+    if (!opt) return;
+    const group = opt.closest('.estimator-options');
+    if (!group) return;
+    group.querySelectorAll('.estimator-opt').forEach(b => b.classList.remove('active'));
+    opt.classList.add('active');
+
+    const activeScope = document.querySelector('[data-estimator-group="scope"] .estimator-opt.active');
+    const activeScale = document.querySelector('[data-estimator-group="scale"] .estimator-opt.active');
+    if (!activeScope || !activeScale) return;
+
+    const baseWeeks = activeScope.dataset.weeks || '3-5';
+    const baseCost = activeScope.dataset.cost || '₹1.5L – ₹3L';
+    const team = activeScope.dataset.team || '1 Lead Architect + 1 Senior';
+    const scale = activeScale.dataset.scale || 'standard';
+
+    let displayWeeks = baseWeeks + ' Sprints';
+    let displayCost = baseCost;
+    if (scale === 'high') {
+        displayCost = baseCost.replace('₹1.5L', '₹2.2L').replace('₹2.5L', '₹3.5L').replace('₹3.5L', '₹4.8L');
+    } else if (scale === 'enterprise') {
+        displayCost = 'Custom Enterprise (₹5L+)';
+        displayWeeks = '6–12 Sprints';
+    }
+
+    const weeksEl = document.getElementById('estimator-weeks');
+    const costEl = document.getElementById('estimator-cost');
+    const teamEl = document.getElementById('estimator-team');
+    const ctaEl = document.getElementById('estimator-cta');
+    if (weeksEl) weeksEl.textContent = displayWeeks;
+    if (costEl) costEl.textContent = displayCost;
+    if (teamEl) teamEl.textContent = team;
+    if (ctaEl) ctaEl.setAttribute('href', 'contact.html?scope=' + encodeURIComponent(activeScope.dataset.scope || 'mvp') + '&scale=' + encodeURIComponent(scale));
+});
+
 function renderHome(data) {
-    const hero = data.hero;
-    const un = data.un_agency;
-    const cap = data.capabilities;
-    const sb = data.services_banner;
-    const proof = data.proof;
-    const conv = data.conversion;
+    const hero = data.hero || {};
+    const un = data.un_agency || {};
+    const cap = data.capabilities || {};
+    const sb = data.services_banner || {};
+    const proof = data.proof || {};
+    const conv = data.conversion || {};
     const af = data.audience_finder;
 
     return `
-    <!-- ════════ HERO — AI AGENTS SHOWCASE ════════ -->
+    <!-- ════════ HERO — AI-NATIVE SOFTWARE ENGINEERING STUDIO ════════ -->
     <section class="hero-cosmos" id="hero-cosmos">
         <div id="traibot-container"></div>
 
         <!-- Content Layer -->
         <div class="hero-cosmos-content">
-            <p class="hero-cosmos-eyebrow">Trai Inc · AI-Native Engineering</p>
+            <p class="hero-cosmos-eyebrow">${hero.badge || 'TRAI INC · AI-NATIVE SOFTWARE ENGINEERING STUDIO'}</p>
             <h1 class="hero-cosmos-title" data-cms-bind="title">
-                <span class="hero-cosmos-line hero-cosmos-line--1">Run your</span>
-                <span class="hero-cosmos-line hero-cosmos-line--2">entire business</span>
-                <span class="hero-cosmos-line hero-cosmos-line--3">with <em class="hero-cosmos-ai">AI Agents</em></span>
+                <span class="hero-cosmos-line hero-cosmos-line--1">${hero.heading_line1 || 'Enterprise Reliability.'}</span>
+                <span class="hero-cosmos-line hero-cosmos-line--2">${hero.heading_line2 || 'AI-Native Speed.'}</span>
+                <span class="hero-cosmos-line hero-cosmos-line--3">with <em class="hero-cosmos-ai">Guaranteed Delivery.</em></span>
             </h1>
-            <p class="hero-cosmos-subtitle" data-cms-bind="subtitle">Hand off engineering, sales, marketing, and ops to our AI-powered engineering team. Fixed-price guarantees. Senior engineers. Direct access.</p>
+            <p class="hero-cosmos-subtitle" data-cms-bind="subtitle">${hero.subtitle || 'We design, architect, and deploy custom software systems, scalable cloud infrastructure, and autonomous agent pipelines for ambitious enterprises. Fixed-price sprints. Senior engineers. 100% full IP ownership.'}</p>
             <div class="hero-cosmos-cta-group">
-                <a href="${hero.cta_primary.href}" class="btn-primary large hero-cosmos-cta">${hero.cta_primary.text}</a>
-                <a href="clients.html" class="hero-cosmos-cta-secondary">Explore Verified Work →</a>
+                <a href="${hero.cta_primary?.href || 'contact.html'}" class="btn-primary large hero-cosmos-cta">${hero.cta_primary?.text || 'Scope Your Project →'}</a>
+                <a href="${hero.cta_secondary?.href || 'clients.html'}" class="hero-cosmos-cta-secondary">${hero.cta_secondary?.text || 'Explore Verified Work →'}</a>
             </div>
             <div class="hero-cosmos-trust">
                 <div class="hero-trust-avatars">
-                    ${hero.trust_avatars.map((a, i) => `<span class="trust-avatar trust-avatar-${i + 1}">${a}</span>`).join('')}
+                    ${renderTrustAvatars(hero.trust_avatars)}
                 </div>
-                <span>Trusted by <strong class="trust-count">${hero.trust_line}</strong>${hero.trust_suffix ? ` ${hero.trust_suffix}` : ''}</span>
+                <span>Trusted by <strong class="trust-count">${hero.trust_line || '138+ Enterprise Deliveries'}</strong>${hero.trust_suffix ? ` ${hero.trust_suffix}` : ''}</span>
             </div>
             <div class="hero-reassurance-strip">
-                <span class="hero-reassurance-pill">🛡️ Fixed-Price Guarantee</span>
-                <span class="hero-reassurance-pill">⚡ Senior Engineers Only</span>
-                <span class="hero-reassurance-pill">🚀 30-Day MVP Delivery</span>
+                <span class="hero-reassurance-pill">${audienceIcons.shield} Fixed-Price &amp; Timeline Guarantee</span>
+                <span class="hero-reassurance-pill">${audienceIcons.bolt} Senior Engineers Only</span>
+                <span class="hero-reassurance-pill">${audienceIcons.code} 100% Full IP Ownership</span>
             </div>
         </div>
 
     </section>
 
-    <!-- ════════ CLIENT LOGOS MARQUEE ════════ -->
+    <!-- ════════ CLIENT LOGOS (CURATED ENTERPRISE PARTNERS) ════════ -->
     ${(() => {
         if (!data.clients_logos || data.clients_logos.length === 0) return '';
-        const half = Math.ceil(data.clients_logos.length / 2);
-        const row1 = data.clients_logos.slice(0, half);
-        const row2 = data.clients_logos.slice(half);
-        const renderGroup = (logos) => logos.map(logo => `
-            <div class="client-logo-item">
-                <img src="assets/clients/${logo}" alt="Client Partner Logo" class="client-logo-img">
-            </div>
-        `).join('');
+        const logos = data.clients_logos.slice(0, 10);
+        const renderLogoItem = (logo) => {
+            const fileName = typeof logo === 'object' && logo !== null ? (logo.file || logo.src) : logo;
+            const brandName = typeof logo === 'object' && logo !== null ? (logo.name || logo.title) : (clientBrandNames[fileName] || 'Enterprise Client');
+            return `
+            <div class="client-logo-item" title="${brandName}">
+                <img src="assets/clients/${fileName}" alt="${brandName}" class="client-logo-img" loading="lazy">
+            </div>`;
+        };
         return `
         <section class="client-marquee-section" aria-label="Brands We Have Worked With">
             <div class="container">
                 <div class="section-header text-center client-marquee-header">
-                    <span class="mini-title">${data.clients_section?.subtitle || 'PROVEN IMPACT ACROSS INDIA'}</span>
-                    <h2 class="text-3xl md:text-5xl font-bold mt-2">${data.clients_section?.title || 'Brands We Have Worked With'}</h2>
+                    <span class="mini-title">${data.clients_section?.subtitle || 'PROVEN IMPACT ACROSS INDIA & GLOBAL MARKETS'}</span>
+                    <h2 class="text-3xl md:text-5xl font-bold mt-2">${data.clients_section?.title || 'Brands & Enterprises We Have Partnered With'}</h2>
                 </div>
             </div>
             <div class="marquee-container">
                 <div class="marquee-row">
                     <div class="marquee-track">
                         <div class="marquee-group">
-                            ${renderGroup(row1)}
+                            ${logos.map(renderLogoItem).join('')}
                         </div>
                         <div class="marquee-group" aria-hidden="true">
-                            ${renderGroup(row1)}
-                        </div>
-                    </div>
-                </div>
-                <div class="marquee-row">
-                    <div class="marquee-track marquee-track-row2">
-                        <div class="marquee-group">
-                            ${renderGroup(row2)}
-                        </div>
-                        <div class="marquee-group" aria-hidden="true">
-                            ${renderGroup(row2)}
+                            ${logos.map(renderLogoItem).join('')}
                         </div>
                     </div>
                 </div>
@@ -709,7 +761,45 @@ function renderHome(data) {
         `;
     })()}
 
-    <!-- ════════ AUDIENCE FINDER (VERIZON STYLE TABS) ════════ -->
+    <!-- ════════ THE PROOF (FLAGSHIP CASE STUDIES & VERIFIED METRICS) ════════ -->
+    ${proof && proof.title ? `
+    <section class="content-section fade-in home-section-shaded home-section-bordered-top">
+        <div class="container">
+            <div class="section-header center mb-10">
+                <h4 class="mini-title">${proof.subtitle || 'THE PROOF'}</h4>
+                <h2>${proof.title || 'Proven engineering for real businesses.'}</h2>
+            </div>
+            
+            <!-- Directory Card -->
+            <div class="directory-card fade-in">
+                <div class="featured-case-study-card__content">
+                    <h3 class="featured-case-study-card__title mb-4">${proof.directoryCard?.title || 'See what we have built.'}</h3>
+                    <p class="featured-case-study-card__desc text-lg mb-6 leading-tight">${proof.directoryCard?.description || 'From real estate marketplaces to pharmaceutical logistics — explore how we engineer scalable systems with zero downtime.'}</p>
+                    
+                    <div class="client-pills-row">
+                        ${proof.directoryCard?.clientPills ? proof.directoryCard.clientPills.map(p => `
+                        <a href="${p.link}" class="client-pill" data-accent="${p.accentColor}">${p.name}</a>
+                        `).join('') : ''}
+                    </div>
+
+                    <a href="${proof.directoryCard?.ctaLink || 'clients.html'}" class="featured-case-study-card__cta mt-4 inline-block">${proof.directoryCard?.ctaText || 'Explore All Case Studies →'}</a>
+                </div>
+            </div>
+
+            <!-- Stat Highlights Row -->
+            <div class="stat-highlights-row fade-in">
+                ${proof.highlights ? proof.highlights.map(h => `
+                <div class="stat-highlight" data-accent="${h.accentColor}">
+                    <div class="stat-highlight__label">${h.label}</div>
+                    <a href="${h.link}" class="stat-highlight__client">${h.client}</a>
+                </div>
+                `).join('') : ''}
+            </div>
+        </div>
+    </section>
+    ` : ''}
+
+    <!-- ════════ AUDIENCE FINDER (SOLUTIONS BY BUSINESS STAGE) ════════ -->
     ${af ? `
     <section id="audience-finder" class="audience-finder fade-in home-section-shaded">
         <div class="container">
@@ -789,7 +879,7 @@ function renderHome(data) {
                     <div class="audience-metrics-strip">
                         ${t.metrics_strip.map(m => `
                         <div class="audience-metric-item">
-                            <span class="ami-icon">${m.icon}</span>
+                            <span class="ami-icon">${audienceIcons[m.icon] || m.icon}</span>
                             <div>
                                 <strong>${m.title}</strong>
                                 <p>${m.desc}</p>
@@ -809,13 +899,13 @@ function renderHome(data) {
     <section class="titan-manifesto fade-in home-section-shaded home-section-bordered-bottom">
         <div class="container">
             <div class="section-header max-w-800">
-                <h4 class="mini-title">${un.subtitle}</h4>
-                <h2 class="massive-title text-left">${un.title}</h2>
+                <h4 class="mini-title">${un.subtitle || 'THE TRAI INC STANDARD'}</h4>
+                <h2 class="massive-title text-left">${un.title || 'Engineering standards we don\'t cut corners on.'}</h2>
             </div>
             <div class="tmo-grid">
                 ${un.cards ? un.cards.map(card => `
                 <div class="tmo-card fade-in">
-                    ${card.img ? `<div class="tmo-card-media"><img src="${card.img}" alt="${card.title}" class="tmo-card-img" loading="lazy" /></div>` : ''}
+                    ${card.img ? `<div class="tmo-card-media"><img src="${card.img}" alt="" aria-hidden="true" class="tmo-card-img" loading="lazy" /></div>` : ''}
                     <div class="tmo-card-body">
                         <h3 class="tmo-card-title">${card.title}</h3>
                         <p class="tmo-card-desc">${card.desc}</p>
@@ -829,82 +919,85 @@ function renderHome(data) {
     <section id="capabilities" class="cap-section fade-in">
         <div class="container">
             <div class="section-header text-center">
-                <span class="mini-title">${cap.subtitle}</span>
-                <h2 class="text-5xl mt-3">${cap.title}</h2>
+                <span class="mini-title">${cap.subtitle || 'CAPABILITIES &amp; SOLUTIONS'}</span>
+                <h2 class="text-5xl mt-3">${cap.title || 'Engineered for Business Outcomes'}</h2>
             </div>
             <div class="cap-grid">
-                ${cap.cards.map(c => `
+                ${cap.cards ? cap.cards.map(c => `
                 <a href="${c.href}" class="cap-cell fade-in">
                     ${c.icon_key ? `<div class="cap-cell-header"><span class="cap-cell-icon">${audienceIcons[c.icon_key] || ''}</span><span class="cap-cell-arrow">›</span></div>` : ''}
                     <div class="cap-cell-content">
                         <h3 class="cap-cell-title">${c.title}</h3>
                         ${c.desc ? `<p class="cap-cell-desc">${c.desc}</p>` : ''}
                     </div>
-                </a>`).join('')}
+                </a>`).join('') : ''}
             </div>
+            ${sb && sb.card_title ? `
             <div class="svc-banner-wrap mt-15">
-                <img src="${sb.image}" alt="${sb.card_title}" class="svc-banner-img" loading="lazy" />
+                <img src="${sb.image}" alt="" aria-hidden="true" class="svc-banner-img" loading="lazy" />
                 <div class="svc-banner-card">
                     <h3 class="svc-banner-card-title">${sb.card_title}</h3>
                     <p class="svc-banner-card-desc">${sb.card_desc}</p>
                     <a href="${sb.card_href}" target="_blank" class="svc-banner-card-cta">${sb.card_cta}</a>
                 </div>
-            </div>
+            </div>` : ''}
         </div>
     </section>
 
-    <!-- ════════ THE PROOF (VERIZON STYLE METRICS) ════════ -->
-    <section class="content-section fade-in home-section-shaded home-section-bordered-top">
-        <div class="container">
-            <div class="section-header center mb-10">
-                <h4 class="mini-title">${proof.subtitle}</h4>
-                <h2>${proof.title}</h2>
-            </div>
-            
-            <!-- Directory Card -->
-            <div class="directory-card fade-in">
-                <div class="featured-case-study-card__content">
-                    <h3 class="featured-case-study-card__title mb-4">${proof.directoryCard.title}</h3>
-                    <p class="featured-case-study-card__desc text-lg mb-6 leading-tight">${proof.directoryCard.description}</p>
-                    
-                    <div class="client-pills-row">
-                        ${proof.directoryCard.clientPills.map(p => `
-                        <a href="${p.link}" class="client-pill" data-accent="${p.accentColor}">${p.name}</a>
-                        `).join('')}
-                    </div>
-
-                    <a href="${proof.directoryCard.ctaLink}" class="featured-case-study-card__cta mt-4 inline-block">${proof.directoryCard.ctaText}</a>
-                </div>
-            </div>
-
-            <!-- Stat Highlights Row -->
-            <div class="stat-highlights-row fade-in">
-                ${proof.highlights.map(h => `
-                <div class="stat-highlight" data-accent="${h.accentColor}">
-                    <div class="stat-highlight__label">${h.label}</div>
-                    <a href="${h.link}" class="stat-highlight__client">${h.client}</a>
-                </div>
-                `).join('')}
-            </div>
-        </div>
-    </section>
-
-    <!-- ════════ CONVERSION BLOCK (SPLIT COLUMN) ════════ -->
+    <!-- ════════ CONVERSION & SCOPE ESTIMATOR BLOCK ════════ -->
     <section class="compare-section fade-in">
         <div class="container conversion-split">
             <div class="conversion-left">
-                <h4 class="mini-title">${conv.subtitle}</h4>
-                <h2>${conv.title}</h2>
-                <p>${conv.description}</p>
-                <a href="${conv.button_href}" target="_blank" class="btn-primary large">${conv.button_text}</a>
+                <h4 class="mini-title">${conv.subtitle || 'TECHNICAL DISCOVERY'}</h4>
+                <h2>${conv.title || 'Ready to architect your system?'}</h2>
+                <p>${conv.description || 'Schedule a technical discovery session with our senior engineering architects. Fixed-price roadmap delivered in 48 hours.'}</p>
+                <a href="${conv.button_href || 'contact.html'}" class="btn-primary large">${conv.button_text || 'Schedule Technical Discovery →'}</a>
+                
+                <!-- Interactive Scope Estimator -->
+                <div class="scope-estimator-widget mt-8" style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 16px; padding: 24px; box-shadow: var(--shadow-sm); margin-top: 32px;">
+                    <div style="margin-bottom: 16px;">
+                        <span style="font-size: 11px; font-weight: 800; letter-spacing: 1px; color: var(--accent-color); text-transform: uppercase;">Interactive Scope Estimator</span>
+                        <h4 style="font-size: 18px; margin: 6px 0 4px; font-weight: 700;">Calculate Architecture Bracket</h4>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 14px;">
+                        <div>
+                            <span style="display: block; font-size: 12px; font-weight: 600; color: var(--text-muted); margin-bottom: 8px;">1. Select Architecture Type</span>
+                            <div class="estimator-options" data-estimator-group="scope" style="display: flex; flex-wrap: wrap; gap: 6px;">
+                                <button type="button" class="estimator-opt active" data-scope="mvp" data-weeks="3–5" data-cost="₹1.5L – ₹3L" data-team="1 Lead + 1 Senior" style="padding: 6px 12px; font-size: 12px; border-radius: 8px; border: 1px solid var(--border-light); background: var(--bg-card); cursor: pointer;">Production MVP / SaaS</button>
+                                <button type="button" class="estimator-opt" data-scope="ai" data-weeks="4–7" data-cost="₹2.5L – ₹4.5L" data-team="1 AI Architect + 1 Senior" style="padding: 6px 12px; font-size: 12px; border-radius: 8px; border: 1px solid var(--border-light); background: var(--bg-card); cursor: pointer;">Autonomous AI Swarm</button>
+                                <button type="button" class="estimator-opt" data-scope="cloud" data-weeks="5–8" data-cost="₹3.5L – ₹5.5L" data-team="1 Cloud Lead + 2 Seniors" style="padding: 6px 12px; font-size: 12px; border-radius: 8px; border: 1px solid var(--border-light); background: var(--bg-card); cursor: pointer;">Cloud Native (AWS/GCP)</button>
+                                <button type="button" class="estimator-opt" data-scope="enterprise" data-weeks="8–12" data-cost="₹5L+" data-team="Dedicated Studio Team" style="padding: 6px 12px; font-size: 12px; border-radius: 8px; border: 1px solid var(--border-light); background: var(--bg-card); cursor: pointer;">Enterprise ERP / CRM</button>
+                            </div>
+                        </div>
+                        <div>
+                            <span style="display: block; font-size: 12px; font-weight: 600; color: var(--text-muted); margin-bottom: 8px;">2. Target Scale</span>
+                            <div class="estimator-options" data-estimator-group="scale" style="display: flex; flex-wrap: wrap; gap: 6px;">
+                                <button type="button" class="estimator-opt active" data-scale="standard" style="padding: 6px 12px; font-size: 12px; border-radius: 8px; border: 1px solid var(--border-light); background: var(--bg-card); cursor: pointer;">Standard (1–50k Users)</button>
+                                <button type="button" class="estimator-opt" data-scale="high" style="padding: 6px 12px; font-size: 12px; border-radius: 8px; border: 1px solid var(--border-light); background: var(--bg-card); cursor: pointer;">High Concurrency (50k–500k)</button>
+                                <button type="button" class="estimator-opt" data-scale="enterprise" style="padding: 6px 12px; font-size: 12px; border-radius: 8px; border: 1px solid var(--border-light); background: var(--bg-card); cursor: pointer;">Zero-Trust Multi-Region</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border-light); display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                        <div>
+                            <span style="font-size: 11px; color: var(--text-muted); display: block;">Estimated Timeline</span>
+                            <strong id="estimator-weeks" style="font-size: 15px; color: var(--text-main);">3–5 Sprints</strong>
+                        </div>
+                        <div>
+                            <span style="font-size: 11px; color: var(--text-muted); display: block;">Fixed-Price Bracket</span>
+                            <strong id="estimator-cost" style="font-size: 15px; color: var(--accent-color);">₹1.5L – ₹3L</strong>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <div class="conversion-right">
                 <div class="stepper">
-                    ${conv.steps.map(s => `
+                    ${conv.steps ? conv.steps.map(s => `
                     <div class="stepper-step">
                         <h3 class="stepper-title">${s.title}</h3>
                         <p class="stepper-desc">${s.desc}</p>
-                    </div>`).join('')}
+                    </div>`).join('') : ''}
                 </div>
             </div>
         </div>
@@ -2618,9 +2711,9 @@ const simpleIconMap = {
 function getTechLogo(tool) {
     const key = tool.toLowerCase();
     const devPath = deviconMap[key];
-    if (devPath) return `<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${devPath}" alt="${tool}" class="tech-logo" />`;
+    if (devPath) return `<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${devPath}" alt="" aria-hidden="true" class="tech-logo" />`;
     const siSlug = simpleIconMap[key];
-    if (siSlug) return `<img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/${siSlug}.svg" alt="${tool}" class="tech-logo tech-logo-si" />`;
+    if (siSlug) return `<img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/${siSlug}.svg" alt="" aria-hidden="true" class="tech-logo tech-logo-si" />`;
     return '';
 }
 

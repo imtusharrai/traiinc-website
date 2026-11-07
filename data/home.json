@@ -1,10 +1,10 @@
 {
   "hero": {
-    "badge": "Enterprise-Grade Engineering",
+    "badge": "TRAI INC · AI-NATIVE SOFTWARE ENGINEERING STUDIO",
     "heading_line1": "Enterprise Reliability.",
-    "heading_line2": "Startup Speed.",
+    "heading_line2": "AI-Native Speed.",
     "heading_highlight": "",
-    "subtitle": "We architect scalable, zero-failure custom software and AI infrastructure for ambitious brands. Fixed-price guarantees. Senior engineers only.",
+    "subtitle": "We design, architect, and deploy custom software systems, scalable cloud infrastructure, and autonomous agent pipelines for ambitious enterprises. Fixed-price sprints. Senior engineers. 100% full IP ownership.",
     "cta_primary": {
       "icon": "",
       "text": "Scope Your Project \u2192",
@@ -12,17 +12,17 @@
     },
     "cta_secondary": {
       "icon": "",
-      "text": "View Capabilities",
-      "href": "#capabilities"
+      "text": "View Verified Case Studies \u2192",
+      "href": "clients.html"
     },
-    "trust_line": "138+ Businesses",
-    "trust_suffix": "across India",
+    "trust_line": "138+ Enterprise Deliveries",
+    "trust_suffix": "across India & Global Markets",
     "trust_avatars": [
-      "CM",
-      "BM",
-      "DP",
-      "JH",
-      "+"
+      { "initials": "BM", "name": "Bhu Master (Agritech & Land Registry)", "accent": "#4f46e5" },
+      { "initials": "DP", "name": "Dashak Pharma (Pharmaceutical Supply Chain)", "accent": "#0284c7" },
+      { "initials": "OG", "name": "Om Group (Automotive Dealership ERP)", "accent": "#059669" },
+      { "initials": "WZ", "name": "Workezy (Co-Working Booking Platform)", "accent": "#d97706" },
+      { "initials": "138+", "name": "138+ Verified Enterprise Client Deployments", "accent": "#D91414", "isBadge": true }
     ],
     "mockup_metrics": [],
     "float_cards": []
@@ -33,7 +33,7 @@
     "cards": [
       {
         "title": "Built for the long haul",
-        "desc": "Whether you're launching a local shop or scaling a cloud platform, your architecture is clean, modular, and ready for whatever growth throws at it.",
+        "desc": "From zero-latency microservices to distributed multi-tenant cloud platforms, your architecture is clean, modular, and hardened for enterprise longevity.",
         "img": "/img/method-architecture.jpg"
       },
       {
@@ -68,25 +68,25 @@
         "showcase_tiles": [
           {
             "src": "assets/d2c/d2c-fashion-showcase.jpg",
-            "tag": "👗 FASHION & APPAREL",
+            "tag": "FASHION & APPAREL",
             "title": "Fashion & Lifestyle Store",
             "desc": "Lookbooks, Size Charts & Reels"
           },
           {
             "src": "assets/d2c/d2c-electronics-showcase.jpg",
-            "tag": "📱 TECH & GADGETS",
+            "tag": "TECH & GADGETS",
             "title": "Consumer Electronics",
             "desc": "Specs & Fast Express Dispatch"
           },
           {
             "src": "assets/d2c/d2c-home-decor-showcase.jpg",
-            "tag": "🏡 HOME & DECOR",
+            "tag": "HOME & DECOR",
             "title": "Home Decor & Living",
             "desc": "Bulky Freight & 28,000+ Pin Codes"
           },
           {
             "src": "assets/d2c/d2c-organic-groceries.jpg",
-            "tag": "🛒 GROCERY & FMCG",
+            "tag": "GROCERY & FMCG",
             "title": "Groceries & Daily Essentials",
             "desc": "Hyperlocal 30-Min Delivery & Subscriptions"
           }
@@ -97,49 +97,49 @@
             "title": "D2C Online Store & Rapid Launch",
             "caption": "Headless Next.js & Custom Shopify E-Commerce",
             "tag": "D2C STOREFRONT",
-            "short_label": "🛍️ Storefront"
+            "short_label": "Storefront"
           },
           {
             "src": "assets/d2c/d2c-fashion-showcase.jpg",
             "title": "Fashion, Apparel & Footwear",
             "caption": "High-Converting Lookbooks, Variants & Mobile UX",
             "tag": "FASHION & APPAREL",
-            "short_label": "👗 Fashion"
+            "short_label": "Fashion"
           },
           {
             "src": "assets/d2c/d2c-electronics-showcase.jpg",
             "title": "Electronics & Tech Accessories",
             "caption": "Specs Comparison & Instant Express Dispatch",
             "tag": "TECH & ELECTRONICS",
-            "short_label": "📱 Electronics"
+            "short_label": "Electronics"
           },
           {
             "src": "assets/d2c/d2c-home-decor-showcase.jpg",
             "title": "Home Decor & Furnishing",
             "caption": "Rich Visual Catalogs & Pan-India Freight Support",
             "tag": "HOME & DECOR",
-            "short_label": "🏡 Home Decor"
+            "short_label": "Home Decor"
           },
           {
             "src": "assets/d2c/d2c-conversation-dashboard.png",
             "title": "WhatsApp Conversational AI Commerce",
             "caption": "24/7 Catalog Discovery & 34% Abandoned Cart Recovery",
             "tag": "WHATSAPP COMMERCE",
-            "short_label": "💬 WhatsApp AI"
+            "short_label": "WhatsApp AI"
           },
           {
             "src": "assets/d2c/d2c-grocery-showcase.jpg",
             "title": "Hyperlocal FMCG & Grocery Engine",
             "caption": "Quick Delivery, Batch Control & Subscriptions",
             "tag": "FMCG & GROCERY",
-            "short_label": "🛒 Grocery"
+            "short_label": "Grocery"
           }
         ],
         "metrics_strip": [
-          { "icon": "⚡", "title": "0.8s PWA Speed", "desc": "1-Click UPI & Instant Cart" },
-          { "icon": "🚚", "title": "28,000+ Pin Codes", "desc": "Automated Multi-Courier" },
-          { "icon": "🌐", "title": "10Cr+ ONDC Buyers", "desc": "Paytm & PhonePe Networks" },
-          { "icon": "💰", "title": "0% Commission", "desc": "100% Direct Profit Margin" }
+          { "icon": "bolt", "title": "0.8s PWA Speed", "desc": "1-Click UPI & Instant Cart" },
+          { "icon": "truck", "title": "28,000+ Pin Codes", "desc": "Automated Multi-Courier" },
+          { "icon": "globe", "title": "10Cr+ ONDC Buyers", "desc": "Paytm & PhonePe Networks" },
+          { "icon": "shield", "title": "0% Commission", "desc": "100% Direct Profit Margin" }
         ],
         "cards": [
           {
@@ -437,16 +437,16 @@
     "title": "Frequently Asked Questions",
     "items": [
       {
-        "q": "How long does a project take to build?",
-        "a": "Our senior engineers work in rapid sprints, and most projects ship in 4 to 8 weeks depending on complexity \u2014 simpler builds like a business website can be live even faster."
+        "q": "What is the typical engineering timeline for a custom engagement?",
+        "a": "Our senior engineering teams deploy in high-velocity, milestone-gated sprints. Production MVPs and dedicated internal tools typically ship in 3 to 6 weeks. Complex enterprise architectures, multi-agent AI ecosystems, and distributed cloud systems range from 8 to 12 weeks. Every engagement has a guaranteed delivery date defined during technical discovery."
       },
       {
-        "q": "What does a project actually cost?",
-        "a": "It depends on your business size. A business website for a local shop starts at \u20b915,000. A custom MVP or internal tool typically runs \u20b91.5L-\u20b93L. Growth-stage systems \u2014 CRMs, automation, multi-platform builds \u2014 run \u20b93L-\u20b95L. For enterprise-scale or highly custom requirements, we quote after a scoping call. <a href=\"contact.html\">Get in touch</a> for a fixed-price estimate."
+        "q": "What does an enterprise engagement actually cost?",
+        "a": "Every engagement is scoped with fixed pricing, transparent deliverables, and zero surprise billing. Bespoke internal tools and production MVPs typically range from ₹1.5L to ₹3L. Growth-stage software systems — custom cloud architectures, multi-agent AI pipelines, and enterprise automation — range from ₹3L to ₹5L. Scaled enterprise platforms, high-throughput microservices, and multi-region infrastructure are scoped through technical discovery (₹5L+). <a href=\"contact.html\">Schedule a technical discovery session</a> for a detailed fixed-price roadmap."
       },
       {
         "q": "What if I need changes after the project is delivered?",
-        "a": "We offer an annual maintenance contract (20% of the initial project cost) covering platform updates, security patches, and minor bug fixes. For larger feature additions, we scope and quote them as separate change requests \u2014 you're never locked out of your own product."
+        "a": "We offer an annual maintenance contract (20% of the initial project cost) covering platform updates, security patches, and minor bug fixes. For larger feature additions, we scope and quote them as separate change requests — you're never locked out of your own product."
       },
       {
         "q": "How do I know I'll actually own my app or software?",
@@ -455,87 +455,19 @@
     ]
   },
   "clients_section": {
-    "subtitle": "PROVEN IMPACT ACROSS INDIA",
-    "title": "Brands We Have Worked With"
+    "subtitle": "PROVEN IMPACT ACROSS INDIA & GLOBAL MARKETS",
+    "title": "Brands & Enterprises We Have Partnered With"
   },
   "clients_logos": [
-    "shallwe.png",
-    "clever-cubes.png",
-    "dynapar-qps.png",
     "bhima-gold.png",
+    "dynapar-qps.png",
     "anuschka.png",
-    "newish.png",
     "klipsch.png",
-    "hmt.png",
-    "1-2-150x150.png",
-    "1-e1776768699414.png",
-    "1.png",
-    "10-150x150.png",
-    "10-e1776764585498.png",
-    "11-150x150.png",
-    "13.png",
-    "14-150x150.png",
-    "15-150x150.png",
-    "16.png",
-    "palak-diam.png",
-    "2.png",
-    "23-e1776768103830.png",
-    "24.png",
-    "25.png",
-    "27.png",
-    "3-5-150x150.png",
-    "3.png",
-    "4-2-150x150.png",
-    "4.png",
-    "5-1-150x150.png",
-    "5.png",
-    "6-1-150x150.png",
-    "6.png",
-    "7-150x150.png",
-    "8-150x150.png",
-    "AmoreColor-150x150.png",
-    "BMISLogo-150x150.png",
-    "BMULogo-150x150.png",
     "Bajaj-150x150.png",
-    "Blossom-150x150.png",
-    "DTPPLColor-150x150.png",
-    "GreenOvenGreen-150x150.png",
-    "H-S-150x150.png",
-    "JM-Fianance-logo-png-01-150x150.png",
-    "KF.png",
-    "Logo-01_1-1-150x150.png",
-    "NakkashiBlack-150x150.png",
-    "Piramyd-group-150x150.png",
-    "SANGINI-LOGO_V17_-Vertical-With-Tagline-NO-BACKGROUND-150x150.png",
-    "SuranaColor-150x150.png",
-    "TW.png",
-    "Untitled-150-x-150-px-1-150x150.png",
-    "Untitled-150-x-150-px-2-150x150.png",
-    "saraaha.png",
-    "Untitled-150-x-150-px.png",
-    "Untitled-500-x-500-px-150x150.png",
-    "Untitled-design-1-150x150.png",
-    "Untitled-design-29.png",
-    "Untitled-design-3-150x150.png",
-    "Untitled-design-3-e1776764732225-150x113.png",
-    "Untitled-design.png",
-    "Varanga-150x150.png",
-    "babutex-150x150.webp",
-    "color1_logo_transparent_background-150x150.png",
-    "idea-150x150.png",
-    "ikoverk-1-150x150.png",
-    "jmb-150x150.png",
-    "khushalbhai-150x150.png",
-    "mamta-jewellary-150x150.png",
-    "mehta-150x150.png",
-    "mg-group-150x150.png",
-    "narayana-150x150.png",
-    "new-logo.png",
-    "park-inn-150x150.png",
-    "sakhiya-150x150.png",
-    "sumerru-150x150.png",
-    "yashvi-150x150.png",
-    "yfh-150x150.png",
-    "zota-150x150.png"
+    "hmt.png",
+    "clever-cubes.png",
+    "shallwe.png",
+    "newish.png",
+    "park-inn-150x150.png"
   ]
 }

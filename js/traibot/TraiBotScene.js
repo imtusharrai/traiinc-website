@@ -145,12 +145,12 @@
                 <div class="mac-screen">
                     <div class="mac-tb">
                         <div class="mac-dots"><span class="d-r"></span><span class="d-y"></span><span class="d-g"></span></div>
-                        <span class="mac-tt">TRAI · AI Agent Hub</span>
+                        <span class="mac-tt">TRAI Inc · Enterprise Multi-Agent Deployment</span>
                     </div>
                     <div class="mac-saas">
                         <div class="mac-saas-header">
-                            <span class="mac-saas-label">Your Agents</span>
-                            <span class="mac-saas-count">${agents.length} active</span>
+                            <span class="mac-saas-label">Deployed Client Infrastructure</span>
+                            <span class="mac-saas-count">Production Live</span>
                         </div>
                         <div class="mac-cards-scroll" id="mac-cards-scroll">
                             <div class="mac-cards-track" id="mac-cards-track"></div>
