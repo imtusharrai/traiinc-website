@@ -165,21 +165,50 @@ console.log('Running Importer Preflight Fail-Closed Test Suite...\n');
   assert.deepStrictEqual(emptyResult, [], 'Must return empty array on clean query with no duplicates');
 
   // 4b. CLI process dry-run test with un-imported slug (exists in data/ but not yet in D1)
-  const stdout = execFileSync('node', [
-    importerScript,
-    '--dry-run',
-    '--local',
-    '--slug',
-    'blog-5-free-digital-tools-msme'
-  ], {
-    cwd: rootDir,
-    encoding: 'utf8',
-    stdio: ['ignore', 'pipe', 'pipe']
-  });
+  // Ensure the target test slug is temporarily absent from local D1 for the duration of this assertion
+  let hadEntry = false;
+  try {
+    const backupOut = execFileSync('npx', [
+      'wrangler', 'd1', 'execute', 'traiinc-cms', '--config', 'wrangler.worker.jsonc', '--local',
+      '--command', "SELECT slug FROM cms_entries WHERE slug = 'blog-5-free-digital-tools-msme';", '--json'
+    ], { cwd: rootDir, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+    const parsedBackup = JSON.parse(backupOut);
+    hadEntry = Boolean(parsedBackup[0] && parsedBackup[0].results && parsedBackup[0].results.length > 0);
+  } catch (_) {}
 
-  assert.ok(stdout.includes('DRY RUN - SAFE'), 'Dry run must report SAFE when no duplicates exist');
-  assert.ok(stdout.includes('No duplicate slugs found in target database'), 'Must report no duplicates found');
-  console.log('PASS Test 4: Successful empty-result query passes preflight safely.');
+  if (hadEntry) {
+    execFileSync('npx', [
+      'wrangler', 'd1', 'execute', 'traiinc-cms', '--config', 'wrangler.worker.jsonc', '--local',
+      '--command', "DELETE FROM cms_entries WHERE slug = 'blog-5-free-digital-tools-msme';"
+    ], { cwd: rootDir, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+  }
+
+  try {
+    const stdout = execFileSync('node', [
+      importerScript,
+      '--dry-run',
+      '--local',
+      '--slug',
+      'blog-5-free-digital-tools-msme'
+    ], {
+      cwd: rootDir,
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'pipe']
+    });
+
+    assert.ok(stdout.includes('DRY RUN - SAFE'), 'Dry run must report SAFE when no duplicates exist');
+    assert.ok(stdout.includes('No duplicate slugs found in target database'), 'Must report no duplicates found');
+    console.log('PASS Test 4: Successful empty-result query passes preflight safely.');
+  } finally {
+    if (hadEntry) {
+      execFileSync('node', [
+        importerScript,
+        '--local',
+        '--status', 'published',
+        '--slug', 'blog-5-free-digital-tools-msme'
+      ], { cwd: rootDir, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+    }
+  }
 }
 
 console.log('\nALL 4 IMPORTER PREFLIGHT FAIL-CLOSED TESTS PASSED!\n');
