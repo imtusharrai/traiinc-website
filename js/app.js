@@ -359,39 +359,49 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
 
             // Initialize 3D TRAI Bot and Audience Gallery on home page
-            if (pageId === 'home') {
-                if (window.TraiBot) {
-                    setTimeout(() => {
+            function initInteractiveFeatures() {
+                const currentPage = document.body.getAttribute('data-page') || pageId;
+                if (currentPage === 'home') {
+                    if (window.TraiBot && typeof window.TraiBot.init === 'function') {
                         window.TraiBot.init('#traibot-container');
-                    }, 100);
+                    } else {
+                        setTimeout(() => {
+                            if (window.TraiBot && typeof window.TraiBot.init === 'function') {
+                                window.TraiBot.init('#traibot-container');
+                            }
+                        }, 100);
+                    }
+
+                    // Audience Gallery Auto-Rotate
+                    document.querySelectorAll('.audience-gallery-card').forEach(gallery => {
+                        const slides = gallery.querySelectorAll('.audience-gallery-slide');
+                        const pills = gallery.querySelectorAll('.audience-gallery-pill');
+                        if (slides.length <= 1) return;
+                        let currentIdx = 0;
+                        let timer = null;
+
+                        function switchSlide(idx) {
+                            currentIdx = idx;
+                            slides.forEach((s, i) => s.classList.toggle('active', i === currentIdx));
+                            pills.forEach((p, i) => p.classList.toggle('active', i === currentIdx));
+                        }
+
+                        function startTimer() {
+                            if (timer) clearInterval(timer);
+                            timer = setInterval(() => {
+                                switchSlide((currentIdx + 1) % slides.length);
+                            }, 3800);
+                        }
+
+                        gallery.addEventListener('mouseenter', () => { if (timer) clearInterval(timer); });
+                        gallery.addEventListener('mouseleave', startTimer);
+                        startTimer();
+                    });
                 }
-
-                // Audience Gallery Auto-Rotate
-                document.querySelectorAll('.audience-gallery-card').forEach(gallery => {
-                    const slides = gallery.querySelectorAll('.audience-gallery-slide');
-                    const pills = gallery.querySelectorAll('.audience-gallery-pill');
-                    if (slides.length <= 1) return;
-                    let currentIdx = 0;
-                    let timer = null;
-
-                    function switchSlide(idx) {
-                        currentIdx = idx;
-                        slides.forEach((s, i) => s.classList.toggle('active', i === currentIdx));
-                        pills.forEach((p, i) => p.classList.toggle('active', i === currentIdx));
-                    }
-
-                    function startTimer() {
-                        if (timer) clearInterval(timer);
-                        timer = setInterval(() => {
-                            switchSlide((currentIdx + 1) % slides.length);
-                        }, 3800);
-                    }
-
-                    gallery.addEventListener('mouseenter', () => { if (timer) clearInterval(timer); });
-                    gallery.addEventListener('mouseleave', startTimer);
-                    startTimer();
-                });
             }
+
+            window.__TRAI_REINIT_INTERACTIVE__ = initInteractiveFeatures;
+            initInteractiveFeatures();
 
 
             function showFormModal(type, title, message) {
@@ -569,10 +579,10 @@ const audienceIcons = {
     map: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>`,
     lock: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>`,
     mic: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>`,
-    bolt: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
-    code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+    bolt: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
+    code: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
     palette: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/><circle cx="17.5" cy="10.5" r="1.5" fill="currentColor" stroke="none"/><circle cx="8.5" cy="7.5" r="1.5" fill="currentColor" stroke="none"/><circle cx="6.5" cy="12.5" r="1.5" fill="currentColor" stroke="none"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.7-.8 1.7-1.7 0-.4-.2-.8-.4-1.1-.3-.3-.4-.7-.4-1.1 0-.9.8-1.7 1.7-1.7H17c2.8 0 5-2.2 5-5 0-5.5-4.5-9.5-10-9.5z"/></svg>`,
-    shield: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+    shield: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
     cart: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>`,
     truck: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>`
 };
@@ -708,7 +718,7 @@ function renderHome(data) {
             <p class="hero-cosmos-subtitle" data-cms-bind="subtitle">${hero.subtitle || 'We design, architect, and deploy custom software systems, scalable cloud infrastructure, and autonomous agent pipelines for ambitious enterprises. Fixed-price sprints. Senior engineers. 100% full IP ownership.'}</p>
             <div class="hero-cosmos-cta-group">
                 <a href="${hero.cta_primary?.href || 'contact.html'}" class="btn-primary large hero-cosmos-cta">${hero.cta_primary?.text || 'Scope Your Project →'}</a>
-                <a href="${hero.cta_secondary?.href || 'clients.html'}" class="hero-cosmos-cta-secondary">${hero.cta_secondary?.text || 'Explore Verified Work →'}</a>
+                <a href="${hero.cta_secondary?.href || 'clients.html'}" class="hero-cosmos-cta-secondary">${hero.cta_secondary?.text || 'View Verified Case Studies →'}</a>
             </div>
             <div class="hero-cosmos-trust">
                 <div class="hero-trust-avatars">
@@ -717,7 +727,7 @@ function renderHome(data) {
                 <span>Trusted by <strong class="trust-count">${hero.trust_line || '138+ Enterprise Deliveries'}</strong>${hero.trust_suffix ? ` ${hero.trust_suffix}` : ''}</span>
             </div>
             <div class="hero-reassurance-strip">
-                <span class="hero-reassurance-pill">${audienceIcons.shield} Fixed-Price &amp; Timeline Guarantee</span>
+                <span class="hero-reassurance-pill">${audienceIcons.shield} Fixed-Price Guarantee</span>
                 <span class="hero-reassurance-pill">${audienceIcons.bolt} Senior Engineers Only</span>
                 <span class="hero-reassurance-pill">${audienceIcons.code} 100% Full IP Ownership</span>
             </div>

@@ -96,6 +96,16 @@
     ];
 
     function init(selector) {
+        if (animationId) {
+            cancelAnimationFrame(animationId);
+            animationId = null;
+        }
+        if (focusTimer) {
+            clearInterval(focusTimer);
+            focusTimer = null;
+        }
+        window.removeEventListener('resize', resize);
+
         containerEl = document.querySelector(selector);
         if (!containerEl) return;
         isLight = document.body.classList.contains('light-mode');
