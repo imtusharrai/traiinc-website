@@ -380,7 +380,7 @@ function collectEntries() {
         label: 'Company',
         items: [
           { label: 'About Us', href: 'about.html', desc: 'Our team, mission, and engineering culture' },
-          { label: 'Development Process', href: 'our-development-process.html', desc: 'Fixed-price, sprint-based delivery' },
+          { label: 'Development Process', href: 'our-development-process.html', desc: 'Milestone-driven, sprint-based delivery' },
           { label: 'Careers', href: 'careers.html', desc: 'Join our senior engineering team' },
           { label: 'Partner Program', href: 'partner.html', desc: 'Co-build and grow with Trai Inc' },
           { label: 'Clients & Case Studies', href: 'clients.html', desc: 'Verified outcomes and client testimonials' },
@@ -448,7 +448,7 @@ function collectEntries() {
       },
       badges: [
         '🇮🇳 Made in India',
-        '🔒 Fixed-Price Contracts',
+        '🔒 Milestone-Driven Sprints',
         '⚡ AI-Augmented Delivery'
       ],
       copyright: '© 2026 Trai Inc Services. All Rights Reserved'

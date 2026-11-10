@@ -21,8 +21,8 @@
     "advantages": [
       {
         "icon": "📦",
-        "title": "Fixed Scope",
-        "desc": "Defined project, defined price. Best for clear, bounded requirements. We scope the work upfront and deliver against a fixed timeline."
+        "title": "Milestone Sprint Scope",
+        "desc": "Defined project, defined milestones. Best for clear, bounded requirements. We scope the work upfront and deliver against a guaranteed timeline."
       },
       {
         "icon": "🤝",
@@ -32,7 +32,7 @@
       {
         "icon": "🛒",
         "title": "App Store Ready-Made",
-        "desc": "Pre-scoped vertical apps ready for customization. Fixed pricing tiers. Own your app outright with delivery in 5-7 business days."
+        "desc": "Pre-scoped vertical apps ready for customization. Transparent sprint tiers. Own your app outright with delivery in 5-7 business days."
       }
     ]
   },

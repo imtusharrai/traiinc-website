@@ -136,7 +136,7 @@
             if (nl !== isLight) { isLight = nl; updateTheme(); }
         }).observe(document.body, { attributes: true, attributeFilter: ['class'] });
 
-        animate();
+        if (ctx) animate();
         startFocus();
     }
 
@@ -210,7 +210,11 @@
             const card = cards[focusIdx];
             if (card) {
                 const offset = card.offsetLeft - scroll.offsetWidth / 2 + card.offsetWidth / 2;
-                scroll.scrollTo({ left: Math.max(0, offset), behavior: 'smooth' });
+                if (typeof scroll.scrollTo === 'function') {
+                    scroll.scrollTo({ left: Math.max(0, offset), behavior: 'smooth' });
+                } else {
+                    scroll.scrollLeft = Math.max(0, offset);
+                }
             }
         }
         focusIdx = (focusIdx + 1) % agents.length;
@@ -278,6 +282,7 @@
         if (orb) { orb.style.transform = `translate(${((mouseX/W)-.5)*35}px, ${((mouseY/H)-.5)*20}px)`; }
     }
     function animate() {
+        if (!ctx) return;
         animationId = requestAnimationFrame(animate);
         time++;
         ctx.setTransform(dpr,0,0,dpr,0,0);

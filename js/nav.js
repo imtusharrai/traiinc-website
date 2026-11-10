@@ -212,7 +212,7 @@
             ],
             featured: {
                 title: "Built For High Conviction",
-                desc: "An elite AI-native software consultancy architecting production systems with fixed pricing and guaranteed delivery.",
+                desc: "An elite AI-native software consultancy architecting production systems with milestone-driven delivery and guaranteed timelines.",
                 stat: "6+ Years · 138+ Clients",
                 ctaLabel: "Meet Our Team →",
                 ctaHref: "about.html"
@@ -562,9 +562,9 @@
                     <button type="submit">Subscribe</button>
                 </form>
                 <div class="footer-badges">
-                    <span class="footer-badge">🔒 Fixed-Price Contracts</span>
-                    <span class="footer-badge">⚡ Senior Engineers Only</span>
-                    <span class="footer-badge">🛡️ 100% Code Ownership</span>
+                    <span class="footer-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:5px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Milestone-Driven Sprints</span>
+                    <span class="footer-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:5px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Senior Engineers Only</span>
+                    <span class="footer-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:5px;"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>100% Code Ownership</span>
                 </div>
             </div>
         </div>
@@ -580,7 +580,7 @@
                 <div class="footer-offices-grid" data-cms-section="offices">
                     <div class="footer-office-card">
                         <div class="footer-office-card-head">
-                            <span class="footer-office-flag">🇮🇳</span>
+                            <span class="footer-office-flag" title="India" aria-label="India"><svg viewBox="0 0 640 480" width="22" height="16" style="border-radius:2px;box-shadow:0 0 1px rgba(0,0,0,0.3);"><path fill="#f93" d="M0 0h640v160H0z"/><path fill="#fff" d="M0 160h640v160H0z"/><path fill="#128807" d="M0 320h640v160H0z"/><circle cx="320" cy="240" r="40" fill="none" stroke="#008" stroke-width="6"/><circle cx="320" cy="240" r="8" fill="#008"/></svg></span>
                             <div>
                                 <strong class="footer-office-city">Lucknow, India</strong>
                                 <span class="footer-office-type">Global Headquarters</span>
@@ -590,7 +590,7 @@
                     </div>
                     <div class="footer-office-card">
                         <div class="footer-office-card-head">
-                            <span class="footer-office-flag">🇮🇳</span>
+                            <span class="footer-office-flag" title="India" aria-label="India"><svg viewBox="0 0 640 480" width="22" height="16" style="border-radius:2px;box-shadow:0 0 1px rgba(0,0,0,0.3);"><path fill="#f93" d="M0 0h640v160H0z"/><path fill="#fff" d="M0 160h640v160H0z"/><path fill="#128807" d="M0 320h640v160H0z"/><circle cx="320" cy="240" r="40" fill="none" stroke="#008" stroke-width="6"/><circle cx="320" cy="240" r="8" fill="#008"/></svg></span>
                             <div>
                                 <strong class="footer-office-city">Bengaluru, India</strong>
                                 <span class="footer-office-type">Technology &amp; Engineering Hub</span>
@@ -600,7 +600,7 @@
                     </div>
                     <div class="footer-office-card">
                         <div class="footer-office-card-head">
-                            <span class="footer-office-flag">🇿🇦</span>
+                            <span class="footer-office-flag" title="South Africa" aria-label="South Africa"><svg viewBox="0 0 640 480" width="22" height="16" style="border-radius:2px;box-shadow:0 0 1px rgba(0,0,0,0.3);"><clipPath id="sa-fl"><path d="M0 0h640v480H0z"/></clipPath><g clip-path="url(#sa-fl)"><path fill="#000" d="M0 0h640v480H0z"/><path fill="#fff" d="M0 0h640v160H0z"/><path fill="#e03c31" d="M0 0h640v133.3H0z"/><path fill="#fff" d="M0 320h640v160H0z"/><path fill="#001489" d="M0 346.7h640V480H0z"/><path fill="#fc6" d="M0 0l240 240L0 480z"/><path fill="#000" d="M0 40l200 200L0 440z"/><path fill="#fff" d="M160 0h106.7L453.3 186.7H640v106.6H453.3L266.7 480H160l186.7-240z"/><path fill="#007749" d="M0 160h293.3L533.3 240 293.3 320H0v-53.3l186.7-26.7L0 213.3z"/></g></svg></span>
                             <div>
                                 <strong class="footer-office-city">Cape Town, South Africa</strong>
                                 <span class="footer-office-type">Africa Regional Hub</span>
@@ -610,7 +610,7 @@
                     </div>
                     <div class="footer-office-card">
                         <div class="footer-office-card-head">
-                            <span class="footer-office-flag">🇿🇲</span>
+                            <span class="footer-office-flag" title="Zambia" aria-label="Zambia"><svg viewBox="0 0 640 480" width="22" height="16" style="border-radius:2px;box-shadow:0 0 1px rgba(0,0,0,0.3);"><path fill="#198a00" d="M0 0h640v480H0z"/><g transform="translate(426.7,160)"><path fill="#de2010" d="M0 0h71.1v320H0z"/><path fill="#000" d="M71.1 0h71.1v320H71.1z"/><path fill="#ef7d00" d="M142.2 0h71.1v320H142.2z"/></g><path fill="#ef7d00" d="M497.8 80l44.4-40 44.5 40-20-40 35.6-20-40 10-20-30-20 30-40-10 35.5 20z"/></svg></span>
                             <div>
                                 <strong class="footer-office-city">Lusaka, Zambia</strong>
                                 <span class="footer-office-type">Regional Delivery Office</span>

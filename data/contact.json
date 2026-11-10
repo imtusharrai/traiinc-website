@@ -2,7 +2,7 @@
   "hero": {
     "badge": "Let's Build Together",
     "title": "Have a project<br>in mind?<br>Let's <em class=\"hero-cosmos-ai\">talk</em>",
-    "description": "Whether you need an MVP, a custom CRM, or a full digital transformation — we are ready to discuss your requirements and provide a fixed-price quote within 48 hours."
+    "description": "Whether you need an MVP, a custom CRM, or a full digital transformation — we are ready to discuss your requirements and provide an architectural delivery scope within 48 hours."
   },
   "info": {
     "title": "Get in Touch",
@@ -166,7 +166,7 @@
       "placeholder": "Describe your project — what you need, the timeline, any specific requirements..."
     },
     "button": "Send Inquiry",
-    "note": "We will respond within 24 hours with a detailed scope and fixed-price estimate."
+    "note": "We will respond within 24 hours with a detailed scope and sprint delivery estimate."
   },
   "grand_cta": {
     "title": "No sales pitch. No pressure.",

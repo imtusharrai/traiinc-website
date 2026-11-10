@@ -4,7 +4,7 @@
     "heading_line1": "Enterprise Reliability.",
     "heading_line2": "AI-Native Speed.",
     "heading_highlight": "",
-    "subtitle": "We design, architect, and deploy custom software systems, scalable cloud infrastructure, and autonomous agent pipelines for ambitious enterprises. Fixed-price sprints. Senior engineers. 100% full IP ownership.",
+    "subtitle": "We design, architect, and deploy custom software systems, scalable cloud infrastructure, and autonomous agent pipelines for ambitious enterprises. Milestone-driven sprints. Senior engineers. 100% full IP ownership.",
     "cta_primary": {
       "icon": "",
       "text": "Scope Your Project \u2192",
@@ -42,8 +42,8 @@
         "img": "/img/method-team.jpg"
       },
       {
-        "title": "Fixed Pricing. No Surprises.",
-        "desc": "One clear price. One timeline. No hourly billing surprises or scope creep. You'll know exactly what you're spending before a single line of code is written.",
+        "title": "Milestone Delivery. Zero Surprises.",
+        "desc": "Milestone-gated sprints. Guaranteed delivery timelines. No hourly billing surprises or scope creep. Transparent engineering deliverables scoped upfront before writing code.",
         "img": "/img/method-pricing.jpg"
       }
     ]
@@ -175,7 +175,7 @@
         "tab_text": "#08120D",
         "badge": "Startups",
         "panel_title": "Stop refining the pitch deck. Start shipping product.",
-        "panel_subtitle": "MVPs, mobile apps, and cloud platforms \u2014 fixed price, no equity. Typically \u20b91.5L\u2013\u20b95L.",
+        "panel_subtitle": "MVPs, mobile apps, and cloud platforms \u2014 milestone-driven delivery, no equity. Typically \u20b91.5L\u2013\u20b95L.",
         "cta_text": "Explore Startup Solutions",
         "cta_href": "startups.html",
         "image": "/img/audience-startups.jpg",
@@ -410,7 +410,7 @@
     "steps": [
       {
         "title": "Our Mission",
-        "desc": "To deliver enterprise-grade engineering with complete transparency. No hidden costs, just high-quality code and fixed-price guarantees."
+        "desc": "To deliver enterprise-grade engineering with complete transparency. No hidden costs, just high-quality code and milestone delivery guarantees."
       },
       {
         "title": "Our Expertise",
@@ -432,7 +432,7 @@
       },
       {
         "q": "What does an enterprise engagement actually cost?",
-        "a": "Every engagement is scoped with fixed pricing, transparent deliverables, and zero surprise billing. Bespoke internal tools and production MVPs typically range from ₹1.5L to ₹3L. Growth-stage software systems — custom cloud architectures, multi-agent AI pipelines, and enterprise automation — range from ₹3L to ₹5L. Scaled enterprise platforms, high-throughput microservices, and multi-region infrastructure are scoped through technical discovery (₹5L+). <a href=\"contact.html\">Schedule a technical discovery session</a> for a detailed fixed-price roadmap."
+        "a": "Every engagement is scoped with milestone-based transparent deliverables, sprint architecture, and zero surprise billing. Bespoke internal tools and production MVPs typically range from ₹1.5L to ₹3L. Growth-stage software systems — custom cloud architectures, multi-agent AI pipelines, and enterprise automation — range from ₹3L to ₹5L. Scaled enterprise platforms, high-throughput microservices, and multi-region infrastructure are scoped through technical discovery (₹5L+). <a href=\"contact.html\">Schedule a technical discovery session</a> for a detailed architectural delivery roadmap."
       },
       {
         "q": "What if I need changes after the project is delivered?",

@@ -424,13 +424,13 @@
         var phoneVal = (data.contact && data.contact.phone) || data.primary_phone || data.phone;
         if (phoneVal) {
           if (el.tagName === 'A') el.setAttribute('href', 'tel:' + phoneVal.replace(/[^\d+]/g, ''));
-          el.textContent = '📞 ' + phoneVal;
+          el.textContent = phoneVal;
         }
       } else if (key === 'email') {
         var emailVal = (data.contact && (data.contact.email_hello || data.contact.email_support)) || data.primary_email || data.email;
         if (emailVal) {
           if (el.tagName === 'A') el.setAttribute('href', 'mailto:' + emailVal);
-          el.textContent = '✉️ ' + emailVal;
+          el.textContent = emailVal;
         }
       } else if (key === 'brand_tagline') {
         var tagLineVal = data.brand_tagline || data.tagline;

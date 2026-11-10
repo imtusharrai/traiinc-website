@@ -27,7 +27,7 @@
       {
         "icon": "📅",
         "title": "Defined Update Cadence",
-        "desc": "We establish a fixed, regular cadence (e.g. weekly written updates) so you never have to chase us for a progress report."
+        "desc": "We establish a predictable, regular cadence (e.g. weekly written updates) so you never have to chase us for a progress report."
       },
       {
         "icon": "💬",
@@ -58,7 +58,7 @@
   },
   "cta": {
     "title": "Ready to Work with a Transparent Partner?",
-    "description": "Tell us about your project. Our team will scope it and deliver a fixed-price proposal within 48 hours.",
+    "description": "Tell us about your project. Our team will scope it and deliver a architectural delivery proposal within 48 hours.",
     "button_text": "Book a Free Consultation"
   }
 }

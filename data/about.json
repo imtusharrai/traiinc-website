@@ -45,7 +45,7 @@
       {
         "icon": "🤝",
         "title": "Radical Transparency",
-        "desc": "Fixed prices. Weekly updates. Full code ownership. No surprises, no fine print."
+        "desc": "Milestone-driven sprints. Weekly updates. Full code ownership. No surprises, no fine print."
       },
       {
         "icon": "🧪",
@@ -181,8 +181,8 @@
       },
       {
         "icon": "💰",
-        "title": "Fixed-Price Transparency",
-        "desc": "Every project is scoped upfront with a fixed price. No hourly billing, no surprise invoices, no scope creep."
+        "title": "Milestone Delivery Transparency",
+        "desc": "Every project is scoped upfront with guaranteed sprint milestones. No hourly billing, no surprise invoices, no scope creep."
       },
       {
         "icon": "🔒",
@@ -246,7 +246,7 @@
   },
   "cta": {
     "title": "Ready to Build Something Exceptional?",
-    "description": "Tell us about your project. Our team will scope it and deliver a fixed-price proposal within 48 hours.",
+    "description": "Tell us about your project. Our team will scope it and deliver a architectural delivery proposal within 48 hours.",
     "button_text": "Get in Touch"
   }
 }

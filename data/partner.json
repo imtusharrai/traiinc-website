@@ -36,8 +36,8 @@
       },
       {
         "icon": "📊",
-        "title": "Fixed-Price Certainty",
-        "desc": "Every project is scoped upfront with a fixed price. No hourly billing surprises for you or your referral. Scope is locked before work begins."
+        "title": "Milestone Delivery Certainty",
+        "desc": "Every project is scoped upfront with guaranteed sprint milestones. No hourly billing surprises for you or your referral. Scope is locked before work begins."
       }
     ]
   },
@@ -95,7 +95,7 @@
         "text": "Continuously shipping production software since 2020 — not a fly-by-night agency."
       },
       {
-        "metric": "Fixed-Price",
+        "metric": "Milestone-Gated",
         "text": "Every project scoped upfront. No hourly billing, no surprise invoices, no scope creep."
       },
       {

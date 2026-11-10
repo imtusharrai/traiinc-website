@@ -111,8 +111,8 @@ Replace the `model.advantages` array. Merge "Named Point of Contact" into "Dedic
       },
       {
         "icon": "💰",
-        "title": "Fixed-Price Transparency",
-        "desc": "Every project is scoped upfront with a fixed price. No hourly billing, no surprise invoices, no scope creep."
+        "title": "Milestone Delivery Transparency",
+        "desc": "Every project is scoped upfront with delivery-tied milestones. No hourly billing, no surprise invoices, no scope creep."
       },
       {
         "icon": "🔒",

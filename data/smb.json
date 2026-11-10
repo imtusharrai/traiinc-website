@@ -1,38 +1,91 @@
 {
   "hero": {
-    "page_label": "📈 Systems That Scale With You",
+    "page_label": "Systems That Scale With You",
     "title": "You've outgrown spreadsheets<br>Now <em class=\"hero-cosmos-ai\">what?</em>",
-    "subtitle": "Custom CRMs, workflow automation, and business dashboards that replace the patchwork of tools holding your operations together — built to integrate with what you already use. Typically ₹3L-₹5L, fixed price, quoted upfront.",
+    "subtitle": "Custom CRMs, workflow automation, and business dashboards that replace the patchwork of tools holding your operations together \u2014 built to integrate with what you already use. Typically \u20b93L-\u20b95L, milestone-driven sprints, quoted upfront.",
     "cta_text": "Request a Scoping Call",
     "accent_colors": {
       "primary": "#a1c4fd",
       "secondary": "#c2e9fb"
     },
     "trust": {
-      "avatars": ["SG", "RC", "CC", "+"],
-      "count": "growing SMBs across India"
+      "avatars": [
+        {
+          "initials": "BM",
+          "name": "Bhu Master (Agritech & Land Registry)",
+          "accent": "#4f46e5"
+        },
+        {
+          "initials": "DP",
+          "name": "Dashak Pharma (Pharmaceutical Supply Chain)",
+          "accent": "#0284c7"
+        },
+        {
+          "initials": "OG",
+          "name": "Om Group (Automotive Dealership ERP)",
+          "accent": "#059669"
+        },
+        {
+          "initials": "WZ",
+          "name": "Workezy (Co-Working Booking Platform)",
+          "accent": "#d97706"
+        },
+        {
+          "initials": "138+",
+          "name": "138+ Verified Enterprise Client Deployments",
+          "accent": "#D91414",
+          "isBadge": true
+        }
+      ],
+      "count": "138+ Growing Businesses & Enterprises"
     },
     "mockup": {
       "metrics": [
-        { "label": "👥 Active CRM Users", "value": "450+", "color": "green" },
-        { "label": "⚡ Workflows Automated", "value": "12,000/mo", "color": "gold" },
-        { "label": "💰 IT Cost Savings", "value": "₹15L/yr", "color": "" },
-        { "label": "⭐ Client Retention", "value": "94%", "color": "green" }
+        {
+          "label": "Active Platform Users",
+          "value": "450+",
+          "color": "green"
+        },
+        {
+          "label": "Workflows Automated",
+          "value": "12,000/mo",
+          "color": "gold"
+        },
+        {
+          "label": "Cost Savings",
+          "value": "\u20b915L/yr",
+          "color": ""
+        },
+        {
+          "label": "\u2b50 Client Retention",
+          "value": "94%",
+          "color": "green"
+        }
       ],
       "cards": [
-        { "icon": "📊", "label": "Sales Dashboard", "value": "Live ✓", "active": true },
-        { "icon": "💬", "label": "WhatsApp Bot", "value": "Active", "active": false }
+        {
+          "icon": "\ud83d\udcca",
+          "label": "Sales Dashboard",
+          "value": "Live \u2713",
+          "active": true
+        },
+        {
+          "icon": "\ud83d\udcac",
+          "label": "WhatsApp Bot",
+          "value": "Active",
+          "active": false
+        }
       ]
     }
   },
   "feature_pills": [
-    "✓ Systems from ₹3L-₹5L",
-    "✓ Custom CRM",
-    "✓ Workflow Automation",
-    "✓ Digital Marketing",
-    "✓ Data Dashboards",
-    "✓ WhatsApp Business",
-    "✓ E-commerce Integration"
+    "\u2713 Systems from \u20b93L-\u20b95L",
+    "\u2713 Custom CRM",
+    "\u2713 Workflow Automation",
+    "\u2713 Digital Marketing",
+    "\u2713 Data Dashboards",
+    "\u2713 WhatsApp Business",
+    "\u2713 E-commerce Integration"
   ],
   "proof": {
     "subtitle": "OUR WORK",
@@ -41,22 +94,34 @@
       {
         "client": "Chitravan",
         "title": "Custom CRM for Regional Real Estate",
-        "impact": "Built a custom CRM that handles end-to-end customer relationships — lead capture, inventory tracking, booking management — replacing spreadsheets with a single dashboard.",
-        "tags": ["CRM Platform", "Next.js", "Cloudflare D1"],
+        "impact": "Built a custom CRM that handles end-to-end customer relationships \u2014 lead capture, inventory tracking, booking management \u2014 replacing spreadsheets with a single dashboard.",
+        "tags": [
+          "CRM Platform",
+          "Next.js",
+          "Cloudflare D1"
+        ],
         "color": "#4facfe"
       },
       {
         "client": "Bhu Master Pvt Ltd",
         "title": "Real Estate Property Platform",
         "impact": "Delivered a complete property listing and management platform with buyer-facing search, project pages with amenities and photos, and an admin dashboard for inventory management.",
-        "tags": ["Real Estate", "Web App", "Data Modeling"],
+        "tags": [
+          "Real Estate",
+          "Web App",
+          "Data Modeling"
+        ],
         "color": "#38f9d7"
       },
       {
         "client": "Dashak Pharma",
         "title": "B2B WhatsApp Ordering & Automation",
-        "impact": "Built a WhatsApp-first ordering system for B2B pharmacy distribution — automated order capture, invoicing, and follow-ups with zero new app downloads required from retailers.",
-        "tags": ["WhatsApp API", "n8n", "AI Automation"],
+        "impact": "Built a WhatsApp-first ordering system for B2B pharmacy distribution \u2014 automated order capture, invoicing, and follow-ups with zero new app downloads required from retailers.",
+        "tags": [
+          "WhatsApp API",
+          "n8n",
+          "AI Automation"
+        ],
         "color": "#f6d365"
       }
     ]
@@ -66,45 +131,60 @@
     "title": "Systems that replace the tool sprawl",
     "items": [
       {
-        "icon": "💼",
+        "icon": "\ud83d\udcbc",
         "title": "Custom CRM Systems",
-        "desc": "Stop paying per-seat SaaS fees for platforms that don't match your actual sales process. We build CRMs that map to how your team actually works — tracking leads, managing pipelines, and automating follow-ups without forcing you to change your workflow."
+        "desc": "Stop paying per-seat SaaS fees for platforms that don't match your actual sales process. We build CRMs that map to how your team actually works \u2014 tracking leads, managing pipelines, and automating follow-ups without forcing you to change your workflow."
       },
       {
-        "icon": "📈",
+        "icon": "\ud83d\udcc8",
         "title": "Marketing & Lead Automation",
-        "desc": "Automated lead generation engines that capture, qualify, and route prospects to your sales team 24/7. Email drip campaigns, social integrations, and ad pipeline tracking — all wired together instead of scattered across five different tools."
+        "desc": "Automated lead generation engines that capture, qualify, and route prospects to your sales team 24/7. Email drip campaigns, social integrations, and ad pipeline tracking \u2014 all wired together instead of scattered across five different tools."
       },
       {
-        "icon": "📊",
+        "icon": "\ud83d\udcca",
         "title": "Business Intelligence Dashboards",
-        "desc": "Real-time operational visibility in one place. We consolidate sales metrics, inventory data, and operational KPIs into dashboards your managers actually use — replacing the end-of-month Excel report scramble with live, actionable data."
+        "desc": "Real-time operational visibility in one place. We consolidate sales metrics, inventory data, and operational KPIs into dashboards your managers actually use \u2014 replacing the end-of-month Excel report scramble with live, actionable data."
       },
       {
-        "icon": "💬",
+        "icon": "\ud83d\udcac",
         "title": "WhatsApp & Tool Integration",
-        "desc": "Connect your existing tools into one operational flow. WhatsApp order capture, payment gateway hooks, ERP sync, and automated notifications — we wire together the systems you already run instead of asking you to replace everything."
+        "desc": "Connect your existing tools into one operational flow. WhatsApp order capture, payment gateway hooks, ERP sync, and automated notifications \u2014 we wire together the systems you already run instead of asking you to replace everything."
       }
     ]
   },
   "industries": [
     {
-      "icon": "🏠",
+      "icon": "\ud83c\udfe0",
       "title": "Real Estate & Construction",
       "desc": "Lead capture pipelines, property management dashboards, and automated client communication tools for developers and agencies managing hundreds of prospects across multiple projects.",
-      "features": ["Lead Funnels", "CRM Integration", "Site Visit Booking", "WhatsApp Follow-ups"]
+      "features": [
+        "Lead Funnels",
+        "CRM Integration",
+        "Site Visit Booking",
+        "WhatsApp Follow-ups"
+      ]
     },
     {
-      "icon": "🛍️",
+      "icon": "\ud83d\udecd\ufe0f",
       "title": "Retail & Consumer",
       "desc": "Omnichannel POS integrations, inventory tracking, and loyalty programs for retail businesses scaling from one location to many without multiplying their operational headcount.",
-      "features": ["Inventory Sync", "Loyalty Programs", "E-Commerce Integrations", "Sales Dashboards"]
+      "features": [
+        "Inventory Sync",
+        "Loyalty Programs",
+        "E-Commerce Integrations",
+        "Sales Dashboards"
+      ]
     },
     {
-      "icon": "🛠️",
+      "icon": "\ud83d\udee0\ufe0f",
       "title": "Home & Local Services",
       "desc": "Job scheduling, automated invoicing, and field team tracking for service businesses where the back-office work grows faster than the team doing it.",
-      "features": ["Job Scheduling", "Automated Invoicing", "Field Tracking", "Review Automation"]
+      "features": [
+        "Job Scheduling",
+        "Automated Invoicing",
+        "Field Tracking",
+        "Review Automation"
+      ]
     }
   ],
   "compliance": {
@@ -117,21 +197,21 @@
       },
       {
         "title": "Post-Launch Support Included",
-        "desc": "An annual maintenance contract (20% of project cost) covers platform updates, security patches, and bug fixes — so the system doesn't rot the day after handover."
+        "desc": "An annual maintenance contract (20% of project cost) covers platform updates, security patches, and bug fixes \u2014 so the system doesn't rot the day after handover."
       },
       {
         "title": "You Own the System",
         "desc": "Full source code and infrastructure access assigned to you on final payment. If you ever need a different team to take over, there's nothing locking you in."
       },
       {
-        "title": "Fixed Price, Change Requests Quoted Separately",
-        "desc": "Scope is agreed upfront. If requirements evolve mid-project, we quote the change as a separate item — never a silent addition to your bill."
+        "title": "Milestone Pricing, Change Requests Quoted Separately",
+        "desc": "Scope is agreed upfront. If requirements evolve mid-project, we quote the change as a separate item \u2014 never a silent addition to your bill."
       }
     ]
   },
   "cta": {
     "title": "Ready to replace the tool sprawl?",
-    "description": "Book a scoping call. We'll map your current systems, identify the highest-impact automation targets, and give you a fixed-price proposal within a week.",
-    "button_text": "📅 Request a Scoping Call"
+    "description": "Book a scoping call. We'll map your current systems, identify the highest-impact automation targets, and give you an architectural delivery proposal within a week.",
+    "button_text": "Request a Scoping Call"
   }
 }

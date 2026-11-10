@@ -59,7 +59,7 @@
 **Reduce from 6 → 4 cards**:
 1. **Dedicated Team** — merge "Named Point of Contact" and "Dedicated Team" into one
 2. **AI-Augmented Speed** — keep
-3. **Fixed-Price Transparency** — keep
+3. **Milestone Delivery Transparency** — keep
 4. **Full IP Ownership** — merge "Defined Update Cadence" into body text mentioning weekly updates
 
 **Card design upgrade**:

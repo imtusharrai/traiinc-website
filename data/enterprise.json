@@ -1,64 +1,117 @@
 {
   "hero": {
-    "page_label": "🏢 Enterprise Grade. Startup Speed.",
+    "page_label": "Enterprise Grade. Startup Speed.",
     "title": "Digital transformation<br>Without the <em class=\"hero-cosmos-ai\">bloat</em>",
-    "subtitle": "We modernize legacy systems, build compliance-hardened cloud architectures, and integrate AI into enterprise workflows — delivered by senior engineers with direct accountability, not a rotating offshore bench.",
+    "subtitle": "We modernize legacy systems, build compliance-hardened cloud architectures, and integrate AI into enterprise workflows \u2014 delivered by senior engineers with direct accountability, not a rotating offshore bench.",
     "cta_text": "Schedule a Consultation",
     "accent_colors": {
       "primary": "#fbc7d4",
       "secondary": "#9796f0"
     },
     "trust": {
-      "avatars": ["TV", "JH", "CS", "+"],
-      "count": "Enterprise Leaders"
+      "avatars": [
+        {
+          "initials": "BM",
+          "name": "Bhu Master (Agritech & Land Registry)",
+          "accent": "#4f46e5"
+        },
+        {
+          "initials": "DP",
+          "name": "Dashak Pharma (Pharmaceutical Supply Chain)",
+          "accent": "#0284c7"
+        },
+        {
+          "initials": "OG",
+          "name": "Om Group (Automotive Dealership ERP)",
+          "accent": "#059669"
+        },
+        {
+          "initials": "WZ",
+          "name": "Workezy (Co-Working Booking Platform)",
+          "accent": "#d97706"
+        },
+        {
+          "initials": "138+",
+          "name": "138+ Verified Enterprise Client Deployments",
+          "accent": "#D91414",
+          "isBadge": true
+        }
+      ],
+      "count": "138+ Enterprise Deployments"
     },
     "mockup": {
       "metrics": [
-        { "label": "⚡ System Uptime", "value": "99.99%", "color": "green" },
-        { "label": "🚀 Legacy Migrations", "value": "12+", "color": "gold" },
-        { "label": "👨‍💻 Engineering Team", "value": "Senior Only", "color": "" },
-        { "label": "💰 Team Overhead", "value": "Zero", "color": "green" }
+        {
+          "label": "System Uptime",
+          "value": "99.99%",
+          "color": "green"
+        },
+        {
+          "label": "Legacy Migrations",
+          "value": "12+",
+          "color": "gold"
+        },
+        {
+          "label": "Senior Engineering Pod",
+          "value": "Senior Only",
+          "color": ""
+        },
+        {
+          "label": "Management Overhead",
+          "value": "Zero",
+          "color": "green"
+        }
       ],
       "cards": [
-        { "icon": "☁️", "label": "Cloud Migration", "value": "Complete ✓", "active": true },
-        { "icon": "🤖", "label": "AI Integration", "value": "Deploying", "active": false }
+        {
+          "icon": "\u2601\ufe0f",
+          "label": "Cloud Migration",
+          "value": "Complete \u2713",
+          "active": true
+        },
+        {
+          "icon": "\ud83e\udd16",
+          "label": "AI Integration",
+          "value": "Deploying",
+          "active": false
+        }
       ]
     }
   },
   "feature_pills": [
-    "✓ Cloud Migration",
-    "✓ AI Agent Systems",
-    "✓ Custom Platforms",
-    "✓ Data Engineering",
-    "✓ API Development",
-    "✓ Security & Compliance"
+    "\u2713 Cloud Migration",
+    "\u2713 AI Agent Systems",
+    "\u2713 Custom Platforms",
+    "\u2713 Data Engineering",
+    "\u2713 API Development",
+    "\u2713 Security & Compliance"
   ],
   "services": {
     "subtitle": "CAPABILITIES",
     "title": "What we deliver for enterprise",
     "items": [
       {
-        "icon": "🏗️",
+        "icon": "\ud83c\udfd7\ufe0f",
         "title": "Custom Enterprise Platforms",
-        "desc": "ERP modules, billing systems, and cross-departmental dashboards mapped to your internal workflows. Built to enforce your business rules natively — not force-fitted into a vendor's rigid schema that requires workarounds for every edge case."
+        "desc": "ERP modules, billing systems, and cross-departmental dashboards mapped to your internal workflows. Built to enforce your business rules natively \u2014 not force-fitted into a vendor's rigid schema that requires workarounds for every edge case."
       },
       {
-        "icon": "☁️",
+        "icon": "\u2601\ufe0f",
         "title": "Cloud Infrastructure & Migration",
         "desc": "Production-grade serverless architecture on AWS, GCP, or Azure with multi-region failover, automated scaling, and infrastructure-as-code. We migrate legacy on-prem systems without the 18-month timeline and seven-figure budget that big consultancies quote."
       },
       {
-        "icon": "🤖",
+        "icon": "\ud83e\udd16",
         "title": "AI Agents & Process Automation",
-        "desc": "Autonomous AI systems that reduce operational overhead at scale. Secure RAG pipelines connected to your internal knowledge base, LangChain agents for complex decision workflows, and voice AI for customer-facing operations — all deployed within your security perimeter."
+        "desc": "Autonomous AI systems that reduce operational overhead at scale. Secure RAG pipelines connected to your internal knowledge base, LangChain agents for complex decision workflows, and voice AI for customer-facing operations \u2014 all deployed within your security perimeter."
       },
       {
-        "icon": "📊",
+        "icon": "\ud83d\udcca",
         "title": "Data Engineering & BI",
-        "desc": "Turn fragmented data silos into a single source of truth. We architect ETL pipelines, integrate disparate BI systems, and build real-time dashboards that give your leadership team reliable, auditable data — not spreadsheets compiled the night before a board meeting."
+        "desc": "Turn fragmented data silos into a single source of truth. We architect ETL pipelines, integrate disparate BI systems, and build real-time dashboards that give your leadership team reliable, auditable data \u2014 not spreadsheets compiled the night before a board meeting."
       },
       {
-        "icon": "🔌",
+        "icon": "\ud83d\udd0c",
         "title": "API & Integration Layer",
         "desc": "Secure third-party integrations, payment gateways, legacy CRM connectors, and webhook orchestration. We connect your fragmented software ecosystem so data flows reliably between systems that were never designed to talk to each other."
       }
@@ -66,22 +119,37 @@
   },
   "industries": [
     {
-      "icon": "🏦",
+      "icon": "\ud83c\udfe6",
       "title": "Banking & Financial Services",
-      "desc": "High-security API layers, custom loan origination systems, and compliance-first data architecture for institutions where a breach or audit failure isn't just costly — it's existential.",
-      "features": ["Secure Architecture", "Legacy Integration", "Compliance Audit", "High Availability"]
+      "desc": "High-security API layers, custom loan origination systems, and compliance-first data architecture for institutions where a breach or audit failure isn't just costly \u2014 it's existential.",
+      "features": [
+        "Secure Architecture",
+        "Legacy Integration",
+        "Compliance Audit",
+        "High Availability"
+      ]
     },
     {
-      "icon": "📦",
+      "icon": "\ud83d\udce6",
       "title": "Logistics & Supply Chain",
       "desc": "End-to-end tracking systems, warehouse management dashboards, and automated routing logic for logistics networks where a 2% efficiency gain at scale translates to crores saved annually.",
-      "features": ["Fleet Tracking", "Inventory Sync", "Vendor Portals", "Automated Routing"]
+      "features": [
+        "Fleet Tracking",
+        "Inventory Sync",
+        "Vendor Portals",
+        "Automated Routing"
+      ]
     },
     {
-      "icon": "🏭",
+      "icon": "\ud83c\udfed",
       "title": "Manufacturing & Industrial",
       "desc": "IoT data aggregation, production line tracking, and enterprise-wide ERP synchronization for factories where downtime is measured in lakhs per hour and data integrity is non-negotiable.",
-      "features": ["IoT Integration", "ERP Sync", "Production Dashboards", "Quality Control"]
+      "features": [
+        "IoT Integration",
+        "ERP Sync",
+        "Production Dashboards",
+        "Quality Control"
+      ]
     }
   ],
   "compliance": {
@@ -108,7 +176,7 @@
   },
   "enterprise_cta": {
     "title": "Enterprise Inquiries",
-    "description": "For projects requiring formal procurement, NDA, or compliance review — reach out directly to our enterprise team.",
+    "description": "For projects requiring formal procurement, NDA, or compliance review \u2014 reach out directly to our enterprise team.",
     "email": "support@traiinc.com",
     "subject": "Enterprise Project Inquiry",
     "process": [
@@ -123,6 +191,6 @@
   "cta": {
     "title": "Ready for digital transformation?",
     "description": "Schedule a technical deep-dive with our senior engineering team. We'll analyze your current systems and deliver a complete architecture proposal within one week.",
-    "button_text": "📅 Request a Technical Scoping Call"
+    "button_text": "Request Technical Scoping"
   }
 }

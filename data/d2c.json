@@ -1,6 +1,6 @@
 {
   "hero": {
-    "badge": "⚡ ONDC CONNECTED • BHARAT D2C ACCELERATOR 2026",
+    "badge": "ONDC CONNECTED • BHARAT D2C ACCELERATOR 2026",
     "title": "Turn Your Local Retail Business Into a Pan-India D2C Powerhouse",
     "desc": "Launch your custom branded online store, sell across the nation-wide ONDC buyer network (10Cr+ buyers on Paytm, PhonePe & Magicpin), integrate 28,000+ pin-code logistics, and automate WhatsApp AI sales — with 0% marketplace commission.",
     "highlights": [
@@ -55,20 +55,20 @@
       "label": "Mobile Storefront Page Load"
     },
     {
-      "val": "\u20b910L+",
+      "val": "₹10L+",
       "label": "Avg Monthly Digital Scale"
     }
   ],
   "feature_pills": [
-    "\ud83d\ude80 1-Click Fast Store Launch",
-    "🚀 1-Click Fast Store Launch",
-    "🔄 Real-Time Offline POS & Stock Sync",
-    "🚚 28,000+ Pin Codes Multi-Courier Logistics",
-    "💬 Automated WhatsApp Cart Recovery",
-    "⚡ 1-Click UPI & Razorpay Checkout",
-    "🛡️ COD OTP Verification (RTO Shield)",
-    "🌐 ONDC Network & Marketplace Connect",
-    "📊 Unified Multi-Channel Analytics"
+    "1-Click Fast Store Launch",
+    "1-Click Fast Store Launch",
+    "Real-Time Offline POS & Stock Sync",
+    "28,000+ Pin Codes Multi-Courier Logistics",
+    "Automated WhatsApp Cart Recovery",
+    "1-Click UPI & Razorpay Checkout",
+    "COD OTP Verification (RTO Shield)",
+    "ONDC Network & Marketplace Connect",
+    "Unified Multi-Channel Analytics"
   ],
   "services": {
     "subtitle": "THE 4-PILLAR TRANSFORMATION STACK",
@@ -181,52 +181,110 @@
       {
         "name": "FASHION",
         "icon": "assets/d2c/categories/cat-tshirts.png",
-        "items": ["T-shirts", "Shirts", "Sarees", "Casual Shoes", "Jeans"]
+        "items": [
+          "T-shirts",
+          "Shirts",
+          "Sarees",
+          "Casual Shoes",
+          "Jeans"
+        ]
       },
       {
         "name": "GROCERY",
         "icon": "assets/d2c/categories/cat-pickles.png",
-        "items": ["Masala & Seasoning", "Oil & Ghee", "Tea and Coffee", "Snacks and Namkeen", "Snacks, Dry Fruits, Nuts"]
+        "items": [
+          "Masala & Seasoning",
+          "Oil & Ghee",
+          "Tea and Coffee",
+          "Snacks and Namkeen",
+          "Snacks, Dry Fruits, Nuts"
+        ]
       },
       {
         "name": "ELECTRONICS",
         "icon": "assets/d2c/categories/cat-smart-watches.png",
-        "items": ["Smart Watch", "Power Bank", "Earphone", "Charger", "Speaker"]
+        "items": [
+          "Smart Watch",
+          "Power Bank",
+          "Earphone",
+          "Charger",
+          "Speaker"
+        ]
       },
       {
         "name": "APPLIANCES",
         "icon": "assets/d2c/categories/cat-juicers.png",
-        "items": ["Air Cooler", "Induction Cooktop", "Juicer", "Electric Chimney", "Electric Air Fryer"]
+        "items": [
+          "Air Cooler",
+          "Induction Cooktop",
+          "Juicer",
+          "Electric Chimney",
+          "Electric Air Fryer"
+        ]
       },
       {
         "name": "BEAUTY & PERSONAL CARE",
         "icon": "assets/d2c/categories/cat-fragrances.png",
-        "items": ["Fragrance", "Shampoos and Conditioners", "Trimmer", "Soap & Gel", "Hair Care"]
+        "items": [
+          "Fragrance",
+          "Shampoos and Conditioners",
+          "Trimmer",
+          "Soap & Gel",
+          "Hair Care"
+        ]
       },
       {
         "name": "HOME & KITCHEN",
         "icon": "assets/d2c/categories/cat-home-kitchen.png",
-        "items": ["Furniture", "Pooja Needs", "Cookware", "Home Decor", "Bathroom and Kitchen fixtures"]
+        "items": [
+          "Furniture",
+          "Pooja Needs",
+          "Cookware",
+          "Home Decor",
+          "Bathroom and Kitchen fixtures"
+        ]
       },
       {
         "name": "HEALTH & WELLNESS",
         "icon": "assets/d2c/categories/cat-health-wellness.png",
-        "items": ["Ayurveda", "Feminine care", "Diabetes control", "Health Supplements", "Pain Relief"]
+        "items": [
+          "Ayurveda",
+          "Feminine care",
+          "Diabetes control",
+          "Health Supplements",
+          "Pain Relief"
+        ]
       },
       {
         "name": "AUTO COMPONENT",
         "icon": "assets/d2c/categories/cat-auto-components.png",
-        "items": ["Auto Parts", "Air Filter", "Oil Filter", "Brake oil", "Window Cleaning"]
+        "items": [
+          "Auto Parts",
+          "Air Filter",
+          "Oil Filter",
+          "Brake oil",
+          "Window Cleaning"
+        ]
       },
       {
         "name": "AGRI INPUT",
         "icon": "assets/d2c/categories/cat-agri-inputs.png",
-        "items": ["Seeds", "Pesticides", "Fertilizers", "Cattle Feed", "Organic Crop Protection"]
+        "items": [
+          "Seeds",
+          "Pesticides",
+          "Fertilizers",
+          "Cattle Feed",
+          "Organic Crop Protection"
+        ]
       },
       {
         "name": "VEHICLE & AUTOMOTIVE",
         "icon": "assets/d2c/categories/cat-vehicles-ev.png",
-        "items": ["Electric Scooter", "Cycle", "EV Accessories & Parts"]
+        "items": [
+          "Electric Scooter",
+          "Cycle",
+          "EV Accessories & Parts"
+        ]
       }
     ]
   },
@@ -339,10 +397,10 @@
     "subtitle": "THE TRANSFORMATION",
     "title": "Offline Limitations vs Pan-India D2C Scale",
     "old_way": {
-      "title": "\ud83c\udfea Traditional Offline Store",
+      "title": "Traditional Offline Store",
       "items": [
         "Restricted to local 5km foot traffic and walk-ins",
-        "Shop closes at 9 PM \u2014 zero sales while you sleep",
+        "Shop closes at 9 PM — zero sales while you sleep",
         "Manual handwritten bills or disconnected local POS",
         "High customer acquisition cost with zero repeat retention",
         "Manual parcel packaging and counter courier queues",
@@ -350,7 +408,7 @@
       ]
     },
     "new_way": {
-      "title": "\ud83d\ude80 Trai Inc D2C Engine",
+      "title": "Trai Inc D2C Engine",
       "items": [
         "Reach 28,000+ pin codes and millions of buyers nationwide",
         "24/7 online orders + automated WhatsApp AI sales assistant",
@@ -363,11 +421,11 @@
   },
   "pricing": {
     "subtitle": "TRANSPARENT LAUNCH PACKAGES",
-    "title": "Fixed investment. Zero hidden costs. Rapid turnaround.",
+    "title": "Transparent milestone investment. Zero hidden costs. Rapid turnaround.",
     "packages": [
       {
         "name": "D2C Starter Launchpad",
-        "price": "\u20b935,000",
+        "price": "₹35,000",
         "period": "one-time setup",
         "desc": "Perfect for offline stores launching their first e-commerce presence with automated courier delivery.",
         "features": [
@@ -382,7 +440,7 @@
       },
       {
         "name": "D2C Growth Engine",
-        "price": "\u20b975,000",
+        "price": "₹75,000",
         "period": "one-time setup",
         "desc": "Full omnichannel transformation with physical store POS sync, WhatsApp AI commerce, and RTO shield.",
         "features": [
@@ -398,7 +456,7 @@
       },
       {
         "name": "Enterprise D2C Platform",
-        "price": "\u20b91,50,000+",
+        "price": "₹1,50,000+",
         "period": "custom quote",
         "desc": "Headless enterprise architecture, multi-warehouse ERP, and ONDC network marketplace connectivity.",
         "features": [
@@ -418,7 +476,7 @@
     "title": "Calculate Your Store Launch Investment",
     "desc": "Select your business requirements and get an instant, transparent quote for your digital transformation.",
     "bullets": [
-      "Fixed, transparent pricing with milestone payments",
+      "Milestone-driven, transparent scope with delivery-tied payments",
       "Full source code and store ownership transferred to you",
       "Includes payment gateway and shipping setup",
       "30 days free post-launch support and training"
@@ -426,15 +484,15 @@
     "options": [
       {
         "value": 35000,
-        "label": "Starter D2C Online Store (\u20b935K)"
+        "label": "Starter D2C Online Store (₹35K)"
       },
       {
         "value": 75000,
-        "label": "D2C Growth Engine + POS Sync + WhatsApp (\u20b975K)"
+        "label": "D2C Growth Engine + POS Sync + WhatsApp (₹75K)"
       },
       {
         "value": 150000,
-        "label": "Enterprise Headless D2C + ONDC Connect (\u20b91.5L+)"
+        "label": "Enterprise Headless D2C + ONDC Connect (₹1.5L+)"
       }
     ]
   }

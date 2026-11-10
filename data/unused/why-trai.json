@@ -31,8 +31,8 @@
       },
       {
         "icon": "💰",
-        "title": "Fixed-Price Transparency",
-        "desc": "Every project is scoped upfront with a fixed price. No hourly billing, no surprise invoices, no scope creep negotiations."
+        "title": "Milestone Delivery Transparency",
+        "desc": "Every project is scoped upfront with guaranteed sprint milestones. No hourly billing, no surprise invoices, no scope creep negotiations."
       },
       {
         "icon": "🔒",
@@ -43,7 +43,7 @@
   },
   "cta": {
     "title": "Ready to Experience the Difference?",
-    "description": "Tell us about your project. Our team will scope it and deliver a fixed-price proposal within 48 hours.",
+    "description": "Tell us about your project. Our team will scope it and deliver a architectural delivery proposal within 48 hours.",
     "button_text": "Book a Free Consultation"
   }
 }

@@ -1,7 +1,7 @@
 {
   "ai-automation": {
     "title": "Automate execution.<br>Scale <span class=\"gradient-word\">distribution.</span>",
-    "badge": "🤖 AI & Operations",
+    "badge": "AI & Operations",
     "subtitle": "Stop burning capital on redundant tasks. We deploy custom LLMs and AI agents that handle back-office workflows, so you can reinvest your resources into audience building and trust — starting from ₹2L.",
     "icon": "🤖",
     "color": "#a18cd1",
@@ -148,7 +148,7 @@
           "desc": "We aren't just AI researchers; we are business engineers. We only deploy models where they drastically reduce your OPEX."
         },
         {
-          "title": "Fixed Price, ₹2L Base",
+          "title": "Milestone-Driven Sprints, ₹2L Base",
           "desc": "You get a written scope and an exact Rupee price before development. No open-ended consulting fees or vague AI promises."
         },
         {
@@ -296,7 +296,7 @@
   },
   "cloud-devops": {
     "title": "Scalable Infrastructure.<br>Zero <span class='gradient-word'>Downtime.</span>",
-    "badge": "☁️ Core Engineering",
+    "badge": "Core Engineering",
     "subtitle": "AWS, Azure, and GCP migrations. We build resilient, auto-scaling cloud architectures and CI/CD pipelines that let your team ship code faster.",
     "icon": "☁️",
     "color": "#00f2fe",
@@ -581,7 +581,7 @@
   },
   "custom-software": {
     "title": "Scale operations. <br>Without scaling <span class='gradient-word'>headcount.</span>",
-    "badge": "🏗️ Core Engineering",
+    "badge": "Core Engineering",
     "subtitle": "Full-cycle product engineering. We architect and build premium software solutions designed for growth, replacing manual processes with automated systems that drive your bottom line.",
     "icon": "🏗️",
     "color": "#43e97b",
@@ -809,7 +809,7 @@
     ],
     "cta": {
       "title": "Ready to scale your infrastructure?",
-      "description": "Book a scoping call. We'll turn your requirements into a fixed-price technical proposal within 48 hours.",
+      "description": "Book a scoping call. We'll turn your requirements into a architectural technical proposal within 48 hours.",
       "button_text": "Book a Consultation"
     },
     "hero_image": "assets/images/services/custom_software_hero.png",
@@ -885,8 +885,8 @@
           "desc": "We design system architecture before writing a single line of code. Scalable from day one, not retrofitted later."
         },
         {
-          "title": "Fixed Price, Agile Flow",
-          "desc": "You get a fixed quote with milestone payments. No scope creep. Weekly demos keep progress transparent."
+          "title": "Milestone Sprints, Agile Flow",
+          "desc": "You get a transparent milestone scope with delivery-tied payments. No scope creep. Weekly demos keep progress transparent."
         },
         {
           "title": "Performance Obsessed",
@@ -953,7 +953,7 @@
   },
   "cybersecurity": {
     "title": "Zero trust.<br>Total <span class='gradient-word'>protection.</span>",
-    "badge": "🔒 Core Engineering",
+    "badge": "Core Engineering",
     "subtitle": "SOC2 and GDPR compliant architectures. We secure your infrastructure, audit codebases, and implement enterprise-grade security protocols.",
     "icon": "🔒",
     "color": "#fa709a",
@@ -1020,7 +1020,7 @@
   },
   "data-analytics": {
     "title": "Turn data into<br>actionable <span class='gradient-word'>insight.</span>",
-    "badge": "📊 Data & Intelligence",
+    "badge": "Data & Intelligence",
     "subtitle": "Data pipelines, real-time dashboards, and Business Intelligence setups that help you make informed decisions instantly.",
     "icon": "📊",
     "color": "#30cfd0",
@@ -1266,7 +1266,7 @@
   },
   "digital-marketing": {
     "title": "Data-driven ROI.<br>Predictable <span class='gradient-word'>revenue.</span>",
-    "badge": "📈 Creative & Growth",
+    "badge": "Creative & Growth",
     "subtitle": "SEO, PPC, and social media campaigns engineered for measurable returns. We turn traffic into actual business.",
     "icon": "📈",
     "color": "#f093fb",
@@ -1549,7 +1549,7 @@
   },
   "enterprise-platforms": {
     "title": "Complex workflows.<br>Unified <span class='gradient-word'>systems.</span>",
-    "badge": "⚙️ Data & Intelligence",
+    "badge": "Data & Intelligence",
     "subtitle": "Custom CRM, ERP, and HRMS solutions tailored exactly to your operational needs without the SaaS subscription bloat.",
     "icon": "⚙️",
     "color": "#a1c4fd",
@@ -1877,7 +1877,7 @@
   },
   "lead-gen-scraping": {
     "title": "Automated growth.<br>Targeted <span class='gradient-word'>leads.</span>",
-    "badge": "🕷️ Data & Intelligence",
+    "badge": "Data & Intelligence",
     "subtitle": "Automated data extraction and CRM population systems that fill your sales pipeline with high-quality prospects.",
     "icon": "🕷️",
     "color": "#cfd9df",
@@ -1944,7 +1944,7 @@
   },
   "mobile-apps": {
     "title": "High-Performance Apps.<br>Zero <span class='gradient-word'>Friction.</span>",
-    "badge": "📱 Mobile Engineering",
+    "badge": "Mobile Engineering",
     "subtitle": "Your customers spend 5 hours a day on their phones. We build iOS and Android apps that convert strangers into high-trust users through repeated exposure — starting from ₹1.5L.",
     "icon": "📱",
     "color": "#84fab0",
@@ -2101,7 +2101,7 @@
           "desc": "We recommend Flutter to cut costs and timelines, allowing Indian MSMEs to launch on both platforms without bleeding venture capital."
         },
         {
-          "title": "Fixed Price, ₹1.5L Base",
+          "title": "Milestone-Driven Sprints, ₹1.5L Base",
           "desc": "You get a written scope and an exact Rupee price before development. No hourly billing, no scope-creep, no surprises."
         },
         {
@@ -2262,7 +2262,7 @@
   },
   "motion-video": {
     "title": "Explainers that<br>actually <span class='gradient-word'>explain.</span>",
-    "badge": "🎬 Creative & Growth",
+    "badge": "Creative & Growth",
     "subtitle": "High-quality animations and video content that break down complex products into digestible, engaging stories.",
     "icon": "🎥",
     "color": "#ff0844",
@@ -2329,7 +2329,7 @@
   },
   "ui-ux-design": {
     "title": "Experiences that<br>drive <span class='gradient-word'>conversion.</span>",
-    "badge": "🎨 Creative & Growth",
+    "badge": "Creative & Growth",
     "subtitle": "Figma prototypes, branding, and user-centric interfaces designed to look premium and perform flawlessly.",
     "icon": "🎨",
     "color": "#a6c0fe",
@@ -2571,7 +2571,7 @@
   },
   "web-development": {
     "title": "Blazing fast.<br>Highly <span class='gradient-word'>scalable.</span>",
-    "badge": "💻 Core Engineering",
+    "badge": "Core Engineering",
     "subtitle": "React, Next.js, and full-stack web platforms built for speed, SEO, and flawless user experiences.",
     "icon": "🌐",
     "color": "#13547a",
@@ -2700,7 +2700,7 @@
     ],
     "cta": {
       "title": "Ready for a website that's actually fast?",
-      "description": "Book a scoping call. We'll turn your requirements into a fixed-price technical proposal within 48 hours.",
+      "description": "Book a scoping call. We'll turn your requirements into a architectural technical proposal within 48 hours.",
       "button_text": "Book a Consultation"
     },
     "hero_image": "assets/images/services/web_development_hero.png",
@@ -2844,7 +2844,7 @@
   },
   "workflow-automation": {
     "title": "Connect everything.<br>Automate <span class='gradient-word'>anything.</span>",
-    "badge": "⚡ Creative & Growth",
+    "badge": "Creative & Growth",
     "subtitle": "n8n, Zapier, and Make integrations that tie your software stack together to eliminate manual data entry forever.",
     "icon": "⚡",
     "color": "#fccb90",
@@ -2911,7 +2911,7 @@
   },
   "flutter-app-development": {
     "title": "Cross-platform mobile apps.<br>Built with <span class='gradient-word'>Flutter.</span>",
-    "badge": "📱 Mobile Engineering",
+    "badge": "Mobile Engineering",
     "subtitle": "Native performance on iOS and Android from a single codebase. We build scalable, beautiful mobile applications for MSMEs and growing startups.",
     "icon": "📱",
     "color": "#00f2fe",
@@ -2972,7 +2972,7 @@
   },
   "ecommerce-development": {
     "title": "High-converting storefronts.<br>Powered by <span class='gradient-word'>Shopify & WooCommerce.</span>",
-    "badge": "🛍️ Digital Commerce",
+    "badge": "Digital Commerce",
     "subtitle": "Custom e-commerce development that drives sales. We build blazing fast, conversion-optimized stores tailored to your brand.",
     "icon": "🛒",
     "color": "#f093fb",
@@ -3039,7 +3039,7 @@
   },
   "custom-crm-development": {
     "title": "Total data control.<br>Bespoke <span class='gradient-word'>CRMs.</span>",
-    "badge": "📊 Internal Tools",
+    "badge": "Internal Tools",
     "subtitle": "Stop paying per-seat licenses for bloated SaaS. We build custom CRMs and internal dashboards perfectly fitted to your exact workflows.",
     "icon": "📈",
     "color": "#4facfe",
@@ -3106,7 +3106,7 @@
   },
   "wordpress-cms-development": {
     "title": "Content at scale.<br>Custom <span class='gradient-word'>WordPress.</span>",
-    "badge": "📝 Web Engineering",
+    "badge": "Web Engineering",
     "subtitle": "High-performance WordPress and CMS development. We build secure, easy-to-manage, and SEO-optimized corporate websites.",
     "icon": "🌐",
     "color": "#fa709a",
@@ -3173,7 +3173,7 @@
   },
   "content-creation": {
     "title": "AI Content <span class='gradient-word'>Generation.</span>",
-    "badge": "🎨 Creative Services",
+    "badge": "Creative Services",
     "subtitle": "High-quality audio, video, text, and graphics at scale using advanced AI.",
     "icon": "🎨",
     "color": "#a18cd1",
