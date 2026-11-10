@@ -572,21 +572,51 @@
             <div class="container footer-offices-container">
                 <div class="footer-offices-header">
                     <div class="footer-offices-title-group">
-                        <span class="footer-offices-kicker">Global Headquarters</span>
-                        <h4 class="footer-offices-heading">Center of Software &amp; AI Engineering</h4>
+                        <span class="footer-offices-kicker">Global Footprint</span>
+                        <h4 class="footer-offices-heading">Our Registered &amp; Regional Offices</h4>
                     </div>
-                    <span class="footer-offices-tagline">Architecting and deploying production systems for clients across India, North America, and EMEA</span>
+                    <span class="footer-offices-tagline">Serving clients across India, Africa, North America &amp; Global Markets</span>
                 </div>
-                <div class="footer-offices-grid footer-offices-grid--hq" data-cms-section="offices">
-                    <div class="footer-office-card footer-office-card--hq">
+                <div class="footer-offices-grid" data-cms-section="offices">
+                    <div class="footer-office-card">
                         <div class="footer-office-card-head">
-                            <span class="footer-office-flag">📍</span>
+                            <span class="footer-office-flag">🇮🇳</span>
                             <div>
-                                <strong class="footer-office-city">Lucknow, India · Global Headquarters</strong>
-                                <span class="footer-office-type">DLF MyPad Center of Engineering Excellence</span>
+                                <strong class="footer-office-city">Lucknow, India</strong>
+                                <span class="footer-office-type">Global Headquarters</span>
                             </div>
                         </div>
                         <p class="footer-office-address">B-2, 11th Floor, DLF MyPad, Opposite Hyatt Regency, Vibhuti Khand, Gomti Nagar, Lucknow, Uttar Pradesh 226010</p>
+                    </div>
+                    <div class="footer-office-card">
+                        <div class="footer-office-card-head">
+                            <span class="footer-office-flag">🇮🇳</span>
+                            <div>
+                                <strong class="footer-office-city">Bengaluru, India</strong>
+                                <span class="footer-office-type">Technology &amp; Engineering Hub</span>
+                            </div>
+                        </div>
+                        <p class="footer-office-address">660, 2nd Floor, 100 Feet Road, Indiranagar, Bengaluru, Karnataka 560038</p>
+                    </div>
+                    <div class="footer-office-card">
+                        <div class="footer-office-card-head">
+                            <span class="footer-office-flag">🇿🇦</span>
+                            <div>
+                                <strong class="footer-office-city">Cape Town, South Africa</strong>
+                                <span class="footer-office-type">Africa Regional Hub</span>
+                            </div>
+                        </div>
+                        <p class="footer-office-address">WeWork, 80 Strand Street, Cape Town City Centre, Cape Town, Western Cape 8001</p>
+                    </div>
+                    <div class="footer-office-card">
+                        <div class="footer-office-card-head">
+                            <span class="footer-office-flag">🇿🇲</span>
+                            <div>
+                                <strong class="footer-office-city">Lusaka, Zambia</strong>
+                                <span class="footer-office-type">Regional Delivery Office</span>
+                            </div>
+                        </div>
+                        <p class="footer-office-address">Green Park Estate, Off Kafue Road, Lilayi, Lusaka 10101, Zambia</p>
                     </div>
                 </div>
             </div>

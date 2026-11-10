@@ -415,10 +415,28 @@ function collectEntries() {
       },
       offices: [
         {
-          city: 'Lucknow, India · Global Headquarters',
-          type: 'DLF MyPad Center of Engineering Excellence',
-          flag: '📍',
+          city: 'Lucknow, India',
+          type: 'Global Headquarters',
+          flag: '🇮🇳',
           address: 'B-2, 11th Floor, DLF MyPad, Opposite Hyatt Regency, Vibhuti Khand, Gomti Nagar, Lucknow, Uttar Pradesh 226010'
+        },
+        {
+          city: 'Bengaluru, India',
+          type: 'Technology & Engineering Hub',
+          flag: '🇮🇳',
+          address: '660, 2nd Floor, 100 Feet Road, Indiranagar, Bengaluru, Karnataka 560038'
+        },
+        {
+          city: 'Cape Town, South Africa',
+          type: 'Africa Regional Hub',
+          flag: '🇿🇦',
+          address: 'WeWork, 80 Strand Street, Cape Town City Centre, Cape Town, Western Cape 8001'
+        },
+        {
+          city: 'Lusaka, Zambia',
+          type: 'Regional Delivery Office',
+          flag: '🇿🇲',
+          address: 'Green Park Estate, Off Kafue Road, Lilayi, Lusaka 10101, Zambia'
         }
       ],
       social: {
