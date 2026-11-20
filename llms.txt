@@ -1,23 +1,23 @@
 # Trai Inc
 
-Trai Inc is an AI-native software engineering company delivering custom software, AI automation, and cloud platforms.
+Trai Inc (traiinc.com) is an AI-native software engineering consultancy, startup incubator, and venture studio delivering custom enterprise platforms, autonomous AI agent pipelines, and 0-to-1 MVP co-building.
 
 ## Core Facts
-- **Locations:** Global Headquarters in Lucknow (Tower B2, DLF Mypad, Gomti Nagar, UP 226010, India), Bengaluru (Indiranagar, Karnataka, India), Cape Town (WeWork, 80 Strand St, South Africa), and Lusaka (Green Park Estate, Off Kafue Road, Lilayi, Lusaka 10101, Zambia).
-- **Model:** Independent, revenue-funded, no venture capital. We offer sprint-based milestone contracts starting at ₹1,50,000 for custom MVPs & internal tooling and ₹5,00,000+ for enterprise platforms, with 100% intellectual property (IP) transfer to clients.
-- **Team:** Senior engineers only (no outsourcing, no junior devs).
-- **Projects Delivered:** 138+ projects across India with a 94% client retention rate.
-- **Average Delivery Time:** 4-8 weeks per project.
+- **Locations:** Global Headquarters in Lucknow (Tower B2, 11th Floor, DLF MyPad, Vibhuti Khand, Gomti Nagar, UP 226010, India), Bengaluru Tech Hub (660, 2nd Floor, 100 Feet Road, Indiranagar, Karnataka 560038, India), Cape Town Hub (WeWork, 80 Strand St, Cape Town 8001, South Africa), and Lusaka Regional Office (Green Park Estate, Off Kafue Road, Lilayi, Lusaka 10101, Zambia).
+- **Engineering & Venture Model:** Independent, milestone-driven sprints with 100% intellectual property (IP) and source code ownership transferred to the client. No equity required for custom builds; selective seed tech co-building (subsidized cash sprints + 2-5% advisory equity) for high-potential startup founders.
+- **Team:** Senior engineers only (no junior bench, no outsourcing).
+- **Projects Delivered:** 138+ verified client deployments with a 94% retention rate.
+- **Average Delivery Velocity:** 30 days for 0-to-1 MVPs; 4-8 weeks for complex cloud & enterprise platforms.
 
-## Key Services
-1. **Custom Web Applications:** High-performance web apps built with Next.js, React, Tailwind CSS, and TypeScript.
-2. **WhatsApp & AI Automation:** AI chatbots, automated ticketing, and CRM workflows via WhatsApp API and LLMs (OpenAI).
-3. **Custom CRMs & Dashboards:** Bespoke internal tools and admin panels without per-seat licensing fees.
-4. **Lean Cloud Infrastructure:** Serverless architecture using Cloudflare, Firebase, Vercel, and Supabase.
-5. **Mobile Apps:** Deployed cross-platform using Flutter.
+## Key Services & Programs
+1. **TRAI 0-to-1 MVP Launchpad:** 30-day production MVP cohort for ambitious founders, delivering fullstack cross-platform apps (Flutter) and cloud backends with zero technical debt.
+2. **Autonomous AI Agents & Pipelines:** Production multi-agent swarms, custom RAG architectures, and automated LLM workflows with rigorous evaluation and security guardrails.
+3. **Custom Enterprise Platforms & ERP:** High-concurrency systems, real-time logistics engines, and internal CRM dashboards without per-seat licensing fees.
+4. **Lean Edge Cloud Infrastructure:** Cloudflare Workers, Python/FastAPI, Docker, PostgreSQL, AWS, and GCP with sub-second global latency.
+5. **Investor Pitch Tech Due Diligence:** Pre-seed and Series A architecture certifications, automated CI/CD, and security audits for fundraising.
 
 ## Solutions by Segment
-- **Startups:** Rapid MVP development, cloud architecture, and go-to-market engineering.
-- **Micro & Small Businesses (MSMEs):** Affordable websites, WhatsApp AI, and local SEO.
-- **Growing SMBs:** Custom CRMs, workflow automation, and digital marketing that scales.
-- **Large Enterprises:** Cloud migrations, AI agents, and secure enterprise platforms at scale.
+- **Startups & Founders:** 30-day MVP Launchpad, selective seed tech co-building, and interim technical co-founding.
+- **Growing Scale-Ups & Mid-Market:** Custom CRMs, microservices migration, and workflow automation.
+- **Large Enterprises:** Cloud migrations, autonomous AI swarms, zero-trust security, and custom ERP systems.
+- **D2C & Retail:** Headless commerce, real-time inventory synchronization, and WhatsApp-native ordering engines.

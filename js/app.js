@@ -785,6 +785,55 @@ document.addEventListener('click', (e) => {
     if (ctaEl) ctaEl.setAttribute('href', 'contact.html?scope=' + encodeURIComponent(activeScope.dataset.scope || 'mvp') + '&scale=' + encodeURIComponent(scale));
 });
 
+document.addEventListener('click', (e) => {
+    const opt = e.target.closest('.wizard-opt');
+    if (!opt) return;
+    const group = opt.closest('.wizard-options');
+    if (!group) return;
+    group.querySelectorAll('.wizard-opt').forEach(b => b.classList.remove('active'));
+    opt.classList.add('active');
+
+    const activeStage = document.querySelector('[data-wizard-group="stage"] .wizard-opt.active');
+    const activeModel = document.querySelector('[data-wizard-group="model"] .wizard-opt.active');
+    const activeTech = document.querySelector('[data-wizard-group="tech"] .wizard-opt.active');
+    if (!activeStage || !activeModel || !activeTech) return;
+
+    const weeks = activeStage.dataset.weeks || '4 Weeks';
+    const pod = activeStage.dataset.pod || '1 Lead Architect + 1 Senior';
+    const tier = activeStage.dataset.tier || '0-to-1 MVP Launchpad';
+    const modelText = activeModel.dataset.modelLabel || 'Milestone Sprints (100% IP Ownership, 0% Equity)';
+    const model = activeModel.dataset.model || 'cash';
+    const stage = activeStage.dataset.stage || 'idea';
+    const tech = activeTech.dataset.tech || 'mobile';
+
+    const weeksEl = document.getElementById('wizard-weeks');
+    const podEl = document.getElementById('wizard-pod');
+    const titleEl = document.getElementById('wizard-program-title');
+    const descEl = document.getElementById('wizard-program-desc');
+    const modelEl = document.getElementById('wizard-model-text');
+    const badgeEl = document.getElementById('wizard-badge');
+    const ctaEl = document.getElementById('wizard-cta');
+
+    if (weeksEl) weeksEl.textContent = weeks;
+    if (podEl) podEl.textContent = pod;
+    if (titleEl) titleEl.textContent = tier;
+    if (modelEl) modelEl.textContent = modelText;
+    
+    if (descEl) {
+        if (model === 'hybrid') {
+            descEl.textContent = 'Selective technical co-founding track with subsidized cash sprints and aligned advisory equity.';
+            if (badgeEl) badgeEl.textContent = 'Co-Builder Track';
+        } else {
+            descEl.textContent = 'Venture-ready fullstack deployment in 4 weekly milestone sprints with 100% IP ownership.';
+            if (badgeEl) badgeEl.textContent = 'Fast-Track';
+        }
+    }
+
+    if (ctaEl) {
+        ctaEl.setAttribute('href', 'contact.html?track=' + encodeURIComponent(tier) + '&stage=' + encodeURIComponent(stage) + '&model=' + encodeURIComponent(model) + '&tech=' + encodeURIComponent(tech));
+    }
+});
+
 function renderHome(data) {
     const hero = data.hero || {};
     const un = data.un_agency || {};
@@ -2207,6 +2256,85 @@ function renderAudiencePage(data) {
         `;
     }
 
+    let incubationWizardHtml = '';
+    if (data.incubation_wizard && data.incubation_wizard.enabled) {
+        incubationWizardHtml = `
+        <!-- INCUBATION WIZARD -->
+        <section class="container fade-in content-section" id="incubation-wizard">
+            <div class="biz-cta" style="text-align: left; background: var(--bg-card); border: 1px solid var(--border-light); padding: 36px 32px; border-radius: 20px; box-shadow: var(--shadow-md);">
+                <div class="section-header" style="text-align: left; margin-bottom: 24px;">
+                    <div class="msme-badge" style="display:inline-block; margin-bottom: 8px;">COHORT 2026 • ADMISSIONS OPEN</div>
+                    <h2 style="font-size: 28px; font-weight: 800; margin-bottom: 8px;">Check Incubation & MVP Eligibility</h2>
+                    <p style="color: var(--text-muted); font-size: 15px; margin: 0;">Select your startup stage and technical requirements to calculate your sprint timeline, pod composition, and apply for the cohort.</p>
+                </div>
+                
+                <div class="incubation-wizard-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+                    <!-- Left Controls -->
+                    <div class="wizard-controls">
+                        <div style="margin-bottom: 16px;">
+                            <label style="display: block; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent-color); margin-bottom: 8px;">1. Current Startup Stage</label>
+                            <div class="wizard-options" data-wizard-group="stage" style="display: flex; flex-wrap: wrap; gap: 8px;">
+                                <button type="button" class="wizard-opt active" data-stage="idea" data-weeks="4 Weeks" data-pod="1 Lead Architect + 1 Fullstack Engineer" data-tier="0-to-1 MVP Launchpad" style="padding: 8px 14px; font-size: 13px; border-radius: 8px; border: 1px solid var(--border-light); background: var(--bg-card); color: var(--text-main); cursor: pointer; font-weight: 500;">💡 Concept / Wireframe</button>
+                                <button type="button" class="wizard-opt" data-stage="prototype" data-weeks="3 Weeks" data-pod="1 Senior Fullstack + 1 Mobile Lead" data-tier="Rapid MVP Acceleration" style="padding: 8px 14px; font-size: 13px; border-radius: 8px; border: 1px solid var(--border-light); background: var(--bg-card); color: var(--text-main); cursor: pointer; font-weight: 500;">⚡ Working Prototype</button>
+                                <button type="button" class="wizard-opt" data-stage="funded" data-weeks="4–6 Weeks" data-pod="Dedicated 3-Person Senior Pod" data-tier="Seed Scale & Architecture" style="padding: 8px 14px; font-size: 13px; border-radius: 8px; border: 1px solid var(--border-light); background: var(--bg-card); color: var(--text-main); cursor: pointer; font-weight: 500;">🚀 Seed / Pre-Series A</button>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 16px;">
+                            <label style="display: block; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent-color); margin-bottom: 8px;">2. Partnership Model Preference</label>
+                            <div class="wizard-options" data-wizard-group="model" style="display: flex; flex-wrap: wrap; gap: 8px;">
+                                <button type="button" class="wizard-opt active" data-model="cash" data-model-label="Milestone Sprints (100% IP Ownership, 0% Equity)" style="padding: 8px 14px; font-size: 13px; border-radius: 8px; border: 1px solid var(--border-light); background: var(--bg-card); color: var(--text-main); cursor: pointer; font-weight: 500;">💰 Milestone Sprints (No Equity)</button>
+                                <button type="button" class="wizard-opt" data-model="hybrid" data-model-label="Selective Co-Building (Subsidized Cash + 2-5% Equity)" style="padding: 8px 14px; font-size: 13px; border-radius: 8px; border: 1px solid var(--border-light); background: var(--bg-card); color: var(--text-main); cursor: pointer; font-weight: 500;">🤝 Tech-for-Equity / Co-Builder</button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label style="display: block; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent-color); margin-bottom: 8px;">3. Primary Tech Architecture</label>
+                            <div class="wizard-options" data-wizard-group="tech" style="display: flex; flex-wrap: wrap; gap: 8px;">
+                                <button type="button" class="wizard-opt active" data-tech="mobile" style="padding: 8px 14px; font-size: 13px; border-radius: 8px; border: 1px solid var(--border-light); background: var(--bg-card); color: var(--text-main); cursor: pointer; font-weight: 500;">📱 Flutter Mobile App (iOS & Android)</button>
+                                <button type="button" class="wizard-opt" data-tech="ai" style="padding: 8px 14px; font-size: 13px; border-radius: 8px; border: 1px solid var(--border-light); background: var(--bg-card); color: var(--text-main); cursor: pointer; font-weight: 500;">🤖 Autonomous AI Agents / LLM App</button>
+                                <button type="button" class="wizard-opt" data-tech="saas" style="padding: 8px 14px; font-size: 13px; border-radius: 8px; border: 1px solid var(--border-light); background: var(--bg-card); color: var(--text-main); cursor: pointer; font-weight: 500;">🌐 Next.js SaaS Web Platform</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Output Card -->
+                    <div class="wizard-summary-card" style="background: var(--bg-body); border: 1px solid var(--border-light); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 1px solid var(--border-light); padding-bottom: 12px;">
+                                <span style="font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--accent-color);">Recommended Cohort Track</span>
+                                <span id="wizard-badge" style="font-size: 11px; background: rgba(217, 20, 20, 0.1); color: var(--accent-color); padding: 4px 8px; border-radius: 6px; font-weight: 600;">Fast-Track</span>
+                            </div>
+                            <h3 id="wizard-program-title" style="font-size: 20px; font-weight: 800; margin-bottom: 8px; color: var(--text-main);">0-to-1 MVP Launchpad</h3>
+                            <p id="wizard-program-desc" style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px; line-height: 1.5;">Venture-ready fullstack deployment in 4 weekly milestone sprints with 100% IP ownership.</p>
+                            
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;">
+                                <div style="background: var(--bg-card); padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border-light);">
+                                    <div style="font-size: 11px; color: var(--text-muted);">Launch Timeline</div>
+                                    <div id="wizard-weeks" style="font-size: 15px; font-weight: 700; color: var(--text-main);">4 Weeks</div>
+                                </div>
+                                <div style="background: var(--bg-card); padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border-light);">
+                                    <div style="font-size: 11px; color: var(--text-muted);">Assigned Pod</div>
+                                    <div id="wizard-pod" style="font-size: 12px; font-weight: 700; color: var(--text-main);">1 Lead + 1 Fullstack</div>
+                                </div>
+                            </div>
+                            
+                            <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 8px;">
+                                <span style="color: #10b981; font-weight: 700;">✔</span> <span id="wizard-model-text">Milestone Sprints (100% IP Ownership, 0% Equity)</span>
+                            </div>
+                            <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 16px;">
+                                <span style="color: #10b981; font-weight: 700;">✔</span> Investor Pitch Technical Due Diligence Included
+                            </div>
+                        </div>
+
+                        <a id="wizard-cta" href="contact.html?track=0-to-1%20MVP%20Launchpad&stage=idea&model=cash&tech=mobile" class="btn-primary" style="text-align: center; justify-content: center; width: 100%; padding: 12px 20px; font-size: 14px; font-weight: 700; border-radius: 8px;">Apply for This Cohort →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        `;
+    }
+
     return `
         <!-- HERO -->
         <section class="msme-hero">
@@ -2255,6 +2383,8 @@ function renderAudiencePage(data) {
                 ${feature_pills.map(pill => `<div class="feature-pill">${pill}</div>`).join('')}
             </div>
         </section>
+
+        ${incubationWizardHtml}
 
         <!-- PROOF -->
         ${proofHtml}

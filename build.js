@@ -42,7 +42,7 @@ function copyDirectory(src, dest, isRoot) {
 console.log("Copying static assets to dist...");
 copyDirectory(rootDir, distDir, true);
 
-['robots.txt', '_redirects'].forEach(file => {
+['robots.txt', '_redirects', 'llms.txt', 'llms-full.txt'].forEach(file => {
     if (fs.existsSync(path.join(rootDir, file))) {
         fs.copyFileSync(path.join(rootDir, file), path.join(distDir, file));
     }

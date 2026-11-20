@@ -1,9 +1,9 @@
 {
   "hero": {
-    "page_label": "From Idea to MVP in Weeks",
-    "title": "Stop refining the pitch deck<br>Start shipping <em class=\"hero-cosmos-ai\">product</em>",
-    "subtitle": "We build MVPs, mobile apps, and cloud platforms for early-stage startups \u2014 milestone-driven delivery, no equity, AI-augmented speed. Production MVP builds typically run \u20b91.5L-\u20b93L with guaranteed deliverables quoted upfront \u2014 not a quote-only mystery.",
-    "cta_text": "Book a Call",
+    "page_label": "TRAI INC • VENTURE STUDIO & INCUBATOR",
+    "title": "We Co-Build, Fund & Launch <em class=\"hero-cosmos-ai\">Venture-Ready MVPs</em> in 30 Days.",
+    "subtitle": "We act as your technical co-founder. Dedicated senior engineering pods, 30-day MVP cohorts, selective seed tech co-building, and 100% full IP ownership — zero agency fluff and zero technical debt.",
+    "cta_text": "Apply for Incubation →",
     "accent_colors": {
       "primary": "#96fbc4",
       "secondary": "#f9f586"
@@ -12,12 +12,12 @@
       "avatars": [
         {
           "initials": "BM",
-          "name": "Bhu Master (Agritech & Land Registry)",
+          "name": "Bhu Master (50k+ Daily Users)",
           "accent": "#4f46e5"
         },
         {
           "initials": "DP",
-          "name": "Dashak Pharma (Pharmaceutical Supply Chain)",
+          "name": "Dashak Pharma (B2B Supply Chain)",
           "accent": "#0284c7"
         },
         {
@@ -27,12 +27,12 @@
         },
         {
           "initials": "WZ",
-          "name": "Workezy (Co-Working Booking Platform)",
+          "name": "Workezy (10k+ Installs • 4.0★ App Store)",
           "accent": "#d97706"
         },
         {
           "initials": "138+",
-          "name": "138+ Verified Enterprise Client Deployments",
+          "name": "138+ Verified Client Deployments",
           "accent": "#D91414",
           "isBadge": true
         }
@@ -42,176 +42,182 @@
     "mockup": {
       "metrics": [
         {
-          "label": "MVP Deployment",
-          "value": "Live",
+          "label": "Cohort 2026",
+          "value": "Admissions Open",
           "color": "green"
         },
         {
-          "label": "Sprint Timeline",
-          "value": "6 Weeks",
+          "label": "MVP Launch Speed",
+          "value": "30 Days",
           "color": "gold"
         },
         {
-          "label": "Active Users",
-          "value": "2,340",
+          "label": "Technical IP",
+          "value": "100% Owned",
           "color": ""
         },
         {
-          "label": "Capital Efficiency",
-          "value": "\u20b918L",
+          "label": "Tech Debt",
+          "value": "Zero",
           "color": "green"
         }
       ],
       "cards": [
         {
-          "icon": "\u2705",
-          "label": "Sprint 4 Complete",
-          "value": "Deployed \u2713",
+          "icon": "lightning",
+          "label": "Sprint 4 Shipped",
+          "value": "Production Live ✓",
           "active": true
         },
         {
-          "icon": "\ud83d\udd14",
-          "label": "App Store",
-          "value": "Approved",
+          "icon": "shield",
+          "label": "Investor Tech Due Diligence",
+          "value": "Certified",
           "active": false
         }
       ]
     }
   },
   "feature_pills": [
-    "\u2713 MVPs from \u20b91.5L-\u20b93L",
-    "\u2713 MVP in 4-8 Weeks",
-    "\u2713 Flutter & Next.js",
-    "\u2713 Cloud Architecture",
-    "\u2713 AI-Augmented Builds",
-    "\u2713 Milestone-Driven Sprints",
-    "\u2713 No Equity Required"
+    "✓ 30-Day MVP Cohort",
+    "✓ Dedicated Senior Pod (Flutter + Cloudflare + AI)",
+    "✓ Selective Tech-for-Equity Track",
+    "✓ 100% Source Code Ownership",
+    "✓ Investor Due Diligence Ready",
+    "✓ Milestone-Driven Sprints",
+    "✓ Zero Agency Markup"
   ],
+  "incubation_wizard": {
+    "enabled": true
+  },
   "proof": {
-    "subtitle": "OUR WORK",
-    "title": "Real builds. Real founders' problems solved.",
+    "subtitle": "VENTURE PORTFOLIO & PROOF",
+    "title": "Real venture builds. Real founder outcomes.",
     "studies": [
       {
-        "client": "Chitravan",
-        "title": "Custom CRM for Regional Real Estate",
-        "impact": "Built a custom CRM that handles end-to-end customer relationships \u2014 lead capture, inventory tracking, booking management \u2014 replacing spreadsheets with a single dashboard.",
+        "client": "Workezy",
+        "title": "Co-Working Booking Engine & Marketplace",
+        "impact": "Architected full-stack mobile applications and real-time desk reservation infrastructure for 10k+ users with a 4.0★ App Store rating and zero downtime.",
         "tags": [
-          "CRM Platform",
-          "Next.js",
-          "Cloudflare D1"
+          "Flutter Mobile",
+          "iOS & Android",
+          "Real-Time Booking",
+          "Firebase"
         ],
-        "color": "#4facfe"
+        "color": "#d97706"
       },
       {
         "client": "Bhu Master Pvt Ltd",
-        "title": "Real Estate Property Platform",
-        "impact": "Delivered a complete property listing and management platform with buyer-facing search, project pages with amenities and photos, and an admin dashboard for inventory management.",
+        "title": "High-Scale Agritech & Land Registry",
+        "impact": "Scaled property platform to 50k+ daily active users with sub-second property search, geospatial mapping, and high-concurrency document verification.",
         "tags": [
-          "Real Estate",
-          "Web App",
-          "Data Modeling"
+          "High Concurrency",
+          "PostgreSQL",
+          "50k+ DAU",
+          "Cloudflare Edge"
         ],
         "color": "#38f9d7"
       },
       {
         "client": "Dashak Pharma",
-        "title": "B2B WhatsApp Ordering & Automation",
-        "impact": "Built a WhatsApp-first ordering system for B2B pharmacy distribution \u2014 automated order capture, invoicing, and follow-ups with zero new app downloads required from retailers.",
+        "title": "AI-Powered B2B Supply Chain & Order Engine",
+        "impact": "Built a WhatsApp-first B2B order automation and inventory synchronization engine, processing millions in monthly pharmaceutical distributor transactions.",
         "tags": [
-          "WhatsApp API",
-          "n8n",
-          "AI Automation"
+          "WhatsApp AI",
+          "B2B Automation",
+          "ERP Sync",
+          "Zero App Friction"
         ],
         "color": "#f6d365"
       }
     ]
   },
   "services": {
-    "subtitle": "WHAT WE BUILD",
-    "title": "The modern startup stack",
+    "subtitle": "THE INCUBATION & CO-BUILDING TRACKS",
+    "title": "How we partner with founders",
     "items": [
       {
-        "icon": "\ud83d\udcf1",
-        "title": "Cross-Platform Mobile Apps",
-        "desc": "Ship to iOS and Android simultaneously from a single Flutter codebase. We use AI-assisted development to compress what used to take 3 months into 4-8 weeks \u2014 without cutting corners on code quality or native performance."
+        "icon": "rocket",
+        "title": "0-to-1 MVP Launchpad (30 Days)",
+        "desc": "From raw concept to working, production-deployed mobile and web product in 4 weekly milestone sprints. Includes user authentication, payments, database architecture, and an administrative dashboard."
       },
       {
-        "icon": "\ud83c\udf10",
-        "title": "Web Applications & SaaS",
-        "desc": "Production-grade web platforms built with Next.js and React. SEO-optimized from launch, architected for scale, and deployed on serverless infrastructure so your hosting costs stay near zero until you have real traction."
+        "icon": "handshake",
+        "title": "Seed Tech Co-Building (Selective Tech-for-Equity)",
+        "desc": "For exceptional domain-expert founders. We invest our technical capital—acting as your interim technical co-founder from Day 0 at subsidized cash rates in exchange for 2%–5% advisory equity."
       },
       {
-        "icon": "\ud83e\udd16",
-        "title": "AI as a Product Feature",
-        "desc": "Integrate LLMs, build WhatsApp bots, or add intelligent automation directly into your product. We treat AI as a tool that ships faster products, not a buzzword that inflates budgets."
+        "icon": "cpu",
+        "title": "Autonomous AI & Agent Integration",
+        "desc": "Infuse production-grade AI agent pipelines, custom RAG architectures, and automated LLM workflows directly into your core product so you stand out to venture investors."
       },
       {
-        "icon": "\u2601\ufe0f",
-        "title": "Zero-to-Production Infrastructure",
-        "desc": "Firebase, Supabase, or Cloudflare Workers \u2014 serverless architecture that keeps your cloud bill near zero while you find product-market fit, then scales without re-architecture when you do."
+        "icon": "shield",
+        "title": "Investor Tech Audit & Scale Pods",
+        "desc": "Institutional VC due diligence preparation, automated CI/CD testing pipelines, and pre-assembled senior engineering pods that plug into your codebase to hit product roadmap deadlines."
       }
     ]
   },
   "industries": [
     {
-      "icon": "\ud83d\udcb8",
-      "title": "FinTech & SaaS",
-      "desc": "Subscription billing, payment gateway integrations, and secure data handling \u2014 built to comply with financial standards from day one, not patched in later.",
+      "icon": "bank",
+      "title": "FinTech & RegTech",
+      "desc": "Subscription billing, UPI/Stripe/Razorpay payment gateways, and zero-trust data compliance — built to pass institutional financial audits from day one.",
       "features": [
-        "Stripe/Razorpay Integration",
-        "Data Security",
-        "Subscription Logic",
-        "Analytics Dashboards"
+        "Stripe & Razorpay Integration",
+        "Zero-Trust Data Security",
+        "Automated Ledgering Logic",
+        "Real-Time Analytics"
       ]
     },
     {
-      "icon": "\ud83d\udecd\ufe0f",
-      "title": "D2C & E-Commerce",
-      "desc": "High-conversion storefronts, inventory management, and automated fulfillment workflows for direct-to-consumer brands that need to ship fast and iterate faster.",
+      "icon": "store",
+      "title": "D2C & Modern Marketplaces",
+      "desc": "High-conversion mobile and web storefronts, real-time inventory management, and automated fulfillment workflows for high-growth consumer brands.",
       "features": [
         "Headless Commerce",
-        "Payment Gateways",
-        "Inventory Sync",
-        "Order Tracking"
+        "Multi-Vendor Architecture",
+        "Real-Time Inventory Sync",
+        "WhatsApp Order Updates"
       ]
     },
     {
-      "icon": "\ud83c\udfe5",
-      "title": "HealthTech & EdTech",
-      "desc": "Compliance-ready infrastructure, real-time video, and user-centric interfaces for platforms where trust, uptime, and data privacy are non-negotiable.",
+      "icon": "building",
+      "title": "HealthTech & B2B SaaS",
+      "desc": "Compliance-ready infrastructure, multi-tenant databases, and enterprise role-based access control where security and uptime are non-negotiable.",
       "features": [
-        "Video Conferencing",
-        "Compliance Hardening",
-        "User Profiles",
-        "Booking Systems"
+        "Multi-Tenant Architecture",
+        "Role-Based Access Control",
+        "Audit Logging & Security",
+        "Scalable Cloud APIs"
       ]
     }
   ],
   "compliance": {
-    "subtitle": "FOUNDER GUARANTEES",
-    "title": "What we promise, in writing",
+    "subtitle": "THE TRAI INC FOUNDER MANIFESTO",
+    "title": "What we guarantee, in writing",
     "items": [
       {
-        "title": "You Own 100% of the IP",
-        "desc": "Full source code, infrastructure access, and intellectual property assigned to you upon final payment. No licensing fees, no ransom clauses, no exceptions."
+        "title": "100% Full IP & Code Ownership",
+        "desc": "Your code lives in your private GitHub repository from Day 1. Full intellectual property, database schemas, and credentials belong to you. No vendor lock-in, no hostage code."
       },
       {
-        "title": "Weekly Progress, Not Radio Silence",
-        "desc": "Weekly video updates and live staging links throughout the build, so you always know exactly where your product stands."
+        "title": "Senior Architects Only",
+        "desc": "No junior developers, no interns, no offshore bench. The senior architects who scope your technical roadmap are the ones who write and review every pull request."
       },
       {
-        "title": "Senior Engineers Only",
-        "desc": "No junior devs, no outsourced bench, no rotating team. The engineers who scope your project are the ones who build it."
+        "title": "Milestone-Driven Sprints",
+        "desc": "Every sprint has clear, binary acceptance criteria deployed to a live staging environment. If a milestone does not meet the agreed criteria, you do not approve payment."
       },
       {
-        "title": "Milestone Pricing, No Surprises",
-        "desc": "We scope the work and lock milestone deliverables before writing a line of code. Scope changes are quoted separately, never silently added to your bill."
+        "title": "Zero Technical Debt",
+        "desc": "We build with modular, modern architectures (Flutter, Python, Cloudflare Workers, PostgreSQL) with automated tests and clear documentation so future full-time hires can easily take over."
       }
     ]
   },
   "cta": {
-    "title": "Ready to ship your MVP?",
-    "description": "Book a free scoping call. We'll review your idea and deliver an architectural milestone roadmap within 48 hours — no equity ask, no hourly billing surprises.",
-    "button_text": "Get in Touch"
+    "title": "Ready to launch your venture in 30 days?",
+    "description": "Apply for the upcoming TRAI Inc Cohort. We will review your product thesis and deliver a comprehensive technical architecture proposal within 48 hours — zero equity asked unless applying for the co-builder track.",
+    "button_text": "Apply for Incubation →"
   }
 }
