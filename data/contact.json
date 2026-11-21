@@ -2,7 +2,7 @@
   "hero": {
     "badge": "Strategy Call & Technical Discovery",
     "title": "Schedule a Strategy Call<br>with Senior <em class=\"hero-cosmos-ai\">Architects</em>",
-    "description": "Book an in-person discovery session at our Lucknow Global HQ, Bengaluru Tech Hub, Cape Town, or Lusaka offices — or schedule an instant virtual strategy call to scope your startup MVP or AI engineering pod."
+    "description": "Book a dedicated online strategy call or technical discovery session with our senior architects to scope your startup MVP, AI engineering pod, or enterprise platform."
   },
   "info": {
     "title": "Get in Touch",
@@ -363,33 +363,25 @@
     "meeting_mode": {
       "id": "contact-meeting-mode",
       "name": "meeting_mode",
-      "label": "Meeting Mode & Location",
+      "label": "Meeting Format (Online Only)",
       "options": [
         {
           "value": "",
-          "label": "Select Meeting Preference",
+          "label": "Select Online Meeting Preference",
           "disabled": true,
           "selected": true
         },
         {
-          "value": "virtual",
-          "label": "Virtual Strategy Call (Google Meet / Zoom)"
+          "value": "google-meet",
+          "label": "Online Strategy Call — Google Meet"
         },
         {
-          "value": "lucknow",
-          "label": "In-Person at Lucknow Global HQ (DLF MyPad, Gomti Nagar)"
+          "value": "zoom",
+          "label": "Online Strategy Call — Zoom Video"
         },
         {
-          "value": "bengaluru",
-          "label": "In-Person at Bengaluru Tech Hub (Indiranagar)"
-        },
-        {
-          "value": "capetown",
-          "label": "In-Person at Cape Town Hub (Strand Street)"
-        },
-        {
-          "value": "lusaka",
-          "label": "In-Person at Lusaka Hub (Lilayi)"
+          "value": "whatsapp-video",
+          "label": "Online Strategy Call — WhatsApp Video"
         }
       ]
     },

@@ -249,7 +249,7 @@
                     heading: "Engineering HQ & Regional Hubs",
                     items: [
                         { icon: navIcons.pin, label: "Lucknow Global HQ & Incubator", href: "lucknow.html", desc: "DLF MyPad, Gomti Nagar — Core engineering pods & founder incubation studio" },
-                        { icon: navIcons.pin, label: "Bengaluru Tech & Startup Hub", href: "bengaluru.html", desc: "100 Feet Rd, Indiranagar — Tier-1 product scoping & founder meetings" },
+                        { icon: navIcons.pin, label: "Bengaluru Tech & Startup Hub", href: "bengaluru.html", desc: "100 Feet Rd, Indiranagar — Tier-1 product scoping & founder strategy" },
                         { icon: navIcons.pin, label: "Cape Town Africa Hub", href: "cape-town.html", desc: "Strand Street — SAST-aligned digital transformation & delivery" },
                         { icon: navIcons.pin, label: "Lusaka Zambia Hub", href: "lusaka.html", desc: "Lilayi — Regional enterprise software, fintech & CRM deployment" }
                     ]
@@ -257,9 +257,9 @@
             ],
             featured: {
                 stat: "4 Global Hubs",
-                title: "Book In-Person Meeting",
-                desc: "Meet senior engineering architects at our Lucknow HQ or regional coworking meeting suites.",
-                ctaLabel: "Schedule Meeting →",
+                title: "Schedule Online Strategy Call",
+                desc: "Connect directly with our senior software architects and incubator leadership via high-bandwidth video call.",
+                ctaLabel: "Book Virtual Call →",
                 ctaHref: "contact.html?type=strategy-call"
             }
         },
@@ -677,7 +677,7 @@
                                 <span class="footer-office-type">India Tech &amp; Startup Hub (Indiranagar)</span>
                             </div>
                         </div>
-                        <p class="footer-office-address">660, 2nd Floor, 100 Feet Road, Indiranagar, Bengaluru, Karnataka 560038 — In-person founder consultations, Tier-1 product scoping, and investor/startup ecosystem meetings.</p>
+                        <p class="footer-office-address">660, 2nd Floor, 100 Feet Road, Indiranagar, Bengaluru, Karnataka 560038 — Tier-1 product scoping, architecture strategy, and investor/startup ecosystem collaboration.</p>
                     </a>
                     <a href="cape-town.html" class="footer-office-card" style="text-decoration:none;color:inherit;display:flex;">
                         <div class="footer-office-card-head">

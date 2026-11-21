@@ -11,7 +11,7 @@
   "phone": "+91 79054 95478",
   "email": "bengaluru@traiinc.com",
   "highlights": [
-    "In-Person Founder Consultations & Product Scoping",
+    "Online Founder Consultations & Technical Scoping",
     "Autonomous AI Agents & Enterprise RAG Systems",
     "Tier-1 Engineering Pods at 40% Lower Burn Rate",
     "Angel & Micro-VC Ecosystem Introductions"
@@ -35,16 +35,16 @@
   ],
   "faq": [
     {
-      "q": "Where can I meet the Trai Inc team in Bengaluru?",
-      "a": "We meet founders and enterprise clients at our Indiranagar hub: 660, 2nd Floor, 100 Feet Road, Indiranagar, Bengaluru 560038."
+      "q": "How does Trai Inc collaborate with founders in Bengaluru?",
+      "a": "We conduct focused online technical architecture reviews and strategy sessions via Google Meet or Zoom, backed by our senior engineering pods who manage sprint execution and deliveries seamlessly."
     },
     {
       "q": "Why do Bengaluru founders choose Trai Inc?",
-      "a": "Bengaluru startups face unsustainable agency quotes and high engineer turnover. Trai Inc offers dedicated senior engineering pods with guaranteed sprint delivery at 40% lower burn, while maintaining an active presence in Indiranagar for in-person syncs."
+      "a": "Bengaluru startups face unsustainable agency quotes and high engineer turnover. Trai Inc offers dedicated senior engineering pods with guaranteed sprint delivery at 40% lower burn, collaborating via agile online sprints with daily updates and weekly demos."
     },
     {
-      "q": "How do we schedule a meeting in Indiranagar?",
-      "a": "Select \"In-Person at Bengaluru Hub\" on our Book Strategy Call form, and our engineering director will confirm a slot."
+      "q": "How do we schedule a strategy call?",
+      "a": "Click 'Schedule Online Strategy Call' on our website or submit our booking form to get a dedicated video call link with our engineering director."
     }
   ]
 }

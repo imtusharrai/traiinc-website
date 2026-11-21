@@ -417,13 +417,11 @@ function renderIncubatorPage(data) {
                             </select>
                         </div>
                         <div class="contact-field">
-                            <label class="contact-field-label">Preferred Meeting Hub</label>
+                            <label class="contact-field-label">Meeting Format (Online Only)</label>
                             <select name="meeting_mode" class="contact-field-input contact-field-select">
-                                <option value="virtual" selected>Virtual Strategy Call (Google Meet)</option>
-                                <option value="lucknow">In-Person at Lucknow Global HQ (DLF MyPad)</option>
-                                <option value="bengaluru">In-Person at Bengaluru Hub (Indiranagar)</option>
-                                <option value="capetown">In-Person at Cape Town Hub (Strand St)</option>
-                                <option value="lusaka">In-Person at Lusaka Hub (Lilayi)</option>
+                                <option value="google-meet" selected>Online Video Call (Google Meet)</option>
+                                <option value="zoom">Online Video Call (Zoom Video)</option>
+                                <option value="whatsapp-video">Online Video Call (WhatsApp Video)</option>
                             </select>
                         </div>
                     </div>
@@ -636,8 +634,8 @@ function renderCityPage(data) {
             <h1 class="hero-cosmos-title" data-cms-bind="title">${data.h1}</h1>
             <p class="hero-cosmos-subtitle max-w-3xl mx-auto" data-cms-bind="subtitle">${data.subtitle}</p>
             <div class="hero-cosmos-cta-group justify-center">
-                <a href="#book-hub" class="btn-primary large">Book In-Person Session at ${data.city}</a>
-                <a href="contact.html?type=strategy-call&hub=${data.slug}" class="btn-secondary large">Schedule Virtual Call</a>
+                <a href="#book-hub" class="btn-primary large">Schedule Online Strategy Call</a>
+                <a href="https://wa.me/917905495478" target="_blank" rel="noopener noreferrer" class="btn-secondary large">Chat on WhatsApp</a>
             </div>
         </div>
     </section>
@@ -695,12 +693,12 @@ function renderCityPage(data) {
         <div class="container">
             <div class="incubator-apply-wrapper fade-in max-w-3xl mx-auto">
                 <div class="section-header center mb-8">
-                    <span class="mini-title">IN-PERSON TECHNICAL SCOPING</span>
-                    <h2>Meet Senior Architects in ${data.city}</h2>
-                    <p class="section-subtitle">Reserve a technical architecture session or founder incubation discovery at our ${data.city} hub.</p>
+                    <span class="mini-title">ONLINE TECHNICAL SCOPING</span>
+                    <h2>Book an Online Discovery Session with Senior Architects</h2>
+                    <p class="section-subtitle">Schedule a dedicated virtual strategy call (Google Meet / Zoom) with our senior engineering and startup architects for your ${data.city} venture.</p>
                 </div>
                 <form id="cityMeetingForm" action="/api/contact" method="POST" class="contact-form">
-                    <input type="hidden" name="meeting_mode" value="${data.slug}">
+                    <input type="hidden" name="meeting_mode" value="online-video">
                     <input type="text" name="website_url" style="display:none" tabindex="-1" autocomplete="off">
                     
                     <div class="contact-form-row">
@@ -732,9 +730,9 @@ function renderCityPage(data) {
                     </div>
                     <div class="contact-field">
                         <label class="contact-field-label">Meeting Agenda &amp; Requirements <span class="contact-required">*</span></label>
-                        <textarea name="message" required rows="3" placeholder="Tell us what you would like to discuss during your session in ${data.city}..." class="contact-field-input contact-field-textarea"></textarea>
+                        <textarea name="message" required rows="3" placeholder="Tell us what you would like to discuss during your online strategy call..." class="contact-field-input contact-field-textarea"></textarea>
                     </div>
-                    <button type="submit" class="btn-primary large w-full mt-4">Confirm ${data.city} Meeting Request →</button>
+                    <button type="submit" class="btn-primary large w-full mt-4">Confirm Online Strategy Call →</button>
                 </form>
             </div>
         </div>
