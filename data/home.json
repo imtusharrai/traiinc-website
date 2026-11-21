@@ -367,6 +367,12 @@
         "title": "Product Strategy & UI/UX Design",
         "desc": "User behavioral research, living design systems, clickable Figma prototypes, and conversion design.",
         "href": "ui-ux-design.html"
+      },
+      {
+        "icon_key": "spark",
+        "title": "Digital Marketing & Growth",
+        "desc": "Technical SEO, Generative AI Search (GEO), high-ROAS paid ads, automated WhatsApp funnels, and B2B lead generation.",
+        "href": "digital-marketing.html"
       }
     ]
   },

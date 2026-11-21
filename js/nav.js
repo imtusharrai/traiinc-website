@@ -52,32 +52,133 @@
     };
 
     // ══════════════════════════════════════════════════════════════════════
-    // NAV DATA (High-Conviction 5 Service Pillars & Curated Industries)
+    // NAV DATA (High-Conviction Layered Solutions & Specialized Tracks)
     // ══════════════════════════════════════════════════════════════════════
     const navData = {
-        aiEngineering: {
-            label: "AI & Software Engineering",
-            type: "flat",
-            cols: [
+        services: {
+            label: "Solutions",
+            type: "layered",
+            categories: [
                 {
-                    heading: "Engineering Pods & Capabilities",
-                    items: [
-                        { icon: navIcons.customSoftware, label: "Custom Software & SaaS", href: "custom-software.html", desc: "High-throughput web apps, multi-tenant SaaS & microservices" },
-                        { icon: navIcons.ai, label: "AI Agents & Automation", href: "ai-automation.html", desc: "Autonomous workflows, voice front-offices & multi-agent swarms" },
-                        { icon: navIcons.mobile, label: "Mobile Apps (iOS & Android)", href: "mobile-apps.html", desc: "Native Swift/Kotlin & Flutter apps built for 60fps performance" },
-                        { icon: navIcons.enterprise, label: "Custom CRM & Enterprise ERP", href: "enterprise-platforms.html", desc: "Unified inventory, distribution & business management engines" },
-                        { icon: navIcons.cloud, label: "Cloud Native & DevOps", href: "cloud-devops.html", desc: "Kubernetes, zero-downtime AWS/GCP pipelines & IaC" },
-                        { icon: navIcons.data, label: "Data & Edge Pipelines", href: "data-analytics.html", desc: "Real-time streaming, dbt data models & low-latency edge APIs" }
-                    ]
+                    id: "ai-automation",
+                    label: "AI & Agentic Automation",
+                    hasChildren: true,
+                    href: "ai-automation.html",
+                    subitems: [
+                        { label: "Autonomous Workflow Agents", href: "ai-automation.html#workflows", desc: "Rule-driven & LLM agents executing back-office tasks" },
+                        { label: "Enterprise RAG & Knowledge Systems", href: "ai-automation.html#customer-service", desc: "Secure multi-tenant search over proprietary business data" },
+                        { label: "Multi-Agent System (MAS) Networks", href: "ai-automation.html#mas", desc: "Distributed autonomous agent swarms for complex operations" },
+                        { label: "AI Voice & Telephony Agents", href: "ai-automation.html#voice-agents", desc: "Human-grade conversational voice agents for sales & support" },
+                        { label: "Lead Gen & Scraping Pipelines", href: "ai-automation.html#lead-gen", desc: "Automated prospecting, web data extraction & CRM sync" },
+                        { label: "Predictive Analytics & Data Pipelines", href: "data-analytics.html", desc: "Real-time dashboards, dbt models & Apache Spark ETL" }
+                    ],
+                    miniFeature: {
+                        title: "Autonomous <span class='highlight'>Intelligence</span>",
+                        desc: "Deploy custom agentic infrastructure that operates 24/7 with senior architect oversight.",
+                        ctaLabel: "Explore AI Solutions →",
+                        ctaHref: "ai-automation.html"
+                    }
+                },
+                {
+                    id: "custom-software",
+                    label: "Custom Software & Web",
+                    hasChildren: true,
+                    href: "custom-software.html",
+                    subitems: [
+                        { label: "Bespoke Web Applications", href: "custom-software.html#web-apps", desc: "High-throughput React, Next.js & Node.js platforms" },
+                        { label: "Multi-Tenant SaaS Architecture", href: "custom-software.html#saas", desc: "Scalable subscription products with billing & RBAC" },
+                        { label: "High-Performance API Systems", href: "custom-software.html#api", desc: "Zero-latency REST & GraphQL microservice backends" },
+                        { label: "Modern Headless CMS Platforms", href: "custom-software.html#cms", desc: "Edge-cached dynamic content delivery architectures" },
+                        { label: "Enterprise Systems Integration", href: "custom-software.html#integration", desc: "Bi-directional sync between legacy databases & cloud APIs" },
+                        { label: "Custom E-Commerce Architectures", href: "custom-software.html#ecommerce", desc: "High-volume transactional storefronts & payment gateways" }
+                    ],
+                    miniFeature: {
+                        title: "Production-Grade <span class='highlight'>Engineering</span>",
+                        desc: "Zero-bloat, modular software systems engineered for enterprise longevity.",
+                        ctaLabel: "Explore Custom Software →",
+                        ctaHref: "custom-software.html"
+                    }
+                },
+                {
+                    id: "enterprise-platforms",
+                    label: "Enterprise Platforms & Cloud",
+                    hasChildren: true,
+                    href: "enterprise-platforms.html",
+                    subitems: [
+                        { label: "Custom ERP & Supply Chain", href: "enterprise-platforms.html#erp", desc: "Multi-facility inventory, logistics & billing engines" },
+                        { label: "Enterprise CRM & Dealership Platforms", href: "enterprise-platforms.html#crm", desc: "Lead distribution, sales tracking & automated pipelines" },
+                        { label: "Cloud Migration & Architecture (AWS/GCP)", href: "cloud-devops.html#migration", desc: "Zero-downtime database and infrastructure cutovers" },
+                        { label: "CI/CD & Kubernetes Orchestration", href: "cloud-devops.html#cicd", desc: "Automated testing, container clusters & blue-green deploys" },
+                        { label: "Infrastructure as Code (Terraform)", href: "cloud-devops.html#iac", desc: "Deterministic multi-cloud provisioning & compliance" },
+                        { label: "SOC 2 & Zero-Trust Governance", href: "enterprise-platforms.html#security", desc: "Pen-testing, encryption at rest/transit & audit logging" }
+                    ],
+                    miniFeature: {
+                        title: "Enterprise <span class='highlight'>Reliability</span>",
+                        desc: "High-availability cloud infrastructure engineered for 99.99% uptime.",
+                        ctaLabel: "Explore Enterprise Platforms →",
+                        ctaHref: "enterprise-platforms.html"
+                    }
+                },
+                {
+                    id: "mobile-apps",
+                    label: "Mobile Application Engineering",
+                    hasChildren: true,
+                    href: "mobile-apps.html",
+                    subitems: [
+                        { label: "Native iOS & Android Engineering", href: "mobile-apps.html#native", desc: "Swift & Kotlin native apps optimized for performance" },
+                        { label: "Cross-Platform Flutter Apps", href: "mobile-apps.html#flutter", desc: "Single codebase with 60fps native performance across iOS & Android" },
+                        { label: "Offline-First Mobile Architecture", href: "mobile-apps.html#native", desc: "Local SQLite caching with resilient background sync" },
+                        { label: "App Store Publishing & Compliance", href: "mobile-apps.html#publishing", desc: "Apple App Store & Google Play guideline certification" },
+                        { label: "Enterprise Mobile Security", href: "mobile-apps.html#compliances", desc: "Biometric authentication, data encryption & secure storage" }
+                    ],
+                    miniFeature: {
+                        title: "Seamless <span class='highlight'>Mobile UX</span>",
+                        desc: "From concept to App Store feature in rapid milestone-driven sprints.",
+                        ctaLabel: "Explore Mobile Apps →",
+                        ctaHref: "mobile-apps.html"
+                    }
+                },
+                {
+                    id: "ui-ux-design",
+                    label: "Product Strategy & UI/UX Design",
+                    hasChildren: true,
+                    href: "ui-ux-design.html",
+                    subitems: [
+                        { label: "User Research & Journey Mapping", href: "ui-ux-design.html#research", desc: "Customer journey mapping & friction-reduction analysis" },
+                        { label: "Interactive Figma Prototyping", href: "ui-ux-design.html#prototyping", desc: "Clickable high-fidelity prototypes tested with real users" },
+                        { label: "Living Design Systems & Tokens", href: "ui-ux-design.html#design-systems", desc: "Scalable component libraries in Figma and production code" },
+                        { label: "High-Conversion Interface Design", href: "ui-ux-design.html#conversion", desc: "Data-driven UI iterations that lift retention & conversion" },
+                        { label: "Comprehensive Brand Identity Systems", href: "ui-ux-design.html#branding", desc: "Logomarks, design guidelines & visual identity standards" },
+                        { label: "Design-to-Code Engineering Handoff", href: "ui-ux-design.html#handoff", desc: "Pixel-perfect CSS specs and component documentation" }
+                    ],
+                    miniFeature: {
+                        title: "Interfaces That <span class='highlight'>Convert</span>",
+                        desc: "World-class digital product design backed by user behavioral data.",
+                        ctaLabel: "Explore UI/UX Design →",
+                        ctaHref: "ui-ux-design.html"
+                    }
+                },
+                {
+                    id: "digital-marketing",
+                    label: "Digital Marketing & Growth",
+                    hasChildren: true,
+                    href: "digital-marketing.html",
+                    subitems: [
+                        { label: "Search Engine Optimization (SEO & GEO)", href: "digital-marketing.html#organic", desc: "Technical SEO, Generative AI Search & Google Maps ranking" },
+                        { label: "Performance Paid Advertising (PPC)", href: "digital-marketing.html#paid", desc: "High-ROAS Google Search, Meta Ads & cross-channel retargeting" },
+                        { label: "WhatsApp & Direct Automation", href: "digital-marketing.html#nurturing", desc: "Official WhatsApp Business API journeys, automated email sequences & SMS funnels" },
+                        { label: "Strategy, Tech & CRO Analytics", href: "digital-marketing.html#strategy", desc: "Conversion rate optimization, user funnel analytics & marketing automation" },
+                        { label: "AI Content & Video Creation", href: "content-creation.html", desc: "AI-augmented content pipelines, technical copywriting & explainers" },
+                        { label: "B2B Lead Generation & Scraping", href: "digital-marketing.html#organic", desc: "High-intent B2B prospect lists, data enrichment & automated outbound" }
+                    ],
+                    miniFeature: {
+                        title: "Data-Driven <span class='highlight'>Growth</span>",
+                        desc: "Turn organic search and paid traffic into predictable revenue with automated retention pipelines.",
+                        ctaLabel: "Explore Digital Marketing →",
+                        ctaHref: "digital-marketing.html"
+                    }
                 }
-            ],
-            featured: {
-                stat: "Senior Pod Delivery",
-                title: "Production AI & Software Systems",
-                desc: "Senior engineering pods delivering custom AI agents, SaaS platforms, and enterprise software at 40% lower burn.",
-                ctaLabel: "Explore AI Engineering →",
-                ctaHref: "ai-engineering.html"
-            }
+            ]
         },
 
         incubator: {
@@ -85,13 +186,19 @@
             type: "flat",
             cols: [
                 {
-                    heading: "Zero-to-One Launchpad & Funding",
+                    heading: "Zero-to-One Launchpad",
                     items: [
                         { icon: navIcons.startups, label: "Zero-to-One Incubation", href: "incubator.html#incubation", desc: "Idea validation, market sizing & lean system architecture" },
                         { icon: navIcons.rocket, label: "30-Day MVP Launchpad", href: "incubator.html#mvp-launchpad", desc: "Live web/mobile product with auth, payments & admin" },
-                        { icon: navIcons.pitch, label: "Seed & Grant Readiness", href: "incubator.html#funding-readiness", desc: "12-15 slide pitch deck, 3-year model & investor data room" },
+                        { icon: navIcons.pitch, label: "Seed & Grant Readiness", href: "incubator.html#funding-readiness", desc: "12-15 slide pitch deck, 3-year model & investor data room" }
+                    ]
+                },
+                {
+                    heading: "Funding & Applications",
+                    items: [
                         { icon: navIcons.grants, label: "DPIIT & SISFS Grants", href: "incubator.html#grants", desc: "Startup India Seed Fund & grant DPR documentation support" },
-                        { icon: navIcons.cohort, label: "Apply for 2026 Cohort", href: "incubator.html#apply", desc: "Fixed-fee founder sprints or hybrid venture co-build partnership" }
+                        { icon: navIcons.cohort, label: "Apply for 2026 Cohort", href: "incubator.html#apply", desc: "Fixed-fee founder sprints or hybrid venture co-build partnership" },
+                        { icon: navIcons.ai, label: "Scope & Funding Estimator", href: "ai-engineering.html#estimator", desc: "Calculate sprint timeline, tech stack & funding checklist" }
                     ]
                 }
             ],
@@ -109,17 +216,24 @@
             type: "flat",
             cols: [
                 {
-                    heading: "Quantified Production Deployments",
+                    heading: "Production Client Systems",
                     items: [
-                        { icon: navIcons.cases, label: "Bhu Master (Agritech)", href: "clients.html#bhumaster", desc: "Automated land records & instant property verification platform" },
-                        { icon: navIcons.cases, label: "Om Group (Education & Auto)", href: "clients.html#omgroup", desc: "Multi-campus ERP & real-time admissions engine" },
-                        { icon: navIcons.cases, label: "Workezy (Coworking SaaS)", href: "clients.html#workezy", desc: "On-demand service booking, geo-dispatch & vendor payout engine" },
-                        { icon: navIcons.cases, label: "Dashak Pharma (Supply Chain)", href: "clients.html#dashak", desc: "Pharma distribution tracking, batch compliance & wholesale portal" }
+                        { icon: navIcons.cases, label: "Bhu Master (Agritech)", href: "bhu-master.html", desc: "5 days to 14s land title verification for 10k+ daily users" },
+                        { icon: navIcons.cases, label: "Om Group (Automotive)", href: "om-group.html", desc: "42% faster lead response across 4 dealership branches" },
+                        { icon: navIcons.cases, label: "Workezy (On-Demand SaaS)", href: "workezy.html", desc: "99.4% booking fulfillment & automated dispatcher" },
+                        { icon: navIcons.cases, label: "Dashak Pharma (Supply Chain)", href: "dashak-pharma.html", desc: "1,200+ pharmacies ordering daily with zero inventory leakage" }
+                    ]
+                },
+                {
+                    heading: "Enterprise Proof",
+                    items: [
+                        { icon: navIcons.cases, label: "All 138+ Case Studies", href: "clients.html", desc: "Verified delivery across 12+ industries in India & global markets" },
+                        { icon: navIcons.about, label: "Due Diligence Checklist", href: "choosing-a-development-partner.html", desc: "How to audit IP ownership, source code & senior engineering" }
                     ]
                 }
             ],
             featured: {
-                stat: "138+ Client Deliveries",
+                stat: "138+ Deliveries",
                 title: "Measured Business Impact",
                 desc: "Explore verified outcomes: 4x lead velocity, automated operations, and enterprise software scaling.",
                 ctaLabel: "View All Case Studies →",
@@ -132,21 +246,51 @@
             type: "flat",
             cols: [
                 {
-                    heading: "Engineering HQ & Regional Meeting Hubs",
+                    heading: "Engineering HQ & Regional Hubs",
                     items: [
-                        { icon: navIcons.pin, label: "Lucknow Global HQ & Incubator", href: "lucknow.html", desc: "DLF MyPad, Gomti Nagar — Core engineering pods & founder incubation" },
-                        { icon: navIcons.pin, label: "Bengaluru Tech & Startup Hub", href: "bengaluru.html", desc: "100 Feet Rd, Indiranagar — Tier-1 product scoping & founder sessions" },
+                        { icon: navIcons.pin, label: "Lucknow Global HQ & Incubator", href: "lucknow.html", desc: "DLF MyPad, Gomti Nagar — Core engineering pods & founder incubation studio" },
+                        { icon: navIcons.pin, label: "Bengaluru Tech & Startup Hub", href: "bengaluru.html", desc: "100 Feet Rd, Indiranagar — Tier-1 product scoping & founder meetings" },
                         { icon: navIcons.pin, label: "Cape Town Africa Hub", href: "cape-town.html", desc: "Strand Street — SAST-aligned digital transformation & delivery" },
                         { icon: navIcons.pin, label: "Lusaka Zambia Hub", href: "lusaka.html", desc: "Lilayi — Regional enterprise software, fintech & CRM deployment" }
                     ]
                 }
             ],
             featured: {
-                stat: "In-Person & Virtual",
-                title: "Book Strategy Call",
-                desc: "Meet senior engineering architects at any of our 4 hubs or schedule a virtual strategy call.",
-                ctaLabel: "Book Strategy Call →",
+                stat: "4 Global Hubs",
+                title: "Book In-Person Meeting",
+                desc: "Meet senior engineering architects at our Lucknow HQ or regional coworking meeting suites.",
+                ctaLabel: "Schedule Meeting →",
                 ctaHref: "contact.html?type=strategy-call"
+            }
+        },
+
+        company: {
+            label: "Company",
+            type: "flat",
+            cols: [
+                {
+                    heading: "About TRAI Inc",
+                    items: [
+                        { icon: navIcons.about, label: "About Us", href: "about.html", desc: "Our engineering philosophy & leadership" },
+                        { icon: navIcons.team, label: "Leadership & Engineers", href: "about.html#team", desc: "Senior software architects & 4-founder team" },
+                        { icon: navIcons.cases, label: "Our Development Process", href: "our-development-process.html", desc: "Milestone-driven sprints & weekly updates" },
+                        { icon: navIcons.careers, label: "Careers", href: "careers.html", desc: "Join our senior engineering studio" }
+                    ]
+                },
+                {
+                    heading: "Connect & Engage",
+                    items: [
+                        { icon: navIcons.partner, label: "Partner With Us", href: "partner.html", desc: "Enterprise referral & white-label software partnerships" },
+                        { icon: navIcons.contact, label: "Schedule Discovery", href: "contact.html?type=strategy-call", desc: "Book an architecture & scoping session" }
+                    ]
+                }
+            ],
+            featured: {
+                title: "Built For High Conviction",
+                desc: "An elite AI-native software engineering consultancy architecting production systems with guaranteed milestone delivery.",
+                stat: "6+ Years · 138+ Clients",
+                ctaLabel: "Meet Our Team →",
+                ctaHref: "about.html#team"
             }
         }
     };
@@ -282,20 +426,24 @@
                 <a href="index.html" class="logo"><img src="assets/logos/logo_white.png" alt="Trai Inc" class="nav-logo-img nav-logo-dark"><img src="assets/logos/logo_gradient.png" alt="Trai Inc" class="nav-logo-img nav-logo-light"></a>
                 <ul class="nav-links" id="nav-links">
                     <li class="has-dropdown">
-                        <a href="ai-engineering.html" class="${['ai-engineering','ai-automation','mobile-apps','web-development','custom-software','cloud-devops','enterprise-platforms','data-analytics'].includes(page)?'active':''}">${navData.aiEngineering.label} ${chevronDown}</a>
-                        ${buildDropdown('aiEngineering', navData.aiEngineering)}
+                        <a href="solutions.html" class="${['solutions','ai-engineering','ai-automation','mobile-apps','web-development','custom-software','cloud-devops','enterprise-platforms','data-analytics','ui-ux-design','digital-marketing','content-creation'].includes(page)?'active':''}">${navData.services.label} ${chevronDown}</a>
+                        ${buildDropdown('services', navData.services)}
                     </li>
                     <li class="has-dropdown">
                         <a href="incubator.html" class="${['incubator','startups','funding-readiness'].includes(page)?'active':''}">${navData.incubator.label} ${chevronDown}</a>
                         ${buildDropdown('incubator', navData.incubator)}
                     </li>
                     <li class="has-dropdown">
-                        <a href="clients.html" class="${['clients','case-studies'].includes(page)?'active':''}">${navData.caseStudies.label} ${chevronDown}</a>
+                        <a href="clients.html" class="${['clients','case-studies','bhu-master','om-group','workezy','dashak-pharma'].includes(page)?'active':''}">${navData.caseStudies.label} ${chevronDown}</a>
                         ${buildDropdown('caseStudies', navData.caseStudies)}
                     </li>
                     <li class="has-dropdown">
-                        <a href="contact.html#offices" class="${['lucknow','bengaluru','cape-town','lusaka','contact'].includes(page)?'active':''}">${navData.globalHubs.label} ${chevronDown}</a>
+                        <a href="lucknow.html" class="${['lucknow','bengaluru','cape-town','lusaka'].includes(page)?'active':''}">${navData.globalHubs.label} ${chevronDown}</a>
                         ${buildDropdown('globalHubs', navData.globalHubs)}
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="about.html" class="${['about','careers','partner','our-development-process'].includes(page)?'active':''}">${navData.company.label} ${chevronDown}</a>
+                        ${buildDropdown('company', navData.company)}
                     </li>
                     <li>
                         <a href="blog.html" class="${page === 'blog' || page.startsWith('blog-') ? 'active' : ''}">Blog</a>
@@ -459,6 +607,7 @@
                     <li><a href="mobile-apps.html">Mobile App Engineering</a></li>
                     <li><a href="enterprise-platforms.html">Enterprise CRM &amp; ERP</a></li>
                     <li><a href="cloud-devops.html">Cloud Native &amp; DevOps</a></li>
+                    <li><a href="digital-marketing.html">Digital Marketing &amp; Growth</a></li>
                     <li><a href="data-analytics.html">Data &amp; Edge Pipelines</a></li>
                 </ul>
             </div>
