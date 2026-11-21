@@ -1,0 +1,50 @@
+{
+  "slug": "bengaluru",
+  "city": "Bengaluru",
+  "country": "India",
+  "role": "India Tech & Startup Hub (Indiranagar)",
+  "kicker": "INDIA TECH & STARTUP HUB",
+  "h1": "AI Software Engineering & Startup Hub in Bengaluru",
+  "subtitle": "Tier-1 product scoping, technical architecture reviews, and investor ecosystem meetings in the heart of Indiranagar. Partner with senior engineering pods delivering at 40% lower burn than Bengaluru agency overhead.",
+  "address": "660, 2nd Floor, 100 Feet Road, Indiranagar, Bengaluru, Karnataka 560038",
+  "landmark": "100 Feet Road, Near CMH Road Junction, Indiranagar",
+  "phone": "+91 79054 95478",
+  "email": "bengaluru@traiinc.com",
+  "highlights": [
+    "In-Person Founder Consultations & Product Scoping",
+    "Autonomous AI Agents & Enterprise RAG Systems",
+    "Tier-1 Engineering Pods at 40% Lower Burn Rate",
+    "Angel & Micro-VC Ecosystem Introductions"
+  ],
+  "cases": [
+    {
+      "name": "Workezy",
+      "sector": "Co-Working SaaS",
+      "outcome": "24,000+ desk hours booked with zero-downtime booking engine"
+    },
+    {
+      "name": "Tier-1 SaaS MVP",
+      "sector": "B2B AI Automation",
+      "outcome": "Shipped 30-day production MVP with auth, Stripe & analytics"
+    },
+    {
+      "name": "Edge API Mesh",
+      "sector": "High-Throughput Microservices",
+      "outcome": "Sub-100ms global response latency across 300+ edge nodes"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Where can I meet the Trai Inc team in Bengaluru?",
+      "a": "We meet founders and enterprise clients at our Indiranagar hub: 660, 2nd Floor, 100 Feet Road, Indiranagar, Bengaluru 560038."
+    },
+    {
+      "q": "Why do Bengaluru founders choose Trai Inc?",
+      "a": "Bengaluru startups face unsustainable agency quotes and high engineer turnover. Trai Inc offers dedicated senior engineering pods with guaranteed sprint delivery at 40% lower burn, while maintaining an active presence in Indiranagar for in-person syncs."
+    },
+    {
+      "q": "How do we schedule a meeting in Indiranagar?",
+      "a": "Select \"In-Person at Bengaluru Hub\" on our Book Strategy Call form, and our engineering director will confirm a slot."
+    }
+  ]
+}

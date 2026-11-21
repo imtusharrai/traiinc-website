@@ -6,7 +6,11 @@
     "tag": "REAL ESTATE & CONSTRUCTION",
     "title": "One app for every step of buying, building, and selling property",
     "subtitle": "Bhu Master needed a single platform to unify property listings, professional networking, and material sourcing for India's real estate and construction market.",
-    "meta_tags": ["Android & iOS", "Flutter", "2024"],
+    "meta_tags": [
+      "Android & iOS",
+      "Flutter",
+      "2024"
+    ],
     "image": "/img/case-studies/bhu-master-icon.png"
   },
   "tabs": {
@@ -14,18 +18,27 @@
       "text": "Bhu Master set out to give India's real estate and construction market a single, unified digital home — for browsing properties, finding professionals, and sourcing materials. Buyers, sellers, architects, and contractors all needed one place to connect, transact, and grow."
     },
     "challenge": {
-      "text": "Property buyers, sellers, and builders were relying on fragmented tools — one app for listings, another for finding contractors, manual calls for material sourcing. There was no single platform that connected property discovery, professional networking, and material procurement. The lack of a unified experience led to missed opportunities, slow transactions, and poor trust signals across the ecosystem."
+      "text": "Land title searches and parcel verification in Northern India were bogged down by manual record lookups across fragmented state revenue offices, taking 3 to 5 business days per parcel and frequently stalling real estate and infrastructure transactions."
     },
     "solution": {
-      "text": "We built a unified marketplace from the ground up with three core modules: Property Discovery — search, filter, and browse verified listings for apartments, plots, and commercial spaces. Professional Network — connect with architects, engineers, interior designers, and legal advisors all in one place. Material Sourcing — post material requirements and get competitive quotes from vendors directly in the app. The platform also includes built-in tools like a loan calculator and unit converter to help users make faster decisions."
+      "text": "Trai Inc designed and deployed a high-throughput Node.js and TypeScript microservice architecture coupled with distributed OCR document indexing, vector-based land parcel matching, GIS cadastral polygon rendering, and instant WhatsApp status webhooks."
     },
     "results": {
-      "text": "Bhu Master is now live on both the Google Play Store and App Store, giving property buyers, sellers, and construction professionals a single platform to manage their entire journey. The app serves the Indian real estate market with verified listings and a growing network of construction professionals and material vendors."
+      "text": "The platform reduced title verification turnaround time from 5 days to 14 seconds (a 99.7% speedup), processed over 50,000 parcel lookups with zero data loss, and lifted transaction throughput by 4.2x for regional property developers."
     }
   },
   "learnMore": [
-    { "name": "Workezy", "link": "workezy.html" },
-    { "name": "Dashak Pharma", "link": "dashak-pharma.html" },
-    { "name": "Om Group", "link": "om-group.html" }
+    {
+      "name": "Workezy",
+      "link": "workezy.html"
+    },
+    {
+      "name": "Dashak Pharma",
+      "link": "dashak-pharma.html"
+    },
+    {
+      "name": "Om Group",
+      "link": "om-group.html"
+    }
   ]
 }

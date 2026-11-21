@@ -1,0 +1,50 @@
+{
+  "slug": "cape-town",
+  "city": "Cape Town",
+  "country": "South Africa",
+  "role": "Southern Africa Hub (Strand Street)",
+  "kicker": "SOUTHERN AFRICA REGIONAL HUB",
+  "h1": "Enterprise Software & Digital Transformation in Cape Town",
+  "subtitle": "Local technical discovery sessions, SAST-aligned digital engineering, and enterprise platform modernization from our Strand Street hub in Cape Town City Centre.",
+  "address": "WeWork, 80 Strand Street, Cape Town City Centre, Cape Town, Western Cape 8001",
+  "landmark": "Strand Street & Bree Street Precinct",
+  "phone": "+91 79054 95478",
+  "email": "capetown@traiinc.com",
+  "highlights": [
+    "SAST Timezone-Aligned Project Delivery",
+    "Enterprise Platform Modernization & Custom ERP",
+    "FinTech, Logistics & E-Commerce Engineering",
+    "Executive Meeting & Discovery Rooms on Strand St"
+  ],
+  "cases": [
+    {
+      "name": "Southern Africa FinTech",
+      "sector": "Payments & Ledger",
+      "outcome": "Sub-second ledger transactions with multi-currency reconciliation"
+    },
+    {
+      "name": "Retail & Distribution ERP",
+      "sector": "Supply Chain",
+      "outcome": "Multi-facility inventory tracking with real-time barcode telemetry"
+    },
+    {
+      "name": "On-Demand Service Platform",
+      "sector": "Marketplace Tech",
+      "outcome": "Automated vendor dispatch and mobile wallet payouts"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Where is Trai Inc located in Cape Town?",
+      "a": "Our Southern Africa operations operate from WeWork, 80 Strand Street, Cape Town City Centre 8001."
+    },
+    {
+      "q": "How does project delivery work across timezones?",
+      "a": "Our pods operate in complete timezone alignment with South African Standard Time (SAST), ensuring real-time Slack/Teams communication, daily standups, and rapid turnaround."
+    },
+    {
+      "q": "What industries do you serve in Southern Africa?",
+      "a": "We specialize in FinTech, logistics, retail e-commerce, custom ERP/CRM deployments, and AI agent automation."
+    }
+  ]
+}

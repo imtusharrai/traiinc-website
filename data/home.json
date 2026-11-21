@@ -1,28 +1,47 @@
 {
   "hero": {
     "badge": "TRAI INC · AI-NATIVE SOFTWARE ENGINEERING STUDIO",
-    "heading_line1": "Enterprise Reliability.",
-    "heading_line2": "AI-Native Speed.",
-    "heading_highlight": "",
-    "subtitle": "We design, architect, and deploy custom software systems, scalable cloud infrastructure, and autonomous agent pipelines for ambitious enterprises. Milestone-driven sprints. Senior engineers. 100% full IP ownership.",
+    "heading_line1": "Build Production AI &",
+    "heading_line2": "Investor-Ready Startups—",
+    "heading_highlight": "At Lean Burn.",
+    "subtitle": "From 30-day startup MVPs and seed-funding readiness to custom AI agents and enterprise software—Trai Inc partners with ambitious founders across Bengaluru, Delhi-NCR, Lucknow, Cape Town, and Lusaka to ship real software fast.",
     "cta_primary": {
-      "icon": "",
-      "text": "Scope Your Project \u2192",
-      "href": "contact.html"
+      "text": "Launch Your Startup / MVP",
+      "href": "incubator.html"
     },
     "cta_secondary": {
-      "icon": "",
-      "text": "View Verified Case Studies \u2192",
-      "href": "clients.html"
+      "text": "Scope an AI or Software Project",
+      "href": "ai-engineering.html"
     },
     "trust_line": "138+ Enterprise Deliveries",
     "trust_suffix": "across India & Global Markets",
     "trust_avatars": [
-      { "initials": "BM", "name": "Bhu Master (Agritech & Land Registry)", "accent": "#4f46e5" },
-      { "initials": "DP", "name": "Dashak Pharma (Pharmaceutical Supply Chain)", "accent": "#0284c7" },
-      { "initials": "OG", "name": "Om Group (Automotive Dealership ERP)", "accent": "#059669" },
-      { "initials": "WZ", "name": "Workezy (Co-Working Booking Platform)", "accent": "#d97706" },
-      { "initials": "138+", "name": "138+ Verified Enterprise Client Deployments", "accent": "#D91414", "isBadge": true }
+      {
+        "initials": "BM",
+        "name": "Bhu Master (Agritech & Land Registry)",
+        "accent": "#4f46e5"
+      },
+      {
+        "initials": "DP",
+        "name": "Dashak Pharma (Pharmaceutical Supply Chain)",
+        "accent": "#0284c7"
+      },
+      {
+        "initials": "OG",
+        "name": "Om Group (Automotive Dealership ERP)",
+        "accent": "#059669"
+      },
+      {
+        "initials": "WZ",
+        "name": "Workezy (Co-Working Booking Platform)",
+        "accent": "#d97706"
+      },
+      {
+        "initials": "138+",
+        "name": "138+ Verified Enterprise Client Deployments",
+        "accent": "#D91414",
+        "isBadge": true
+      }
     ],
     "mockup_metrics": [],
     "float_cards": []
@@ -136,10 +155,26 @@
           }
         ],
         "metrics_strip": [
-          { "icon": "bolt", "title": "0.8s PWA Speed", "desc": "1-Click UPI & Instant Cart" },
-          { "icon": "truck", "title": "28,000+ Pin Codes", "desc": "Automated Multi-Courier" },
-          { "icon": "globe", "title": "10Cr+ ONDC Buyers", "desc": "Paytm & PhonePe Networks" },
-          { "icon": "shield", "title": "0% Commission", "desc": "100% Direct Profit Margin" }
+          {
+            "icon": "bolt",
+            "title": "0.8s PWA Speed",
+            "desc": "1-Click UPI & Instant Cart"
+          },
+          {
+            "icon": "truck",
+            "title": "28,000+ Pin Codes",
+            "desc": "Automated Multi-Courier"
+          },
+          {
+            "icon": "globe",
+            "title": "10Cr+ ONDC Buyers",
+            "desc": "Paytm & PhonePe Networks"
+          },
+          {
+            "icon": "shield",
+            "title": "0% Commission",
+            "desc": "100% Direct Profit Margin"
+          }
         ],
         "cards": [
           {
@@ -175,7 +210,7 @@
         "tab_text": "#08120D",
         "badge": "Startups",
         "panel_title": "Stop refining the pitch deck. Start shipping product.",
-        "panel_subtitle": "MVPs, mobile apps, and cloud platforms \u2014 milestone-driven delivery, no equity. Typically \u20b91.5L\u2013\u20b95L.",
+        "panel_subtitle": "MVPs, mobile apps, and cloud platforms — milestone-driven delivery, no equity. Typically ₹1.5L–₹5L.",
         "cta_text": "Explore Startup Solutions",
         "cta_href": "startups.html",
         "image": "/img/audience-startups.jpg",
@@ -186,7 +221,7 @@
             "icon_key": "device",
             "tag": "MOBILE",
             "title": "Cross-Platform Mobile Apps",
-            "desc": "iOS + Android from one Flutter codebase in 4\u20138 weeks."
+            "desc": "iOS + Android from one Flutter codebase in 4–8 weeks."
           },
           {
             "icon_key": "globe",
@@ -215,7 +250,7 @@
         "tab_text": "#0A1420",
         "badge": "Small & Medium Business (10-50 employees)",
         "panel_title": "You've outgrown spreadsheets. Now what?",
-        "panel_subtitle": "Custom CRMs, automation, and dashboards that replace the patchwork. Typically \u20b91L\u2013\u20b95L.",
+        "panel_subtitle": "Custom CRMs, automation, and dashboards that replace the patchwork. Typically ₹1L–₹5L.",
         "cta_text": "Explore SMB Solutions",
         "cta_href": "smb.html",
         "image": "/img/audience-smb.jpg",
@@ -244,7 +279,7 @@
             "icon_key": "chat",
             "tag": "INTEGRATION",
             "title": "WhatsApp & Tool Integration",
-            "desc": "Connect the systems you already run \u2014 no rip-and-replace."
+            "desc": "Connect the systems you already run — no rip-and-replace."
           }
         ]
       },
@@ -294,7 +329,7 @@
     "subtitle": "BUILT FOR FOUNDERS",
     "heading": "Enterprise architecture at startup velocity.",
     "card_title": "Custom Solutions",
-    "card_desc": "Get a dedicated engineering team aligned to your business goals. We architect, build, and scale \u2014 you focus on growth.",
+    "card_desc": "Get a dedicated engineering team aligned to your business goals. We architect, build, and scale — you focus on growth.",
     "card_cta": "Explore Custom Solutions",
     "card_href": "solutions.html",
     "image": "/img/authentic-office-banner.jpg"
@@ -459,5 +494,47 @@
     "shallwe.png",
     "newish.png",
     "park-inn-150x150.png"
-  ]
+  ],
+  "choose_tracks": {
+    "subtitle": "CHOOSE YOUR PATHWAY",
+    "title": "Two Tailored Pathways for Founders & Technical Leaders",
+    "tracks": [
+      {
+        "id": "founders",
+        "track_number": "TRACK 1",
+        "audience": "Founders & New Businesses",
+        "title": "Zero-to-One Startup Incubation & 30-Day MVP",
+        "desc": "Turn your napkin thesis into a live, investor-ready software product with full seed and grant compliance.",
+        "badge": "30-Day Launchpad · Seed & Grant Ready",
+        "features": [
+          "Zero-to-one product architecture & validated UX user flows",
+          "30-day production web/mobile MVP with auth, database & payments",
+          "12–15 slide Investor Pitch Deck & audited 3-Year Financial Model",
+          "DPIIT Recognition, Startup India Seed Fund (SISFS) & grant DPR documentation",
+          "Institutional Investor Data Room & warm angel introductions"
+        ],
+        "engagement": "Fixed-Fee Founder Sprint (100% Equity Retained) or Hybrid Venture Co-Build",
+        "cta_text": "Launch Your Startup / MVP →",
+        "cta_href": "incubator.html"
+      },
+      {
+        "id": "enterprises",
+        "track_number": "TRACK 2",
+        "audience": "Tier-1 Startups, CTOs & Enterprises",
+        "title": "Production AI Agents & Custom Software Systems",
+        "desc": "Scale your technical velocity with senior engineering pods delivering mission-critical software at 40% lower burn.",
+        "badge": "Senior Pod Delivery · 40% Lower Burn",
+        "features": [
+          "Autonomous multi-agent swarms & enterprise RAG knowledge search",
+          "Human-grade WhatsApp & conversational AI voice front offices",
+          "High-throughput React/Next.js SaaS platforms & resilient microservices",
+          "Cloud native infrastructure, Kubernetes orchestration & zero-downtime CI/CD",
+          "Dedicated senior pods with milestone guarantee & 100% full IP ownership"
+        ],
+        "engagement": "Dedicated Senior Pod Sprints · Zero Agency Bloat · 100% Code Ownership",
+        "cta_text": "Scope an AI or Software Project →",
+        "cta_href": "ai-engineering.html"
+      }
+    ]
+  }
 }

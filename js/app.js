@@ -233,6 +233,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         careers: renderCareers,
         partner: renderPartner,
         contact: renderContact,
+        incubator: renderIncubatorPage,
+        'ai-engineering': renderAiEngineeringPage,
+        lucknow: renderCityPage,
+        bengaluru: renderCityPage,
+        'cape-town': renderCityPage,
+        lusaka: renderCityPage,
         clients: renderClients,
         startups: renderAudiencePage,
         smb: renderAudiencePage,
@@ -275,7 +281,491 @@ document.addEventListener("DOMContentLoaded", async () => {
         renderers[slug] = renderIndustryLandingPage;
     });
 
-    window.__TRAI_RENDERERS__ = renderers;
+    
+// ══════════════════════════════════════════════════════════════════════════════
+// INCUBATOR & 30-DAY MVP LAUNCHPAD RENDERER
+// ══════════════════════════════════════════════════════════════════════════════
+function renderIncubatorPage(data) {
+    const hero = data.hero || {};
+    const stages = data.journey_stages || [];
+    const models = data.engagement_models || [];
+    const faq = data.faq || {};
+
+    return `
+    <section class="cf-hero-wrapper incubator-hero">
+        <div class="contact-hero-mesh" aria-hidden="true"></div>
+        <div class="cf-hero-content fade-in text-center">
+            <div class="biz-badge mb-4">${hero.badge || 'TRAI INC · ZERO-TO-ONE INCUBATOR & MVP LAUNCHPAD'}</div>
+            <h1 class="hero-cosmos-title" data-cms-bind="title">${hero.title || 'Build an Investor-Ready Startup in 30 Days.'}</h1>
+            <p class="hero-cosmos-subtitle max-w-3xl mx-auto" data-cms-bind="subtitle">${hero.subtitle || ''}</p>
+            <div class="hero-cosmos-cta-group justify-center">
+                <a href="${hero.cta_primary?.href || '#apply'}" class="btn-primary large">${hero.cta_primary?.text || 'Apply for 2026 Cohort'}</a>
+                <a href="${hero.cta_secondary?.href || 'ai-engineering.html'}" class="btn-secondary large">${hero.cta_secondary?.text || 'Explore AI Engineering'}</a>
+            </div>
+            ${hero.stats ? `
+            <div class="incubator-stats-grid">
+                ${hero.stats.map(s => `
+                <div class="incubator-stat-card">
+                    <strong class="incubator-stat-val">${s.value}</strong>
+                    <span class="incubator-stat-lbl">${s.label}</span>
+                </div>
+                `).join('')}
+            </div>` : ''}
+        </div>
+    </section>
+
+    <section class="content-section incubator-stages-section" id="journey">
+        <div class="container">
+            <div class="section-header center mb-12">
+                <span class="mini-title">PRODUCTIZED VENTURE ENGINE</span>
+                <h2>The 4-Stage Sprint: From Thesis to Capital-Ready</h2>
+                <p class="section-subtitle max-w-2xl mx-auto">A proven institutional process turning concepts into live software with real user traction and investor data room readiness.</p>
+            </div>
+            <div class="incubator-stages-grid">
+                ${stages.map((st, idx) => `
+                <div class="incubator-stage-card fade-in">
+                    <div class="stage-card-header">
+                        <div class="stage-meta">
+                            <span class="stage-num">${st.stage}</span>
+                            <span class="stage-timeline">${st.timeline}</span>
+                        </div>
+                        <h3 class="stage-title">${st.title}</h3>
+                        <span class="stage-sub">${st.subtitle}</span>
+                    </div>
+                    <p class="stage-desc">${st.desc}</p>
+                    <div class="stage-deliverables">
+                        <span class="deliverables-title">Key Sprint Deliverables:</span>
+                        <ul>
+                            ${(st.deliverables || []).map(d => `
+                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <span>${d}</span></li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                </div>
+                `).join('')}
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section home-section-shaded" id="models">
+        <div class="container">
+            <div class="section-header center mb-12">
+                <span class="mini-title">FLEXIBLE PARTNERSHIP STRUCTURES</span>
+                <h2>Choose Your Incubation Track</h2>
+                <p class="section-subtitle max-w-2xl mx-auto">Retain 100% equity in a milestone sprint or apply for our selective technical co-founding track.</p>
+            </div>
+            <div class="incubator-models-grid">
+                ${models.map(m => `
+                <div class="incubator-model-card fade-in">
+                    <div class="model-badge">${m.badge}</div>
+                    <h3 class="model-title">${m.title}</h3>
+                    <p class="model-desc">${m.desc}</p>
+                    <div class="model-terms">${m.terms}</div>
+                    <ul class="model-features">
+                        ${(m.features || []).map(f => `
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <span>${f}</span></li>
+                        `).join('')}
+                    </ul>
+                    <a href="${m.href}" class="btn-primary w-full text-center mt-6">${m.cta}</a>
+                </div>
+                `).join('')}
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section" id="apply">
+        <div class="container">
+            <div class="incubator-apply-wrapper fade-in">
+                <div class="section-header center mb-8">
+                    <span class="mini-title">2026 COHORT APPLICATION</span>
+                    <h2>Apply for Startup Incubation &amp; 30-Day MVP Launchpad</h2>
+                    <p class="section-subtitle max-w-2xl mx-auto">Tell us about your venture thesis. Our technical partners review every submission within 48 hours.</p>
+                </div>
+                <form id="incubatorForm" action="/api/contact" method="POST" class="contact-form max-w-3xl mx-auto">
+                    <input type="hidden" name="project_track" value="startup-incubator-mvp">
+                    <input type="text" name="website_url" style="display:none" tabindex="-1" autocomplete="off">
+                    
+                    <div class="contact-form-row">
+                        <div class="contact-field">
+                            <label class="contact-field-label">Founder Name <span class="contact-required">*</span></label>
+                            <input type="text" name="name" required placeholder="Your full name" class="contact-field-input">
+                        </div>
+                        <div class="contact-field">
+                            <label class="contact-field-label">Email Address <span class="contact-required">*</span></label>
+                            <input type="email" name="email" required placeholder="founder@company.com" class="contact-field-input">
+                        </div>
+                    </div>
+                    <div class="contact-form-row">
+                        <div class="contact-field">
+                            <label class="contact-field-label">WhatsApp / Phone <span class="contact-required">*</span></label>
+                            <input type="tel" name="phone" required placeholder="+91 98765 43210" class="contact-field-input">
+                        </div>
+                        <div class="contact-field">
+                            <label class="contact-field-label">Startup / Project Name <span class="contact-required">*</span></label>
+                            <input type="text" name="company" required placeholder="E.g. Nexus AI" class="contact-field-input">
+                        </div>
+                    </div>
+                    <div class="contact-form-row">
+                        <div class="contact-field">
+                            <label class="contact-field-label">Current Venture Stage <span class="contact-required">*</span></label>
+                            <select name="venture_stage" required class="contact-field-input contact-field-select">
+                                <option value="" disabled selected>Select Current Stage</option>
+                                <option value="concept">Napkin Thesis / Ideation</option>
+                                <option value="wireframes">Figma Wireframes Ready</option>
+                                <option value="prototype">Early Prototype / Beta Users</option>
+                                <option value="scaling">Existing MVP Looking for Institutional Rewrite</option>
+                            </select>
+                        </div>
+                        <div class="contact-field">
+                            <label class="contact-field-label">Preferred Meeting Hub</label>
+                            <select name="meeting_mode" class="contact-field-input contact-field-select">
+                                <option value="virtual" selected>Virtual Strategy Call (Google Meet)</option>
+                                <option value="lucknow">In-Person at Lucknow Global HQ (DLF MyPad)</option>
+                                <option value="bengaluru">In-Person at Bengaluru Hub (Indiranagar)</option>
+                                <option value="capetown">In-Person at Cape Town Hub (Strand St)</option>
+                                <option value="lusaka">In-Person at Lusaka Hub (Lilayi)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="contact-field">
+                        <label class="contact-field-label">Venture Thesis &amp; Problem Solved <span class="contact-required">*</span></label>
+                        <textarea name="message" required rows="4" placeholder="Briefly describe what problem your startup solves, target market, and expected monetization model..." class="contact-field-input contact-field-textarea"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary large w-full mt-4">Submit Incubation Application →</button>
+                    <p class="text-xs text-muted text-center mt-3">Under our strict Non-Disclosure Agreement (NDA). 100% intellectual property confidentiality guaranteed.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    ${renderFaq(faq)}
+    `;
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// AI ENGINEERING & SCOPE ESTIMATOR RENDERER
+// ══════════════════════════════════════════════════════════════════════════════
+function renderAiEngineeringPage(data) {
+    const hero = data.hero || {};
+    const architectures = data.architectures || [];
+    const faq = data.faq || {};
+
+    return `
+    <section class="cf-hero-wrapper ai-eng-hero">
+        <div class="contact-hero-mesh" aria-hidden="true"></div>
+        <div class="cf-hero-content fade-in text-center">
+            <div class="biz-badge mb-4">${hero.badge || 'TIER-1 AI & SOFTWARE ENGINEERING PODS'}</div>
+            <h1 class="hero-cosmos-title" data-cms-bind="title">${hero.title || 'Senior AI Architects & Full-Stack Pods. 40% Lower Burn.'}</h1>
+            <p class="hero-cosmos-subtitle max-w-3xl mx-auto" data-cms-bind="subtitle">${hero.subtitle || ''}</p>
+            <div class="hero-cosmos-cta-group justify-center">
+                <a href="${hero.cta_primary?.href || '#estimator'}" class="btn-primary large">${hero.cta_primary?.text || 'Interactive Scope Estimator ↓'}</a>
+                <a href="${hero.cta_secondary?.href || 'contact.html?type=strategy-call'}" class="btn-secondary large">${hero.cta_secondary?.text || 'Book Strategy Call'}</a>
+            </div>
+            ${hero.metrics ? `
+            <div class="incubator-stats-grid">
+                ${hero.metrics.map(m => `
+                <div class="incubator-stat-card">
+                    <strong class="incubator-stat-val">${m.value}</strong>
+                    <span class="incubator-stat-lbl">${m.label}</span>
+                </div>
+                `).join('')}
+            </div>` : ''}
+        </div>
+    </section>
+
+    <section class="content-section" id="estimator">
+        <div class="container">
+            <div class="section-header center mb-8">
+                <span class="mini-title">LIVE ARCHITECTURE &amp; SCOPE TOOL</span>
+                <h2>Startup &amp; Software Scope + Funding-Readiness Estimator</h2>
+                <p class="section-subtitle max-w-2xl mx-auto">Select your venture parameters to instantly generate technical architecture specifications, sprint milestones, funding diligence checklists, and estimated budget ranges.</p>
+            </div>
+            
+            <div class="estimator-tool-container fade-in">
+                <div class="estimator-controls">
+                    <div class="estimator-group">
+                        <label class="estimator-label">1. Select Project Track</label>
+                        <div class="estimator-options" id="estTrackOptions">
+                            <button type="button" class="est-option-btn active" data-track="mvp">30-Day Startup MVP</button>
+                            <button type="button" class="est-option-btn" data-track="ai-agent">Autonomous AI Agent Pod</button>
+                            <button type="button" class="est-option-btn" data-track="saas">Multi-Tenant SaaS Platform</button>
+                            <button type="button" class="est-option-btn" data-track="mobile">Cross-Platform Mobile App</button>
+                        </div>
+                    </div>
+
+                    <div class="estimator-group">
+                        <label class="estimator-label">2. Core Modules &amp; Capabilities</label>
+                        <div class="estimator-chips-grid" id="estModules">
+                            <label class="est-chip"><input type="checkbox" checked value="auth"> <span>User Auth &amp; RBAC</span></label>
+                            <label class="est-chip"><input type="checkbox" checked value="payments"> <span>Payments &amp; Subscriptions</span></label>
+                            <label class="est-chip"><input type="checkbox" checked value="admin"> <span>Admin CRM &amp; Telemetry</span></label>
+                            <label class="est-chip"><input type="checkbox" value="rag"> <span>Enterprise RAG Search</span></label>
+                            <label class="est-chip"><input type="checkbox" value="agents"> <span>Multi-Agent Swarm</span></label>
+                            <label class="est-chip"><input type="checkbox" value="whatsapp"> <span>WhatsApp AI Bot</span></label>
+                            <label class="est-chip"><input type="checkbox" value="edge"> <span>Sub-100ms Edge APIs</span></label>
+                            <label class="est-chip"><input type="checkbox" checked value="dataroom"> <span>DPIIT &amp; Investor Data Room</span></label>
+                        </div>
+                    </div>
+
+                    <div class="estimator-group">
+                        <label class="estimator-label">3. Target Sprint Cadence</label>
+                        <div class="estimator-options" id="estTimeline">
+                            <button type="button" class="est-timeline-btn active" data-timeline="rapid">Rapid Sprint (4 Weeks)</button>
+                            <button type="button" class="est-timeline-btn" data-timeline="standard">Standard Sprint (8 Weeks)</button>
+                            <button type="button" class="est-timeline-btn" data-timeline="deep">Enterprise Rollout (12 Weeks)</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="estimator-output-card" id="estimatorResult">
+                    <div class="output-header">
+                        <span class="output-badge" id="resBadge">Ready for Production Sprints</span>
+                        <h3 class="output-title" id="resTitle">30-Day Investor-Ready MVP Architecture</h3>
+                    </div>
+                    
+                    <div class="output-block">
+                        <span class="output-subheading">Recommended Modern Tech Stack:</span>
+                        <div class="output-tags" id="resStack">
+                            <span class="output-tag">Next.js 15 (React 19)</span>
+                            <span class="output-tag">Node.js / FastAPI</span>
+                            <span class="output-tag">PostgreSQL / Cloudflare D1</span>
+                            <span class="output-tag">Razorpay / Stripe</span>
+                            <span class="output-tag">Docker / GitHub Actions</span>
+                        </div>
+                    </div>
+
+                    <div class="output-block">
+                        <span class="output-subheading">Sprint Milestones &amp; Cadence:</span>
+                        <p class="output-timeline-text" id="resMilestones"><strong>Week 1:</strong> Architecture &amp; wireframes · <strong>Weeks 2–3:</strong> Core auth, CRUD &amp; payments · <strong>Week 4:</strong> Admin, QA &amp; Investor Data Room.</p>
+                    </div>
+
+                    <div class="output-block">
+                        <span class="output-subheading">Investor Due Diligence Readiness:</span>
+                        <ul class="output-checklist" id="resChecklist">
+                            <li>✓ 100% Full IP &amp; Source Code Ownership Handover</li>
+                            <li>✓ DPIIT Recognition &amp; SISFS Grant Eligibility Audit</li>
+                            <li>✓ Institutional Pitch Deck &amp; 3-Year Audited Financial Model</li>
+                        </ul>
+                    </div>
+
+                    <div class="output-footer">
+                        <div class="output-burn-stat">
+                            <span class="burn-lbl">Engineering Pod Allocation:</span>
+                            <strong class="burn-val" id="resPod">Lead Architect + 2 Full-Stack Seniors</strong>
+                        </div>
+                        <a href="contact.html?type=strategy-call&track=ai-engineering" class="btn-primary output-cta-btn" id="resCta">Lock In This Sprint Architecture →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section home-section-shaded" id="architectures">
+        <div class="container">
+            <div class="section-header center mb-12">
+                <span class="mini-title">PRODUCTION ARCHITECTURES</span>
+                <h2>Real Production Blueprints Built by Senior Pods</h2>
+                <p class="section-subtitle max-w-2xl mx-auto">We do not hide behind marketing buzzwords. Here is how our senior software architects engineer real AI workflows and edge systems.</p>
+            </div>
+
+            <div class="arch-blueprints-grid">
+                ${architectures.map(a => `
+                <div class="arch-card fade-in">
+                    <div class="arch-card-top">
+                        <span class="arch-tag">${a.title}</span>
+                        <h3 class="arch-heading">${a.subtitle}</h3>
+                        <p class="arch-desc">${a.desc}</p>
+                    </div>
+                    <div class="arch-pipeline">
+                        <span class="pipeline-label">Execution Pipeline:</span>
+                        <div class="pipeline-steps">
+                            ${(a.diagram_steps || []).map((step, sIdx) => `
+                            <div class="pipeline-step">
+                                <span class="step-num">${sIdx + 1}</span>
+                                <div>
+                                    <strong>${step.label}</strong>
+                                    <p>${step.desc}</p>
+                                </div>
+                            </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    <div class="arch-stack">
+                        <span class="stack-label">Stack:</span>
+                        <div class="stack-tags">
+                            ${(a.tech_stack || []).map(t => `<span class="stack-pill">${t}</span>`).join('')}
+                        </div>
+                    </div>
+                </div>
+                `).join('')}
+            </div>
+        </div>
+    </section>
+
+    ${renderFaq(faq)}
+
+    <section class="ptr-cta-section">
+        <div class="container">
+            <div class="ptr-cta-card fade-in text-center">
+                <div class="ptr-cta-glow"></div>
+                <h2 class="ptr-cta-title">Ready to Ship with Senior Architects?</h2>
+                <p class="ptr-cta-desc max-w-2xl mx-auto">Skip the junior agency fluff. Partner with dedicated senior pods at 40% lower burn rate with guaranteed sprint milestones.</p>
+                <div class="ptr-cta-buttons justify-center mt-6">
+                    <a href="contact.html?type=strategy-call" class="btn-primary large">Schedule Technical Scoping</a>
+                    <a href="https://wa.me/917905495478?text=Hi%20TRAI%20Inc,%20I'd%20like%20to%20discuss%20an%20AI%20or%20software%20project." target="_blank" rel="noopener noreferrer" class="whatsapp-btn">Direct WhatsApp Sync</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    `;
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// REGIONAL CITY PAGES RENDERER (Lucknow, Bengaluru, Cape Town, Lusaka)
+// ══════════════════════════════════════════════════════════════════════════════
+function renderCityPage(data) {
+    const cases = data.cases || [];
+    const highlights = data.highlights || [];
+    const faq = data.faq || [];
+
+    return `
+    <section class="cf-hero-wrapper city-hero">
+        <div class="contact-hero-mesh" aria-hidden="true"></div>
+        <div class="cf-hero-content fade-in text-center">
+            <div class="biz-badge mb-4">${data.kicker || 'REGIONAL MEETING & DELIVERY HUB'}</div>
+            <h1 class="hero-cosmos-title" data-cms-bind="title">${data.h1}</h1>
+            <p class="hero-cosmos-subtitle max-w-3xl mx-auto" data-cms-bind="subtitle">${data.subtitle}</p>
+            <div class="hero-cosmos-cta-group justify-center">
+                <a href="#book-hub" class="btn-primary large">Book In-Person Session at ${data.city}</a>
+                <a href="contact.html?type=strategy-call&hub=${data.slug}" class="btn-secondary large">Schedule Virtual Call</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section" id="hub-details">
+        <div class="container">
+            <div class="city-hub-grid">
+                <div class="city-hub-card fade-in">
+                    <span class="hub-kicker">OPERATIONAL ROLE</span>
+                    <h3 class="hub-role-title">${data.role}</h3>
+                    <div class="hub-address-block">
+                        <strong>Office Location:</strong>
+                        <p class="hub-address-text">${data.address}</p>
+                        ${data.landmark ? `<p class="hub-landmark"><em>Landmark:</em> ${data.landmark}</p>` : ''}
+                    </div>
+                    <div class="hub-contact-quick">
+                        <a href="tel:${data.phone}" class="contact-link">📞 ${data.phone}</a>
+                        <a href="mailto:${data.email}" class="contact-link">✉️ ${data.email}</a>
+                    </div>
+                </div>
+
+                <div class="city-capabilities-card fade-in">
+                    <span class="hub-kicker">HUB CAPABILITIES</span>
+                    <h3 class="hub-role-title">Why Ambitious Leaders Choose This Hub</h3>
+                    <ul class="city-highlights-list">
+                        ${highlights.map(h => `
+                        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <span>${h}</span></li>
+                        `).join('')}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section home-section-shaded" id="regional-proof">
+        <div class="container">
+            <div class="section-header center mb-10">
+                <span class="mini-title">PROVEN IMPACT</span>
+                <h2>Quantified Deployments Managed from ${data.city}</h2>
+            </div>
+            <div class="city-cases-grid">
+                ${cases.map(c => `
+                <div class="city-case-card fade-in">
+                    <span class="city-case-sector">${c.sector}</span>
+                    <h3 class="city-case-title">${c.name}</h3>
+                    <p class="city-case-outcome">${c.outcome}</p>
+                    <a href="clients.html" class="city-case-link">Read Case Study →</a>
+                </div>
+                `).join('')}
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section" id="book-hub">
+        <div class="container">
+            <div class="incubator-apply-wrapper fade-in max-w-3xl mx-auto">
+                <div class="section-header center mb-8">
+                    <span class="mini-title">IN-PERSON TECHNICAL SCOPING</span>
+                    <h2>Meet Senior Architects in ${data.city}</h2>
+                    <p class="section-subtitle">Reserve a technical architecture session or founder incubation discovery at our ${data.city} hub.</p>
+                </div>
+                <form id="cityMeetingForm" action="/api/contact" method="POST" class="contact-form">
+                    <input type="hidden" name="meeting_mode" value="${data.slug}">
+                    <input type="text" name="website_url" style="display:none" tabindex="-1" autocomplete="off">
+                    
+                    <div class="contact-form-row">
+                        <div class="contact-field">
+                            <label class="contact-field-label">Full Name <span class="contact-required">*</span></label>
+                            <input type="text" name="name" required placeholder="Your name" class="contact-field-input">
+                        </div>
+                        <div class="contact-field">
+                            <label class="contact-field-label">Email Address <span class="contact-required">*</span></label>
+                            <input type="email" name="email" required placeholder="you@company.com" class="contact-field-input">
+                        </div>
+                    </div>
+                    <div class="contact-form-row">
+                        <div class="contact-field">
+                            <label class="contact-field-label">Phone / WhatsApp <span class="contact-required">*</span></label>
+                            <input type="tel" name="phone" required placeholder="+91 98765 43210" class="contact-field-input">
+                        </div>
+                        <div class="contact-field">
+                            <label class="contact-field-label">Project Type <span class="contact-required">*</span></label>
+                            <select name="project_track" required class="contact-field-input contact-field-select">
+                                <option value="" disabled selected>Select Project Scope</option>
+                                <option value="startup-incubator-mvp">Startup Incubation &amp; 30-Day MVP</option>
+                                <option value="ai-agents-automation">AI Agents &amp; Workflow Automation</option>
+                                <option value="custom-software-saas">Custom Software &amp; SaaS Platform</option>
+                                <option value="mobile-apps">Mobile Application Engineering</option>
+                                <option value="enterprise-erp-cloud">Enterprise ERP / Cloud Migration</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="contact-field">
+                        <label class="contact-field-label">Meeting Agenda &amp; Requirements <span class="contact-required">*</span></label>
+                        <textarea name="message" required rows="3" placeholder="Tell us what you would like to discuss during your session in ${data.city}..." class="contact-field-input contact-field-textarea"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary large w-full mt-4">Confirm ${data.city} Meeting Request →</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section fade-in">
+        <div class="container">
+            <div class="section-header center mb-10">
+                <span class="mini-title">LOCAL FREQUENTLY ASKED QUESTIONS</span>
+                <h2>Frequently Asked Questions — ${data.city}</h2>
+            </div>
+            <div class="faq-accordion max-w-3xl mx-auto">
+                ${faq.map(item => `
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>${item.q}</span>
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>${item.a}</p>
+                    </div>
+                </div>
+                `).join('')}
+            </div>
+        </div>
+    </section>
+    `;
+}
+
+
+window.__TRAI_RENDERERS__ = renderers;
 
     let renderFn = renderers[pageId];
     if (pageId.startsWith('tech-')) {
@@ -852,14 +1342,14 @@ function renderHome(data) {
         <div class="hero-cosmos-content">
             <p class="hero-cosmos-eyebrow">${hero.badge || 'TRAI INC · AI-NATIVE SOFTWARE ENGINEERING STUDIO'}</p>
             <h1 class="hero-cosmos-title" data-cms-bind="title">
-                <span class="hero-cosmos-line hero-cosmos-line--1">${hero.heading_line1 || 'Enterprise Reliability.'}</span>
-                <span class="hero-cosmos-line hero-cosmos-line--2">${hero.heading_line2 || 'AI-Native Speed.'}</span>
-                <span class="hero-cosmos-line hero-cosmos-line--3">with <em class="hero-cosmos-ai">Guaranteed Delivery.</em></span>
+                <span class="hero-cosmos-line hero-cosmos-line--1">${hero.heading_line1 || 'Build Production AI &'}</span>
+                <span class="hero-cosmos-line hero-cosmos-line--2">${hero.heading_line2 || 'Investor-Ready Startups—'}</span>
+                <span class="hero-cosmos-line hero-cosmos-line--3"><em class="hero-cosmos-ai">${hero.heading_highlight || 'At Lean Burn.'}</em></span>
             </h1>
-            <p class="hero-cosmos-subtitle" data-cms-bind="subtitle">${hero.subtitle || 'We design, architect, and deploy custom software systems, scalable cloud infrastructure, and autonomous agent pipelines for ambitious enterprises. Milestone-driven sprints. Senior engineers. 100% full IP ownership.'}</p>
+            <p class="hero-cosmos-subtitle" data-cms-bind="subtitle">${hero.subtitle || 'From 30-day startup MVPs and seed-funding readiness to custom AI agents and enterprise software—Trai Inc partners with ambitious founders across Bengaluru, Delhi-NCR, Lucknow, Cape Town, and Lusaka to ship real software fast.'}</p>
             <div class="hero-cosmos-cta-group">
-                <a href="${hero.cta_primary?.href || 'contact.html'}" class="btn-primary large hero-cosmos-cta">${hero.cta_primary?.text || 'Scope Your Project →'}</a>
-                <a href="${hero.cta_secondary?.href || 'clients.html'}" class="hero-cosmos-cta-secondary">${hero.cta_secondary?.text || 'View Verified Case Studies →'}</a>
+                <a href="${hero.cta_primary?.href || 'incubator.html'}" class="btn-primary large hero-cosmos-cta">${hero.cta_primary?.text || 'Launch Your Startup / MVP'}</a>
+                <a href="${hero.cta_secondary?.href || 'ai-engineering.html'}" class="hero-cosmos-cta-secondary">${hero.cta_secondary?.text || 'Scope an AI or Software Project'}</a>
             </div>
             <div class="hero-cosmos-trust">
                 <div class="hero-trust-avatars">
@@ -874,6 +1364,45 @@ function renderHome(data) {
             </div>
         </div>
 
+    </section>
+
+    <!-- ════════ CHOOSE YOUR TRACK — SPLIT CARDS ════════ -->
+    <section class="choose-track-section fade-in" id="tracks">
+        <div class="container">
+            <div class="section-header center mb-8">
+                <span class="mini-title">${data.choose_tracks?.subtitle || 'CHOOSE YOUR PATHWAY'}</span>
+                <h2>${data.choose_tracks?.title || 'Two Tailored Pathways for Founders & Technical Leaders'}</h2>
+            </div>
+            <div class="choose-track-grid">
+                ${(data.choose_tracks?.tracks || []).map(t => `
+                <div class="choose-track-card ${t.id === 'founders' ? 'choose-track-card--founders' : 'choose-track-card--enterprise'}">
+                    <div class="track-card-top">
+                        <div class="track-meta">
+                            <span class="track-badge">${t.track_number}</span>
+                            <span class="track-audience">${t.audience}</span>
+                        </div>
+                        <h3 class="track-title">${t.title}</h3>
+                        <p class="track-desc">${t.desc}</p>
+                    </div>
+                    <div class="track-features-block">
+                        <span class="track-features-label">Deliverables &amp; Scope:</span>
+                        <ul class="track-features-list">
+                            ${(t.features || []).map(f => `
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <span>${f}</span></li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                    <div class="track-card-bottom">
+                        <div class="track-engagement">
+                            <span class="engagement-label">Engagement Model:</span>
+                            <span class="engagement-text">${t.engagement}</span>
+                        </div>
+                        <a href="${t.cta_href}" class="${t.id === 'founders' ? 'btn-primary' : 'btn-secondary'} track-cta-btn">${t.cta_text}</a>
+                    </div>
+                </div>
+                `).join('')}
+            </div>
+        </div>
     </section>
 
     <!-- ════════ CLIENT LOGOS (CURATED ENTERPRISE PARTNERS) ════════ -->
@@ -1850,6 +2379,28 @@ function renderContact(data) {
                             <input type="${f.type}" id="${f.id}" name="${f.name}" placeholder="${f.placeholder}" ${f.required ? 'required' : ''} class="contact-field-input">
                         </div>
                     `).join('')}
+                </div>
+
+                <div class="contact-form-row">
+                    ${data.form.project_track ? `
+                    <div class="contact-field">
+                        <label for="${data.form.project_track.id}" class="contact-field-label">${data.form.project_track.label} <span class="contact-required">*</span></label>
+                        <select id="${data.form.project_track.id}" name="${data.form.project_track.name}" required class="contact-field-input contact-field-select">
+                            ${data.form.project_track.options.map(opt => `
+                                <option value="${opt.value}" ${opt.disabled ? 'disabled' : ''} ${opt.selected ? 'selected' : ''}>${opt.label}</option>
+                            `).join('')}
+                        </select>
+                    </div>` : ''}
+
+                    ${data.form.meeting_mode ? `
+                    <div class="contact-field">
+                        <label for="${data.form.meeting_mode.id}" class="contact-field-label">${data.form.meeting_mode.label} <span class="contact-required">*</span></label>
+                        <select id="${data.form.meeting_mode.id}" name="${data.form.meeting_mode.name}" required class="contact-field-input contact-field-select">
+                            ${data.form.meeting_mode.options.map(opt => `
+                                <option value="${opt.value}" ${opt.disabled ? 'disabled' : ''} ${opt.selected ? 'selected' : ''}>${opt.label}</option>
+                            `).join('')}
+                        </select>
+                    </div>` : ''}
                 </div>
 
                 <div class="contact-field">
@@ -3506,10 +4057,18 @@ function renderBlogPost(data) {
         ${relatedHtml}
     </article>
 
-    <section class="content-section center section-pad-lg border-t-light">
+    <section class="blog-conversion-section">
         <div class="container">
-            <h2 class="mb-8">Want to discuss this topic?</h2>
-            <a href="contact.html" class="btn btn-primary">Get in Touch →</a>
+            <div class="blog-conversion-card fade-in">
+                <span class="blog-conversion-kicker">TURN IDEAS INTO PRODUCTION CODE</span>
+                <h2 class="blog-conversion-title">Build Production AI & Investor-Ready Startups—At Lean Burn</h2>
+                <p class="blog-conversion-desc">Whether you need a 30-day working MVP with DPIIT/grant readiness or custom AI agent swarms engineered by senior pods at 40% lower burn—Trai Inc partners with ambitious founders and enterprises to ship real software fast.</p>
+                <div class="blog-conversion-actions">
+                    <a href="incubator.html" class="btn-primary">Launch Your Startup / MVP →</a>
+                    <a href="ai-engineering.html" class="btn-secondary">Scope an AI Project →</a>
+                    <a href="contact.html?type=strategy-call" class="btn-outline">Book Strategy Call</a>
+                </div>
+            </div>
         </div>
     </section>
     `;
@@ -3626,3 +4185,88 @@ function renderIndustryLandingPage(data) {
     </section>
     `;
 }
+
+// ── Interactive Scope Estimator Event Handlers ──
+document.addEventListener("DOMContentLoaded", () => {
+    function initEstimator() {
+        const trackBtns = document.querySelectorAll("#estTrackOptions .est-option-btn");
+        const timelineBtns = document.querySelectorAll("#estTimeline .est-timeline-btn");
+        const modulesContainer = document.getElementById("estModules");
+        if (!trackBtns.length) return;
+
+        function updateEstimator() {
+            const activeTrackBtn = document.querySelector("#estTrackOptions .est-option-btn.active");
+            const track = activeTrackBtn ? activeTrackBtn.dataset.track : "mvp";
+            const activeTimelineBtn = document.querySelector("#estTimeline .est-timeline-btn.active");
+            const timeline = activeTimelineBtn ? activeTimelineBtn.dataset.timeline : "rapid";
+            
+            const checkedBoxes = Array.from(document.querySelectorAll("#estModules input:checked")).map(i => i.value);
+
+            const titleEl = document.getElementById("resTitle");
+            const badgeEl = document.getElementById("resBadge");
+            const stackEl = document.getElementById("resStack");
+            const milestonesEl = document.getElementById("resMilestones");
+            const checklistEl = document.getElementById("resChecklist");
+            const podEl = document.getElementById("resPod");
+            const ctaEl = document.getElementById("resCta");
+
+            if (track === "mvp") {
+                if (titleEl) titleEl.textContent = "30-Day Investor-Ready MVP Architecture";
+                if (badgeEl) badgeEl.textContent = "30-Day Launchpad · Seed & Grant Ready";
+                if (stackEl) stackEl.innerHTML = "<span class='output-tag'>Next.js 15 (React 19)</span><span class='output-tag'>FastAPI / Node.js</span><span class='output-tag'>PostgreSQL / Cloudflare D1</span><span class='output-tag'>Razorpay / Stripe</span><span class='output-tag'>Docker & GitHub CI/CD</span>";
+                if (milestonesEl) milestonesEl.innerHTML = "<strong>Week 1:</strong> UX validation, TAM/SAM model & lean architecture · <strong>Weeks 2–3:</strong> Auth, database schemas, core features & payments · <strong>Week 4:</strong> Admin telemetry, security audits & Investor Data Room.";
+                if (checklistEl) checklistEl.innerHTML = "<li>✓ 100% Full IP & Source Code Ownership Handover</li><li>✓ DPIIT Recognition & SISFS Grant (₹50 Lakh) DPR Support</li><li>✓ 12-15 Slide Pitch Deck & 3-Year Audited Financial Model</li><li>✓ Institutional Investor Data Room & Cap Table Structure</li>";
+                if (podEl) podEl.textContent = "Staff Software Architect + 2 Senior Full-Stack Engineers";
+            } else if (track === "ai-agent") {
+                if (titleEl) titleEl.textContent = "Autonomous Multi-Agent System (MAS) Architecture";
+                if (badgeEl) badgeEl.textContent = "Enterprise Agentic Automation";
+                if (stackEl) stackEl.innerHTML = "<span class='output-tag'>LangGraph / LlamaIndex</span><span class='output-tag'>Python FastAPI</span><span class='output-tag'>Qdrant / pgvector</span><span class='output-tag'>Meta Cloud WhatsApp API</span><span class='output-tag'>Twilio Voice Streams</span>";
+                if (milestonesEl) milestonesEl.innerHTML = "<strong>Phase 1 (W1-2):</strong> Agent graph taxonomy, tool definitions & memory buffers · <strong>Phase 2 (W3-4):</strong> Function execution, verification guardrails & CRM hooks · <strong>Phase 3 (W5-6):</strong> Load testing, evaluation benchmarking & production deploy.";
+                if (checklistEl) checklistEl.innerHTML = "<li>✓ Zero-Hallucination Guardrails & Deterministic Verification Gates</li><li>✓ Private VPC Isolated Embeddings & Zero Data Retention</li><li>✓ Real-Time HubSpot / Salesforce & Custom DB Connectors</li><li>✓ Human-in-the-Loop Escalation Telemetry</li>";
+                if (podEl) podEl.textContent = "Principal AI Architect + 2 Applied ML Engineers";
+            } else if (track === "saas") {
+                if (titleEl) titleEl.textContent = "Multi-Tenant Enterprise SaaS Platform Architecture";
+                if (badgeEl) badgeEl.textContent = "High-Throughput Multi-Tenant SaaS";
+                if (stackEl) stackEl.innerHTML = "<span class='output-tag'>Next.js App Router</span><span class='output-tag'>Node.js Microservices</span><span class='output-tag'>PostgreSQL + Redis</span><span class='output-tag'>Stripe Billing & Metering</span><span class='output-tag'>Kubernetes & Terraform</span>";
+                if (milestonesEl) milestonesEl.innerHTML = "<strong>Phase 1:</strong> Multi-tenant isolation & RBAC hierarchy · <strong>Phase 2:</strong> Subscription metering & core feature modules · <strong>Phase 3:</strong> High-availability failover, SOC-2 logging & global CDN.";
+                if (checklistEl) checklistEl.innerHTML = "<li>✓ Multi-Tenant Schema Partitioning & Row-Level Security</li><li>✓ Automated Stripe Tiered Billing & Usage Metering</li><li>✓ 99.99% Uptime Architecture with Blue/Green Deployments</li><li>✓ SOC-2 Type II Compliance Readiness</li>";
+                if (podEl) podEl.textContent = "Principal Systems Architect + 3 Full-Stack Seniors";
+            } else if (track === "mobile") {
+                if (titleEl) titleEl.textContent = "Cross-Platform 60fps Flutter Mobile Architecture";
+                if (badgeEl) badgeEl.textContent = "iOS & Android Unified Codebase";
+                if (stackEl) stackEl.innerHTML = "<span class='output-tag'>Flutter 3.x (Dart)</span><span class='output-tag'>Supabase / Firebase</span><span class='output-tag'>SQLite Offline-First Cache</span><span class='output-tag'>Fastlane CI/CD</span><span class='output-tag'>App Store & Play Store</span>";
+                if (milestonesEl) milestonesEl.innerHTML = "<strong>Sprint 1:</strong> Responsive mobile UI & state architecture · <strong>Sprint 2:</strong> Offline SQLite caching & background sync · <strong>Sprint 3:</strong> Push notifications, analytics & App Store review submission.";
+                if (checklistEl) checklistEl.innerHTML = "<li>✓ Single Codebase with 60fps Native Performance</li><li>✓ Resilient Offline-First SQLite Synchronization</li><li>✓ Apple App Store & Google Play Certification Guarantee</li><li>✓ Biometric FaceID / Fingerprint Authentication</li>";
+                if (podEl) podEl.textContent = "Lead Mobile Architect + 2 Cross-Platform Engineers";
+            }
+
+            if (ctaEl) {
+                ctaEl.href = "contact.html?type=strategy-call&track=" + encodeURIComponent(track) + "&cadence=" + encodeURIComponent(timeline) + "&modules=" + encodeURIComponent(checkedBoxes.join(","));
+            }
+        }
+
+        trackBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                trackBtns.forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+                updateEstimator();
+            });
+        });
+
+        timelineBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                timelineBtns.forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+                updateEstimator();
+            });
+        });
+
+        if (modulesContainer) {
+            modulesContainer.addEventListener("change", updateEstimator);
+        }
+
+        updateEstimator();
+    }
+
+    setTimeout(initEstimator, 100);
+});

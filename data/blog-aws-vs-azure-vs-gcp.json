@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "AWS vs Azure vs GCP — Which Cloud Is Right for Your Indian Startup?",
-    "description": "A no-fluff comparison of the top three cloud platforms for cost, compliance, and scalability in 2025.",
+    "description": "A no-fluff comparison of the top three cloud platforms for cost, compliance, and scalability in 2026.",
     "author": "Neha Sharma",
     "date": "Jun 28, 2026",
     "read_time": "6 min read",
@@ -89,6 +89,6 @@
   ],
   "relatedPosts": [
     { "title": "Building an MVP in 30 Days: The Trai Inc Playbook", "url": "/blog-building-mvp-30-days.html" },
-    { "title": "React Native vs Flutter in 2025 — What Should You Choose?", "url": "/blog-react-native-vs-flutter.html" }
+    { "title": "React Native vs Flutter in 2026 — What Should You Choose?", "url": "/blog-react-native-vs-flutter.html" }
   ]
 }

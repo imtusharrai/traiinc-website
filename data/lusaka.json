@@ -1,0 +1,50 @@
+{
+  "slug": "lusaka",
+  "city": "Lusaka",
+  "country": "Zambia",
+  "role": "Zambia Operations Hub",
+  "kicker": "ZAMBIA OPERATIONS HUB",
+  "h1": "Custom Enterprise Software & Fintech Deployment in Lusaka",
+  "subtitle": "On-ground enterprise software, custom ERP/CRM deployment, and new venture co-building from our Lilayi hub in Lusaka, serving Zambia and the broader SADC market.",
+  "address": "Green Park Estate, Off Kafue Road, Lilayi, Lusaka 10101, Zambia",
+  "landmark": "Off Kafue Road, Lilayi Commercial Area",
+  "phone": "+91 79054 95478",
+  "email": "lusaka@traiinc.com",
+  "highlights": [
+    "On-Ground Enterprise Software Deployment",
+    "Mobile Money & Cross-Border Payment Integration",
+    "AgriTech, Logistics & Fleet Telematics Systems",
+    "Direct Strategic Consultations in Lusaka"
+  ],
+  "cases": [
+    {
+      "name": "Cross-Border Logistics",
+      "sector": "Fleet & Freight",
+      "outcome": "Automated cargo tracking across transit corridors with zero offline downtime"
+    },
+    {
+      "name": "Commercial Agro ERP",
+      "sector": "Agricultural Supply",
+      "outcome": "Automated harvest intake, weighing, and grower payment disbursements"
+    },
+    {
+      "name": "FinTech Mobile Money",
+      "sector": "Financial Services",
+      "outcome": "Seamless MTN / Airtel Mobile Money API integration with instant receipting"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Where is the Lusaka hub located?",
+      "a": "Our Zambia operations are based at Green Park Estate, Off Kafue Road, Lilayi, Lusaka 10101."
+    },
+    {
+      "q": "Do you integrate with Zambian mobile money gateways?",
+      "a": "Yes. We have built integrations with MTN Mobile Money, Airtel Money, and local commercial banking APIs for automated collections and bulk disbursements."
+    },
+    {
+      "q": "Can we schedule an on-site visit for our enterprise?",
+      "a": "Yes. Our regional technical consultants conduct on-site discovery sessions across Lusaka, the Copperbelt, and regional trade corridors."
+    }
+  ]
+}

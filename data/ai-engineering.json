@@ -1,0 +1,191 @@
+{
+  "hero": {
+    "badge": "TIER-1 AI & SOFTWARE ENGINEERING PODS",
+    "title": "Senior AI Architects & Full-Stack Pods. 40% Lower Burn.",
+    "subtitle": "Ambitious founders and CTOs across Bengaluru, Delhi-NCR, Cape Town, and North America partner with Trai Inc to build production AI agents, enterprise RAG pipelines, and high-throughput software systems without bloated agency burn.",
+    "cta_primary": {
+      "text": "Interactive Scope Estimator ↓",
+      "href": "#estimator"
+    },
+    "cta_secondary": {
+      "text": "Book Strategy Call",
+      "href": "contact.html?type=strategy-call"
+    },
+    "metrics": [
+      {
+        "value": "40%",
+        "label": "Lower Burn vs Bengaluru Overheads"
+      },
+      {
+        "value": "Senior Only",
+        "label": "Zero Junior Staff Padding"
+      },
+      {
+        "value": "<100ms",
+        "label": "Sub-Second Global Edge Latency"
+      },
+      {
+        "value": "100%",
+        "label": "Source Code & Full IP Ownership"
+      }
+    ]
+  },
+  "architectures": [
+    {
+      "id": "mas",
+      "title": "Multi-Agent System (MAS) Networks",
+      "subtitle": "Autonomous Agent Swarms with Human-in-the-Loop Governance",
+      "desc": "Distributed networks of specialized LLM agents that plan, reason, execute multi-step database workflows, and self-correct with senior architectural oversight.",
+      "diagram_steps": [
+        {
+          "label": "Orchestrator Agent",
+          "desc": "Deconstructs complex goals into dependency graph tasks"
+        },
+        {
+          "label": "Tool-Calling Agents",
+          "desc": "Specialists executing SQL queries, web scrapers, and external APIs"
+        },
+        {
+          "label": "State & Vector Memory",
+          "desc": "Short-term episodic state + persistent semantic memory"
+        },
+        {
+          "label": "Verification Gate",
+          "desc": "Deterministic validation & automated human escalation"
+        }
+      ],
+      "tech_stack": [
+        "LangGraph",
+        "LlamaIndex",
+        "Python FastAPI",
+        "Redis",
+        "Cloudflare Workers"
+      ]
+    },
+    {
+      "id": "rag",
+      "title": "Enterprise RAG & Hybrid Knowledge Systems",
+      "subtitle": "Zero-Hallucination Semantic Search Over Proprietary Data",
+      "desc": "High-accuracy retrieval pipelines combining dense vector embeddings with sparse BM25 keyword search, reciprocal rank fusion (RRF), and real-time citation verification.",
+      "diagram_steps": [
+        {
+          "label": "Document Ingestion",
+          "desc": "Chunking, OCR parsing & multi-modal embedding generation"
+        },
+        {
+          "label": "Hybrid Search Index",
+          "desc": "Qdrant / pgvector dense search + BM25 keyword index"
+        },
+        {
+          "label": "Cohere Reranker",
+          "desc": "Cross-encoder scoring for precision context isolation"
+        },
+        {
+          "label": "Grounded Generation",
+          "desc": "Strict source citation & automated factual hallucination checks"
+        }
+      ],
+      "tech_stack": [
+        "pgvector",
+        "Qdrant",
+        "OpenAI / Claude 3.5 Sonnet",
+        "FastAPI",
+        "Unstructured.io"
+      ]
+    },
+    {
+      "id": "voice-whatsapp",
+      "title": "WhatsApp & Conversational AI Voice Front-Office",
+      "subtitle": "Human-Grade Inbound & Outbound Telephony + Messaging",
+      "desc": "Instant customer onboarding, automated lead qualification, and real-time CRM synchronization with sub-second speech latency and natural conversational turn-taking.",
+      "diagram_steps": [
+        {
+          "label": "Inbound Hook",
+          "desc": "Meta Cloud WhatsApp Webhook / Twilio Media Streams"
+        },
+        {
+          "label": "Streaming ASR & TTS",
+          "desc": "Deepgram Nova-2 speech-to-text + Cartesia low-latency voice"
+        },
+        {
+          "label": "Conversational Agent",
+          "desc": "Domain-specific function execution & objection handling"
+        },
+        {
+          "label": "Live CRM Sync",
+          "desc": "Instant HubSpot / Salesforce lead creation & human transfer"
+        }
+      ],
+      "tech_stack": [
+        "Meta Cloud API",
+        "Twilio Voice",
+        "Deepgram",
+        "Cartesia",
+        "WebSockets",
+        "Node.js"
+      ]
+    },
+    {
+      "id": "edge-apis",
+      "title": "Low-Latency Edge APIs & Microservice Meshes",
+      "subtitle": "Sub-100ms Global Execution with Zero-Downtime Resilience",
+      "desc": "Microsecond-cold-start edge workers deployed across 300+ global cities with automated read-replica routing, transactional integrity, and SOC-2 standard encryption.",
+      "diagram_steps": [
+        {
+          "label": "Global Edge Network",
+          "desc": "Anycast routing to nearest edge node (<25ms TCP handshake)"
+        },
+        {
+          "label": "Edge Worker Compute",
+          "desc": "V8 isolate sandboxes executing business logic with 0ms cold starts"
+        },
+        {
+          "label": "Distributed Storage",
+          "desc": "Cloudflare D1 / Hyperdrive connection pooling to Postgres"
+        },
+        {
+          "label": "Global Cache Invalidation",
+          "desc": "Surrogate-Key tag purges across edge caches in <150ms"
+        }
+      ],
+      "tech_stack": [
+        "Cloudflare Workers",
+        "Hyperdrive",
+        "PostgreSQL",
+        "Docker",
+        "Terraform",
+        "GitHub Actions"
+      ]
+    }
+  ],
+  "faq": {
+    "subtitle": "TECHNICAL FREQUENTLY ASKED QUESTIONS",
+    "title": "Engineering Pods & Execution FAQ",
+    "items": [
+      {
+        "q": "Why do Tier-1 founders in Bengaluru and Delhi-NCR choose Trai Inc?",
+        "a": "Tier-1 founders face exorbitant burn rates and high developer churn in Bengaluru and Delhi-NCR. Trai Inc delivers senior engineering pods out of our Global HQ in DLF MyPad, Lucknow, backed by in-person consultation hubs in Indiranagar (Bengaluru) and Cape Town. You get elite, battle-tested software architects at 40% lower burn with zero compromise on code quality."
+      },
+      {
+        "q": "Who actually writes the code? Are projects handed off to junior developers?",
+        "a": "Never. We operate an anti-agency model with dedicated senior engineering pods. Every pod is led by a Staff/Lead Software Architect with 8+ years of production experience. We do not bill for junior interns learning on your budget."
+      },
+      {
+        "q": "How do you guarantee 100% intellectual property ownership?",
+        "a": "Our contracts are unambiguous: upon milestone payment, 100% of the intellectual property, copyright, patent rights, architecture schematics, and source code belong exclusively to your company. You receive full GitHub repository access from day one."
+      },
+      {
+        "q": "Can your AI agents integrate with our legacy enterprise databases and ERPs?",
+        "a": "Yes. Our team specializes in headless API adapters, zero-downtime ETL pipelines, and secure private VPC connections. Whether your data lives in SAP, Oracle, Postgres, or legacy internal spreadsheets, we architect secure, rate-limited connectors with zero data leakage."
+      },
+      {
+        "q": "What is your milestone payment cadence?",
+        "a": "We work on transparent, milestone-driven sprints (typically 1 to 2 weeks each). You review and verify working software and automated test suites at each milestone before approving subsequent sprint funding. Zero large upfront lock-ins."
+      },
+      {
+        "q": "Can we transition to an in-house engineering team later?",
+        "a": "Yes. We design all architectures using modular, idiomatic conventions (clean architecture, strict TypeScript typing, Dockerized microservices, comprehensive documentation) specifically so your eventual in-house technical team can take over seamlessly without rewrites."
+      }
+    ]
+  }
+}

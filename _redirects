@@ -42,13 +42,22 @@
 /client-reviews.html /clients.html 301
 /client-reviews /clients 301
 
-# Redirections for orphaned company/trust pages → about
+# Flagship & Global Hub Clean URLs
+/incubator /incubator.html 200
+/funding-readiness /incubator.html 301
+/ai-engineering /ai-engineering.html 200
+/lucknow /lucknow.html 200
+/bengaluru /bengaluru.html 200
+/cape-town /cape-town.html 200
+/lusaka /lusaka.html 200
+
+# Redirections for orphaned company/trust pages → about or incubator
 /engagement-models.html /about.html 301
 /hire-dedicated-developers.html /about.html 301
 /our-purpose.html /about.html 301
 /project-communication-strategy.html /about.html 301
 /why-trai.html /about.html 301
-/incubation.html /about.html 301
+/incubation.html /incubator.html 301
 
 # Redirections for deleted mobile app sub-pages
 /flutter-app-development.html /mobile-apps.html 301

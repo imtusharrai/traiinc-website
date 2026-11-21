@@ -284,6 +284,7 @@ function collectEntries() {
   const pageSlugs = [
     'home', 'about', 'contact', 'careers', 'clients', 'our-development-process',
     'partner', 'solutions', 'industries', 'app-store', 'choosing-a-development-partner',
+    'incubator', 'ai-engineering', 'lucknow', 'bengaluru', 'cape-town', 'lusaka',
     'blog', 'privacy', 'refund', 'terms'
   ];
   for (const s of pageSlugs) {
@@ -303,8 +304,8 @@ function collectEntries() {
         title = 'Contact & Consultation';
         summary = raw.subtitle || 'Talk directly to senior engineers';
       } else {
-        title = raw.title || raw.hero?.title || raw.header?.title || (raw.meta && raw.meta.title) || s;
-        summary = raw.description || raw.hero?.subtitle || raw.header?.subtitle || (raw.meta && raw.meta.description) || '';
+        title = raw.title || raw.hero?.title || raw.header?.title || raw.h1 || (raw.meta && raw.meta.title) || s;
+        summary = raw.description || raw.hero?.subtitle || raw.header?.subtitle || raw.subtitle || (raw.meta && raw.meta.description) || '';
       }
 
       title = stripHtml(title);

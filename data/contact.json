@@ -1,16 +1,32 @@
 {
   "hero": {
-    "badge": "Let's Build Together",
-    "title": "Have a project<br>in mind?<br>Let's <em class=\"hero-cosmos-ai\">talk</em>",
-    "description": "Whether you need an MVP, a custom CRM, or a full digital transformation — we are ready to discuss your requirements and provide an architectural delivery scope within 48 hours."
+    "badge": "Strategy Call & Technical Discovery",
+    "title": "Schedule a Strategy Call<br>with Senior <em class=\"hero-cosmos-ai\">Architects</em>",
+    "description": "Book an in-person discovery session at our Lucknow Global HQ, Bengaluru Tech Hub, Cape Town, or Lusaka offices — or schedule an instant virtual strategy call to scope your startup MVP or AI engineering pod."
   },
   "info": {
     "title": "Get in Touch",
     "items": [
-      { "icon_key": "mail", "label": "Email", "value": "<a href=\"mailto:support@traiinc.com\">support@traiinc.com</a> &nbsp;|&nbsp; <a href=\"mailto:hello@traiinc.com\">hello@traiinc.com</a>" },
-      { "icon_key": "pin", "label": "Locations", "value": "<strong>Lucknow (HQ)</strong> &bull; <strong>Bengaluru</strong> &bull; <strong>Cape Town</strong> &bull; <strong>Lusaka</strong>" },
-      { "icon_key": "clock", "label": "Response Time", "value": "We respond to every inquiry within 24 hours." },
-      { "icon_key": "calendar", "label": "Office Hours", "value": "Mon–Sat, 10 AM – 7 PM IST" }
+      {
+        "icon_key": "mail",
+        "label": "Email",
+        "value": "<a href=\"mailto:hello@traiinc.com\">hello@traiinc.com</a> &nbsp;|&nbsp; <a href=\"mailto:support@traiinc.com\">support@traiinc.com</a>"
+      },
+      {
+        "icon_key": "phone",
+        "label": "Direct Phone",
+        "value": "<a href=\"tel:+917905495478\">+91 79054 95478</a>"
+      },
+      {
+        "icon_key": "pin",
+        "label": "Global Engineering HQ",
+        "value": "<strong>Lucknow HQ:</strong> Tower B-2, 1109, 11th Floor, DLF MyPad, Vibhuti Khand, Gomti Nagar, Lucknow 226010"
+      },
+      {
+        "icon_key": "pin",
+        "label": "Regional Meeting Hubs",
+        "value": "<strong>Bengaluru:</strong> 100 Feet Rd, Indiranagar<br><strong>Cape Town:</strong> WeWork Strand St<br><strong>Lusaka:</strong> Green Park Estate, Lilayi"
+      }
     ],
     "offices": [
       {
@@ -56,23 +72,74 @@
   "form": {
     "title": "Tell Us About Your Project",
     "fields": [
-      { "id": "contact-name", "name": "name", "label": "Full Name", "placeholder": "Your full name", "type": "text", "required": true },
-      { "id": "contact-email", "name": "email", "label": "Email Address", "placeholder": "you@company.com", "type": "email", "required": true },
-      { "id": "contact-phone", "name": "phone", "label": "Phone Number", "placeholder": "+91 98765 43210", "type": "tel", "required": false },
-      { "id": "contact-company", "name": "company", "label": "Company / Project Name", "placeholder": "Your company or project name", "type": "text", "required": false }
+      {
+        "id": "contact-name",
+        "name": "name",
+        "label": "Full Name",
+        "placeholder": "Your full name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "id": "contact-email",
+        "name": "email",
+        "label": "Email Address",
+        "placeholder": "you@company.com",
+        "type": "email",
+        "required": true
+      },
+      {
+        "id": "contact-phone",
+        "name": "phone",
+        "label": "Phone Number",
+        "placeholder": "+91 98765 43210",
+        "type": "tel",
+        "required": false
+      },
+      {
+        "id": "contact-company",
+        "name": "company",
+        "label": "Company / Project Name",
+        "placeholder": "Your company or project name",
+        "type": "text",
+        "required": false
+      }
     ],
     "budget": {
       "id": "contact-budget",
       "name": "budget",
       "label": "Budget Range",
       "options": [
-        { "value": "", "label": "Select your budget range", "disabled": true, "selected": true },
-        { "value": "under-50k", "label": "Under ₹50K" },
-        { "value": "50k-1l", "label": "₹50K–1L" },
-        { "value": "1l-3l", "label": "₹1–3L" },
-        { "value": "3l-5l", "label": "₹3–5L" },
-        { "value": "5l-10l", "label": "₹5–10L" },
-        { "value": "10l-plus", "label": "₹10L+" }
+        {
+          "value": "",
+          "label": "Select your budget range",
+          "disabled": true,
+          "selected": true
+        },
+        {
+          "value": "under-50k",
+          "label": "Under ₹50K"
+        },
+        {
+          "value": "50k-1l",
+          "label": "₹50K–1L"
+        },
+        {
+          "value": "1l-3l",
+          "label": "₹1–3L"
+        },
+        {
+          "value": "3l-5l",
+          "label": "₹3–5L"
+        },
+        {
+          "value": "5l-10l",
+          "label": "₹5–10L"
+        },
+        {
+          "value": "10l-plus",
+          "label": "₹10L+"
+        }
       ]
     },
     "services": {
@@ -83,78 +150,204 @@
         {
           "label": "Custom Software & Web",
           "options": [
-            { "value": "custom-website-design", "label": "Custom Website Design" },
-            { "value": "ecommerce-development", "label": "E-Commerce Application" },
-            { "value": "wordpress-cms-development", "label": "CMS Development" },
-            { "value": "web-applications", "label": "Web Applications" },
-            { "value": "saas-platforms", "label": "SaaS Platforms" },
-            { "value": "enterprise-software", "label": "Enterprise Software" },
-            { "value": "system-integration", "label": "System Integration" },
-            { "value": "api-development", "label": "API Development" }
+            {
+              "value": "custom-website-design",
+              "label": "Custom Website Design"
+            },
+            {
+              "value": "ecommerce-development",
+              "label": "E-Commerce Application"
+            },
+            {
+              "value": "wordpress-cms-development",
+              "label": "CMS Development"
+            },
+            {
+              "value": "web-applications",
+              "label": "Web Applications"
+            },
+            {
+              "value": "saas-platforms",
+              "label": "SaaS Platforms"
+            },
+            {
+              "value": "enterprise-software",
+              "label": "Enterprise Software"
+            },
+            {
+              "value": "system-integration",
+              "label": "System Integration"
+            },
+            {
+              "value": "api-development",
+              "label": "API Development"
+            }
           ]
         },
         {
           "label": "Application Development",
           "options": [
-            { "value": "ios-android-native", "label": "iOS & Android Native" },
-            { "value": "flutter-app-development", "label": "Cross-Platform (Flutter)" },
-            { "value": "desktop-applications", "label": "Desktop Applications" },
-            { "value": "app-store-publishing", "label": "App Store Publishing" }
+            {
+              "value": "ios-android-native",
+              "label": "iOS & Android Native"
+            },
+            {
+              "value": "flutter-app-development",
+              "label": "Cross-Platform (Flutter)"
+            },
+            {
+              "value": "desktop-applications",
+              "label": "Desktop Applications"
+            },
+            {
+              "value": "app-store-publishing",
+              "label": "App Store Publishing"
+            }
           ]
         },
         {
           "label": "AI, Data & Automation",
           "options": [
-            { "value": "task-automation-agents", "label": "Task & Process Automation" },
-            { "value": "customer-service-agents", "label": "Customer Service Agents" },
-            { "value": "enterprise-agents", "label": "Enterprise AI Agents" },
-            { "value": "multi-agent-systems", "label": "Multi-Agent Systems" },
-            { "value": "ai-voice-agents", "label": "AI Voice Agents" },
-            { "value": "lead-gen-scraping", "label": "Lead Gen & Scraping Bots" },
-            { "value": "data-analytics", "label": "Data Analytics & Visualization" },
-            { "value": "data-engineering", "label": "Data Engineering & ETL" }
+            {
+              "value": "task-automation-agents",
+              "label": "Task & Process Automation"
+            },
+            {
+              "value": "customer-service-agents",
+              "label": "Customer Service Agents"
+            },
+            {
+              "value": "enterprise-agents",
+              "label": "Enterprise AI Agents"
+            },
+            {
+              "value": "multi-agent-systems",
+              "label": "Multi-Agent Systems"
+            },
+            {
+              "value": "ai-voice-agents",
+              "label": "AI Voice Agents"
+            },
+            {
+              "value": "lead-gen-scraping",
+              "label": "Lead Gen & Scraping Bots"
+            },
+            {
+              "value": "data-analytics",
+              "label": "Data Analytics & Visualization"
+            },
+            {
+              "value": "data-engineering",
+              "label": "Data Engineering & ETL"
+            }
           ]
         },
         {
           "label": "Cloud & DevOps",
           "options": [
-            { "value": "cloud-migration", "label": "Cloud Migration" },
-            { "value": "cicd-pipelines", "label": "CI/CD Pipelines" },
-            { "value": "serverless-architecture", "label": "Serverless Architecture" },
-            { "value": "container-orchestration", "label": "Container Orchestration" },
-            { "value": "infrastructure-as-code", "label": "Infrastructure as Code" },
-            { "value": "monitoring-observability", "label": "Monitoring & Observability" }
+            {
+              "value": "cloud-migration",
+              "label": "Cloud Migration"
+            },
+            {
+              "value": "cicd-pipelines",
+              "label": "CI/CD Pipelines"
+            },
+            {
+              "value": "serverless-architecture",
+              "label": "Serverless Architecture"
+            },
+            {
+              "value": "container-orchestration",
+              "label": "Container Orchestration"
+            },
+            {
+              "value": "infrastructure-as-code",
+              "label": "Infrastructure as Code"
+            },
+            {
+              "value": "monitoring-observability",
+              "label": "Monitoring & Observability"
+            }
           ]
         },
         {
           "label": "Digital Marketing & SEO",
           "options": [
-            { "value": "organic-seo-content", "label": "Organic Visibility & Content" },
-            { "value": "paid-advertising", "label": "Paid Advertising" },
-            { "value": "nurturing-retention", "label": "Nurturing & Retention" },
-            { "value": "marketing-analytics", "label": "Strategy, Tech & Analytics" }
+            {
+              "value": "organic-seo-content",
+              "label": "Organic Visibility & Content"
+            },
+            {
+              "value": "paid-advertising",
+              "label": "Paid Advertising"
+            },
+            {
+              "value": "nurturing-retention",
+              "label": "Nurturing & Retention"
+            },
+            {
+              "value": "marketing-analytics",
+              "label": "Strategy, Tech & Analytics"
+            }
           ]
         },
         {
           "label": "CRM, ERP & Billing",
           "options": [
-            { "value": "custom-crm-development", "label": "CRM Development" },
-            { "value": "erp-systems", "label": "ERP Systems" },
-            { "value": "hr-workforce-management", "label": "HR & Workforce Management" },
-            { "value": "cybersecurity-compliance", "label": "Cybersecurity & Compliance" }
+            {
+              "value": "custom-crm-development",
+              "label": "CRM Development"
+            },
+            {
+              "value": "erp-systems",
+              "label": "ERP Systems"
+            },
+            {
+              "value": "hr-workforce-management",
+              "label": "HR & Workforce Management"
+            },
+            {
+              "value": "cybersecurity-compliance",
+              "label": "Cybersecurity & Compliance"
+            }
           ]
         },
         {
           "label": "Content Creation & Design",
           "options": [
-            { "value": "ai-text-generation", "label": "AI Text Generation" },
-            { "value": "ai-audio-generation", "label": "AI Audio Generation" },
-            { "value": "ai-video-generation", "label": "AI Video Generation" },
-            { "value": "ai-graphics-visuals", "label": "AI Graphics & Visuals" },
-            { "value": "ui-ux-design", "label": "UI/UX Design" },
-            { "value": "brand-identity", "label": "Brand Identity & Logo" },
-            { "value": "motion-graphics", "label": "Motion Graphics & Animation" },
-            { "value": "social-media-design", "label": "Social Media Design" }
+            {
+              "value": "ai-text-generation",
+              "label": "AI Text Generation"
+            },
+            {
+              "value": "ai-audio-generation",
+              "label": "AI Audio Generation"
+            },
+            {
+              "value": "ai-video-generation",
+              "label": "AI Video Generation"
+            },
+            {
+              "value": "ai-graphics-visuals",
+              "label": "AI Graphics & Visuals"
+            },
+            {
+              "value": "ui-ux-design",
+              "label": "UI/UX Design"
+            },
+            {
+              "value": "brand-identity",
+              "label": "Brand Identity & Logo"
+            },
+            {
+              "value": "motion-graphics",
+              "label": "Motion Graphics & Animation"
+            },
+            {
+              "value": "social-media-design",
+              "label": "Social Media Design"
+            }
           ]
         }
       ]
@@ -166,7 +359,77 @@
       "placeholder": "Describe your project — what you need, the timeline, any specific requirements..."
     },
     "button": "Send Inquiry",
-    "note": "We will respond within 24 hours with a detailed scope and sprint delivery estimate."
+    "note": "We will respond within 24 hours with a detailed scope and sprint delivery estimate.",
+    "meeting_mode": {
+      "id": "contact-meeting-mode",
+      "name": "meeting_mode",
+      "label": "Meeting Mode & Location",
+      "options": [
+        {
+          "value": "",
+          "label": "Select Meeting Preference",
+          "disabled": true,
+          "selected": true
+        },
+        {
+          "value": "virtual",
+          "label": "Virtual Strategy Call (Google Meet / Zoom)"
+        },
+        {
+          "value": "lucknow",
+          "label": "In-Person at Lucknow Global HQ (DLF MyPad, Gomti Nagar)"
+        },
+        {
+          "value": "bengaluru",
+          "label": "In-Person at Bengaluru Tech Hub (Indiranagar)"
+        },
+        {
+          "value": "capetown",
+          "label": "In-Person at Cape Town Hub (Strand Street)"
+        },
+        {
+          "value": "lusaka",
+          "label": "In-Person at Lusaka Hub (Lilayi)"
+        }
+      ]
+    },
+    "project_track": {
+      "id": "contact-project-track",
+      "name": "project_track",
+      "label": "Project Track",
+      "options": [
+        {
+          "value": "",
+          "label": "Select Project Track",
+          "disabled": true,
+          "selected": true
+        },
+        {
+          "value": "startup-incubator-mvp",
+          "label": "Startup Incubation & 30-Day MVP Launchpad"
+        },
+        {
+          "value": "seed-grant-readiness",
+          "label": "Seed & Grant Readiness (DPIIT / SISFS / DPR)"
+        },
+        {
+          "value": "ai-agents-automation",
+          "label": "AI Agents & Autonomous Workflows"
+        },
+        {
+          "value": "custom-software-saas",
+          "label": "Custom Software & SaaS Platform"
+        },
+        {
+          "value": "mobile-apps",
+          "label": "Mobile Application (iOS / Android)"
+        },
+        {
+          "value": "enterprise-erp-cloud",
+          "label": "Enterprise ERP & Cloud Migration"
+        }
+      ]
+    }
   },
   "grand_cta": {
     "title": "No sales pitch. No pressure.",

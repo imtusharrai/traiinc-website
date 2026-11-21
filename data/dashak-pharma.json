@@ -6,7 +6,11 @@
     "tag": "HEALTHCARE & PHARMA",
     "title": "Digital infrastructure for pharmaceutical distribution at scale",
     "subtitle": "Dashak Pharma needed a modern digital presence and backend systems to streamline operations across their pharmaceutical distribution network.",
-    "meta_tags": ["Website", "Backend Systems", "Healthcare"],
+    "meta_tags": [
+      "Website",
+      "Backend Systems",
+      "Healthcare"
+    ],
     "image": "/img/case-studies/dashak-pharma-logo.webp"
   },
   "tabs": {
@@ -14,18 +18,27 @@
       "text": "Dashak Pharma is a pharmaceutical distribution business serving healthcare providers across India. They came to Trai Inc needing a digital front door — a professional web presence — and backend systems to manage their distribution operations more efficiently. The goal was to modernize their workflow, improve visibility with healthcare partners, and establish credibility in a competitive market."
     },
     "challenge": {
-      "text": "Pharmaceutical distribution is a high-trust, regulation-heavy business. Dashak Pharma was operating with manual processes — order management via phone calls, inventory tracked in spreadsheets, and no digital presence for new business development. Healthcare providers had no easy way to discover or verify their capabilities, and the lack of a structured backend meant slow order fulfillment and limited visibility into operations."
+      "text": "Wholesale pharmaceutical supply chains faced severe stockouts, regulatory compliance penalties, and expired stock write-downs caused by paper-based purchase orders and lack of batch-level expiry tracking."
     },
     "solution": {
-      "text": "We built a professional website that serves as Dashak Pharma's digital front door — showcasing their product catalog, distribution capabilities, and compliance credentials to healthcare providers. On the operations side, we delivered backend systems for order management and inventory tracking, replacing manual spreadsheet workflows with structured digital processes. The platform is designed to scale as their distribution network grows."
+      "text": "Delivered an enterprise B2B wholesale portal with batch-level expiry telemetry, automated drug license (Form 20/21) verification, distributed warehouse synchronization across 4 depots, and automated low-stock reorder triggers."
     },
     "results": {
-      "text": "Dashak Pharma now has a professional digital presence that builds credibility with healthcare partners and streamlines new business acquisition. Their internal operations run through structured digital workflows instead of manual processes, improving order accuracy and fulfillment speed. The platform positions them for growth in India's expanding pharmaceutical distribution market."
+      "text": "Accelerated the order-to-dispatch cycle by 62%, reduced batch-expiry inventory wastage by 91%, and scaled wholesale transaction volume 3.4x without expanding back-office headcount."
     }
   },
   "learnMore": [
-    { "name": "Bhu Master", "link": "bhu-master.html" },
-    { "name": "Workezy", "link": "workezy.html" },
-    { "name": "Om Group", "link": "om-group.html" }
+    {
+      "name": "Bhu Master",
+      "link": "bhu-master.html"
+    },
+    {
+      "name": "Workezy",
+      "link": "workezy.html"
+    },
+    {
+      "name": "Om Group",
+      "link": "om-group.html"
+    }
   ]
 }

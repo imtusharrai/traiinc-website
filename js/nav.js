@@ -38,184 +38,115 @@
         cases: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>`,
         careers: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>`,
         partner: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2a1 1 0 001.4 0l4.6-4.6a1 1 0 000-1.4l-2-2"/><path d="m18 10 1-1a2 2 0 000-3l-2-2a2 2 0 00-3 0l-1 1"/><path d="m6 14 1 1a2 2 0 003 0l2-2a2 2 0 000-3l-1-1"/><path d="m2 18 4.6-4.6a1 1 0 011.4 0l2 2a1 1 0 010 1.4L5.4 21.4a1 1 0 01-1.4 0L2 19.4a1 1 0 010-1.4z"/></svg>`,
-        contact: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>`
+        contact: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>`,
+        ai: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>`,
+        customSoftware: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+        mobile: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>`,
+        cloud: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg>`,
+        data: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>`,
+        rocket: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-4 11a22.35 22.35 0 01-4 2z"/><path d="M9 12H4s.55-3.03 2-4.5c1.45-1.45 4.5-2 4.5-2"/></svg>`,
+        pitch: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h20"/><path d="M21 3v11a2 2 0 01-2 2H5a2 2 0 01-2-2V3"/><path d="m7 21 5-5 5 5"/></svg>`,
+        grants: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>`,
+        cohort: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>`,
+        pin: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>`
     };
 
     // ══════════════════════════════════════════════════════════════════════
     // NAV DATA (High-Conviction 5 Service Pillars & Curated Industries)
     // ══════════════════════════════════════════════════════════════════════
     const navData = {
-        whoWeHelp: {
-            label: "Industries",
+        aiEngineering: {
+            label: "AI & Software Engineering",
             type: "flat",
             cols: [
                 {
-                    heading: "By Business Stage",
+                    heading: "Engineering Pods & Capabilities",
                     items: [
-                        { icon: navIcons.d2c, label: "Retail to D2C Brands", href: "d2c.html", desc: "Scale offline retail to pan-India e-commerce" },
-                        { icon: navIcons.startups, label: "High-Growth Startups", href: "startups.html", desc: "Production MVPs, cloud architectures & rapid scale" },
-                        { icon: navIcons.smb, label: "Mid-Market Enterprises", href: "smb.html", desc: "Custom ERPs, operational workflows & system modernization" },
-                        { icon: navIcons.enterprise, label: "Large Enterprises", href: "enterprise.html", desc: "Multi-region cloud, autonomous AI agents & zero-trust security" }
-                    ]
-                },
-                {
-                    heading: "By Industry",
-                    items: [
-                        { icon: navIcons.realestate, label: "Real Estate & PropTech", href: "industries.html#realestate", desc: "Listing portals, virtual tours & CRM systems" },
-                        { icon: navIcons.healthcare, label: "Healthcare & Pharma", href: "industries.html#healthcare", desc: "Supply chain tracking & compliance portals" },
-                        { icon: navIcons.fintech, label: "FinTech & Banking", href: "industries.html#fintech", desc: "High-throughput ledgers & secure payments" },
-                        { icon: navIcons.ecommerce, label: "E-Commerce & Retail", href: "industries.html#ecommerce", desc: "Headless storefronts & inventory automation" },
-                        { icon: navIcons.edtech, label: "Education & EdTech", href: "industries.html#edtech", desc: "LMS engines & digital classrooms" },
-                        { icon: navIcons.logistics, label: "Logistics & Supply Chain", href: "industries.html#logistics", desc: "Fleet routing, IoT telematics & dispatch" },
-                        { icon: navIcons.manufacturing, label: "Manufacturing & Industrial", href: "industries.html#manufacturing", desc: "Custom MES, automated inventory & telemetry" },
-                        { icon: navIcons.media, label: "Media & Entertainment", href: "industries.html#media", desc: "Streaming platforms & content distribution" },
-                        { icon: navIcons.travel, label: "Travel & Hospitality", href: "industries.html#travel", desc: "Booking engines & guest experience suites" },
-                        { icon: navIcons.food, label: "Food & Restaurant Tech", href: "industries.html#food", desc: "Centralized POS, delivery & kitchen dispatch" }
+                        { icon: navIcons.customSoftware, label: "Custom Software & SaaS", href: "custom-software.html", desc: "High-throughput web apps, multi-tenant SaaS & microservices" },
+                        { icon: navIcons.ai, label: "AI Agents & Automation", href: "ai-automation.html", desc: "Autonomous workflows, voice front-offices & multi-agent swarms" },
+                        { icon: navIcons.mobile, label: "Mobile Apps (iOS & Android)", href: "mobile-apps.html", desc: "Native Swift/Kotlin & Flutter apps built for 60fps performance" },
+                        { icon: navIcons.enterprise, label: "Custom CRM & Enterprise ERP", href: "enterprise-platforms.html", desc: "Unified inventory, distribution & business management engines" },
+                        { icon: navIcons.cloud, label: "Cloud Native & DevOps", href: "cloud-devops.html", desc: "Kubernetes, zero-downtime AWS/GCP pipelines & IaC" },
+                        { icon: navIcons.data, label: "Data & Edge Pipelines", href: "data-analytics.html", desc: "Real-time streaming, dbt data models & low-latency edge APIs" }
                     ]
                 }
             ],
             featured: {
-                title: "138+ Enterprise Deliveries",
-                desc: "Real Estate, Healthcare, FinTech, and more — engineered with zero bloat and 100% IP ownership.",
-                stat: "94% Client Retention",
-                ctaLabel: "View Verified Case Studies →",
+                stat: "Senior Pod Delivery",
+                title: "Production AI & Software Systems",
+                desc: "Senior engineering pods delivering custom AI agents, SaaS platforms, and enterprise software at 40% lower burn.",
+                ctaLabel: "Explore AI Engineering →",
+                ctaHref: "ai-engineering.html"
+            }
+        },
+
+        incubator: {
+            label: "Startup Incubator & Funding",
+            type: "flat",
+            cols: [
+                {
+                    heading: "Zero-to-One Launchpad & Funding",
+                    items: [
+                        { icon: navIcons.startups, label: "Zero-to-One Incubation", href: "incubator.html#incubation", desc: "Idea validation, market sizing & lean system architecture" },
+                        { icon: navIcons.rocket, label: "30-Day MVP Launchpad", href: "incubator.html#mvp-launchpad", desc: "Live web/mobile product with auth, payments & admin" },
+                        { icon: navIcons.pitch, label: "Seed & Grant Readiness", href: "incubator.html#funding-readiness", desc: "12-15 slide pitch deck, 3-year model & investor data room" },
+                        { icon: navIcons.grants, label: "DPIIT & SISFS Grants", href: "incubator.html#grants", desc: "Startup India Seed Fund & grant DPR documentation support" },
+                        { icon: navIcons.cohort, label: "Apply for 2026 Cohort", href: "incubator.html#apply", desc: "Fixed-fee founder sprints or hybrid venture co-build partnership" }
+                    ]
+                }
+            ],
+            featured: {
+                stat: "30-Day Launchpad",
+                title: "Working Software Gets Funded",
+                desc: "Investors fund working traction, not slide decks alone. We take you from napkin idea to live product and investor data room in 30 days.",
+                ctaLabel: "Launch Your Startup / MVP →",
+                ctaHref: "incubator.html"
+            }
+        },
+
+        caseStudies: {
+            label: "Case Studies",
+            type: "flat",
+            cols: [
+                {
+                    heading: "Quantified Production Deployments",
+                    items: [
+                        { icon: navIcons.cases, label: "Bhu Master (Agritech)", href: "clients.html#bhumaster", desc: "Automated land records & instant property verification platform" },
+                        { icon: navIcons.cases, label: "Om Group (Education & Auto)", href: "clients.html#omgroup", desc: "Multi-campus ERP & real-time admissions engine" },
+                        { icon: navIcons.cases, label: "Workezy (Coworking SaaS)", href: "clients.html#workezy", desc: "On-demand service booking, geo-dispatch & vendor payout engine" },
+                        { icon: navIcons.cases, label: "Dashak Pharma (Supply Chain)", href: "clients.html#dashak", desc: "Pharma distribution tracking, batch compliance & wholesale portal" }
+                    ]
+                }
+            ],
+            featured: {
+                stat: "138+ Client Deliveries",
+                title: "Measured Business Impact",
+                desc: "Explore verified outcomes: 4x lead velocity, automated operations, and enterprise software scaling.",
+                ctaLabel: "View All Case Studies →",
                 ctaHref: "clients.html"
             }
         },
 
-        services: {
-            label: "Solutions",
-            type: "layered",
-            categories: [
-                {
-                    id: "ai-automation",
-                    label: "AI & Agentic Automation",
-                    hasChildren: true,
-                    href: "ai-automation.html",
-                    subitems: [
-                        { label: "Autonomous Workflow Agents", href: "ai-automation.html#workflows", desc: "Rule-driven & LLM agents executing back-office tasks" },
-                        { label: "Enterprise RAG & Knowledge Systems", href: "ai-automation.html#customer-service", desc: "Secure multi-tenant search over proprietary business data" },
-                        { label: "Multi-Agent System (MAS) Networks", href: "ai-automation.html#mas", desc: "Distributed autonomous agent swarms for complex operations" },
-                        { label: "AI Voice & Telephony Agents", href: "ai-automation.html#voice-agents", desc: "Human-grade conversational voice agents for sales & support" },
-                        { label: "Lead Gen & Scraping Pipelines", href: "ai-automation.html#lead-gen", desc: "Automated prospecting, web data extraction & CRM sync" },
-                        { label: "Predictive Analytics & Data Pipelines", href: "data-analytics.html", desc: "Real-time dashboards, dbt models & Apache Spark ETL" }
-                    ],
-                    miniFeature: {
-                        title: "Autonomous <span class='highlight'>Intelligence</span>",
-                        desc: "Deploy custom agentic infrastructure that operates 24/7 with senior architect oversight.",
-                        ctaLabel: "Explore AI Solutions →",
-                        ctaHref: "ai-automation.html"
-                    }
-                },
-                {
-                    id: "custom-software",
-                    label: "Custom Software & Web",
-                    hasChildren: true,
-                    href: "custom-software.html",
-                    subitems: [
-                        { label: "Bespoke Web Applications", href: "custom-software.html#web-apps", desc: "High-throughput React, Next.js & Node.js platforms" },
-                        { label: "Multi-Tenant SaaS Architecture", href: "custom-software.html#saas", desc: "Scalable subscription products with billing & RBAC" },
-                        { label: "High-Performance API Systems", href: "custom-software.html#api", desc: "Zero-latency REST & GraphQL microservice backends" },
-                        { label: "Modern Headless CMS Platforms", href: "custom-software.html#cms", desc: "Edge-cached dynamic content delivery architectures" },
-                        { label: "Enterprise Systems Integration", href: "custom-software.html#integration", desc: "Bi-directional sync between legacy databases & cloud APIs" },
-                        { label: "Custom E-Commerce Architectures", href: "custom-software.html#ecommerce", desc: "High-volume transactional storefronts & payment gateways" }
-                    ],
-                    miniFeature: {
-                        title: "Production-Grade <span class='highlight'>Engineering</span>",
-                        desc: "Zero-bloat, modular software systems engineered for enterprise longevity.",
-                        ctaLabel: "Explore Custom Software →",
-                        ctaHref: "custom-software.html"
-                    }
-                },
-                {
-                    id: "enterprise-platforms",
-                    label: "Enterprise Platforms & Cloud",
-                    hasChildren: true,
-                    href: "enterprise-platforms.html",
-                    subitems: [
-                        { label: "Custom ERP & Supply Chain", href: "enterprise-platforms.html#erp", desc: "Multi-facility inventory, logistics & billing engines" },
-                        { label: "Enterprise CRM & Dealership Platforms", href: "enterprise-platforms.html#crm", desc: "Lead distribution, sales tracking & automated pipelines" },
-                        { label: "Cloud Migration & Architecture (AWS/GCP)", href: "cloud-devops.html#migration", desc: "Zero-downtime database and infrastructure cutovers" },
-                        { label: "CI/CD & Kubernetes Orchestration", href: "cloud-devops.html#cicd", desc: "Automated testing, container clusters & blue-green deploys" },
-                        { label: "Infrastructure as Code (Terraform)", href: "cloud-devops.html#iac", desc: "Deterministic multi-cloud provisioning & compliance" },
-                        { label: "SOC 2 & Zero-Trust Governance", href: "enterprise-platforms.html#security", desc: "Pen-testing, encryption at rest/transit & audit logging" }
-                    ],
-                    miniFeature: {
-                        title: "Enterprise <span class='highlight'>Reliability</span>",
-                        desc: "High-availability cloud infrastructure engineered for 99.99% uptime.",
-                        ctaLabel: "Explore Enterprise Platforms →",
-                        ctaHref: "enterprise-platforms.html"
-                    }
-                },
-                {
-                    id: "mobile-apps",
-                    label: "Mobile Application Engineering",
-                    hasChildren: true,
-                    href: "mobile-apps.html",
-                    subitems: [
-                        { label: "Native iOS & Android Engineering", href: "mobile-apps.html#native", desc: "Swift & Kotlin native apps optimized for performance" },
-                        { label: "Cross-Platform Flutter Apps", href: "mobile-apps.html#flutter", desc: "Single codebase with 60fps native performance across iOS & Android" },
-                        { label: "Offline-First Mobile Architecture", href: "mobile-apps.html#native", desc: "Local SQLite caching with resilient background sync" },
-                        { label: "App Store Publishing & Compliance", href: "mobile-apps.html#publishing", desc: "Apple App Store & Google Play guideline certification" },
-                        { label: "Enterprise Mobile Security", href: "mobile-apps.html#compliances", desc: "Biometric authentication, data encryption & secure storage" }
-                    ],
-                    miniFeature: {
-                        title: "Seamless <span class='highlight'>Mobile UX</span>",
-                        desc: "From concept to App Store feature in rapid milestone-driven sprints.",
-                        ctaLabel: "Explore Mobile Apps →",
-                        ctaHref: "mobile-apps.html"
-                    }
-                },
-                {
-                    id: "ui-ux-design",
-                    label: "Product Strategy & UI/UX Design",
-                    hasChildren: true,
-                    href: "ui-ux-design.html",
-                    subitems: [
-                        { label: "User Research & Journey Mapping", href: "ui-ux-design.html#research", desc: "Customer journey mapping & friction-reduction analysis" },
-                        { label: "Interactive Figma Prototyping", href: "ui-ux-design.html#prototyping", desc: "Clickable high-fidelity prototypes tested with real users" },
-                        { label: "Living Design Systems & Tokens", href: "ui-ux-design.html#design-systems", desc: "Scalable component libraries in Figma and production code" },
-                        { label: "High-Conversion Interface Design", href: "ui-ux-design.html#conversion", desc: "Data-driven UI iterations that lift retention & conversion" },
-                        { label: "Comprehensive Brand Identity Systems", href: "ui-ux-design.html#branding", desc: "Logomarks, design guidelines & visual identity standards" },
-                        { label: "Design-to-Code Engineering Handoff", href: "ui-ux-design.html#handoff", desc: "Pixel-perfect CSS specs and component documentation" }
-                    ],
-                    miniFeature: {
-                        title: "Interfaces That <span class='highlight'>Convert</span>",
-                        desc: "World-class digital product design backed by user behavioral data.",
-                        ctaLabel: "Explore UI/UX Design →",
-                        ctaHref: "ui-ux-design.html"
-                    }
-                }
-            ]
-        },
-
-        whoWeAre: {
-            label: "Company",
+        globalHubs: {
+            label: "Global Hubs",
             type: "flat",
             cols: [
                 {
-                    heading: "About TRAI Inc",
+                    heading: "Engineering HQ & Regional Meeting Hubs",
                     items: [
-                        { icon: navIcons.about, label: "About Us", href: "about.html", desc: "Our engineering philosophy & leadership" },
-                        { icon: navIcons.team, label: "Leadership & Engineers", href: "about.html#team", desc: "Senior software architects & researchers" },
-                        { icon: navIcons.cases, label: "Verified Case Studies", href: "clients.html", desc: "Tangible business metrics for real clients" },
-                        { icon: navIcons.careers, label: "Careers", href: "careers.html", desc: "Join our senior engineering studio" }
-                    ]
-                },
-                {
-                    heading: "Connect & Engage",
-                    items: [
-                        { icon: navIcons.partner, label: "Partner With Us", href: "partner.html", desc: "Enterprise referral & white-label software partnerships" },
-                        { icon: navIcons.contact, label: "Schedule Technical Discovery", href: "contact.html", desc: "Book an architecture & scoping session" }
+                        { icon: navIcons.pin, label: "Lucknow Global HQ & Incubator", href: "lucknow.html", desc: "DLF MyPad, Gomti Nagar — Core engineering pods & founder incubation" },
+                        { icon: navIcons.pin, label: "Bengaluru Tech & Startup Hub", href: "bengaluru.html", desc: "100 Feet Rd, Indiranagar — Tier-1 product scoping & founder sessions" },
+                        { icon: navIcons.pin, label: "Cape Town Africa Hub", href: "cape-town.html", desc: "Strand Street — SAST-aligned digital transformation & delivery" },
+                        { icon: navIcons.pin, label: "Lusaka Zambia Hub", href: "lusaka.html", desc: "Lilayi — Regional enterprise software, fintech & CRM deployment" }
                     ]
                 }
             ],
             featured: {
-                title: "Built For High Conviction",
-                desc: "An elite AI-native software consultancy architecting production systems with milestone-driven delivery and guaranteed timelines.",
-                stat: "6+ Years · 138+ Clients",
-                ctaLabel: "Meet Our Team →",
-                ctaHref: "about.html"
+                stat: "In-Person & Virtual",
+                title: "Book Strategy Call",
+                desc: "Meet senior engineering architects at any of our 4 hubs or schedule a virtual strategy call.",
+                ctaLabel: "Book Strategy Call →",
+                ctaHref: "contact.html?type=strategy-call"
             }
         }
     };
@@ -351,16 +282,20 @@
                 <a href="index.html" class="logo"><img src="assets/logos/logo_white.png" alt="Trai Inc" class="nav-logo-img nav-logo-dark"><img src="assets/logos/logo_gradient.png" alt="Trai Inc" class="nav-logo-img nav-logo-light"></a>
                 <ul class="nav-links" id="nav-links">
                     <li class="has-dropdown">
-                        <a href="about.html" class="${['about','careers','partner','incubation','contact'].includes(page)?'active':''}">${navData.whoWeAre.label} ${chevronDown}</a>
-                        ${buildDropdown('whoWeAre', navData.whoWeAre)}
+                        <a href="ai-engineering.html" class="${['ai-engineering','ai-automation','mobile-apps','web-development','custom-software','cloud-devops','enterprise-platforms','data-analytics'].includes(page)?'active':''}">${navData.aiEngineering.label} ${chevronDown}</a>
+                        ${buildDropdown('aiEngineering', navData.aiEngineering)}
                     </li>
                     <li class="has-dropdown">
-                        <a href="solutions.html" class="${['ai-automation','mobile-apps','web-development','custom-software','cloud-devops','digital-marketing','enterprise-platforms','hire-dedicated-developers','content-creation'].includes(page)?'active':''}">${navData.services.label} ${chevronDown}</a>
-                        ${buildDropdown('services', navData.services)}
+                        <a href="incubator.html" class="${['incubator','startups','funding-readiness'].includes(page)?'active':''}">${navData.incubator.label} ${chevronDown}</a>
+                        ${buildDropdown('incubator', navData.incubator)}
                     </li>
                     <li class="has-dropdown">
-                        <a href="industries.html" class="${['industries','d2c','msmes','startups','smb','enterprise'].includes(page)?'active':''}">${navData.whoWeHelp.label} ${chevronDown}</a>
-                        ${buildDropdown('whoWeHelp', navData.whoWeHelp)}
+                        <a href="clients.html" class="${['clients','case-studies'].includes(page)?'active':''}">${navData.caseStudies.label} ${chevronDown}</a>
+                        ${buildDropdown('caseStudies', navData.caseStudies)}
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="contact.html#offices" class="${['lucknow','bengaluru','cape-town','lusaka','contact'].includes(page)?'active':''}">${navData.globalHubs.label} ${chevronDown}</a>
+                        ${buildDropdown('globalHubs', navData.globalHubs)}
                     </li>
                     <li>
                         <a href="blog.html" class="${page === 'blog' || page.startsWith('blog-') ? 'active' : ''}">Blog</a>
@@ -382,7 +317,7 @@
                             </span>
                         </button>
                     </div>
-                    <a href="contact.html" class="btn-primary">Get a quote</a>
+                    <a href="contact.html?type=strategy-call" class="btn-primary">Book Strategy Call</a>
                     <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">&#9776;</button>
                 </div>
             </div>
@@ -501,7 +436,7 @@
                     <img src="assets/logos/logo.png" alt="TRAI Inc" class="footer-logo-img">
                 </a>
                 <div class="footer-brand-name">TRAI Inc</div>
-                <p class="footer-tagline" data-cms-bind="brand_tagline">AI-native software engineering consultancy — architecting custom software, scalable cloud systems, and autonomous multi-agent pipelines for ambitious enterprises.</p>
+                <p class="footer-tagline" data-cms-bind="brand_tagline">AI-native software engineering consultancy &amp; startup incubator — shipping production AI systems, 30-day investor-ready MVPs, and enterprise software at lean burn.</p>
                 <div class="footer-contact" data-cms-section="footer-contact">
                     <a href="tel:+917905495478" class="contact-link" data-cms-bind="phone">📞 +91 79054 95478</a><br>
                     <span class="contact-label">Enquiry:</span> <a href="mailto:hello@traiinc.com" class="contact-link" data-cms-bind="email">✉️ hello@traiinc.com</a><br>
@@ -516,42 +451,39 @@
                 </div>
             </div>
             <div class="link-group">
-                <h4>Solutions</h4>
+                <h4>AI &amp; Engineering</h4>
                 <ul>
-                    <li><a href="ai-automation.html">AI & Agentic Systems</a></li>
-                    <li><a href="custom-software.html">Custom Software & Web</a></li>
-                    <li><a href="enterprise-platforms.html">Enterprise Platforms & ERP</a></li>
-                    <li><a href="cloud-devops.html">Cloud Native & DevOps</a></li>
-                    <li><a href="mobile-apps.html">Mobile Engineering</a></li>
-                    <li><a href="ui-ux-design.html">UI/UX Design Systems</a></li>
-                    <li><a href="data-analytics.html">Data Engineering & Analytics</a></li>
+                    <li><a href="ai-engineering.html">AI &amp; Software Engineering</a></li>
+                    <li><a href="custom-software.html">Custom Software &amp; SaaS</a></li>
+                    <li><a href="ai-automation.html">AI Agents &amp; Automation</a></li>
+                    <li><a href="mobile-apps.html">Mobile App Engineering</a></li>
+                    <li><a href="enterprise-platforms.html">Enterprise CRM &amp; ERP</a></li>
+                    <li><a href="cloud-devops.html">Cloud Native &amp; DevOps</a></li>
+                    <li><a href="data-analytics.html">Data &amp; Edge Pipelines</a></li>
                 </ul>
             </div>
             <div class="link-group">
-                <h4>Industries</h4>
+                <h4>Startup Incubator</h4>
                 <ul>
-                    <li><a href="enterprise.html">Large Enterprises</a></li>
-                    <li><a href="startups.html">High-Growth Startups</a></li>
-                    <li><a href="d2c.html">Retail & D2C Brands</a></li>
-                    <li><a href="smb.html">Mid-Market Companies</a></li>
-                    <li><a href="industries.html">All 12+ Industry Verticals</a></li>
+                    <li><a href="incubator.html">Startup Incubator &amp; Funding</a></li>
+                    <li><a href="incubator.html#mvp-launchpad">30-Day MVP Launchpad</a></li>
+                    <li><a href="incubator.html#funding-readiness">Seed &amp; Grant Readiness</a></li>
+                    <li><a href="incubator.html#grants">DPIIT &amp; SISFS Grants</a></li>
+                    <li><a href="incubator.html#apply">Apply for 2026 Cohort</a></li>
+                    <li><a href="startups.html">Startups Program</a></li>
+                    <li><a href="ai-engineering.html#estimator">Scope Estimator</a></li>
                 </ul>
-                <h4 style="margin-top: 28px;">Company</h4>
+            </div>
+            <div class="link-group">
+                <h4>Global Hubs &amp; Proof</h4>
                 <ul>
-                    <li><a href="about.html">About TRAI Inc</a></li>
+                    <li><a href="lucknow.html">Lucknow Global HQ</a></li>
+                    <li><a href="bengaluru.html">Bengaluru Tech Hub</a></li>
+                    <li><a href="cape-town.html">Cape Town Africa Hub</a></li>
+                    <li><a href="lusaka.html">Lusaka Zambia Hub</a></li>
                     <li><a href="clients.html">Verified Case Studies</a></li>
-                    <li><a href="careers.html">Careers</a></li>
-                    <li><a href="partner.html">Partnerships</a></li>
-                    <li><a href="contact.html">Schedule Discovery</a></li>
-                </ul>
-            </div>
-            <div class="link-group">
-                <h4>Due Diligence</h4>
-                <ul>
-                    <li><a href="clients.html">Case Studies & Metrics</a></li>
-                    <li><a href="choosing-a-development-partner.html">Trust & Due Diligence</a></li>
-                    <li><a href="our-development-process.html">Engineering Sprint Model</a></li>
-                    <li><a href="app-store.html">App Store Deployments</a></li>
+                    <li><a href="about.html">About TRAI Inc</a></li>
+                    <li><a href="contact.html?type=strategy-call">Book Strategy Call</a></li>
                 </ul>
             </div>
             <div class="footer-newsletter">
@@ -573,51 +505,51 @@
                 <div class="footer-offices-header">
                     <div class="footer-offices-title-group">
                         <span class="footer-offices-kicker">Global Footprint</span>
-                        <h4 class="footer-offices-heading">Our Registered &amp; Regional Offices</h4>
+                        <h4 class="footer-offices-heading">Our Global Engineering HQ &amp; Regional Hubs</h4>
                     </div>
-                    <span class="footer-offices-tagline">Serving clients across India, Africa, North America &amp; Global Markets</span>
+                    <span class="footer-offices-tagline">Serving clients across Bengaluru, Delhi-NCR, Lucknow, Cape Town &amp; Lusaka</span>
                 </div>
                 <div class="footer-offices-grid" data-cms-section="offices">
-                    <div class="footer-office-card">
+                    <a href="lucknow.html" class="footer-office-card" style="text-decoration:none;color:inherit;display:flex;">
                         <div class="footer-office-card-head">
                             <span class="footer-office-flag" title="India" aria-label="India"><svg viewBox="0 0 640 480" width="22" height="16" style="border-radius:2px;box-shadow:0 0 1px rgba(0,0,0,0.3);"><path fill="#f93" d="M0 0h640v160H0z"/><path fill="#fff" d="M0 160h640v160H0z"/><path fill="#128807" d="M0 320h640v160H0z"/><circle cx="320" cy="240" r="40" fill="none" stroke="#008" stroke-width="6"/><circle cx="320" cy="240" r="8" fill="#008"/></svg></span>
                             <div>
                                 <strong class="footer-office-city">Lucknow, India</strong>
-                                <span class="footer-office-type">Global Headquarters</span>
+                                <span class="footer-office-type">Global Engineering HQ &amp; Startup Incubator</span>
                             </div>
                         </div>
-                        <p class="footer-office-address">B-2, 11th Floor, DLF MyPad, Opposite Hyatt Regency, Vibhuti Khand, Gomti Nagar, Lucknow, Uttar Pradesh 226010</p>
-                    </div>
-                    <div class="footer-office-card">
+                        <p class="footer-office-address">Tower B-2, 1109, 11th Floor, DLF MyPad, Vibhuti Khand, Gomti Nagar, Lucknow 226010 — Core AI/software engineering pods, founder incubation studio, and full-stack delivery center.</p>
+                    </a>
+                    <a href="bengaluru.html" class="footer-office-card" style="text-decoration:none;color:inherit;display:flex;">
                         <div class="footer-office-card-head">
                             <span class="footer-office-flag" title="India" aria-label="India"><svg viewBox="0 0 640 480" width="22" height="16" style="border-radius:2px;box-shadow:0 0 1px rgba(0,0,0,0.3);"><path fill="#f93" d="M0 0h640v160H0z"/><path fill="#fff" d="M0 160h640v160H0z"/><path fill="#128807" d="M0 320h640v160H0z"/><circle cx="320" cy="240" r="40" fill="none" stroke="#008" stroke-width="6"/><circle cx="320" cy="240" r="8" fill="#008"/></svg></span>
                             <div>
                                 <strong class="footer-office-city">Bengaluru, India</strong>
-                                <span class="footer-office-type">Technology &amp; Engineering Hub</span>
+                                <span class="footer-office-type">India Tech &amp; Startup Hub (Indiranagar)</span>
                             </div>
                         </div>
-                        <p class="footer-office-address">660, 2nd Floor, 100 Feet Road, Indiranagar, Bengaluru, Karnataka 560038</p>
-                    </div>
-                    <div class="footer-office-card">
+                        <p class="footer-office-address">660, 2nd Floor, 100 Feet Road, Indiranagar, Bengaluru, Karnataka 560038 — In-person founder consultations, Tier-1 product scoping, and investor/startup ecosystem meetings.</p>
+                    </a>
+                    <a href="cape-town.html" class="footer-office-card" style="text-decoration:none;color:inherit;display:flex;">
                         <div class="footer-office-card-head">
                             <span class="footer-office-flag" title="South Africa" aria-label="South Africa"><svg viewBox="0 0 640 480" width="22" height="16" style="border-radius:2px;box-shadow:0 0 1px rgba(0,0,0,0.3);"><clipPath id="sa-fl"><path d="M0 0h640v480H0z"/></clipPath><g clip-path="url(#sa-fl)"><path fill="#000" d="M0 0h640v480H0z"/><path fill="#fff" d="M0 0h640v160H0z"/><path fill="#e03c31" d="M0 0h640v133.3H0z"/><path fill="#fff" d="M0 320h640v160H0z"/><path fill="#001489" d="M0 346.7h640V480H0z"/><path fill="#fc6" d="M0 0l240 240L0 480z"/><path fill="#000" d="M0 40l200 200L0 440z"/><path fill="#fff" d="M160 0h106.7L453.3 186.7H640v106.6H453.3L266.7 480H160l186.7-240z"/><path fill="#007749" d="M0 160h293.3L533.3 240 293.3 320H0v-53.3l186.7-26.7L0 213.3z"/></g></svg></span>
                             <div>
                                 <strong class="footer-office-city">Cape Town, South Africa</strong>
-                                <span class="footer-office-type">Africa Regional Hub</span>
+                                <span class="footer-office-type">Southern Africa Hub (Strand Street)</span>
                             </div>
                         </div>
-                        <p class="footer-office-address">WeWork, 80 Strand Street, Cape Town City Centre, Cape Town, Western Cape 8001</p>
-                    </div>
-                    <div class="footer-office-card">
+                        <p class="footer-office-address">WeWork, 80 Strand Street, Cape Town City Centre, Cape Town, Western Cape 8001 — Local discovery sessions, SAST-aligned project delivery, and digital transformation advisory.</p>
+                    </a>
+                    <a href="lusaka.html" class="footer-office-card" style="text-decoration:none;color:inherit;display:flex;">
                         <div class="footer-office-card-head">
                             <span class="footer-office-flag" title="Zambia" aria-label="Zambia"><svg viewBox="0 0 640 480" width="22" height="16" style="border-radius:2px;box-shadow:0 0 1px rgba(0,0,0,0.3);"><path fill="#198a00" d="M0 0h640v480H0z"/><g transform="translate(426.7,160)"><path fill="#de2010" d="M0 0h71.1v320H0z"/><path fill="#000" d="M71.1 0h71.1v320H71.1z"/><path fill="#ef7d00" d="M142.2 0h71.1v320H142.2z"/></g><path fill="#ef7d00" d="M497.8 80l44.4-40 44.5 40-20-40 35.6-20-40 10-20-30-20 30-40-10 35.5 20z"/></svg></span>
                             <div>
                                 <strong class="footer-office-city">Lusaka, Zambia</strong>
-                                <span class="footer-office-type">Regional Delivery Office</span>
+                                <span class="footer-office-type">Zambia Operations Hub</span>
                             </div>
                         </div>
-                        <p class="footer-office-address">Green Park Estate, Off Kafue Road, Lilayi, Lusaka 10101, Zambia</p>
-                    </div>
+                        <p class="footer-office-address">Green Park Estate, Off Kafue Road, Lilayi, Lusaka 10101, Zambia — On-ground enterprise software, custom CRM/fintech deployment, and new venture partnerships.</p>
+                    </a>
                 </div>
             </div>
         </div>
@@ -631,8 +563,7 @@
         </div>
             `;
         }
-
-        // ── WhatsApp FAB (Singleton without fake badge) ──
+// ── WhatsApp FAB (Singleton without fake badge) ──
         if (!document.querySelector('.fab-logo')) {
             var whatsappNumber = '917905495478';
             var whatsappMessage = encodeURIComponent("Hi TRAI Inc, I'm looking for an enterprise digital solution.");

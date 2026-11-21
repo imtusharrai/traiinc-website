@@ -1,0 +1,153 @@
+{
+  "hero": {
+    "badge": "TRAI INC · ZERO-TO-ONE INCUBATOR & MVP LAUNCHPAD",
+    "title": "Build an Investor-Ready Startup in 30 Days.",
+    "subtitle": "From napkin thesis to a working production MVP, 12-15 slide pitch deck, 3-year financial model, and DPIIT/grant readiness. We partner with ambitious founders to ship real software that secures capital.",
+    "cta_primary": {
+      "text": "Apply for 2026 Cohort",
+      "href": "#apply"
+    },
+    "cta_secondary": {
+      "text": "Explore AI Engineering",
+      "href": "ai-engineering.html"
+    },
+    "stats": [
+      {
+        "value": "30 Days",
+        "label": "Idea to Live Production MVP"
+      },
+      {
+        "value": "100%",
+        "label": "Equity Retained (Fixed Sprint)"
+      },
+      {
+        "value": "₹50 Lakh",
+        "label": "Max SISFS Grant Support"
+      },
+      {
+        "value": "138+",
+        "label": "Venture & Enterprise Deployments"
+      }
+    ]
+  },
+  "journey_stages": [
+    {
+      "stage": "Stage 1",
+      "timeline": "Week 1",
+      "title": "Validate & Architect",
+      "subtitle": "Lean Technical Foundation & Market Validation",
+      "desc": "We de-risk your business thesis before writing a single line of production code. Senior architects analyze your target market, design core user journeys, and specify a modular tech stack.",
+      "deliverables": [
+        "TAM / SAM / SOM Market Sizing & Competitive Teardown",
+        "Clickable Figma UX Wireframes & Information Architecture",
+        "Technical Architecture Specification (DB schema, APIs, Cloud Infra)",
+        "Sprint 1 Backlog & Milestone Definition"
+      ]
+    },
+    {
+      "stage": "Stage 2",
+      "timeline": "Weeks 2–4",
+      "title": "Build an Investor-Ready MVP",
+      "subtitle": "Production Web & Mobile Software Deployment",
+      "desc": "Investors fund working software and early retention, not slide decks alone. Our senior pods engineer a production-ready application with security, payments, and administrative controls.",
+      "deliverables": [
+        "Full-Stack Web or Cross-Platform Mobile App (Next.js / Flutter)",
+        "Secure User Authentication & Role-Based Access Control (RBAC)",
+        "Payment Gateway Integration (Razorpay, Stripe, or Cashfree)",
+        "Admin Analytics Dashboard & Customer Onboarding Funnel",
+        "CI/CD Pipeline with Automated Tests & Cloud Deployment"
+      ]
+    },
+    {
+      "stage": "Stage 3",
+      "timeline": "Week 5",
+      "title": "Funding & Compliance Readiness",
+      "subtitle": "Institutional Pitch Deck, Financials & DPIIT Recognition",
+      "desc": "We turn your working software into an institutional investor package. We structure your cap table, build a 3-year financial model, and file your DPIIT and government grant DPR applications.",
+      "deliverables": [
+        "12–15 Slide Institutional Investor Pitch Deck",
+        "Audited 3-Year Financial Model with Unit Economics & Burn Forecast",
+        "DPIIT Startup Recognition & Tax Exemption (Section 80-IAC) Filings",
+        "Startup India Seed Fund Scheme (SISFS) & Grant DPR Documentation",
+        "Secure Investor Data Room (cap table, contracts, product demo video)"
+      ]
+    },
+    {
+      "stage": "Stage 4",
+      "timeline": "Week 6+",
+      "title": "Go-to-Market & Growth Engine",
+      "subtitle": "AI Lead Funnels & Ecosystem Warm Introductions",
+      "desc": "Launch your product to real users and investors. We wire up autonomous AI lead qualification pipelines, launch your paid acquisition funnels, and facilitate warm investor conversations.",
+      "deliverables": [
+        "Autonomous WhatsApp / AI Voice Lead Capture Engine",
+        "High-Converting Landing Pages & Performance Marketing Setup",
+        "Warm Angel, Micro-VC, and Family Office Ecosystem Introductions",
+        "Post-Launch Analytics, User Retention Tracking & Cohort Reviews"
+      ]
+    }
+  ],
+  "engagement_models": [
+    {
+      "id": "fixed-fee",
+      "title": "Fixed-Fee Founder Sprint",
+      "badge": "Founder Retains 100% Equity",
+      "desc": "Ideal for founders who want maximum speed, institutional engineering, and complete equity retention.",
+      "terms": "Clear milestone pricing · 4 weekly sprint payments · 100% IP & code handover",
+      "features": [
+        "Complete 30-Day Working MVP Deployment",
+        "Investor Pitch Deck + 3-Year Financial Model",
+        "DPIIT Recognition & SISFS Grant DPR Support",
+        "100% Full IP & Source Code Ownership Handover",
+        "Zero Equity Given Up (Founder Keeps 100%)"
+      ],
+      "cta": "Apply for Sprint",
+      "href": "#apply"
+    },
+    {
+      "id": "hybrid",
+      "title": "Hybrid Venture Co-Build",
+      "badge": "Selective Technical Partnership",
+      "desc": "For vetted, high-conviction founders: subsidized upfront cash sprints in exchange for a small aligned advisory equity stake.",
+      "terms": "Reduced cash sprints + 2–5% advisory equity · Strict vetting (max 3 startups/quarter)",
+      "features": [
+        "Subsidized Upfront Development Cost (up to 40% discount)",
+        "Dedicated CTO / Chief Architect Advisory on Board",
+        "Priority Investor Data Room & Direct Ecosystem Access",
+        "Ongoing Technical Pod & Architecture Scaling",
+        "Aligned Long-Term Growth & Milestone-Driven Vesting"
+      ],
+      "cta": "Apply for Co-Build",
+      "href": "#apply"
+    }
+  ],
+  "faq": {
+    "subtitle": "FREQUENTLY ASKED QUESTIONS",
+    "title": "Founder & Investor FAQ",
+    "items": [
+      {
+        "q": "How can a production-grade MVP be built in only 30 days?",
+        "a": "We do not start from scratch with boilerplate code. Trai Inc utilizes pre-hardened, SOC-2 compliant modules for auth, multi-tenant database schemas, payment webhooks, and administrative dashboards. Dedicated senior pods focus exclusively on your unique product logic and UX, allowing us to ship clean, production software in four milestone sprints."
+      },
+      {
+        "q": "Do I keep 100% equity in my startup?",
+        "a": "Yes. In our Fixed-Fee Founder Sprint track, you retain 100% equity, full source code ownership, and all intellectual property. We act purely as your elite engineering pod. If you apply for and are accepted into our Hybrid Venture Co-Build track, we offer discounted development fees in exchange for a small (2–5%) advisory equity stake."
+      },
+      {
+        "q": "What support do you provide for DPIIT Recognition and Startup India Seed Fund (SISFS)?",
+        "a": "We prepare your entire DPIIT application package, Detailed Project Report (DPR), and financial justifications required for the Startup India Seed Fund Scheme (up to ₹50 Lakhs for commercialization). Our compliance team ensures your entity structure, patent/IP documentation, and innovation criteria meet incubator evaluation standards."
+      },
+      {
+        "q": "Can I meet the engineering team in-person before signing?",
+        "a": "Absolutely. We encourage in-person technical scoping sessions at our Global Engineering HQ at DLF MyPad, Gomti Nagar, Lucknow, or our meeting hubs in Indiranagar (Bengaluru), Strand Street (Cape Town), and Lilayi (Lusaka). You can also schedule an instant virtual strategy session."
+      },
+      {
+        "q": "What tech stack do you recommend for startup MVPs?",
+        "a": "We recommend modern, battle-tested stacks that scale smoothly without expensive rewrites: Next.js or React with TypeScript for frontend, Node.js or Python FastAPI for backend services, PostgreSQL or Cloudflare D1 for databases, and Flutter for cross-platform mobile apps. This ensures rapid iteration, high performance, and minimal infrastructure overhead."
+      },
+      {
+        "q": "What happens after the 30-day MVP is launched?",
+        "a": "You own 100% of the code and repository. You can take the codebase in-house, have your own engineering hires maintain it, or continue partnering with Trai Inc via our dedicated engineering pod retainer for continuous feature sprints and scale."
+      }
+    ]
+  }
+}

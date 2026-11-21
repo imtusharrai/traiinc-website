@@ -1,0 +1,50 @@
+{
+  "slug": "lucknow",
+  "city": "Lucknow",
+  "country": "India",
+  "role": "Global Engineering HQ & Startup Incubator",
+  "kicker": "GLOBAL HEADQUARTERS & FOUNDER STUDIO",
+  "h1": "Software Development Company & Startup Incubator in Lucknow",
+  "subtitle": "Our primary global delivery center and founder incubation studio. Ambitious startups and enterprises collaborate directly with senior AI architects, full-stack pods, and venture co-builders at DLF MyPad, Gomti Nagar.",
+  "address": "Tower B-2, 1109, 11th Floor, DLF MyPad, Vibhuti Khand, Gomti Nagar, Lucknow, Uttar Pradesh 226010",
+  "landmark": "Opposite Hyatt Regency, Vibhuti Khand",
+  "phone": "+91 79054 95478",
+  "email": "lucknow@traiinc.com",
+  "highlights": [
+    "100+ Senior AI & Software Engineering Pods",
+    "30-Day Startup MVP Launchpad & Incubation Studio",
+    "DPIIT Recognition & Startup India Grant Filing Desk",
+    "Executive Meeting Suites & Technical Architecture Lounges"
+  ],
+  "cases": [
+    {
+      "name": "Bhu Master",
+      "sector": "Agritech & Land Registry",
+      "outcome": "Reduced land title verification from 5 days to 14 seconds"
+    },
+    {
+      "name": "Om Group",
+      "sector": "Automotive & Education ERP",
+      "outcome": "100% digital ERP adoption across 8 regional branches"
+    },
+    {
+      "name": "Dashak Pharma",
+      "sector": "Pharmaceutical Supply Chain",
+      "outcome": "Order dispatch accelerated by 62% with 91% less expiry waste"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Where is Trai Inc HQ located in Lucknow?",
+      "a": "Our Global Engineering HQ is located at Tower B-2, 1109, 11th Floor, DLF MyPad, Vibhuti Khand, Gomti Nagar, Lucknow 226010 (opposite Hyatt Regency)."
+    },
+    {
+      "q": "Can founders visit for in-person startup incubation scoping?",
+      "a": "Yes. We host weekly technical architecture sessions and founder discovery meetings. You can book an in-person meeting directly through our website."
+    },
+    {
+      "q": "Do you offer DPIIT and Startup India grant assistance in Lucknow?",
+      "a": "Yes. Our incubation desk assists high-conviction founders with DPIIT registration, Startup India Seed Fund Scheme (SISFS up to ₹50 Lakhs), and UP Startup Policy grant documentation."
+    }
+  ]
+}
