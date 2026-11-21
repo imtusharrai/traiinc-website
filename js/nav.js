@@ -278,10 +278,11 @@
                     ]
                 },
                 {
-                    heading: "Connect & Engage",
+                    heading: "Presence & Connect",
                     items: [
+                        { icon: navIcons.pin, label: "Global Hubs & Presence", href: "lucknow.html", desc: "Lucknow HQ, Bengaluru, Cape Town & Lusaka" },
                         { icon: navIcons.partner, label: "Partner With Us", href: "partner.html", desc: "Enterprise referral & white-label software partnerships" },
-                        { icon: navIcons.contact, label: "Schedule Discovery", href: "contact.html?type=strategy-call", desc: "Book an architecture & scoping session" }
+                        { icon: navIcons.contact, label: "Schedule Discovery", href: "contact.html?type=strategy-call", desc: "Book an online architecture & scoping session" }
                     ]
                 }
             ],
@@ -423,7 +424,7 @@
 
         const navHTML = `
             <div class="nav-container">
-                <a href="index.html" class="logo"><img src="assets/logos/logo_white.png" alt="Trai Inc" class="nav-logo-img nav-logo-dark"><img src="assets/logos/logo_gradient.png" alt="Trai Inc" class="nav-logo-img nav-logo-light"></a>
+                <a href="index.html" class="logo" aria-label="Trai Inc"><img src="assets/logos/logo_white.png" alt="Trai Inc" class="nav-logo-img nav-logo-dark"><img src="assets/logos/logo_gradient.png" alt="Trai Inc" class="nav-logo-img nav-logo-light"><span class="nav-brand-wordmark">Trai Inc</span></a>
                 <ul class="nav-links" id="nav-links">
                     <li class="has-dropdown">
                         <a href="solutions.html" class="${['solutions','ai-engineering','ai-automation','mobile-apps','web-development','custom-software','cloud-devops','enterprise-platforms','data-analytics','ui-ux-design','digital-marketing','content-creation'].includes(page)?'active':''}">${navData.services.label} ${chevronDown}</a>
@@ -438,11 +439,7 @@
                         ${buildDropdown('caseStudies', navData.caseStudies)}
                     </li>
                     <li class="has-dropdown">
-                        <a href="lucknow.html" class="${['lucknow','bengaluru','cape-town','lusaka'].includes(page)?'active':''}">${navData.globalHubs.label} ${chevronDown}</a>
-                        ${buildDropdown('globalHubs', navData.globalHubs)}
-                    </li>
-                    <li class="has-dropdown">
-                        <a href="about.html" class="${['about','careers','partner','our-development-process'].includes(page)?'active':''}">${navData.company.label} ${chevronDown}</a>
+                        <a href="about.html" class="${['about','careers','partner','our-development-process','lucknow','bengaluru','cape-town','lusaka'].includes(page)?'active':''}">${navData.company.label} ${chevronDown}</a>
                         ${buildDropdown('company', navData.company)}
                     </li>
                     <li>

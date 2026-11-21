@@ -422,6 +422,8 @@ body.light-mode .btn-primary:hover {
 .logo {
     display: inline-flex;
     align-items: center;
+    gap: 10px;
+    text-decoration: none;
     transition: all 0.3s ease;
     flex-shrink: 0;
 }
@@ -435,6 +437,17 @@ body.light-mode .btn-primary:hover {
 .nav-logo-light { display: none; }
 body.light-mode .nav-logo-dark { display: none; }
 body.light-mode .nav-logo-light { display: block; }
+
+.nav-brand-wordmark {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: var(--text-main);
+    line-height: 1;
+    white-space: nowrap;
+    display: inline-block;
+}
 
 .logo:hover {
     transform: translateY(-2px);
