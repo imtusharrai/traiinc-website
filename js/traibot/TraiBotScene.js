@@ -52,44 +52,44 @@
     /* ── Exact Relay.app Style Cards ── */
     const agents = [
         {
-            name: 'Sales Agent',
-            doing: 'Qualifying incoming leads ...',
-            sub: `<span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;background:#25D366;border-radius:50%;flex-shrink:0"><svg width="10" height="10" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></span> ${icons.globe} <span style="color:#4b5563">Engaging 12 prospects</span>`,
-            bg: 'radial-gradient(circle at 50% 38%, #a7f3d0 0%, #d1fae5 40%, #ecfdf5 100%)',
-            svg: svgs.salesFlower,
-        },
-        {
             name: 'Competitive Analyst',
             doing: 'Creating weekly report ...',
-            sub: `${icons.slack} <span style="color:#4b5563">Sharing to #research</span>`,
+            sub: `${icons.slack} <span style="color:#334155;font-weight:600">Sharing to #research</span>`,
             bg: 'radial-gradient(circle at 50% 38%, #c7d2fe 0%, #e0e7ff 40%, #f1f5f9 100%)',
             svg: svgs.blueFlower,
         },
         {
             name: 'Social Marketer',
             doing: 'Tracks engagement across social media channels',
-            sub: `<span style="color:#4b5563;margin-right:6px">2 workflows</span> ${icons.linkedin} ${icons.youtube} ${icons.x} <span style="background:#e5e7eb;padding:1px 4px;border-radius:4px;font-size:7.5px;color:#4b5563;font-weight:600">+3</span>`,
+            sub: `<span style="color:#334155;font-weight:600;margin-right:6px">2 workflows</span> ${icons.linkedin} ${icons.youtube} ${icons.x} <span style="background:#e2e8f0;padding:2px 5px;border-radius:4px;font-size:8px;color:#0f172a;font-weight:700">+3</span>`,
             bg: 'radial-gradient(circle at 50% 38%, #bbf7d0 0%, #dcfce7 40%, #f0fdf4 100%)',
             svg: svgs.greenFlower,
         },
         {
             name: 'Reddit Agent',
             doing: 'Monitoring subreddit ...',
-            sub: `${icons.reddit} <span style="color:#4b5563">Found mention 'Trai Inc'</span>`,
+            sub: `${icons.reddit} <span style="color:#334155;font-weight:600">Found mention 'Trai Inc'</span>`,
             bg: 'radial-gradient(circle at 50% 38%, #fde68a 0%, #fef3c7 40%, #fefce8 100%)',
             svg: svgs.goldSpiral,
         },
         {
+            name: 'Sales Agent',
+            doing: 'Qualifying incoming leads ...',
+            sub: `<span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;background:#25D366;border-radius:50%;flex-shrink:0"><svg width="10" height="10" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></span> ${icons.globe} <span style="color:#334155;font-weight:600">Engaging 12 prospects</span>`,
+            bg: 'radial-gradient(circle at 50% 38%, #a7f3d0 0%, #d1fae5 40%, #ecfdf5 100%)',
+            svg: svgs.salesFlower,
+        },
+        {
             name: 'Company AI Brain',
             doing: 'Indexing internal knowledge ...',
-            sub: `${icons.database} <span style="color:#4b5563">Full knowledge of Trai Inc</span>`,
+            sub: `${icons.database} <span style="color:#334155;font-weight:600">Full knowledge of Trai Inc</span>`,
             bg: 'radial-gradient(circle at 50% 38%, #bfdbfe 0%, #dbeafe 40%, #f0f9ff 100%)',
             svg: svgs.blueWire,
         },
         {
             name: 'Support Agent',
             doing: 'Handling support request ...',
-            sub: `${icons.front} <span style="color:#4b5563">Analyzing incoming email</span>`,
+            sub: `${icons.front} <span style="color:#334155;font-weight:600">Analyzing incoming email</span>`,
             bg: 'radial-gradient(circle at 50% 38%, #fecaca 0%, #fee2e2 40%, #fef2f2 100%)',
             svg: svgs.redFlower,
         }
@@ -155,12 +155,18 @@
                 <div class="mac-screen">
                     <div class="mac-tb">
                         <div class="mac-dots"><span class="d-r"></span><span class="d-y"></span><span class="d-g"></span></div>
-                        <span class="mac-tt">TRAI Inc · Enterprise Multi-Agent Deployment</span>
+                        <span class="mac-tt">Trai Inc · Enterprise Multi-Agent Deployment</span>
                     </div>
                     <div class="mac-saas">
                         <div class="mac-saas-header">
-                            <span class="mac-saas-label">Deployed Client Infrastructure</span>
-                            <span class="mac-saas-count">Production Live</span>
+                            <div class="mac-saas-title-group">
+                                <span class="mac-saas-label">Deployed Client Infrastructure</span>
+                                <span class="mac-saas-count">Production Live</span>
+                            </div>
+                            <div class="mac-carousel-controls">
+                                <button type="button" class="mac-arrow-btn" id="mac-prev-btn" aria-label="Previous agent">‹</button>
+                                <button type="button" class="mac-arrow-btn" id="mac-next-btn" aria-label="Next agent">›</button>
+                            </div>
                         </div>
                         <div class="mac-cards-scroll" id="mac-cards-scroll">
                             <div class="mac-cards-track" id="mac-cards-track"></div>
@@ -171,6 +177,32 @@
             <div class="mac-base"><div class="mac-hinge"></div></div>
         `;
 
+        const prevBtn = w.querySelector('#mac-prev-btn');
+        const nextBtn = w.querySelector('#mac-next-btn');
+        if (prevBtn) {
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                slideStep(-1);
+            });
+        }
+        if (nextBtn) {
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                slideStep(1);
+            });
+        }
+
+        const saas = w.querySelector('.mac-saas');
+        if (saas) {
+            saas.addEventListener('mouseenter', () => {
+                if (focusTimer) clearInterval(focusTimer);
+            });
+            saas.addEventListener('mouseleave', () => {
+                if (focusTimer) clearInterval(focusTimer);
+                focusTimer = setInterval(() => slideStep(1), 4000);
+            });
+        }
+
         const track = w.querySelector('#mac-cards-track');
         agents.forEach((a, i) => {
             const c = document.createElement('div');
@@ -178,6 +210,13 @@
             c.style.background = a.bg;
             c.style.animationDelay = `${0.6 + i * 0.14}s`;
             c.dataset.idx = i;
+            c.addEventListener('click', (e) => {
+                e.stopPropagation();
+                currentSlide = Math.min(i, maxSlide);
+                renderSlide();
+                const allCards = document.querySelectorAll('.saas-card');
+                allCards.forEach((card, ci) => card.classList.toggle('saas-card--focus', ci === i));
+            });
 
             c.innerHTML = `
                 <div class="card-icon-wrap">
@@ -195,29 +234,38 @@
         return w;
     }
 
-    /* ═══ Focus Cycling ═══ */
-    function startFocus() {
-        doFocus();
-        focusTimer = setInterval(doFocus, 3500);
-    }
-    function doFocus() {
-        const cards = document.querySelectorAll('.saas-card');
-        cards.forEach((c, i) => c.classList.toggle('saas-card--focus', i === focusIdx));
+    /* ═══ Slide & Focus Cycling ═══ */
+    let currentSlide = 0;
+    const maxSlide = Math.max(0, agents.length - 3);
 
-        const track = document.getElementById('mac-cards-track');
+    function slideStep(dir) {
+        currentSlide = (currentSlide + dir + (maxSlide + 1)) % (maxSlide + 1);
+        renderSlide();
+    }
+
+    function renderSlide() {
+        const cards = document.querySelectorAll('.saas-card');
         const scroll = document.getElementById('mac-cards-scroll');
-        if (track && scroll) {
-            const card = cards[focusIdx];
-            if (card) {
-                const offset = card.offsetLeft - scroll.offsetWidth / 2 + card.offsetWidth / 2;
-                if (typeof scroll.scrollTo === 'function') {
-                    scroll.scrollTo({ left: Math.max(0, offset), behavior: 'smooth' });
-                } else {
-                    scroll.scrollLeft = Math.max(0, offset);
-                }
+        if (!cards.length || !scroll) return;
+
+        cards.forEach((c, i) => c.classList.toggle('saas-card--focus', i === currentSlide));
+
+        const targetCard = cards[currentSlide];
+        if (targetCard) {
+            const cardLeft = targetCard.getBoundingClientRect().left - scroll.getBoundingClientRect().left + scroll.scrollLeft;
+            if (typeof scroll.scrollTo === 'function') {
+                scroll.scrollTo({ left: Math.max(0, cardLeft), behavior: 'smooth' });
+            } else {
+                scroll.scrollLeft = Math.max(0, cardLeft);
             }
         }
-        focusIdx = (focusIdx + 1) % agents.length;
+    }
+
+    function startFocus() {
+        renderSlide();
+        focusTimer = setInterval(() => {
+            slideStep(1);
+        }, 5000);
     }
 
     /* ═══ Canvas ═══ */
@@ -312,7 +360,7 @@
 .mac-wrap {
     position:absolute;right:4%;top:50%;
     transform:translateY(-50%) perspective(1400px) rotateY(-6deg) rotateX(2deg);
-    z-index:8;pointer-events:none;
+    z-index:8;pointer-events:auto;
     animation:macF 6s infinite ease-in-out, macIn 1.2s cubic-bezier(.16,1,.3,1) both;
     filter:drop-shadow(0 40px 80px rgba(0,0,0,.4));
     -webkit-font-smoothing: antialiased;
@@ -360,7 +408,10 @@
 }
 .mac-saas-header {
     display:flex;justify-content:space-between;align-items:center;
-    margin-bottom:16px;
+    margin-bottom:14px;
+}
+.mac-saas-title-group {
+    display:flex;align-items:center;gap:8px;
 }
 .mac-saas-label {
     font-family:'Inter',sans-serif;font-size:14px;font-weight:700;
@@ -373,27 +424,46 @@
     padding: 2px 8px;
     border-radius: 12px;
 }
+.mac-carousel-controls {
+    display:flex;align-items:center;gap:6px;
+}
+.mac-arrow-btn {
+    width:24px;height:24px;border-radius:6px;
+    background:#ffffff;border:1px solid #cbd5e1;
+    color:#334155;display:inline-flex;align-items:center;justify-content:center;
+    cursor:pointer;transition:all .2s ease;
+    padding:0;font-size:15px;font-weight:700;line-height:1;
+    box-shadow:0 1px 2px rgba(0,0,0,0.04);
+}
+.mac-arrow-btn:hover {
+    background:#f1f5f9;color:#0f172a;border-color:#94a3b8;transform:scale(1.05);
+}
 
 /* ── Horizontal scroll ── */
 .mac-cards-scroll {
-    overflow-x:auto;overflow-y:hidden;
+    position:relative;
+    width:100%;
+    overflow-x:hidden;overflow-y:hidden;
     scrollbar-width:none;
     -ms-overflow-style:none;
     scroll-behavior:smooth;
 }
 .mac-cards-scroll::-webkit-scrollbar{display:none}
 .mac-cards-track {
-    display:flex;gap:16px;
+    display:flex;gap:14px;
     padding-bottom:16px;
     padding-top: 4px;
 }
 
 /* ═══ SaaS Card (High-Fidelity Relay.app style) ═══ */
 .saas-card {
-    flex:0 0 160px;
-    height: 200px;
+    flex:0 0 calc((100% - 28px) / 3);
+    min-width: calc((100% - 28px) / 3);
+    max-width: calc((100% - 28px) / 3);
+    box-sizing: border-box;
+    height: 205px;
     border-radius:12px;
-    padding:16px;
+    padding:16px 14px;
     border:1px solid rgba(0,0,0,.04);
     opacity:0;transform:translateY(14px) scale(.96);
     animation:cardIn .55s cubic-bezier(.16,1,.3,1) forwards;
@@ -425,12 +495,12 @@
 @keyframes svgSpin { to { transform: rotate(360deg); } }
 
 /* ── Card text ── */
-.card-info{display:flex;flex-direction:column;gap:4px; margin-top: auto;}
-.card-name{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:#1e293b;line-height:1.2}
-.card-doing{font-family:'Inter',sans-serif;font-size:9.5px;color:#475569;line-height:1.3; margin-top: 4px;}
+.card-info{display:flex;flex-direction:column;gap:5px; margin-top: auto;}
+.card-name{font-family:'Inter',sans-serif;font-size:13px;font-weight:700;color:#0f172a;line-height:1.2;letter-spacing:-0.01em;}
+.card-doing{font-family:'Inter',sans-serif;font-size:11px;font-weight:500;color:#334155;line-height:1.35; margin-top: 3px;}
 .card-sub-row {
-    font-family:'Inter',sans-serif;font-size:9px;color:#64748b;line-height:1.3;
-    display:flex;align-items:center;gap:4px; margin-top: 6px;
+    font-family:'Inter',sans-serif;font-size:10.5px;font-weight:500;color:#475569;line-height:1.35;
+    display:flex;align-items:center;gap:5px; margin-top: 4px;
     flex-wrap: wrap;
 }
 .card-sub-row svg { flex-shrink: 0; }

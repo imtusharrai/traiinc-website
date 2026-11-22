@@ -1332,13 +1332,13 @@ function renderHome(data) {
     const af = data.audience_finder;
 
     return `
-    <!-- ════════ HERO — AI-NATIVE SOFTWARE ENGINEERING STUDIO ════════ -->
+    <!-- ════════ HERO — AI SOFTWARE STUDIO & STARTUP INCUBATOR ════════ -->
     <section class="hero-cosmos" id="hero-cosmos">
         <div id="traibot-container"></div>
 
         <!-- Content Layer -->
         <div class="hero-cosmos-content">
-            <p class="hero-cosmos-eyebrow">${hero.badge || 'TRAI INC · AI-NATIVE SOFTWARE ENGINEERING STUDIO'}</p>
+            <p class="hero-cosmos-eyebrow">${hero.badge || 'TRAI INC · AI SOFTWARE STUDIO & STARTUP INCUBATOR'}</p>
             <h1 class="hero-cosmos-title" data-cms-bind="title">
                 <span class="hero-cosmos-line hero-cosmos-line--1">${hero.heading_line1 || 'Build Production AI &'}</span>
                 <span class="hero-cosmos-line hero-cosmos-line--2">${hero.heading_line2 || 'Investor-Ready Startups—'}</span>
