@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&display=swap');
+
 /* ═══════════════════════════════════════════════════════════════
    DESIGN TOKEN SYSTEM — Obsidian Dark + Stripe-White Light
    All components reference tokens → theme flip is automatic
@@ -422,10 +424,15 @@ body.light-mode .btn-primary:hover {
 .logo {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
     flex-shrink: 0;
+    user-select: none;
+}
+
+.logo:hover {
+    transform: translateY(-1px);
+    opacity: 0.92;
 }
 
 .nav-logo-img {
@@ -439,20 +446,49 @@ body.light-mode .nav-logo-dark { display: none; }
 body.light-mode .nav-logo-light { display: block; }
 
 .nav-brand-wordmark {
-    font-family: var(--font-heading);
-    font-size: 1.25rem;
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 23px;
     font-weight: 800;
-    letter-spacing: -0.025em;
-    color: var(--text-main);
+    letter-spacing: -0.035em;
     line-height: 1;
     white-space: nowrap;
-    display: inline-block;
+    display: inline-flex;
+    align-items: baseline;
     position: relative;
     top: 0.5px;
 }
 
-.logo:hover {
-    transform: translateY(-2px);
+.nav-brand-wordmark .brand-text {
+    color: #0F172A;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    transition: color 0.2s ease;
+}
+
+.nav-brand-wordmark .brand-accent {
+    color: #DC2626;
+    font-weight: 800;
+    margin-left: 0.26em;
+    letter-spacing: -0.035em;
+    transition: color 0.2s ease;
+}
+
+.nav-brand-wordmark .brand-dot {
+    color: #DC2626;
+    font-weight: 800;
+    transition: color 0.2s ease;
+}
+
+body:not(.light-mode) .nav-brand-wordmark .brand-text {
+    color: #F8FAFC;
+}
+
+body:not(.light-mode) .nav-brand-wordmark .brand-accent {
+    color: #EF4444;
+}
+
+body:not(.light-mode) .nav-brand-wordmark .brand-dot {
+    color: #EF4444;
 }
 
 .nav-links {

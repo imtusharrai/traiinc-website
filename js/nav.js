@@ -424,7 +424,7 @@
 
         const navHTML = `
             <div class="nav-container">
-                <a href="index.html" class="logo" aria-label="Trai Inc"><img src="assets/logos/logo_white.png" alt="Trai Inc" class="nav-logo-img nav-logo-dark"><img src="assets/logos/logo_gradient.png" alt="Trai Inc" class="nav-logo-img nav-logo-light"><span class="nav-brand-wordmark">Trai Inc</span></a>
+                <a href="index.html" class="logo" aria-label="Trai Inc"><span class="nav-brand-wordmark"><span class="brand-text">Trai</span><span class="brand-accent">Inc</span></span></a>
                 <ul class="nav-links" id="nav-links">
                     <li class="has-dropdown">
                         <a href="solutions.html" class="${['solutions','ai-engineering','ai-automation','mobile-apps','web-development','custom-software','cloud-devops','enterprise-platforms','data-analytics','ui-ux-design','digital-marketing','content-creation'].includes(page)?'active':''}">${navData.services.label} ${chevronDown}</a>
